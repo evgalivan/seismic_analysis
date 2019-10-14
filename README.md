@@ -1,2 +1,2 @@
 # seismic_analysis
-Seicsmic analysis with our tool kit
+Seismic analysis with our tool kit

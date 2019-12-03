@@ -174,7 +174,8 @@ CY_ISR(isr_Load_TrShReg_Interrupt)
         BitCounterEnc_ReadStatusRegister( );
         TransmitWordShift_Enable( );
     }
-    TransmitShiftReg_GetIntStatus();    isr_Load_TrShReg_ClearPending();
+    TransmitShiftReg_GetIntStatus();    
+    isr_Load_TrShReg_ClearPending();
     /* `#END` */
 }
 

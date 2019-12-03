@@ -156,7 +156,7 @@ void BitCounterDec_Wakeup(void)        ;
  *  Initialization Values
  **************************************/
 #define BitCounterDec_CAPTURE_MODE_CONF       0u
-#define BitCounterDec_INIT_PERIOD_VALUE       33u
+#define BitCounterDec_INIT_PERIOD_VALUE       32u
 #define BitCounterDec_INIT_COUNTER_VALUE      0u
 #if (BitCounterDec_UsingFixedFunction)
 #define BitCounterDec_INIT_INTERRUPTS_MASK    ((uint8)((uint8)0u << BitCounterDec_STATUS_ZERO_INT_EN_MASK_SHIFT))

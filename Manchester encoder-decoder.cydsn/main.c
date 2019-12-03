@@ -24,7 +24,7 @@ struct control {
     int XXX: 1;         //empty bit
 } Control;
 
-long ex_buf[4] = { 0xAA000000, 0xFFFFFFFF, 0x7F00FF01, 0x4F4F4F4F };
+long ex_buf[4] = { 0xAA000000, 0xFFFFFFFF, 0x7F00FF01, 0x4F4F4F4E };
 
 #define LENGTH_OF(a) (sizeof(a)/sizeof(a[0]))
 

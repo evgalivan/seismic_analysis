@@ -9,8 +9,11 @@
  *
  * ========================================
 */
-//
-// задание структуры для регистра статуса ShiftReg
+#include <RecieveShiftReg.h>
+#include <BitCounterDec.h>
+#include <StartTransmit.h>
+#include <FrameAllow.h>
+
 typedef struct{
     int load: 1;        //Load status bit
     int store: 1;       //Store status bit
@@ -20,18 +23,17 @@ typedef struct{
     int F1_full: 1;     //Output FIFO is full
     int F1_partial: 1;  //Output FIFO is neither full nor empty
     int : 1;         //empty bit
-}statReg;
-extern statReg curStat;
+}RecieveStatReg;
 
-typedef enum{BUSY,SUCCSSY} TrResult;
-TrResult  PrepareToSend(long* ex_buf,int LENGTH);
-void    ClearErrorShiftReg(long* TestWord);
-void    Load(void);
-void    Send(void);
-void    ClearStatus(void);
-void    SetNeedLoadFlag(void);
-void    ClearNeedLoadFlag(void);
-int     CheckNeedLoadFlag (void);
-int     GetStatusFifoSender (void);
+extern RecieveStatReg curStatRecive;
+
+void    Store(void);
+void    PrepareToStore(uint32* recieve_buf, int LENGTH);
+void    ClearAllowStoreFlag(void);
+void    SetAllowStoreFlag(void);
+int     CheckAllowStoreFlag(void);
+void    ClearShiftRecieverError(uint32* recieve_buf, int LENGTH);
+void    GetStatusFifoReciever (uint8 *RecieverFifo);
+int     CheckNumberOfWords(void);
 
 /* [] END OF FILE */

@@ -167,7 +167,7 @@ void BitCounterDec_Wakeup(void)        ;
         ((uint8)((uint8)0u << BitCounterDec_STATUS_CMP_INT_EN_MASK_SHIFT)) | \
         ((uint8)((uint8)0u << BitCounterDec_STATUS_OVERFLOW_INT_EN_MASK_SHIFT)) | \
         ((uint8)((uint8)0u << BitCounterDec_STATUS_UNDERFLOW_INT_EN_MASK_SHIFT)))
-#define BitCounterDec_DEFAULT_COMPARE_MODE    3u
+#define BitCounterDec_DEFAULT_COMPARE_MODE    4u
 
 #if( 0 != BitCounterDec_CAPTURE_MODE_CONF)
     #define BitCounterDec_DEFAULT_CAPTURE_MODE    ((uint8)((uint8)0u << BitCounterDec_CTRL_CAPMODE0_SHIFT))

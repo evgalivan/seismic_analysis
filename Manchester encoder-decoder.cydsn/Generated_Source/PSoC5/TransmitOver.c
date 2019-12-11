@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: isr_Load_TrShReg.c  
+* File Name: TransmitOver.c  
 * Version 1.70
 *
 *  Description:
@@ -18,21 +18,16 @@
 
 #include <cydevice_trm.h>
 #include <CyLib.h>
-#include <isr_Load_TrShReg.h>
+#include <TransmitOver.h>
 #include "cyapicallbacks.h"
 
-#if !defined(isr_Load_TrShReg__REMOVED) /* Check for removal by optimization */
+#if !defined(TransmitOver__REMOVED) /* Check for removal by optimization */
 
 /*******************************************************************************
 *  Place your includes, defines and code here 
 ********************************************************************************/
-/* `#START isr_Load_TrShReg_intc` */
-#include <TransmitShiftReg.h>
-#include <StartTransmit.h>
-#include <sender.h>    
-#include <BitCounterEnc.h>
-#include <TransmitWordShift.h>
-#include <FrameAllow.h>
+/* `#START TransmitOver_intc` */
+
 /* `#END` */
 
 #ifndef CYINT_IRQ_BASE
@@ -47,7 +42,7 @@ CY_ISR_PROTO(IntDefaultHandler);
 
 
 /*******************************************************************************
-* Function Name: isr_Load_TrShReg_Start
+* Function Name: TransmitOver_Start
 ********************************************************************************
 *
 * Summary:
@@ -63,24 +58,24 @@ CY_ISR_PROTO(IntDefaultHandler);
 *   None
 *
 *******************************************************************************/
-void isr_Load_TrShReg_Start(void)
+void TransmitOver_Start(void)
 {
     /* For all we know the interrupt is active. */
-    isr_Load_TrShReg_Disable();
+    TransmitOver_Disable();
 
-    /* Set the ISR to point to the isr_Load_TrShReg Interrupt. */
-    isr_Load_TrShReg_SetVector(&isr_Load_TrShReg_Interrupt);
+    /* Set the ISR to point to the TransmitOver Interrupt. */
+    TransmitOver_SetVector(&TransmitOver_Interrupt);
 
     /* Set the priority. */
-    isr_Load_TrShReg_SetPriority((uint8)isr_Load_TrShReg_INTC_PRIOR_NUMBER);
+    TransmitOver_SetPriority((uint8)TransmitOver_INTC_PRIOR_NUMBER);
 
     /* Enable it. */
-    isr_Load_TrShReg_Enable();
+    TransmitOver_Enable();
 }
 
 
 /*******************************************************************************
-* Function Name: isr_Load_TrShReg_StartEx
+* Function Name: TransmitOver_StartEx
 ********************************************************************************
 *
 * Summary:
@@ -106,24 +101,24 @@ void isr_Load_TrShReg_Start(void)
 *   None
 *
 *******************************************************************************/
-void isr_Load_TrShReg_StartEx(cyisraddress address)
+void TransmitOver_StartEx(cyisraddress address)
 {
     /* For all we know the interrupt is active. */
-    isr_Load_TrShReg_Disable();
+    TransmitOver_Disable();
 
-    /* Set the ISR to point to the isr_Load_TrShReg Interrupt. */
-    isr_Load_TrShReg_SetVector(address);
+    /* Set the ISR to point to the TransmitOver Interrupt. */
+    TransmitOver_SetVector(address);
 
     /* Set the priority. */
-    isr_Load_TrShReg_SetPriority((uint8)isr_Load_TrShReg_INTC_PRIOR_NUMBER);
+    TransmitOver_SetPriority((uint8)TransmitOver_INTC_PRIOR_NUMBER);
 
     /* Enable it. */
-    isr_Load_TrShReg_Enable();
+    TransmitOver_Enable();
 }
 
 
 /*******************************************************************************
-* Function Name: isr_Load_TrShReg_Stop
+* Function Name: TransmitOver_Stop
 ********************************************************************************
 *
 * Summary:
@@ -136,22 +131,22 @@ void isr_Load_TrShReg_StartEx(cyisraddress address)
 *   None
 *
 *******************************************************************************/
-void isr_Load_TrShReg_Stop(void)
+void TransmitOver_Stop(void)
 {
     /* Disable this interrupt. */
-    isr_Load_TrShReg_Disable();
+    TransmitOver_Disable();
 
     /* Set the ISR to point to the passive one. */
-    isr_Load_TrShReg_SetVector(&IntDefaultHandler);
+    TransmitOver_SetVector(&IntDefaultHandler);
 }
 
 
 /*******************************************************************************
-* Function Name: isr_Load_TrShReg_Interrupt
+* Function Name: TransmitOver_Interrupt
 ********************************************************************************
 *
 * Summary:
-*   The default Interrupt Service Routine for isr_Load_TrShReg.
+*   The default Interrupt Service Routine for TransmitOver.
 *
 *   Add custom code between the coments to keep the next version of this file
 *   from over writting your code.
@@ -162,37 +157,27 @@ void isr_Load_TrShReg_Stop(void)
 *   None
 *
 *******************************************************************************/
-CY_ISR(isr_Load_TrShReg_Interrupt)
+CY_ISR(TransmitOver_Interrupt)
 {
-    #ifdef isr_Load_TrShReg_INTERRUPT_INTERRUPT_CALLBACK
-        isr_Load_TrShReg_Interrupt_InterruptCallback();
-    #endif /* isr_Load_TrShReg_INTERRUPT_INTERRUPT_CALLBACK */ 
+    #ifdef TransmitOver_INTERRUPT_INTERRUPT_CALLBACK
+        TransmitOver_Interrupt_InterruptCallback();
+    #endif /* TransmitOver_INTERRUPT_INTERRUPT_CALLBACK */ 
 
     /*  Place your Interrupt code here. */
-    /* `#START isr_Load_TrShReg_Interrupt` */
-    //Load();
-    SetNeedLoadFlag();
-    *(char*)(&curStat)=TransmitShiftReg_SR_STATUS;
-//    if( TransmitShiftReg_RET_FIFO_EMPTY == TransmitShiftReg_GetFIFOStatus(TransmitShiftReg_IN_FIFO)){
-    if(curStat.F0_not_empty != 0){
-        StartTransmit_Write(0);
-        BitCounterEnc_ReadStatusRegister( );
-        TransmitWordShift_Enable( );
-    }
-    TransmitShiftReg_GetIntStatus();
-    isr_Load_TrShReg_ClearPending();
+    /* `#START TransmitOver_Interrupt` */
+
     /* `#END` */
 }
 
 
 /*******************************************************************************
-* Function Name: isr_Load_TrShReg_SetVector
+* Function Name: TransmitOver_SetVector
 ********************************************************************************
 *
 * Summary:
-*   Change the ISR vector for the Interrupt. Note calling isr_Load_TrShReg_Start
+*   Change the ISR vector for the Interrupt. Note calling TransmitOver_Start
 *   will override any effect this method would have had. To set the vector 
-*   before the component has been started use isr_Load_TrShReg_StartEx instead.
+*   before the component has been started use TransmitOver_StartEx instead.
 * 
 *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
 *   used to provide consistent definition across compilers:
@@ -212,18 +197,18 @@ CY_ISR(isr_Load_TrShReg_Interrupt)
 *   None
 *
 *******************************************************************************/
-void isr_Load_TrShReg_SetVector(cyisraddress address)
+void TransmitOver_SetVector(cyisraddress address)
 {
     cyisraddress * ramVectorTable;
 
     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
 
-    ramVectorTable[CYINT_IRQ_BASE + (uint32)isr_Load_TrShReg__INTC_NUMBER] = address;
+    ramVectorTable[CYINT_IRQ_BASE + (uint32)TransmitOver__INTC_NUMBER] = address;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_Load_TrShReg_GetVector
+* Function Name: TransmitOver_GetVector
 ********************************************************************************
 *
 * Summary:
@@ -236,26 +221,26 @@ void isr_Load_TrShReg_SetVector(cyisraddress address)
 *   Address of the ISR in the interrupt vector table.
 *
 *******************************************************************************/
-cyisraddress isr_Load_TrShReg_GetVector(void)
+cyisraddress TransmitOver_GetVector(void)
 {
     cyisraddress * ramVectorTable;
 
     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
 
-    return ramVectorTable[CYINT_IRQ_BASE + (uint32)isr_Load_TrShReg__INTC_NUMBER];
+    return ramVectorTable[CYINT_IRQ_BASE + (uint32)TransmitOver__INTC_NUMBER];
 }
 
 
 /*******************************************************************************
-* Function Name: isr_Load_TrShReg_SetPriority
+* Function Name: TransmitOver_SetPriority
 ********************************************************************************
 *
 * Summary:
 *   Sets the Priority of the Interrupt. 
 *
-*   Note calling isr_Load_TrShReg_Start or isr_Load_TrShReg_StartEx will 
+*   Note calling TransmitOver_Start or TransmitOver_StartEx will 
 *   override any effect this API would have had. This API should only be called
-*   after isr_Load_TrShReg_Start or isr_Load_TrShReg_StartEx has been called. 
+*   after TransmitOver_Start or TransmitOver_StartEx has been called. 
 *   To set the initial priority for the component, use the Design-Wide Resources
 *   Interrupt Editor.
 *
@@ -270,14 +255,14 @@ cyisraddress isr_Load_TrShReg_GetVector(void)
 *   None
 *
 *******************************************************************************/
-void isr_Load_TrShReg_SetPriority(uint8 priority)
+void TransmitOver_SetPriority(uint8 priority)
 {
-    *isr_Load_TrShReg_INTC_PRIOR = priority << 5;
+    *TransmitOver_INTC_PRIOR = priority << 5;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_Load_TrShReg_GetPriority
+* Function Name: TransmitOver_GetPriority
 ********************************************************************************
 *
 * Summary:
@@ -292,19 +277,19 @@ void isr_Load_TrShReg_SetPriority(uint8 priority)
 *    PSoC 4: Priority is from 0 to 3.
 *
 *******************************************************************************/
-uint8 isr_Load_TrShReg_GetPriority(void)
+uint8 TransmitOver_GetPriority(void)
 {
     uint8 priority;
 
 
-    priority = *isr_Load_TrShReg_INTC_PRIOR >> 5;
+    priority = *TransmitOver_INTC_PRIOR >> 5;
 
     return priority;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_Load_TrShReg_Enable
+* Function Name: TransmitOver_Enable
 ********************************************************************************
 *
 * Summary:
@@ -319,15 +304,15 @@ uint8 isr_Load_TrShReg_GetPriority(void)
 *   None
 *
 *******************************************************************************/
-void isr_Load_TrShReg_Enable(void)
+void TransmitOver_Enable(void)
 {
     /* Enable the general interrupt. */
-    *isr_Load_TrShReg_INTC_SET_EN = isr_Load_TrShReg__INTC_MASK;
+    *TransmitOver_INTC_SET_EN = TransmitOver__INTC_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_Load_TrShReg_GetState
+* Function Name: TransmitOver_GetState
 ********************************************************************************
 *
 * Summary:
@@ -340,15 +325,15 @@ void isr_Load_TrShReg_Enable(void)
 *   1 if enabled, 0 if disabled.
 *
 *******************************************************************************/
-uint8 isr_Load_TrShReg_GetState(void)
+uint8 TransmitOver_GetState(void)
 {
     /* Get the state of the general interrupt. */
-    return ((*isr_Load_TrShReg_INTC_SET_EN & (uint32)isr_Load_TrShReg__INTC_MASK) != 0u) ? 1u:0u;
+    return ((*TransmitOver_INTC_SET_EN & (uint32)TransmitOver__INTC_MASK) != 0u) ? 1u:0u;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_Load_TrShReg_Disable
+* Function Name: TransmitOver_Disable
 ********************************************************************************
 *
 * Summary:
@@ -361,15 +346,15 @@ uint8 isr_Load_TrShReg_GetState(void)
 *   None
 *
 *******************************************************************************/
-void isr_Load_TrShReg_Disable(void)
+void TransmitOver_Disable(void)
 {
     /* Disable the general interrupt. */
-    *isr_Load_TrShReg_INTC_CLR_EN = isr_Load_TrShReg__INTC_MASK;
+    *TransmitOver_INTC_CLR_EN = TransmitOver__INTC_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_Load_TrShReg_SetPending
+* Function Name: TransmitOver_SetPending
 ********************************************************************************
 *
 * Summary:
@@ -388,14 +373,14 @@ void isr_Load_TrShReg_Disable(void)
 *   interrupts).
 *
 *******************************************************************************/
-void isr_Load_TrShReg_SetPending(void)
+void TransmitOver_SetPending(void)
 {
-    *isr_Load_TrShReg_INTC_SET_PD = isr_Load_TrShReg__INTC_MASK;
+    *TransmitOver_INTC_SET_PD = TransmitOver__INTC_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_Load_TrShReg_ClearPending
+* Function Name: TransmitOver_ClearPending
 ********************************************************************************
 *
 * Summary:
@@ -413,9 +398,9 @@ void isr_Load_TrShReg_SetPending(void)
 *   None
 *
 *******************************************************************************/
-void isr_Load_TrShReg_ClearPending(void)
+void TransmitOver_ClearPending(void)
 {
-    *isr_Load_TrShReg_INTC_CLR_PD = isr_Load_TrShReg__INTC_MASK;
+    *TransmitOver_INTC_CLR_PD = TransmitOver__INTC_MASK;
 }
 
 #endif /* End check for removal by optimization */

@@ -29,6 +29,7 @@
 /* `#START WordShifted_intc` */
 #include <BitCounterDec.h>
 #include <RecieveShiftReg.h>
+#include <reciver.h>
 /* `#END` */
 
 #ifndef CYINT_IRQ_BASE
@@ -166,7 +167,8 @@ CY_ISR(WordShifted_Interrupt)
 
     /*  Place your Interrupt code here. */
     /* `#START WordShifted_Interrupt` */
-    BitCounterDec_ReadStatusRegister();
+    SetAllowStoreFlag();
+    //BitCounterDec_ReadStatusRegister();
     RecieveShiftReg_GetIntStatus();
     WordShifted_ClearPending();
     /* `#END` */

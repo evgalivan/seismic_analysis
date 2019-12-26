@@ -15,11 +15,13 @@
 #include <StartTransmit.h>
 #include <FrameAllow.h>
 
+
 statReg curStat;
 static volatile unsigned int count_to_send=0;
 static volatile unsigned int status=0, NeedLoadFlag=0;
-static long *Current_word  = (long*)(0);
+static uint32 *Current_word  = (uint32*)(0);
 int stsh;
+
 void Load(void){
     while(count_to_send){
         *(char*)(&curStat)=TransmitShiftReg_SR_STATUS;
@@ -35,15 +37,15 @@ void Load(void){
 }
 
 
-TrResult  PrepareToSend(long* ex_buf,int LENGTH){
+TrResult  PrepareToSend(uint32* ex_buf,int LENGTH){
     if (status)
-        return BUSY;
-    *ex_buf|=0x80000000;
+        return TRBUSY;
+    *ex_buf |= 0x80000000;
     count_to_send  = LENGTH;
     Current_word = ex_buf;
     //TO DO emptyes FIFO
     Load();
-    return SUCCSSY;
+    return TRSUCCSSY;
 }
 
 

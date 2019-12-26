@@ -9,6 +9,7 @@
  *
  * ========================================
 */
+#include <TransmitShiftReg.h>
 //
 // задание структуры для регистра статуса ShiftReg
 typedef struct{
@@ -23,15 +24,15 @@ typedef struct{
 }statReg;
 extern statReg curStat;
 
-typedef enum{BUSY,SUCCSSY} TrResult;
-TrResult  PrepareToSend(long* ex_buf,int LENGTH);
-void    ClearErrorShiftReg(long* TestWord);
-void    Load(void);
-void    Send(void);
-void    ClearStatus(void);
-void    SetNeedLoadFlag(void);
-void    ClearNeedLoadFlag(void);
-int     CheckNeedLoadFlag (void);
-int     GetStatusFifoSender (void);
+typedef enum {TRBUSY,TRSUCCSSY} TrResult;
+TrResult    PrepareToSend(uint32* ex_buf,int LENGTH);
+void        ClearErrorShiftReg(uint32* TestWord);
+void        Load(void);
+void        Send(void);
+void        ClearStatus(void);
+void        SetNeedLoadFlag(void);
+void        ClearNeedLoadFlag(void);
+int         CheckNeedLoadFlag (void);
+int         GetStatusFifoSender (void);
 
 /* [] END OF FILE */

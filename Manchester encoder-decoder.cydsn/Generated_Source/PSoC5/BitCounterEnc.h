@@ -164,9 +164,9 @@ void BitCounterEnc_Wakeup(void)        ;
 #define BitCounterEnc_INIT_COMPARE_VALUE      31u
 #define BitCounterEnc_INIT_INTERRUPTS_MASK ((uint8)((uint8)0u << BitCounterEnc_STATUS_ZERO_INT_EN_MASK_SHIFT) | \
         ((uint8)((uint8)0u << BitCounterEnc_STATUS_CAPTURE_INT_EN_MASK_SHIFT)) | \
-        ((uint8)((uint8)1u << BitCounterEnc_STATUS_CMP_INT_EN_MASK_SHIFT)) | \
-        ((uint8)((uint8)0u << BitCounterEnc_STATUS_OVERFLOW_INT_EN_MASK_SHIFT)) | \
-        ((uint8)((uint8)0u << BitCounterEnc_STATUS_UNDERFLOW_INT_EN_MASK_SHIFT)))
+        ((uint8)((uint8)0u << BitCounterEnc_STATUS_CMP_INT_EN_MASK_SHIFT)) | \
+        ((uint8)((uint8)1u << BitCounterEnc_STATUS_OVERFLOW_INT_EN_MASK_SHIFT)) | \
+        ((uint8)((uint8)1u << BitCounterEnc_STATUS_UNDERFLOW_INT_EN_MASK_SHIFT)))
 #define BitCounterEnc_DEFAULT_COMPARE_MODE    4u
 
 #if( 0 != BitCounterEnc_CAPTURE_MODE_CONF)

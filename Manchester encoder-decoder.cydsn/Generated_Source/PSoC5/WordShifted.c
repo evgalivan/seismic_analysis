@@ -167,10 +167,12 @@ CY_ISR(WordShifted_Interrupt)
 
     /*  Place your Interrupt code here. */
     /* `#START WordShifted_Interrupt` */
-    SetAllowStoreFlag();
+    //SetAllowStoreFlag();
+    Store();
     //BitCounterDec_ReadStatusRegister();
     RecieveShiftReg_GetIntStatus();
     WordShifted_ClearPending();
+    //SetAllowStoreFlag();
     /* `#END` */
 }
 

@@ -96,7 +96,7 @@ RcResult PrepareToStore(uint32* recieve_buf){//, int LENGTH){
     rcstatus = 1;
     //CountToRecieve = LENGTH;
     current_word = recieve_buf;
-    BitCounterDec_WriteCounter(31);
+    //BitCounterDec_WriteCounter(31);
     first = 0;
     second = 0;
 //    Store();

@@ -41,7 +41,7 @@ uint32 recieve_buf[72];
 
 #define LENGTH_OF(Array) (sizeof(Array)/sizeof(Array[0]))
 #define SENDER      //RESIEVER or SENDER
-    int length = 3;
+volatile int storeflag=0, length = 72;
 
 int main(void)
 {
@@ -96,23 +96,24 @@ int main(void)
     
     ClearShiftRecieverError((uint32*)massage, LENGTH_OF(massage));
     
-    while (PrepareToStore(recieve_buf) == RCBUSY);
+    //while (PrepareToStore(recieve_buf) == RCBUSY);
     
     //int massage = 0xAAAA5555;
-    int flag = 0, LED = 0, true_word = 0;
+    int flag = 0, true_word = 0;
     int store = 0;
     uint8 RecieverFIFO[1]= {0x0};
     uint32 *p1=ex_buf, *p2=recieve_buf;
         
+    BitCounterDec_WriteCounter(31);
+    
     SetAllowStoreFlag();
     while(1) 
     {
         //int i=0;
-        
+
         
         //if (CheckAllowStoreFlag()) 
-            if (PrepareToStore(recieve_buf) == RCSUCCSSY)
-                ;
+            
         
         
         //, length);
@@ -120,24 +121,43 @@ int main(void)
         //PrepareToSend(ex_buf,LENGTH_OF(ex_buf));
         
         //          *******Передатчик*******
-        
-        if (StartButton_Read() != 0)
+        //while (PrepareToStore(recieve_buf) == RCBUSY);
+        if (PrepareToStore(recieve_buf) == RCSUCCSSY )
         {
-            for (int i = 0; i < 72; i++) recieve_buf[i] = 0x0;
-            LED = 0;
-            LED_ON_Write(LED);
-            while (delay--);
-            delay = 0xffffff;
-            flag++;
+            //if (StartButton_Read() != 0)
+            if (PrepareToSend(ex_buf,length) == TRSUCCSSY )
+            {
+                
+    //            delay = 0x1; //‭44AA200‬
+    //            while (delay--);
+                //flag = 1;
+                if (*(p1+length-1) == *(p2+length-1))
+                {
+                    LED_ON_Write(1);
+                }
+                for (int i = 0; i < 72; i++) recieve_buf[i] = 0x0;
+    //            LED = 0;
+    //            LED_ON_Write(LED);
+    //            delay = 0x1; //‭44AA200‬
+    //            while (delay--);
+                LED_ON_Write(0);
+    //            delay = 0x1;
+    //            while (delay--);
+                Send();
+                
+                
+    //            flag++;
+            }
+            
         }
-        else if (flag != 0)
+       /* else if (flag != 0)
         {
             flag = 0;
             
             //PrepareToStore(recieve_buf, length);
-            PrepareToSend(ex_buf, length); 
+            //PrepareToSend(ex_buf, length); 
             Send();
-            
+            */
                 
             /*
             TransmitShiftReg_WriteData(massage);
@@ -147,7 +167,7 @@ int main(void)
             starttransmit_write(0);
             wordshifted_clearpending();
             */
-        }
+//        }
 
         if (CheckNeedLoadFlag()){
             ClearNeedLoadFlag();
@@ -176,10 +196,12 @@ int main(void)
 //            if( *p1 == *p2 ) true_word++;
 //                p1++;
 //                p2++;
-            if (*(p1+length-1) == *(p2+length-1)){
-                LED = 1;
-                LED_ON_Write(LED);
-            }
+        
+//        if (*(p1+length-1) == *(p2+length-1)){
+//            LED = 1;
+//            LED_ON_Write(LED);
+//        }
+        
             
 //        
 //        true_word = 0;
@@ -188,8 +210,8 @@ int main(void)
         
         
 
-        GetStatusFifoReciever(RecieverFIFO);
-        GetStatusFifoReciever(RecieverFIFO);
+//        GetStatusFifoReciever(RecieverFIFO);
+//        GetStatusFifoReciever(RecieverFIFO);
     }
 
     #else

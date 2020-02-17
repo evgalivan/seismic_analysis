@@ -40,6 +40,7 @@ void Load(void){
 TrResult  PrepareToSend(uint32* ex_buf,int LENGTH){
     if (status)
         return TRBUSY;
+    //status=1;
     *ex_buf |= 0x80000000;
     count_to_send  = LENGTH;
     Current_word = ex_buf;

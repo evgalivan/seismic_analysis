@@ -30,6 +30,7 @@
 #include <BitCounterDec.h>
 #include <RecieveShiftReg.h>
 #include <reciver.h>
+extern int storeflag;
 /* `#END` */
 
 #ifndef CYINT_IRQ_BASE
@@ -167,6 +168,8 @@ CY_ISR(EndFrame_Interrupt)
 
     /*  Place your Interrupt code here. */
     /* `#START EndFrame_Interrupt` */
+    
+    BitCounterDec_WriteCounter(31);
     ClearRcStatus();
     EndFrame_ClearPending();
     /* `#END` */

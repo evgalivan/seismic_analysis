@@ -10,7 +10,6 @@
  * ========================================
 */
 #include "reciver.h"
-#include <RecieveShiftReg.h>
 #include <BitCounterDec.h>
 #include <StartTransmit.h>
 #include <FrameAllow.h>

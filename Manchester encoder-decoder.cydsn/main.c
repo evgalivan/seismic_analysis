@@ -9,11 +9,12 @@
  *
  * ========================================
 */
-#include "project.h"
+#include "global.h"
 #include "sender.h"
-#include "reciver.h"
+#include "Clock.h"
 #include <BitCounterDec.h>
 
+uint32 incr_compare = 512; // зависит от той частоты, которую мы хотим получить
 
 // задание структуры для регистра статуса ShiftReg
 struct control {
@@ -37,34 +38,43 @@ uint32 ex_buf[72] = { 0xAA000005 , 0xFFFFFFFF, 0x7F00FF01, 0x4F4F4F4E , 0x800000
                          0xAA00000A , 0xFFFFFFFF, 0x7F00FF01, 0x4F4F4F4E , 0x80000000 , 0xFAFAFAFA, 0x8000FFFF, 0x7EEEAAAA,
                              0xAA00000A , 0xFFFFFFFF, 0x7F00FF01, 0x4F4F4F4E , 0x80000000 , 0xFAFAFAFA, 0x8000FFFF, 0x7EEEAAAA};
 uint32 massage[1] = { 0xFAAAAAAF };
-uint32 recieve_buf[72];
+
+uint32 main_freq =  72000000LL;
+uint32 desired_freq  = 1024000LL;
+uint32 divider_freq = (32LL);
+uint32 capacity = (0xffffffffLL);  //емкость сумматора 
+
+
 
 #define LENGTH_OF(Array) (sizeof(Array)/sizeof(Array[0]))
 #define SENDER      //RESIEVER or SENDER
 volatile int storeflag=0, length = 72;
+static volatile long long  period;
+
 
 int main(void)
 {
+    incr_compare = desired_freq / 1234.5L; 
+    period = ( long long ) capacity * divider_freq * desired_freq / (1 * main_freq);    //977343669
     CyGlobalIntDisable; /* Enable global interrupts. */
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
     // Инициализация устройств Encoder
     TransmitShiftReg_Start( );
     BitCounterEnc_Start( );
     
-	// Инициализация устройств Decoder
-	RecieveShiftReg_Start() ;
-	Waiter_Start() ;
-    BitCounterDec_Start() ;
-    VDAC8_1_Start();
-    Comp_1_Start();
-    Comp_2_Start();
-    Opamp_1_Start();
+	// Инициализация устройств Clock
+    Period_Start();
+    SigmaReg_Start();
+    Boundary32bit_Start();
+    usec_counter_Start();
+    sec_counter_Start();
+    cap_comp_tc_Start();
     
     // Инициализация прерываний
     //StartFrame_Start();
-    EndFrame_Start();
+    
     isr_Load_TrShReg_Start();
-	WordShifted_Start();
+
     TransmitWordShift_Start( );
     TransmitWordShift_Disable( );
     int delay = 0xFFffff;
@@ -94,7 +104,6 @@ int main(void)
     
     FrameAllow_Write(1);
     
-    ClearShiftRecieverError((uint32*)massage, LENGTH_OF(massage));
     
     //while (PrepareToStore(recieve_buf) == RCBUSY);
     
@@ -102,13 +111,12 @@ int main(void)
     int flag = 0, true_word = 0;
     int store = 0;
     uint8 RecieverFIFO[1]= {0x0};
-    uint32 *p1=ex_buf, *p2=recieve_buf;
+    uint32 *p1=ex_buf;
         
-    BitCounterDec_WriteCounter(31);
     
-    SetAllowStoreFlag();
     while(1) 
     {
+        UpdatePeriod(period);
         //int i=0;
 
         
@@ -122,34 +130,31 @@ int main(void)
         
         //          *******Передатчик*******
         //while (PrepareToStore(recieve_buf) == RCBUSY);
-        if (PrepareToStore(recieve_buf) == RCSUCCSSY )
-        {
-            //if (StartButton_Read() != 0)
-            if (PrepareToSend(ex_buf,length) == TRSUCCSSY )
-            {
-                
-    //            delay = 0x1; //‭44AA200‬
-    //            while (delay--);
-                //flag = 1;
-                if (*(p1+length-1) == *(p2+length-1))
-                {
-                    LED_ON_Write(1);
-                }
-                for (int i = 0; i < 72; i++) recieve_buf[i] = 0x0;
-    //            LED = 0;
-    //            LED_ON_Write(LED);
-    //            delay = 0x1; //‭44AA200‬
-    //            while (delay--);
-                LED_ON_Write(0);
-    //            delay = 0x1;
-    //            while (delay--);
-                Send();
-                
-                
-    //            flag++;
-            }
-            
-        }
+//        if (1)
+//        {
+//            //if (StartButton_Read() != 0)
+//            if (PrepareToSend(ex_buf,length) == TRSUCCSSY )
+//            {
+//                
+//    //            delay = 0x1; //‭44AA200‬
+//    //            while (delay--);
+//                //flag = 1;
+//
+////                for (int i = 0; i < 72; i++) recieve_buf[i] = 0x0;
+//    //            LED = 0;
+//    //            LED_ON_Write(LED);
+//    //            delay = 0x1; //‭44AA200‬
+//    //            while (delay--);
+//                LED_ON_Write(0);
+//    //            delay = 0x1;
+//    //            while (delay--);
+//                Send();
+//                
+//                
+//    //            flag++;
+//            }
+//            
+//        }
        /* else if (flag != 0)
         {
             flag = 0;

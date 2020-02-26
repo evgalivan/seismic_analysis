@@ -1,0 +1,1955 @@
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLnWAS2.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"TransmitWordShift.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.TransmitWordShift_SetVector,"ax",%progbits
+  20              		.align	2
+  21              		.global	TransmitWordShift_SetVector
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	TransmitWordShift_SetVector, %function
+  25              	TransmitWordShift_SetVector:
+  26              	.LFB4:
+  27              		.file 1 "Generated_Source\\PSoC5\\TransmitWordShift.c"
+   1:Generated_Source\PSoC5/TransmitWordShift.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/TransmitWordShift.c **** * File Name: TransmitWordShift.c  
+   3:Generated_Source\PSoC5/TransmitWordShift.c **** * Version 1.70
+   4:Generated_Source\PSoC5/TransmitWordShift.c **** *
+   5:Generated_Source\PSoC5/TransmitWordShift.c **** *  Description:
+   6:Generated_Source\PSoC5/TransmitWordShift.c **** *   API for controlling the state of an interrupt.
+   7:Generated_Source\PSoC5/TransmitWordShift.c **** *
+   8:Generated_Source\PSoC5/TransmitWordShift.c **** *
+   9:Generated_Source\PSoC5/TransmitWordShift.c **** *  Note:
+  10:Generated_Source\PSoC5/TransmitWordShift.c **** *
+  11:Generated_Source\PSoC5/TransmitWordShift.c **** ********************************************************************************
+  12:Generated_Source\PSoC5/TransmitWordShift.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC5/TransmitWordShift.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  14:Generated_Source\PSoC5/TransmitWordShift.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  15:Generated_Source\PSoC5/TransmitWordShift.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC5/TransmitWordShift.c **** *******************************************************************************/
+  17:Generated_Source\PSoC5/TransmitWordShift.c **** 
+  18:Generated_Source\PSoC5/TransmitWordShift.c **** 
+  19:Generated_Source\PSoC5/TransmitWordShift.c **** #include <cydevice_trm.h>
+  20:Generated_Source\PSoC5/TransmitWordShift.c **** #include <CyLib.h>
+  21:Generated_Source\PSoC5/TransmitWordShift.c **** #include <TransmitWordShift.h>
+  22:Generated_Source\PSoC5/TransmitWordShift.c **** #include "cyapicallbacks.h"
+  23:Generated_Source\PSoC5/TransmitWordShift.c **** 
+  24:Generated_Source\PSoC5/TransmitWordShift.c **** #if !defined(TransmitWordShift__REMOVED) /* Check for removal by optimization */
+  25:Generated_Source\PSoC5/TransmitWordShift.c **** 
+  26:Generated_Source\PSoC5/TransmitWordShift.c **** /*******************************************************************************
+  27:Generated_Source\PSoC5/TransmitWordShift.c **** *  Place your includes, defines and code here 
+  28:Generated_Source\PSoC5/TransmitWordShift.c **** ********************************************************************************/
+  29:Generated_Source\PSoC5/TransmitWordShift.c **** /* `#START TransmitWordShift_intc` */
+  30:Generated_Source\PSoC5/TransmitWordShift.c **** #include <StartTransmit.h>
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLnWAS2.s 			page 2
+
+
+  31:Generated_Source\PSoC5/TransmitWordShift.c **** #include <sender.h>
+  32:Generated_Source\PSoC5/TransmitWordShift.c **** #include <BitCounterEnc.h>
+  33:Generated_Source\PSoC5/TransmitWordShift.c **** /* `#END` */
+  34:Generated_Source\PSoC5/TransmitWordShift.c **** 
+  35:Generated_Source\PSoC5/TransmitWordShift.c **** #ifndef CYINT_IRQ_BASE
+  36:Generated_Source\PSoC5/TransmitWordShift.c **** #define CYINT_IRQ_BASE      16
+  37:Generated_Source\PSoC5/TransmitWordShift.c **** #endif /* CYINT_IRQ_BASE */
+  38:Generated_Source\PSoC5/TransmitWordShift.c **** #ifndef CYINT_VECT_TABLE
+  39:Generated_Source\PSoC5/TransmitWordShift.c **** #define CYINT_VECT_TABLE    ((cyisraddress **) CYREG_NVIC_VECT_OFFSET)
+  40:Generated_Source\PSoC5/TransmitWordShift.c **** #endif /* CYINT_VECT_TABLE */
+  41:Generated_Source\PSoC5/TransmitWordShift.c **** 
+  42:Generated_Source\PSoC5/TransmitWordShift.c **** /* Declared in startup, used to set unused interrupts to. */
+  43:Generated_Source\PSoC5/TransmitWordShift.c **** CY_ISR_PROTO(IntDefaultHandler);
+  44:Generated_Source\PSoC5/TransmitWordShift.c **** 
+  45:Generated_Source\PSoC5/TransmitWordShift.c **** 
+  46:Generated_Source\PSoC5/TransmitWordShift.c **** /*******************************************************************************
+  47:Generated_Source\PSoC5/TransmitWordShift.c **** * Function Name: TransmitWordShift_Start
+  48:Generated_Source\PSoC5/TransmitWordShift.c **** ********************************************************************************
+  49:Generated_Source\PSoC5/TransmitWordShift.c **** *
+  50:Generated_Source\PSoC5/TransmitWordShift.c **** * Summary:
+  51:Generated_Source\PSoC5/TransmitWordShift.c **** *  Set up the interrupt and enable it. This function disables the interrupt, 
+  52:Generated_Source\PSoC5/TransmitWordShift.c **** *  sets the default interrupt vector, sets the priority from the value in the
+  53:Generated_Source\PSoC5/TransmitWordShift.c **** *  Design Wide Resources Interrupt Editor, then enables the interrupt to the 
+  54:Generated_Source\PSoC5/TransmitWordShift.c **** *  interrupt controller.
+  55:Generated_Source\PSoC5/TransmitWordShift.c **** *
+  56:Generated_Source\PSoC5/TransmitWordShift.c **** * Parameters:  
+  57:Generated_Source\PSoC5/TransmitWordShift.c **** *   None
+  58:Generated_Source\PSoC5/TransmitWordShift.c **** *
+  59:Generated_Source\PSoC5/TransmitWordShift.c **** * Return:
+  60:Generated_Source\PSoC5/TransmitWordShift.c **** *   None
+  61:Generated_Source\PSoC5/TransmitWordShift.c **** *
+  62:Generated_Source\PSoC5/TransmitWordShift.c **** *******************************************************************************/
+  63:Generated_Source\PSoC5/TransmitWordShift.c **** void TransmitWordShift_Start(void)
+  64:Generated_Source\PSoC5/TransmitWordShift.c **** {
+  65:Generated_Source\PSoC5/TransmitWordShift.c ****     /* For all we know the interrupt is active. */
+  66:Generated_Source\PSoC5/TransmitWordShift.c ****     TransmitWordShift_Disable();
+  67:Generated_Source\PSoC5/TransmitWordShift.c **** 
+  68:Generated_Source\PSoC5/TransmitWordShift.c ****     /* Set the ISR to point to the TransmitWordShift Interrupt. */
+  69:Generated_Source\PSoC5/TransmitWordShift.c ****     TransmitWordShift_SetVector(&TransmitWordShift_Interrupt);
+  70:Generated_Source\PSoC5/TransmitWordShift.c **** 
+  71:Generated_Source\PSoC5/TransmitWordShift.c ****     /* Set the priority. */
+  72:Generated_Source\PSoC5/TransmitWordShift.c ****     TransmitWordShift_SetPriority((uint8)TransmitWordShift_INTC_PRIOR_NUMBER);
+  73:Generated_Source\PSoC5/TransmitWordShift.c **** 
+  74:Generated_Source\PSoC5/TransmitWordShift.c ****     /* Enable it. */
+  75:Generated_Source\PSoC5/TransmitWordShift.c ****     TransmitWordShift_Enable();
+  76:Generated_Source\PSoC5/TransmitWordShift.c **** }
+  77:Generated_Source\PSoC5/TransmitWordShift.c **** 
+  78:Generated_Source\PSoC5/TransmitWordShift.c **** 
+  79:Generated_Source\PSoC5/TransmitWordShift.c **** /*******************************************************************************
+  80:Generated_Source\PSoC5/TransmitWordShift.c **** * Function Name: TransmitWordShift_StartEx
+  81:Generated_Source\PSoC5/TransmitWordShift.c **** ********************************************************************************
+  82:Generated_Source\PSoC5/TransmitWordShift.c **** *
+  83:Generated_Source\PSoC5/TransmitWordShift.c **** * Summary:
+  84:Generated_Source\PSoC5/TransmitWordShift.c **** *  Sets up the interrupt and enables it. This function disables the interrupt,
+  85:Generated_Source\PSoC5/TransmitWordShift.c **** *  sets the interrupt vector based on the address passed in, sets the priority 
+  86:Generated_Source\PSoC5/TransmitWordShift.c **** *  from the value in the Design Wide Resources Interrupt Editor, then enables 
+  87:Generated_Source\PSoC5/TransmitWordShift.c **** *  the interrupt to the interrupt controller.
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLnWAS2.s 			page 3
+
+
+  88:Generated_Source\PSoC5/TransmitWordShift.c **** *  
+  89:Generated_Source\PSoC5/TransmitWordShift.c **** *  When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+  90:Generated_Source\PSoC5/TransmitWordShift.c **** *  used to provide consistent definition across compilers:
+  91:Generated_Source\PSoC5/TransmitWordShift.c **** *  
+  92:Generated_Source\PSoC5/TransmitWordShift.c **** *  Function definition example:
+  93:Generated_Source\PSoC5/TransmitWordShift.c **** *   CY_ISR(MyISR)
+  94:Generated_Source\PSoC5/TransmitWordShift.c **** *   {
+  95:Generated_Source\PSoC5/TransmitWordShift.c **** *   }
+  96:Generated_Source\PSoC5/TransmitWordShift.c **** *   Function prototype example:
+  97:Generated_Source\PSoC5/TransmitWordShift.c **** *   CY_ISR_PROTO(MyISR);
+  98:Generated_Source\PSoC5/TransmitWordShift.c **** *
+  99:Generated_Source\PSoC5/TransmitWordShift.c **** * Parameters:  
+ 100:Generated_Source\PSoC5/TransmitWordShift.c **** *   address: Address of the ISR to set in the interrupt vector table.
+ 101:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 102:Generated_Source\PSoC5/TransmitWordShift.c **** * Return:
+ 103:Generated_Source\PSoC5/TransmitWordShift.c **** *   None
+ 104:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 105:Generated_Source\PSoC5/TransmitWordShift.c **** *******************************************************************************/
+ 106:Generated_Source\PSoC5/TransmitWordShift.c **** void TransmitWordShift_StartEx(cyisraddress address)
+ 107:Generated_Source\PSoC5/TransmitWordShift.c **** {
+ 108:Generated_Source\PSoC5/TransmitWordShift.c ****     /* For all we know the interrupt is active. */
+ 109:Generated_Source\PSoC5/TransmitWordShift.c ****     TransmitWordShift_Disable();
+ 110:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 111:Generated_Source\PSoC5/TransmitWordShift.c ****     /* Set the ISR to point to the TransmitWordShift Interrupt. */
+ 112:Generated_Source\PSoC5/TransmitWordShift.c ****     TransmitWordShift_SetVector(address);
+ 113:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 114:Generated_Source\PSoC5/TransmitWordShift.c ****     /* Set the priority. */
+ 115:Generated_Source\PSoC5/TransmitWordShift.c ****     TransmitWordShift_SetPriority((uint8)TransmitWordShift_INTC_PRIOR_NUMBER);
+ 116:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 117:Generated_Source\PSoC5/TransmitWordShift.c ****     /* Enable it. */
+ 118:Generated_Source\PSoC5/TransmitWordShift.c ****     TransmitWordShift_Enable();
+ 119:Generated_Source\PSoC5/TransmitWordShift.c **** }
+ 120:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 121:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 122:Generated_Source\PSoC5/TransmitWordShift.c **** /*******************************************************************************
+ 123:Generated_Source\PSoC5/TransmitWordShift.c **** * Function Name: TransmitWordShift_Stop
+ 124:Generated_Source\PSoC5/TransmitWordShift.c **** ********************************************************************************
+ 125:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 126:Generated_Source\PSoC5/TransmitWordShift.c **** * Summary:
+ 127:Generated_Source\PSoC5/TransmitWordShift.c **** *   Disables and removes the interrupt.
+ 128:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 129:Generated_Source\PSoC5/TransmitWordShift.c **** * Parameters:  
+ 130:Generated_Source\PSoC5/TransmitWordShift.c **** *   None
+ 131:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 132:Generated_Source\PSoC5/TransmitWordShift.c **** * Return:
+ 133:Generated_Source\PSoC5/TransmitWordShift.c **** *   None
+ 134:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 135:Generated_Source\PSoC5/TransmitWordShift.c **** *******************************************************************************/
+ 136:Generated_Source\PSoC5/TransmitWordShift.c **** void TransmitWordShift_Stop(void)
+ 137:Generated_Source\PSoC5/TransmitWordShift.c **** {
+ 138:Generated_Source\PSoC5/TransmitWordShift.c ****     /* Disable this interrupt. */
+ 139:Generated_Source\PSoC5/TransmitWordShift.c ****     TransmitWordShift_Disable();
+ 140:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 141:Generated_Source\PSoC5/TransmitWordShift.c ****     /* Set the ISR to point to the passive one. */
+ 142:Generated_Source\PSoC5/TransmitWordShift.c ****     TransmitWordShift_SetVector(&IntDefaultHandler);
+ 143:Generated_Source\PSoC5/TransmitWordShift.c **** }
+ 144:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLnWAS2.s 			page 4
+
+
+ 145:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 146:Generated_Source\PSoC5/TransmitWordShift.c **** /*******************************************************************************
+ 147:Generated_Source\PSoC5/TransmitWordShift.c **** * Function Name: TransmitWordShift_Interrupt
+ 148:Generated_Source\PSoC5/TransmitWordShift.c **** ********************************************************************************
+ 149:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 150:Generated_Source\PSoC5/TransmitWordShift.c **** * Summary:
+ 151:Generated_Source\PSoC5/TransmitWordShift.c **** *   The default Interrupt Service Routine for TransmitWordShift.
+ 152:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 153:Generated_Source\PSoC5/TransmitWordShift.c **** *   Add custom code between the coments to keep the next version of this file
+ 154:Generated_Source\PSoC5/TransmitWordShift.c **** *   from over writting your code.
+ 155:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 156:Generated_Source\PSoC5/TransmitWordShift.c **** * Parameters:  
+ 157:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 158:Generated_Source\PSoC5/TransmitWordShift.c **** * Return:
+ 159:Generated_Source\PSoC5/TransmitWordShift.c **** *   None
+ 160:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 161:Generated_Source\PSoC5/TransmitWordShift.c **** *******************************************************************************/
+ 162:Generated_Source\PSoC5/TransmitWordShift.c **** CY_ISR(TransmitWordShift_Interrupt)
+ 163:Generated_Source\PSoC5/TransmitWordShift.c **** {
+ 164:Generated_Source\PSoC5/TransmitWordShift.c ****     #ifdef TransmitWordShift_INTERRUPT_INTERRUPT_CALLBACK
+ 165:Generated_Source\PSoC5/TransmitWordShift.c ****         TransmitWordShift_Interrupt_InterruptCallback();
+ 166:Generated_Source\PSoC5/TransmitWordShift.c ****     #endif /* TransmitWordShift_INTERRUPT_INTERRUPT_CALLBACK */ 
+ 167:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 168:Generated_Source\PSoC5/TransmitWordShift.c ****     /*  Place your Interrupt code here. */
+ 169:Generated_Source\PSoC5/TransmitWordShift.c ****     /* `#START TransmitWordShift_Interrupt` */
+ 170:Generated_Source\PSoC5/TransmitWordShift.c ****         ClearStatus();
+ 171:Generated_Source\PSoC5/TransmitWordShift.c ****         BitCounterEnc_ReadStatusRegister();
+ 172:Generated_Source\PSoC5/TransmitWordShift.c ****         TransmitWordShift_ClearPending();
+ 173:Generated_Source\PSoC5/TransmitWordShift.c ****         TransmitWordShift_Disable();
+ 174:Generated_Source\PSoC5/TransmitWordShift.c ****     /* `#END` */
+ 175:Generated_Source\PSoC5/TransmitWordShift.c **** }
+ 176:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 177:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 178:Generated_Source\PSoC5/TransmitWordShift.c **** /*******************************************************************************
+ 179:Generated_Source\PSoC5/TransmitWordShift.c **** * Function Name: TransmitWordShift_SetVector
+ 180:Generated_Source\PSoC5/TransmitWordShift.c **** ********************************************************************************
+ 181:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 182:Generated_Source\PSoC5/TransmitWordShift.c **** * Summary:
+ 183:Generated_Source\PSoC5/TransmitWordShift.c **** *   Change the ISR vector for the Interrupt. Note calling TransmitWordShift_Start
+ 184:Generated_Source\PSoC5/TransmitWordShift.c **** *   will override any effect this method would have had. To set the vector 
+ 185:Generated_Source\PSoC5/TransmitWordShift.c **** *   before the component has been started use TransmitWordShift_StartEx instead.
+ 186:Generated_Source\PSoC5/TransmitWordShift.c **** * 
+ 187:Generated_Source\PSoC5/TransmitWordShift.c **** *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+ 188:Generated_Source\PSoC5/TransmitWordShift.c **** *   used to provide consistent definition across compilers:
+ 189:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 190:Generated_Source\PSoC5/TransmitWordShift.c **** *   Function definition example:
+ 191:Generated_Source\PSoC5/TransmitWordShift.c **** *   CY_ISR(MyISR)
+ 192:Generated_Source\PSoC5/TransmitWordShift.c **** *   {
+ 193:Generated_Source\PSoC5/TransmitWordShift.c **** *   }
+ 194:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 195:Generated_Source\PSoC5/TransmitWordShift.c **** *   Function prototype example:
+ 196:Generated_Source\PSoC5/TransmitWordShift.c **** *     CY_ISR_PROTO(MyISR);
+ 197:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 198:Generated_Source\PSoC5/TransmitWordShift.c **** * Parameters:
+ 199:Generated_Source\PSoC5/TransmitWordShift.c **** *   address: Address of the ISR to set in the interrupt vector table.
+ 200:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 201:Generated_Source\PSoC5/TransmitWordShift.c **** * Return:
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLnWAS2.s 			page 5
+
+
+ 202:Generated_Source\PSoC5/TransmitWordShift.c **** *   None
+ 203:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 204:Generated_Source\PSoC5/TransmitWordShift.c **** *******************************************************************************/
+ 205:Generated_Source\PSoC5/TransmitWordShift.c **** void TransmitWordShift_SetVector(cyisraddress address)
+ 206:Generated_Source\PSoC5/TransmitWordShift.c **** {
+  28              		.loc 1 206 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+ 207:Generated_Source\PSoC5/TransmitWordShift.c ****     cyisraddress * ramVectorTable;
+ 208:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 209:Generated_Source\PSoC5/TransmitWordShift.c ****     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
+  34              		.loc 1 209 0
+  35 0000 014B     		ldr	r3, .L2
+  36 0002 1B68     		ldr	r3, [r3]
+  37              	.LVL1:
+ 210:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 211:Generated_Source\PSoC5/TransmitWordShift.c ****     ramVectorTable[CYINT_IRQ_BASE + (uint32)TransmitWordShift__INTC_NUMBER] = address;
+  38              		.loc 1 211 0
+  39 0004 1864     		str	r0, [r3, #64]
+  40 0006 7047     		bx	lr
+  41              	.L3:
+  42              		.align	2
+  43              	.L2:
+  44 0008 08ED00E0 		.word	-536810232
+  45              		.cfi_endproc
+  46              	.LFE4:
+  47              		.size	TransmitWordShift_SetVector, .-TransmitWordShift_SetVector
+  48              		.section	.text.TransmitWordShift_GetVector,"ax",%progbits
+  49              		.align	2
+  50              		.global	TransmitWordShift_GetVector
+  51              		.thumb
+  52              		.thumb_func
+  53              		.type	TransmitWordShift_GetVector, %function
+  54              	TransmitWordShift_GetVector:
+  55              	.LFB5:
+ 212:Generated_Source\PSoC5/TransmitWordShift.c **** }
+ 213:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 214:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 215:Generated_Source\PSoC5/TransmitWordShift.c **** /*******************************************************************************
+ 216:Generated_Source\PSoC5/TransmitWordShift.c **** * Function Name: TransmitWordShift_GetVector
+ 217:Generated_Source\PSoC5/TransmitWordShift.c **** ********************************************************************************
+ 218:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 219:Generated_Source\PSoC5/TransmitWordShift.c **** * Summary:
+ 220:Generated_Source\PSoC5/TransmitWordShift.c **** *   Gets the "address" of the current ISR vector for the Interrupt.
+ 221:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 222:Generated_Source\PSoC5/TransmitWordShift.c **** * Parameters:
+ 223:Generated_Source\PSoC5/TransmitWordShift.c **** *   None
+ 224:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 225:Generated_Source\PSoC5/TransmitWordShift.c **** * Return:
+ 226:Generated_Source\PSoC5/TransmitWordShift.c **** *   Address of the ISR in the interrupt vector table.
+ 227:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 228:Generated_Source\PSoC5/TransmitWordShift.c **** *******************************************************************************/
+ 229:Generated_Source\PSoC5/TransmitWordShift.c **** cyisraddress TransmitWordShift_GetVector(void)
+ 230:Generated_Source\PSoC5/TransmitWordShift.c **** {
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLnWAS2.s 			page 6
+
+
+  56              		.loc 1 230 0
+  57              		.cfi_startproc
+  58              		@ args = 0, pretend = 0, frame = 0
+  59              		@ frame_needed = 0, uses_anonymous_args = 0
+  60              		@ link register save eliminated.
+ 231:Generated_Source\PSoC5/TransmitWordShift.c ****     cyisraddress * ramVectorTable;
+ 232:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 233:Generated_Source\PSoC5/TransmitWordShift.c ****     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
+  61              		.loc 1 233 0
+  62 0000 014B     		ldr	r3, .L5
+  63 0002 1B68     		ldr	r3, [r3]
+  64              	.LVL2:
+ 234:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 235:Generated_Source\PSoC5/TransmitWordShift.c ****     return ramVectorTable[CYINT_IRQ_BASE + (uint32)TransmitWordShift__INTC_NUMBER];
+ 236:Generated_Source\PSoC5/TransmitWordShift.c **** }
+  65              		.loc 1 236 0
+  66 0004 186C     		ldr	r0, [r3, #64]
+  67 0006 7047     		bx	lr
+  68              	.L6:
+  69              		.align	2
+  70              	.L5:
+  71 0008 08ED00E0 		.word	-536810232
+  72              		.cfi_endproc
+  73              	.LFE5:
+  74              		.size	TransmitWordShift_GetVector, .-TransmitWordShift_GetVector
+  75              		.section	.text.TransmitWordShift_SetPriority,"ax",%progbits
+  76              		.align	2
+  77              		.global	TransmitWordShift_SetPriority
+  78              		.thumb
+  79              		.thumb_func
+  80              		.type	TransmitWordShift_SetPriority, %function
+  81              	TransmitWordShift_SetPriority:
+  82              	.LFB6:
+ 237:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 238:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 239:Generated_Source\PSoC5/TransmitWordShift.c **** /*******************************************************************************
+ 240:Generated_Source\PSoC5/TransmitWordShift.c **** * Function Name: TransmitWordShift_SetPriority
+ 241:Generated_Source\PSoC5/TransmitWordShift.c **** ********************************************************************************
+ 242:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 243:Generated_Source\PSoC5/TransmitWordShift.c **** * Summary:
+ 244:Generated_Source\PSoC5/TransmitWordShift.c **** *   Sets the Priority of the Interrupt. 
+ 245:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 246:Generated_Source\PSoC5/TransmitWordShift.c **** *   Note calling TransmitWordShift_Start or TransmitWordShift_StartEx will 
+ 247:Generated_Source\PSoC5/TransmitWordShift.c **** *   override any effect this API would have had. This API should only be called
+ 248:Generated_Source\PSoC5/TransmitWordShift.c **** *   after TransmitWordShift_Start or TransmitWordShift_StartEx has been called. 
+ 249:Generated_Source\PSoC5/TransmitWordShift.c **** *   To set the initial priority for the component, use the Design-Wide Resources
+ 250:Generated_Source\PSoC5/TransmitWordShift.c **** *   Interrupt Editor.
+ 251:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 252:Generated_Source\PSoC5/TransmitWordShift.c **** *   Note This API has no effect on Non-maskable interrupt NMI).
+ 253:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 254:Generated_Source\PSoC5/TransmitWordShift.c **** * Parameters:
+ 255:Generated_Source\PSoC5/TransmitWordShift.c **** *   priority: Priority of the interrupt, 0 being the highest priority
+ 256:Generated_Source\PSoC5/TransmitWordShift.c **** *             PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 257:Generated_Source\PSoC5/TransmitWordShift.c **** *             PSoC 4: Priority is from 0 to 3.
+ 258:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 259:Generated_Source\PSoC5/TransmitWordShift.c **** * Return:
+ 260:Generated_Source\PSoC5/TransmitWordShift.c **** *   None
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLnWAS2.s 			page 7
+
+
+ 261:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 262:Generated_Source\PSoC5/TransmitWordShift.c **** *******************************************************************************/
+ 263:Generated_Source\PSoC5/TransmitWordShift.c **** void TransmitWordShift_SetPriority(uint8 priority)
+ 264:Generated_Source\PSoC5/TransmitWordShift.c **** {
+  83              		.loc 1 264 0
+  84              		.cfi_startproc
+  85              		@ args = 0, pretend = 0, frame = 0
+  86              		@ frame_needed = 0, uses_anonymous_args = 0
+  87              		@ link register save eliminated.
+  88              	.LVL3:
+ 265:Generated_Source\PSoC5/TransmitWordShift.c ****     *TransmitWordShift_INTC_PRIOR = priority << 5;
+  89              		.loc 1 265 0
+  90 0000 4001     		lsls	r0, r0, #5
+  91              	.LVL4:
+  92 0002 C0B2     		uxtb	r0, r0
+  93 0004 014B     		ldr	r3, .L8
+  94 0006 1870     		strb	r0, [r3]
+  95 0008 7047     		bx	lr
+  96              	.L9:
+  97 000a 00BF     		.align	2
+  98              	.L8:
+  99 000c 00E400E0 		.word	-536812544
+ 100              		.cfi_endproc
+ 101              	.LFE6:
+ 102              		.size	TransmitWordShift_SetPriority, .-TransmitWordShift_SetPriority
+ 103              		.section	.text.TransmitWordShift_GetPriority,"ax",%progbits
+ 104              		.align	2
+ 105              		.global	TransmitWordShift_GetPriority
+ 106              		.thumb
+ 107              		.thumb_func
+ 108              		.type	TransmitWordShift_GetPriority, %function
+ 109              	TransmitWordShift_GetPriority:
+ 110              	.LFB7:
+ 266:Generated_Source\PSoC5/TransmitWordShift.c **** }
+ 267:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 268:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 269:Generated_Source\PSoC5/TransmitWordShift.c **** /*******************************************************************************
+ 270:Generated_Source\PSoC5/TransmitWordShift.c **** * Function Name: TransmitWordShift_GetPriority
+ 271:Generated_Source\PSoC5/TransmitWordShift.c **** ********************************************************************************
+ 272:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 273:Generated_Source\PSoC5/TransmitWordShift.c **** * Summary:
+ 274:Generated_Source\PSoC5/TransmitWordShift.c **** *   Gets the Priority of the Interrupt.
+ 275:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 276:Generated_Source\PSoC5/TransmitWordShift.c **** * Parameters:
+ 277:Generated_Source\PSoC5/TransmitWordShift.c **** *   None
+ 278:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 279:Generated_Source\PSoC5/TransmitWordShift.c **** * Return:
+ 280:Generated_Source\PSoC5/TransmitWordShift.c **** *   Priority of the interrupt, 0 being the highest priority
+ 281:Generated_Source\PSoC5/TransmitWordShift.c **** *    PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 282:Generated_Source\PSoC5/TransmitWordShift.c **** *    PSoC 4: Priority is from 0 to 3.
+ 283:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 284:Generated_Source\PSoC5/TransmitWordShift.c **** *******************************************************************************/
+ 285:Generated_Source\PSoC5/TransmitWordShift.c **** uint8 TransmitWordShift_GetPriority(void)
+ 286:Generated_Source\PSoC5/TransmitWordShift.c **** {
+ 111              		.loc 1 286 0
+ 112              		.cfi_startproc
+ 113              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLnWAS2.s 			page 8
+
+
+ 114              		@ frame_needed = 0, uses_anonymous_args = 0
+ 115              		@ link register save eliminated.
+ 287:Generated_Source\PSoC5/TransmitWordShift.c ****     uint8 priority;
+ 288:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 289:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 290:Generated_Source\PSoC5/TransmitWordShift.c ****     priority = *TransmitWordShift_INTC_PRIOR >> 5;
+ 116              		.loc 1 290 0
+ 117 0000 014B     		ldr	r3, .L11
+ 118 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 119              	.LVL5:
+ 291:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 292:Generated_Source\PSoC5/TransmitWordShift.c ****     return priority;
+ 293:Generated_Source\PSoC5/TransmitWordShift.c **** }
+ 120              		.loc 1 293 0
+ 121 0004 4009     		lsrs	r0, r0, #5
+ 122              	.LVL6:
+ 123 0006 7047     		bx	lr
+ 124              	.L12:
+ 125              		.align	2
+ 126              	.L11:
+ 127 0008 00E400E0 		.word	-536812544
+ 128              		.cfi_endproc
+ 129              	.LFE7:
+ 130              		.size	TransmitWordShift_GetPriority, .-TransmitWordShift_GetPriority
+ 131              		.section	.text.TransmitWordShift_Enable,"ax",%progbits
+ 132              		.align	2
+ 133              		.global	TransmitWordShift_Enable
+ 134              		.thumb
+ 135              		.thumb_func
+ 136              		.type	TransmitWordShift_Enable, %function
+ 137              	TransmitWordShift_Enable:
+ 138              	.LFB8:
+ 294:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 295:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 296:Generated_Source\PSoC5/TransmitWordShift.c **** /*******************************************************************************
+ 297:Generated_Source\PSoC5/TransmitWordShift.c **** * Function Name: TransmitWordShift_Enable
+ 298:Generated_Source\PSoC5/TransmitWordShift.c **** ********************************************************************************
+ 299:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 300:Generated_Source\PSoC5/TransmitWordShift.c **** * Summary:
+ 301:Generated_Source\PSoC5/TransmitWordShift.c **** *   Enables the interrupt to the interrupt controller. Do not call this function
+ 302:Generated_Source\PSoC5/TransmitWordShift.c **** *   unless ISR_Start() has been called or the functionality of the ISR_Start() 
+ 303:Generated_Source\PSoC5/TransmitWordShift.c **** *   function, which sets the vector and the priority, has been called.
+ 304:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 305:Generated_Source\PSoC5/TransmitWordShift.c **** * Parameters:
+ 306:Generated_Source\PSoC5/TransmitWordShift.c **** *   None
+ 307:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 308:Generated_Source\PSoC5/TransmitWordShift.c **** * Return:
+ 309:Generated_Source\PSoC5/TransmitWordShift.c **** *   None
+ 310:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 311:Generated_Source\PSoC5/TransmitWordShift.c **** *******************************************************************************/
+ 312:Generated_Source\PSoC5/TransmitWordShift.c **** void TransmitWordShift_Enable(void)
+ 313:Generated_Source\PSoC5/TransmitWordShift.c **** {
+ 139              		.loc 1 313 0
+ 140              		.cfi_startproc
+ 141              		@ args = 0, pretend = 0, frame = 0
+ 142              		@ frame_needed = 0, uses_anonymous_args = 0
+ 143              		@ link register save eliminated.
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLnWAS2.s 			page 9
+
+
+ 314:Generated_Source\PSoC5/TransmitWordShift.c ****     /* Enable the general interrupt. */
+ 315:Generated_Source\PSoC5/TransmitWordShift.c ****     *TransmitWordShift_INTC_SET_EN = TransmitWordShift__INTC_MASK;
+ 144              		.loc 1 315 0
+ 145 0000 0122     		movs	r2, #1
+ 146 0002 014B     		ldr	r3, .L14
+ 147 0004 1A60     		str	r2, [r3]
+ 148 0006 7047     		bx	lr
+ 149              	.L15:
+ 150              		.align	2
+ 151              	.L14:
+ 152 0008 00E100E0 		.word	-536813312
+ 153              		.cfi_endproc
+ 154              	.LFE8:
+ 155              		.size	TransmitWordShift_Enable, .-TransmitWordShift_Enable
+ 156              		.section	.text.TransmitWordShift_GetState,"ax",%progbits
+ 157              		.align	2
+ 158              		.global	TransmitWordShift_GetState
+ 159              		.thumb
+ 160              		.thumb_func
+ 161              		.type	TransmitWordShift_GetState, %function
+ 162              	TransmitWordShift_GetState:
+ 163              	.LFB9:
+ 316:Generated_Source\PSoC5/TransmitWordShift.c **** }
+ 317:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 318:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 319:Generated_Source\PSoC5/TransmitWordShift.c **** /*******************************************************************************
+ 320:Generated_Source\PSoC5/TransmitWordShift.c **** * Function Name: TransmitWordShift_GetState
+ 321:Generated_Source\PSoC5/TransmitWordShift.c **** ********************************************************************************
+ 322:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 323:Generated_Source\PSoC5/TransmitWordShift.c **** * Summary:
+ 324:Generated_Source\PSoC5/TransmitWordShift.c **** *   Gets the state (enabled, disabled) of the Interrupt.
+ 325:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 326:Generated_Source\PSoC5/TransmitWordShift.c **** * Parameters:
+ 327:Generated_Source\PSoC5/TransmitWordShift.c **** *   None
+ 328:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 329:Generated_Source\PSoC5/TransmitWordShift.c **** * Return:
+ 330:Generated_Source\PSoC5/TransmitWordShift.c **** *   1 if enabled, 0 if disabled.
+ 331:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 332:Generated_Source\PSoC5/TransmitWordShift.c **** *******************************************************************************/
+ 333:Generated_Source\PSoC5/TransmitWordShift.c **** uint8 TransmitWordShift_GetState(void)
+ 334:Generated_Source\PSoC5/TransmitWordShift.c **** {
+ 164              		.loc 1 334 0
+ 165              		.cfi_startproc
+ 166              		@ args = 0, pretend = 0, frame = 0
+ 167              		@ frame_needed = 0, uses_anonymous_args = 0
+ 168              		@ link register save eliminated.
+ 335:Generated_Source\PSoC5/TransmitWordShift.c ****     /* Get the state of the general interrupt. */
+ 336:Generated_Source\PSoC5/TransmitWordShift.c ****     return ((*TransmitWordShift_INTC_SET_EN & (uint32)TransmitWordShift__INTC_MASK) != 0u) ? 1u:0u;
+ 169              		.loc 1 336 0
+ 170 0000 024B     		ldr	r3, .L17
+ 171 0002 1868     		ldr	r0, [r3]
+ 337:Generated_Source\PSoC5/TransmitWordShift.c **** }
+ 172              		.loc 1 337 0
+ 173 0004 00F00100 		and	r0, r0, #1
+ 174 0008 7047     		bx	lr
+ 175              	.L18:
+ 176 000a 00BF     		.align	2
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLnWAS2.s 			page 10
+
+
+ 177              	.L17:
+ 178 000c 00E100E0 		.word	-536813312
+ 179              		.cfi_endproc
+ 180              	.LFE9:
+ 181              		.size	TransmitWordShift_GetState, .-TransmitWordShift_GetState
+ 182              		.section	.text.TransmitWordShift_Disable,"ax",%progbits
+ 183              		.align	2
+ 184              		.global	TransmitWordShift_Disable
+ 185              		.thumb
+ 186              		.thumb_func
+ 187              		.type	TransmitWordShift_Disable, %function
+ 188              	TransmitWordShift_Disable:
+ 189              	.LFB10:
+ 338:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 339:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 340:Generated_Source\PSoC5/TransmitWordShift.c **** /*******************************************************************************
+ 341:Generated_Source\PSoC5/TransmitWordShift.c **** * Function Name: TransmitWordShift_Disable
+ 342:Generated_Source\PSoC5/TransmitWordShift.c **** ********************************************************************************
+ 343:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 344:Generated_Source\PSoC5/TransmitWordShift.c **** * Summary:
+ 345:Generated_Source\PSoC5/TransmitWordShift.c **** *   Disables the Interrupt in the interrupt controller.
+ 346:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 347:Generated_Source\PSoC5/TransmitWordShift.c **** * Parameters:
+ 348:Generated_Source\PSoC5/TransmitWordShift.c **** *   None
+ 349:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 350:Generated_Source\PSoC5/TransmitWordShift.c **** * Return:
+ 351:Generated_Source\PSoC5/TransmitWordShift.c **** *   None
+ 352:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 353:Generated_Source\PSoC5/TransmitWordShift.c **** *******************************************************************************/
+ 354:Generated_Source\PSoC5/TransmitWordShift.c **** void TransmitWordShift_Disable(void)
+ 355:Generated_Source\PSoC5/TransmitWordShift.c **** {
+ 190              		.loc 1 355 0
+ 191              		.cfi_startproc
+ 192              		@ args = 0, pretend = 0, frame = 0
+ 193              		@ frame_needed = 0, uses_anonymous_args = 0
+ 194              		@ link register save eliminated.
+ 356:Generated_Source\PSoC5/TransmitWordShift.c ****     /* Disable the general interrupt. */
+ 357:Generated_Source\PSoC5/TransmitWordShift.c ****     *TransmitWordShift_INTC_CLR_EN = TransmitWordShift__INTC_MASK;
+ 195              		.loc 1 357 0
+ 196 0000 0122     		movs	r2, #1
+ 197 0002 014B     		ldr	r3, .L20
+ 198 0004 1A60     		str	r2, [r3]
+ 199 0006 7047     		bx	lr
+ 200              	.L21:
+ 201              		.align	2
+ 202              	.L20:
+ 203 0008 80E100E0 		.word	-536813184
+ 204              		.cfi_endproc
+ 205              	.LFE10:
+ 206              		.size	TransmitWordShift_Disable, .-TransmitWordShift_Disable
+ 207              		.section	.text.TransmitWordShift_Start,"ax",%progbits
+ 208              		.align	2
+ 209              		.global	TransmitWordShift_Start
+ 210              		.thumb
+ 211              		.thumb_func
+ 212              		.type	TransmitWordShift_Start, %function
+ 213              	TransmitWordShift_Start:
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLnWAS2.s 			page 11
+
+
+ 214              	.LFB0:
+  64:Generated_Source\PSoC5/TransmitWordShift.c ****     /* For all we know the interrupt is active. */
+ 215              		.loc 1 64 0
+ 216              		.cfi_startproc
+ 217              		@ args = 0, pretend = 0, frame = 0
+ 218              		@ frame_needed = 0, uses_anonymous_args = 0
+ 219 0000 08B5     		push	{r3, lr}
+ 220              		.cfi_def_cfa_offset 8
+ 221              		.cfi_offset 3, -8
+ 222              		.cfi_offset 14, -4
+  66:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 223              		.loc 1 66 0
+ 224 0002 FFF7FEFF 		bl	TransmitWordShift_Disable
+ 225              	.LVL7:
+  69:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 226              		.loc 1 69 0
+ 227 0006 0448     		ldr	r0, .L24
+ 228 0008 FFF7FEFF 		bl	TransmitWordShift_SetVector
+ 229              	.LVL8:
+  72:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 230              		.loc 1 72 0
+ 231 000c 0620     		movs	r0, #6
+ 232 000e FFF7FEFF 		bl	TransmitWordShift_SetPriority
+ 233              	.LVL9:
+  75:Generated_Source\PSoC5/TransmitWordShift.c **** }
+ 234              		.loc 1 75 0
+ 235 0012 FFF7FEFF 		bl	TransmitWordShift_Enable
+ 236              	.LVL10:
+ 237 0016 08BD     		pop	{r3, pc}
+ 238              	.L25:
+ 239              		.align	2
+ 240              	.L24:
+ 241 0018 00000000 		.word	TransmitWordShift_Interrupt
+ 242              		.cfi_endproc
+ 243              	.LFE0:
+ 244              		.size	TransmitWordShift_Start, .-TransmitWordShift_Start
+ 245              		.section	.text.TransmitWordShift_StartEx,"ax",%progbits
+ 246              		.align	2
+ 247              		.global	TransmitWordShift_StartEx
+ 248              		.thumb
+ 249              		.thumb_func
+ 250              		.type	TransmitWordShift_StartEx, %function
+ 251              	TransmitWordShift_StartEx:
+ 252              	.LFB1:
+ 107:Generated_Source\PSoC5/TransmitWordShift.c ****     /* For all we know the interrupt is active. */
+ 253              		.loc 1 107 0
+ 254              		.cfi_startproc
+ 255              		@ args = 0, pretend = 0, frame = 0
+ 256              		@ frame_needed = 0, uses_anonymous_args = 0
+ 257              	.LVL11:
+ 258 0000 10B5     		push	{r4, lr}
+ 259              		.cfi_def_cfa_offset 8
+ 260              		.cfi_offset 4, -8
+ 261              		.cfi_offset 14, -4
+ 262 0002 0446     		mov	r4, r0
+ 109:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 263              		.loc 1 109 0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLnWAS2.s 			page 12
+
+
+ 264 0004 FFF7FEFF 		bl	TransmitWordShift_Disable
+ 265              	.LVL12:
+ 112:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 266              		.loc 1 112 0
+ 267 0008 2046     		mov	r0, r4
+ 268 000a FFF7FEFF 		bl	TransmitWordShift_SetVector
+ 269              	.LVL13:
+ 115:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 270              		.loc 1 115 0
+ 271 000e 0620     		movs	r0, #6
+ 272 0010 FFF7FEFF 		bl	TransmitWordShift_SetPriority
+ 273              	.LVL14:
+ 118:Generated_Source\PSoC5/TransmitWordShift.c **** }
+ 274              		.loc 1 118 0
+ 275 0014 FFF7FEFF 		bl	TransmitWordShift_Enable
+ 276              	.LVL15:
+ 277 0018 10BD     		pop	{r4, pc}
+ 278              		.cfi_endproc
+ 279              	.LFE1:
+ 280              		.size	TransmitWordShift_StartEx, .-TransmitWordShift_StartEx
+ 281 001a 00BF     		.section	.text.TransmitWordShift_Stop,"ax",%progbits
+ 282              		.align	2
+ 283              		.global	TransmitWordShift_Stop
+ 284              		.thumb
+ 285              		.thumb_func
+ 286              		.type	TransmitWordShift_Stop, %function
+ 287              	TransmitWordShift_Stop:
+ 288              	.LFB2:
+ 137:Generated_Source\PSoC5/TransmitWordShift.c ****     /* Disable this interrupt. */
+ 289              		.loc 1 137 0
+ 290              		.cfi_startproc
+ 291              		@ args = 0, pretend = 0, frame = 0
+ 292              		@ frame_needed = 0, uses_anonymous_args = 0
+ 293 0000 08B5     		push	{r3, lr}
+ 294              		.cfi_def_cfa_offset 8
+ 295              		.cfi_offset 3, -8
+ 296              		.cfi_offset 14, -4
+ 139:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 297              		.loc 1 139 0
+ 298 0002 FFF7FEFF 		bl	TransmitWordShift_Disable
+ 299              	.LVL16:
+ 142:Generated_Source\PSoC5/TransmitWordShift.c **** }
+ 300              		.loc 1 142 0
+ 301 0006 0248     		ldr	r0, .L30
+ 302 0008 FFF7FEFF 		bl	TransmitWordShift_SetVector
+ 303              	.LVL17:
+ 304 000c 08BD     		pop	{r3, pc}
+ 305              	.L31:
+ 306 000e 00BF     		.align	2
+ 307              	.L30:
+ 308 0010 00000000 		.word	IntDefaultHandler
+ 309              		.cfi_endproc
+ 310              	.LFE2:
+ 311              		.size	TransmitWordShift_Stop, .-TransmitWordShift_Stop
+ 312              		.section	.text.TransmitWordShift_SetPending,"ax",%progbits
+ 313              		.align	2
+ 314              		.global	TransmitWordShift_SetPending
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLnWAS2.s 			page 13
+
+
+ 315              		.thumb
+ 316              		.thumb_func
+ 317              		.type	TransmitWordShift_SetPending, %function
+ 318              	TransmitWordShift_SetPending:
+ 319              	.LFB11:
+ 358:Generated_Source\PSoC5/TransmitWordShift.c **** }
+ 359:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 360:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 361:Generated_Source\PSoC5/TransmitWordShift.c **** /*******************************************************************************
+ 362:Generated_Source\PSoC5/TransmitWordShift.c **** * Function Name: TransmitWordShift_SetPending
+ 363:Generated_Source\PSoC5/TransmitWordShift.c **** ********************************************************************************
+ 364:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 365:Generated_Source\PSoC5/TransmitWordShift.c **** * Summary:
+ 366:Generated_Source\PSoC5/TransmitWordShift.c **** *   Causes the Interrupt to enter the pending state, a software method of
+ 367:Generated_Source\PSoC5/TransmitWordShift.c **** *   generating the interrupt.
+ 368:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 369:Generated_Source\PSoC5/TransmitWordShift.c **** * Parameters:
+ 370:Generated_Source\PSoC5/TransmitWordShift.c **** *   None
+ 371:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 372:Generated_Source\PSoC5/TransmitWordShift.c **** * Return:
+ 373:Generated_Source\PSoC5/TransmitWordShift.c **** *   None
+ 374:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 375:Generated_Source\PSoC5/TransmitWordShift.c **** * Side Effects:
+ 376:Generated_Source\PSoC5/TransmitWordShift.c **** *   If interrupts are enabled and the interrupt is set up properly, the ISR is
+ 377:Generated_Source\PSoC5/TransmitWordShift.c **** *   entered (depending on the priority of this interrupt and other pending 
+ 378:Generated_Source\PSoC5/TransmitWordShift.c **** *   interrupts).
+ 379:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 380:Generated_Source\PSoC5/TransmitWordShift.c **** *******************************************************************************/
+ 381:Generated_Source\PSoC5/TransmitWordShift.c **** void TransmitWordShift_SetPending(void)
+ 382:Generated_Source\PSoC5/TransmitWordShift.c **** {
+ 320              		.loc 1 382 0
+ 321              		.cfi_startproc
+ 322              		@ args = 0, pretend = 0, frame = 0
+ 323              		@ frame_needed = 0, uses_anonymous_args = 0
+ 324              		@ link register save eliminated.
+ 383:Generated_Source\PSoC5/TransmitWordShift.c ****     *TransmitWordShift_INTC_SET_PD = TransmitWordShift__INTC_MASK;
+ 325              		.loc 1 383 0
+ 326 0000 0122     		movs	r2, #1
+ 327 0002 014B     		ldr	r3, .L33
+ 328 0004 1A60     		str	r2, [r3]
+ 329 0006 7047     		bx	lr
+ 330              	.L34:
+ 331              		.align	2
+ 332              	.L33:
+ 333 0008 00E200E0 		.word	-536813056
+ 334              		.cfi_endproc
+ 335              	.LFE11:
+ 336              		.size	TransmitWordShift_SetPending, .-TransmitWordShift_SetPending
+ 337              		.section	.text.TransmitWordShift_ClearPending,"ax",%progbits
+ 338              		.align	2
+ 339              		.global	TransmitWordShift_ClearPending
+ 340              		.thumb
+ 341              		.thumb_func
+ 342              		.type	TransmitWordShift_ClearPending, %function
+ 343              	TransmitWordShift_ClearPending:
+ 344              	.LFB12:
+ 384:Generated_Source\PSoC5/TransmitWordShift.c **** }
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLnWAS2.s 			page 14
+
+
+ 385:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 386:Generated_Source\PSoC5/TransmitWordShift.c **** 
+ 387:Generated_Source\PSoC5/TransmitWordShift.c **** /*******************************************************************************
+ 388:Generated_Source\PSoC5/TransmitWordShift.c **** * Function Name: TransmitWordShift_ClearPending
+ 389:Generated_Source\PSoC5/TransmitWordShift.c **** ********************************************************************************
+ 390:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 391:Generated_Source\PSoC5/TransmitWordShift.c **** * Summary:
+ 392:Generated_Source\PSoC5/TransmitWordShift.c **** *   Clears a pending interrupt in the interrupt controller.
+ 393:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 394:Generated_Source\PSoC5/TransmitWordShift.c **** *   Note Some interrupt sources are clear-on-read and require the block 
+ 395:Generated_Source\PSoC5/TransmitWordShift.c **** *   interrupt/status register to be read/cleared with the appropriate block API 
+ 396:Generated_Source\PSoC5/TransmitWordShift.c **** *   (GPIO, UART, and so on). Otherwise the ISR will continue to remain in 
+ 397:Generated_Source\PSoC5/TransmitWordShift.c **** *   pending state even though the interrupt itself is cleared using this API.
+ 398:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 399:Generated_Source\PSoC5/TransmitWordShift.c **** * Parameters:
+ 400:Generated_Source\PSoC5/TransmitWordShift.c **** *   None
+ 401:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 402:Generated_Source\PSoC5/TransmitWordShift.c **** * Return:
+ 403:Generated_Source\PSoC5/TransmitWordShift.c **** *   None
+ 404:Generated_Source\PSoC5/TransmitWordShift.c **** *
+ 405:Generated_Source\PSoC5/TransmitWordShift.c **** *******************************************************************************/
+ 406:Generated_Source\PSoC5/TransmitWordShift.c **** void TransmitWordShift_ClearPending(void)
+ 407:Generated_Source\PSoC5/TransmitWordShift.c **** {
+ 345              		.loc 1 407 0
+ 346              		.cfi_startproc
+ 347              		@ args = 0, pretend = 0, frame = 0
+ 348              		@ frame_needed = 0, uses_anonymous_args = 0
+ 349              		@ link register save eliminated.
+ 408:Generated_Source\PSoC5/TransmitWordShift.c ****     *TransmitWordShift_INTC_CLR_PD = TransmitWordShift__INTC_MASK;
+ 350              		.loc 1 408 0
+ 351 0000 0122     		movs	r2, #1
+ 352 0002 014B     		ldr	r3, .L36
+ 353 0004 1A60     		str	r2, [r3]
+ 354 0006 7047     		bx	lr
+ 355              	.L37:
+ 356              		.align	2
+ 357              	.L36:
+ 358 0008 80E200E0 		.word	-536812928
+ 359              		.cfi_endproc
+ 360              	.LFE12:
+ 361              		.size	TransmitWordShift_ClearPending, .-TransmitWordShift_ClearPending
+ 362              		.section	.text.TransmitWordShift_Interrupt,"ax",%progbits
+ 363              		.align	2
+ 364              		.global	TransmitWordShift_Interrupt
+ 365              		.thumb
+ 366              		.thumb_func
+ 367              		.type	TransmitWordShift_Interrupt, %function
+ 368              	TransmitWordShift_Interrupt:
+ 369              	.LFB3:
+ 163:Generated_Source\PSoC5/TransmitWordShift.c ****     #ifdef TransmitWordShift_INTERRUPT_INTERRUPT_CALLBACK
+ 370              		.loc 1 163 0
+ 371              		.cfi_startproc
+ 372              		@ args = 0, pretend = 0, frame = 0
+ 373              		@ frame_needed = 0, uses_anonymous_args = 0
+ 374 0000 08B5     		push	{r3, lr}
+ 375              		.cfi_def_cfa_offset 8
+ 376              		.cfi_offset 3, -8
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLnWAS2.s 			page 15
+
+
+ 377              		.cfi_offset 14, -4
+ 170:Generated_Source\PSoC5/TransmitWordShift.c ****         BitCounterEnc_ReadStatusRegister();
+ 378              		.loc 1 170 0
+ 379 0002 FFF7FEFF 		bl	ClearStatus
+ 380              	.LVL18:
+ 171:Generated_Source\PSoC5/TransmitWordShift.c ****         TransmitWordShift_ClearPending();
+ 381              		.loc 1 171 0
+ 382 0006 FFF7FEFF 		bl	BitCounterEnc_ReadStatusRegister
+ 383              	.LVL19:
+ 172:Generated_Source\PSoC5/TransmitWordShift.c ****         TransmitWordShift_Disable();
+ 384              		.loc 1 172 0
+ 385 000a FFF7FEFF 		bl	TransmitWordShift_ClearPending
+ 386              	.LVL20:
+ 173:Generated_Source\PSoC5/TransmitWordShift.c ****     /* `#END` */
+ 387              		.loc 1 173 0
+ 388 000e FFF7FEFF 		bl	TransmitWordShift_Disable
+ 389              	.LVL21:
+ 390 0012 08BD     		pop	{r3, pc}
+ 391              		.cfi_endproc
+ 392              	.LFE3:
+ 393              		.size	TransmitWordShift_Interrupt, .-TransmitWordShift_Interrupt
+ 394              		.text
+ 395              	.Letext0:
+ 396              		.file 2 "Generated_Source\\PSoC5/cytypes.h"
+ 397              		.file 3 "./sender.h"
+ 398              		.file 4 "Generated_Source\\PSoC5/BitCounterEnc.h"
+ 399              		.section	.debug_info,"",%progbits
+ 400              	.Ldebug_info0:
+ 401 0000 0D030000 		.4byte	0x30d
+ 402 0004 0400     		.2byte	0x4
+ 403 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 404 000a 04       		.byte	0x4
+ 405 000b 01       		.uleb128 0x1
+ 406 000c 0C010000 		.4byte	.LASF36
+ 407 0010 0C       		.byte	0xc
+ 408 0011 27020000 		.4byte	.LASF37
+ 409 0015 AA000000 		.4byte	.LASF38
+ 410 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 411 001d 00000000 		.4byte	0
+ 412 0021 00000000 		.4byte	.Ldebug_line0
+ 413 0025 02       		.uleb128 0x2
+ 414 0026 04       		.byte	0x4
+ 415 0027 05       		.byte	0x5
+ 416 0028 696E7400 		.ascii	"int\000"
+ 417 002c 03       		.uleb128 0x3
+ 418 002d 04       		.byte	0x4
+ 419 002e 07       		.byte	0x7
+ 420 002f 77020000 		.4byte	.LASF0
+ 421 0033 03       		.uleb128 0x3
+ 422 0034 08       		.byte	0x8
+ 423 0035 05       		.byte	0x5
+ 424 0036 BE020000 		.4byte	.LASF1
+ 425 003a 03       		.uleb128 0x3
+ 426 003b 08       		.byte	0x8
+ 427 003c 04       		.byte	0x4
+ 428 003d 5E030000 		.4byte	.LASF2
+ 429 0041 03       		.uleb128 0x3
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLnWAS2.s 			page 16
+
+
+ 430 0042 01       		.byte	0x1
+ 431 0043 06       		.byte	0x6
+ 432 0044 6A030000 		.4byte	.LASF3
+ 433 0048 03       		.uleb128 0x3
+ 434 0049 01       		.byte	0x1
+ 435 004a 08       		.byte	0x8
+ 436 004b FE000000 		.4byte	.LASF4
+ 437 004f 03       		.uleb128 0x3
+ 438 0050 02       		.byte	0x2
+ 439 0051 05       		.byte	0x5
+ 440 0052 E0020000 		.4byte	.LASF5
+ 441 0056 03       		.uleb128 0x3
+ 442 0057 02       		.byte	0x2
+ 443 0058 07       		.byte	0x7
+ 444 0059 3E000000 		.4byte	.LASF6
+ 445 005d 03       		.uleb128 0x3
+ 446 005e 04       		.byte	0x4
+ 447 005f 05       		.byte	0x5
+ 448 0060 38030000 		.4byte	.LASF7
+ 449 0064 03       		.uleb128 0x3
+ 450 0065 04       		.byte	0x4
+ 451 0066 07       		.byte	0x7
+ 452 0067 F3010000 		.4byte	.LASF8
+ 453 006b 03       		.uleb128 0x3
+ 454 006c 08       		.byte	0x8
+ 455 006d 07       		.byte	0x7
+ 456 006e 8C020000 		.4byte	.LASF9
+ 457 0072 03       		.uleb128 0x3
+ 458 0073 04       		.byte	0x4
+ 459 0074 07       		.byte	0x7
+ 460 0075 B5020000 		.4byte	.LASF10
+ 461 0079 03       		.uleb128 0x3
+ 462 007a 01       		.byte	0x1
+ 463 007b 08       		.byte	0x8
+ 464 007c CC020000 		.4byte	.LASF11
+ 465 0080 04       		.uleb128 0x4
+ 466 0081 04       		.byte	0x4
+ 467 0082 86000000 		.4byte	0x86
+ 468 0086 05       		.uleb128 0x5
+ 469 0087 06       		.uleb128 0x6
+ 470 0088 05020000 		.4byte	.LASF12
+ 471 008c 02       		.byte	0x2
+ 472 008d E401     		.2byte	0x1e4
+ 473 008f 48000000 		.4byte	0x48
+ 474 0093 06       		.uleb128 0x6
+ 475 0094 52020000 		.4byte	.LASF13
+ 476 0098 02       		.byte	0x2
+ 477 0099 E601     		.2byte	0x1e6
+ 478 009b 64000000 		.4byte	0x64
+ 479 009f 03       		.uleb128 0x3
+ 480 00a0 04       		.byte	0x4
+ 481 00a1 04       		.byte	0x4
+ 482 00a2 A4000000 		.4byte	.LASF14
+ 483 00a6 03       		.uleb128 0x3
+ 484 00a7 08       		.byte	0x8
+ 485 00a8 04       		.byte	0x4
+ 486 00a9 20020000 		.4byte	.LASF15
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLnWAS2.s 			page 17
+
+
+ 487 00ad 06       		.uleb128 0x6
+ 488 00ae B0020000 		.4byte	.LASF16
+ 489 00b2 02       		.byte	0x2
+ 490 00b3 8E02     		.2byte	0x28e
+ 491 00b5 B9000000 		.4byte	0xb9
+ 492 00b9 07       		.uleb128 0x7
+ 493 00ba 87000000 		.4byte	0x87
+ 494 00be 06       		.uleb128 0x6
+ 495 00bf 00000000 		.4byte	.LASF17
+ 496 00c3 02       		.byte	0x2
+ 497 00c4 9002     		.2byte	0x290
+ 498 00c6 CA000000 		.4byte	0xca
+ 499 00ca 07       		.uleb128 0x7
+ 500 00cb 93000000 		.4byte	0x93
+ 501 00cf 06       		.uleb128 0x6
+ 502 00d0 A3020000 		.4byte	.LASF18
+ 503 00d4 02       		.byte	0x2
+ 504 00d5 A002     		.2byte	0x2a0
+ 505 00d7 80000000 		.4byte	0x80
+ 506 00db 08       		.uleb128 0x8
+ 507 00dc EA020000 		.4byte	.LASF20
+ 508 00e0 01       		.byte	0x1
+ 509 00e1 CD       		.byte	0xcd
+ 510 00e2 00000000 		.4byte	.LFB4
+ 511 00e6 0C000000 		.4byte	.LFE4-.LFB4
+ 512 00ea 01       		.uleb128 0x1
+ 513 00eb 9C       		.byte	0x9c
+ 514 00ec 0B010000 		.4byte	0x10b
+ 515 00f0 09       		.uleb128 0x9
+ 516 00f1 84020000 		.4byte	.LASF22
+ 517 00f5 01       		.byte	0x1
+ 518 00f6 CD       		.byte	0xcd
+ 519 00f7 CF000000 		.4byte	0xcf
+ 520 00fb 01       		.uleb128 0x1
+ 521 00fc 50       		.byte	0x50
+ 522 00fd 0A       		.uleb128 0xa
+ 523 00fe D1020000 		.4byte	.LASF19
+ 524 0102 01       		.byte	0x1
+ 525 0103 CF       		.byte	0xcf
+ 526 0104 0B010000 		.4byte	0x10b
+ 527 0108 01       		.uleb128 0x1
+ 528 0109 53       		.byte	0x53
+ 529 010a 00       		.byte	0
+ 530 010b 04       		.uleb128 0x4
+ 531 010c 04       		.byte	0x4
+ 532 010d CF000000 		.4byte	0xcf
+ 533 0111 0B       		.uleb128 0xb
+ 534 0112 6C000000 		.4byte	.LASF24
+ 535 0116 01       		.byte	0x1
+ 536 0117 E5       		.byte	0xe5
+ 537 0118 CF000000 		.4byte	0xcf
+ 538 011c 00000000 		.4byte	.LFB5
+ 539 0120 0C000000 		.4byte	.LFE5-.LFB5
+ 540 0124 01       		.uleb128 0x1
+ 541 0125 9C       		.byte	0x9c
+ 542 0126 38010000 		.4byte	0x138
+ 543 012a 0A       		.uleb128 0xa
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLnWAS2.s 			page 18
+
+
+ 544 012b D1020000 		.4byte	.LASF19
+ 545 012f 01       		.byte	0x1
+ 546 0130 E7       		.byte	0xe7
+ 547 0131 0B010000 		.4byte	0x10b
+ 548 0135 01       		.uleb128 0x1
+ 549 0136 53       		.byte	0x53
+ 550 0137 00       		.byte	0
+ 551 0138 0C       		.uleb128 0xc
+ 552 0139 59020000 		.4byte	.LASF21
+ 553 013d 01       		.byte	0x1
+ 554 013e 0701     		.2byte	0x107
+ 555 0140 00000000 		.4byte	.LFB6
+ 556 0144 10000000 		.4byte	.LFE6-.LFB6
+ 557 0148 01       		.uleb128 0x1
+ 558 0149 9C       		.byte	0x9c
+ 559 014a 5F010000 		.4byte	0x15f
+ 560 014e 0D       		.uleb128 0xd
+ 561 014f 0B020000 		.4byte	.LASF23
+ 562 0153 01       		.byte	0x1
+ 563 0154 0701     		.2byte	0x107
+ 564 0156 87000000 		.4byte	0x87
+ 565 015a 00000000 		.4byte	.LLST0
+ 566 015e 00       		.byte	0
+ 567 015f 0E       		.uleb128 0xe
+ 568 0160 20000000 		.4byte	.LASF25
+ 569 0164 01       		.byte	0x1
+ 570 0165 1D01     		.2byte	0x11d
+ 571 0167 87000000 		.4byte	0x87
+ 572 016b 00000000 		.4byte	.LFB7
+ 573 016f 0C000000 		.4byte	.LFE7-.LFB7
+ 574 0173 01       		.uleb128 0x1
+ 575 0174 9C       		.byte	0x9c
+ 576 0175 8A010000 		.4byte	0x18a
+ 577 0179 0F       		.uleb128 0xf
+ 578 017a 0B020000 		.4byte	.LASF23
+ 579 017e 01       		.byte	0x1
+ 580 017f 1F01     		.2byte	0x11f
+ 581 0181 87000000 		.4byte	0x87
+ 582 0185 21000000 		.4byte	.LLST1
+ 583 0189 00       		.byte	0
+ 584 018a 10       		.uleb128 0x10
+ 585 018b B9010000 		.4byte	.LASF26
+ 586 018f 01       		.byte	0x1
+ 587 0190 3801     		.2byte	0x138
+ 588 0192 00000000 		.4byte	.LFB8
+ 589 0196 0C000000 		.4byte	.LFE8-.LFB8
+ 590 019a 01       		.uleb128 0x1
+ 591 019b 9C       		.byte	0x9c
+ 592 019c 11       		.uleb128 0x11
+ 593 019d 51000000 		.4byte	.LASF39
+ 594 01a1 01       		.byte	0x1
+ 595 01a2 4D01     		.2byte	0x14d
+ 596 01a4 87000000 		.4byte	0x87
+ 597 01a8 00000000 		.4byte	.LFB9
+ 598 01ac 10000000 		.4byte	.LFE9-.LFB9
+ 599 01b0 01       		.uleb128 0x1
+ 600 01b1 9C       		.byte	0x9c
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLnWAS2.s 			page 19
+
+
+ 601 01b2 10       		.uleb128 0x10
+ 602 01b3 06030000 		.4byte	.LASF27
+ 603 01b7 01       		.byte	0x1
+ 604 01b8 6201     		.2byte	0x162
+ 605 01ba 00000000 		.4byte	.LFB10
+ 606 01be 0C000000 		.4byte	.LFE10-.LFB10
+ 607 01c2 01       		.uleb128 0x1
+ 608 01c3 9C       		.byte	0x9c
+ 609 01c4 08       		.uleb128 0x8
+ 610 01c5 20030000 		.4byte	.LASF28
+ 611 01c9 01       		.byte	0x1
+ 612 01ca 3F       		.byte	0x3f
+ 613 01cb 00000000 		.4byte	.LFB0
+ 614 01cf 1C000000 		.4byte	.LFE0-.LFB0
+ 615 01d3 01       		.uleb128 0x1
+ 616 01d4 9C       		.byte	0x9c
+ 617 01d5 16020000 		.4byte	0x216
+ 618 01d9 12       		.uleb128 0x12
+ 619 01da 06000000 		.4byte	.LVL7
+ 620 01de B2010000 		.4byte	0x1b2
+ 621 01e2 13       		.uleb128 0x13
+ 622 01e3 0C000000 		.4byte	.LVL8
+ 623 01e7 DB000000 		.4byte	0xdb
+ 624 01eb F9010000 		.4byte	0x1f9
+ 625 01ef 14       		.uleb128 0x14
+ 626 01f0 01       		.uleb128 0x1
+ 627 01f1 50       		.byte	0x50
+ 628 01f2 05       		.uleb128 0x5
+ 629 01f3 03       		.byte	0x3
+ 630 01f4 00000000 		.4byte	TransmitWordShift_Interrupt
+ 631 01f8 00       		.byte	0
+ 632 01f9 13       		.uleb128 0x13
+ 633 01fa 12000000 		.4byte	.LVL9
+ 634 01fe 38010000 		.4byte	0x138
+ 635 0202 0C020000 		.4byte	0x20c
+ 636 0206 14       		.uleb128 0x14
+ 637 0207 01       		.uleb128 0x1
+ 638 0208 50       		.byte	0x50
+ 639 0209 01       		.uleb128 0x1
+ 640 020a 36       		.byte	0x36
+ 641 020b 00       		.byte	0
+ 642 020c 12       		.uleb128 0x12
+ 643 020d 16000000 		.4byte	.LVL10
+ 644 0211 8A010000 		.4byte	0x18a
+ 645 0215 00       		.byte	0
+ 646 0216 08       		.uleb128 0x8
+ 647 0217 06000000 		.4byte	.LASF29
+ 648 021b 01       		.byte	0x1
+ 649 021c 6A       		.byte	0x6a
+ 650 021d 00000000 		.4byte	.LFB1
+ 651 0221 1A000000 		.4byte	.LFE1-.LFB1
+ 652 0225 01       		.uleb128 0x1
+ 653 0226 9C       		.byte	0x9c
+ 654 0227 74020000 		.4byte	0x274
+ 655 022b 15       		.uleb128 0x15
+ 656 022c 84020000 		.4byte	.LASF22
+ 657 0230 01       		.byte	0x1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLnWAS2.s 			page 20
+
+
+ 658 0231 6A       		.byte	0x6a
+ 659 0232 CF000000 		.4byte	0xcf
+ 660 0236 38000000 		.4byte	.LLST2
+ 661 023a 12       		.uleb128 0x12
+ 662 023b 08000000 		.4byte	.LVL12
+ 663 023f B2010000 		.4byte	0x1b2
+ 664 0243 13       		.uleb128 0x13
+ 665 0244 0E000000 		.4byte	.LVL13
+ 666 0248 DB000000 		.4byte	0xdb
+ 667 024c 57020000 		.4byte	0x257
+ 668 0250 14       		.uleb128 0x14
+ 669 0251 01       		.uleb128 0x1
+ 670 0252 50       		.byte	0x50
+ 671 0253 02       		.uleb128 0x2
+ 672 0254 74       		.byte	0x74
+ 673 0255 00       		.sleb128 0
+ 674 0256 00       		.byte	0
+ 675 0257 13       		.uleb128 0x13
+ 676 0258 14000000 		.4byte	.LVL14
+ 677 025c 38010000 		.4byte	0x138
+ 678 0260 6A020000 		.4byte	0x26a
+ 679 0264 14       		.uleb128 0x14
+ 680 0265 01       		.uleb128 0x1
+ 681 0266 50       		.byte	0x50
+ 682 0267 01       		.uleb128 0x1
+ 683 0268 36       		.byte	0x36
+ 684 0269 00       		.byte	0
+ 685 026a 12       		.uleb128 0x12
+ 686 026b 18000000 		.4byte	.LVL15
+ 687 026f 8A010000 		.4byte	0x18a
+ 688 0273 00       		.byte	0
+ 689 0274 08       		.uleb128 0x8
+ 690 0275 76030000 		.4byte	.LASF30
+ 691 0279 01       		.byte	0x1
+ 692 027a 88       		.byte	0x88
+ 693 027b 00000000 		.4byte	.LFB2
+ 694 027f 14000000 		.4byte	.LFE2-.LFB2
+ 695 0283 01       		.uleb128 0x1
+ 696 0284 9C       		.byte	0x9c
+ 697 0285 9C020000 		.4byte	0x29c
+ 698 0289 12       		.uleb128 0x12
+ 699 028a 06000000 		.4byte	.LVL16
+ 700 028e B2010000 		.4byte	0x1b2
+ 701 0292 12       		.uleb128 0x12
+ 702 0293 0C000000 		.4byte	.LVL17
+ 703 0297 DB000000 		.4byte	0xdb
+ 704 029b 00       		.byte	0
+ 705 029c 10       		.uleb128 0x10
+ 706 029d 41030000 		.4byte	.LASF31
+ 707 02a1 01       		.byte	0x1
+ 708 02a2 7D01     		.2byte	0x17d
+ 709 02a4 00000000 		.4byte	.LFB11
+ 710 02a8 0C000000 		.4byte	.LFE11-.LFB11
+ 711 02ac 01       		.uleb128 0x1
+ 712 02ad 9C       		.byte	0x9c
+ 713 02ae 10       		.uleb128 0x10
+ 714 02af 9A010000 		.4byte	.LASF32
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLnWAS2.s 			page 21
+
+
+ 715 02b3 01       		.byte	0x1
+ 716 02b4 9601     		.2byte	0x196
+ 717 02b6 00000000 		.4byte	.LFB12
+ 718 02ba 0C000000 		.4byte	.LFE12-.LFB12
+ 719 02be 01       		.uleb128 0x1
+ 720 02bf 9C       		.byte	0x9c
+ 721 02c0 08       		.uleb128 0x8
+ 722 02c1 88000000 		.4byte	.LASF33
+ 723 02c5 01       		.byte	0x1
+ 724 02c6 A2       		.byte	0xa2
+ 725 02c7 00000000 		.4byte	.LFB3
+ 726 02cb 14000000 		.4byte	.LFE3-.LFB3
+ 727 02cf 01       		.uleb128 0x1
+ 728 02d0 9C       		.byte	0x9c
+ 729 02d1 FA020000 		.4byte	0x2fa
+ 730 02d5 12       		.uleb128 0x12
+ 731 02d6 06000000 		.4byte	.LVL18
+ 732 02da FA020000 		.4byte	0x2fa
+ 733 02de 12       		.uleb128 0x12
+ 734 02df 0A000000 		.4byte	.LVL19
+ 735 02e3 05030000 		.4byte	0x305
+ 736 02e7 12       		.uleb128 0x12
+ 737 02e8 0E000000 		.4byte	.LVL20
+ 738 02ec AE020000 		.4byte	0x2ae
+ 739 02f0 12       		.uleb128 0x12
+ 740 02f1 12000000 		.4byte	.LVL21
+ 741 02f5 B2010000 		.4byte	0x1b2
+ 742 02f9 00       		.byte	0
+ 743 02fa 16       		.uleb128 0x16
+ 744 02fb 14020000 		.4byte	.LASF34
+ 745 02ff 14020000 		.4byte	.LASF34
+ 746 0303 03       		.byte	0x3
+ 747 0304 20       		.byte	0x20
+ 748 0305 16       		.uleb128 0x16
+ 749 0306 D2010000 		.4byte	.LASF35
+ 750 030a D2010000 		.4byte	.LASF35
+ 751 030e 04       		.byte	0x4
+ 752 030f 52       		.byte	0x52
+ 753 0310 00       		.byte	0
+ 754              		.section	.debug_abbrev,"",%progbits
+ 755              	.Ldebug_abbrev0:
+ 756 0000 01       		.uleb128 0x1
+ 757 0001 11       		.uleb128 0x11
+ 758 0002 01       		.byte	0x1
+ 759 0003 25       		.uleb128 0x25
+ 760 0004 0E       		.uleb128 0xe
+ 761 0005 13       		.uleb128 0x13
+ 762 0006 0B       		.uleb128 0xb
+ 763 0007 03       		.uleb128 0x3
+ 764 0008 0E       		.uleb128 0xe
+ 765 0009 1B       		.uleb128 0x1b
+ 766 000a 0E       		.uleb128 0xe
+ 767 000b 55       		.uleb128 0x55
+ 768 000c 17       		.uleb128 0x17
+ 769 000d 11       		.uleb128 0x11
+ 770 000e 01       		.uleb128 0x1
+ 771 000f 10       		.uleb128 0x10
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLnWAS2.s 			page 22
+
+
+ 772 0010 17       		.uleb128 0x17
+ 773 0011 00       		.byte	0
+ 774 0012 00       		.byte	0
+ 775 0013 02       		.uleb128 0x2
+ 776 0014 24       		.uleb128 0x24
+ 777 0015 00       		.byte	0
+ 778 0016 0B       		.uleb128 0xb
+ 779 0017 0B       		.uleb128 0xb
+ 780 0018 3E       		.uleb128 0x3e
+ 781 0019 0B       		.uleb128 0xb
+ 782 001a 03       		.uleb128 0x3
+ 783 001b 08       		.uleb128 0x8
+ 784 001c 00       		.byte	0
+ 785 001d 00       		.byte	0
+ 786 001e 03       		.uleb128 0x3
+ 787 001f 24       		.uleb128 0x24
+ 788 0020 00       		.byte	0
+ 789 0021 0B       		.uleb128 0xb
+ 790 0022 0B       		.uleb128 0xb
+ 791 0023 3E       		.uleb128 0x3e
+ 792 0024 0B       		.uleb128 0xb
+ 793 0025 03       		.uleb128 0x3
+ 794 0026 0E       		.uleb128 0xe
+ 795 0027 00       		.byte	0
+ 796 0028 00       		.byte	0
+ 797 0029 04       		.uleb128 0x4
+ 798 002a 0F       		.uleb128 0xf
+ 799 002b 00       		.byte	0
+ 800 002c 0B       		.uleb128 0xb
+ 801 002d 0B       		.uleb128 0xb
+ 802 002e 49       		.uleb128 0x49
+ 803 002f 13       		.uleb128 0x13
+ 804 0030 00       		.byte	0
+ 805 0031 00       		.byte	0
+ 806 0032 05       		.uleb128 0x5
+ 807 0033 15       		.uleb128 0x15
+ 808 0034 00       		.byte	0
+ 809 0035 27       		.uleb128 0x27
+ 810 0036 19       		.uleb128 0x19
+ 811 0037 00       		.byte	0
+ 812 0038 00       		.byte	0
+ 813 0039 06       		.uleb128 0x6
+ 814 003a 16       		.uleb128 0x16
+ 815 003b 00       		.byte	0
+ 816 003c 03       		.uleb128 0x3
+ 817 003d 0E       		.uleb128 0xe
+ 818 003e 3A       		.uleb128 0x3a
+ 819 003f 0B       		.uleb128 0xb
+ 820 0040 3B       		.uleb128 0x3b
+ 821 0041 05       		.uleb128 0x5
+ 822 0042 49       		.uleb128 0x49
+ 823 0043 13       		.uleb128 0x13
+ 824 0044 00       		.byte	0
+ 825 0045 00       		.byte	0
+ 826 0046 07       		.uleb128 0x7
+ 827 0047 35       		.uleb128 0x35
+ 828 0048 00       		.byte	0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLnWAS2.s 			page 23
+
+
+ 829 0049 49       		.uleb128 0x49
+ 830 004a 13       		.uleb128 0x13
+ 831 004b 00       		.byte	0
+ 832 004c 00       		.byte	0
+ 833 004d 08       		.uleb128 0x8
+ 834 004e 2E       		.uleb128 0x2e
+ 835 004f 01       		.byte	0x1
+ 836 0050 3F       		.uleb128 0x3f
+ 837 0051 19       		.uleb128 0x19
+ 838 0052 03       		.uleb128 0x3
+ 839 0053 0E       		.uleb128 0xe
+ 840 0054 3A       		.uleb128 0x3a
+ 841 0055 0B       		.uleb128 0xb
+ 842 0056 3B       		.uleb128 0x3b
+ 843 0057 0B       		.uleb128 0xb
+ 844 0058 27       		.uleb128 0x27
+ 845 0059 19       		.uleb128 0x19
+ 846 005a 11       		.uleb128 0x11
+ 847 005b 01       		.uleb128 0x1
+ 848 005c 12       		.uleb128 0x12
+ 849 005d 06       		.uleb128 0x6
+ 850 005e 40       		.uleb128 0x40
+ 851 005f 18       		.uleb128 0x18
+ 852 0060 9742     		.uleb128 0x2117
+ 853 0062 19       		.uleb128 0x19
+ 854 0063 01       		.uleb128 0x1
+ 855 0064 13       		.uleb128 0x13
+ 856 0065 00       		.byte	0
+ 857 0066 00       		.byte	0
+ 858 0067 09       		.uleb128 0x9
+ 859 0068 05       		.uleb128 0x5
+ 860 0069 00       		.byte	0
+ 861 006a 03       		.uleb128 0x3
+ 862 006b 0E       		.uleb128 0xe
+ 863 006c 3A       		.uleb128 0x3a
+ 864 006d 0B       		.uleb128 0xb
+ 865 006e 3B       		.uleb128 0x3b
+ 866 006f 0B       		.uleb128 0xb
+ 867 0070 49       		.uleb128 0x49
+ 868 0071 13       		.uleb128 0x13
+ 869 0072 02       		.uleb128 0x2
+ 870 0073 18       		.uleb128 0x18
+ 871 0074 00       		.byte	0
+ 872 0075 00       		.byte	0
+ 873 0076 0A       		.uleb128 0xa
+ 874 0077 34       		.uleb128 0x34
+ 875 0078 00       		.byte	0
+ 876 0079 03       		.uleb128 0x3
+ 877 007a 0E       		.uleb128 0xe
+ 878 007b 3A       		.uleb128 0x3a
+ 879 007c 0B       		.uleb128 0xb
+ 880 007d 3B       		.uleb128 0x3b
+ 881 007e 0B       		.uleb128 0xb
+ 882 007f 49       		.uleb128 0x49
+ 883 0080 13       		.uleb128 0x13
+ 884 0081 02       		.uleb128 0x2
+ 885 0082 18       		.uleb128 0x18
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLnWAS2.s 			page 24
+
+
+ 886 0083 00       		.byte	0
+ 887 0084 00       		.byte	0
+ 888 0085 0B       		.uleb128 0xb
+ 889 0086 2E       		.uleb128 0x2e
+ 890 0087 01       		.byte	0x1
+ 891 0088 3F       		.uleb128 0x3f
+ 892 0089 19       		.uleb128 0x19
+ 893 008a 03       		.uleb128 0x3
+ 894 008b 0E       		.uleb128 0xe
+ 895 008c 3A       		.uleb128 0x3a
+ 896 008d 0B       		.uleb128 0xb
+ 897 008e 3B       		.uleb128 0x3b
+ 898 008f 0B       		.uleb128 0xb
+ 899 0090 27       		.uleb128 0x27
+ 900 0091 19       		.uleb128 0x19
+ 901 0092 49       		.uleb128 0x49
+ 902 0093 13       		.uleb128 0x13
+ 903 0094 11       		.uleb128 0x11
+ 904 0095 01       		.uleb128 0x1
+ 905 0096 12       		.uleb128 0x12
+ 906 0097 06       		.uleb128 0x6
+ 907 0098 40       		.uleb128 0x40
+ 908 0099 18       		.uleb128 0x18
+ 909 009a 9742     		.uleb128 0x2117
+ 910 009c 19       		.uleb128 0x19
+ 911 009d 01       		.uleb128 0x1
+ 912 009e 13       		.uleb128 0x13
+ 913 009f 00       		.byte	0
+ 914 00a0 00       		.byte	0
+ 915 00a1 0C       		.uleb128 0xc
+ 916 00a2 2E       		.uleb128 0x2e
+ 917 00a3 01       		.byte	0x1
+ 918 00a4 3F       		.uleb128 0x3f
+ 919 00a5 19       		.uleb128 0x19
+ 920 00a6 03       		.uleb128 0x3
+ 921 00a7 0E       		.uleb128 0xe
+ 922 00a8 3A       		.uleb128 0x3a
+ 923 00a9 0B       		.uleb128 0xb
+ 924 00aa 3B       		.uleb128 0x3b
+ 925 00ab 05       		.uleb128 0x5
+ 926 00ac 27       		.uleb128 0x27
+ 927 00ad 19       		.uleb128 0x19
+ 928 00ae 11       		.uleb128 0x11
+ 929 00af 01       		.uleb128 0x1
+ 930 00b0 12       		.uleb128 0x12
+ 931 00b1 06       		.uleb128 0x6
+ 932 00b2 40       		.uleb128 0x40
+ 933 00b3 18       		.uleb128 0x18
+ 934 00b4 9742     		.uleb128 0x2117
+ 935 00b6 19       		.uleb128 0x19
+ 936 00b7 01       		.uleb128 0x1
+ 937 00b8 13       		.uleb128 0x13
+ 938 00b9 00       		.byte	0
+ 939 00ba 00       		.byte	0
+ 940 00bb 0D       		.uleb128 0xd
+ 941 00bc 05       		.uleb128 0x5
+ 942 00bd 00       		.byte	0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLnWAS2.s 			page 25
+
+
+ 943 00be 03       		.uleb128 0x3
+ 944 00bf 0E       		.uleb128 0xe
+ 945 00c0 3A       		.uleb128 0x3a
+ 946 00c1 0B       		.uleb128 0xb
+ 947 00c2 3B       		.uleb128 0x3b
+ 948 00c3 05       		.uleb128 0x5
+ 949 00c4 49       		.uleb128 0x49
+ 950 00c5 13       		.uleb128 0x13
+ 951 00c6 02       		.uleb128 0x2
+ 952 00c7 17       		.uleb128 0x17
+ 953 00c8 00       		.byte	0
+ 954 00c9 00       		.byte	0
+ 955 00ca 0E       		.uleb128 0xe
+ 956 00cb 2E       		.uleb128 0x2e
+ 957 00cc 01       		.byte	0x1
+ 958 00cd 3F       		.uleb128 0x3f
+ 959 00ce 19       		.uleb128 0x19
+ 960 00cf 03       		.uleb128 0x3
+ 961 00d0 0E       		.uleb128 0xe
+ 962 00d1 3A       		.uleb128 0x3a
+ 963 00d2 0B       		.uleb128 0xb
+ 964 00d3 3B       		.uleb128 0x3b
+ 965 00d4 05       		.uleb128 0x5
+ 966 00d5 27       		.uleb128 0x27
+ 967 00d6 19       		.uleb128 0x19
+ 968 00d7 49       		.uleb128 0x49
+ 969 00d8 13       		.uleb128 0x13
+ 970 00d9 11       		.uleb128 0x11
+ 971 00da 01       		.uleb128 0x1
+ 972 00db 12       		.uleb128 0x12
+ 973 00dc 06       		.uleb128 0x6
+ 974 00dd 40       		.uleb128 0x40
+ 975 00de 18       		.uleb128 0x18
+ 976 00df 9742     		.uleb128 0x2117
+ 977 00e1 19       		.uleb128 0x19
+ 978 00e2 01       		.uleb128 0x1
+ 979 00e3 13       		.uleb128 0x13
+ 980 00e4 00       		.byte	0
+ 981 00e5 00       		.byte	0
+ 982 00e6 0F       		.uleb128 0xf
+ 983 00e7 34       		.uleb128 0x34
+ 984 00e8 00       		.byte	0
+ 985 00e9 03       		.uleb128 0x3
+ 986 00ea 0E       		.uleb128 0xe
+ 987 00eb 3A       		.uleb128 0x3a
+ 988 00ec 0B       		.uleb128 0xb
+ 989 00ed 3B       		.uleb128 0x3b
+ 990 00ee 05       		.uleb128 0x5
+ 991 00ef 49       		.uleb128 0x49
+ 992 00f0 13       		.uleb128 0x13
+ 993 00f1 02       		.uleb128 0x2
+ 994 00f2 17       		.uleb128 0x17
+ 995 00f3 00       		.byte	0
+ 996 00f4 00       		.byte	0
+ 997 00f5 10       		.uleb128 0x10
+ 998 00f6 2E       		.uleb128 0x2e
+ 999 00f7 00       		.byte	0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLnWAS2.s 			page 26
+
+
+ 1000 00f8 3F       		.uleb128 0x3f
+ 1001 00f9 19       		.uleb128 0x19
+ 1002 00fa 03       		.uleb128 0x3
+ 1003 00fb 0E       		.uleb128 0xe
+ 1004 00fc 3A       		.uleb128 0x3a
+ 1005 00fd 0B       		.uleb128 0xb
+ 1006 00fe 3B       		.uleb128 0x3b
+ 1007 00ff 05       		.uleb128 0x5
+ 1008 0100 27       		.uleb128 0x27
+ 1009 0101 19       		.uleb128 0x19
+ 1010 0102 11       		.uleb128 0x11
+ 1011 0103 01       		.uleb128 0x1
+ 1012 0104 12       		.uleb128 0x12
+ 1013 0105 06       		.uleb128 0x6
+ 1014 0106 40       		.uleb128 0x40
+ 1015 0107 18       		.uleb128 0x18
+ 1016 0108 9742     		.uleb128 0x2117
+ 1017 010a 19       		.uleb128 0x19
+ 1018 010b 00       		.byte	0
+ 1019 010c 00       		.byte	0
+ 1020 010d 11       		.uleb128 0x11
+ 1021 010e 2E       		.uleb128 0x2e
+ 1022 010f 00       		.byte	0
+ 1023 0110 3F       		.uleb128 0x3f
+ 1024 0111 19       		.uleb128 0x19
+ 1025 0112 03       		.uleb128 0x3
+ 1026 0113 0E       		.uleb128 0xe
+ 1027 0114 3A       		.uleb128 0x3a
+ 1028 0115 0B       		.uleb128 0xb
+ 1029 0116 3B       		.uleb128 0x3b
+ 1030 0117 05       		.uleb128 0x5
+ 1031 0118 27       		.uleb128 0x27
+ 1032 0119 19       		.uleb128 0x19
+ 1033 011a 49       		.uleb128 0x49
+ 1034 011b 13       		.uleb128 0x13
+ 1035 011c 11       		.uleb128 0x11
+ 1036 011d 01       		.uleb128 0x1
+ 1037 011e 12       		.uleb128 0x12
+ 1038 011f 06       		.uleb128 0x6
+ 1039 0120 40       		.uleb128 0x40
+ 1040 0121 18       		.uleb128 0x18
+ 1041 0122 9742     		.uleb128 0x2117
+ 1042 0124 19       		.uleb128 0x19
+ 1043 0125 00       		.byte	0
+ 1044 0126 00       		.byte	0
+ 1045 0127 12       		.uleb128 0x12
+ 1046 0128 898201   		.uleb128 0x4109
+ 1047 012b 00       		.byte	0
+ 1048 012c 11       		.uleb128 0x11
+ 1049 012d 01       		.uleb128 0x1
+ 1050 012e 31       		.uleb128 0x31
+ 1051 012f 13       		.uleb128 0x13
+ 1052 0130 00       		.byte	0
+ 1053 0131 00       		.byte	0
+ 1054 0132 13       		.uleb128 0x13
+ 1055 0133 898201   		.uleb128 0x4109
+ 1056 0136 01       		.byte	0x1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLnWAS2.s 			page 27
+
+
+ 1057 0137 11       		.uleb128 0x11
+ 1058 0138 01       		.uleb128 0x1
+ 1059 0139 31       		.uleb128 0x31
+ 1060 013a 13       		.uleb128 0x13
+ 1061 013b 01       		.uleb128 0x1
+ 1062 013c 13       		.uleb128 0x13
+ 1063 013d 00       		.byte	0
+ 1064 013e 00       		.byte	0
+ 1065 013f 14       		.uleb128 0x14
+ 1066 0140 8A8201   		.uleb128 0x410a
+ 1067 0143 00       		.byte	0
+ 1068 0144 02       		.uleb128 0x2
+ 1069 0145 18       		.uleb128 0x18
+ 1070 0146 9142     		.uleb128 0x2111
+ 1071 0148 18       		.uleb128 0x18
+ 1072 0149 00       		.byte	0
+ 1073 014a 00       		.byte	0
+ 1074 014b 15       		.uleb128 0x15
+ 1075 014c 05       		.uleb128 0x5
+ 1076 014d 00       		.byte	0
+ 1077 014e 03       		.uleb128 0x3
+ 1078 014f 0E       		.uleb128 0xe
+ 1079 0150 3A       		.uleb128 0x3a
+ 1080 0151 0B       		.uleb128 0xb
+ 1081 0152 3B       		.uleb128 0x3b
+ 1082 0153 0B       		.uleb128 0xb
+ 1083 0154 49       		.uleb128 0x49
+ 1084 0155 13       		.uleb128 0x13
+ 1085 0156 02       		.uleb128 0x2
+ 1086 0157 17       		.uleb128 0x17
+ 1087 0158 00       		.byte	0
+ 1088 0159 00       		.byte	0
+ 1089 015a 16       		.uleb128 0x16
+ 1090 015b 2E       		.uleb128 0x2e
+ 1091 015c 00       		.byte	0
+ 1092 015d 3F       		.uleb128 0x3f
+ 1093 015e 19       		.uleb128 0x19
+ 1094 015f 3C       		.uleb128 0x3c
+ 1095 0160 19       		.uleb128 0x19
+ 1096 0161 6E       		.uleb128 0x6e
+ 1097 0162 0E       		.uleb128 0xe
+ 1098 0163 03       		.uleb128 0x3
+ 1099 0164 0E       		.uleb128 0xe
+ 1100 0165 3A       		.uleb128 0x3a
+ 1101 0166 0B       		.uleb128 0xb
+ 1102 0167 3B       		.uleb128 0x3b
+ 1103 0168 0B       		.uleb128 0xb
+ 1104 0169 00       		.byte	0
+ 1105 016a 00       		.byte	0
+ 1106 016b 00       		.byte	0
+ 1107              		.section	.debug_loc,"",%progbits
+ 1108              	.Ldebug_loc0:
+ 1109              	.LLST0:
+ 1110 0000 00000000 		.4byte	.LVL3
+ 1111 0004 02000000 		.4byte	.LVL4
+ 1112 0008 0100     		.2byte	0x1
+ 1113 000a 50       		.byte	0x50
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLnWAS2.s 			page 28
+
+
+ 1114 000b 02000000 		.4byte	.LVL4
+ 1115 000f 10000000 		.4byte	.LFE6
+ 1116 0013 0400     		.2byte	0x4
+ 1117 0015 F3       		.byte	0xf3
+ 1118 0016 01       		.uleb128 0x1
+ 1119 0017 50       		.byte	0x50
+ 1120 0018 9F       		.byte	0x9f
+ 1121 0019 00000000 		.4byte	0
+ 1122 001d 00000000 		.4byte	0
+ 1123              	.LLST1:
+ 1124 0021 04000000 		.4byte	.LVL5
+ 1125 0025 06000000 		.4byte	.LVL6
+ 1126 0029 0500     		.2byte	0x5
+ 1127 002b 70       		.byte	0x70
+ 1128 002c 00       		.sleb128 0
+ 1129 002d 35       		.byte	0x35
+ 1130 002e 25       		.byte	0x25
+ 1131 002f 9F       		.byte	0x9f
+ 1132 0030 00000000 		.4byte	0
+ 1133 0034 00000000 		.4byte	0
+ 1134              	.LLST2:
+ 1135 0038 00000000 		.4byte	.LVL11
+ 1136 003c 07000000 		.4byte	.LVL12-1
+ 1137 0040 0100     		.2byte	0x1
+ 1138 0042 50       		.byte	0x50
+ 1139 0043 07000000 		.4byte	.LVL12-1
+ 1140 0047 1A000000 		.4byte	.LFE1
+ 1141 004b 0100     		.2byte	0x1
+ 1142 004d 54       		.byte	0x54
+ 1143 004e 00000000 		.4byte	0
+ 1144 0052 00000000 		.4byte	0
+ 1145              		.section	.debug_aranges,"",%progbits
+ 1146 0000 7C000000 		.4byte	0x7c
+ 1147 0004 0200     		.2byte	0x2
+ 1148 0006 00000000 		.4byte	.Ldebug_info0
+ 1149 000a 04       		.byte	0x4
+ 1150 000b 00       		.byte	0
+ 1151 000c 0000     		.2byte	0
+ 1152 000e 0000     		.2byte	0
+ 1153 0010 00000000 		.4byte	.LFB4
+ 1154 0014 0C000000 		.4byte	.LFE4-.LFB4
+ 1155 0018 00000000 		.4byte	.LFB5
+ 1156 001c 0C000000 		.4byte	.LFE5-.LFB5
+ 1157 0020 00000000 		.4byte	.LFB6
+ 1158 0024 10000000 		.4byte	.LFE6-.LFB6
+ 1159 0028 00000000 		.4byte	.LFB7
+ 1160 002c 0C000000 		.4byte	.LFE7-.LFB7
+ 1161 0030 00000000 		.4byte	.LFB8
+ 1162 0034 0C000000 		.4byte	.LFE8-.LFB8
+ 1163 0038 00000000 		.4byte	.LFB9
+ 1164 003c 10000000 		.4byte	.LFE9-.LFB9
+ 1165 0040 00000000 		.4byte	.LFB10
+ 1166 0044 0C000000 		.4byte	.LFE10-.LFB10
+ 1167 0048 00000000 		.4byte	.LFB0
+ 1168 004c 1C000000 		.4byte	.LFE0-.LFB0
+ 1169 0050 00000000 		.4byte	.LFB1
+ 1170 0054 1A000000 		.4byte	.LFE1-.LFB1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLnWAS2.s 			page 29
+
+
+ 1171 0058 00000000 		.4byte	.LFB2
+ 1172 005c 14000000 		.4byte	.LFE2-.LFB2
+ 1173 0060 00000000 		.4byte	.LFB11
+ 1174 0064 0C000000 		.4byte	.LFE11-.LFB11
+ 1175 0068 00000000 		.4byte	.LFB12
+ 1176 006c 0C000000 		.4byte	.LFE12-.LFB12
+ 1177 0070 00000000 		.4byte	.LFB3
+ 1178 0074 14000000 		.4byte	.LFE3-.LFB3
+ 1179 0078 00000000 		.4byte	0
+ 1180 007c 00000000 		.4byte	0
+ 1181              		.section	.debug_ranges,"",%progbits
+ 1182              	.Ldebug_ranges0:
+ 1183 0000 00000000 		.4byte	.LFB4
+ 1184 0004 0C000000 		.4byte	.LFE4
+ 1185 0008 00000000 		.4byte	.LFB5
+ 1186 000c 0C000000 		.4byte	.LFE5
+ 1187 0010 00000000 		.4byte	.LFB6
+ 1188 0014 10000000 		.4byte	.LFE6
+ 1189 0018 00000000 		.4byte	.LFB7
+ 1190 001c 0C000000 		.4byte	.LFE7
+ 1191 0020 00000000 		.4byte	.LFB8
+ 1192 0024 0C000000 		.4byte	.LFE8
+ 1193 0028 00000000 		.4byte	.LFB9
+ 1194 002c 10000000 		.4byte	.LFE9
+ 1195 0030 00000000 		.4byte	.LFB10
+ 1196 0034 0C000000 		.4byte	.LFE10
+ 1197 0038 00000000 		.4byte	.LFB0
+ 1198 003c 1C000000 		.4byte	.LFE0
+ 1199 0040 00000000 		.4byte	.LFB1
+ 1200 0044 1A000000 		.4byte	.LFE1
+ 1201 0048 00000000 		.4byte	.LFB2
+ 1202 004c 14000000 		.4byte	.LFE2
+ 1203 0050 00000000 		.4byte	.LFB11
+ 1204 0054 0C000000 		.4byte	.LFE11
+ 1205 0058 00000000 		.4byte	.LFB12
+ 1206 005c 0C000000 		.4byte	.LFE12
+ 1207 0060 00000000 		.4byte	.LFB3
+ 1208 0064 14000000 		.4byte	.LFE3
+ 1209 0068 00000000 		.4byte	0
+ 1210 006c 00000000 		.4byte	0
+ 1211              		.section	.debug_line,"",%progbits
+ 1212              	.Ldebug_line0:
+ 1213 0000 5F010000 		.section	.debug_str,"MS",%progbits,1
+ 1213      02006F00 
+ 1213      00000201 
+ 1213      FB0E0D00 
+ 1213      01010101 
+ 1214              	.LASF17:
+ 1215 0000 72656733 		.ascii	"reg32\000"
+ 1215      3200
+ 1216              	.LASF29:
+ 1217 0006 5472616E 		.ascii	"TransmitWordShift_StartEx\000"
+ 1217      736D6974 
+ 1217      576F7264 
+ 1217      53686966 
+ 1217      745F5374 
+ 1218              	.LASF25:
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLnWAS2.s 			page 30
+
+
+ 1219 0020 5472616E 		.ascii	"TransmitWordShift_GetPriority\000"
+ 1219      736D6974 
+ 1219      576F7264 
+ 1219      53686966 
+ 1219      745F4765 
+ 1220              	.LASF6:
+ 1221 003e 73686F72 		.ascii	"short unsigned int\000"
+ 1221      7420756E 
+ 1221      7369676E 
+ 1221      65642069 
+ 1221      6E7400
+ 1222              	.LASF39:
+ 1223 0051 5472616E 		.ascii	"TransmitWordShift_GetState\000"
+ 1223      736D6974 
+ 1223      576F7264 
+ 1223      53686966 
+ 1223      745F4765 
+ 1224              	.LASF24:
+ 1225 006c 5472616E 		.ascii	"TransmitWordShift_GetVector\000"
+ 1225      736D6974 
+ 1225      576F7264 
+ 1225      53686966 
+ 1225      745F4765 
+ 1226              	.LASF33:
+ 1227 0088 5472616E 		.ascii	"TransmitWordShift_Interrupt\000"
+ 1227      736D6974 
+ 1227      576F7264 
+ 1227      53686966 
+ 1227      745F496E 
+ 1228              	.LASF14:
+ 1229 00a4 666C6F61 		.ascii	"float\000"
+ 1229      7400
+ 1230              	.LASF38:
+ 1231 00aa 433A5C55 		.ascii	"C:\\Users\\e.ivanov\\Documents\\GitHub\\time_src\\b"
+ 1231      73657273 
+ 1231      5C652E69 
+ 1231      76616E6F 
+ 1231      765C446F 
+ 1232 00d7 72616E63 		.ascii	"ranch\\Manchester encoder-decoder.cydsn\000"
+ 1232      685C4D61 
+ 1232      6E636865 
+ 1232      73746572 
+ 1232      20656E63 
+ 1233              	.LASF4:
+ 1234 00fe 756E7369 		.ascii	"unsigned char\000"
+ 1234      676E6564 
+ 1234      20636861 
+ 1234      7200
+ 1235              	.LASF36:
+ 1236 010c 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1236      43313120 
+ 1236      352E342E 
+ 1236      31203230 
+ 1236      31363036 
+ 1237 013f 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1237      20726576 
+ 1237      6973696F 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLnWAS2.s 			page 31
+
+
+ 1237      6E203233 
+ 1237      37373135 
+ 1238 0172 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1238      66756E63 
+ 1238      74696F6E 
+ 1238      2D736563 
+ 1238      74696F6E 
+ 1239              	.LASF32:
+ 1240 019a 5472616E 		.ascii	"TransmitWordShift_ClearPending\000"
+ 1240      736D6974 
+ 1240      576F7264 
+ 1240      53686966 
+ 1240      745F436C 
+ 1241              	.LASF26:
+ 1242 01b9 5472616E 		.ascii	"TransmitWordShift_Enable\000"
+ 1242      736D6974 
+ 1242      576F7264 
+ 1242      53686966 
+ 1242      745F456E 
+ 1243              	.LASF35:
+ 1244 01d2 42697443 		.ascii	"BitCounterEnc_ReadStatusRegister\000"
+ 1244      6F756E74 
+ 1244      6572456E 
+ 1244      635F5265 
+ 1244      61645374 
+ 1245              	.LASF8:
+ 1246 01f3 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1246      20756E73 
+ 1246      69676E65 
+ 1246      6420696E 
+ 1246      7400
+ 1247              	.LASF12:
+ 1248 0205 75696E74 		.ascii	"uint8\000"
+ 1248      3800
+ 1249              	.LASF23:
+ 1250 020b 7072696F 		.ascii	"priority\000"
+ 1250      72697479 
+ 1250      00
+ 1251              	.LASF34:
+ 1252 0214 436C6561 		.ascii	"ClearStatus\000"
+ 1252      72537461 
+ 1252      74757300 
+ 1253              	.LASF15:
+ 1254 0220 646F7562 		.ascii	"double\000"
+ 1254      6C6500
+ 1255              	.LASF37:
+ 1256 0227 47656E65 		.ascii	"Generated_Source\\PSoC5\\TransmitWordShift.c\000"
+ 1256      72617465 
+ 1256      645F536F 
+ 1256      75726365 
+ 1256      5C50536F 
+ 1257              	.LASF13:
+ 1258 0252 75696E74 		.ascii	"uint32\000"
+ 1258      333200
+ 1259              	.LASF21:
+ 1260 0259 5472616E 		.ascii	"TransmitWordShift_SetPriority\000"
+ 1260      736D6974 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLnWAS2.s 			page 32
+
+
+ 1260      576F7264 
+ 1260      53686966 
+ 1260      745F5365 
+ 1261              	.LASF0:
+ 1262 0277 756E7369 		.ascii	"unsigned int\000"
+ 1262      676E6564 
+ 1262      20696E74 
+ 1262      00
+ 1263              	.LASF22:
+ 1264 0284 61646472 		.ascii	"address\000"
+ 1264      65737300 
+ 1265              	.LASF9:
+ 1266 028c 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1266      206C6F6E 
+ 1266      6720756E 
+ 1266      7369676E 
+ 1266      65642069 
+ 1267              	.LASF18:
+ 1268 02a3 63796973 		.ascii	"cyisraddress\000"
+ 1268      72616464 
+ 1268      72657373 
+ 1268      00
+ 1269              	.LASF16:
+ 1270 02b0 72656738 		.ascii	"reg8\000"
+ 1270      00
+ 1271              	.LASF10:
+ 1272 02b5 73697A65 		.ascii	"sizetype\000"
+ 1272      74797065 
+ 1272      00
+ 1273              	.LASF1:
+ 1274 02be 6C6F6E67 		.ascii	"long long int\000"
+ 1274      206C6F6E 
+ 1274      6720696E 
+ 1274      7400
+ 1275              	.LASF11:
+ 1276 02cc 63686172 		.ascii	"char\000"
+ 1276      00
+ 1277              	.LASF19:
+ 1278 02d1 72616D56 		.ascii	"ramVectorTable\000"
+ 1278      6563746F 
+ 1278      72546162 
+ 1278      6C6500
+ 1279              	.LASF5:
+ 1280 02e0 73686F72 		.ascii	"short int\000"
+ 1280      7420696E 
+ 1280      7400
+ 1281              	.LASF20:
+ 1282 02ea 5472616E 		.ascii	"TransmitWordShift_SetVector\000"
+ 1282      736D6974 
+ 1282      576F7264 
+ 1282      53686966 
+ 1282      745F5365 
+ 1283              	.LASF27:
+ 1284 0306 5472616E 		.ascii	"TransmitWordShift_Disable\000"
+ 1284      736D6974 
+ 1284      576F7264 
+ 1284      53686966 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLnWAS2.s 			page 33
+
+
+ 1284      745F4469 
+ 1285              	.LASF28:
+ 1286 0320 5472616E 		.ascii	"TransmitWordShift_Start\000"
+ 1286      736D6974 
+ 1286      576F7264 
+ 1286      53686966 
+ 1286      745F5374 
+ 1287              	.LASF7:
+ 1288 0338 6C6F6E67 		.ascii	"long int\000"
+ 1288      20696E74 
+ 1288      00
+ 1289              	.LASF31:
+ 1290 0341 5472616E 		.ascii	"TransmitWordShift_SetPending\000"
+ 1290      736D6974 
+ 1290      576F7264 
+ 1290      53686966 
+ 1290      745F5365 
+ 1291              	.LASF2:
+ 1292 035e 6C6F6E67 		.ascii	"long double\000"
+ 1292      20646F75 
+ 1292      626C6500 
+ 1293              	.LASF3:
+ 1294 036a 7369676E 		.ascii	"signed char\000"
+ 1294      65642063 
+ 1294      68617200 
+ 1295              	.LASF30:
+ 1296 0376 5472616E 		.ascii	"TransmitWordShift_Stop\000"
+ 1296      736D6974 
+ 1296      576F7264 
+ 1296      53686966 
+ 1296      745F5374 
+ 1297              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

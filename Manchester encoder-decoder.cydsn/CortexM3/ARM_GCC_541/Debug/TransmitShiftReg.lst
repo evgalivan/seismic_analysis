@@ -1,0 +1,2167 @@
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"TransmitShiftReg.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.TransmitShiftReg_EnableInt,"ax",%progbits
+  20              		.align	2
+  21              		.global	TransmitShiftReg_EnableInt
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	TransmitShiftReg_EnableInt, %function
+  25              	TransmitShiftReg_EnableInt:
+  26              	.LFB4:
+  27              		.file 1 "Generated_Source\\PSoC5\\TransmitShiftReg.c"
+   1:Generated_Source\PSoC5/TransmitShiftReg.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/TransmitShiftReg.c **** * File Name: TransmitShiftReg.c
+   3:Generated_Source\PSoC5/TransmitShiftReg.c **** * Version 2.30
+   4:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+   5:Generated_Source\PSoC5/TransmitShiftReg.c **** * Description:
+   6:Generated_Source\PSoC5/TransmitShiftReg.c **** *  This file provides the API source code for the Shift Register component.
+   7:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+   8:Generated_Source\PSoC5/TransmitShiftReg.c **** * Note: none
+   9:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+  10:Generated_Source\PSoC5/TransmitShiftReg.c **** ********************************************************************************
+  11:Generated_Source\PSoC5/TransmitShiftReg.c **** * Copyright 2008-2013, Cypress Semiconductor Corporation.  All rights reserved.
+  12:Generated_Source\PSoC5/TransmitShiftReg.c **** * You may use this file only in accordance with the license, terms, conditions,
+  13:Generated_Source\PSoC5/TransmitShiftReg.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  14:Generated_Source\PSoC5/TransmitShiftReg.c **** * the software package with which this file was provided.
+  15:Generated_Source\PSoC5/TransmitShiftReg.c **** ********************************************************************************/
+  16:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+  17:Generated_Source\PSoC5/TransmitShiftReg.c **** #include "TransmitShiftReg.h"
+  18:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+  19:Generated_Source\PSoC5/TransmitShiftReg.c **** uint8 TransmitShiftReg_initVar = 0u;
+  20:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+  21:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+  22:Generated_Source\PSoC5/TransmitShiftReg.c **** /*******************************************************************************
+  23:Generated_Source\PSoC5/TransmitShiftReg.c **** * Function Name: TransmitShiftReg_Start
+  24:Generated_Source\PSoC5/TransmitShiftReg.c **** ********************************************************************************
+  25:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+  26:Generated_Source\PSoC5/TransmitShiftReg.c **** * Summary:
+  27:Generated_Source\PSoC5/TransmitShiftReg.c **** *  Starts the Shift Register.
+  28:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+  29:Generated_Source\PSoC5/TransmitShiftReg.c **** * Parameters:
+  30:Generated_Source\PSoC5/TransmitShiftReg.c **** *  None.
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 2
+
+
+  31:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+  32:Generated_Source\PSoC5/TransmitShiftReg.c **** * Return:
+  33:Generated_Source\PSoC5/TransmitShiftReg.c **** *  None.
+  34:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+  35:Generated_Source\PSoC5/TransmitShiftReg.c **** * Global Variables:
+  36:Generated_Source\PSoC5/TransmitShiftReg.c **** *  TransmitShiftReg_initVar - used to check initial configuration, modified on
+  37:Generated_Source\PSoC5/TransmitShiftReg.c **** *  first function call.
+  38:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+  39:Generated_Source\PSoC5/TransmitShiftReg.c **** * Reentrant:
+  40:Generated_Source\PSoC5/TransmitShiftReg.c **** *  No.
+  41:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+  42:Generated_Source\PSoC5/TransmitShiftReg.c **** *******************************************************************************/
+  43:Generated_Source\PSoC5/TransmitShiftReg.c **** void TransmitShiftReg_Start(void) 
+  44:Generated_Source\PSoC5/TransmitShiftReg.c **** {
+  45:Generated_Source\PSoC5/TransmitShiftReg.c ****     if(0u == TransmitShiftReg_initVar)
+  46:Generated_Source\PSoC5/TransmitShiftReg.c ****     {
+  47:Generated_Source\PSoC5/TransmitShiftReg.c ****         TransmitShiftReg_Init();
+  48:Generated_Source\PSoC5/TransmitShiftReg.c ****         TransmitShiftReg_initVar = 1u; /* Component initialized */
+  49:Generated_Source\PSoC5/TransmitShiftReg.c ****     }
+  50:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+  51:Generated_Source\PSoC5/TransmitShiftReg.c ****     TransmitShiftReg_Enable();
+  52:Generated_Source\PSoC5/TransmitShiftReg.c **** }
+  53:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+  54:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+  55:Generated_Source\PSoC5/TransmitShiftReg.c **** /*******************************************************************************
+  56:Generated_Source\PSoC5/TransmitShiftReg.c **** * Function Name: TransmitShiftReg_Enable
+  57:Generated_Source\PSoC5/TransmitShiftReg.c **** ********************************************************************************
+  58:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+  59:Generated_Source\PSoC5/TransmitShiftReg.c **** * Summary:
+  60:Generated_Source\PSoC5/TransmitShiftReg.c **** *  Enables the Shift Register.
+  61:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+  62:Generated_Source\PSoC5/TransmitShiftReg.c **** * Parameters:
+  63:Generated_Source\PSoC5/TransmitShiftReg.c **** *  void.
+  64:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+  65:Generated_Source\PSoC5/TransmitShiftReg.c **** * Return:
+  66:Generated_Source\PSoC5/TransmitShiftReg.c **** *  void.
+  67:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+  68:Generated_Source\PSoC5/TransmitShiftReg.c **** *******************************************************************************/
+  69:Generated_Source\PSoC5/TransmitShiftReg.c **** void TransmitShiftReg_Enable(void) 
+  70:Generated_Source\PSoC5/TransmitShiftReg.c **** {
+  71:Generated_Source\PSoC5/TransmitShiftReg.c ****     /* Changing address in Datapath Control Store
+  72:Generated_Source\PSoC5/TransmitShiftReg.c ****        from NOP to component state machine commands space */
+  73:Generated_Source\PSoC5/TransmitShiftReg.c ****     TransmitShiftReg_SR_CONTROL |= TransmitShiftReg_CLK_EN;
+  74:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+  75:Generated_Source\PSoC5/TransmitShiftReg.c ****     TransmitShiftReg_EnableInt();
+  76:Generated_Source\PSoC5/TransmitShiftReg.c **** }
+  77:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+  78:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+  79:Generated_Source\PSoC5/TransmitShiftReg.c **** /*******************************************************************************
+  80:Generated_Source\PSoC5/TransmitShiftReg.c **** * Function Name: TransmitShiftReg_Init
+  81:Generated_Source\PSoC5/TransmitShiftReg.c **** ********************************************************************************
+  82:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+  83:Generated_Source\PSoC5/TransmitShiftReg.c **** * Summary:
+  84:Generated_Source\PSoC5/TransmitShiftReg.c **** *  Initializes Tx and/or Rx interrupt sources with initial values.
+  85:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+  86:Generated_Source\PSoC5/TransmitShiftReg.c **** * Parameters:
+  87:Generated_Source\PSoC5/TransmitShiftReg.c **** *  void.
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 3
+
+
+  88:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+  89:Generated_Source\PSoC5/TransmitShiftReg.c **** * Return:
+  90:Generated_Source\PSoC5/TransmitShiftReg.c **** *  void.
+  91:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+  92:Generated_Source\PSoC5/TransmitShiftReg.c **** *******************************************************************************/
+  93:Generated_Source\PSoC5/TransmitShiftReg.c **** void TransmitShiftReg_Init(void) 
+  94:Generated_Source\PSoC5/TransmitShiftReg.c **** {
+  95:Generated_Source\PSoC5/TransmitShiftReg.c ****     TransmitShiftReg_SetIntMode(TransmitShiftReg_INT_SRC);
+  96:Generated_Source\PSoC5/TransmitShiftReg.c **** }
+  97:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+  98:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+  99:Generated_Source\PSoC5/TransmitShiftReg.c **** /*******************************************************************************
+ 100:Generated_Source\PSoC5/TransmitShiftReg.c **** * Function Name: TransmitShiftReg_Stop
+ 101:Generated_Source\PSoC5/TransmitShiftReg.c **** ********************************************************************************
+ 102:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+ 103:Generated_Source\PSoC5/TransmitShiftReg.c **** * Summary:
+ 104:Generated_Source\PSoC5/TransmitShiftReg.c **** *  Disables the Shift Register
+ 105:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+ 106:Generated_Source\PSoC5/TransmitShiftReg.c **** * Parameters:
+ 107:Generated_Source\PSoC5/TransmitShiftReg.c **** *  None.
+ 108:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+ 109:Generated_Source\PSoC5/TransmitShiftReg.c **** * Return:
+ 110:Generated_Source\PSoC5/TransmitShiftReg.c **** *  None.
+ 111:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+ 112:Generated_Source\PSoC5/TransmitShiftReg.c **** *******************************************************************************/
+ 113:Generated_Source\PSoC5/TransmitShiftReg.c **** void TransmitShiftReg_Stop(void) 
+ 114:Generated_Source\PSoC5/TransmitShiftReg.c **** {
+ 115:Generated_Source\PSoC5/TransmitShiftReg.c ****     /*changing Datapath Control Store address to NOP space*/
+ 116:Generated_Source\PSoC5/TransmitShiftReg.c ****     TransmitShiftReg_SR_CONTROL &= ((uint8) ~TransmitShiftReg_CLK_EN);
+ 117:Generated_Source\PSoC5/TransmitShiftReg.c ****     TransmitShiftReg_DisableInt();
+ 118:Generated_Source\PSoC5/TransmitShiftReg.c **** }
+ 119:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 120:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 121:Generated_Source\PSoC5/TransmitShiftReg.c **** /*******************************************************************************
+ 122:Generated_Source\PSoC5/TransmitShiftReg.c **** * Function Name: TransmitShiftReg_EnableInt
+ 123:Generated_Source\PSoC5/TransmitShiftReg.c **** ********************************************************************************
+ 124:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+ 125:Generated_Source\PSoC5/TransmitShiftReg.c **** * Summary:
+ 126:Generated_Source\PSoC5/TransmitShiftReg.c **** *  Enables the Shift Register interrupt.
+ 127:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+ 128:Generated_Source\PSoC5/TransmitShiftReg.c **** * Parameters:
+ 129:Generated_Source\PSoC5/TransmitShiftReg.c **** *  None.
+ 130:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+ 131:Generated_Source\PSoC5/TransmitShiftReg.c **** * Return:
+ 132:Generated_Source\PSoC5/TransmitShiftReg.c **** *  None.
+ 133:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+ 134:Generated_Source\PSoC5/TransmitShiftReg.c **** *******************************************************************************/
+ 135:Generated_Source\PSoC5/TransmitShiftReg.c **** void TransmitShiftReg_EnableInt(void) 
+ 136:Generated_Source\PSoC5/TransmitShiftReg.c **** {
+  28              		.loc 1 136 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 4
+
+
+ 137:Generated_Source\PSoC5/TransmitShiftReg.c ****     uint8 interruptState;
+ 138:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 139:Generated_Source\PSoC5/TransmitShiftReg.c ****     interruptState = CyEnterCriticalSection();
+  36              		.loc 1 139 0
+  37 0002 FFF7FEFF 		bl	CyEnterCriticalSection
+  38              	.LVL0:
+ 140:Generated_Source\PSoC5/TransmitShiftReg.c ****     TransmitShiftReg_SR_AUX_CONTROL |= TransmitShiftReg_INTERRUPTS_ENABLE;
+  39              		.loc 1 140 0
+  40 0006 044A     		ldr	r2, .L3
+  41 0008 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  42 000a 43F01003 		orr	r3, r3, #16
+  43 000e 1370     		strb	r3, [r2]
+ 141:Generated_Source\PSoC5/TransmitShiftReg.c ****     CyExitCriticalSection(interruptState);
+  44              		.loc 1 141 0
+  45 0010 FFF7FEFF 		bl	CyExitCriticalSection
+  46              	.LVL1:
+  47 0014 08BD     		pop	{r3, pc}
+  48              	.L4:
+  49 0016 00BF     		.align	2
+  50              	.L3:
+  51 0018 9B650040 		.word	1073767835
+  52              		.cfi_endproc
+  53              	.LFE4:
+  54              		.size	TransmitShiftReg_EnableInt, .-TransmitShiftReg_EnableInt
+  55              		.section	.text.TransmitShiftReg_Enable,"ax",%progbits
+  56              		.align	2
+  57              		.global	TransmitShiftReg_Enable
+  58              		.thumb
+  59              		.thumb_func
+  60              		.type	TransmitShiftReg_Enable, %function
+  61              	TransmitShiftReg_Enable:
+  62              	.LFB1:
+  70:Generated_Source\PSoC5/TransmitShiftReg.c ****     /* Changing address in Datapath Control Store
+  63              		.loc 1 70 0
+  64              		.cfi_startproc
+  65              		@ args = 0, pretend = 0, frame = 0
+  66              		@ frame_needed = 0, uses_anonymous_args = 0
+  67 0000 08B5     		push	{r3, lr}
+  68              		.cfi_def_cfa_offset 8
+  69              		.cfi_offset 3, -8
+  70              		.cfi_offset 14, -4
+  73:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+  71              		.loc 1 73 0
+  72 0002 044A     		ldr	r2, .L7
+  73 0004 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  74 0006 43F00103 		orr	r3, r3, #1
+  75 000a 1370     		strb	r3, [r2]
+  75:Generated_Source\PSoC5/TransmitShiftReg.c **** }
+  76              		.loc 1 75 0
+  77 000c FFF7FEFF 		bl	TransmitShiftReg_EnableInt
+  78              	.LVL2:
+  79 0010 08BD     		pop	{r3, pc}
+  80              	.L8:
+  81 0012 00BF     		.align	2
+  82              	.L7:
+  83 0014 7B650040 		.word	1073767803
+  84              		.cfi_endproc
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 5
+
+
+  85              	.LFE1:
+  86              		.size	TransmitShiftReg_Enable, .-TransmitShiftReg_Enable
+  87              		.section	.text.TransmitShiftReg_DisableInt,"ax",%progbits
+  88              		.align	2
+  89              		.global	TransmitShiftReg_DisableInt
+  90              		.thumb
+  91              		.thumb_func
+  92              		.type	TransmitShiftReg_DisableInt, %function
+  93              	TransmitShiftReg_DisableInt:
+  94              	.LFB5:
+ 142:Generated_Source\PSoC5/TransmitShiftReg.c **** }
+ 143:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 144:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 145:Generated_Source\PSoC5/TransmitShiftReg.c **** /*******************************************************************************
+ 146:Generated_Source\PSoC5/TransmitShiftReg.c **** * Function Name: TransmitShiftReg_DisableInt
+ 147:Generated_Source\PSoC5/TransmitShiftReg.c **** ********************************************************************************
+ 148:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+ 149:Generated_Source\PSoC5/TransmitShiftReg.c **** * Summary:
+ 150:Generated_Source\PSoC5/TransmitShiftReg.c **** *  Disables the Shift Register interrupt.
+ 151:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+ 152:Generated_Source\PSoC5/TransmitShiftReg.c **** * Parameters:
+ 153:Generated_Source\PSoC5/TransmitShiftReg.c **** *  None.
+ 154:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+ 155:Generated_Source\PSoC5/TransmitShiftReg.c **** * Return:
+ 156:Generated_Source\PSoC5/TransmitShiftReg.c **** *  None.
+ 157:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+ 158:Generated_Source\PSoC5/TransmitShiftReg.c **** *******************************************************************************/
+ 159:Generated_Source\PSoC5/TransmitShiftReg.c **** void TransmitShiftReg_DisableInt(void) 
+ 160:Generated_Source\PSoC5/TransmitShiftReg.c **** {
+  95              		.loc 1 160 0
+  96              		.cfi_startproc
+  97              		@ args = 0, pretend = 0, frame = 0
+  98              		@ frame_needed = 0, uses_anonymous_args = 0
+  99 0000 08B5     		push	{r3, lr}
+ 100              		.cfi_def_cfa_offset 8
+ 101              		.cfi_offset 3, -8
+ 102              		.cfi_offset 14, -4
+ 161:Generated_Source\PSoC5/TransmitShiftReg.c ****     uint8 interruptState;
+ 162:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 163:Generated_Source\PSoC5/TransmitShiftReg.c ****     interruptState = CyEnterCriticalSection();
+ 103              		.loc 1 163 0
+ 104 0002 FFF7FEFF 		bl	CyEnterCriticalSection
+ 105              	.LVL3:
+ 164:Generated_Source\PSoC5/TransmitShiftReg.c ****     TransmitShiftReg_SR_AUX_CONTROL &= ((uint8) ~TransmitShiftReg_INTERRUPTS_ENABLE);
+ 106              		.loc 1 164 0
+ 107 0006 044A     		ldr	r2, .L11
+ 108 0008 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 109 000a 03F0EF03 		and	r3, r3, #239
+ 110 000e 1370     		strb	r3, [r2]
+ 165:Generated_Source\PSoC5/TransmitShiftReg.c ****     CyExitCriticalSection(interruptState);
+ 111              		.loc 1 165 0
+ 112 0010 FFF7FEFF 		bl	CyExitCriticalSection
+ 113              	.LVL4:
+ 114 0014 08BD     		pop	{r3, pc}
+ 115              	.L12:
+ 116 0016 00BF     		.align	2
+ 117              	.L11:
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 6
+
+
+ 118 0018 9B650040 		.word	1073767835
+ 119              		.cfi_endproc
+ 120              	.LFE5:
+ 121              		.size	TransmitShiftReg_DisableInt, .-TransmitShiftReg_DisableInt
+ 122              		.section	.text.TransmitShiftReg_Stop,"ax",%progbits
+ 123              		.align	2
+ 124              		.global	TransmitShiftReg_Stop
+ 125              		.thumb
+ 126              		.thumb_func
+ 127              		.type	TransmitShiftReg_Stop, %function
+ 128              	TransmitShiftReg_Stop:
+ 129              	.LFB3:
+ 114:Generated_Source\PSoC5/TransmitShiftReg.c ****     /*changing Datapath Control Store address to NOP space*/
+ 130              		.loc 1 114 0
+ 131              		.cfi_startproc
+ 132              		@ args = 0, pretend = 0, frame = 0
+ 133              		@ frame_needed = 0, uses_anonymous_args = 0
+ 134 0000 08B5     		push	{r3, lr}
+ 135              		.cfi_def_cfa_offset 8
+ 136              		.cfi_offset 3, -8
+ 137              		.cfi_offset 14, -4
+ 116:Generated_Source\PSoC5/TransmitShiftReg.c ****     TransmitShiftReg_DisableInt();
+ 138              		.loc 1 116 0
+ 139 0002 044A     		ldr	r2, .L15
+ 140 0004 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 141 0006 03F0FE03 		and	r3, r3, #254
+ 142 000a 1370     		strb	r3, [r2]
+ 117:Generated_Source\PSoC5/TransmitShiftReg.c **** }
+ 143              		.loc 1 117 0
+ 144 000c FFF7FEFF 		bl	TransmitShiftReg_DisableInt
+ 145              	.LVL5:
+ 146 0010 08BD     		pop	{r3, pc}
+ 147              	.L16:
+ 148 0012 00BF     		.align	2
+ 149              	.L15:
+ 150 0014 7B650040 		.word	1073767803
+ 151              		.cfi_endproc
+ 152              	.LFE3:
+ 153              		.size	TransmitShiftReg_Stop, .-TransmitShiftReg_Stop
+ 154              		.section	.text.TransmitShiftReg_GetFIFOStatus,"ax",%progbits
+ 155              		.align	2
+ 156              		.global	TransmitShiftReg_GetFIFOStatus
+ 157              		.thumb
+ 158              		.thumb_func
+ 159              		.type	TransmitShiftReg_GetFIFOStatus, %function
+ 160              	TransmitShiftReg_GetFIFOStatus:
+ 161              	.LFB6:
+ 166:Generated_Source\PSoC5/TransmitShiftReg.c **** }
+ 167:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 168:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 169:Generated_Source\PSoC5/TransmitShiftReg.c **** /*******************************************************************************
+ 170:Generated_Source\PSoC5/TransmitShiftReg.c **** * Function Name: TransmitShiftReg_GetFIFOStatus
+ 171:Generated_Source\PSoC5/TransmitShiftReg.c **** ********************************************************************************
+ 172:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+ 173:Generated_Source\PSoC5/TransmitShiftReg.c **** * Summary:
+ 174:Generated_Source\PSoC5/TransmitShiftReg.c **** *  Returns current status of input or output FIFO.
+ 175:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 7
+
+
+ 176:Generated_Source\PSoC5/TransmitShiftReg.c **** * Parameters:
+ 177:Generated_Source\PSoC5/TransmitShiftReg.c **** *  fifoId.
+ 178:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+ 179:Generated_Source\PSoC5/TransmitShiftReg.c **** * Return:
+ 180:Generated_Source\PSoC5/TransmitShiftReg.c **** *  FIFO status.
+ 181:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+ 182:Generated_Source\PSoC5/TransmitShiftReg.c **** *******************************************************************************/
+ 183:Generated_Source\PSoC5/TransmitShiftReg.c **** uint8 TransmitShiftReg_GetFIFOStatus(uint8 fifoId) 
+ 184:Generated_Source\PSoC5/TransmitShiftReg.c **** {
+ 162              		.loc 1 184 0
+ 163              		.cfi_startproc
+ 164              		@ args = 0, pretend = 0, frame = 0
+ 165              		@ frame_needed = 0, uses_anonymous_args = 0
+ 166              		@ link register save eliminated.
+ 167              	.LVL6:
+ 168 0000 0346     		mov	r3, r0
+ 169              	.LVL7:
+ 185:Generated_Source\PSoC5/TransmitShiftReg.c ****     uint8 result;
+ 186:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 187:Generated_Source\PSoC5/TransmitShiftReg.c ****     result = TransmitShiftReg_RET_FIFO_NOT_DEFINED;
+ 188:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 189:Generated_Source\PSoC5/TransmitShiftReg.c ****     #if(0u != TransmitShiftReg_USE_INPUT_FIFO)
+ 190:Generated_Source\PSoC5/TransmitShiftReg.c ****         if(TransmitShiftReg_IN_FIFO == fifoId)
+ 170              		.loc 1 190 0
+ 171 0002 0128     		cmp	r0, #1
+ 172 0004 0BD1     		bne	.L24
+ 191:Generated_Source\PSoC5/TransmitShiftReg.c ****         {
+ 192:Generated_Source\PSoC5/TransmitShiftReg.c ****             switch(TransmitShiftReg_GET_IN_FIFO_STS)
+ 173              		.loc 1 192 0
+ 174 0006 0F4A     		ldr	r2, .L28
+ 175 0008 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 176 000a C2F3C102 		ubfx	r2, r2, #3, #2
+ 177 000e 12B1     		cbz	r2, .L19
+ 178 0010 022A     		cmp	r2, #2
+ 179 0012 02D0     		beq	.L20
+ 180 0014 05E0     		b	.L27
+ 181              	.L19:
+ 193:Generated_Source\PSoC5/TransmitShiftReg.c ****             {
+ 194:Generated_Source\PSoC5/TransmitShiftReg.c ****                 case TransmitShiftReg_IN_FIFO_FULL :
+ 195:Generated_Source\PSoC5/TransmitShiftReg.c ****                     result = TransmitShiftReg_RET_FIFO_FULL;
+ 182              		.loc 1 195 0
+ 183 0016 0020     		movs	r0, #0
+ 184              	.LVL8:
+ 185 0018 04E0     		b	.L18
+ 186              	.LVL9:
+ 187              	.L20:
+ 196:Generated_Source\PSoC5/TransmitShiftReg.c ****                     break;
+ 197:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 198:Generated_Source\PSoC5/TransmitShiftReg.c ****                 case TransmitShiftReg_IN_FIFO_EMPTY :
+ 199:Generated_Source\PSoC5/TransmitShiftReg.c ****                     result = TransmitShiftReg_RET_FIFO_EMPTY;
+ 200:Generated_Source\PSoC5/TransmitShiftReg.c ****                     break;
+ 201:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 202:Generated_Source\PSoC5/TransmitShiftReg.c ****                 case TransmitShiftReg_IN_FIFO_PARTIAL:
+ 203:Generated_Source\PSoC5/TransmitShiftReg.c ****                     result = TransmitShiftReg_RET_FIFO_PARTIAL;
+ 188              		.loc 1 203 0
+ 189 001a 0120     		movs	r0, #1
+ 190              	.LVL10:
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 8
+
+
+ 204:Generated_Source\PSoC5/TransmitShiftReg.c ****                     break;
+ 191              		.loc 1 204 0
+ 192 001c 02E0     		b	.L18
+ 193              	.LVL11:
+ 194              	.L24:
+ 187:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 195              		.loc 1 187 0
+ 196 001e FE20     		movs	r0, #254
+ 197              	.LVL12:
+ 198 0020 00E0     		b	.L18
+ 199              	.LVL13:
+ 200              	.L27:
+ 199:Generated_Source\PSoC5/TransmitShiftReg.c ****                     break;
+ 201              		.loc 1 199 0
+ 202 0022 0220     		movs	r0, #2
+ 203              	.LVL14:
+ 204              	.L18:
+ 205:Generated_Source\PSoC5/TransmitShiftReg.c ****                     
+ 206:Generated_Source\PSoC5/TransmitShiftReg.c ****                 default:
+ 207:Generated_Source\PSoC5/TransmitShiftReg.c ****                     /* Initial result value, while 
+ 208:Generated_Source\PSoC5/TransmitShiftReg.c ****                        IN_FIFO_EMPTY case is false 
+ 209:Generated_Source\PSoC5/TransmitShiftReg.c ****                      */
+ 210:Generated_Source\PSoC5/TransmitShiftReg.c ****                     result = TransmitShiftReg_RET_FIFO_EMPTY;
+ 211:Generated_Source\PSoC5/TransmitShiftReg.c ****                     break;
+ 212:Generated_Source\PSoC5/TransmitShiftReg.c ****             }   
+ 213:Generated_Source\PSoC5/TransmitShiftReg.c ****         }
+ 214:Generated_Source\PSoC5/TransmitShiftReg.c ****     #endif /* (0u != TransmitShiftReg_USE_INPUT_FIFO) */
+ 215:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 216:Generated_Source\PSoC5/TransmitShiftReg.c ****     if(TransmitShiftReg_OUT_FIFO == fifoId)
+ 205              		.loc 1 216 0
+ 206 0024 022B     		cmp	r3, #2
+ 207 0026 0BD1     		bne	.L21
+ 217:Generated_Source\PSoC5/TransmitShiftReg.c ****     {
+ 218:Generated_Source\PSoC5/TransmitShiftReg.c ****         switch(TransmitShiftReg_GET_OUT_FIFO_STS)
+ 208              		.loc 1 218 0
+ 209 0028 064B     		ldr	r3, .L28
+ 210 002a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 211 002c C3F34113 		ubfx	r3, r3, #5, #2
+ 212 0030 2BB1     		cbz	r3, .L26
+ 213 0032 022B     		cmp	r3, #2
+ 214 0034 01D0     		beq	.L23
+ 219:Generated_Source\PSoC5/TransmitShiftReg.c ****         {
+ 220:Generated_Source\PSoC5/TransmitShiftReg.c ****             case TransmitShiftReg_OUT_FIFO_FULL :
+ 221:Generated_Source\PSoC5/TransmitShiftReg.c ****                 result = TransmitShiftReg_RET_FIFO_FULL;
+ 215              		.loc 1 221 0
+ 216 0036 0020     		movs	r0, #0
+ 217              	.LVL15:
+ 218 0038 7047     		bx	lr
+ 219              	.LVL16:
+ 220              	.L23:
+ 222:Generated_Source\PSoC5/TransmitShiftReg.c ****                 break;
+ 223:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 224:Generated_Source\PSoC5/TransmitShiftReg.c ****             case TransmitShiftReg_OUT_FIFO_EMPTY :
+ 225:Generated_Source\PSoC5/TransmitShiftReg.c ****                 result = TransmitShiftReg_RET_FIFO_EMPTY;
+ 226:Generated_Source\PSoC5/TransmitShiftReg.c ****                 break;
+ 227:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 228:Generated_Source\PSoC5/TransmitShiftReg.c ****             case TransmitShiftReg_OUT_FIFO_PARTIAL :
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 9
+
+
+ 229:Generated_Source\PSoC5/TransmitShiftReg.c ****                 result = TransmitShiftReg_RET_FIFO_PARTIAL;
+ 221              		.loc 1 229 0
+ 222 003a 0120     		movs	r0, #1
+ 230:Generated_Source\PSoC5/TransmitShiftReg.c ****                 break;
+ 223              		.loc 1 230 0
+ 224 003c 7047     		bx	lr
+ 225              	.LVL17:
+ 226              	.L26:
+ 225:Generated_Source\PSoC5/TransmitShiftReg.c ****                 break;
+ 227              		.loc 1 225 0
+ 228 003e 0220     		movs	r0, #2
+ 229              	.LVL18:
+ 230              	.L21:
+ 231:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 232:Generated_Source\PSoC5/TransmitShiftReg.c ****             default:
+ 233:Generated_Source\PSoC5/TransmitShiftReg.c ****                 /* Initial result value, while 
+ 234:Generated_Source\PSoC5/TransmitShiftReg.c ****                    OUT_FIFO_FULL case is false 
+ 235:Generated_Source\PSoC5/TransmitShiftReg.c ****                  */
+ 236:Generated_Source\PSoC5/TransmitShiftReg.c ****                 result = TransmitShiftReg_RET_FIFO_FULL;
+ 237:Generated_Source\PSoC5/TransmitShiftReg.c ****                 break;
+ 238:Generated_Source\PSoC5/TransmitShiftReg.c ****         }
+ 239:Generated_Source\PSoC5/TransmitShiftReg.c ****     }
+ 240:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 241:Generated_Source\PSoC5/TransmitShiftReg.c ****     return(result);
+ 242:Generated_Source\PSoC5/TransmitShiftReg.c **** }
+ 231              		.loc 1 242 0
+ 232 0040 7047     		bx	lr
+ 233              	.L29:
+ 234 0042 00BF     		.align	2
+ 235              	.L28:
+ 236 0044 6B650040 		.word	1073767787
+ 237              		.cfi_endproc
+ 238              	.LFE6:
+ 239              		.size	TransmitShiftReg_GetFIFOStatus, .-TransmitShiftReg_GetFIFOStatus
+ 240              		.section	.text.TransmitShiftReg_SetIntMode,"ax",%progbits
+ 241              		.align	2
+ 242              		.global	TransmitShiftReg_SetIntMode
+ 243              		.thumb
+ 244              		.thumb_func
+ 245              		.type	TransmitShiftReg_SetIntMode, %function
+ 246              	TransmitShiftReg_SetIntMode:
+ 247              	.LFB7:
+ 243:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 244:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 245:Generated_Source\PSoC5/TransmitShiftReg.c **** /*******************************************************************************
+ 246:Generated_Source\PSoC5/TransmitShiftReg.c **** * Function Name: TransmitShiftReg_SetIntMode
+ 247:Generated_Source\PSoC5/TransmitShiftReg.c **** ********************************************************************************
+ 248:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+ 249:Generated_Source\PSoC5/TransmitShiftReg.c **** * Summary:
+ 250:Generated_Source\PSoC5/TransmitShiftReg.c **** *  Sets the Interrupt Source for the Shift Register interrupt. Multiple
+ 251:Generated_Source\PSoC5/TransmitShiftReg.c **** *  sources may be ORed together
+ 252:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+ 253:Generated_Source\PSoC5/TransmitShiftReg.c **** * Parameters:
+ 254:Generated_Source\PSoC5/TransmitShiftReg.c **** *  interruptSource: Byte containing the constant for the selected interrupt
+ 255:Generated_Source\PSoC5/TransmitShiftReg.c **** *  source/s.
+ 256:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+ 257:Generated_Source\PSoC5/TransmitShiftReg.c **** * Return:
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 10
+
+
+ 258:Generated_Source\PSoC5/TransmitShiftReg.c **** *  None.
+ 259:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+ 260:Generated_Source\PSoC5/TransmitShiftReg.c **** *******************************************************************************/
+ 261:Generated_Source\PSoC5/TransmitShiftReg.c **** void TransmitShiftReg_SetIntMode(uint8 interruptSource) 
+ 262:Generated_Source\PSoC5/TransmitShiftReg.c **** {
+ 248              		.loc 1 262 0
+ 249              		.cfi_startproc
+ 250              		@ args = 0, pretend = 0, frame = 0
+ 251              		@ frame_needed = 0, uses_anonymous_args = 0
+ 252              		@ link register save eliminated.
+ 253              	.LVL19:
+ 263:Generated_Source\PSoC5/TransmitShiftReg.c ****     TransmitShiftReg_SR_STATUS_MASK &= ((uint8) ~TransmitShiftReg_INTS_EN_MASK);          /* Clear 
+ 254              		.loc 1 263 0
+ 255 0000 054B     		ldr	r3, .L31
+ 256 0002 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 257 0004 02F0F802 		and	r2, r2, #248
+ 258 0008 1A70     		strb	r2, [r3]
+ 264:Generated_Source\PSoC5/TransmitShiftReg.c ****     TransmitShiftReg_SR_STATUS_MASK |= (interruptSource & TransmitShiftReg_INTS_EN_MASK); /* Set in
+ 259              		.loc 1 264 0
+ 260 000a 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 261 000c 00F00700 		and	r0, r0, #7
+ 262              	.LVL20:
+ 263 0010 1043     		orrs	r0, r0, r2
+ 264 0012 1870     		strb	r0, [r3]
+ 265 0014 7047     		bx	lr
+ 266              	.L32:
+ 267 0016 00BF     		.align	2
+ 268              	.L31:
+ 269 0018 8B650040 		.word	1073767819
+ 270              		.cfi_endproc
+ 271              	.LFE7:
+ 272              		.size	TransmitShiftReg_SetIntMode, .-TransmitShiftReg_SetIntMode
+ 273              		.section	.text.TransmitShiftReg_Init,"ax",%progbits
+ 274              		.align	2
+ 275              		.global	TransmitShiftReg_Init
+ 276              		.thumb
+ 277              		.thumb_func
+ 278              		.type	TransmitShiftReg_Init, %function
+ 279              	TransmitShiftReg_Init:
+ 280              	.LFB2:
+  94:Generated_Source\PSoC5/TransmitShiftReg.c ****     TransmitShiftReg_SetIntMode(TransmitShiftReg_INT_SRC);
+ 281              		.loc 1 94 0
+ 282              		.cfi_startproc
+ 283              		@ args = 0, pretend = 0, frame = 0
+ 284              		@ frame_needed = 0, uses_anonymous_args = 0
+ 285 0000 08B5     		push	{r3, lr}
+ 286              		.cfi_def_cfa_offset 8
+ 287              		.cfi_offset 3, -8
+ 288              		.cfi_offset 14, -4
+  95:Generated_Source\PSoC5/TransmitShiftReg.c **** }
+ 289              		.loc 1 95 0
+ 290 0002 0120     		movs	r0, #1
+ 291 0004 FFF7FEFF 		bl	TransmitShiftReg_SetIntMode
+ 292              	.LVL21:
+ 293 0008 08BD     		pop	{r3, pc}
+ 294              		.cfi_endproc
+ 295              	.LFE2:
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 11
+
+
+ 296              		.size	TransmitShiftReg_Init, .-TransmitShiftReg_Init
+ 297 000a 00BF     		.section	.text.TransmitShiftReg_Start,"ax",%progbits
+ 298              		.align	2
+ 299              		.global	TransmitShiftReg_Start
+ 300              		.thumb
+ 301              		.thumb_func
+ 302              		.type	TransmitShiftReg_Start, %function
+ 303              	TransmitShiftReg_Start:
+ 304              	.LFB0:
+  44:Generated_Source\PSoC5/TransmitShiftReg.c ****     if(0u == TransmitShiftReg_initVar)
+ 305              		.loc 1 44 0
+ 306              		.cfi_startproc
+ 307              		@ args = 0, pretend = 0, frame = 0
+ 308              		@ frame_needed = 0, uses_anonymous_args = 0
+ 309 0000 08B5     		push	{r3, lr}
+ 310              		.cfi_def_cfa_offset 8
+ 311              		.cfi_offset 3, -8
+ 312              		.cfi_offset 14, -4
+  45:Generated_Source\PSoC5/TransmitShiftReg.c ****     {
+ 313              		.loc 1 45 0
+ 314 0002 054B     		ldr	r3, .L38
+ 315 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 316 0006 23B9     		cbnz	r3, .L36
+  47:Generated_Source\PSoC5/TransmitShiftReg.c ****         TransmitShiftReg_initVar = 1u; /* Component initialized */
+ 317              		.loc 1 47 0
+ 318 0008 FFF7FEFF 		bl	TransmitShiftReg_Init
+ 319              	.LVL22:
+  48:Generated_Source\PSoC5/TransmitShiftReg.c ****     }
+ 320              		.loc 1 48 0
+ 321 000c 0122     		movs	r2, #1
+ 322 000e 024B     		ldr	r3, .L38
+ 323 0010 1A70     		strb	r2, [r3]
+ 324              	.L36:
+  51:Generated_Source\PSoC5/TransmitShiftReg.c **** }
+ 325              		.loc 1 51 0
+ 326 0012 FFF7FEFF 		bl	TransmitShiftReg_Enable
+ 327              	.LVL23:
+ 328 0016 08BD     		pop	{r3, pc}
+ 329              	.L39:
+ 330              		.align	2
+ 331              	.L38:
+ 332 0018 00000000 		.word	.LANCHOR0
+ 333              		.cfi_endproc
+ 334              	.LFE0:
+ 335              		.size	TransmitShiftReg_Start, .-TransmitShiftReg_Start
+ 336              		.section	.text.TransmitShiftReg_GetIntStatus,"ax",%progbits
+ 337              		.align	2
+ 338              		.global	TransmitShiftReg_GetIntStatus
+ 339              		.thumb
+ 340              		.thumb_func
+ 341              		.type	TransmitShiftReg_GetIntStatus, %function
+ 342              	TransmitShiftReg_GetIntStatus:
+ 343              	.LFB8:
+ 265:Generated_Source\PSoC5/TransmitShiftReg.c **** }
+ 266:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 267:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 268:Generated_Source\PSoC5/TransmitShiftReg.c **** /*******************************************************************************
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 12
+
+
+ 269:Generated_Source\PSoC5/TransmitShiftReg.c **** * Function Name: TransmitShiftReg_GetIntStatus
+ 270:Generated_Source\PSoC5/TransmitShiftReg.c **** ********************************************************************************
+ 271:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+ 272:Generated_Source\PSoC5/TransmitShiftReg.c **** * Summary:
+ 273:Generated_Source\PSoC5/TransmitShiftReg.c **** *  Gets the Shift Register Interrupt status.
+ 274:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+ 275:Generated_Source\PSoC5/TransmitShiftReg.c **** * Parameters:
+ 276:Generated_Source\PSoC5/TransmitShiftReg.c **** *  None.
+ 277:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+ 278:Generated_Source\PSoC5/TransmitShiftReg.c **** * Return:
+ 279:Generated_Source\PSoC5/TransmitShiftReg.c **** *  Byte containing the constant for the selected interrupt source/s.
+ 280:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+ 281:Generated_Source\PSoC5/TransmitShiftReg.c **** *******************************************************************************/
+ 282:Generated_Source\PSoC5/TransmitShiftReg.c **** uint8 TransmitShiftReg_GetIntStatus(void) 
+ 283:Generated_Source\PSoC5/TransmitShiftReg.c **** {
+ 344              		.loc 1 283 0
+ 345              		.cfi_startproc
+ 346              		@ args = 0, pretend = 0, frame = 0
+ 347              		@ frame_needed = 0, uses_anonymous_args = 0
+ 348              		@ link register save eliminated.
+ 284:Generated_Source\PSoC5/TransmitShiftReg.c ****     return(TransmitShiftReg_SR_STATUS & TransmitShiftReg_INTS_EN_MASK);
+ 349              		.loc 1 284 0
+ 350 0000 024B     		ldr	r3, .L41
+ 351 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 285:Generated_Source\PSoC5/TransmitShiftReg.c **** }
+ 352              		.loc 1 285 0
+ 353 0004 00F00700 		and	r0, r0, #7
+ 354 0008 7047     		bx	lr
+ 355              	.L42:
+ 356 000a 00BF     		.align	2
+ 357              	.L41:
+ 358 000c 6B650040 		.word	1073767787
+ 359              		.cfi_endproc
+ 360              	.LFE8:
+ 361              		.size	TransmitShiftReg_GetIntStatus, .-TransmitShiftReg_GetIntStatus
+ 362              		.section	.text.TransmitShiftReg_WriteRegValue,"ax",%progbits
+ 363              		.align	2
+ 364              		.global	TransmitShiftReg_WriteRegValue
+ 365              		.thumb
+ 366              		.thumb_func
+ 367              		.type	TransmitShiftReg_WriteRegValue, %function
+ 368              	TransmitShiftReg_WriteRegValue:
+ 369              	.LFB9:
+ 286:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 287:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 288:Generated_Source\PSoC5/TransmitShiftReg.c **** /*******************************************************************************
+ 289:Generated_Source\PSoC5/TransmitShiftReg.c **** * Function Name: TransmitShiftReg_WriteRegValue
+ 290:Generated_Source\PSoC5/TransmitShiftReg.c **** ********************************************************************************
+ 291:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+ 292:Generated_Source\PSoC5/TransmitShiftReg.c **** * Summary:
+ 293:Generated_Source\PSoC5/TransmitShiftReg.c **** *  Send state directly to shift register
+ 294:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+ 295:Generated_Source\PSoC5/TransmitShiftReg.c **** * Parameters:
+ 296:Generated_Source\PSoC5/TransmitShiftReg.c **** *  shiftData: containing shift register state.
+ 297:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+ 298:Generated_Source\PSoC5/TransmitShiftReg.c **** * Return:
+ 299:Generated_Source\PSoC5/TransmitShiftReg.c **** *  None.
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 13
+
+
+ 300:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+ 301:Generated_Source\PSoC5/TransmitShiftReg.c **** *******************************************************************************/
+ 302:Generated_Source\PSoC5/TransmitShiftReg.c **** void TransmitShiftReg_WriteRegValue(uint32 shiftData)
+ 303:Generated_Source\PSoC5/TransmitShiftReg.c ****                                                                      
+ 304:Generated_Source\PSoC5/TransmitShiftReg.c **** {
+ 370              		.loc 1 304 0
+ 371              		.cfi_startproc
+ 372              		@ args = 0, pretend = 0, frame = 0
+ 373              		@ frame_needed = 0, uses_anonymous_args = 0
+ 374              		@ link register save eliminated.
+ 375              	.LVL24:
+ 305:Generated_Source\PSoC5/TransmitShiftReg.c ****     CY_SET_REG32(TransmitShiftReg_SHIFT_REG_LSB_PTR, shiftData);
+ 376              		.loc 1 305 0
+ 377 0000 014B     		ldr	r3, .L44
+ 378 0002 1860     		str	r0, [r3]
+ 379 0004 7047     		bx	lr
+ 380              	.L45:
+ 381 0006 00BF     		.align	2
+ 382              	.L44:
+ 383 0008 08650040 		.word	1073767688
+ 384              		.cfi_endproc
+ 385              	.LFE9:
+ 386              		.size	TransmitShiftReg_WriteRegValue, .-TransmitShiftReg_WriteRegValue
+ 387              		.section	.text.TransmitShiftReg_WriteData,"ax",%progbits
+ 388              		.align	2
+ 389              		.global	TransmitShiftReg_WriteData
+ 390              		.thumb
+ 391              		.thumb_func
+ 392              		.type	TransmitShiftReg_WriteData, %function
+ 393              	TransmitShiftReg_WriteData:
+ 394              	.LFB10:
+ 306:Generated_Source\PSoC5/TransmitShiftReg.c **** }
+ 307:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 308:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 309:Generated_Source\PSoC5/TransmitShiftReg.c **** #if(0u != TransmitShiftReg_USE_INPUT_FIFO)
+ 310:Generated_Source\PSoC5/TransmitShiftReg.c ****     /*******************************************************************************
+ 311:Generated_Source\PSoC5/TransmitShiftReg.c ****     * Function Name: TransmitShiftReg_WriteData
+ 312:Generated_Source\PSoC5/TransmitShiftReg.c ****     ********************************************************************************
+ 313:Generated_Source\PSoC5/TransmitShiftReg.c ****     *
+ 314:Generated_Source\PSoC5/TransmitShiftReg.c ****     * Summary:
+ 315:Generated_Source\PSoC5/TransmitShiftReg.c ****     *  Send state to FIFO for later transfer to shift register based on the Load
+ 316:Generated_Source\PSoC5/TransmitShiftReg.c ****     *  input
+ 317:Generated_Source\PSoC5/TransmitShiftReg.c ****     *
+ 318:Generated_Source\PSoC5/TransmitShiftReg.c ****     * Parameters:
+ 319:Generated_Source\PSoC5/TransmitShiftReg.c ****     *  shiftData: containing shift register state.
+ 320:Generated_Source\PSoC5/TransmitShiftReg.c ****     *
+ 321:Generated_Source\PSoC5/TransmitShiftReg.c ****     * Return:
+ 322:Generated_Source\PSoC5/TransmitShiftReg.c ****     *  Indicates: successful execution of function
+ 323:Generated_Source\PSoC5/TransmitShiftReg.c ****     *  when FIFO is empty; and error when FIFO is full.
+ 324:Generated_Source\PSoC5/TransmitShiftReg.c ****     *
+ 325:Generated_Source\PSoC5/TransmitShiftReg.c ****     * Reentrant:
+ 326:Generated_Source\PSoC5/TransmitShiftReg.c ****     *  No.
+ 327:Generated_Source\PSoC5/TransmitShiftReg.c ****     *
+ 328:Generated_Source\PSoC5/TransmitShiftReg.c ****     *******************************************************************************/
+ 329:Generated_Source\PSoC5/TransmitShiftReg.c ****     cystatus TransmitShiftReg_WriteData(uint32 shiftData)
+ 330:Generated_Source\PSoC5/TransmitShiftReg.c ****                                                                          
+ 331:Generated_Source\PSoC5/TransmitShiftReg.c ****     {
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 14
+
+
+ 395              		.loc 1 331 0
+ 396              		.cfi_startproc
+ 397              		@ args = 0, pretend = 0, frame = 0
+ 398              		@ frame_needed = 0, uses_anonymous_args = 0
+ 399              	.LVL25:
+ 400 0000 10B5     		push	{r4, lr}
+ 401              		.cfi_def_cfa_offset 8
+ 402              		.cfi_offset 4, -8
+ 403              		.cfi_offset 14, -4
+ 404 0002 0446     		mov	r4, r0
+ 405              	.LVL26:
+ 332:Generated_Source\PSoC5/TransmitShiftReg.c ****         cystatus result;
+ 333:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 334:Generated_Source\PSoC5/TransmitShiftReg.c ****         result = CYRET_INVALID_STATE;
+ 335:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 336:Generated_Source\PSoC5/TransmitShiftReg.c ****         /* Writes data into the input FIFO if it is not FULL */
+ 337:Generated_Source\PSoC5/TransmitShiftReg.c ****         if(TransmitShiftReg_RET_FIFO_FULL != (TransmitShiftReg_GetFIFOStatus(TransmitShiftReg_IN_FI
+ 406              		.loc 1 337 0
+ 407 0004 0120     		movs	r0, #1
+ 408              	.LVL27:
+ 409 0006 FFF7FEFF 		bl	TransmitShiftReg_GetFIFOStatus
+ 410              	.LVL28:
+ 411 000a 18B1     		cbz	r0, .L48
+ 338:Generated_Source\PSoC5/TransmitShiftReg.c ****         {
+ 339:Generated_Source\PSoC5/TransmitShiftReg.c ****             CY_SET_REG32(TransmitShiftReg_IN_FIFO_VAL_LSB_PTR, shiftData);
+ 412              		.loc 1 339 0
+ 413 000c 024B     		ldr	r3, .L50
+ 414 000e 1C60     		str	r4, [r3]
+ 415              	.LVL29:
+ 340:Generated_Source\PSoC5/TransmitShiftReg.c ****             result = CYRET_SUCCESS;
+ 416              		.loc 1 340 0
+ 417 0010 0020     		movs	r0, #0
+ 418 0012 10BD     		pop	{r4, pc}
+ 419              	.LVL30:
+ 420              	.L48:
+ 334:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 421              		.loc 1 334 0
+ 422 0014 1120     		movs	r0, #17
+ 423              	.LVL31:
+ 341:Generated_Source\PSoC5/TransmitShiftReg.c ****         }
+ 342:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 343:Generated_Source\PSoC5/TransmitShiftReg.c ****         return(result);
+ 344:Generated_Source\PSoC5/TransmitShiftReg.c ****     }
+ 424              		.loc 1 344 0
+ 425 0016 10BD     		pop	{r4, pc}
+ 426              	.LVL32:
+ 427              	.L51:
+ 428              		.align	2
+ 429              	.L50:
+ 430 0018 48650040 		.word	1073767752
+ 431              		.cfi_endproc
+ 432              	.LFE10:
+ 433              		.size	TransmitShiftReg_WriteData, .-TransmitShiftReg_WriteData
+ 434              		.section	.text.TransmitShiftReg_ReadRegValue,"ax",%progbits
+ 435              		.align	2
+ 436              		.global	TransmitShiftReg_ReadRegValue
+ 437              		.thumb
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 15
+
+
+ 438              		.thumb_func
+ 439              		.type	TransmitShiftReg_ReadRegValue, %function
+ 440              	TransmitShiftReg_ReadRegValue:
+ 441              	.LFB11:
+ 345:Generated_Source\PSoC5/TransmitShiftReg.c **** #endif /* (0u != TransmitShiftReg_USE_INPUT_FIFO) */
+ 346:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 347:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 348:Generated_Source\PSoC5/TransmitShiftReg.c **** #if(0u != TransmitShiftReg_USE_OUTPUT_FIFO)
+ 349:Generated_Source\PSoC5/TransmitShiftReg.c ****     /*******************************************************************************
+ 350:Generated_Source\PSoC5/TransmitShiftReg.c ****     * Function Name: TransmitShiftReg_ReadData
+ 351:Generated_Source\PSoC5/TransmitShiftReg.c ****     ********************************************************************************
+ 352:Generated_Source\PSoC5/TransmitShiftReg.c ****     *
+ 353:Generated_Source\PSoC5/TransmitShiftReg.c ****     * Summary:
+ 354:Generated_Source\PSoC5/TransmitShiftReg.c ****     *  Returns state in FIFO due to Store input.
+ 355:Generated_Source\PSoC5/TransmitShiftReg.c ****     *
+ 356:Generated_Source\PSoC5/TransmitShiftReg.c ****     * Parameters:
+ 357:Generated_Source\PSoC5/TransmitShiftReg.c ****     *  None.
+ 358:Generated_Source\PSoC5/TransmitShiftReg.c ****     *
+ 359:Generated_Source\PSoC5/TransmitShiftReg.c ****     * Return:
+ 360:Generated_Source\PSoC5/TransmitShiftReg.c ****     *  Shift Register state
+ 361:Generated_Source\PSoC5/TransmitShiftReg.c ****     *
+ 362:Generated_Source\PSoC5/TransmitShiftReg.c ****     * Reentrant:
+ 363:Generated_Source\PSoC5/TransmitShiftReg.c ****     *  No.
+ 364:Generated_Source\PSoC5/TransmitShiftReg.c ****     *
+ 365:Generated_Source\PSoC5/TransmitShiftReg.c ****     *******************************************************************************/
+ 366:Generated_Source\PSoC5/TransmitShiftReg.c ****     uint32 TransmitShiftReg_ReadData(void) 
+ 367:Generated_Source\PSoC5/TransmitShiftReg.c ****     {
+ 368:Generated_Source\PSoC5/TransmitShiftReg.c ****         return(CY_GET_REG32(TransmitShiftReg_OUT_FIFO_VAL_LSB_PTR));
+ 369:Generated_Source\PSoC5/TransmitShiftReg.c ****     }
+ 370:Generated_Source\PSoC5/TransmitShiftReg.c **** #endif /* (0u != TransmitShiftReg_USE_OUTPUT_FIFO) */
+ 371:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 372:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 373:Generated_Source\PSoC5/TransmitShiftReg.c **** /*******************************************************************************
+ 374:Generated_Source\PSoC5/TransmitShiftReg.c **** * Function Name: TransmitShiftReg_ReadRegValue
+ 375:Generated_Source\PSoC5/TransmitShiftReg.c **** ********************************************************************************
+ 376:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+ 377:Generated_Source\PSoC5/TransmitShiftReg.c **** * Summary:
+ 378:Generated_Source\PSoC5/TransmitShiftReg.c **** *  Directly returns current state in shift register, not data in FIFO due
+ 379:Generated_Source\PSoC5/TransmitShiftReg.c **** *  to Store input.
+ 380:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+ 381:Generated_Source\PSoC5/TransmitShiftReg.c **** * Parameters:
+ 382:Generated_Source\PSoC5/TransmitShiftReg.c **** *  None.
+ 383:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+ 384:Generated_Source\PSoC5/TransmitShiftReg.c **** * Return:
+ 385:Generated_Source\PSoC5/TransmitShiftReg.c **** *  Shift Register state. Clears output FIFO.
+ 386:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+ 387:Generated_Source\PSoC5/TransmitShiftReg.c **** * Reentrant:
+ 388:Generated_Source\PSoC5/TransmitShiftReg.c **** *  No.
+ 389:Generated_Source\PSoC5/TransmitShiftReg.c **** *
+ 390:Generated_Source\PSoC5/TransmitShiftReg.c **** *******************************************************************************/
+ 391:Generated_Source\PSoC5/TransmitShiftReg.c **** uint32 TransmitShiftReg_ReadRegValue(void) 
+ 392:Generated_Source\PSoC5/TransmitShiftReg.c **** {
+ 442              		.loc 1 392 0
+ 443              		.cfi_startproc
+ 444              		@ args = 0, pretend = 0, frame = 0
+ 445              		@ frame_needed = 0, uses_anonymous_args = 0
+ 446 0000 08B5     		push	{r3, lr}
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 16
+
+
+ 447              		.cfi_def_cfa_offset 8
+ 448              		.cfi_offset 3, -8
+ 449              		.cfi_offset 14, -4
+ 393:Generated_Source\PSoC5/TransmitShiftReg.c ****     uint32 result;
+ 394:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 395:Generated_Source\PSoC5/TransmitShiftReg.c ****     /* Clear FIFO before software capture */
+ 396:Generated_Source\PSoC5/TransmitShiftReg.c ****     while(TransmitShiftReg_RET_FIFO_EMPTY != TransmitShiftReg_GetFIFOStatus(TransmitShiftReg_OUT_FI
+ 450              		.loc 1 396 0
+ 451 0002 01E0     		b	.L53
+ 452              	.L54:
+ 397:Generated_Source\PSoC5/TransmitShiftReg.c ****     {
+ 398:Generated_Source\PSoC5/TransmitShiftReg.c ****         (void) CY_GET_REG32(TransmitShiftReg_OUT_FIFO_VAL_LSB_PTR);
+ 453              		.loc 1 398 0
+ 454 0004 054B     		ldr	r3, .L56
+ 455 0006 1B68     		ldr	r3, [r3]
+ 456              	.L53:
+ 396:Generated_Source\PSoC5/TransmitShiftReg.c ****     {
+ 457              		.loc 1 396 0
+ 458 0008 0220     		movs	r0, #2
+ 459 000a FFF7FEFF 		bl	TransmitShiftReg_GetFIFOStatus
+ 460              	.LVL33:
+ 461 000e 0228     		cmp	r0, #2
+ 462 0010 F8D1     		bne	.L54
+ 399:Generated_Source\PSoC5/TransmitShiftReg.c ****     }
+ 400:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 401:Generated_Source\PSoC5/TransmitShiftReg.c ****     /* Read of 8 bits from A1 causes capture to output FIFO */
+ 402:Generated_Source\PSoC5/TransmitShiftReg.c ****     (void) CY_GET_REG8(TransmitShiftReg_SHIFT_REG_CAPTURE_PTR);
+ 463              		.loc 1 402 0
+ 464 0012 034B     		ldr	r3, .L56+4
+ 465 0014 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 403:Generated_Source\PSoC5/TransmitShiftReg.c **** 
+ 404:Generated_Source\PSoC5/TransmitShiftReg.c ****     /* Read output FIFO */
+ 405:Generated_Source\PSoC5/TransmitShiftReg.c ****     result  = CY_GET_REG32(TransmitShiftReg_OUT_FIFO_VAL_LSB_PTR);
+ 466              		.loc 1 405 0
+ 467 0016 014B     		ldr	r3, .L56
+ 468 0018 1868     		ldr	r0, [r3]
+ 469              	.LVL34:
+ 406:Generated_Source\PSoC5/TransmitShiftReg.c ****     
+ 407:Generated_Source\PSoC5/TransmitShiftReg.c ****     #if(0u != (TransmitShiftReg_SR_SIZE % 8u))
+ 408:Generated_Source\PSoC5/TransmitShiftReg.c ****         result &= ((uint32) TransmitShiftReg_SR_MASK);
+ 409:Generated_Source\PSoC5/TransmitShiftReg.c ****     #endif /* (0u != (TransmitShiftReg_SR_SIZE % 8u)) */
+ 410:Generated_Source\PSoC5/TransmitShiftReg.c ****     
+ 411:Generated_Source\PSoC5/TransmitShiftReg.c ****     return(result);
+ 412:Generated_Source\PSoC5/TransmitShiftReg.c **** }
+ 470              		.loc 1 412 0
+ 471 001a 08BD     		pop	{r3, pc}
+ 472              	.L57:
+ 473              		.align	2
+ 474              	.L56:
+ 475 001c 58650040 		.word	1073767768
+ 476 0020 18650040 		.word	1073767704
+ 477              		.cfi_endproc
+ 478              	.LFE11:
+ 479              		.size	TransmitShiftReg_ReadRegValue, .-TransmitShiftReg_ReadRegValue
+ 480              		.global	TransmitShiftReg_initVar
+ 481              		.bss
+ 482              		.set	.LANCHOR0,. + 0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 17
+
+
+ 483              		.type	TransmitShiftReg_initVar, %object
+ 484              		.size	TransmitShiftReg_initVar, 1
+ 485              	TransmitShiftReg_initVar:
+ 486 0000 00       		.space	1
+ 487              		.text
+ 488              	.Letext0:
+ 489              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 490              		.file 3 "Generated_Source\\PSoC5\\CyLib.h"
+ 491              		.section	.debug_info,"",%progbits
+ 492              	.Ldebug_info0:
+ 493 0000 0D030000 		.4byte	0x30d
+ 494 0004 0400     		.2byte	0x4
+ 495 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 496 000a 04       		.byte	0x4
+ 497 000b 01       		.uleb128 0x1
+ 498 000c 26010000 		.4byte	.LASF37
+ 499 0010 0C       		.byte	0xc
+ 500 0011 44000000 		.4byte	.LASF38
+ 501 0015 C4000000 		.4byte	.LASF39
+ 502 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 503 001d 00000000 		.4byte	0
+ 504 0021 00000000 		.4byte	.Ldebug_line0
+ 505 0025 02       		.uleb128 0x2
+ 506 0026 01       		.byte	0x1
+ 507 0027 06       		.byte	0x6
+ 508 0028 71030000 		.4byte	.LASF0
+ 509 002c 02       		.uleb128 0x2
+ 510 002d 01       		.byte	0x1
+ 511 002e 08       		.byte	0x8
+ 512 002f 18010000 		.4byte	.LASF1
+ 513 0033 02       		.uleb128 0x2
+ 514 0034 02       		.byte	0x2
+ 515 0035 05       		.byte	0x5
+ 516 0036 18030000 		.4byte	.LASF2
+ 517 003a 02       		.uleb128 0x2
+ 518 003b 02       		.byte	0x2
+ 519 003c 07       		.byte	0x7
+ 520 003d 8D000000 		.4byte	.LASF3
+ 521 0041 02       		.uleb128 0x2
+ 522 0042 04       		.byte	0x4
+ 523 0043 05       		.byte	0x5
+ 524 0044 57030000 		.4byte	.LASF4
+ 525 0048 02       		.uleb128 0x2
+ 526 0049 04       		.byte	0x4
+ 527 004a 07       		.byte	0x7
+ 528 004b C8010000 		.4byte	.LASF5
+ 529 004f 02       		.uleb128 0x2
+ 530 0050 08       		.byte	0x8
+ 531 0051 05       		.byte	0x5
+ 532 0052 DD020000 		.4byte	.LASF6
+ 533 0056 02       		.uleb128 0x2
+ 534 0057 08       		.byte	0x8
+ 535 0058 07       		.byte	0x7
+ 536 0059 AD000000 		.4byte	.LASF7
+ 537 005d 03       		.uleb128 0x3
+ 538 005e 04       		.byte	0x4
+ 539 005f 05       		.byte	0x5
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 18
+
+
+ 540 0060 696E7400 		.ascii	"int\000"
+ 541 0064 02       		.uleb128 0x2
+ 542 0065 04       		.byte	0x4
+ 543 0066 07       		.byte	0x7
+ 544 0067 77020000 		.4byte	.LASF8
+ 545 006b 04       		.uleb128 0x4
+ 546 006c DA010000 		.4byte	.LASF9
+ 547 0070 02       		.byte	0x2
+ 548 0071 E401     		.2byte	0x1e4
+ 549 0073 2C000000 		.4byte	0x2c
+ 550 0077 04       		.uleb128 0x4
+ 551 0078 59020000 		.4byte	.LASF10
+ 552 007c 02       		.byte	0x2
+ 553 007d E601     		.2byte	0x1e6
+ 554 007f 48000000 		.4byte	0x48
+ 555 0083 02       		.uleb128 0x2
+ 556 0084 04       		.byte	0x4
+ 557 0085 04       		.byte	0x4
+ 558 0086 A7000000 		.4byte	.LASF11
+ 559 008a 02       		.uleb128 0x2
+ 560 008b 08       		.byte	0x8
+ 561 008c 04       		.byte	0x4
+ 562 008d 1A020000 		.4byte	.LASF12
+ 563 0091 02       		.uleb128 0x2
+ 564 0092 01       		.byte	0x1
+ 565 0093 08       		.byte	0x8
+ 566 0094 60030000 		.4byte	.LASF13
+ 567 0098 04       		.uleb128 0x4
+ 568 0099 00000000 		.4byte	.LASF14
+ 569 009d 02       		.byte	0x2
+ 570 009e 8602     		.2byte	0x286
+ 571 00a0 48000000 		.4byte	0x48
+ 572 00a4 04       		.uleb128 0x4
+ 573 00a5 B4010000 		.4byte	.LASF15
+ 574 00a9 02       		.byte	0x2
+ 575 00aa 8E02     		.2byte	0x28e
+ 576 00ac B0000000 		.4byte	0xb0
+ 577 00b0 05       		.uleb128 0x5
+ 578 00b1 6B000000 		.4byte	0x6b
+ 579 00b5 04       		.uleb128 0x4
+ 580 00b6 09000000 		.4byte	.LASF16
+ 581 00ba 02       		.byte	0x2
+ 582 00bb 9002     		.2byte	0x290
+ 583 00bd C1000000 		.4byte	0xc1
+ 584 00c1 05       		.uleb128 0x5
+ 585 00c2 77000000 		.4byte	0x77
+ 586 00c6 02       		.uleb128 0x2
+ 587 00c7 08       		.byte	0x8
+ 588 00c8 04       		.byte	0x4
+ 589 00c9 65030000 		.4byte	.LASF17
+ 590 00cd 02       		.uleb128 0x2
+ 591 00ce 04       		.byte	0x4
+ 592 00cf 07       		.byte	0x7
+ 593 00d0 D4020000 		.4byte	.LASF18
+ 594 00d4 06       		.uleb128 0x6
+ 595 00d5 84020000 		.4byte	.LASF19
+ 596 00d9 01       		.byte	0x1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 19
+
+
+ 597 00da 87       		.byte	0x87
+ 598 00db 00000000 		.4byte	.LFB4
+ 599 00df 1C000000 		.4byte	.LFE4-.LFB4
+ 600 00e3 01       		.uleb128 0x1
+ 601 00e4 9C       		.byte	0x9c
+ 602 00e5 0B010000 		.4byte	0x10b
+ 603 00e9 07       		.uleb128 0x7
+ 604 00ea B9010000 		.4byte	.LASF22
+ 605 00ee 01       		.byte	0x1
+ 606 00ef 89       		.byte	0x89
+ 607 00f0 6B000000 		.4byte	0x6b
+ 608 00f4 00000000 		.4byte	.LLST0
+ 609 00f8 08       		.uleb128 0x8
+ 610 00f9 06000000 		.4byte	.LVL0
+ 611 00fd FA020000 		.4byte	0x2fa
+ 612 0101 08       		.uleb128 0x8
+ 613 0102 14000000 		.4byte	.LVL1
+ 614 0106 05030000 		.4byte	0x305
+ 615 010a 00       		.byte	0
+ 616 010b 06       		.uleb128 0x6
+ 617 010c BC020000 		.4byte	.LASF20
+ 618 0110 01       		.byte	0x1
+ 619 0111 45       		.byte	0x45
+ 620 0112 00000000 		.4byte	.LFB1
+ 621 0116 18000000 		.4byte	.LFE1-.LFB1
+ 622 011a 01       		.uleb128 0x1
+ 623 011b 9C       		.byte	0x9c
+ 624 011c 2A010000 		.4byte	0x12a
+ 625 0120 08       		.uleb128 0x8
+ 626 0121 10000000 		.4byte	.LVL2
+ 627 0125 D4000000 		.4byte	0xd4
+ 628 0129 00       		.byte	0
+ 629 012a 06       		.uleb128 0x6
+ 630 012b E0010000 		.4byte	.LASF21
+ 631 012f 01       		.byte	0x1
+ 632 0130 9F       		.byte	0x9f
+ 633 0131 00000000 		.4byte	.LFB5
+ 634 0135 1C000000 		.4byte	.LFE5-.LFB5
+ 635 0139 01       		.uleb128 0x1
+ 636 013a 9C       		.byte	0x9c
+ 637 013b 61010000 		.4byte	0x161
+ 638 013f 07       		.uleb128 0x7
+ 639 0140 B9010000 		.4byte	.LASF22
+ 640 0144 01       		.byte	0x1
+ 641 0145 A1       		.byte	0xa1
+ 642 0146 6B000000 		.4byte	0x6b
+ 643 014a 13000000 		.4byte	.LLST1
+ 644 014e 08       		.uleb128 0x8
+ 645 014f 06000000 		.4byte	.LVL3
+ 646 0153 FA020000 		.4byte	0x2fa
+ 647 0157 08       		.uleb128 0x8
+ 648 0158 14000000 		.4byte	.LVL4
+ 649 015c 05030000 		.4byte	0x305
+ 650 0160 00       		.byte	0
+ 651 0161 06       		.uleb128 0x6
+ 652 0162 0F000000 		.4byte	.LASF23
+ 653 0166 01       		.byte	0x1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 20
+
+
+ 654 0167 71       		.byte	0x71
+ 655 0168 00000000 		.4byte	.LFB3
+ 656 016c 18000000 		.4byte	.LFE3-.LFB3
+ 657 0170 01       		.uleb128 0x1
+ 658 0171 9C       		.byte	0x9c
+ 659 0172 80010000 		.4byte	0x180
+ 660 0176 08       		.uleb128 0x8
+ 661 0177 10000000 		.4byte	.LVL5
+ 662 017b 2A010000 		.4byte	0x12a
+ 663 017f 00       		.byte	0
+ 664 0180 09       		.uleb128 0x9
+ 665 0181 6E000000 		.4byte	.LASF32
+ 666 0185 01       		.byte	0x1
+ 667 0186 B7       		.byte	0xb7
+ 668 0187 6B000000 		.4byte	0x6b
+ 669 018b 00000000 		.4byte	.LFB6
+ 670 018f 48000000 		.4byte	.LFE6-.LFB6
+ 671 0193 01       		.uleb128 0x1
+ 672 0194 9C       		.byte	0x9c
+ 673 0195 B8010000 		.4byte	0x1b8
+ 674 0199 0A       		.uleb128 0xa
+ 675 019a A0000000 		.4byte	.LASF26
+ 676 019e 01       		.byte	0x1
+ 677 019f B7       		.byte	0xb7
+ 678 01a0 6B000000 		.4byte	0x6b
+ 679 01a4 26000000 		.4byte	.LLST2
+ 680 01a8 07       		.uleb128 0x7
+ 681 01a9 B5020000 		.4byte	.LASF24
+ 682 01ad 01       		.byte	0x1
+ 683 01ae B9       		.byte	0xb9
+ 684 01af 6B000000 		.4byte	0x6b
+ 685 01b3 92000000 		.4byte	.LLST3
+ 686 01b7 00       		.byte	0
+ 687 01b8 0B       		.uleb128 0xb
+ 688 01b9 22030000 		.4byte	.LASF25
+ 689 01bd 01       		.byte	0x1
+ 690 01be 0501     		.2byte	0x105
+ 691 01c0 00000000 		.4byte	.LFB7
+ 692 01c4 1C000000 		.4byte	.LFE7-.LFB7
+ 693 01c8 01       		.uleb128 0x1
+ 694 01c9 9C       		.byte	0x9c
+ 695 01ca DF010000 		.4byte	0x1df
+ 696 01ce 0C       		.uleb128 0xc
+ 697 01cf 3F020000 		.4byte	.LASF27
+ 698 01d3 01       		.byte	0x1
+ 699 01d4 0501     		.2byte	0x105
+ 700 01d6 6B000000 		.4byte	0x6b
+ 701 01da E2000000 		.4byte	.LLST4
+ 702 01de 00       		.byte	0
+ 703 01df 06       		.uleb128 0x6
+ 704 01e0 EB020000 		.4byte	.LASF28
+ 705 01e4 01       		.byte	0x1
+ 706 01e5 5D       		.byte	0x5d
+ 707 01e6 00000000 		.4byte	.LFB2
+ 708 01ea 0A000000 		.4byte	.LFE2-.LFB2
+ 709 01ee 01       		.uleb128 0x1
+ 710 01ef 9C       		.byte	0x9c
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 21
+
+
+ 711 01f0 04020000 		.4byte	0x204
+ 712 01f4 0D       		.uleb128 0xd
+ 713 01f5 08000000 		.4byte	.LVL21
+ 714 01f9 B8010000 		.4byte	0x1b8
+ 715 01fd 0E       		.uleb128 0xe
+ 716 01fe 01       		.uleb128 0x1
+ 717 01ff 50       		.byte	0x50
+ 718 0200 01       		.uleb128 0x1
+ 719 0201 31       		.byte	0x31
+ 720 0202 00       		.byte	0
+ 721 0203 00       		.byte	0
+ 722 0204 06       		.uleb128 0x6
+ 723 0205 01030000 		.4byte	.LASF29
+ 724 0209 01       		.byte	0x1
+ 725 020a 2B       		.byte	0x2b
+ 726 020b 00000000 		.4byte	.LFB0
+ 727 020f 1C000000 		.4byte	.LFE0-.LFB0
+ 728 0213 01       		.uleb128 0x1
+ 729 0214 9C       		.byte	0x9c
+ 730 0215 2C020000 		.4byte	0x22c
+ 731 0219 08       		.uleb128 0x8
+ 732 021a 0C000000 		.4byte	.LVL22
+ 733 021e DF010000 		.4byte	0x1df
+ 734 0222 08       		.uleb128 0x8
+ 735 0223 16000000 		.4byte	.LVL23
+ 736 0227 0B010000 		.4byte	0x10b
+ 737 022b 00       		.byte	0
+ 738 022c 0F       		.uleb128 0xf
+ 739 022d FC010000 		.4byte	.LASF40
+ 740 0231 01       		.byte	0x1
+ 741 0232 1A01     		.2byte	0x11a
+ 742 0234 6B000000 		.4byte	0x6b
+ 743 0238 00000000 		.4byte	.LFB8
+ 744 023c 10000000 		.4byte	.LFE8-.LFB8
+ 745 0240 01       		.uleb128 0x1
+ 746 0241 9C       		.byte	0x9c
+ 747 0242 0B       		.uleb128 0xb
+ 748 0243 25000000 		.4byte	.LASF30
+ 749 0247 01       		.byte	0x1
+ 750 0248 2E01     		.2byte	0x12e
+ 751 024a 00000000 		.4byte	.LFB9
+ 752 024e 0C000000 		.4byte	.LFE9-.LFB9
+ 753 0252 01       		.uleb128 0x1
+ 754 0253 9C       		.byte	0x9c
+ 755 0254 67020000 		.4byte	0x267
+ 756 0258 10       		.uleb128 0x10
+ 757 0259 4F020000 		.4byte	.LASF31
+ 758 025d 01       		.byte	0x1
+ 759 025e 2E01     		.2byte	0x12e
+ 760 0260 77000000 		.4byte	0x77
+ 761 0264 01       		.uleb128 0x1
+ 762 0265 50       		.byte	0x50
+ 763 0266 00       		.byte	0
+ 764 0267 11       		.uleb128 0x11
+ 765 0268 7D030000 		.4byte	.LASF33
+ 766 026c 01       		.byte	0x1
+ 767 026d 4901     		.2byte	0x149
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 22
+
+
+ 768 026f 98000000 		.4byte	0x98
+ 769 0273 00000000 		.4byte	.LFB10
+ 770 0277 1C000000 		.4byte	.LFE10-.LFB10
+ 771 027b 01       		.uleb128 0x1
+ 772 027c 9C       		.byte	0x9c
+ 773 027d B1020000 		.4byte	0x2b1
+ 774 0281 0C       		.uleb128 0xc
+ 775 0282 4F020000 		.4byte	.LASF31
+ 776 0286 01       		.byte	0x1
+ 777 0287 4901     		.2byte	0x149
+ 778 0289 77000000 		.4byte	0x77
+ 779 028d 03010000 		.4byte	.LLST5
+ 780 0291 12       		.uleb128 0x12
+ 781 0292 B5020000 		.4byte	.LASF24
+ 782 0296 01       		.byte	0x1
+ 783 0297 4C01     		.2byte	0x14c
+ 784 0299 98000000 		.4byte	0x98
+ 785 029d 2F010000 		.4byte	.LLST6
+ 786 02a1 0D       		.uleb128 0xd
+ 787 02a2 0A000000 		.4byte	.LVL28
+ 788 02a6 80010000 		.4byte	0x180
+ 789 02aa 0E       		.uleb128 0xe
+ 790 02ab 01       		.uleb128 0x1
+ 791 02ac 50       		.byte	0x50
+ 792 02ad 01       		.uleb128 0x1
+ 793 02ae 31       		.byte	0x31
+ 794 02af 00       		.byte	0
+ 795 02b0 00       		.byte	0
+ 796 02b1 11       		.uleb128 0x11
+ 797 02b2 21020000 		.4byte	.LASF34
+ 798 02b6 01       		.byte	0x1
+ 799 02b7 8701     		.2byte	0x187
+ 800 02b9 77000000 		.4byte	0x77
+ 801 02bd 00000000 		.4byte	.LFB11
+ 802 02c1 24000000 		.4byte	.LFE11-.LFB11
+ 803 02c5 01       		.uleb128 0x1
+ 804 02c6 9C       		.byte	0x9c
+ 805 02c7 E9020000 		.4byte	0x2e9
+ 806 02cb 13       		.uleb128 0x13
+ 807 02cc B5020000 		.4byte	.LASF24
+ 808 02d0 01       		.byte	0x1
+ 809 02d1 8901     		.2byte	0x189
+ 810 02d3 77000000 		.4byte	0x77
+ 811 02d7 01       		.uleb128 0x1
+ 812 02d8 50       		.byte	0x50
+ 813 02d9 0D       		.uleb128 0xd
+ 814 02da 0E000000 		.4byte	.LVL33
+ 815 02de 80010000 		.4byte	0x180
+ 816 02e2 0E       		.uleb128 0xe
+ 817 02e3 01       		.uleb128 0x1
+ 818 02e4 50       		.byte	0x50
+ 819 02e5 01       		.uleb128 0x1
+ 820 02e6 32       		.byte	0x32
+ 821 02e7 00       		.byte	0
+ 822 02e8 00       		.byte	0
+ 823 02e9 14       		.uleb128 0x14
+ 824 02ea 3E030000 		.4byte	.LASF41
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 23
+
+
+ 825 02ee 01       		.byte	0x1
+ 826 02ef 13       		.byte	0x13
+ 827 02f0 6B000000 		.4byte	0x6b
+ 828 02f4 05       		.uleb128 0x5
+ 829 02f5 03       		.byte	0x3
+ 830 02f6 00000000 		.4byte	TransmitShiftReg_initVar
+ 831 02fa 15       		.uleb128 0x15
+ 832 02fb 60020000 		.4byte	.LASF35
+ 833 02ff 60020000 		.4byte	.LASF35
+ 834 0303 03       		.byte	0x3
+ 835 0304 7D       		.byte	0x7d
+ 836 0305 15       		.uleb128 0x15
+ 837 0306 9F020000 		.4byte	.LASF36
+ 838 030a 9F020000 		.4byte	.LASF36
+ 839 030e 03       		.byte	0x3
+ 840 030f 7E       		.byte	0x7e
+ 841 0310 00       		.byte	0
+ 842              		.section	.debug_abbrev,"",%progbits
+ 843              	.Ldebug_abbrev0:
+ 844 0000 01       		.uleb128 0x1
+ 845 0001 11       		.uleb128 0x11
+ 846 0002 01       		.byte	0x1
+ 847 0003 25       		.uleb128 0x25
+ 848 0004 0E       		.uleb128 0xe
+ 849 0005 13       		.uleb128 0x13
+ 850 0006 0B       		.uleb128 0xb
+ 851 0007 03       		.uleb128 0x3
+ 852 0008 0E       		.uleb128 0xe
+ 853 0009 1B       		.uleb128 0x1b
+ 854 000a 0E       		.uleb128 0xe
+ 855 000b 55       		.uleb128 0x55
+ 856 000c 17       		.uleb128 0x17
+ 857 000d 11       		.uleb128 0x11
+ 858 000e 01       		.uleb128 0x1
+ 859 000f 10       		.uleb128 0x10
+ 860 0010 17       		.uleb128 0x17
+ 861 0011 00       		.byte	0
+ 862 0012 00       		.byte	0
+ 863 0013 02       		.uleb128 0x2
+ 864 0014 24       		.uleb128 0x24
+ 865 0015 00       		.byte	0
+ 866 0016 0B       		.uleb128 0xb
+ 867 0017 0B       		.uleb128 0xb
+ 868 0018 3E       		.uleb128 0x3e
+ 869 0019 0B       		.uleb128 0xb
+ 870 001a 03       		.uleb128 0x3
+ 871 001b 0E       		.uleb128 0xe
+ 872 001c 00       		.byte	0
+ 873 001d 00       		.byte	0
+ 874 001e 03       		.uleb128 0x3
+ 875 001f 24       		.uleb128 0x24
+ 876 0020 00       		.byte	0
+ 877 0021 0B       		.uleb128 0xb
+ 878 0022 0B       		.uleb128 0xb
+ 879 0023 3E       		.uleb128 0x3e
+ 880 0024 0B       		.uleb128 0xb
+ 881 0025 03       		.uleb128 0x3
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 24
+
+
+ 882 0026 08       		.uleb128 0x8
+ 883 0027 00       		.byte	0
+ 884 0028 00       		.byte	0
+ 885 0029 04       		.uleb128 0x4
+ 886 002a 16       		.uleb128 0x16
+ 887 002b 00       		.byte	0
+ 888 002c 03       		.uleb128 0x3
+ 889 002d 0E       		.uleb128 0xe
+ 890 002e 3A       		.uleb128 0x3a
+ 891 002f 0B       		.uleb128 0xb
+ 892 0030 3B       		.uleb128 0x3b
+ 893 0031 05       		.uleb128 0x5
+ 894 0032 49       		.uleb128 0x49
+ 895 0033 13       		.uleb128 0x13
+ 896 0034 00       		.byte	0
+ 897 0035 00       		.byte	0
+ 898 0036 05       		.uleb128 0x5
+ 899 0037 35       		.uleb128 0x35
+ 900 0038 00       		.byte	0
+ 901 0039 49       		.uleb128 0x49
+ 902 003a 13       		.uleb128 0x13
+ 903 003b 00       		.byte	0
+ 904 003c 00       		.byte	0
+ 905 003d 06       		.uleb128 0x6
+ 906 003e 2E       		.uleb128 0x2e
+ 907 003f 01       		.byte	0x1
+ 908 0040 3F       		.uleb128 0x3f
+ 909 0041 19       		.uleb128 0x19
+ 910 0042 03       		.uleb128 0x3
+ 911 0043 0E       		.uleb128 0xe
+ 912 0044 3A       		.uleb128 0x3a
+ 913 0045 0B       		.uleb128 0xb
+ 914 0046 3B       		.uleb128 0x3b
+ 915 0047 0B       		.uleb128 0xb
+ 916 0048 27       		.uleb128 0x27
+ 917 0049 19       		.uleb128 0x19
+ 918 004a 11       		.uleb128 0x11
+ 919 004b 01       		.uleb128 0x1
+ 920 004c 12       		.uleb128 0x12
+ 921 004d 06       		.uleb128 0x6
+ 922 004e 40       		.uleb128 0x40
+ 923 004f 18       		.uleb128 0x18
+ 924 0050 9742     		.uleb128 0x2117
+ 925 0052 19       		.uleb128 0x19
+ 926 0053 01       		.uleb128 0x1
+ 927 0054 13       		.uleb128 0x13
+ 928 0055 00       		.byte	0
+ 929 0056 00       		.byte	0
+ 930 0057 07       		.uleb128 0x7
+ 931 0058 34       		.uleb128 0x34
+ 932 0059 00       		.byte	0
+ 933 005a 03       		.uleb128 0x3
+ 934 005b 0E       		.uleb128 0xe
+ 935 005c 3A       		.uleb128 0x3a
+ 936 005d 0B       		.uleb128 0xb
+ 937 005e 3B       		.uleb128 0x3b
+ 938 005f 0B       		.uleb128 0xb
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 25
+
+
+ 939 0060 49       		.uleb128 0x49
+ 940 0061 13       		.uleb128 0x13
+ 941 0062 02       		.uleb128 0x2
+ 942 0063 17       		.uleb128 0x17
+ 943 0064 00       		.byte	0
+ 944 0065 00       		.byte	0
+ 945 0066 08       		.uleb128 0x8
+ 946 0067 898201   		.uleb128 0x4109
+ 947 006a 00       		.byte	0
+ 948 006b 11       		.uleb128 0x11
+ 949 006c 01       		.uleb128 0x1
+ 950 006d 31       		.uleb128 0x31
+ 951 006e 13       		.uleb128 0x13
+ 952 006f 00       		.byte	0
+ 953 0070 00       		.byte	0
+ 954 0071 09       		.uleb128 0x9
+ 955 0072 2E       		.uleb128 0x2e
+ 956 0073 01       		.byte	0x1
+ 957 0074 3F       		.uleb128 0x3f
+ 958 0075 19       		.uleb128 0x19
+ 959 0076 03       		.uleb128 0x3
+ 960 0077 0E       		.uleb128 0xe
+ 961 0078 3A       		.uleb128 0x3a
+ 962 0079 0B       		.uleb128 0xb
+ 963 007a 3B       		.uleb128 0x3b
+ 964 007b 0B       		.uleb128 0xb
+ 965 007c 27       		.uleb128 0x27
+ 966 007d 19       		.uleb128 0x19
+ 967 007e 49       		.uleb128 0x49
+ 968 007f 13       		.uleb128 0x13
+ 969 0080 11       		.uleb128 0x11
+ 970 0081 01       		.uleb128 0x1
+ 971 0082 12       		.uleb128 0x12
+ 972 0083 06       		.uleb128 0x6
+ 973 0084 40       		.uleb128 0x40
+ 974 0085 18       		.uleb128 0x18
+ 975 0086 9742     		.uleb128 0x2117
+ 976 0088 19       		.uleb128 0x19
+ 977 0089 01       		.uleb128 0x1
+ 978 008a 13       		.uleb128 0x13
+ 979 008b 00       		.byte	0
+ 980 008c 00       		.byte	0
+ 981 008d 0A       		.uleb128 0xa
+ 982 008e 05       		.uleb128 0x5
+ 983 008f 00       		.byte	0
+ 984 0090 03       		.uleb128 0x3
+ 985 0091 0E       		.uleb128 0xe
+ 986 0092 3A       		.uleb128 0x3a
+ 987 0093 0B       		.uleb128 0xb
+ 988 0094 3B       		.uleb128 0x3b
+ 989 0095 0B       		.uleb128 0xb
+ 990 0096 49       		.uleb128 0x49
+ 991 0097 13       		.uleb128 0x13
+ 992 0098 02       		.uleb128 0x2
+ 993 0099 17       		.uleb128 0x17
+ 994 009a 00       		.byte	0
+ 995 009b 00       		.byte	0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 26
+
+
+ 996 009c 0B       		.uleb128 0xb
+ 997 009d 2E       		.uleb128 0x2e
+ 998 009e 01       		.byte	0x1
+ 999 009f 3F       		.uleb128 0x3f
+ 1000 00a0 19       		.uleb128 0x19
+ 1001 00a1 03       		.uleb128 0x3
+ 1002 00a2 0E       		.uleb128 0xe
+ 1003 00a3 3A       		.uleb128 0x3a
+ 1004 00a4 0B       		.uleb128 0xb
+ 1005 00a5 3B       		.uleb128 0x3b
+ 1006 00a6 05       		.uleb128 0x5
+ 1007 00a7 27       		.uleb128 0x27
+ 1008 00a8 19       		.uleb128 0x19
+ 1009 00a9 11       		.uleb128 0x11
+ 1010 00aa 01       		.uleb128 0x1
+ 1011 00ab 12       		.uleb128 0x12
+ 1012 00ac 06       		.uleb128 0x6
+ 1013 00ad 40       		.uleb128 0x40
+ 1014 00ae 18       		.uleb128 0x18
+ 1015 00af 9742     		.uleb128 0x2117
+ 1016 00b1 19       		.uleb128 0x19
+ 1017 00b2 01       		.uleb128 0x1
+ 1018 00b3 13       		.uleb128 0x13
+ 1019 00b4 00       		.byte	0
+ 1020 00b5 00       		.byte	0
+ 1021 00b6 0C       		.uleb128 0xc
+ 1022 00b7 05       		.uleb128 0x5
+ 1023 00b8 00       		.byte	0
+ 1024 00b9 03       		.uleb128 0x3
+ 1025 00ba 0E       		.uleb128 0xe
+ 1026 00bb 3A       		.uleb128 0x3a
+ 1027 00bc 0B       		.uleb128 0xb
+ 1028 00bd 3B       		.uleb128 0x3b
+ 1029 00be 05       		.uleb128 0x5
+ 1030 00bf 49       		.uleb128 0x49
+ 1031 00c0 13       		.uleb128 0x13
+ 1032 00c1 02       		.uleb128 0x2
+ 1033 00c2 17       		.uleb128 0x17
+ 1034 00c3 00       		.byte	0
+ 1035 00c4 00       		.byte	0
+ 1036 00c5 0D       		.uleb128 0xd
+ 1037 00c6 898201   		.uleb128 0x4109
+ 1038 00c9 01       		.byte	0x1
+ 1039 00ca 11       		.uleb128 0x11
+ 1040 00cb 01       		.uleb128 0x1
+ 1041 00cc 31       		.uleb128 0x31
+ 1042 00cd 13       		.uleb128 0x13
+ 1043 00ce 00       		.byte	0
+ 1044 00cf 00       		.byte	0
+ 1045 00d0 0E       		.uleb128 0xe
+ 1046 00d1 8A8201   		.uleb128 0x410a
+ 1047 00d4 00       		.byte	0
+ 1048 00d5 02       		.uleb128 0x2
+ 1049 00d6 18       		.uleb128 0x18
+ 1050 00d7 9142     		.uleb128 0x2111
+ 1051 00d9 18       		.uleb128 0x18
+ 1052 00da 00       		.byte	0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 27
+
+
+ 1053 00db 00       		.byte	0
+ 1054 00dc 0F       		.uleb128 0xf
+ 1055 00dd 2E       		.uleb128 0x2e
+ 1056 00de 00       		.byte	0
+ 1057 00df 3F       		.uleb128 0x3f
+ 1058 00e0 19       		.uleb128 0x19
+ 1059 00e1 03       		.uleb128 0x3
+ 1060 00e2 0E       		.uleb128 0xe
+ 1061 00e3 3A       		.uleb128 0x3a
+ 1062 00e4 0B       		.uleb128 0xb
+ 1063 00e5 3B       		.uleb128 0x3b
+ 1064 00e6 05       		.uleb128 0x5
+ 1065 00e7 27       		.uleb128 0x27
+ 1066 00e8 19       		.uleb128 0x19
+ 1067 00e9 49       		.uleb128 0x49
+ 1068 00ea 13       		.uleb128 0x13
+ 1069 00eb 11       		.uleb128 0x11
+ 1070 00ec 01       		.uleb128 0x1
+ 1071 00ed 12       		.uleb128 0x12
+ 1072 00ee 06       		.uleb128 0x6
+ 1073 00ef 40       		.uleb128 0x40
+ 1074 00f0 18       		.uleb128 0x18
+ 1075 00f1 9742     		.uleb128 0x2117
+ 1076 00f3 19       		.uleb128 0x19
+ 1077 00f4 00       		.byte	0
+ 1078 00f5 00       		.byte	0
+ 1079 00f6 10       		.uleb128 0x10
+ 1080 00f7 05       		.uleb128 0x5
+ 1081 00f8 00       		.byte	0
+ 1082 00f9 03       		.uleb128 0x3
+ 1083 00fa 0E       		.uleb128 0xe
+ 1084 00fb 3A       		.uleb128 0x3a
+ 1085 00fc 0B       		.uleb128 0xb
+ 1086 00fd 3B       		.uleb128 0x3b
+ 1087 00fe 05       		.uleb128 0x5
+ 1088 00ff 49       		.uleb128 0x49
+ 1089 0100 13       		.uleb128 0x13
+ 1090 0101 02       		.uleb128 0x2
+ 1091 0102 18       		.uleb128 0x18
+ 1092 0103 00       		.byte	0
+ 1093 0104 00       		.byte	0
+ 1094 0105 11       		.uleb128 0x11
+ 1095 0106 2E       		.uleb128 0x2e
+ 1096 0107 01       		.byte	0x1
+ 1097 0108 3F       		.uleb128 0x3f
+ 1098 0109 19       		.uleb128 0x19
+ 1099 010a 03       		.uleb128 0x3
+ 1100 010b 0E       		.uleb128 0xe
+ 1101 010c 3A       		.uleb128 0x3a
+ 1102 010d 0B       		.uleb128 0xb
+ 1103 010e 3B       		.uleb128 0x3b
+ 1104 010f 05       		.uleb128 0x5
+ 1105 0110 27       		.uleb128 0x27
+ 1106 0111 19       		.uleb128 0x19
+ 1107 0112 49       		.uleb128 0x49
+ 1108 0113 13       		.uleb128 0x13
+ 1109 0114 11       		.uleb128 0x11
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 28
+
+
+ 1110 0115 01       		.uleb128 0x1
+ 1111 0116 12       		.uleb128 0x12
+ 1112 0117 06       		.uleb128 0x6
+ 1113 0118 40       		.uleb128 0x40
+ 1114 0119 18       		.uleb128 0x18
+ 1115 011a 9742     		.uleb128 0x2117
+ 1116 011c 19       		.uleb128 0x19
+ 1117 011d 01       		.uleb128 0x1
+ 1118 011e 13       		.uleb128 0x13
+ 1119 011f 00       		.byte	0
+ 1120 0120 00       		.byte	0
+ 1121 0121 12       		.uleb128 0x12
+ 1122 0122 34       		.uleb128 0x34
+ 1123 0123 00       		.byte	0
+ 1124 0124 03       		.uleb128 0x3
+ 1125 0125 0E       		.uleb128 0xe
+ 1126 0126 3A       		.uleb128 0x3a
+ 1127 0127 0B       		.uleb128 0xb
+ 1128 0128 3B       		.uleb128 0x3b
+ 1129 0129 05       		.uleb128 0x5
+ 1130 012a 49       		.uleb128 0x49
+ 1131 012b 13       		.uleb128 0x13
+ 1132 012c 02       		.uleb128 0x2
+ 1133 012d 17       		.uleb128 0x17
+ 1134 012e 00       		.byte	0
+ 1135 012f 00       		.byte	0
+ 1136 0130 13       		.uleb128 0x13
+ 1137 0131 34       		.uleb128 0x34
+ 1138 0132 00       		.byte	0
+ 1139 0133 03       		.uleb128 0x3
+ 1140 0134 0E       		.uleb128 0xe
+ 1141 0135 3A       		.uleb128 0x3a
+ 1142 0136 0B       		.uleb128 0xb
+ 1143 0137 3B       		.uleb128 0x3b
+ 1144 0138 05       		.uleb128 0x5
+ 1145 0139 49       		.uleb128 0x49
+ 1146 013a 13       		.uleb128 0x13
+ 1147 013b 02       		.uleb128 0x2
+ 1148 013c 18       		.uleb128 0x18
+ 1149 013d 00       		.byte	0
+ 1150 013e 00       		.byte	0
+ 1151 013f 14       		.uleb128 0x14
+ 1152 0140 34       		.uleb128 0x34
+ 1153 0141 00       		.byte	0
+ 1154 0142 03       		.uleb128 0x3
+ 1155 0143 0E       		.uleb128 0xe
+ 1156 0144 3A       		.uleb128 0x3a
+ 1157 0145 0B       		.uleb128 0xb
+ 1158 0146 3B       		.uleb128 0x3b
+ 1159 0147 0B       		.uleb128 0xb
+ 1160 0148 49       		.uleb128 0x49
+ 1161 0149 13       		.uleb128 0x13
+ 1162 014a 3F       		.uleb128 0x3f
+ 1163 014b 19       		.uleb128 0x19
+ 1164 014c 02       		.uleb128 0x2
+ 1165 014d 18       		.uleb128 0x18
+ 1166 014e 00       		.byte	0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 29
+
+
+ 1167 014f 00       		.byte	0
+ 1168 0150 15       		.uleb128 0x15
+ 1169 0151 2E       		.uleb128 0x2e
+ 1170 0152 00       		.byte	0
+ 1171 0153 3F       		.uleb128 0x3f
+ 1172 0154 19       		.uleb128 0x19
+ 1173 0155 3C       		.uleb128 0x3c
+ 1174 0156 19       		.uleb128 0x19
+ 1175 0157 6E       		.uleb128 0x6e
+ 1176 0158 0E       		.uleb128 0xe
+ 1177 0159 03       		.uleb128 0x3
+ 1178 015a 0E       		.uleb128 0xe
+ 1179 015b 3A       		.uleb128 0x3a
+ 1180 015c 0B       		.uleb128 0xb
+ 1181 015d 3B       		.uleb128 0x3b
+ 1182 015e 0B       		.uleb128 0xb
+ 1183 015f 00       		.byte	0
+ 1184 0160 00       		.byte	0
+ 1185 0161 00       		.byte	0
+ 1186              		.section	.debug_loc,"",%progbits
+ 1187              	.Ldebug_loc0:
+ 1188              	.LLST0:
+ 1189 0000 06000000 		.4byte	.LVL0
+ 1190 0004 13000000 		.4byte	.LVL1-1
+ 1191 0008 0100     		.2byte	0x1
+ 1192 000a 50       		.byte	0x50
+ 1193 000b 00000000 		.4byte	0
+ 1194 000f 00000000 		.4byte	0
+ 1195              	.LLST1:
+ 1196 0013 06000000 		.4byte	.LVL3
+ 1197 0017 13000000 		.4byte	.LVL4-1
+ 1198 001b 0100     		.2byte	0x1
+ 1199 001d 50       		.byte	0x50
+ 1200 001e 00000000 		.4byte	0
+ 1201 0022 00000000 		.4byte	0
+ 1202              	.LLST2:
+ 1203 0026 00000000 		.4byte	.LVL6
+ 1204 002a 18000000 		.4byte	.LVL8
+ 1205 002e 0100     		.2byte	0x1
+ 1206 0030 50       		.byte	0x50
+ 1207 0031 18000000 		.4byte	.LVL8
+ 1208 0035 1A000000 		.4byte	.LVL9
+ 1209 0039 0400     		.2byte	0x4
+ 1210 003b F3       		.byte	0xf3
+ 1211 003c 01       		.uleb128 0x1
+ 1212 003d 50       		.byte	0x50
+ 1213 003e 9F       		.byte	0x9f
+ 1214 003f 1A000000 		.4byte	.LVL9
+ 1215 0043 1C000000 		.4byte	.LVL10
+ 1216 0047 0100     		.2byte	0x1
+ 1217 0049 50       		.byte	0x50
+ 1218 004a 1C000000 		.4byte	.LVL10
+ 1219 004e 1E000000 		.4byte	.LVL11
+ 1220 0052 0400     		.2byte	0x4
+ 1221 0054 F3       		.byte	0xf3
+ 1222 0055 01       		.uleb128 0x1
+ 1223 0056 50       		.byte	0x50
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 30
+
+
+ 1224 0057 9F       		.byte	0x9f
+ 1225 0058 1E000000 		.4byte	.LVL11
+ 1226 005c 20000000 		.4byte	.LVL12
+ 1227 0060 0100     		.2byte	0x1
+ 1228 0062 50       		.byte	0x50
+ 1229 0063 20000000 		.4byte	.LVL12
+ 1230 0067 22000000 		.4byte	.LVL13
+ 1231 006b 0400     		.2byte	0x4
+ 1232 006d F3       		.byte	0xf3
+ 1233 006e 01       		.uleb128 0x1
+ 1234 006f 50       		.byte	0x50
+ 1235 0070 9F       		.byte	0x9f
+ 1236 0071 22000000 		.4byte	.LVL13
+ 1237 0075 24000000 		.4byte	.LVL14
+ 1238 0079 0100     		.2byte	0x1
+ 1239 007b 50       		.byte	0x50
+ 1240 007c 24000000 		.4byte	.LVL14
+ 1241 0080 48000000 		.4byte	.LFE6
+ 1242 0084 0400     		.2byte	0x4
+ 1243 0086 F3       		.byte	0xf3
+ 1244 0087 01       		.uleb128 0x1
+ 1245 0088 50       		.byte	0x50
+ 1246 0089 9F       		.byte	0x9f
+ 1247 008a 00000000 		.4byte	0
+ 1248 008e 00000000 		.4byte	0
+ 1249              	.LLST3:
+ 1250 0092 02000000 		.4byte	.LVL7
+ 1251 0096 1A000000 		.4byte	.LVL9
+ 1252 009a 0300     		.2byte	0x3
+ 1253 009c 09       		.byte	0x9
+ 1254 009d FE       		.byte	0xfe
+ 1255 009e 9F       		.byte	0x9f
+ 1256 009f 1A000000 		.4byte	.LVL9
+ 1257 00a3 1E000000 		.4byte	.LVL11
+ 1258 00a7 0200     		.2byte	0x2
+ 1259 00a9 31       		.byte	0x31
+ 1260 00aa 9F       		.byte	0x9f
+ 1261 00ab 1E000000 		.4byte	.LVL11
+ 1262 00af 24000000 		.4byte	.LVL14
+ 1263 00b3 0300     		.2byte	0x3
+ 1264 00b5 09       		.byte	0x9
+ 1265 00b6 FE       		.byte	0xfe
+ 1266 00b7 9F       		.byte	0x9f
+ 1267 00b8 24000000 		.4byte	.LVL14
+ 1268 00bc 38000000 		.4byte	.LVL15
+ 1269 00c0 0100     		.2byte	0x1
+ 1270 00c2 50       		.byte	0x50
+ 1271 00c3 3A000000 		.4byte	.LVL16
+ 1272 00c7 3E000000 		.4byte	.LVL17
+ 1273 00cb 0200     		.2byte	0x2
+ 1274 00cd 31       		.byte	0x31
+ 1275 00ce 9F       		.byte	0x9f
+ 1276 00cf 3E000000 		.4byte	.LVL17
+ 1277 00d3 48000000 		.4byte	.LFE6
+ 1278 00d7 0100     		.2byte	0x1
+ 1279 00d9 50       		.byte	0x50
+ 1280 00da 00000000 		.4byte	0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 31
+
+
+ 1281 00de 00000000 		.4byte	0
+ 1282              	.LLST4:
+ 1283 00e2 00000000 		.4byte	.LVL19
+ 1284 00e6 10000000 		.4byte	.LVL20
+ 1285 00ea 0100     		.2byte	0x1
+ 1286 00ec 50       		.byte	0x50
+ 1287 00ed 10000000 		.4byte	.LVL20
+ 1288 00f1 1C000000 		.4byte	.LFE7
+ 1289 00f5 0400     		.2byte	0x4
+ 1290 00f7 F3       		.byte	0xf3
+ 1291 00f8 01       		.uleb128 0x1
+ 1292 00f9 50       		.byte	0x50
+ 1293 00fa 9F       		.byte	0x9f
+ 1294 00fb 00000000 		.4byte	0
+ 1295 00ff 00000000 		.4byte	0
+ 1296              	.LLST5:
+ 1297 0103 00000000 		.4byte	.LVL25
+ 1298 0107 06000000 		.4byte	.LVL27
+ 1299 010b 0100     		.2byte	0x1
+ 1300 010d 50       		.byte	0x50
+ 1301 010e 06000000 		.4byte	.LVL27
+ 1302 0112 18000000 		.4byte	.LVL32
+ 1303 0116 0100     		.2byte	0x1
+ 1304 0118 54       		.byte	0x54
+ 1305 0119 18000000 		.4byte	.LVL32
+ 1306 011d 1C000000 		.4byte	.LFE10
+ 1307 0121 0400     		.2byte	0x4
+ 1308 0123 F3       		.byte	0xf3
+ 1309 0124 01       		.uleb128 0x1
+ 1310 0125 50       		.byte	0x50
+ 1311 0126 9F       		.byte	0x9f
+ 1312 0127 00000000 		.4byte	0
+ 1313 012b 00000000 		.4byte	0
+ 1314              	.LLST6:
+ 1315 012f 04000000 		.4byte	.LVL26
+ 1316 0133 10000000 		.4byte	.LVL29
+ 1317 0137 0200     		.2byte	0x2
+ 1318 0139 41       		.byte	0x41
+ 1319 013a 9F       		.byte	0x9f
+ 1320 013b 10000000 		.4byte	.LVL29
+ 1321 013f 14000000 		.4byte	.LVL30
+ 1322 0143 0200     		.2byte	0x2
+ 1323 0145 30       		.byte	0x30
+ 1324 0146 9F       		.byte	0x9f
+ 1325 0147 14000000 		.4byte	.LVL30
+ 1326 014b 16000000 		.4byte	.LVL31
+ 1327 014f 0200     		.2byte	0x2
+ 1328 0151 41       		.byte	0x41
+ 1329 0152 9F       		.byte	0x9f
+ 1330 0153 16000000 		.4byte	.LVL31
+ 1331 0157 1C000000 		.4byte	.LFE10
+ 1332 015b 0100     		.2byte	0x1
+ 1333 015d 50       		.byte	0x50
+ 1334 015e 00000000 		.4byte	0
+ 1335 0162 00000000 		.4byte	0
+ 1336              		.section	.debug_aranges,"",%progbits
+ 1337 0000 74000000 		.4byte	0x74
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 32
+
+
+ 1338 0004 0200     		.2byte	0x2
+ 1339 0006 00000000 		.4byte	.Ldebug_info0
+ 1340 000a 04       		.byte	0x4
+ 1341 000b 00       		.byte	0
+ 1342 000c 0000     		.2byte	0
+ 1343 000e 0000     		.2byte	0
+ 1344 0010 00000000 		.4byte	.LFB4
+ 1345 0014 1C000000 		.4byte	.LFE4-.LFB4
+ 1346 0018 00000000 		.4byte	.LFB1
+ 1347 001c 18000000 		.4byte	.LFE1-.LFB1
+ 1348 0020 00000000 		.4byte	.LFB5
+ 1349 0024 1C000000 		.4byte	.LFE5-.LFB5
+ 1350 0028 00000000 		.4byte	.LFB3
+ 1351 002c 18000000 		.4byte	.LFE3-.LFB3
+ 1352 0030 00000000 		.4byte	.LFB6
+ 1353 0034 48000000 		.4byte	.LFE6-.LFB6
+ 1354 0038 00000000 		.4byte	.LFB7
+ 1355 003c 1C000000 		.4byte	.LFE7-.LFB7
+ 1356 0040 00000000 		.4byte	.LFB2
+ 1357 0044 0A000000 		.4byte	.LFE2-.LFB2
+ 1358 0048 00000000 		.4byte	.LFB0
+ 1359 004c 1C000000 		.4byte	.LFE0-.LFB0
+ 1360 0050 00000000 		.4byte	.LFB8
+ 1361 0054 10000000 		.4byte	.LFE8-.LFB8
+ 1362 0058 00000000 		.4byte	.LFB9
+ 1363 005c 0C000000 		.4byte	.LFE9-.LFB9
+ 1364 0060 00000000 		.4byte	.LFB10
+ 1365 0064 1C000000 		.4byte	.LFE10-.LFB10
+ 1366 0068 00000000 		.4byte	.LFB11
+ 1367 006c 24000000 		.4byte	.LFE11-.LFB11
+ 1368 0070 00000000 		.4byte	0
+ 1369 0074 00000000 		.4byte	0
+ 1370              		.section	.debug_ranges,"",%progbits
+ 1371              	.Ldebug_ranges0:
+ 1372 0000 00000000 		.4byte	.LFB4
+ 1373 0004 1C000000 		.4byte	.LFE4
+ 1374 0008 00000000 		.4byte	.LFB1
+ 1375 000c 18000000 		.4byte	.LFE1
+ 1376 0010 00000000 		.4byte	.LFB5
+ 1377 0014 1C000000 		.4byte	.LFE5
+ 1378 0018 00000000 		.4byte	.LFB3
+ 1379 001c 18000000 		.4byte	.LFE3
+ 1380 0020 00000000 		.4byte	.LFB6
+ 1381 0024 48000000 		.4byte	.LFE6
+ 1382 0028 00000000 		.4byte	.LFB7
+ 1383 002c 1C000000 		.4byte	.LFE7
+ 1384 0030 00000000 		.4byte	.LFB2
+ 1385 0034 0A000000 		.4byte	.LFE2
+ 1386 0038 00000000 		.4byte	.LFB0
+ 1387 003c 1C000000 		.4byte	.LFE0
+ 1388 0040 00000000 		.4byte	.LFB8
+ 1389 0044 10000000 		.4byte	.LFE8
+ 1390 0048 00000000 		.4byte	.LFB9
+ 1391 004c 0C000000 		.4byte	.LFE9
+ 1392 0050 00000000 		.4byte	.LFB10
+ 1393 0054 1C000000 		.4byte	.LFE10
+ 1394 0058 00000000 		.4byte	.LFB11
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 33
+
+
+ 1395 005c 24000000 		.4byte	.LFE11
+ 1396 0060 00000000 		.4byte	0
+ 1397 0064 00000000 		.4byte	0
+ 1398              		.section	.debug_line,"",%progbits
+ 1399              	.Ldebug_line0:
+ 1400 0000 56010000 		.section	.debug_str,"MS",%progbits,1
+ 1400      02005800 
+ 1400      00000201 
+ 1400      FB0E0D00 
+ 1400      01010101 
+ 1401              	.LASF14:
+ 1402 0000 63797374 		.ascii	"cystatus\000"
+ 1402      61747573 
+ 1402      00
+ 1403              	.LASF16:
+ 1404 0009 72656733 		.ascii	"reg32\000"
+ 1404      3200
+ 1405              	.LASF23:
+ 1406 000f 5472616E 		.ascii	"TransmitShiftReg_Stop\000"
+ 1406      736D6974 
+ 1406      53686966 
+ 1406      74526567 
+ 1406      5F53746F 
+ 1407              	.LASF30:
+ 1408 0025 5472616E 		.ascii	"TransmitShiftReg_WriteRegValue\000"
+ 1408      736D6974 
+ 1408      53686966 
+ 1408      74526567 
+ 1408      5F577269 
+ 1409              	.LASF38:
+ 1410 0044 47656E65 		.ascii	"Generated_Source\\PSoC5\\TransmitShiftReg.c\000"
+ 1410      72617465 
+ 1410      645F536F 
+ 1410      75726365 
+ 1410      5C50536F 
+ 1411              	.LASF32:
+ 1412 006e 5472616E 		.ascii	"TransmitShiftReg_GetFIFOStatus\000"
+ 1412      736D6974 
+ 1412      53686966 
+ 1412      74526567 
+ 1412      5F476574 
+ 1413              	.LASF3:
+ 1414 008d 73686F72 		.ascii	"short unsigned int\000"
+ 1414      7420756E 
+ 1414      7369676E 
+ 1414      65642069 
+ 1414      6E7400
+ 1415              	.LASF26:
+ 1416 00a0 6669666F 		.ascii	"fifoId\000"
+ 1416      496400
+ 1417              	.LASF11:
+ 1418 00a7 666C6F61 		.ascii	"float\000"
+ 1418      7400
+ 1419              	.LASF7:
+ 1420 00ad 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1420      206C6F6E 
+ 1420      6720756E 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 34
+
+
+ 1420      7369676E 
+ 1420      65642069 
+ 1421              	.LASF39:
+ 1422 00c4 433A5C55 		.ascii	"C:\\Users\\e.ivanov\\Documents\\GitHub\\time_src\\b"
+ 1422      73657273 
+ 1422      5C652E69 
+ 1422      76616E6F 
+ 1422      765C446F 
+ 1423 00f1 72616E63 		.ascii	"ranch\\Manchester encoder-decoder.cydsn\000"
+ 1423      685C4D61 
+ 1423      6E636865 
+ 1423      73746572 
+ 1423      20656E63 
+ 1424              	.LASF1:
+ 1425 0118 756E7369 		.ascii	"unsigned char\000"
+ 1425      676E6564 
+ 1425      20636861 
+ 1425      7200
+ 1426              	.LASF37:
+ 1427 0126 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1427      43313120 
+ 1427      352E342E 
+ 1427      31203230 
+ 1427      31363036 
+ 1428 0159 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1428      20726576 
+ 1428      6973696F 
+ 1428      6E203233 
+ 1428      37373135 
+ 1429 018c 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1429      66756E63 
+ 1429      74696F6E 
+ 1429      2D736563 
+ 1429      74696F6E 
+ 1430              	.LASF15:
+ 1431 01b4 72656738 		.ascii	"reg8\000"
+ 1431      00
+ 1432              	.LASF22:
+ 1433 01b9 696E7465 		.ascii	"interruptState\000"
+ 1433      72727570 
+ 1433      74537461 
+ 1433      746500
+ 1434              	.LASF5:
+ 1435 01c8 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1435      20756E73 
+ 1435      69676E65 
+ 1435      6420696E 
+ 1435      7400
+ 1436              	.LASF9:
+ 1437 01da 75696E74 		.ascii	"uint8\000"
+ 1437      3800
+ 1438              	.LASF21:
+ 1439 01e0 5472616E 		.ascii	"TransmitShiftReg_DisableInt\000"
+ 1439      736D6974 
+ 1439      53686966 
+ 1439      74526567 
+ 1439      5F446973 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 35
+
+
+ 1440              	.LASF40:
+ 1441 01fc 5472616E 		.ascii	"TransmitShiftReg_GetIntStatus\000"
+ 1441      736D6974 
+ 1441      53686966 
+ 1441      74526567 
+ 1441      5F476574 
+ 1442              	.LASF12:
+ 1443 021a 646F7562 		.ascii	"double\000"
+ 1443      6C6500
+ 1444              	.LASF34:
+ 1445 0221 5472616E 		.ascii	"TransmitShiftReg_ReadRegValue\000"
+ 1445      736D6974 
+ 1445      53686966 
+ 1445      74526567 
+ 1445      5F526561 
+ 1446              	.LASF27:
+ 1447 023f 696E7465 		.ascii	"interruptSource\000"
+ 1447      72727570 
+ 1447      74536F75 
+ 1447      72636500 
+ 1448              	.LASF31:
+ 1449 024f 73686966 		.ascii	"shiftData\000"
+ 1449      74446174 
+ 1449      6100
+ 1450              	.LASF10:
+ 1451 0259 75696E74 		.ascii	"uint32\000"
+ 1451      333200
+ 1452              	.LASF35:
+ 1453 0260 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 1453      74657243 
+ 1453      72697469 
+ 1453      63616C53 
+ 1453      65637469 
+ 1454              	.LASF8:
+ 1455 0277 756E7369 		.ascii	"unsigned int\000"
+ 1455      676E6564 
+ 1455      20696E74 
+ 1455      00
+ 1456              	.LASF19:
+ 1457 0284 5472616E 		.ascii	"TransmitShiftReg_EnableInt\000"
+ 1457      736D6974 
+ 1457      53686966 
+ 1457      74526567 
+ 1457      5F456E61 
+ 1458              	.LASF36:
+ 1459 029f 43794578 		.ascii	"CyExitCriticalSection\000"
+ 1459      69744372 
+ 1459      69746963 
+ 1459      616C5365 
+ 1459      6374696F 
+ 1460              	.LASF24:
+ 1461 02b5 72657375 		.ascii	"result\000"
+ 1461      6C7400
+ 1462              	.LASF20:
+ 1463 02bc 5472616E 		.ascii	"TransmitShiftReg_Enable\000"
+ 1463      736D6974 
+ 1463      53686966 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 36
+
+
+ 1463      74526567 
+ 1463      5F456E61 
+ 1464              	.LASF18:
+ 1465 02d4 73697A65 		.ascii	"sizetype\000"
+ 1465      74797065 
+ 1465      00
+ 1466              	.LASF6:
+ 1467 02dd 6C6F6E67 		.ascii	"long long int\000"
+ 1467      206C6F6E 
+ 1467      6720696E 
+ 1467      7400
+ 1468              	.LASF28:
+ 1469 02eb 5472616E 		.ascii	"TransmitShiftReg_Init\000"
+ 1469      736D6974 
+ 1469      53686966 
+ 1469      74526567 
+ 1469      5F496E69 
+ 1470              	.LASF29:
+ 1471 0301 5472616E 		.ascii	"TransmitShiftReg_Start\000"
+ 1471      736D6974 
+ 1471      53686966 
+ 1471      74526567 
+ 1471      5F537461 
+ 1472              	.LASF2:
+ 1473 0318 73686F72 		.ascii	"short int\000"
+ 1473      7420696E 
+ 1473      7400
+ 1474              	.LASF25:
+ 1475 0322 5472616E 		.ascii	"TransmitShiftReg_SetIntMode\000"
+ 1475      736D6974 
+ 1475      53686966 
+ 1475      74526567 
+ 1475      5F536574 
+ 1476              	.LASF41:
+ 1477 033e 5472616E 		.ascii	"TransmitShiftReg_initVar\000"
+ 1477      736D6974 
+ 1477      53686966 
+ 1477      74526567 
+ 1477      5F696E69 
+ 1478              	.LASF4:
+ 1479 0357 6C6F6E67 		.ascii	"long int\000"
+ 1479      20696E74 
+ 1479      00
+ 1480              	.LASF13:
+ 1481 0360 63686172 		.ascii	"char\000"
+ 1481      00
+ 1482              	.LASF17:
+ 1483 0365 6C6F6E67 		.ascii	"long double\000"
+ 1483      20646F75 
+ 1483      626C6500 
+ 1484              	.LASF0:
+ 1485 0371 7369676E 		.ascii	"signed char\000"
+ 1485      65642063 
+ 1485      68617200 
+ 1486              	.LASF33:
+ 1487 037d 5472616E 		.ascii	"TransmitShiftReg_WriteData\000"
+ 1487      736D6974 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc4QJais.s 			page 37
+
+
+ 1487      53686966 
+ 1487      74526567 
+ 1487      5F577269 
+ 1488              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

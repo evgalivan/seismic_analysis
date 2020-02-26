@@ -1,0 +1,1906 @@
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccCQrJ5p.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"Boundary32bit.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.Boundary32bit_Enable,"ax",%progbits
+  20              		.align	2
+  21              		.global	Boundary32bit_Enable
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	Boundary32bit_Enable, %function
+  25              	Boundary32bit_Enable:
+  26              	.LFB1:
+  27              		.file 1 "Generated_Source\\PSoC5\\Boundary32bit.c"
+   1:Generated_Source\PSoC5/Boundary32bit.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/Boundary32bit.c **** * File Name: Boundary32bit.c  
+   3:Generated_Source\PSoC5/Boundary32bit.c **** * Version 3.0
+   4:Generated_Source\PSoC5/Boundary32bit.c **** *
+   5:Generated_Source\PSoC5/Boundary32bit.c **** *  Description:
+   6:Generated_Source\PSoC5/Boundary32bit.c **** *     The Counter component consists of a 8, 16, 24 or 32-bit counter with
+   7:Generated_Source\PSoC5/Boundary32bit.c **** *     a selectable period between 2 and 2^Width - 1.  
+   8:Generated_Source\PSoC5/Boundary32bit.c **** *
+   9:Generated_Source\PSoC5/Boundary32bit.c **** *   Note:
+  10:Generated_Source\PSoC5/Boundary32bit.c **** *     None
+  11:Generated_Source\PSoC5/Boundary32bit.c **** *
+  12:Generated_Source\PSoC5/Boundary32bit.c **** ********************************************************************************
+  13:Generated_Source\PSoC5/Boundary32bit.c **** * Copyright 2008-2012, Cypress Semiconductor Corporation.  All rights reserved.
+  14:Generated_Source\PSoC5/Boundary32bit.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  15:Generated_Source\PSoC5/Boundary32bit.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  16:Generated_Source\PSoC5/Boundary32bit.c **** * the software package with which this file was provided.
+  17:Generated_Source\PSoC5/Boundary32bit.c **** *******************************************************************************/
+  18:Generated_Source\PSoC5/Boundary32bit.c **** 
+  19:Generated_Source\PSoC5/Boundary32bit.c **** #include "Boundary32bit.h"
+  20:Generated_Source\PSoC5/Boundary32bit.c **** 
+  21:Generated_Source\PSoC5/Boundary32bit.c **** uint8 Boundary32bit_initVar = 0u;
+  22:Generated_Source\PSoC5/Boundary32bit.c **** 
+  23:Generated_Source\PSoC5/Boundary32bit.c **** 
+  24:Generated_Source\PSoC5/Boundary32bit.c **** /*******************************************************************************
+  25:Generated_Source\PSoC5/Boundary32bit.c **** * Function Name: Boundary32bit_Init
+  26:Generated_Source\PSoC5/Boundary32bit.c **** ********************************************************************************
+  27:Generated_Source\PSoC5/Boundary32bit.c **** * Summary:
+  28:Generated_Source\PSoC5/Boundary32bit.c **** *     Initialize to the schematic state
+  29:Generated_Source\PSoC5/Boundary32bit.c **** * 
+  30:Generated_Source\PSoC5/Boundary32bit.c **** * Parameters:  
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccCQrJ5p.s 			page 2
+
+
+  31:Generated_Source\PSoC5/Boundary32bit.c **** *  void  
+  32:Generated_Source\PSoC5/Boundary32bit.c **** *
+  33:Generated_Source\PSoC5/Boundary32bit.c **** * Return: 
+  34:Generated_Source\PSoC5/Boundary32bit.c **** *  void
+  35:Generated_Source\PSoC5/Boundary32bit.c **** *
+  36:Generated_Source\PSoC5/Boundary32bit.c **** *******************************************************************************/
+  37:Generated_Source\PSoC5/Boundary32bit.c **** void Boundary32bit_Init(void) 
+  38:Generated_Source\PSoC5/Boundary32bit.c **** {
+  39:Generated_Source\PSoC5/Boundary32bit.c ****         #if (!Boundary32bit_UsingFixedFunction && !Boundary32bit_ControlRegRemoved)
+  40:Generated_Source\PSoC5/Boundary32bit.c ****             uint8 ctrl;
+  41:Generated_Source\PSoC5/Boundary32bit.c ****         #endif /* (!Boundary32bit_UsingFixedFunction && !Boundary32bit_ControlRegRemoved) */
+  42:Generated_Source\PSoC5/Boundary32bit.c ****         
+  43:Generated_Source\PSoC5/Boundary32bit.c ****         #if(!Boundary32bit_UsingFixedFunction) 
+  44:Generated_Source\PSoC5/Boundary32bit.c ****             /* Interrupt State Backup for Critical Region*/
+  45:Generated_Source\PSoC5/Boundary32bit.c ****             uint8 Boundary32bit_interruptState;
+  46:Generated_Source\PSoC5/Boundary32bit.c ****         #endif /* (!Boundary32bit_UsingFixedFunction) */
+  47:Generated_Source\PSoC5/Boundary32bit.c ****         
+  48:Generated_Source\PSoC5/Boundary32bit.c ****         #if (Boundary32bit_UsingFixedFunction)
+  49:Generated_Source\PSoC5/Boundary32bit.c ****             /* Clear all bits but the enable bit (if it's already set for Timer operation */
+  50:Generated_Source\PSoC5/Boundary32bit.c ****             Boundary32bit_CONTROL &= Boundary32bit_CTRL_ENABLE;
+  51:Generated_Source\PSoC5/Boundary32bit.c ****             
+  52:Generated_Source\PSoC5/Boundary32bit.c ****             /* Clear the mode bits for continuous run mode */
+  53:Generated_Source\PSoC5/Boundary32bit.c ****             #if (CY_PSOC5A)
+  54:Generated_Source\PSoC5/Boundary32bit.c ****                 Boundary32bit_CONTROL2 &= ((uint8)(~Boundary32bit_CTRL_MODE_MASK));
+  55:Generated_Source\PSoC5/Boundary32bit.c ****             #endif /* (CY_PSOC5A) */
+  56:Generated_Source\PSoC5/Boundary32bit.c ****             #if (CY_PSOC3 || CY_PSOC5LP)
+  57:Generated_Source\PSoC5/Boundary32bit.c ****                 Boundary32bit_CONTROL3 &= ((uint8)(~Boundary32bit_CTRL_MODE_MASK));                
+  58:Generated_Source\PSoC5/Boundary32bit.c ****             #endif /* (CY_PSOC3 || CY_PSOC5LP) */
+  59:Generated_Source\PSoC5/Boundary32bit.c ****             /* Check if One Shot mode is enabled i.e. RunMode !=0*/
+  60:Generated_Source\PSoC5/Boundary32bit.c ****             #if (Boundary32bit_RunModeUsed != 0x0u)
+  61:Generated_Source\PSoC5/Boundary32bit.c ****                 /* Set 3rd bit of Control register to enable one shot mode */
+  62:Generated_Source\PSoC5/Boundary32bit.c ****                 Boundary32bit_CONTROL |= Boundary32bit_ONESHOT;
+  63:Generated_Source\PSoC5/Boundary32bit.c ****             #endif /* (Boundary32bit_RunModeUsed != 0x0u) */
+  64:Generated_Source\PSoC5/Boundary32bit.c ****             
+  65:Generated_Source\PSoC5/Boundary32bit.c ****             /* Set the IRQ to use the status register interrupts */
+  66:Generated_Source\PSoC5/Boundary32bit.c ****             Boundary32bit_CONTROL2 |= Boundary32bit_CTRL2_IRQ_SEL;
+  67:Generated_Source\PSoC5/Boundary32bit.c ****             
+  68:Generated_Source\PSoC5/Boundary32bit.c ****             /* Clear and Set SYNCTC and SYNCCMP bits of RT1 register */
+  69:Generated_Source\PSoC5/Boundary32bit.c ****             Boundary32bit_RT1 &= ((uint8)(~Boundary32bit_RT1_MASK));
+  70:Generated_Source\PSoC5/Boundary32bit.c ****             Boundary32bit_RT1 |= Boundary32bit_SYNC;     
+  71:Generated_Source\PSoC5/Boundary32bit.c ****                     
+  72:Generated_Source\PSoC5/Boundary32bit.c ****             /*Enable DSI Sync all all inputs of the Timer*/
+  73:Generated_Source\PSoC5/Boundary32bit.c ****             Boundary32bit_RT1 &= ((uint8)(~Boundary32bit_SYNCDSI_MASK));
+  74:Generated_Source\PSoC5/Boundary32bit.c ****             Boundary32bit_RT1 |= Boundary32bit_SYNCDSI_EN;
+  75:Generated_Source\PSoC5/Boundary32bit.c **** 
+  76:Generated_Source\PSoC5/Boundary32bit.c ****         #else
+  77:Generated_Source\PSoC5/Boundary32bit.c ****             #if(!Boundary32bit_ControlRegRemoved)
+  78:Generated_Source\PSoC5/Boundary32bit.c ****             /* Set the default compare mode defined in the parameter */
+  79:Generated_Source\PSoC5/Boundary32bit.c ****             ctrl = Boundary32bit_CONTROL & ((uint8)(~Boundary32bit_CTRL_CMPMODE_MASK));
+  80:Generated_Source\PSoC5/Boundary32bit.c ****             Boundary32bit_CONTROL = ctrl | Boundary32bit_DEFAULT_COMPARE_MODE;
+  81:Generated_Source\PSoC5/Boundary32bit.c ****             
+  82:Generated_Source\PSoC5/Boundary32bit.c ****             /* Set the default capture mode defined in the parameter */
+  83:Generated_Source\PSoC5/Boundary32bit.c ****             ctrl = Boundary32bit_CONTROL & ((uint8)(~Boundary32bit_CTRL_CAPMODE_MASK));
+  84:Generated_Source\PSoC5/Boundary32bit.c ****             
+  85:Generated_Source\PSoC5/Boundary32bit.c ****             #if( 0 != Boundary32bit_CAPTURE_MODE_CONF)
+  86:Generated_Source\PSoC5/Boundary32bit.c ****                 Boundary32bit_CONTROL = ctrl | Boundary32bit_DEFAULT_CAPTURE_MODE;
+  87:Generated_Source\PSoC5/Boundary32bit.c ****             #else
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccCQrJ5p.s 			page 3
+
+
+  88:Generated_Source\PSoC5/Boundary32bit.c ****                 Boundary32bit_CONTROL = ctrl;
+  89:Generated_Source\PSoC5/Boundary32bit.c ****             #endif /* 0 != Boundary32bit_CAPTURE_MODE */ 
+  90:Generated_Source\PSoC5/Boundary32bit.c ****             
+  91:Generated_Source\PSoC5/Boundary32bit.c ****             #endif /* (!Boundary32bit_ControlRegRemoved) */
+  92:Generated_Source\PSoC5/Boundary32bit.c ****         #endif /* (Boundary32bit_UsingFixedFunction) */
+  93:Generated_Source\PSoC5/Boundary32bit.c ****         
+  94:Generated_Source\PSoC5/Boundary32bit.c ****         /* Clear all data in the FIFO's */
+  95:Generated_Source\PSoC5/Boundary32bit.c ****         #if (!Boundary32bit_UsingFixedFunction)
+  96:Generated_Source\PSoC5/Boundary32bit.c ****             Boundary32bit_ClearFIFO();
+  97:Generated_Source\PSoC5/Boundary32bit.c ****         #endif /* (!Boundary32bit_UsingFixedFunction) */
+  98:Generated_Source\PSoC5/Boundary32bit.c ****         
+  99:Generated_Source\PSoC5/Boundary32bit.c ****         /* Set Initial values from Configuration */
+ 100:Generated_Source\PSoC5/Boundary32bit.c ****         Boundary32bit_WritePeriod(Boundary32bit_INIT_PERIOD_VALUE);
+ 101:Generated_Source\PSoC5/Boundary32bit.c ****         #if (!(Boundary32bit_UsingFixedFunction && (CY_PSOC5A)))
+ 102:Generated_Source\PSoC5/Boundary32bit.c ****             Boundary32bit_WriteCounter(Boundary32bit_INIT_COUNTER_VALUE);
+ 103:Generated_Source\PSoC5/Boundary32bit.c ****         #endif /* (!(Boundary32bit_UsingFixedFunction && (CY_PSOC5A))) */
+ 104:Generated_Source\PSoC5/Boundary32bit.c ****         Boundary32bit_SetInterruptMode(Boundary32bit_INIT_INTERRUPTS_MASK);
+ 105:Generated_Source\PSoC5/Boundary32bit.c ****         
+ 106:Generated_Source\PSoC5/Boundary32bit.c ****         #if (!Boundary32bit_UsingFixedFunction)
+ 107:Generated_Source\PSoC5/Boundary32bit.c ****             /* Read the status register to clear the unwanted interrupts */
+ 108:Generated_Source\PSoC5/Boundary32bit.c ****             (void)Boundary32bit_ReadStatusRegister();
+ 109:Generated_Source\PSoC5/Boundary32bit.c ****             /* Set the compare value (only available to non-fixed function implementation */
+ 110:Generated_Source\PSoC5/Boundary32bit.c ****             Boundary32bit_WriteCompare(Boundary32bit_INIT_COMPARE_VALUE);
+ 111:Generated_Source\PSoC5/Boundary32bit.c ****             /* Use the interrupt output of the status register for IRQ output */
+ 112:Generated_Source\PSoC5/Boundary32bit.c ****             
+ 113:Generated_Source\PSoC5/Boundary32bit.c ****             /* CyEnterCriticalRegion and CyExitCriticalRegion are used to mark following region cri
+ 114:Generated_Source\PSoC5/Boundary32bit.c ****             /* Enter Critical Region*/
+ 115:Generated_Source\PSoC5/Boundary32bit.c ****             Boundary32bit_interruptState = CyEnterCriticalSection();
+ 116:Generated_Source\PSoC5/Boundary32bit.c ****             
+ 117:Generated_Source\PSoC5/Boundary32bit.c ****             Boundary32bit_STATUS_AUX_CTRL |= Boundary32bit_STATUS_ACTL_INT_EN_MASK;
+ 118:Generated_Source\PSoC5/Boundary32bit.c ****             
+ 119:Generated_Source\PSoC5/Boundary32bit.c ****             /* Exit Critical Region*/
+ 120:Generated_Source\PSoC5/Boundary32bit.c ****             CyExitCriticalSection(Boundary32bit_interruptState);
+ 121:Generated_Source\PSoC5/Boundary32bit.c ****             
+ 122:Generated_Source\PSoC5/Boundary32bit.c ****         #endif /* (!Boundary32bit_UsingFixedFunction) */
+ 123:Generated_Source\PSoC5/Boundary32bit.c **** }
+ 124:Generated_Source\PSoC5/Boundary32bit.c **** 
+ 125:Generated_Source\PSoC5/Boundary32bit.c **** 
+ 126:Generated_Source\PSoC5/Boundary32bit.c **** /*******************************************************************************
+ 127:Generated_Source\PSoC5/Boundary32bit.c **** * Function Name: Boundary32bit_Enable
+ 128:Generated_Source\PSoC5/Boundary32bit.c **** ********************************************************************************
+ 129:Generated_Source\PSoC5/Boundary32bit.c **** * Summary:
+ 130:Generated_Source\PSoC5/Boundary32bit.c **** *     Enable the Counter
+ 131:Generated_Source\PSoC5/Boundary32bit.c **** * 
+ 132:Generated_Source\PSoC5/Boundary32bit.c **** * Parameters:  
+ 133:Generated_Source\PSoC5/Boundary32bit.c **** *  void  
+ 134:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 135:Generated_Source\PSoC5/Boundary32bit.c **** * Return: 
+ 136:Generated_Source\PSoC5/Boundary32bit.c **** *  void
+ 137:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 138:Generated_Source\PSoC5/Boundary32bit.c **** * Side Effects: 
+ 139:Generated_Source\PSoC5/Boundary32bit.c **** *   If the Enable mode is set to Hardware only then this function has no effect 
+ 140:Generated_Source\PSoC5/Boundary32bit.c **** *   on the operation of the counter.
+ 141:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 142:Generated_Source\PSoC5/Boundary32bit.c **** *******************************************************************************/
+ 143:Generated_Source\PSoC5/Boundary32bit.c **** void Boundary32bit_Enable(void) 
+ 144:Generated_Source\PSoC5/Boundary32bit.c **** {
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccCQrJ5p.s 			page 4
+
+
+  28              		.loc 1 144 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+ 145:Generated_Source\PSoC5/Boundary32bit.c ****     /* Globally Enable the Fixed Function Block chosen */
+ 146:Generated_Source\PSoC5/Boundary32bit.c ****     #if (Boundary32bit_UsingFixedFunction)
+ 147:Generated_Source\PSoC5/Boundary32bit.c ****         Boundary32bit_GLOBAL_ENABLE |= Boundary32bit_BLOCK_EN_MASK;
+  33              		.loc 1 147 0
+  34 0000 084A     		ldr	r2, .L2
+  35 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  36 0004 43F00103 		orr	r3, r3, #1
+  37 0008 1370     		strb	r3, [r2]
+ 148:Generated_Source\PSoC5/Boundary32bit.c ****         Boundary32bit_GLOBAL_STBY_ENABLE |= Boundary32bit_BLOCK_STBY_EN_MASK;
+  38              		.loc 1 148 0
+  39 000a 1032     		adds	r2, r2, #16
+  40 000c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  41 000e 43F00103 		orr	r3, r3, #1
+  42 0012 1370     		strb	r3, [r2]
+ 149:Generated_Source\PSoC5/Boundary32bit.c ****     #endif /* (Boundary32bit_UsingFixedFunction) */  
+ 150:Generated_Source\PSoC5/Boundary32bit.c ****         
+ 151:Generated_Source\PSoC5/Boundary32bit.c ****     /* Enable the counter from the control register  */
+ 152:Generated_Source\PSoC5/Boundary32bit.c ****     /* If Fixed Function then make sure Mode is set correctly */
+ 153:Generated_Source\PSoC5/Boundary32bit.c ****     /* else make sure reset is clear */
+ 154:Generated_Source\PSoC5/Boundary32bit.c ****     #if(!Boundary32bit_ControlRegRemoved || Boundary32bit_UsingFixedFunction)
+ 155:Generated_Source\PSoC5/Boundary32bit.c ****         Boundary32bit_CONTROL |= Boundary32bit_CTRL_ENABLE;                
+  43              		.loc 1 155 0
+  44 0014 02F64D32 		addw	r2, r2, #2893
+  45 0018 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  46 001a 43F00103 		orr	r3, r3, #1
+  47 001e 1370     		strb	r3, [r2]
+  48 0020 7047     		bx	lr
+  49              	.L3:
+  50 0022 00BF     		.align	2
+  51              	.L2:
+  52 0024 A3430040 		.word	1073759139
+  53              		.cfi_endproc
+  54              	.LFE1:
+  55              		.size	Boundary32bit_Enable, .-Boundary32bit_Enable
+  56              		.section	.text.Boundary32bit_Stop,"ax",%progbits
+  57              		.align	2
+  58              		.global	Boundary32bit_Stop
+  59              		.thumb
+  60              		.thumb_func
+  61              		.type	Boundary32bit_Stop, %function
+  62              	Boundary32bit_Stop:
+  63              	.LFB3:
+ 156:Generated_Source\PSoC5/Boundary32bit.c ****     #endif /* (!Boundary32bit_ControlRegRemoved || Boundary32bit_UsingFixedFunction) */
+ 157:Generated_Source\PSoC5/Boundary32bit.c ****     
+ 158:Generated_Source\PSoC5/Boundary32bit.c **** }
+ 159:Generated_Source\PSoC5/Boundary32bit.c **** 
+ 160:Generated_Source\PSoC5/Boundary32bit.c **** 
+ 161:Generated_Source\PSoC5/Boundary32bit.c **** /*******************************************************************************
+ 162:Generated_Source\PSoC5/Boundary32bit.c **** * Function Name: Boundary32bit_Start
+ 163:Generated_Source\PSoC5/Boundary32bit.c **** ********************************************************************************
+ 164:Generated_Source\PSoC5/Boundary32bit.c **** * Summary:
+ 165:Generated_Source\PSoC5/Boundary32bit.c **** *  Enables the counter for operation 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccCQrJ5p.s 			page 5
+
+
+ 166:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 167:Generated_Source\PSoC5/Boundary32bit.c **** * Parameters:  
+ 168:Generated_Source\PSoC5/Boundary32bit.c **** *  void  
+ 169:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 170:Generated_Source\PSoC5/Boundary32bit.c **** * Return: 
+ 171:Generated_Source\PSoC5/Boundary32bit.c **** *  void
+ 172:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 173:Generated_Source\PSoC5/Boundary32bit.c **** * Global variables:
+ 174:Generated_Source\PSoC5/Boundary32bit.c **** *  Boundary32bit_initVar: Is modified when this function is called for the  
+ 175:Generated_Source\PSoC5/Boundary32bit.c **** *   first time. Is used to ensure that initialization happens only once.
+ 176:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 177:Generated_Source\PSoC5/Boundary32bit.c **** *******************************************************************************/
+ 178:Generated_Source\PSoC5/Boundary32bit.c **** void Boundary32bit_Start(void) 
+ 179:Generated_Source\PSoC5/Boundary32bit.c **** {
+ 180:Generated_Source\PSoC5/Boundary32bit.c ****     if(Boundary32bit_initVar == 0u)
+ 181:Generated_Source\PSoC5/Boundary32bit.c ****     {
+ 182:Generated_Source\PSoC5/Boundary32bit.c ****         Boundary32bit_Init();
+ 183:Generated_Source\PSoC5/Boundary32bit.c ****         
+ 184:Generated_Source\PSoC5/Boundary32bit.c ****         Boundary32bit_initVar = 1u; /* Clear this bit for Initialization */        
+ 185:Generated_Source\PSoC5/Boundary32bit.c ****     }
+ 186:Generated_Source\PSoC5/Boundary32bit.c ****     
+ 187:Generated_Source\PSoC5/Boundary32bit.c ****     /* Enable the Counter */
+ 188:Generated_Source\PSoC5/Boundary32bit.c ****     Boundary32bit_Enable();        
+ 189:Generated_Source\PSoC5/Boundary32bit.c **** }
+ 190:Generated_Source\PSoC5/Boundary32bit.c **** 
+ 191:Generated_Source\PSoC5/Boundary32bit.c **** 
+ 192:Generated_Source\PSoC5/Boundary32bit.c **** /*******************************************************************************
+ 193:Generated_Source\PSoC5/Boundary32bit.c **** * Function Name: Boundary32bit_Stop
+ 194:Generated_Source\PSoC5/Boundary32bit.c **** ********************************************************************************
+ 195:Generated_Source\PSoC5/Boundary32bit.c **** * Summary:
+ 196:Generated_Source\PSoC5/Boundary32bit.c **** * Halts the counter, but does not change any modes or disable interrupts.
+ 197:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 198:Generated_Source\PSoC5/Boundary32bit.c **** * Parameters:  
+ 199:Generated_Source\PSoC5/Boundary32bit.c **** *  void  
+ 200:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 201:Generated_Source\PSoC5/Boundary32bit.c **** * Return: 
+ 202:Generated_Source\PSoC5/Boundary32bit.c **** *  void
+ 203:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 204:Generated_Source\PSoC5/Boundary32bit.c **** * Side Effects: If the Enable mode is set to Hardware only then this function
+ 205:Generated_Source\PSoC5/Boundary32bit.c **** *               has no effect on the operation of the counter.
+ 206:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 207:Generated_Source\PSoC5/Boundary32bit.c **** *******************************************************************************/
+ 208:Generated_Source\PSoC5/Boundary32bit.c **** void Boundary32bit_Stop(void) 
+ 209:Generated_Source\PSoC5/Boundary32bit.c **** {
+  64              		.loc 1 209 0
+  65              		.cfi_startproc
+  66              		@ args = 0, pretend = 0, frame = 0
+  67              		@ frame_needed = 0, uses_anonymous_args = 0
+  68              		@ link register save eliminated.
+ 210:Generated_Source\PSoC5/Boundary32bit.c ****     /* Disable Counter */
+ 211:Generated_Source\PSoC5/Boundary32bit.c ****     #if(!Boundary32bit_ControlRegRemoved || Boundary32bit_UsingFixedFunction)
+ 212:Generated_Source\PSoC5/Boundary32bit.c ****         Boundary32bit_CONTROL &= ((uint8)(~Boundary32bit_CTRL_ENABLE));        
+  69              		.loc 1 212 0
+  70 0000 084A     		ldr	r2, .L5
+  71 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  72 0004 03F0FE03 		and	r3, r3, #254
+  73 0008 1370     		strb	r3, [r2]
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccCQrJ5p.s 			page 6
+
+
+ 213:Generated_Source\PSoC5/Boundary32bit.c ****     #endif /* (!Boundary32bit_ControlRegRemoved || Boundary32bit_UsingFixedFunction) */
+ 214:Generated_Source\PSoC5/Boundary32bit.c ****     
+ 215:Generated_Source\PSoC5/Boundary32bit.c ****     /* Globally disable the Fixed Function Block chosen */
+ 216:Generated_Source\PSoC5/Boundary32bit.c ****     #if (Boundary32bit_UsingFixedFunction)
+ 217:Generated_Source\PSoC5/Boundary32bit.c ****         Boundary32bit_GLOBAL_ENABLE &= ((uint8)(~Boundary32bit_BLOCK_EN_MASK));
+  74              		.loc 1 217 0
+  75 000a A2F65D32 		subw	r2, r2, #2909
+  76 000e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  77 0010 03F0FE03 		and	r3, r3, #254
+  78 0014 1370     		strb	r3, [r2]
+ 218:Generated_Source\PSoC5/Boundary32bit.c ****         Boundary32bit_GLOBAL_STBY_ENABLE &= ((uint8)(~Boundary32bit_BLOCK_STBY_EN_MASK));
+  79              		.loc 1 218 0
+  80 0016 1032     		adds	r2, r2, #16
+  81 0018 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  82 001a 03F0FE03 		and	r3, r3, #254
+  83 001e 1370     		strb	r3, [r2]
+  84 0020 7047     		bx	lr
+  85              	.L6:
+  86 0022 00BF     		.align	2
+  87              	.L5:
+  88 0024 004F0040 		.word	1073762048
+  89              		.cfi_endproc
+  90              	.LFE3:
+  91              		.size	Boundary32bit_Stop, .-Boundary32bit_Stop
+  92              		.section	.text.Boundary32bit_SetInterruptMode,"ax",%progbits
+  93              		.align	2
+  94              		.global	Boundary32bit_SetInterruptMode
+  95              		.thumb
+  96              		.thumb_func
+  97              		.type	Boundary32bit_SetInterruptMode, %function
+  98              	Boundary32bit_SetInterruptMode:
+  99              	.LFB4:
+ 219:Generated_Source\PSoC5/Boundary32bit.c ****     #endif /* (Boundary32bit_UsingFixedFunction) */
+ 220:Generated_Source\PSoC5/Boundary32bit.c **** }
+ 221:Generated_Source\PSoC5/Boundary32bit.c **** 
+ 222:Generated_Source\PSoC5/Boundary32bit.c **** 
+ 223:Generated_Source\PSoC5/Boundary32bit.c **** /*******************************************************************************
+ 224:Generated_Source\PSoC5/Boundary32bit.c **** * Function Name: Boundary32bit_SetInterruptMode
+ 225:Generated_Source\PSoC5/Boundary32bit.c **** ********************************************************************************
+ 226:Generated_Source\PSoC5/Boundary32bit.c **** * Summary:
+ 227:Generated_Source\PSoC5/Boundary32bit.c **** * Configures which interrupt sources are enabled to generate the final interrupt
+ 228:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 229:Generated_Source\PSoC5/Boundary32bit.c **** * Parameters:  
+ 230:Generated_Source\PSoC5/Boundary32bit.c **** *  InterruptsMask: This parameter is an or'd collection of the status bits
+ 231:Generated_Source\PSoC5/Boundary32bit.c **** *                   which will be allowed to generate the counters interrupt.   
+ 232:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 233:Generated_Source\PSoC5/Boundary32bit.c **** * Return: 
+ 234:Generated_Source\PSoC5/Boundary32bit.c **** *  void
+ 235:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 236:Generated_Source\PSoC5/Boundary32bit.c **** *******************************************************************************/
+ 237:Generated_Source\PSoC5/Boundary32bit.c **** void Boundary32bit_SetInterruptMode(uint8 interruptsMask) 
+ 238:Generated_Source\PSoC5/Boundary32bit.c **** {
+ 100              		.loc 1 238 0
+ 101              		.cfi_startproc
+ 102              		@ args = 0, pretend = 0, frame = 0
+ 103              		@ frame_needed = 0, uses_anonymous_args = 0
+ 104              		@ link register save eliminated.
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccCQrJ5p.s 			page 7
+
+
+ 105              	.LVL0:
+ 239:Generated_Source\PSoC5/Boundary32bit.c ****     Boundary32bit_STATUS_MASK = interruptsMask;
+ 106              		.loc 1 239 0
+ 107 0000 014B     		ldr	r3, .L8
+ 108 0002 1870     		strb	r0, [r3]
+ 109 0004 7047     		bx	lr
+ 110              	.L9:
+ 111 0006 00BF     		.align	2
+ 112              	.L8:
+ 113 0008 034F0040 		.word	1073762051
+ 114              		.cfi_endproc
+ 115              	.LFE4:
+ 116              		.size	Boundary32bit_SetInterruptMode, .-Boundary32bit_SetInterruptMode
+ 117              		.section	.text.Boundary32bit_ReadStatusRegister,"ax",%progbits
+ 118              		.align	2
+ 119              		.global	Boundary32bit_ReadStatusRegister
+ 120              		.thumb
+ 121              		.thumb_func
+ 122              		.type	Boundary32bit_ReadStatusRegister, %function
+ 123              	Boundary32bit_ReadStatusRegister:
+ 124              	.LFB5:
+ 240:Generated_Source\PSoC5/Boundary32bit.c **** }
+ 241:Generated_Source\PSoC5/Boundary32bit.c **** 
+ 242:Generated_Source\PSoC5/Boundary32bit.c **** 
+ 243:Generated_Source\PSoC5/Boundary32bit.c **** /*******************************************************************************
+ 244:Generated_Source\PSoC5/Boundary32bit.c **** * Function Name: Boundary32bit_ReadStatusRegister
+ 245:Generated_Source\PSoC5/Boundary32bit.c **** ********************************************************************************
+ 246:Generated_Source\PSoC5/Boundary32bit.c **** * Summary:
+ 247:Generated_Source\PSoC5/Boundary32bit.c **** *   Reads the status register and returns it's state. This function should use
+ 248:Generated_Source\PSoC5/Boundary32bit.c **** *       defined types for the bit-field information as the bits in this
+ 249:Generated_Source\PSoC5/Boundary32bit.c **** *       register may be permuteable.
+ 250:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 251:Generated_Source\PSoC5/Boundary32bit.c **** * Parameters:  
+ 252:Generated_Source\PSoC5/Boundary32bit.c **** *  void
+ 253:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 254:Generated_Source\PSoC5/Boundary32bit.c **** * Return: 
+ 255:Generated_Source\PSoC5/Boundary32bit.c **** *  (uint8) The contents of the status register
+ 256:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 257:Generated_Source\PSoC5/Boundary32bit.c **** * Side Effects:
+ 258:Generated_Source\PSoC5/Boundary32bit.c **** *   Status register bits may be clear on read. 
+ 259:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 260:Generated_Source\PSoC5/Boundary32bit.c **** *******************************************************************************/
+ 261:Generated_Source\PSoC5/Boundary32bit.c **** uint8   Boundary32bit_ReadStatusRegister(void) 
+ 262:Generated_Source\PSoC5/Boundary32bit.c **** {
+ 125              		.loc 1 262 0
+ 126              		.cfi_startproc
+ 127              		@ args = 0, pretend = 0, frame = 0
+ 128              		@ frame_needed = 0, uses_anonymous_args = 0
+ 129              		@ link register save eliminated.
+ 263:Generated_Source\PSoC5/Boundary32bit.c ****     return Boundary32bit_STATUS;
+ 130              		.loc 1 263 0
+ 131 0000 014B     		ldr	r3, .L11
+ 132 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 264:Generated_Source\PSoC5/Boundary32bit.c **** }
+ 133              		.loc 1 264 0
+ 134 0004 7047     		bx	lr
+ 135              	.L12:
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccCQrJ5p.s 			page 8
+
+
+ 136 0006 00BF     		.align	2
+ 137              	.L11:
+ 138 0008 034F0040 		.word	1073762051
+ 139              		.cfi_endproc
+ 140              	.LFE5:
+ 141              		.size	Boundary32bit_ReadStatusRegister, .-Boundary32bit_ReadStatusRegister
+ 142              		.section	.text.Boundary32bit_ReadControlRegister,"ax",%progbits
+ 143              		.align	2
+ 144              		.global	Boundary32bit_ReadControlRegister
+ 145              		.thumb
+ 146              		.thumb_func
+ 147              		.type	Boundary32bit_ReadControlRegister, %function
+ 148              	Boundary32bit_ReadControlRegister:
+ 149              	.LFB6:
+ 265:Generated_Source\PSoC5/Boundary32bit.c **** 
+ 266:Generated_Source\PSoC5/Boundary32bit.c **** 
+ 267:Generated_Source\PSoC5/Boundary32bit.c **** #if(!Boundary32bit_ControlRegRemoved)
+ 268:Generated_Source\PSoC5/Boundary32bit.c **** /*******************************************************************************
+ 269:Generated_Source\PSoC5/Boundary32bit.c **** * Function Name: Boundary32bit_ReadControlRegister
+ 270:Generated_Source\PSoC5/Boundary32bit.c **** ********************************************************************************
+ 271:Generated_Source\PSoC5/Boundary32bit.c **** * Summary:
+ 272:Generated_Source\PSoC5/Boundary32bit.c **** *   Reads the control register and returns it's state. This function should use
+ 273:Generated_Source\PSoC5/Boundary32bit.c **** *       defined types for the bit-field information as the bits in this
+ 274:Generated_Source\PSoC5/Boundary32bit.c **** *       register may be permuteable.
+ 275:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 276:Generated_Source\PSoC5/Boundary32bit.c **** * Parameters:  
+ 277:Generated_Source\PSoC5/Boundary32bit.c **** *  void
+ 278:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 279:Generated_Source\PSoC5/Boundary32bit.c **** * Return: 
+ 280:Generated_Source\PSoC5/Boundary32bit.c **** *  (uint8) The contents of the control register
+ 281:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 282:Generated_Source\PSoC5/Boundary32bit.c **** *******************************************************************************/
+ 283:Generated_Source\PSoC5/Boundary32bit.c **** uint8   Boundary32bit_ReadControlRegister(void) 
+ 284:Generated_Source\PSoC5/Boundary32bit.c **** {
+ 150              		.loc 1 284 0
+ 151              		.cfi_startproc
+ 152              		@ args = 0, pretend = 0, frame = 0
+ 153              		@ frame_needed = 0, uses_anonymous_args = 0
+ 154              		@ link register save eliminated.
+ 285:Generated_Source\PSoC5/Boundary32bit.c ****     return Boundary32bit_CONTROL;
+ 155              		.loc 1 285 0
+ 156 0000 014B     		ldr	r3, .L14
+ 157 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 286:Generated_Source\PSoC5/Boundary32bit.c **** }
+ 158              		.loc 1 286 0
+ 159 0004 7047     		bx	lr
+ 160              	.L15:
+ 161 0006 00BF     		.align	2
+ 162              	.L14:
+ 163 0008 004F0040 		.word	1073762048
+ 164              		.cfi_endproc
+ 165              	.LFE6:
+ 166              		.size	Boundary32bit_ReadControlRegister, .-Boundary32bit_ReadControlRegister
+ 167              		.section	.text.Boundary32bit_WriteControlRegister,"ax",%progbits
+ 168              		.align	2
+ 169              		.global	Boundary32bit_WriteControlRegister
+ 170              		.thumb
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccCQrJ5p.s 			page 9
+
+
+ 171              		.thumb_func
+ 172              		.type	Boundary32bit_WriteControlRegister, %function
+ 173              	Boundary32bit_WriteControlRegister:
+ 174              	.LFB7:
+ 287:Generated_Source\PSoC5/Boundary32bit.c **** 
+ 288:Generated_Source\PSoC5/Boundary32bit.c **** 
+ 289:Generated_Source\PSoC5/Boundary32bit.c **** /*******************************************************************************
+ 290:Generated_Source\PSoC5/Boundary32bit.c **** * Function Name: Boundary32bit_WriteControlRegister
+ 291:Generated_Source\PSoC5/Boundary32bit.c **** ********************************************************************************
+ 292:Generated_Source\PSoC5/Boundary32bit.c **** * Summary:
+ 293:Generated_Source\PSoC5/Boundary32bit.c **** *   Sets the bit-field of the control register.  This function should use
+ 294:Generated_Source\PSoC5/Boundary32bit.c **** *       defined types for the bit-field information as the bits in this
+ 295:Generated_Source\PSoC5/Boundary32bit.c **** *       register may be permuteable.
+ 296:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 297:Generated_Source\PSoC5/Boundary32bit.c **** * Parameters:  
+ 298:Generated_Source\PSoC5/Boundary32bit.c **** *  void
+ 299:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 300:Generated_Source\PSoC5/Boundary32bit.c **** * Return: 
+ 301:Generated_Source\PSoC5/Boundary32bit.c **** *  (uint8) The contents of the control register
+ 302:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 303:Generated_Source\PSoC5/Boundary32bit.c **** *******************************************************************************/
+ 304:Generated_Source\PSoC5/Boundary32bit.c **** void    Boundary32bit_WriteControlRegister(uint8 control) 
+ 305:Generated_Source\PSoC5/Boundary32bit.c **** {
+ 175              		.loc 1 305 0
+ 176              		.cfi_startproc
+ 177              		@ args = 0, pretend = 0, frame = 0
+ 178              		@ frame_needed = 0, uses_anonymous_args = 0
+ 179              		@ link register save eliminated.
+ 180              	.LVL1:
+ 306:Generated_Source\PSoC5/Boundary32bit.c ****     Boundary32bit_CONTROL = control;
+ 181              		.loc 1 306 0
+ 182 0000 014B     		ldr	r3, .L17
+ 183 0002 1870     		strb	r0, [r3]
+ 184 0004 7047     		bx	lr
+ 185              	.L18:
+ 186 0006 00BF     		.align	2
+ 187              	.L17:
+ 188 0008 004F0040 		.word	1073762048
+ 189              		.cfi_endproc
+ 190              	.LFE7:
+ 191              		.size	Boundary32bit_WriteControlRegister, .-Boundary32bit_WriteControlRegister
+ 192              		.section	.text.Boundary32bit_WriteCounter,"ax",%progbits
+ 193              		.align	2
+ 194              		.global	Boundary32bit_WriteCounter
+ 195              		.thumb
+ 196              		.thumb_func
+ 197              		.type	Boundary32bit_WriteCounter, %function
+ 198              	Boundary32bit_WriteCounter:
+ 199              	.LFB8:
+ 307:Generated_Source\PSoC5/Boundary32bit.c **** }
+ 308:Generated_Source\PSoC5/Boundary32bit.c **** 
+ 309:Generated_Source\PSoC5/Boundary32bit.c **** #endif  /* (!Boundary32bit_ControlRegRemoved) */
+ 310:Generated_Source\PSoC5/Boundary32bit.c **** 
+ 311:Generated_Source\PSoC5/Boundary32bit.c **** 
+ 312:Generated_Source\PSoC5/Boundary32bit.c **** #if (!(Boundary32bit_UsingFixedFunction && (CY_PSOC5A)))
+ 313:Generated_Source\PSoC5/Boundary32bit.c **** /*******************************************************************************
+ 314:Generated_Source\PSoC5/Boundary32bit.c **** * Function Name: Boundary32bit_WriteCounter
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccCQrJ5p.s 			page 10
+
+
+ 315:Generated_Source\PSoC5/Boundary32bit.c **** ********************************************************************************
+ 316:Generated_Source\PSoC5/Boundary32bit.c **** * Summary:
+ 317:Generated_Source\PSoC5/Boundary32bit.c **** *   This funtion is used to set the counter to a specific value
+ 318:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 319:Generated_Source\PSoC5/Boundary32bit.c **** * Parameters:  
+ 320:Generated_Source\PSoC5/Boundary32bit.c **** *  counter:  New counter value. 
+ 321:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 322:Generated_Source\PSoC5/Boundary32bit.c **** * Return: 
+ 323:Generated_Source\PSoC5/Boundary32bit.c **** *  void 
+ 324:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 325:Generated_Source\PSoC5/Boundary32bit.c **** *******************************************************************************/
+ 326:Generated_Source\PSoC5/Boundary32bit.c **** void Boundary32bit_WriteCounter(uint8 counter) \
+ 327:Generated_Source\PSoC5/Boundary32bit.c ****                                    
+ 328:Generated_Source\PSoC5/Boundary32bit.c **** {
+ 200              		.loc 1 328 0
+ 201              		.cfi_startproc
+ 202              		@ args = 0, pretend = 0, frame = 0
+ 203              		@ frame_needed = 0, uses_anonymous_args = 0
+ 204              	.LVL2:
+ 205 0000 10B5     		push	{r4, lr}
+ 206              		.cfi_def_cfa_offset 8
+ 207              		.cfi_offset 4, -8
+ 208              		.cfi_offset 14, -4
+ 209 0002 0446     		mov	r4, r0
+ 329:Generated_Source\PSoC5/Boundary32bit.c ****     #if(Boundary32bit_UsingFixedFunction)
+ 330:Generated_Source\PSoC5/Boundary32bit.c ****         /* assert if block is already enabled */
+ 331:Generated_Source\PSoC5/Boundary32bit.c ****         CYASSERT (0u == (Boundary32bit_GLOBAL_ENABLE & Boundary32bit_BLOCK_EN_MASK));
+ 210              		.loc 1 331 0
+ 211 0004 0A4B     		ldr	r3, .L22
+ 212 0006 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 213 0008 13F0010F 		tst	r3, #1
+ 214 000c 02D0     		beq	.L20
+ 215              		.loc 1 331 0 is_stmt 0 discriminator 1
+ 216 000e 0020     		movs	r0, #0
+ 217              	.LVL3:
+ 218 0010 FFF7FEFF 		bl	CyHalt
+ 219              	.LVL4:
+ 220              	.L20:
+ 332:Generated_Source\PSoC5/Boundary32bit.c ****         /* If block is disabled, enable it and then write the counter */
+ 333:Generated_Source\PSoC5/Boundary32bit.c ****         Boundary32bit_GLOBAL_ENABLE |= Boundary32bit_BLOCK_EN_MASK;
+ 221              		.loc 1 333 0 is_stmt 1
+ 222 0014 064B     		ldr	r3, .L22
+ 223 0016 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 224 0018 42F00102 		orr	r2, r2, #1
+ 225 001c 1A70     		strb	r2, [r3]
+ 334:Generated_Source\PSoC5/Boundary32bit.c ****         CY_SET_REG16(Boundary32bit_COUNTER_LSB_PTR, (uint16)counter);
+ 226              		.loc 1 334 0
+ 227 001e A4B2     		uxth	r4, r4
+ 228 0020 044A     		ldr	r2, .L22+4
+ 229 0022 1480     		strh	r4, [r2]	@ movhi
+ 335:Generated_Source\PSoC5/Boundary32bit.c ****         Boundary32bit_GLOBAL_ENABLE &= ((uint8)(~Boundary32bit_BLOCK_EN_MASK));
+ 230              		.loc 1 335 0
+ 231 0024 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 232 0026 02F0FE02 		and	r2, r2, #254
+ 233 002a 1A70     		strb	r2, [r3]
+ 234 002c 10BD     		pop	{r4, pc}
+ 235              	.L23:
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccCQrJ5p.s 			page 11
+
+
+ 236 002e 00BF     		.align	2
+ 237              	.L22:
+ 238 0030 A3430040 		.word	1073759139
+ 239 0034 064F0040 		.word	1073762054
+ 240              		.cfi_endproc
+ 241              	.LFE8:
+ 242              		.size	Boundary32bit_WriteCounter, .-Boundary32bit_WriteCounter
+ 243              		.section	.text.Boundary32bit_ReadCounter,"ax",%progbits
+ 244              		.align	2
+ 245              		.global	Boundary32bit_ReadCounter
+ 246              		.thumb
+ 247              		.thumb_func
+ 248              		.type	Boundary32bit_ReadCounter, %function
+ 249              	Boundary32bit_ReadCounter:
+ 250              	.LFB9:
+ 336:Generated_Source\PSoC5/Boundary32bit.c ****     #else
+ 337:Generated_Source\PSoC5/Boundary32bit.c ****         CY_SET_REG8(Boundary32bit_COUNTER_LSB_PTR, counter);
+ 338:Generated_Source\PSoC5/Boundary32bit.c ****     #endif /* (Boundary32bit_UsingFixedFunction) */
+ 339:Generated_Source\PSoC5/Boundary32bit.c **** }
+ 340:Generated_Source\PSoC5/Boundary32bit.c **** #endif /* (!(Boundary32bit_UsingFixedFunction && (CY_PSOC5A))) */
+ 341:Generated_Source\PSoC5/Boundary32bit.c **** 
+ 342:Generated_Source\PSoC5/Boundary32bit.c **** 
+ 343:Generated_Source\PSoC5/Boundary32bit.c **** /*******************************************************************************
+ 344:Generated_Source\PSoC5/Boundary32bit.c **** * Function Name: Boundary32bit_ReadCounter
+ 345:Generated_Source\PSoC5/Boundary32bit.c **** ********************************************************************************
+ 346:Generated_Source\PSoC5/Boundary32bit.c **** * Summary:
+ 347:Generated_Source\PSoC5/Boundary32bit.c **** * Returns the current value of the counter.  It doesn't matter
+ 348:Generated_Source\PSoC5/Boundary32bit.c **** * if the counter is enabled or running.
+ 349:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 350:Generated_Source\PSoC5/Boundary32bit.c **** * Parameters:  
+ 351:Generated_Source\PSoC5/Boundary32bit.c **** *  void:  
+ 352:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 353:Generated_Source\PSoC5/Boundary32bit.c **** * Return: 
+ 354:Generated_Source\PSoC5/Boundary32bit.c **** *  (uint8) The present value of the counter.
+ 355:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 356:Generated_Source\PSoC5/Boundary32bit.c **** *******************************************************************************/
+ 357:Generated_Source\PSoC5/Boundary32bit.c **** uint8 Boundary32bit_ReadCounter(void) 
+ 358:Generated_Source\PSoC5/Boundary32bit.c **** {
+ 251              		.loc 1 358 0
+ 252              		.cfi_startproc
+ 253              		@ args = 0, pretend = 0, frame = 0
+ 254              		@ frame_needed = 0, uses_anonymous_args = 0
+ 255              		@ link register save eliminated.
+ 359:Generated_Source\PSoC5/Boundary32bit.c ****     /* Force capture by reading Accumulator */
+ 360:Generated_Source\PSoC5/Boundary32bit.c ****     /* Must first do a software capture to be able to read the counter */
+ 361:Generated_Source\PSoC5/Boundary32bit.c ****     /* It is up to the user code to make sure there isn't already captured data in the FIFO */
+ 362:Generated_Source\PSoC5/Boundary32bit.c ****     #if(Boundary32bit_UsingFixedFunction)
+ 363:Generated_Source\PSoC5/Boundary32bit.c **** 		(void)CY_GET_REG16(Boundary32bit_COUNTER_LSB_PTR);
+ 256              		.loc 1 363 0
+ 257 0000 024B     		ldr	r3, .L25
+ 258 0002 1B88     		ldrh	r3, [r3]
+ 364:Generated_Source\PSoC5/Boundary32bit.c **** 	#else
+ 365:Generated_Source\PSoC5/Boundary32bit.c **** 		(void)CY_GET_REG8(Boundary32bit_COUNTER_LSB_PTR_8BIT);
+ 366:Generated_Source\PSoC5/Boundary32bit.c **** 	#endif/* (Boundary32bit_UsingFixedFunction) */
+ 367:Generated_Source\PSoC5/Boundary32bit.c ****     
+ 368:Generated_Source\PSoC5/Boundary32bit.c ****     /* Read the data from the FIFO (or capture register for Fixed Function)*/
+ 369:Generated_Source\PSoC5/Boundary32bit.c ****     #if(Boundary32bit_UsingFixedFunction)
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccCQrJ5p.s 			page 12
+
+
+ 370:Generated_Source\PSoC5/Boundary32bit.c ****         return ((uint8)CY_GET_REG16(Boundary32bit_STATICCOUNT_LSB_PTR));
+ 259              		.loc 1 370 0
+ 260 0004 024B     		ldr	r3, .L25+4
+ 261 0006 1888     		ldrh	r0, [r3]
+ 371:Generated_Source\PSoC5/Boundary32bit.c ****     #else
+ 372:Generated_Source\PSoC5/Boundary32bit.c ****         return (CY_GET_REG8(Boundary32bit_STATICCOUNT_LSB_PTR));
+ 373:Generated_Source\PSoC5/Boundary32bit.c ****     #endif /* (Boundary32bit_UsingFixedFunction) */
+ 374:Generated_Source\PSoC5/Boundary32bit.c **** }
+ 262              		.loc 1 374 0
+ 263 0008 C0B2     		uxtb	r0, r0
+ 264 000a 7047     		bx	lr
+ 265              	.L26:
+ 266              		.align	2
+ 267              	.L25:
+ 268 000c 064F0040 		.word	1073762054
+ 269 0010 084F0040 		.word	1073762056
+ 270              		.cfi_endproc
+ 271              	.LFE9:
+ 272              		.size	Boundary32bit_ReadCounter, .-Boundary32bit_ReadCounter
+ 273              		.section	.text.Boundary32bit_ReadCapture,"ax",%progbits
+ 274              		.align	2
+ 275              		.global	Boundary32bit_ReadCapture
+ 276              		.thumb
+ 277              		.thumb_func
+ 278              		.type	Boundary32bit_ReadCapture, %function
+ 279              	Boundary32bit_ReadCapture:
+ 280              	.LFB10:
+ 375:Generated_Source\PSoC5/Boundary32bit.c **** 
+ 376:Generated_Source\PSoC5/Boundary32bit.c **** 
+ 377:Generated_Source\PSoC5/Boundary32bit.c **** /*******************************************************************************
+ 378:Generated_Source\PSoC5/Boundary32bit.c **** * Function Name: Boundary32bit_ReadCapture
+ 379:Generated_Source\PSoC5/Boundary32bit.c **** ********************************************************************************
+ 380:Generated_Source\PSoC5/Boundary32bit.c **** * Summary:
+ 381:Generated_Source\PSoC5/Boundary32bit.c **** *   This function returns the last value captured.
+ 382:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 383:Generated_Source\PSoC5/Boundary32bit.c **** * Parameters:  
+ 384:Generated_Source\PSoC5/Boundary32bit.c **** *  void
+ 385:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 386:Generated_Source\PSoC5/Boundary32bit.c **** * Return: 
+ 387:Generated_Source\PSoC5/Boundary32bit.c **** *  (uint8) Present Capture value.
+ 388:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 389:Generated_Source\PSoC5/Boundary32bit.c **** *******************************************************************************/
+ 390:Generated_Source\PSoC5/Boundary32bit.c **** uint8 Boundary32bit_ReadCapture(void) 
+ 391:Generated_Source\PSoC5/Boundary32bit.c **** {
+ 281              		.loc 1 391 0
+ 282              		.cfi_startproc
+ 283              		@ args = 0, pretend = 0, frame = 0
+ 284              		@ frame_needed = 0, uses_anonymous_args = 0
+ 285              		@ link register save eliminated.
+ 392:Generated_Source\PSoC5/Boundary32bit.c ****     #if(Boundary32bit_UsingFixedFunction)
+ 393:Generated_Source\PSoC5/Boundary32bit.c ****         return ((uint8)CY_GET_REG16(Boundary32bit_STATICCOUNT_LSB_PTR));
+ 286              		.loc 1 393 0
+ 287 0000 014B     		ldr	r3, .L28
+ 288 0002 1888     		ldrh	r0, [r3]
+ 394:Generated_Source\PSoC5/Boundary32bit.c ****     #else
+ 395:Generated_Source\PSoC5/Boundary32bit.c ****         return (CY_GET_REG8(Boundary32bit_STATICCOUNT_LSB_PTR));
+ 396:Generated_Source\PSoC5/Boundary32bit.c ****     #endif /* (Boundary32bit_UsingFixedFunction) */
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccCQrJ5p.s 			page 13
+
+
+ 397:Generated_Source\PSoC5/Boundary32bit.c **** }
+ 289              		.loc 1 397 0
+ 290 0004 C0B2     		uxtb	r0, r0
+ 291 0006 7047     		bx	lr
+ 292              	.L29:
+ 293              		.align	2
+ 294              	.L28:
+ 295 0008 084F0040 		.word	1073762056
+ 296              		.cfi_endproc
+ 297              	.LFE10:
+ 298              		.size	Boundary32bit_ReadCapture, .-Boundary32bit_ReadCapture
+ 299              		.section	.text.Boundary32bit_WritePeriod,"ax",%progbits
+ 300              		.align	2
+ 301              		.global	Boundary32bit_WritePeriod
+ 302              		.thumb
+ 303              		.thumb_func
+ 304              		.type	Boundary32bit_WritePeriod, %function
+ 305              	Boundary32bit_WritePeriod:
+ 306              	.LFB11:
+ 398:Generated_Source\PSoC5/Boundary32bit.c **** 
+ 399:Generated_Source\PSoC5/Boundary32bit.c **** 
+ 400:Generated_Source\PSoC5/Boundary32bit.c **** /*******************************************************************************
+ 401:Generated_Source\PSoC5/Boundary32bit.c **** * Function Name: Boundary32bit_WritePeriod
+ 402:Generated_Source\PSoC5/Boundary32bit.c **** ********************************************************************************
+ 403:Generated_Source\PSoC5/Boundary32bit.c **** * Summary:
+ 404:Generated_Source\PSoC5/Boundary32bit.c **** * Changes the period of the counter.  The new period 
+ 405:Generated_Source\PSoC5/Boundary32bit.c **** * will be loaded the next time terminal count is detected.
+ 406:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 407:Generated_Source\PSoC5/Boundary32bit.c **** * Parameters:  
+ 408:Generated_Source\PSoC5/Boundary32bit.c **** *  period: (uint8) A value of 0 will result in
+ 409:Generated_Source\PSoC5/Boundary32bit.c **** *         the counter remaining at zero.  
+ 410:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 411:Generated_Source\PSoC5/Boundary32bit.c **** * Return: 
+ 412:Generated_Source\PSoC5/Boundary32bit.c **** *  void
+ 413:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 414:Generated_Source\PSoC5/Boundary32bit.c **** *******************************************************************************/
+ 415:Generated_Source\PSoC5/Boundary32bit.c **** void Boundary32bit_WritePeriod(uint8 period) 
+ 416:Generated_Source\PSoC5/Boundary32bit.c **** {
+ 307              		.loc 1 416 0
+ 308              		.cfi_startproc
+ 309              		@ args = 0, pretend = 0, frame = 0
+ 310              		@ frame_needed = 0, uses_anonymous_args = 0
+ 311              		@ link register save eliminated.
+ 312              	.LVL5:
+ 417:Generated_Source\PSoC5/Boundary32bit.c ****     #if(Boundary32bit_UsingFixedFunction)
+ 418:Generated_Source\PSoC5/Boundary32bit.c ****         CY_SET_REG16(Boundary32bit_PERIOD_LSB_PTR,(uint16)period);
+ 313              		.loc 1 418 0
+ 314 0000 014B     		ldr	r3, .L31
+ 315 0002 1880     		strh	r0, [r3]	@ movhi
+ 316 0004 7047     		bx	lr
+ 317              	.L32:
+ 318 0006 00BF     		.align	2
+ 319              	.L31:
+ 320 0008 044F0040 		.word	1073762052
+ 321              		.cfi_endproc
+ 322              	.LFE11:
+ 323              		.size	Boundary32bit_WritePeriod, .-Boundary32bit_WritePeriod
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccCQrJ5p.s 			page 14
+
+
+ 324              		.section	.text.Boundary32bit_Init,"ax",%progbits
+ 325              		.align	2
+ 326              		.global	Boundary32bit_Init
+ 327              		.thumb
+ 328              		.thumb_func
+ 329              		.type	Boundary32bit_Init, %function
+ 330              	Boundary32bit_Init:
+ 331              	.LFB0:
+  38:Generated_Source\PSoC5/Boundary32bit.c ****         #if (!Boundary32bit_UsingFixedFunction && !Boundary32bit_ControlRegRemoved)
+ 332              		.loc 1 38 0
+ 333              		.cfi_startproc
+ 334              		@ args = 0, pretend = 0, frame = 0
+ 335              		@ frame_needed = 0, uses_anonymous_args = 0
+ 336 0000 08B5     		push	{r3, lr}
+ 337              		.cfi_def_cfa_offset 8
+ 338              		.cfi_offset 3, -8
+ 339              		.cfi_offset 14, -4
+  50:Generated_Source\PSoC5/Boundary32bit.c ****             
+ 340              		.loc 1 50 0
+ 341 0002 154A     		ldr	r2, .L35
+ 342 0004 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 343 0006 03F00103 		and	r3, r3, #1
+ 344 000a 1370     		strb	r3, [r2]
+  57:Generated_Source\PSoC5/Boundary32bit.c ****             #endif /* (CY_PSOC3 || CY_PSOC5LP) */
+ 345              		.loc 1 57 0
+ 346 000c 0232     		adds	r2, r2, #2
+ 347 000e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 348 0010 03F0FC03 		and	r3, r3, #252
+ 349 0014 1370     		strb	r3, [r2]
+  66:Generated_Source\PSoC5/Boundary32bit.c ****             
+ 350              		.loc 1 66 0
+ 351 0016 013A     		subs	r2, r2, #1
+ 352 0018 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 353 001a 43F00103 		orr	r3, r3, #1
+ 354 001e 1370     		strb	r3, [r2]
+  69:Generated_Source\PSoC5/Boundary32bit.c ****             Boundary32bit_RT1 |= Boundary32bit_SYNC;     
+ 355              		.loc 1 69 0
+ 356 0020 0E4B     		ldr	r3, .L35+4
+ 357 0022 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 358 0024 02F0CF02 		and	r2, r2, #207
+ 359 0028 1A70     		strb	r2, [r3]
+  70:Generated_Source\PSoC5/Boundary32bit.c ****                     
+ 360              		.loc 1 70 0
+ 361 002a 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 362 002c 42F03002 		orr	r2, r2, #48
+ 363 0030 1A70     		strb	r2, [r3]
+  73:Generated_Source\PSoC5/Boundary32bit.c ****             Boundary32bit_RT1 |= Boundary32bit_SYNCDSI_EN;
+ 364              		.loc 1 73 0
+ 365 0032 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 366 0034 02F0F002 		and	r2, r2, #240
+ 367 0038 1A70     		strb	r2, [r3]
+  74:Generated_Source\PSoC5/Boundary32bit.c **** 
+ 368              		.loc 1 74 0
+ 369 003a 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 370 003c 42F00F02 		orr	r2, r2, #15
+ 371 0040 1A70     		strb	r2, [r3]
+ 100:Generated_Source\PSoC5/Boundary32bit.c ****         #if (!(Boundary32bit_UsingFixedFunction && (CY_PSOC5A)))
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccCQrJ5p.s 			page 15
+
+
+ 372              		.loc 1 100 0
+ 373 0042 1F20     		movs	r0, #31
+ 374 0044 FFF7FEFF 		bl	Boundary32bit_WritePeriod
+ 375              	.LVL6:
+ 102:Generated_Source\PSoC5/Boundary32bit.c ****         #endif /* (!(Boundary32bit_UsingFixedFunction && (CY_PSOC5A))) */
+ 376              		.loc 1 102 0
+ 377 0048 0020     		movs	r0, #0
+ 378 004a FFF7FEFF 		bl	Boundary32bit_WriteCounter
+ 379              	.LVL7:
+ 104:Generated_Source\PSoC5/Boundary32bit.c ****         
+ 380              		.loc 1 104 0
+ 381 004e 0020     		movs	r0, #0
+ 382 0050 FFF7FEFF 		bl	Boundary32bit_SetInterruptMode
+ 383              	.LVL8:
+ 384 0054 08BD     		pop	{r3, pc}
+ 385              	.L36:
+ 386 0056 00BF     		.align	2
+ 387              	.L35:
+ 388 0058 004F0040 		.word	1073762048
+ 389 005c 0B4F0040 		.word	1073762059
+ 390              		.cfi_endproc
+ 391              	.LFE0:
+ 392              		.size	Boundary32bit_Init, .-Boundary32bit_Init
+ 393              		.section	.text.Boundary32bit_Start,"ax",%progbits
+ 394              		.align	2
+ 395              		.global	Boundary32bit_Start
+ 396              		.thumb
+ 397              		.thumb_func
+ 398              		.type	Boundary32bit_Start, %function
+ 399              	Boundary32bit_Start:
+ 400              	.LFB2:
+ 179:Generated_Source\PSoC5/Boundary32bit.c ****     if(Boundary32bit_initVar == 0u)
+ 401              		.loc 1 179 0
+ 402              		.cfi_startproc
+ 403              		@ args = 0, pretend = 0, frame = 0
+ 404              		@ frame_needed = 0, uses_anonymous_args = 0
+ 405 0000 08B5     		push	{r3, lr}
+ 406              		.cfi_def_cfa_offset 8
+ 407              		.cfi_offset 3, -8
+ 408              		.cfi_offset 14, -4
+ 180:Generated_Source\PSoC5/Boundary32bit.c ****     {
+ 409              		.loc 1 180 0
+ 410 0002 054B     		ldr	r3, .L40
+ 411 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 412 0006 23B9     		cbnz	r3, .L38
+ 182:Generated_Source\PSoC5/Boundary32bit.c ****         
+ 413              		.loc 1 182 0
+ 414 0008 FFF7FEFF 		bl	Boundary32bit_Init
+ 415              	.LVL9:
+ 184:Generated_Source\PSoC5/Boundary32bit.c ****     }
+ 416              		.loc 1 184 0
+ 417 000c 0122     		movs	r2, #1
+ 418 000e 024B     		ldr	r3, .L40
+ 419 0010 1A70     		strb	r2, [r3]
+ 420              	.L38:
+ 188:Generated_Source\PSoC5/Boundary32bit.c **** }
+ 421              		.loc 1 188 0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccCQrJ5p.s 			page 16
+
+
+ 422 0012 FFF7FEFF 		bl	Boundary32bit_Enable
+ 423              	.LVL10:
+ 424 0016 08BD     		pop	{r3, pc}
+ 425              	.L41:
+ 426              		.align	2
+ 427              	.L40:
+ 428 0018 00000000 		.word	.LANCHOR0
+ 429              		.cfi_endproc
+ 430              	.LFE2:
+ 431              		.size	Boundary32bit_Start, .-Boundary32bit_Start
+ 432              		.section	.text.Boundary32bit_ReadPeriod,"ax",%progbits
+ 433              		.align	2
+ 434              		.global	Boundary32bit_ReadPeriod
+ 435              		.thumb
+ 436              		.thumb_func
+ 437              		.type	Boundary32bit_ReadPeriod, %function
+ 438              	Boundary32bit_ReadPeriod:
+ 439              	.LFB12:
+ 419:Generated_Source\PSoC5/Boundary32bit.c ****     #else
+ 420:Generated_Source\PSoC5/Boundary32bit.c ****         CY_SET_REG8(Boundary32bit_PERIOD_LSB_PTR, period);
+ 421:Generated_Source\PSoC5/Boundary32bit.c ****     #endif /* (Boundary32bit_UsingFixedFunction) */
+ 422:Generated_Source\PSoC5/Boundary32bit.c **** }
+ 423:Generated_Source\PSoC5/Boundary32bit.c **** 
+ 424:Generated_Source\PSoC5/Boundary32bit.c **** 
+ 425:Generated_Source\PSoC5/Boundary32bit.c **** /*******************************************************************************
+ 426:Generated_Source\PSoC5/Boundary32bit.c **** * Function Name: Boundary32bit_ReadPeriod
+ 427:Generated_Source\PSoC5/Boundary32bit.c **** ********************************************************************************
+ 428:Generated_Source\PSoC5/Boundary32bit.c **** * Summary:
+ 429:Generated_Source\PSoC5/Boundary32bit.c **** * Reads the current period value without affecting counter operation.
+ 430:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 431:Generated_Source\PSoC5/Boundary32bit.c **** * Parameters:  
+ 432:Generated_Source\PSoC5/Boundary32bit.c **** *  void:  
+ 433:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 434:Generated_Source\PSoC5/Boundary32bit.c **** * Return: 
+ 435:Generated_Source\PSoC5/Boundary32bit.c **** *  (uint8) Present period value.
+ 436:Generated_Source\PSoC5/Boundary32bit.c **** *
+ 437:Generated_Source\PSoC5/Boundary32bit.c **** *******************************************************************************/
+ 438:Generated_Source\PSoC5/Boundary32bit.c **** uint8 Boundary32bit_ReadPeriod(void) 
+ 439:Generated_Source\PSoC5/Boundary32bit.c **** {
+ 440              		.loc 1 439 0
+ 441              		.cfi_startproc
+ 442              		@ args = 0, pretend = 0, frame = 0
+ 443              		@ frame_needed = 0, uses_anonymous_args = 0
+ 444              		@ link register save eliminated.
+ 440:Generated_Source\PSoC5/Boundary32bit.c ****     #if(Boundary32bit_UsingFixedFunction)
+ 441:Generated_Source\PSoC5/Boundary32bit.c ****         return ((uint8)CY_GET_REG16(Boundary32bit_PERIOD_LSB_PTR));
+ 445              		.loc 1 441 0
+ 446 0000 014B     		ldr	r3, .L43
+ 447 0002 1888     		ldrh	r0, [r3]
+ 442:Generated_Source\PSoC5/Boundary32bit.c ****     #else
+ 443:Generated_Source\PSoC5/Boundary32bit.c ****         return (CY_GET_REG8(Boundary32bit_PERIOD_LSB_PTR));
+ 444:Generated_Source\PSoC5/Boundary32bit.c ****     #endif /* (Boundary32bit_UsingFixedFunction) */
+ 445:Generated_Source\PSoC5/Boundary32bit.c **** }
+ 448              		.loc 1 445 0
+ 449 0004 C0B2     		uxtb	r0, r0
+ 450 0006 7047     		bx	lr
+ 451              	.L44:
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccCQrJ5p.s 			page 17
+
+
+ 452              		.align	2
+ 453              	.L43:
+ 454 0008 044F0040 		.word	1073762052
+ 455              		.cfi_endproc
+ 456              	.LFE12:
+ 457              		.size	Boundary32bit_ReadPeriod, .-Boundary32bit_ReadPeriod
+ 458              		.global	Boundary32bit_initVar
+ 459              		.bss
+ 460              		.set	.LANCHOR0,. + 0
+ 461              		.type	Boundary32bit_initVar, %object
+ 462              		.size	Boundary32bit_initVar, 1
+ 463              	Boundary32bit_initVar:
+ 464 0000 00       		.space	1
+ 465              		.text
+ 466              	.Letext0:
+ 467              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 468              		.file 3 "Generated_Source\\PSoC5\\CyLib.h"
+ 469              		.section	.debug_info,"",%progbits
+ 470              	.Ldebug_info0:
+ 471 0000 87020000 		.4byte	0x287
+ 472 0004 0400     		.2byte	0x4
+ 473 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 474 000a 04       		.byte	0x4
+ 475 000b 01       		.uleb128 0x1
+ 476 000c 57010000 		.4byte	.LASF35
+ 477 0010 0C       		.byte	0xc
+ 478 0011 C0000000 		.4byte	.LASF36
+ 479 0015 F5000000 		.4byte	.LASF37
+ 480 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 481 001d 00000000 		.4byte	0
+ 482 0021 00000000 		.4byte	.Ldebug_line0
+ 483 0025 02       		.uleb128 0x2
+ 484 0026 01       		.byte	0x1
+ 485 0027 06       		.byte	0x6
+ 486 0028 59030000 		.4byte	.LASF0
+ 487 002c 02       		.uleb128 0x2
+ 488 002d 01       		.byte	0x1
+ 489 002e 08       		.byte	0x8
+ 490 002f 49010000 		.4byte	.LASF1
+ 491 0033 02       		.uleb128 0x2
+ 492 0034 02       		.byte	0x2
+ 493 0035 05       		.byte	0x5
+ 494 0036 F8020000 		.4byte	.LASF2
+ 495 003a 02       		.uleb128 0x2
+ 496 003b 02       		.byte	0x2
+ 497 003c 07       		.byte	0x7
+ 498 003d 42000000 		.4byte	.LASF3
+ 499 0041 02       		.uleb128 0x2
+ 500 0042 04       		.byte	0x4
+ 501 0043 05       		.byte	0x5
+ 502 0044 22030000 		.4byte	.LASF4
+ 503 0048 02       		.uleb128 0x2
+ 504 0049 04       		.byte	0x4
+ 505 004a 07       		.byte	0x7
+ 506 004b FF010000 		.4byte	.LASF5
+ 507 004f 02       		.uleb128 0x2
+ 508 0050 08       		.byte	0x8
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccCQrJ5p.s 			page 18
+
+
+ 509 0051 05       		.byte	0x5
+ 510 0052 00000000 		.4byte	.LASF6
+ 511 0056 02       		.uleb128 0x2
+ 512 0057 08       		.byte	0x8
+ 513 0058 07       		.byte	0x7
+ 514 0059 8F020000 		.4byte	.LASF7
+ 515 005d 03       		.uleb128 0x3
+ 516 005e 04       		.byte	0x4
+ 517 005f 05       		.byte	0x5
+ 518 0060 696E7400 		.ascii	"int\000"
+ 519 0064 02       		.uleb128 0x2
+ 520 0065 04       		.byte	0x4
+ 521 0066 07       		.byte	0x7
+ 522 0067 6D020000 		.4byte	.LASF8
+ 523 006b 04       		.uleb128 0x4
+ 524 006c 11020000 		.4byte	.LASF9
+ 525 0070 02       		.byte	0x2
+ 526 0071 E401     		.2byte	0x1e4
+ 527 0073 2C000000 		.4byte	0x2c
+ 528 0077 04       		.uleb128 0x4
+ 529 0078 66020000 		.4byte	.LASF10
+ 530 007c 02       		.byte	0x2
+ 531 007d E501     		.2byte	0x1e5
+ 532 007f 3A000000 		.4byte	0x3a
+ 533 0083 02       		.uleb128 0x2
+ 534 0084 04       		.byte	0x4
+ 535 0085 04       		.byte	0x4
+ 536 0086 E7000000 		.4byte	.LASF11
+ 537 008a 02       		.uleb128 0x2
+ 538 008b 08       		.byte	0x8
+ 539 008c 04       		.byte	0x4
+ 540 008d 44020000 		.4byte	.LASF12
+ 541 0091 02       		.uleb128 0x2
+ 542 0092 01       		.byte	0x1
+ 543 0093 08       		.byte	0x8
+ 544 0094 F3020000 		.4byte	.LASF13
+ 545 0098 04       		.uleb128 0x4
+ 546 0099 AD020000 		.4byte	.LASF14
+ 547 009d 02       		.byte	0x2
+ 548 009e 8E02     		.2byte	0x28e
+ 549 00a0 A4000000 		.4byte	0xa4
+ 550 00a4 05       		.uleb128 0x5
+ 551 00a5 6B000000 		.4byte	0x6b
+ 552 00a9 04       		.uleb128 0x4
+ 553 00aa 02030000 		.4byte	.LASF15
+ 554 00ae 02       		.byte	0x2
+ 555 00af 8F02     		.2byte	0x28f
+ 556 00b1 B5000000 		.4byte	0xb5
+ 557 00b5 05       		.uleb128 0x5
+ 558 00b6 77000000 		.4byte	0x77
+ 559 00ba 02       		.uleb128 0x2
+ 560 00bb 08       		.byte	0x8
+ 561 00bc 04       		.byte	0x4
+ 562 00bd 2B030000 		.4byte	.LASF16
+ 563 00c1 02       		.uleb128 0x2
+ 564 00c2 04       		.byte	0x4
+ 565 00c3 07       		.byte	0x7
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccCQrJ5p.s 			page 19
+
+
+ 566 00c4 CB020000 		.4byte	.LASF17
+ 567 00c8 06       		.uleb128 0x6
+ 568 00c9 7A020000 		.4byte	.LASF18
+ 569 00cd 01       		.byte	0x1
+ 570 00ce 8F       		.byte	0x8f
+ 571 00cf 00000000 		.4byte	.LFB1
+ 572 00d3 28000000 		.4byte	.LFE1-.LFB1
+ 573 00d7 01       		.uleb128 0x1
+ 574 00d8 9C       		.byte	0x9c
+ 575 00d9 06       		.uleb128 0x6
+ 576 00da 55000000 		.4byte	.LASF19
+ 577 00de 01       		.byte	0x1
+ 578 00df D0       		.byte	0xd0
+ 579 00e0 00000000 		.4byte	.LFB3
+ 580 00e4 28000000 		.4byte	.LFE3-.LFB3
+ 581 00e8 01       		.uleb128 0x1
+ 582 00e9 9C       		.byte	0x9c
+ 583 00ea 07       		.uleb128 0x7
+ 584 00eb D4020000 		.4byte	.LASF22
+ 585 00ef 01       		.byte	0x1
+ 586 00f0 ED       		.byte	0xed
+ 587 00f1 00000000 		.4byte	.LFB4
+ 588 00f5 0C000000 		.4byte	.LFE4-.LFB4
+ 589 00f9 01       		.uleb128 0x1
+ 590 00fa 9C       		.byte	0x9c
+ 591 00fb 0D010000 		.4byte	0x10d
+ 592 00ff 08       		.uleb128 0x8
+ 593 0100 1F020000 		.4byte	.LASF24
+ 594 0104 01       		.byte	0x1
+ 595 0105 ED       		.byte	0xed
+ 596 0106 6B000000 		.4byte	0x6b
+ 597 010a 01       		.uleb128 0x1
+ 598 010b 50       		.byte	0x50
+ 599 010c 00       		.byte	0
+ 600 010d 09       		.uleb128 0x9
+ 601 010e 7C000000 		.4byte	.LASF20
+ 602 0112 01       		.byte	0x1
+ 603 0113 0501     		.2byte	0x105
+ 604 0115 6B000000 		.4byte	0x6b
+ 605 0119 00000000 		.4byte	.LFB5
+ 606 011d 0C000000 		.4byte	.LFE5-.LFB5
+ 607 0121 01       		.uleb128 0x1
+ 608 0122 9C       		.byte	0x9c
+ 609 0123 09       		.uleb128 0x9
+ 610 0124 37030000 		.4byte	.LASF21
+ 611 0128 01       		.byte	0x1
+ 612 0129 1B01     		.2byte	0x11b
+ 613 012b 6B000000 		.4byte	0x6b
+ 614 012f 00000000 		.4byte	.LFB6
+ 615 0133 0C000000 		.4byte	.LFE6-.LFB6
+ 616 0137 01       		.uleb128 0x1
+ 617 0138 9C       		.byte	0x9c
+ 618 0139 0A       		.uleb128 0xa
+ 619 013a 9D000000 		.4byte	.LASF23
+ 620 013e 01       		.byte	0x1
+ 621 013f 3001     		.2byte	0x130
+ 622 0141 00000000 		.4byte	.LFB7
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccCQrJ5p.s 			page 20
+
+
+ 623 0145 0C000000 		.4byte	.LFE7-.LFB7
+ 624 0149 01       		.uleb128 0x1
+ 625 014a 9C       		.byte	0x9c
+ 626 014b 5E010000 		.4byte	0x15e
+ 627 014f 0B       		.uleb128 0xb
+ 628 0150 17020000 		.4byte	.LASF25
+ 629 0154 01       		.byte	0x1
+ 630 0155 3001     		.2byte	0x130
+ 631 0157 6B000000 		.4byte	0x6b
+ 632 015b 01       		.uleb128 0x1
+ 633 015c 50       		.byte	0x50
+ 634 015d 00       		.byte	0
+ 635 015e 0A       		.uleb128 0xa
+ 636 015f 4B020000 		.4byte	.LASF26
+ 637 0163 01       		.byte	0x1
+ 638 0164 4601     		.2byte	0x146
+ 639 0166 00000000 		.4byte	.LFB8
+ 640 016a 38000000 		.4byte	.LFE8-.LFB8
+ 641 016e 01       		.uleb128 0x1
+ 642 016f 9C       		.byte	0x9c
+ 643 0170 94010000 		.4byte	0x194
+ 644 0174 0C       		.uleb128 0xc
+ 645 0175 ED000000 		.4byte	.LASF27
+ 646 0179 01       		.byte	0x1
+ 647 017a 4601     		.2byte	0x146
+ 648 017c 6B000000 		.4byte	0x6b
+ 649 0180 00000000 		.4byte	.LLST0
+ 650 0184 0D       		.uleb128 0xd
+ 651 0185 14000000 		.4byte	.LVL4
+ 652 0189 7F020000 		.4byte	0x27f
+ 653 018d 0E       		.uleb128 0xe
+ 654 018e 01       		.uleb128 0x1
+ 655 018f 50       		.byte	0x50
+ 656 0190 01       		.uleb128 0x1
+ 657 0191 30       		.byte	0x30
+ 658 0192 00       		.byte	0
+ 659 0193 00       		.byte	0
+ 660 0194 09       		.uleb128 0x9
+ 661 0195 28000000 		.4byte	.LASF28
+ 662 0199 01       		.byte	0x1
+ 663 019a 6501     		.2byte	0x165
+ 664 019c 6B000000 		.4byte	0x6b
+ 665 01a0 00000000 		.4byte	.LFB9
+ 666 01a4 14000000 		.4byte	.LFE9-.LFB9
+ 667 01a8 01       		.uleb128 0x1
+ 668 01a9 9C       		.byte	0x9c
+ 669 01aa 09       		.uleb128 0x9
+ 670 01ab 08030000 		.4byte	.LASF29
+ 671 01af 01       		.byte	0x1
+ 672 01b0 8601     		.2byte	0x186
+ 673 01b2 6B000000 		.4byte	0x6b
+ 674 01b6 00000000 		.4byte	.LFB10
+ 675 01ba 0C000000 		.4byte	.LFE10-.LFB10
+ 676 01be 01       		.uleb128 0x1
+ 677 01bf 9C       		.byte	0x9c
+ 678 01c0 0A       		.uleb128 0xa
+ 679 01c1 E5010000 		.4byte	.LASF30
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccCQrJ5p.s 			page 21
+
+
+ 680 01c5 01       		.byte	0x1
+ 681 01c6 9F01     		.2byte	0x19f
+ 682 01c8 00000000 		.4byte	.LFB11
+ 683 01cc 0C000000 		.4byte	.LFE11-.LFB11
+ 684 01d0 01       		.uleb128 0x1
+ 685 01d1 9C       		.byte	0x9c
+ 686 01d2 E5010000 		.4byte	0x1e5
+ 687 01d6 0B       		.uleb128 0xb
+ 688 01d7 21000000 		.4byte	.LASF31
+ 689 01db 01       		.byte	0x1
+ 690 01dc 9F01     		.2byte	0x19f
+ 691 01de 6B000000 		.4byte	0x6b
+ 692 01e2 01       		.uleb128 0x1
+ 693 01e3 50       		.byte	0x50
+ 694 01e4 00       		.byte	0
+ 695 01e5 07       		.uleb128 0x7
+ 696 01e6 0E000000 		.4byte	.LASF32
+ 697 01ea 01       		.byte	0x1
+ 698 01eb 25       		.byte	0x25
+ 699 01ec 00000000 		.4byte	.LFB0
+ 700 01f0 60000000 		.4byte	.LFE0-.LFB0
+ 701 01f4 01       		.uleb128 0x1
+ 702 01f5 9C       		.byte	0x9c
+ 703 01f6 30020000 		.4byte	0x230
+ 704 01fa 0F       		.uleb128 0xf
+ 705 01fb 48000000 		.4byte	.LVL6
+ 706 01ff C0010000 		.4byte	0x1c0
+ 707 0203 0D020000 		.4byte	0x20d
+ 708 0207 0E       		.uleb128 0xe
+ 709 0208 01       		.uleb128 0x1
+ 710 0209 50       		.byte	0x50
+ 711 020a 01       		.uleb128 0x1
+ 712 020b 4F       		.byte	0x4f
+ 713 020c 00       		.byte	0
+ 714 020d 0F       		.uleb128 0xf
+ 715 020e 4E000000 		.4byte	.LVL7
+ 716 0212 5E010000 		.4byte	0x15e
+ 717 0216 20020000 		.4byte	0x220
+ 718 021a 0E       		.uleb128 0xe
+ 719 021b 01       		.uleb128 0x1
+ 720 021c 50       		.byte	0x50
+ 721 021d 01       		.uleb128 0x1
+ 722 021e 30       		.byte	0x30
+ 723 021f 00       		.byte	0
+ 724 0220 0D       		.uleb128 0xd
+ 725 0221 54000000 		.4byte	.LVL8
+ 726 0225 EA000000 		.4byte	0xea
+ 727 0229 0E       		.uleb128 0xe
+ 728 022a 01       		.uleb128 0x1
+ 729 022b 50       		.byte	0x50
+ 730 022c 01       		.uleb128 0x1
+ 731 022d 30       		.byte	0x30
+ 732 022e 00       		.byte	0
+ 733 022f 00       		.byte	0
+ 734 0230 07       		.uleb128 0x7
+ 735 0231 68000000 		.4byte	.LASF33
+ 736 0235 01       		.byte	0x1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccCQrJ5p.s 			page 22
+
+
+ 737 0236 B2       		.byte	0xb2
+ 738 0237 00000000 		.4byte	.LFB2
+ 739 023b 1C000000 		.4byte	.LFE2-.LFB2
+ 740 023f 01       		.uleb128 0x1
+ 741 0240 9C       		.byte	0x9c
+ 742 0241 58020000 		.4byte	0x258
+ 743 0245 10       		.uleb128 0x10
+ 744 0246 0C000000 		.4byte	.LVL9
+ 745 024a E5010000 		.4byte	0x1e5
+ 746 024e 10       		.uleb128 0x10
+ 747 024f 16000000 		.4byte	.LVL10
+ 748 0253 C8000000 		.4byte	0xc8
+ 749 0257 00       		.byte	0
+ 750 0258 09       		.uleb128 0x9
+ 751 0259 B2020000 		.4byte	.LASF34
+ 752 025d 01       		.byte	0x1
+ 753 025e B601     		.2byte	0x1b6
+ 754 0260 6B000000 		.4byte	0x6b
+ 755 0264 00000000 		.4byte	.LFB12
+ 756 0268 0C000000 		.4byte	.LFE12-.LFB12
+ 757 026c 01       		.uleb128 0x1
+ 758 026d 9C       		.byte	0x9c
+ 759 026e 11       		.uleb128 0x11
+ 760 026f 2E020000 		.4byte	.LASF38
+ 761 0273 01       		.byte	0x1
+ 762 0274 15       		.byte	0x15
+ 763 0275 6B000000 		.4byte	0x6b
+ 764 0279 05       		.uleb128 0x5
+ 765 027a 03       		.byte	0x3
+ 766 027b 00000000 		.4byte	Boundary32bit_initVar
+ 767 027f 12       		.uleb128 0x12
+ 768 0280 A6020000 		.4byte	.LASF39
+ 769 0284 A6020000 		.4byte	.LASF39
+ 770 0288 03       		.byte	0x3
+ 771 0289 7F       		.byte	0x7f
+ 772 028a 00       		.byte	0
+ 773              		.section	.debug_abbrev,"",%progbits
+ 774              	.Ldebug_abbrev0:
+ 775 0000 01       		.uleb128 0x1
+ 776 0001 11       		.uleb128 0x11
+ 777 0002 01       		.byte	0x1
+ 778 0003 25       		.uleb128 0x25
+ 779 0004 0E       		.uleb128 0xe
+ 780 0005 13       		.uleb128 0x13
+ 781 0006 0B       		.uleb128 0xb
+ 782 0007 03       		.uleb128 0x3
+ 783 0008 0E       		.uleb128 0xe
+ 784 0009 1B       		.uleb128 0x1b
+ 785 000a 0E       		.uleb128 0xe
+ 786 000b 55       		.uleb128 0x55
+ 787 000c 17       		.uleb128 0x17
+ 788 000d 11       		.uleb128 0x11
+ 789 000e 01       		.uleb128 0x1
+ 790 000f 10       		.uleb128 0x10
+ 791 0010 17       		.uleb128 0x17
+ 792 0011 00       		.byte	0
+ 793 0012 00       		.byte	0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccCQrJ5p.s 			page 23
+
+
+ 794 0013 02       		.uleb128 0x2
+ 795 0014 24       		.uleb128 0x24
+ 796 0015 00       		.byte	0
+ 797 0016 0B       		.uleb128 0xb
+ 798 0017 0B       		.uleb128 0xb
+ 799 0018 3E       		.uleb128 0x3e
+ 800 0019 0B       		.uleb128 0xb
+ 801 001a 03       		.uleb128 0x3
+ 802 001b 0E       		.uleb128 0xe
+ 803 001c 00       		.byte	0
+ 804 001d 00       		.byte	0
+ 805 001e 03       		.uleb128 0x3
+ 806 001f 24       		.uleb128 0x24
+ 807 0020 00       		.byte	0
+ 808 0021 0B       		.uleb128 0xb
+ 809 0022 0B       		.uleb128 0xb
+ 810 0023 3E       		.uleb128 0x3e
+ 811 0024 0B       		.uleb128 0xb
+ 812 0025 03       		.uleb128 0x3
+ 813 0026 08       		.uleb128 0x8
+ 814 0027 00       		.byte	0
+ 815 0028 00       		.byte	0
+ 816 0029 04       		.uleb128 0x4
+ 817 002a 16       		.uleb128 0x16
+ 818 002b 00       		.byte	0
+ 819 002c 03       		.uleb128 0x3
+ 820 002d 0E       		.uleb128 0xe
+ 821 002e 3A       		.uleb128 0x3a
+ 822 002f 0B       		.uleb128 0xb
+ 823 0030 3B       		.uleb128 0x3b
+ 824 0031 05       		.uleb128 0x5
+ 825 0032 49       		.uleb128 0x49
+ 826 0033 13       		.uleb128 0x13
+ 827 0034 00       		.byte	0
+ 828 0035 00       		.byte	0
+ 829 0036 05       		.uleb128 0x5
+ 830 0037 35       		.uleb128 0x35
+ 831 0038 00       		.byte	0
+ 832 0039 49       		.uleb128 0x49
+ 833 003a 13       		.uleb128 0x13
+ 834 003b 00       		.byte	0
+ 835 003c 00       		.byte	0
+ 836 003d 06       		.uleb128 0x6
+ 837 003e 2E       		.uleb128 0x2e
+ 838 003f 00       		.byte	0
+ 839 0040 3F       		.uleb128 0x3f
+ 840 0041 19       		.uleb128 0x19
+ 841 0042 03       		.uleb128 0x3
+ 842 0043 0E       		.uleb128 0xe
+ 843 0044 3A       		.uleb128 0x3a
+ 844 0045 0B       		.uleb128 0xb
+ 845 0046 3B       		.uleb128 0x3b
+ 846 0047 0B       		.uleb128 0xb
+ 847 0048 27       		.uleb128 0x27
+ 848 0049 19       		.uleb128 0x19
+ 849 004a 11       		.uleb128 0x11
+ 850 004b 01       		.uleb128 0x1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccCQrJ5p.s 			page 24
+
+
+ 851 004c 12       		.uleb128 0x12
+ 852 004d 06       		.uleb128 0x6
+ 853 004e 40       		.uleb128 0x40
+ 854 004f 18       		.uleb128 0x18
+ 855 0050 9742     		.uleb128 0x2117
+ 856 0052 19       		.uleb128 0x19
+ 857 0053 00       		.byte	0
+ 858 0054 00       		.byte	0
+ 859 0055 07       		.uleb128 0x7
+ 860 0056 2E       		.uleb128 0x2e
+ 861 0057 01       		.byte	0x1
+ 862 0058 3F       		.uleb128 0x3f
+ 863 0059 19       		.uleb128 0x19
+ 864 005a 03       		.uleb128 0x3
+ 865 005b 0E       		.uleb128 0xe
+ 866 005c 3A       		.uleb128 0x3a
+ 867 005d 0B       		.uleb128 0xb
+ 868 005e 3B       		.uleb128 0x3b
+ 869 005f 0B       		.uleb128 0xb
+ 870 0060 27       		.uleb128 0x27
+ 871 0061 19       		.uleb128 0x19
+ 872 0062 11       		.uleb128 0x11
+ 873 0063 01       		.uleb128 0x1
+ 874 0064 12       		.uleb128 0x12
+ 875 0065 06       		.uleb128 0x6
+ 876 0066 40       		.uleb128 0x40
+ 877 0067 18       		.uleb128 0x18
+ 878 0068 9742     		.uleb128 0x2117
+ 879 006a 19       		.uleb128 0x19
+ 880 006b 01       		.uleb128 0x1
+ 881 006c 13       		.uleb128 0x13
+ 882 006d 00       		.byte	0
+ 883 006e 00       		.byte	0
+ 884 006f 08       		.uleb128 0x8
+ 885 0070 05       		.uleb128 0x5
+ 886 0071 00       		.byte	0
+ 887 0072 03       		.uleb128 0x3
+ 888 0073 0E       		.uleb128 0xe
+ 889 0074 3A       		.uleb128 0x3a
+ 890 0075 0B       		.uleb128 0xb
+ 891 0076 3B       		.uleb128 0x3b
+ 892 0077 0B       		.uleb128 0xb
+ 893 0078 49       		.uleb128 0x49
+ 894 0079 13       		.uleb128 0x13
+ 895 007a 02       		.uleb128 0x2
+ 896 007b 18       		.uleb128 0x18
+ 897 007c 00       		.byte	0
+ 898 007d 00       		.byte	0
+ 899 007e 09       		.uleb128 0x9
+ 900 007f 2E       		.uleb128 0x2e
+ 901 0080 00       		.byte	0
+ 902 0081 3F       		.uleb128 0x3f
+ 903 0082 19       		.uleb128 0x19
+ 904 0083 03       		.uleb128 0x3
+ 905 0084 0E       		.uleb128 0xe
+ 906 0085 3A       		.uleb128 0x3a
+ 907 0086 0B       		.uleb128 0xb
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccCQrJ5p.s 			page 25
+
+
+ 908 0087 3B       		.uleb128 0x3b
+ 909 0088 05       		.uleb128 0x5
+ 910 0089 27       		.uleb128 0x27
+ 911 008a 19       		.uleb128 0x19
+ 912 008b 49       		.uleb128 0x49
+ 913 008c 13       		.uleb128 0x13
+ 914 008d 11       		.uleb128 0x11
+ 915 008e 01       		.uleb128 0x1
+ 916 008f 12       		.uleb128 0x12
+ 917 0090 06       		.uleb128 0x6
+ 918 0091 40       		.uleb128 0x40
+ 919 0092 18       		.uleb128 0x18
+ 920 0093 9742     		.uleb128 0x2117
+ 921 0095 19       		.uleb128 0x19
+ 922 0096 00       		.byte	0
+ 923 0097 00       		.byte	0
+ 924 0098 0A       		.uleb128 0xa
+ 925 0099 2E       		.uleb128 0x2e
+ 926 009a 01       		.byte	0x1
+ 927 009b 3F       		.uleb128 0x3f
+ 928 009c 19       		.uleb128 0x19
+ 929 009d 03       		.uleb128 0x3
+ 930 009e 0E       		.uleb128 0xe
+ 931 009f 3A       		.uleb128 0x3a
+ 932 00a0 0B       		.uleb128 0xb
+ 933 00a1 3B       		.uleb128 0x3b
+ 934 00a2 05       		.uleb128 0x5
+ 935 00a3 27       		.uleb128 0x27
+ 936 00a4 19       		.uleb128 0x19
+ 937 00a5 11       		.uleb128 0x11
+ 938 00a6 01       		.uleb128 0x1
+ 939 00a7 12       		.uleb128 0x12
+ 940 00a8 06       		.uleb128 0x6
+ 941 00a9 40       		.uleb128 0x40
+ 942 00aa 18       		.uleb128 0x18
+ 943 00ab 9742     		.uleb128 0x2117
+ 944 00ad 19       		.uleb128 0x19
+ 945 00ae 01       		.uleb128 0x1
+ 946 00af 13       		.uleb128 0x13
+ 947 00b0 00       		.byte	0
+ 948 00b1 00       		.byte	0
+ 949 00b2 0B       		.uleb128 0xb
+ 950 00b3 05       		.uleb128 0x5
+ 951 00b4 00       		.byte	0
+ 952 00b5 03       		.uleb128 0x3
+ 953 00b6 0E       		.uleb128 0xe
+ 954 00b7 3A       		.uleb128 0x3a
+ 955 00b8 0B       		.uleb128 0xb
+ 956 00b9 3B       		.uleb128 0x3b
+ 957 00ba 05       		.uleb128 0x5
+ 958 00bb 49       		.uleb128 0x49
+ 959 00bc 13       		.uleb128 0x13
+ 960 00bd 02       		.uleb128 0x2
+ 961 00be 18       		.uleb128 0x18
+ 962 00bf 00       		.byte	0
+ 963 00c0 00       		.byte	0
+ 964 00c1 0C       		.uleb128 0xc
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccCQrJ5p.s 			page 26
+
+
+ 965 00c2 05       		.uleb128 0x5
+ 966 00c3 00       		.byte	0
+ 967 00c4 03       		.uleb128 0x3
+ 968 00c5 0E       		.uleb128 0xe
+ 969 00c6 3A       		.uleb128 0x3a
+ 970 00c7 0B       		.uleb128 0xb
+ 971 00c8 3B       		.uleb128 0x3b
+ 972 00c9 05       		.uleb128 0x5
+ 973 00ca 49       		.uleb128 0x49
+ 974 00cb 13       		.uleb128 0x13
+ 975 00cc 02       		.uleb128 0x2
+ 976 00cd 17       		.uleb128 0x17
+ 977 00ce 00       		.byte	0
+ 978 00cf 00       		.byte	0
+ 979 00d0 0D       		.uleb128 0xd
+ 980 00d1 898201   		.uleb128 0x4109
+ 981 00d4 01       		.byte	0x1
+ 982 00d5 11       		.uleb128 0x11
+ 983 00d6 01       		.uleb128 0x1
+ 984 00d7 31       		.uleb128 0x31
+ 985 00d8 13       		.uleb128 0x13
+ 986 00d9 00       		.byte	0
+ 987 00da 00       		.byte	0
+ 988 00db 0E       		.uleb128 0xe
+ 989 00dc 8A8201   		.uleb128 0x410a
+ 990 00df 00       		.byte	0
+ 991 00e0 02       		.uleb128 0x2
+ 992 00e1 18       		.uleb128 0x18
+ 993 00e2 9142     		.uleb128 0x2111
+ 994 00e4 18       		.uleb128 0x18
+ 995 00e5 00       		.byte	0
+ 996 00e6 00       		.byte	0
+ 997 00e7 0F       		.uleb128 0xf
+ 998 00e8 898201   		.uleb128 0x4109
+ 999 00eb 01       		.byte	0x1
+ 1000 00ec 11       		.uleb128 0x11
+ 1001 00ed 01       		.uleb128 0x1
+ 1002 00ee 31       		.uleb128 0x31
+ 1003 00ef 13       		.uleb128 0x13
+ 1004 00f0 01       		.uleb128 0x1
+ 1005 00f1 13       		.uleb128 0x13
+ 1006 00f2 00       		.byte	0
+ 1007 00f3 00       		.byte	0
+ 1008 00f4 10       		.uleb128 0x10
+ 1009 00f5 898201   		.uleb128 0x4109
+ 1010 00f8 00       		.byte	0
+ 1011 00f9 11       		.uleb128 0x11
+ 1012 00fa 01       		.uleb128 0x1
+ 1013 00fb 31       		.uleb128 0x31
+ 1014 00fc 13       		.uleb128 0x13
+ 1015 00fd 00       		.byte	0
+ 1016 00fe 00       		.byte	0
+ 1017 00ff 11       		.uleb128 0x11
+ 1018 0100 34       		.uleb128 0x34
+ 1019 0101 00       		.byte	0
+ 1020 0102 03       		.uleb128 0x3
+ 1021 0103 0E       		.uleb128 0xe
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccCQrJ5p.s 			page 27
+
+
+ 1022 0104 3A       		.uleb128 0x3a
+ 1023 0105 0B       		.uleb128 0xb
+ 1024 0106 3B       		.uleb128 0x3b
+ 1025 0107 0B       		.uleb128 0xb
+ 1026 0108 49       		.uleb128 0x49
+ 1027 0109 13       		.uleb128 0x13
+ 1028 010a 3F       		.uleb128 0x3f
+ 1029 010b 19       		.uleb128 0x19
+ 1030 010c 02       		.uleb128 0x2
+ 1031 010d 18       		.uleb128 0x18
+ 1032 010e 00       		.byte	0
+ 1033 010f 00       		.byte	0
+ 1034 0110 12       		.uleb128 0x12
+ 1035 0111 2E       		.uleb128 0x2e
+ 1036 0112 00       		.byte	0
+ 1037 0113 3F       		.uleb128 0x3f
+ 1038 0114 19       		.uleb128 0x19
+ 1039 0115 3C       		.uleb128 0x3c
+ 1040 0116 19       		.uleb128 0x19
+ 1041 0117 6E       		.uleb128 0x6e
+ 1042 0118 0E       		.uleb128 0xe
+ 1043 0119 03       		.uleb128 0x3
+ 1044 011a 0E       		.uleb128 0xe
+ 1045 011b 3A       		.uleb128 0x3a
+ 1046 011c 0B       		.uleb128 0xb
+ 1047 011d 3B       		.uleb128 0x3b
+ 1048 011e 0B       		.uleb128 0xb
+ 1049 011f 00       		.byte	0
+ 1050 0120 00       		.byte	0
+ 1051 0121 00       		.byte	0
+ 1052              		.section	.debug_loc,"",%progbits
+ 1053              	.Ldebug_loc0:
+ 1054              	.LLST0:
+ 1055 0000 00000000 		.4byte	.LVL2
+ 1056 0004 10000000 		.4byte	.LVL3
+ 1057 0008 0100     		.2byte	0x1
+ 1058 000a 50       		.byte	0x50
+ 1059 000b 10000000 		.4byte	.LVL3
+ 1060 000f 38000000 		.4byte	.LFE8
+ 1061 0013 0400     		.2byte	0x4
+ 1062 0015 F3       		.byte	0xf3
+ 1063 0016 01       		.uleb128 0x1
+ 1064 0017 50       		.byte	0x50
+ 1065 0018 9F       		.byte	0x9f
+ 1066 0019 00000000 		.4byte	0
+ 1067 001d 00000000 		.4byte	0
+ 1068              		.section	.debug_aranges,"",%progbits
+ 1069 0000 7C000000 		.4byte	0x7c
+ 1070 0004 0200     		.2byte	0x2
+ 1071 0006 00000000 		.4byte	.Ldebug_info0
+ 1072 000a 04       		.byte	0x4
+ 1073 000b 00       		.byte	0
+ 1074 000c 0000     		.2byte	0
+ 1075 000e 0000     		.2byte	0
+ 1076 0010 00000000 		.4byte	.LFB1
+ 1077 0014 28000000 		.4byte	.LFE1-.LFB1
+ 1078 0018 00000000 		.4byte	.LFB3
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccCQrJ5p.s 			page 28
+
+
+ 1079 001c 28000000 		.4byte	.LFE3-.LFB3
+ 1080 0020 00000000 		.4byte	.LFB4
+ 1081 0024 0C000000 		.4byte	.LFE4-.LFB4
+ 1082 0028 00000000 		.4byte	.LFB5
+ 1083 002c 0C000000 		.4byte	.LFE5-.LFB5
+ 1084 0030 00000000 		.4byte	.LFB6
+ 1085 0034 0C000000 		.4byte	.LFE6-.LFB6
+ 1086 0038 00000000 		.4byte	.LFB7
+ 1087 003c 0C000000 		.4byte	.LFE7-.LFB7
+ 1088 0040 00000000 		.4byte	.LFB8
+ 1089 0044 38000000 		.4byte	.LFE8-.LFB8
+ 1090 0048 00000000 		.4byte	.LFB9
+ 1091 004c 14000000 		.4byte	.LFE9-.LFB9
+ 1092 0050 00000000 		.4byte	.LFB10
+ 1093 0054 0C000000 		.4byte	.LFE10-.LFB10
+ 1094 0058 00000000 		.4byte	.LFB11
+ 1095 005c 0C000000 		.4byte	.LFE11-.LFB11
+ 1096 0060 00000000 		.4byte	.LFB0
+ 1097 0064 60000000 		.4byte	.LFE0-.LFB0
+ 1098 0068 00000000 		.4byte	.LFB2
+ 1099 006c 1C000000 		.4byte	.LFE2-.LFB2
+ 1100 0070 00000000 		.4byte	.LFB12
+ 1101 0074 0C000000 		.4byte	.LFE12-.LFB12
+ 1102 0078 00000000 		.4byte	0
+ 1103 007c 00000000 		.4byte	0
+ 1104              		.section	.debug_ranges,"",%progbits
+ 1105              	.Ldebug_ranges0:
+ 1106 0000 00000000 		.4byte	.LFB1
+ 1107 0004 28000000 		.4byte	.LFE1
+ 1108 0008 00000000 		.4byte	.LFB3
+ 1109 000c 28000000 		.4byte	.LFE3
+ 1110 0010 00000000 		.4byte	.LFB4
+ 1111 0014 0C000000 		.4byte	.LFE4
+ 1112 0018 00000000 		.4byte	.LFB5
+ 1113 001c 0C000000 		.4byte	.LFE5
+ 1114 0020 00000000 		.4byte	.LFB6
+ 1115 0024 0C000000 		.4byte	.LFE6
+ 1116 0028 00000000 		.4byte	.LFB7
+ 1117 002c 0C000000 		.4byte	.LFE7
+ 1118 0030 00000000 		.4byte	.LFB8
+ 1119 0034 38000000 		.4byte	.LFE8
+ 1120 0038 00000000 		.4byte	.LFB9
+ 1121 003c 14000000 		.4byte	.LFE9
+ 1122 0040 00000000 		.4byte	.LFB10
+ 1123 0044 0C000000 		.4byte	.LFE10
+ 1124 0048 00000000 		.4byte	.LFB11
+ 1125 004c 0C000000 		.4byte	.LFE11
+ 1126 0050 00000000 		.4byte	.LFB0
+ 1127 0054 60000000 		.4byte	.LFE0
+ 1128 0058 00000000 		.4byte	.LFB2
+ 1129 005c 1C000000 		.4byte	.LFE2
+ 1130 0060 00000000 		.4byte	.LFB12
+ 1131 0064 0C000000 		.4byte	.LFE12
+ 1132 0068 00000000 		.4byte	0
+ 1133 006c 00000000 		.4byte	0
+ 1134              		.section	.debug_line,"",%progbits
+ 1135              	.Ldebug_line0:
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccCQrJ5p.s 			page 29
+
+
+ 1136 0000 5D010000 		.section	.debug_str,"MS",%progbits,1
+ 1136      02005500 
+ 1136      00000201 
+ 1136      FB0E0D00 
+ 1136      01010101 
+ 1137              	.LASF6:
+ 1138 0000 6C6F6E67 		.ascii	"long long int\000"
+ 1138      206C6F6E 
+ 1138      6720696E 
+ 1138      7400
+ 1139              	.LASF32:
+ 1140 000e 426F756E 		.ascii	"Boundary32bit_Init\000"
+ 1140      64617279 
+ 1140      33326269 
+ 1140      745F496E 
+ 1140      697400
+ 1141              	.LASF31:
+ 1142 0021 70657269 		.ascii	"period\000"
+ 1142      6F6400
+ 1143              	.LASF28:
+ 1144 0028 426F756E 		.ascii	"Boundary32bit_ReadCounter\000"
+ 1144      64617279 
+ 1144      33326269 
+ 1144      745F5265 
+ 1144      6164436F 
+ 1145              	.LASF3:
+ 1146 0042 73686F72 		.ascii	"short unsigned int\000"
+ 1146      7420756E 
+ 1146      7369676E 
+ 1146      65642069 
+ 1146      6E7400
+ 1147              	.LASF19:
+ 1148 0055 426F756E 		.ascii	"Boundary32bit_Stop\000"
+ 1148      64617279 
+ 1148      33326269 
+ 1148      745F5374 
+ 1148      6F7000
+ 1149              	.LASF33:
+ 1150 0068 426F756E 		.ascii	"Boundary32bit_Start\000"
+ 1150      64617279 
+ 1150      33326269 
+ 1150      745F5374 
+ 1150      61727400 
+ 1151              	.LASF20:
+ 1152 007c 426F756E 		.ascii	"Boundary32bit_ReadStatusRegister\000"
+ 1152      64617279 
+ 1152      33326269 
+ 1152      745F5265 
+ 1152      61645374 
+ 1153              	.LASF23:
+ 1154 009d 426F756E 		.ascii	"Boundary32bit_WriteControlRegister\000"
+ 1154      64617279 
+ 1154      33326269 
+ 1154      745F5772 
+ 1154      69746543 
+ 1155              	.LASF36:
+ 1156 00c0 47656E65 		.ascii	"Generated_Source\\PSoC5\\Boundary32bit.c\000"
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccCQrJ5p.s 			page 30
+
+
+ 1156      72617465 
+ 1156      645F536F 
+ 1156      75726365 
+ 1156      5C50536F 
+ 1157              	.LASF11:
+ 1158 00e7 666C6F61 		.ascii	"float\000"
+ 1158      7400
+ 1159              	.LASF27:
+ 1160 00ed 636F756E 		.ascii	"counter\000"
+ 1160      74657200 
+ 1161              	.LASF37:
+ 1162 00f5 433A5C55 		.ascii	"C:\\Users\\e.ivanov\\Documents\\GitHub\\time_src\\b"
+ 1162      73657273 
+ 1162      5C652E69 
+ 1162      76616E6F 
+ 1162      765C446F 
+ 1163 0122 72616E63 		.ascii	"ranch\\Manchester encoder-decoder.cydsn\000"
+ 1163      685C4D61 
+ 1163      6E636865 
+ 1163      73746572 
+ 1163      20656E63 
+ 1164              	.LASF1:
+ 1165 0149 756E7369 		.ascii	"unsigned char\000"
+ 1165      676E6564 
+ 1165      20636861 
+ 1165      7200
+ 1166              	.LASF35:
+ 1167 0157 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1167      43313120 
+ 1167      352E342E 
+ 1167      31203230 
+ 1167      31363036 
+ 1168 018a 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1168      20726576 
+ 1168      6973696F 
+ 1168      6E203233 
+ 1168      37373135 
+ 1169 01bd 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1169      66756E63 
+ 1169      74696F6E 
+ 1169      2D736563 
+ 1169      74696F6E 
+ 1170              	.LASF30:
+ 1171 01e5 426F756E 		.ascii	"Boundary32bit_WritePeriod\000"
+ 1171      64617279 
+ 1171      33326269 
+ 1171      745F5772 
+ 1171      69746550 
+ 1172              	.LASF5:
+ 1173 01ff 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1173      20756E73 
+ 1173      69676E65 
+ 1173      6420696E 
+ 1173      7400
+ 1174              	.LASF9:
+ 1175 0211 75696E74 		.ascii	"uint8\000"
+ 1175      3800
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccCQrJ5p.s 			page 31
+
+
+ 1176              	.LASF25:
+ 1177 0217 636F6E74 		.ascii	"control\000"
+ 1177      726F6C00 
+ 1178              	.LASF24:
+ 1179 021f 696E7465 		.ascii	"interruptsMask\000"
+ 1179      72727570 
+ 1179      74734D61 
+ 1179      736B00
+ 1180              	.LASF38:
+ 1181 022e 426F756E 		.ascii	"Boundary32bit_initVar\000"
+ 1181      64617279 
+ 1181      33326269 
+ 1181      745F696E 
+ 1181      69745661 
+ 1182              	.LASF12:
+ 1183 0244 646F7562 		.ascii	"double\000"
+ 1183      6C6500
+ 1184              	.LASF26:
+ 1185 024b 426F756E 		.ascii	"Boundary32bit_WriteCounter\000"
+ 1185      64617279 
+ 1185      33326269 
+ 1185      745F5772 
+ 1185      69746543 
+ 1186              	.LASF10:
+ 1187 0266 75696E74 		.ascii	"uint16\000"
+ 1187      313600
+ 1188              	.LASF8:
+ 1189 026d 756E7369 		.ascii	"unsigned int\000"
+ 1189      676E6564 
+ 1189      20696E74 
+ 1189      00
+ 1190              	.LASF18:
+ 1191 027a 426F756E 		.ascii	"Boundary32bit_Enable\000"
+ 1191      64617279 
+ 1191      33326269 
+ 1191      745F456E 
+ 1191      61626C65 
+ 1192              	.LASF7:
+ 1193 028f 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1193      206C6F6E 
+ 1193      6720756E 
+ 1193      7369676E 
+ 1193      65642069 
+ 1194              	.LASF39:
+ 1195 02a6 43794861 		.ascii	"CyHalt\000"
+ 1195      6C7400
+ 1196              	.LASF14:
+ 1197 02ad 72656738 		.ascii	"reg8\000"
+ 1197      00
+ 1198              	.LASF34:
+ 1199 02b2 426F756E 		.ascii	"Boundary32bit_ReadPeriod\000"
+ 1199      64617279 
+ 1199      33326269 
+ 1199      745F5265 
+ 1199      61645065 
+ 1200              	.LASF17:
+ 1201 02cb 73697A65 		.ascii	"sizetype\000"
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccCQrJ5p.s 			page 32
+
+
+ 1201      74797065 
+ 1201      00
+ 1202              	.LASF22:
+ 1203 02d4 426F756E 		.ascii	"Boundary32bit_SetInterruptMode\000"
+ 1203      64617279 
+ 1203      33326269 
+ 1203      745F5365 
+ 1203      74496E74 
+ 1204              	.LASF13:
+ 1205 02f3 63686172 		.ascii	"char\000"
+ 1205      00
+ 1206              	.LASF2:
+ 1207 02f8 73686F72 		.ascii	"short int\000"
+ 1207      7420696E 
+ 1207      7400
+ 1208              	.LASF15:
+ 1209 0302 72656731 		.ascii	"reg16\000"
+ 1209      3600
+ 1210              	.LASF29:
+ 1211 0308 426F756E 		.ascii	"Boundary32bit_ReadCapture\000"
+ 1211      64617279 
+ 1211      33326269 
+ 1211      745F5265 
+ 1211      61644361 
+ 1212              	.LASF4:
+ 1213 0322 6C6F6E67 		.ascii	"long int\000"
+ 1213      20696E74 
+ 1213      00
+ 1214              	.LASF16:
+ 1215 032b 6C6F6E67 		.ascii	"long double\000"
+ 1215      20646F75 
+ 1215      626C6500 
+ 1216              	.LASF21:
+ 1217 0337 426F756E 		.ascii	"Boundary32bit_ReadControlRegister\000"
+ 1217      64617279 
+ 1217      33326269 
+ 1217      745F5265 
+ 1217      6164436F 
+ 1218              	.LASF0:
+ 1219 0359 7369676E 		.ascii	"signed char\000"
+ 1219      65642063 
+ 1219      68617200 
+ 1220              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

@@ -141,7 +141,7 @@ extern uint8 RecieveShiftReg_initVar;
                                            RecieveShiftReg_bSR_SyncCtl_CtrlReg__CONTROL_REG)
 
 /* Status register */
-#define RecieveShiftReg_SR_STATUS_REG      (* (reg8 *) RecieveShiftReg_bSR_StsReg__STATUS_REG)
+#define RecieveShiftReg_SR_STATUS_REG      (* (reg8 *) ecieveShiftReg_bSR_StsReg__STATUS_REG)
 #define RecieveShiftReg_SR_STATUS_PTR      (  (reg8 *) RecieveShiftReg_bSR_StsReg__STATUS_REG)
 
 /* Interrupt status register */

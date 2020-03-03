@@ -28,6 +28,42 @@
 ********************************************************************************/
 /* `#START cap_comp_tc_intc` */
 #include <global.h>
+    
+long long convert_to_utc (uint32 high, uint32 low) {
+    long long result = (((long long)high << usec_counter_Resolution) + low);
+    result >>= 11;
+    result /= 1000;
+    result >>= 11;    
+    return result;
+}
+
+ long long convert_utc_to (uint32 sec){
+    long long result = sec >> 2;
+    result *= 1000;    
+}
+    
+void compare_service(uint32 tmp) 
+{
+    if ((tmp & usec_counter_STATUS_CMP) != 0)
+    {
+        uint32 capture_high, capture_low1, capture_low2; 
+        uint32 compare =  capture_low2 = usec_counter_ReadCompare();
+        compare += incr_compare;
+        compare &= (1 << usec_counter_Resolution)-1;
+        usec_counter_WriteCompare(compare); 
+        if (capture_flag == 0)
+        {
+            do{
+                capture_low1 = capture_low2;
+                capture_high = sec_counter_ReadCapture();
+                capture_low2 = usec_counter_ReadCapture();
+            } while (capture_low1 > capture_low2);
+            utc_time = convert_to_utc(capture_high , capture_low1);
+        }
+        else utc_time = pps_time;
+    }
+    capture_flag = 0;
+}
 
 /* `#END` */
 
@@ -166,19 +202,21 @@ CY_ISR(cap_comp_tc_Interrupt)
 
     /*  Place your Interrupt code here. */
     /* `#START cap_comp_tc_Interrupt` */
-    
+    uint32 capture_high, capture_low2;
     cap_comp_tc_ClearPending();
+    
     uint32 tmp = usec_counter_ReadStatusRegister();
-    if ((tmp & usec_counter_STATUS_CMP) != 0)
-    {        
-        uint32 compare = usec_counter_ReadCompare() + incr_compare;
-        compare &= (1 << usec_counter_Resolution)-1;
-        usec_counter_WriteCompare(compare);        
-    }
+        
     if ((tmp & usec_counter_STATUS_CAPTURE) != 0)
     {
-        
-    }
+        capture_flag = 1;
+        capture_high = sec_counter_ReadCapture();
+        capture_low2 = usec_counter_ReadCapture();
+        pps_time = convert_to_utc(capture_high , capture_low2);
+         
+    }    
+    compare_service(tmp);    
+    
     /* `#END` */
 }
 

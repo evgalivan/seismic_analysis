@@ -54,8 +54,9 @@ static volatile long long  period;
 
 int main(void)
 {
-    incr_compare = desired_freq / 1234.5L; 
+    incr_compare = desired_freq / 1L; 
     period = ( long long ) capacity * divider_freq * desired_freq / (1 * main_freq);    //977343669
+    period = 1956895899;
     CyGlobalIntDisable; /* Enable global interrupts. */
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
     // Инициализация устройств Encoder

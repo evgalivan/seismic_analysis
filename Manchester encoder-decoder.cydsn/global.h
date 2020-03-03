@@ -12,5 +12,8 @@
 #include <project.h>
 
 extern uint32 incr_compare;
+extern long long utc_time;
+extern long long pps_time;
+extern uint32 capture_flag; 
 
 /* [] END OF FILE */

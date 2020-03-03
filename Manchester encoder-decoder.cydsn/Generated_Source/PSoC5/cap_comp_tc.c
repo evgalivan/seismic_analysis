@@ -39,7 +39,8 @@ long long convert_to_utc (uint32 high, uint32 low) {
 
  long long convert_utc_to (uint32 sec){
     long long result = sec >> 2;
-    result *= 1000;    
+    result *= 1000;
+    return result;
 }
     
 void compare_service(uint32 tmp) 
@@ -209,11 +210,12 @@ CY_ISR(cap_comp_tc_Interrupt)
         
     if ((tmp & usec_counter_STATUS_CAPTURE) != 0)
     {
+        Control_Capture_Write(1);
+        Control_Capture_Write(0);
         capture_flag = 1;
         capture_high = sec_counter_ReadCapture();
         capture_low2 = usec_counter_ReadCapture();
         pps_time = convert_to_utc(capture_high , capture_low2);
-         
     }    
     compare_service(tmp);    
     

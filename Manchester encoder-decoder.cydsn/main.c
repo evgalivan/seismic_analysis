@@ -9,11 +9,14 @@
  *
  * ========================================
 */
-#include "project.h"
+
+#include "global.h"
 #include "sender.h"
 #include "reciver.h"
+
 #include <BitCounterDec.h>
 
+uint32 incr_compare = 512; // зависит от той частоты, которую мы хотим получить
 
 // задание структуры для регистра статуса ShiftReg
 struct control {
@@ -39,12 +42,24 @@ uint32 ex_buf[72] = { 0xAA000005 , 0xFFFFFFFF, 0x7F00FF01, 0x4F4F4F4E , 0x800000
 uint32 massage[1] = { 0xFAAAAAAF };
 uint32 recieve_buf[72];
 
+
+uint32 main_freq =  72000000LL;
+uint32 desired_freq  = 4096000LL;
+uint32 divider_freq = (8LL);
+uint32 capacity = (0xffLL);  //емкость сумматора 
+
+
 #define LENGTH_OF(Array) (sizeof(Array)/sizeof(Array[0]))
 #define SENDER      //RESIEVER or SENDER
 volatile int storeflag=0, length = 72;
+static volatile long long  period;
+
 
 int main(void)
 {
+    incr_compare = desired_freq / 1L; 
+    period = ( long long ) capacity * divider_freq * desired_freq / (1 * main_freq);    //977343669
+
     CyGlobalIntDisable; /* Enable global interrupts. */
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
     // Инициализация устройств Encoder
@@ -59,6 +74,12 @@ int main(void)
     Comp_1_Start();
     Comp_2_Start();
     Opamp_1_Start();
+    
+    Period_Start();
+    SigmaReg_Start();
+    Boundary8bit_Start();
+    usec_counter_Start();    
+    cap_comp_tc_Start();
     
     // Инициализация прерываний
     //StartFrame_Start();
@@ -110,7 +131,7 @@ int main(void)
     while(1) 
     {
         //int i=0;
-
+        UpdatePeriod(period);
         
         //if (CheckAllowStoreFlag()) 
             

@@ -563,6 +563,7 @@
     <Group key="Pin">
       <Data key="2d1a92a4-f694-40aa-9a5a-76a2fc7a20a0" value="DOut1P" />
       <Data key="3d2009b5-4d73-40d0-b417-f5c199bb5fe1" value="TC_Dec_Bit" />
+      <Data key="4f4c9b24-2e23-45a0-9050-11bf0f6b0a8a" value="TC_word" />
       <Data key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba" value="Start" />
       <Data key="9baf6e5d-c961-404f-8bb3-34160dd1b29a" value="ClockEncDelay" />
       <Data key="16d6b2f5-2558-469b-9968-13ea8155a98e" value="Pin_4" />
@@ -573,6 +574,7 @@
       <Data key="177d187b-f9ff-4fdc-bc43-418f26c08243" value="Compare" />
       <Data key="264be2d3-9481-494b-8d9c-c1905a45e9cc" value="Sh_isr" />
       <Data key="581fe94e-1a77-4432-a5f0-0f8692f00719" value="Compare_wait" />
+      <Data key="733fd33f-9bf8-4fb4-a4d2-bfe695ba0761" value="Out_TikTak" />
       <Data key="6847f2fc-d5fa-4910-8f3d-8d45b5ceb563" value="EN1" />
       <Data key="6182948e-2b0e-4565-acbb-92c11b85db20" value="Pin_3" />
       <Data key="38594756-86c8-416c-8cb0-0bea3f285e67" value="Pin_1" />
@@ -583,6 +585,7 @@
       <Data key="b6ef75aa-e701-4565-8d71-bb2cb26e5d4b" value="Frame_in" />
       <Data key="b14af5d9-9bec-4c97-a449-70525b131b4c" value="DIn1P" />
       <Data key="b81b22f4-280e-41d6-b7b7-d56662c8b8eb" value="PWM" />
+      <Data key="b0980022-674f-46fd-bb0a-4f1982b54581" value="Out_TikTak_1" />
       <Data key="c2614b0b-c912-4847-bc64-1117d4e2efcf" value="DI1N" />
       <Data key="cc3bcd7e-5dc0-48ea-9bf6-6aa082be1ada" value="Vout_1" />
       <Data key="d6d91ed0-8ef3-4f8a-addf-1b745599c950" value="DIn1N" />
@@ -592,6 +595,7 @@
       <Data key="e851a3b9-efb8-48be-bbb8-b303b216c393" value="Sh_in" />
       <Data key="ebc02dd0-519d-4a8e-a3ed-8da7309e851f" value="DOut1N" />
       <Data key="ee99882b-20ae-4cb4-8bb1-592eaa6db91d" value="Pin_4" />
+      <Data key="f2a97f0b-6372-4677-a201-e98e3f3f6a83" value="Start_frame" />
       <Data key="f3ded49a-c89c-4d0a-a920-0977f5716cc9" value="CLK12Mgz" />
       <Data key="f85f0990-0193-4986-a4dd-ccfc14d9dfab" value="BitCounter_in" />
     </Group>
@@ -3820,6 +3824,11 @@
     <Group key="b81b22f4-280e-41d6-b7b7-d56662c8b8eb">
       <Group key="0">
         <Data key="Port Format" value="3,6" />
+      </Group>
+    </Group>
+    <Group key="b0980022-674f-46fd-bb0a-4f1982b54581">
+      <Group key="0">
+        <Data key="Port Format" value="12,5" />
       </Group>
     </Group>
     <Group key="c2614b0b-c912-4847-bc64-1117d4e2efcf">

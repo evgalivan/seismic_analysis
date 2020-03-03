@@ -1,0 +1,2187 @@
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"BitCounterDec.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.BitCounterDec_Enable,"ax",%progbits
+  20              		.align	2
+  21              		.global	BitCounterDec_Enable
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	BitCounterDec_Enable, %function
+  25              	BitCounterDec_Enable:
+  26              	.LFB1:
+  27              		.file 1 "Generated_Source\\PSoC5\\BitCounterDec.c"
+   1:Generated_Source\PSoC5/BitCounterDec.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/BitCounterDec.c **** * File Name: BitCounterDec.c  
+   3:Generated_Source\PSoC5/BitCounterDec.c **** * Version 3.0
+   4:Generated_Source\PSoC5/BitCounterDec.c **** *
+   5:Generated_Source\PSoC5/BitCounterDec.c **** *  Description:
+   6:Generated_Source\PSoC5/BitCounterDec.c **** *     The Counter component consists of a 8, 16, 24 or 32-bit counter with
+   7:Generated_Source\PSoC5/BitCounterDec.c **** *     a selectable period between 2 and 2^Width - 1.  
+   8:Generated_Source\PSoC5/BitCounterDec.c **** *
+   9:Generated_Source\PSoC5/BitCounterDec.c **** *   Note:
+  10:Generated_Source\PSoC5/BitCounterDec.c **** *     None
+  11:Generated_Source\PSoC5/BitCounterDec.c **** *
+  12:Generated_Source\PSoC5/BitCounterDec.c **** ********************************************************************************
+  13:Generated_Source\PSoC5/BitCounterDec.c **** * Copyright 2008-2012, Cypress Semiconductor Corporation.  All rights reserved.
+  14:Generated_Source\PSoC5/BitCounterDec.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  15:Generated_Source\PSoC5/BitCounterDec.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  16:Generated_Source\PSoC5/BitCounterDec.c **** * the software package with which this file was provided.
+  17:Generated_Source\PSoC5/BitCounterDec.c **** *******************************************************************************/
+  18:Generated_Source\PSoC5/BitCounterDec.c **** 
+  19:Generated_Source\PSoC5/BitCounterDec.c **** #include "BitCounterDec.h"
+  20:Generated_Source\PSoC5/BitCounterDec.c **** 
+  21:Generated_Source\PSoC5/BitCounterDec.c **** uint8 BitCounterDec_initVar = 0u;
+  22:Generated_Source\PSoC5/BitCounterDec.c **** 
+  23:Generated_Source\PSoC5/BitCounterDec.c **** 
+  24:Generated_Source\PSoC5/BitCounterDec.c **** /*******************************************************************************
+  25:Generated_Source\PSoC5/BitCounterDec.c **** * Function Name: BitCounterDec_Init
+  26:Generated_Source\PSoC5/BitCounterDec.c **** ********************************************************************************
+  27:Generated_Source\PSoC5/BitCounterDec.c **** * Summary:
+  28:Generated_Source\PSoC5/BitCounterDec.c **** *     Initialize to the schematic state
+  29:Generated_Source\PSoC5/BitCounterDec.c **** * 
+  30:Generated_Source\PSoC5/BitCounterDec.c **** * Parameters:  
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 2
+
+
+  31:Generated_Source\PSoC5/BitCounterDec.c **** *  void  
+  32:Generated_Source\PSoC5/BitCounterDec.c **** *
+  33:Generated_Source\PSoC5/BitCounterDec.c **** * Return: 
+  34:Generated_Source\PSoC5/BitCounterDec.c **** *  void
+  35:Generated_Source\PSoC5/BitCounterDec.c **** *
+  36:Generated_Source\PSoC5/BitCounterDec.c **** *******************************************************************************/
+  37:Generated_Source\PSoC5/BitCounterDec.c **** void BitCounterDec_Init(void) 
+  38:Generated_Source\PSoC5/BitCounterDec.c **** {
+  39:Generated_Source\PSoC5/BitCounterDec.c ****         #if (!BitCounterDec_UsingFixedFunction && !BitCounterDec_ControlRegRemoved)
+  40:Generated_Source\PSoC5/BitCounterDec.c ****             uint8 ctrl;
+  41:Generated_Source\PSoC5/BitCounterDec.c ****         #endif /* (!BitCounterDec_UsingFixedFunction && !BitCounterDec_ControlRegRemoved) */
+  42:Generated_Source\PSoC5/BitCounterDec.c ****         
+  43:Generated_Source\PSoC5/BitCounterDec.c ****         #if(!BitCounterDec_UsingFixedFunction) 
+  44:Generated_Source\PSoC5/BitCounterDec.c ****             /* Interrupt State Backup for Critical Region*/
+  45:Generated_Source\PSoC5/BitCounterDec.c ****             uint8 BitCounterDec_interruptState;
+  46:Generated_Source\PSoC5/BitCounterDec.c ****         #endif /* (!BitCounterDec_UsingFixedFunction) */
+  47:Generated_Source\PSoC5/BitCounterDec.c ****         
+  48:Generated_Source\PSoC5/BitCounterDec.c ****         #if (BitCounterDec_UsingFixedFunction)
+  49:Generated_Source\PSoC5/BitCounterDec.c ****             /* Clear all bits but the enable bit (if it's already set for Timer operation */
+  50:Generated_Source\PSoC5/BitCounterDec.c ****             BitCounterDec_CONTROL &= BitCounterDec_CTRL_ENABLE;
+  51:Generated_Source\PSoC5/BitCounterDec.c ****             
+  52:Generated_Source\PSoC5/BitCounterDec.c ****             /* Clear the mode bits for continuous run mode */
+  53:Generated_Source\PSoC5/BitCounterDec.c ****             #if (CY_PSOC5A)
+  54:Generated_Source\PSoC5/BitCounterDec.c ****                 BitCounterDec_CONTROL2 &= ((uint8)(~BitCounterDec_CTRL_MODE_MASK));
+  55:Generated_Source\PSoC5/BitCounterDec.c ****             #endif /* (CY_PSOC5A) */
+  56:Generated_Source\PSoC5/BitCounterDec.c ****             #if (CY_PSOC3 || CY_PSOC5LP)
+  57:Generated_Source\PSoC5/BitCounterDec.c ****                 BitCounterDec_CONTROL3 &= ((uint8)(~BitCounterDec_CTRL_MODE_MASK));                
+  58:Generated_Source\PSoC5/BitCounterDec.c ****             #endif /* (CY_PSOC3 || CY_PSOC5LP) */
+  59:Generated_Source\PSoC5/BitCounterDec.c ****             /* Check if One Shot mode is enabled i.e. RunMode !=0*/
+  60:Generated_Source\PSoC5/BitCounterDec.c ****             #if (BitCounterDec_RunModeUsed != 0x0u)
+  61:Generated_Source\PSoC5/BitCounterDec.c ****                 /* Set 3rd bit of Control register to enable one shot mode */
+  62:Generated_Source\PSoC5/BitCounterDec.c ****                 BitCounterDec_CONTROL |= BitCounterDec_ONESHOT;
+  63:Generated_Source\PSoC5/BitCounterDec.c ****             #endif /* (BitCounterDec_RunModeUsed != 0x0u) */
+  64:Generated_Source\PSoC5/BitCounterDec.c ****             
+  65:Generated_Source\PSoC5/BitCounterDec.c ****             /* Set the IRQ to use the status register interrupts */
+  66:Generated_Source\PSoC5/BitCounterDec.c ****             BitCounterDec_CONTROL2 |= BitCounterDec_CTRL2_IRQ_SEL;
+  67:Generated_Source\PSoC5/BitCounterDec.c ****             
+  68:Generated_Source\PSoC5/BitCounterDec.c ****             /* Clear and Set SYNCTC and SYNCCMP bits of RT1 register */
+  69:Generated_Source\PSoC5/BitCounterDec.c ****             BitCounterDec_RT1 &= ((uint8)(~BitCounterDec_RT1_MASK));
+  70:Generated_Source\PSoC5/BitCounterDec.c ****             BitCounterDec_RT1 |= BitCounterDec_SYNC;     
+  71:Generated_Source\PSoC5/BitCounterDec.c ****                     
+  72:Generated_Source\PSoC5/BitCounterDec.c ****             /*Enable DSI Sync all all inputs of the Timer*/
+  73:Generated_Source\PSoC5/BitCounterDec.c ****             BitCounterDec_RT1 &= ((uint8)(~BitCounterDec_SYNCDSI_MASK));
+  74:Generated_Source\PSoC5/BitCounterDec.c ****             BitCounterDec_RT1 |= BitCounterDec_SYNCDSI_EN;
+  75:Generated_Source\PSoC5/BitCounterDec.c **** 
+  76:Generated_Source\PSoC5/BitCounterDec.c ****         #else
+  77:Generated_Source\PSoC5/BitCounterDec.c ****             #if(!BitCounterDec_ControlRegRemoved)
+  78:Generated_Source\PSoC5/BitCounterDec.c ****             /* Set the default compare mode defined in the parameter */
+  79:Generated_Source\PSoC5/BitCounterDec.c ****             ctrl = BitCounterDec_CONTROL & ((uint8)(~BitCounterDec_CTRL_CMPMODE_MASK));
+  80:Generated_Source\PSoC5/BitCounterDec.c ****             BitCounterDec_CONTROL = ctrl | BitCounterDec_DEFAULT_COMPARE_MODE;
+  81:Generated_Source\PSoC5/BitCounterDec.c ****             
+  82:Generated_Source\PSoC5/BitCounterDec.c ****             /* Set the default capture mode defined in the parameter */
+  83:Generated_Source\PSoC5/BitCounterDec.c ****             ctrl = BitCounterDec_CONTROL & ((uint8)(~BitCounterDec_CTRL_CAPMODE_MASK));
+  84:Generated_Source\PSoC5/BitCounterDec.c ****             
+  85:Generated_Source\PSoC5/BitCounterDec.c ****             #if( 0 != BitCounterDec_CAPTURE_MODE_CONF)
+  86:Generated_Source\PSoC5/BitCounterDec.c ****                 BitCounterDec_CONTROL = ctrl | BitCounterDec_DEFAULT_CAPTURE_MODE;
+  87:Generated_Source\PSoC5/BitCounterDec.c ****             #else
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 3
+
+
+  88:Generated_Source\PSoC5/BitCounterDec.c ****                 BitCounterDec_CONTROL = ctrl;
+  89:Generated_Source\PSoC5/BitCounterDec.c ****             #endif /* 0 != BitCounterDec_CAPTURE_MODE */ 
+  90:Generated_Source\PSoC5/BitCounterDec.c ****             
+  91:Generated_Source\PSoC5/BitCounterDec.c ****             #endif /* (!BitCounterDec_ControlRegRemoved) */
+  92:Generated_Source\PSoC5/BitCounterDec.c ****         #endif /* (BitCounterDec_UsingFixedFunction) */
+  93:Generated_Source\PSoC5/BitCounterDec.c ****         
+  94:Generated_Source\PSoC5/BitCounterDec.c ****         /* Clear all data in the FIFO's */
+  95:Generated_Source\PSoC5/BitCounterDec.c ****         #if (!BitCounterDec_UsingFixedFunction)
+  96:Generated_Source\PSoC5/BitCounterDec.c ****             BitCounterDec_ClearFIFO();
+  97:Generated_Source\PSoC5/BitCounterDec.c ****         #endif /* (!BitCounterDec_UsingFixedFunction) */
+  98:Generated_Source\PSoC5/BitCounterDec.c ****         
+  99:Generated_Source\PSoC5/BitCounterDec.c ****         /* Set Initial values from Configuration */
+ 100:Generated_Source\PSoC5/BitCounterDec.c ****         BitCounterDec_WritePeriod(BitCounterDec_INIT_PERIOD_VALUE);
+ 101:Generated_Source\PSoC5/BitCounterDec.c ****         #if (!(BitCounterDec_UsingFixedFunction && (CY_PSOC5A)))
+ 102:Generated_Source\PSoC5/BitCounterDec.c ****             BitCounterDec_WriteCounter(BitCounterDec_INIT_COUNTER_VALUE);
+ 103:Generated_Source\PSoC5/BitCounterDec.c ****         #endif /* (!(BitCounterDec_UsingFixedFunction && (CY_PSOC5A))) */
+ 104:Generated_Source\PSoC5/BitCounterDec.c ****         BitCounterDec_SetInterruptMode(BitCounterDec_INIT_INTERRUPTS_MASK);
+ 105:Generated_Source\PSoC5/BitCounterDec.c ****         
+ 106:Generated_Source\PSoC5/BitCounterDec.c ****         #if (!BitCounterDec_UsingFixedFunction)
+ 107:Generated_Source\PSoC5/BitCounterDec.c ****             /* Read the status register to clear the unwanted interrupts */
+ 108:Generated_Source\PSoC5/BitCounterDec.c ****             (void)BitCounterDec_ReadStatusRegister();
+ 109:Generated_Source\PSoC5/BitCounterDec.c ****             /* Set the compare value (only available to non-fixed function implementation */
+ 110:Generated_Source\PSoC5/BitCounterDec.c ****             BitCounterDec_WriteCompare(BitCounterDec_INIT_COMPARE_VALUE);
+ 111:Generated_Source\PSoC5/BitCounterDec.c ****             /* Use the interrupt output of the status register for IRQ output */
+ 112:Generated_Source\PSoC5/BitCounterDec.c ****             
+ 113:Generated_Source\PSoC5/BitCounterDec.c ****             /* CyEnterCriticalRegion and CyExitCriticalRegion are used to mark following region cri
+ 114:Generated_Source\PSoC5/BitCounterDec.c ****             /* Enter Critical Region*/
+ 115:Generated_Source\PSoC5/BitCounterDec.c ****             BitCounterDec_interruptState = CyEnterCriticalSection();
+ 116:Generated_Source\PSoC5/BitCounterDec.c ****             
+ 117:Generated_Source\PSoC5/BitCounterDec.c ****             BitCounterDec_STATUS_AUX_CTRL |= BitCounterDec_STATUS_ACTL_INT_EN_MASK;
+ 118:Generated_Source\PSoC5/BitCounterDec.c ****             
+ 119:Generated_Source\PSoC5/BitCounterDec.c ****             /* Exit Critical Region*/
+ 120:Generated_Source\PSoC5/BitCounterDec.c ****             CyExitCriticalSection(BitCounterDec_interruptState);
+ 121:Generated_Source\PSoC5/BitCounterDec.c ****             
+ 122:Generated_Source\PSoC5/BitCounterDec.c ****         #endif /* (!BitCounterDec_UsingFixedFunction) */
+ 123:Generated_Source\PSoC5/BitCounterDec.c **** }
+ 124:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 125:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 126:Generated_Source\PSoC5/BitCounterDec.c **** /*******************************************************************************
+ 127:Generated_Source\PSoC5/BitCounterDec.c **** * Function Name: BitCounterDec_Enable
+ 128:Generated_Source\PSoC5/BitCounterDec.c **** ********************************************************************************
+ 129:Generated_Source\PSoC5/BitCounterDec.c **** * Summary:
+ 130:Generated_Source\PSoC5/BitCounterDec.c **** *     Enable the Counter
+ 131:Generated_Source\PSoC5/BitCounterDec.c **** * 
+ 132:Generated_Source\PSoC5/BitCounterDec.c **** * Parameters:  
+ 133:Generated_Source\PSoC5/BitCounterDec.c **** *  void  
+ 134:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 135:Generated_Source\PSoC5/BitCounterDec.c **** * Return: 
+ 136:Generated_Source\PSoC5/BitCounterDec.c **** *  void
+ 137:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 138:Generated_Source\PSoC5/BitCounterDec.c **** * Side Effects: 
+ 139:Generated_Source\PSoC5/BitCounterDec.c **** *   If the Enable mode is set to Hardware only then this function has no effect 
+ 140:Generated_Source\PSoC5/BitCounterDec.c **** *   on the operation of the counter.
+ 141:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 142:Generated_Source\PSoC5/BitCounterDec.c **** *******************************************************************************/
+ 143:Generated_Source\PSoC5/BitCounterDec.c **** void BitCounterDec_Enable(void) 
+ 144:Generated_Source\PSoC5/BitCounterDec.c **** {
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 4
+
+
+  28              		.loc 1 144 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+ 145:Generated_Source\PSoC5/BitCounterDec.c ****     /* Globally Enable the Fixed Function Block chosen */
+ 146:Generated_Source\PSoC5/BitCounterDec.c ****     #if (BitCounterDec_UsingFixedFunction)
+ 147:Generated_Source\PSoC5/BitCounterDec.c ****         BitCounterDec_GLOBAL_ENABLE |= BitCounterDec_BLOCK_EN_MASK;
+ 148:Generated_Source\PSoC5/BitCounterDec.c ****         BitCounterDec_GLOBAL_STBY_ENABLE |= BitCounterDec_BLOCK_STBY_EN_MASK;
+ 149:Generated_Source\PSoC5/BitCounterDec.c ****     #endif /* (BitCounterDec_UsingFixedFunction) */  
+ 150:Generated_Source\PSoC5/BitCounterDec.c ****         
+ 151:Generated_Source\PSoC5/BitCounterDec.c ****     /* Enable the counter from the control register  */
+ 152:Generated_Source\PSoC5/BitCounterDec.c ****     /* If Fixed Function then make sure Mode is set correctly */
+ 153:Generated_Source\PSoC5/BitCounterDec.c ****     /* else make sure reset is clear */
+ 154:Generated_Source\PSoC5/BitCounterDec.c ****     #if(!BitCounterDec_ControlRegRemoved || BitCounterDec_UsingFixedFunction)
+ 155:Generated_Source\PSoC5/BitCounterDec.c ****         BitCounterDec_CONTROL |= BitCounterDec_CTRL_ENABLE;                
+  33              		.loc 1 155 0
+  34 0000 024A     		ldr	r2, .L2
+  35 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  36 0004 43F08003 		orr	r3, r3, #128
+  37 0008 1370     		strb	r3, [r2]
+  38 000a 7047     		bx	lr
+  39              	.L3:
+  40              		.align	2
+  41              	.L2:
+  42 000c 77640040 		.word	1073767543
+  43              		.cfi_endproc
+  44              	.LFE1:
+  45              		.size	BitCounterDec_Enable, .-BitCounterDec_Enable
+  46              		.section	.text.BitCounterDec_Stop,"ax",%progbits
+  47              		.align	2
+  48              		.global	BitCounterDec_Stop
+  49              		.thumb
+  50              		.thumb_func
+  51              		.type	BitCounterDec_Stop, %function
+  52              	BitCounterDec_Stop:
+  53              	.LFB3:
+ 156:Generated_Source\PSoC5/BitCounterDec.c ****     #endif /* (!BitCounterDec_ControlRegRemoved || BitCounterDec_UsingFixedFunction) */
+ 157:Generated_Source\PSoC5/BitCounterDec.c ****     
+ 158:Generated_Source\PSoC5/BitCounterDec.c **** }
+ 159:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 160:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 161:Generated_Source\PSoC5/BitCounterDec.c **** /*******************************************************************************
+ 162:Generated_Source\PSoC5/BitCounterDec.c **** * Function Name: BitCounterDec_Start
+ 163:Generated_Source\PSoC5/BitCounterDec.c **** ********************************************************************************
+ 164:Generated_Source\PSoC5/BitCounterDec.c **** * Summary:
+ 165:Generated_Source\PSoC5/BitCounterDec.c **** *  Enables the counter for operation 
+ 166:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 167:Generated_Source\PSoC5/BitCounterDec.c **** * Parameters:  
+ 168:Generated_Source\PSoC5/BitCounterDec.c **** *  void  
+ 169:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 170:Generated_Source\PSoC5/BitCounterDec.c **** * Return: 
+ 171:Generated_Source\PSoC5/BitCounterDec.c **** *  void
+ 172:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 173:Generated_Source\PSoC5/BitCounterDec.c **** * Global variables:
+ 174:Generated_Source\PSoC5/BitCounterDec.c **** *  BitCounterDec_initVar: Is modified when this function is called for the  
+ 175:Generated_Source\PSoC5/BitCounterDec.c **** *   first time. Is used to ensure that initialization happens only once.
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 5
+
+
+ 176:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 177:Generated_Source\PSoC5/BitCounterDec.c **** *******************************************************************************/
+ 178:Generated_Source\PSoC5/BitCounterDec.c **** void BitCounterDec_Start(void) 
+ 179:Generated_Source\PSoC5/BitCounterDec.c **** {
+ 180:Generated_Source\PSoC5/BitCounterDec.c ****     if(BitCounterDec_initVar == 0u)
+ 181:Generated_Source\PSoC5/BitCounterDec.c ****     {
+ 182:Generated_Source\PSoC5/BitCounterDec.c ****         BitCounterDec_Init();
+ 183:Generated_Source\PSoC5/BitCounterDec.c ****         
+ 184:Generated_Source\PSoC5/BitCounterDec.c ****         BitCounterDec_initVar = 1u; /* Clear this bit for Initialization */        
+ 185:Generated_Source\PSoC5/BitCounterDec.c ****     }
+ 186:Generated_Source\PSoC5/BitCounterDec.c ****     
+ 187:Generated_Source\PSoC5/BitCounterDec.c ****     /* Enable the Counter */
+ 188:Generated_Source\PSoC5/BitCounterDec.c ****     BitCounterDec_Enable();        
+ 189:Generated_Source\PSoC5/BitCounterDec.c **** }
+ 190:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 191:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 192:Generated_Source\PSoC5/BitCounterDec.c **** /*******************************************************************************
+ 193:Generated_Source\PSoC5/BitCounterDec.c **** * Function Name: BitCounterDec_Stop
+ 194:Generated_Source\PSoC5/BitCounterDec.c **** ********************************************************************************
+ 195:Generated_Source\PSoC5/BitCounterDec.c **** * Summary:
+ 196:Generated_Source\PSoC5/BitCounterDec.c **** * Halts the counter, but does not change any modes or disable interrupts.
+ 197:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 198:Generated_Source\PSoC5/BitCounterDec.c **** * Parameters:  
+ 199:Generated_Source\PSoC5/BitCounterDec.c **** *  void  
+ 200:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 201:Generated_Source\PSoC5/BitCounterDec.c **** * Return: 
+ 202:Generated_Source\PSoC5/BitCounterDec.c **** *  void
+ 203:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 204:Generated_Source\PSoC5/BitCounterDec.c **** * Side Effects: If the Enable mode is set to Hardware only then this function
+ 205:Generated_Source\PSoC5/BitCounterDec.c **** *               has no effect on the operation of the counter.
+ 206:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 207:Generated_Source\PSoC5/BitCounterDec.c **** *******************************************************************************/
+ 208:Generated_Source\PSoC5/BitCounterDec.c **** void BitCounterDec_Stop(void) 
+ 209:Generated_Source\PSoC5/BitCounterDec.c **** {
+  54              		.loc 1 209 0
+  55              		.cfi_startproc
+  56              		@ args = 0, pretend = 0, frame = 0
+  57              		@ frame_needed = 0, uses_anonymous_args = 0
+  58              		@ link register save eliminated.
+ 210:Generated_Source\PSoC5/BitCounterDec.c ****     /* Disable Counter */
+ 211:Generated_Source\PSoC5/BitCounterDec.c ****     #if(!BitCounterDec_ControlRegRemoved || BitCounterDec_UsingFixedFunction)
+ 212:Generated_Source\PSoC5/BitCounterDec.c ****         BitCounterDec_CONTROL &= ((uint8)(~BitCounterDec_CTRL_ENABLE));        
+  59              		.loc 1 212 0
+  60 0000 024A     		ldr	r2, .L5
+  61 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  62 0004 03F07F03 		and	r3, r3, #127
+  63 0008 1370     		strb	r3, [r2]
+  64 000a 7047     		bx	lr
+  65              	.L6:
+  66              		.align	2
+  67              	.L5:
+  68 000c 77640040 		.word	1073767543
+  69              		.cfi_endproc
+  70              	.LFE3:
+  71              		.size	BitCounterDec_Stop, .-BitCounterDec_Stop
+  72              		.section	.text.BitCounterDec_SetInterruptMode,"ax",%progbits
+  73              		.align	2
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 6
+
+
+  74              		.global	BitCounterDec_SetInterruptMode
+  75              		.thumb
+  76              		.thumb_func
+  77              		.type	BitCounterDec_SetInterruptMode, %function
+  78              	BitCounterDec_SetInterruptMode:
+  79              	.LFB4:
+ 213:Generated_Source\PSoC5/BitCounterDec.c ****     #endif /* (!BitCounterDec_ControlRegRemoved || BitCounterDec_UsingFixedFunction) */
+ 214:Generated_Source\PSoC5/BitCounterDec.c ****     
+ 215:Generated_Source\PSoC5/BitCounterDec.c ****     /* Globally disable the Fixed Function Block chosen */
+ 216:Generated_Source\PSoC5/BitCounterDec.c ****     #if (BitCounterDec_UsingFixedFunction)
+ 217:Generated_Source\PSoC5/BitCounterDec.c ****         BitCounterDec_GLOBAL_ENABLE &= ((uint8)(~BitCounterDec_BLOCK_EN_MASK));
+ 218:Generated_Source\PSoC5/BitCounterDec.c ****         BitCounterDec_GLOBAL_STBY_ENABLE &= ((uint8)(~BitCounterDec_BLOCK_STBY_EN_MASK));
+ 219:Generated_Source\PSoC5/BitCounterDec.c ****     #endif /* (BitCounterDec_UsingFixedFunction) */
+ 220:Generated_Source\PSoC5/BitCounterDec.c **** }
+ 221:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 222:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 223:Generated_Source\PSoC5/BitCounterDec.c **** /*******************************************************************************
+ 224:Generated_Source\PSoC5/BitCounterDec.c **** * Function Name: BitCounterDec_SetInterruptMode
+ 225:Generated_Source\PSoC5/BitCounterDec.c **** ********************************************************************************
+ 226:Generated_Source\PSoC5/BitCounterDec.c **** * Summary:
+ 227:Generated_Source\PSoC5/BitCounterDec.c **** * Configures which interrupt sources are enabled to generate the final interrupt
+ 228:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 229:Generated_Source\PSoC5/BitCounterDec.c **** * Parameters:  
+ 230:Generated_Source\PSoC5/BitCounterDec.c **** *  InterruptsMask: This parameter is an or'd collection of the status bits
+ 231:Generated_Source\PSoC5/BitCounterDec.c **** *                   which will be allowed to generate the counters interrupt.   
+ 232:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 233:Generated_Source\PSoC5/BitCounterDec.c **** * Return: 
+ 234:Generated_Source\PSoC5/BitCounterDec.c **** *  void
+ 235:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 236:Generated_Source\PSoC5/BitCounterDec.c **** *******************************************************************************/
+ 237:Generated_Source\PSoC5/BitCounterDec.c **** void BitCounterDec_SetInterruptMode(uint8 interruptsMask) 
+ 238:Generated_Source\PSoC5/BitCounterDec.c **** {
+  80              		.loc 1 238 0
+  81              		.cfi_startproc
+  82              		@ args = 0, pretend = 0, frame = 0
+  83              		@ frame_needed = 0, uses_anonymous_args = 0
+  84              		@ link register save eliminated.
+  85              	.LVL0:
+ 239:Generated_Source\PSoC5/BitCounterDec.c ****     BitCounterDec_STATUS_MASK = interruptsMask;
+  86              		.loc 1 239 0
+  87 0000 014B     		ldr	r3, .L8
+  88 0002 1870     		strb	r0, [r3]
+  89 0004 7047     		bx	lr
+  90              	.L9:
+  91 0006 00BF     		.align	2
+  92              	.L8:
+  93 0008 86640040 		.word	1073767558
+  94              		.cfi_endproc
+  95              	.LFE4:
+  96              		.size	BitCounterDec_SetInterruptMode, .-BitCounterDec_SetInterruptMode
+  97              		.section	.text.BitCounterDec_ReadStatusRegister,"ax",%progbits
+  98              		.align	2
+  99              		.global	BitCounterDec_ReadStatusRegister
+ 100              		.thumb
+ 101              		.thumb_func
+ 102              		.type	BitCounterDec_ReadStatusRegister, %function
+ 103              	BitCounterDec_ReadStatusRegister:
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 7
+
+
+ 104              	.LFB5:
+ 240:Generated_Source\PSoC5/BitCounterDec.c **** }
+ 241:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 242:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 243:Generated_Source\PSoC5/BitCounterDec.c **** /*******************************************************************************
+ 244:Generated_Source\PSoC5/BitCounterDec.c **** * Function Name: BitCounterDec_ReadStatusRegister
+ 245:Generated_Source\PSoC5/BitCounterDec.c **** ********************************************************************************
+ 246:Generated_Source\PSoC5/BitCounterDec.c **** * Summary:
+ 247:Generated_Source\PSoC5/BitCounterDec.c **** *   Reads the status register and returns it's state. This function should use
+ 248:Generated_Source\PSoC5/BitCounterDec.c **** *       defined types for the bit-field information as the bits in this
+ 249:Generated_Source\PSoC5/BitCounterDec.c **** *       register may be permuteable.
+ 250:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 251:Generated_Source\PSoC5/BitCounterDec.c **** * Parameters:  
+ 252:Generated_Source\PSoC5/BitCounterDec.c **** *  void
+ 253:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 254:Generated_Source\PSoC5/BitCounterDec.c **** * Return: 
+ 255:Generated_Source\PSoC5/BitCounterDec.c **** *  (uint8) The contents of the status register
+ 256:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 257:Generated_Source\PSoC5/BitCounterDec.c **** * Side Effects:
+ 258:Generated_Source\PSoC5/BitCounterDec.c **** *   Status register bits may be clear on read. 
+ 259:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 260:Generated_Source\PSoC5/BitCounterDec.c **** *******************************************************************************/
+ 261:Generated_Source\PSoC5/BitCounterDec.c **** uint8   BitCounterDec_ReadStatusRegister(void) 
+ 262:Generated_Source\PSoC5/BitCounterDec.c **** {
+ 105              		.loc 1 262 0
+ 106              		.cfi_startproc
+ 107              		@ args = 0, pretend = 0, frame = 0
+ 108              		@ frame_needed = 0, uses_anonymous_args = 0
+ 109              		@ link register save eliminated.
+ 263:Generated_Source\PSoC5/BitCounterDec.c ****     return BitCounterDec_STATUS;
+ 110              		.loc 1 263 0
+ 111 0000 014B     		ldr	r3, .L11
+ 112 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 264:Generated_Source\PSoC5/BitCounterDec.c **** }
+ 113              		.loc 1 264 0
+ 114 0004 7047     		bx	lr
+ 115              	.L12:
+ 116 0006 00BF     		.align	2
+ 117              	.L11:
+ 118 0008 66640040 		.word	1073767526
+ 119              		.cfi_endproc
+ 120              	.LFE5:
+ 121              		.size	BitCounterDec_ReadStatusRegister, .-BitCounterDec_ReadStatusRegister
+ 122              		.section	.text.BitCounterDec_ReadControlRegister,"ax",%progbits
+ 123              		.align	2
+ 124              		.global	BitCounterDec_ReadControlRegister
+ 125              		.thumb
+ 126              		.thumb_func
+ 127              		.type	BitCounterDec_ReadControlRegister, %function
+ 128              	BitCounterDec_ReadControlRegister:
+ 129              	.LFB6:
+ 265:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 266:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 267:Generated_Source\PSoC5/BitCounterDec.c **** #if(!BitCounterDec_ControlRegRemoved)
+ 268:Generated_Source\PSoC5/BitCounterDec.c **** /*******************************************************************************
+ 269:Generated_Source\PSoC5/BitCounterDec.c **** * Function Name: BitCounterDec_ReadControlRegister
+ 270:Generated_Source\PSoC5/BitCounterDec.c **** ********************************************************************************
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 8
+
+
+ 271:Generated_Source\PSoC5/BitCounterDec.c **** * Summary:
+ 272:Generated_Source\PSoC5/BitCounterDec.c **** *   Reads the control register and returns it's state. This function should use
+ 273:Generated_Source\PSoC5/BitCounterDec.c **** *       defined types for the bit-field information as the bits in this
+ 274:Generated_Source\PSoC5/BitCounterDec.c **** *       register may be permuteable.
+ 275:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 276:Generated_Source\PSoC5/BitCounterDec.c **** * Parameters:  
+ 277:Generated_Source\PSoC5/BitCounterDec.c **** *  void
+ 278:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 279:Generated_Source\PSoC5/BitCounterDec.c **** * Return: 
+ 280:Generated_Source\PSoC5/BitCounterDec.c **** *  (uint8) The contents of the control register
+ 281:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 282:Generated_Source\PSoC5/BitCounterDec.c **** *******************************************************************************/
+ 283:Generated_Source\PSoC5/BitCounterDec.c **** uint8   BitCounterDec_ReadControlRegister(void) 
+ 284:Generated_Source\PSoC5/BitCounterDec.c **** {
+ 130              		.loc 1 284 0
+ 131              		.cfi_startproc
+ 132              		@ args = 0, pretend = 0, frame = 0
+ 133              		@ frame_needed = 0, uses_anonymous_args = 0
+ 134              		@ link register save eliminated.
+ 285:Generated_Source\PSoC5/BitCounterDec.c ****     return BitCounterDec_CONTROL;
+ 135              		.loc 1 285 0
+ 136 0000 014B     		ldr	r3, .L14
+ 137 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 286:Generated_Source\PSoC5/BitCounterDec.c **** }
+ 138              		.loc 1 286 0
+ 139 0004 7047     		bx	lr
+ 140              	.L15:
+ 141 0006 00BF     		.align	2
+ 142              	.L14:
+ 143 0008 77640040 		.word	1073767543
+ 144              		.cfi_endproc
+ 145              	.LFE6:
+ 146              		.size	BitCounterDec_ReadControlRegister, .-BitCounterDec_ReadControlRegister
+ 147              		.section	.text.BitCounterDec_WriteControlRegister,"ax",%progbits
+ 148              		.align	2
+ 149              		.global	BitCounterDec_WriteControlRegister
+ 150              		.thumb
+ 151              		.thumb_func
+ 152              		.type	BitCounterDec_WriteControlRegister, %function
+ 153              	BitCounterDec_WriteControlRegister:
+ 154              	.LFB7:
+ 287:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 288:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 289:Generated_Source\PSoC5/BitCounterDec.c **** /*******************************************************************************
+ 290:Generated_Source\PSoC5/BitCounterDec.c **** * Function Name: BitCounterDec_WriteControlRegister
+ 291:Generated_Source\PSoC5/BitCounterDec.c **** ********************************************************************************
+ 292:Generated_Source\PSoC5/BitCounterDec.c **** * Summary:
+ 293:Generated_Source\PSoC5/BitCounterDec.c **** *   Sets the bit-field of the control register.  This function should use
+ 294:Generated_Source\PSoC5/BitCounterDec.c **** *       defined types for the bit-field information as the bits in this
+ 295:Generated_Source\PSoC5/BitCounterDec.c **** *       register may be permuteable.
+ 296:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 297:Generated_Source\PSoC5/BitCounterDec.c **** * Parameters:  
+ 298:Generated_Source\PSoC5/BitCounterDec.c **** *  void
+ 299:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 300:Generated_Source\PSoC5/BitCounterDec.c **** * Return: 
+ 301:Generated_Source\PSoC5/BitCounterDec.c **** *  (uint8) The contents of the control register
+ 302:Generated_Source\PSoC5/BitCounterDec.c **** *
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 9
+
+
+ 303:Generated_Source\PSoC5/BitCounterDec.c **** *******************************************************************************/
+ 304:Generated_Source\PSoC5/BitCounterDec.c **** void    BitCounterDec_WriteControlRegister(uint8 control) 
+ 305:Generated_Source\PSoC5/BitCounterDec.c **** {
+ 155              		.loc 1 305 0
+ 156              		.cfi_startproc
+ 157              		@ args = 0, pretend = 0, frame = 0
+ 158              		@ frame_needed = 0, uses_anonymous_args = 0
+ 159              		@ link register save eliminated.
+ 160              	.LVL1:
+ 306:Generated_Source\PSoC5/BitCounterDec.c ****     BitCounterDec_CONTROL = control;
+ 161              		.loc 1 306 0
+ 162 0000 014B     		ldr	r3, .L17
+ 163 0002 1870     		strb	r0, [r3]
+ 164 0004 7047     		bx	lr
+ 165              	.L18:
+ 166 0006 00BF     		.align	2
+ 167              	.L17:
+ 168 0008 77640040 		.word	1073767543
+ 169              		.cfi_endproc
+ 170              	.LFE7:
+ 171              		.size	BitCounterDec_WriteControlRegister, .-BitCounterDec_WriteControlRegister
+ 172              		.section	.text.BitCounterDec_WriteCounter,"ax",%progbits
+ 173              		.align	2
+ 174              		.global	BitCounterDec_WriteCounter
+ 175              		.thumb
+ 176              		.thumb_func
+ 177              		.type	BitCounterDec_WriteCounter, %function
+ 178              	BitCounterDec_WriteCounter:
+ 179              	.LFB8:
+ 307:Generated_Source\PSoC5/BitCounterDec.c **** }
+ 308:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 309:Generated_Source\PSoC5/BitCounterDec.c **** #endif  /* (!BitCounterDec_ControlRegRemoved) */
+ 310:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 311:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 312:Generated_Source\PSoC5/BitCounterDec.c **** #if (!(BitCounterDec_UsingFixedFunction && (CY_PSOC5A)))
+ 313:Generated_Source\PSoC5/BitCounterDec.c **** /*******************************************************************************
+ 314:Generated_Source\PSoC5/BitCounterDec.c **** * Function Name: BitCounterDec_WriteCounter
+ 315:Generated_Source\PSoC5/BitCounterDec.c **** ********************************************************************************
+ 316:Generated_Source\PSoC5/BitCounterDec.c **** * Summary:
+ 317:Generated_Source\PSoC5/BitCounterDec.c **** *   This funtion is used to set the counter to a specific value
+ 318:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 319:Generated_Source\PSoC5/BitCounterDec.c **** * Parameters:  
+ 320:Generated_Source\PSoC5/BitCounterDec.c **** *  counter:  New counter value. 
+ 321:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 322:Generated_Source\PSoC5/BitCounterDec.c **** * Return: 
+ 323:Generated_Source\PSoC5/BitCounterDec.c **** *  void 
+ 324:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 325:Generated_Source\PSoC5/BitCounterDec.c **** *******************************************************************************/
+ 326:Generated_Source\PSoC5/BitCounterDec.c **** void BitCounterDec_WriteCounter(uint8 counter) \
+ 327:Generated_Source\PSoC5/BitCounterDec.c ****                                    
+ 328:Generated_Source\PSoC5/BitCounterDec.c **** {
+ 180              		.loc 1 328 0
+ 181              		.cfi_startproc
+ 182              		@ args = 0, pretend = 0, frame = 0
+ 183              		@ frame_needed = 0, uses_anonymous_args = 0
+ 184              		@ link register save eliminated.
+ 185              	.LVL2:
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 10
+
+
+ 329:Generated_Source\PSoC5/BitCounterDec.c ****     #if(BitCounterDec_UsingFixedFunction)
+ 330:Generated_Source\PSoC5/BitCounterDec.c ****         /* assert if block is already enabled */
+ 331:Generated_Source\PSoC5/BitCounterDec.c ****         CYASSERT (0u == (BitCounterDec_GLOBAL_ENABLE & BitCounterDec_BLOCK_EN_MASK));
+ 332:Generated_Source\PSoC5/BitCounterDec.c ****         /* If block is disabled, enable it and then write the counter */
+ 333:Generated_Source\PSoC5/BitCounterDec.c ****         BitCounterDec_GLOBAL_ENABLE |= BitCounterDec_BLOCK_EN_MASK;
+ 334:Generated_Source\PSoC5/BitCounterDec.c ****         CY_SET_REG16(BitCounterDec_COUNTER_LSB_PTR, (uint16)counter);
+ 335:Generated_Source\PSoC5/BitCounterDec.c ****         BitCounterDec_GLOBAL_ENABLE &= ((uint8)(~BitCounterDec_BLOCK_EN_MASK));
+ 336:Generated_Source\PSoC5/BitCounterDec.c ****     #else
+ 337:Generated_Source\PSoC5/BitCounterDec.c ****         CY_SET_REG8(BitCounterDec_COUNTER_LSB_PTR, counter);
+ 186              		.loc 1 337 0
+ 187 0000 014B     		ldr	r3, .L20
+ 188 0002 1870     		strb	r0, [r3]
+ 189 0004 7047     		bx	lr
+ 190              	.L21:
+ 191 0006 00BF     		.align	2
+ 192              	.L20:
+ 193 0008 06640040 		.word	1073767430
+ 194              		.cfi_endproc
+ 195              	.LFE8:
+ 196              		.size	BitCounterDec_WriteCounter, .-BitCounterDec_WriteCounter
+ 197              		.section	.text.BitCounterDec_ReadCounter,"ax",%progbits
+ 198              		.align	2
+ 199              		.global	BitCounterDec_ReadCounter
+ 200              		.thumb
+ 201              		.thumb_func
+ 202              		.type	BitCounterDec_ReadCounter, %function
+ 203              	BitCounterDec_ReadCounter:
+ 204              	.LFB9:
+ 338:Generated_Source\PSoC5/BitCounterDec.c ****     #endif /* (BitCounterDec_UsingFixedFunction) */
+ 339:Generated_Source\PSoC5/BitCounterDec.c **** }
+ 340:Generated_Source\PSoC5/BitCounterDec.c **** #endif /* (!(BitCounterDec_UsingFixedFunction && (CY_PSOC5A))) */
+ 341:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 342:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 343:Generated_Source\PSoC5/BitCounterDec.c **** /*******************************************************************************
+ 344:Generated_Source\PSoC5/BitCounterDec.c **** * Function Name: BitCounterDec_ReadCounter
+ 345:Generated_Source\PSoC5/BitCounterDec.c **** ********************************************************************************
+ 346:Generated_Source\PSoC5/BitCounterDec.c **** * Summary:
+ 347:Generated_Source\PSoC5/BitCounterDec.c **** * Returns the current value of the counter.  It doesn't matter
+ 348:Generated_Source\PSoC5/BitCounterDec.c **** * if the counter is enabled or running.
+ 349:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 350:Generated_Source\PSoC5/BitCounterDec.c **** * Parameters:  
+ 351:Generated_Source\PSoC5/BitCounterDec.c **** *  void:  
+ 352:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 353:Generated_Source\PSoC5/BitCounterDec.c **** * Return: 
+ 354:Generated_Source\PSoC5/BitCounterDec.c **** *  (uint8) The present value of the counter.
+ 355:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 356:Generated_Source\PSoC5/BitCounterDec.c **** *******************************************************************************/
+ 357:Generated_Source\PSoC5/BitCounterDec.c **** uint8 BitCounterDec_ReadCounter(void) 
+ 358:Generated_Source\PSoC5/BitCounterDec.c **** {
+ 205              		.loc 1 358 0
+ 206              		.cfi_startproc
+ 207              		@ args = 0, pretend = 0, frame = 0
+ 208              		@ frame_needed = 0, uses_anonymous_args = 0
+ 209              		@ link register save eliminated.
+ 359:Generated_Source\PSoC5/BitCounterDec.c ****     /* Force capture by reading Accumulator */
+ 360:Generated_Source\PSoC5/BitCounterDec.c ****     /* Must first do a software capture to be able to read the counter */
+ 361:Generated_Source\PSoC5/BitCounterDec.c ****     /* It is up to the user code to make sure there isn't already captured data in the FIFO */
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 11
+
+
+ 362:Generated_Source\PSoC5/BitCounterDec.c ****     #if(BitCounterDec_UsingFixedFunction)
+ 363:Generated_Source\PSoC5/BitCounterDec.c **** 		(void)CY_GET_REG16(BitCounterDec_COUNTER_LSB_PTR);
+ 364:Generated_Source\PSoC5/BitCounterDec.c **** 	#else
+ 365:Generated_Source\PSoC5/BitCounterDec.c **** 		(void)CY_GET_REG8(BitCounterDec_COUNTER_LSB_PTR_8BIT);
+ 210              		.loc 1 365 0
+ 211 0000 024B     		ldr	r3, .L23
+ 212 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 366:Generated_Source\PSoC5/BitCounterDec.c **** 	#endif/* (BitCounterDec_UsingFixedFunction) */
+ 367:Generated_Source\PSoC5/BitCounterDec.c ****     
+ 368:Generated_Source\PSoC5/BitCounterDec.c ****     /* Read the data from the FIFO (or capture register for Fixed Function)*/
+ 369:Generated_Source\PSoC5/BitCounterDec.c ****     #if(BitCounterDec_UsingFixedFunction)
+ 370:Generated_Source\PSoC5/BitCounterDec.c ****         return ((uint8)CY_GET_REG16(BitCounterDec_STATICCOUNT_LSB_PTR));
+ 371:Generated_Source\PSoC5/BitCounterDec.c ****     #else
+ 372:Generated_Source\PSoC5/BitCounterDec.c ****         return (CY_GET_REG8(BitCounterDec_STATICCOUNT_LSB_PTR));
+ 213              		.loc 1 372 0
+ 214 0004 024B     		ldr	r3, .L23+4
+ 215 0006 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 373:Generated_Source\PSoC5/BitCounterDec.c ****     #endif /* (BitCounterDec_UsingFixedFunction) */
+ 374:Generated_Source\PSoC5/BitCounterDec.c **** }
+ 216              		.loc 1 374 0
+ 217 0008 7047     		bx	lr
+ 218              	.L24:
+ 219 000a 00BF     		.align	2
+ 220              	.L23:
+ 221 000c 06640040 		.word	1073767430
+ 222 0010 46640040 		.word	1073767494
+ 223              		.cfi_endproc
+ 224              	.LFE9:
+ 225              		.size	BitCounterDec_ReadCounter, .-BitCounterDec_ReadCounter
+ 226              		.section	.text.BitCounterDec_ReadCapture,"ax",%progbits
+ 227              		.align	2
+ 228              		.global	BitCounterDec_ReadCapture
+ 229              		.thumb
+ 230              		.thumb_func
+ 231              		.type	BitCounterDec_ReadCapture, %function
+ 232              	BitCounterDec_ReadCapture:
+ 233              	.LFB10:
+ 375:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 376:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 377:Generated_Source\PSoC5/BitCounterDec.c **** /*******************************************************************************
+ 378:Generated_Source\PSoC5/BitCounterDec.c **** * Function Name: BitCounterDec_ReadCapture
+ 379:Generated_Source\PSoC5/BitCounterDec.c **** ********************************************************************************
+ 380:Generated_Source\PSoC5/BitCounterDec.c **** * Summary:
+ 381:Generated_Source\PSoC5/BitCounterDec.c **** *   This function returns the last value captured.
+ 382:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 383:Generated_Source\PSoC5/BitCounterDec.c **** * Parameters:  
+ 384:Generated_Source\PSoC5/BitCounterDec.c **** *  void
+ 385:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 386:Generated_Source\PSoC5/BitCounterDec.c **** * Return: 
+ 387:Generated_Source\PSoC5/BitCounterDec.c **** *  (uint8) Present Capture value.
+ 388:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 389:Generated_Source\PSoC5/BitCounterDec.c **** *******************************************************************************/
+ 390:Generated_Source\PSoC5/BitCounterDec.c **** uint8 BitCounterDec_ReadCapture(void) 
+ 391:Generated_Source\PSoC5/BitCounterDec.c **** {
+ 234              		.loc 1 391 0
+ 235              		.cfi_startproc
+ 236              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 12
+
+
+ 237              		@ frame_needed = 0, uses_anonymous_args = 0
+ 238              		@ link register save eliminated.
+ 392:Generated_Source\PSoC5/BitCounterDec.c ****     #if(BitCounterDec_UsingFixedFunction)
+ 393:Generated_Source\PSoC5/BitCounterDec.c ****         return ((uint8)CY_GET_REG16(BitCounterDec_STATICCOUNT_LSB_PTR));
+ 394:Generated_Source\PSoC5/BitCounterDec.c ****     #else
+ 395:Generated_Source\PSoC5/BitCounterDec.c ****         return (CY_GET_REG8(BitCounterDec_STATICCOUNT_LSB_PTR));
+ 239              		.loc 1 395 0
+ 240 0000 014B     		ldr	r3, .L26
+ 241 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 396:Generated_Source\PSoC5/BitCounterDec.c ****     #endif /* (BitCounterDec_UsingFixedFunction) */
+ 397:Generated_Source\PSoC5/BitCounterDec.c **** }
+ 242              		.loc 1 397 0
+ 243 0004 7047     		bx	lr
+ 244              	.L27:
+ 245 0006 00BF     		.align	2
+ 246              	.L26:
+ 247 0008 46640040 		.word	1073767494
+ 248              		.cfi_endproc
+ 249              	.LFE10:
+ 250              		.size	BitCounterDec_ReadCapture, .-BitCounterDec_ReadCapture
+ 251              		.section	.text.BitCounterDec_WritePeriod,"ax",%progbits
+ 252              		.align	2
+ 253              		.global	BitCounterDec_WritePeriod
+ 254              		.thumb
+ 255              		.thumb_func
+ 256              		.type	BitCounterDec_WritePeriod, %function
+ 257              	BitCounterDec_WritePeriod:
+ 258              	.LFB11:
+ 398:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 399:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 400:Generated_Source\PSoC5/BitCounterDec.c **** /*******************************************************************************
+ 401:Generated_Source\PSoC5/BitCounterDec.c **** * Function Name: BitCounterDec_WritePeriod
+ 402:Generated_Source\PSoC5/BitCounterDec.c **** ********************************************************************************
+ 403:Generated_Source\PSoC5/BitCounterDec.c **** * Summary:
+ 404:Generated_Source\PSoC5/BitCounterDec.c **** * Changes the period of the counter.  The new period 
+ 405:Generated_Source\PSoC5/BitCounterDec.c **** * will be loaded the next time terminal count is detected.
+ 406:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 407:Generated_Source\PSoC5/BitCounterDec.c **** * Parameters:  
+ 408:Generated_Source\PSoC5/BitCounterDec.c **** *  period: (uint8) A value of 0 will result in
+ 409:Generated_Source\PSoC5/BitCounterDec.c **** *         the counter remaining at zero.  
+ 410:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 411:Generated_Source\PSoC5/BitCounterDec.c **** * Return: 
+ 412:Generated_Source\PSoC5/BitCounterDec.c **** *  void
+ 413:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 414:Generated_Source\PSoC5/BitCounterDec.c **** *******************************************************************************/
+ 415:Generated_Source\PSoC5/BitCounterDec.c **** void BitCounterDec_WritePeriod(uint8 period) 
+ 416:Generated_Source\PSoC5/BitCounterDec.c **** {
+ 259              		.loc 1 416 0
+ 260              		.cfi_startproc
+ 261              		@ args = 0, pretend = 0, frame = 0
+ 262              		@ frame_needed = 0, uses_anonymous_args = 0
+ 263              		@ link register save eliminated.
+ 264              	.LVL3:
+ 417:Generated_Source\PSoC5/BitCounterDec.c ****     #if(BitCounterDec_UsingFixedFunction)
+ 418:Generated_Source\PSoC5/BitCounterDec.c ****         CY_SET_REG16(BitCounterDec_PERIOD_LSB_PTR,(uint16)period);
+ 419:Generated_Source\PSoC5/BitCounterDec.c ****     #else
+ 420:Generated_Source\PSoC5/BitCounterDec.c ****         CY_SET_REG8(BitCounterDec_PERIOD_LSB_PTR, period);
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 13
+
+
+ 265              		.loc 1 420 0
+ 266 0000 014B     		ldr	r3, .L29
+ 267 0002 1870     		strb	r0, [r3]
+ 268 0004 7047     		bx	lr
+ 269              	.L30:
+ 270 0006 00BF     		.align	2
+ 271              	.L29:
+ 272 0008 26640040 		.word	1073767462
+ 273              		.cfi_endproc
+ 274              	.LFE11:
+ 275              		.size	BitCounterDec_WritePeriod, .-BitCounterDec_WritePeriod
+ 276              		.section	.text.BitCounterDec_ReadPeriod,"ax",%progbits
+ 277              		.align	2
+ 278              		.global	BitCounterDec_ReadPeriod
+ 279              		.thumb
+ 280              		.thumb_func
+ 281              		.type	BitCounterDec_ReadPeriod, %function
+ 282              	BitCounterDec_ReadPeriod:
+ 283              	.LFB12:
+ 421:Generated_Source\PSoC5/BitCounterDec.c ****     #endif /* (BitCounterDec_UsingFixedFunction) */
+ 422:Generated_Source\PSoC5/BitCounterDec.c **** }
+ 423:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 424:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 425:Generated_Source\PSoC5/BitCounterDec.c **** /*******************************************************************************
+ 426:Generated_Source\PSoC5/BitCounterDec.c **** * Function Name: BitCounterDec_ReadPeriod
+ 427:Generated_Source\PSoC5/BitCounterDec.c **** ********************************************************************************
+ 428:Generated_Source\PSoC5/BitCounterDec.c **** * Summary:
+ 429:Generated_Source\PSoC5/BitCounterDec.c **** * Reads the current period value without affecting counter operation.
+ 430:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 431:Generated_Source\PSoC5/BitCounterDec.c **** * Parameters:  
+ 432:Generated_Source\PSoC5/BitCounterDec.c **** *  void:  
+ 433:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 434:Generated_Source\PSoC5/BitCounterDec.c **** * Return: 
+ 435:Generated_Source\PSoC5/BitCounterDec.c **** *  (uint8) Present period value.
+ 436:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 437:Generated_Source\PSoC5/BitCounterDec.c **** *******************************************************************************/
+ 438:Generated_Source\PSoC5/BitCounterDec.c **** uint8 BitCounterDec_ReadPeriod(void) 
+ 439:Generated_Source\PSoC5/BitCounterDec.c **** {
+ 284              		.loc 1 439 0
+ 285              		.cfi_startproc
+ 286              		@ args = 0, pretend = 0, frame = 0
+ 287              		@ frame_needed = 0, uses_anonymous_args = 0
+ 288              		@ link register save eliminated.
+ 440:Generated_Source\PSoC5/BitCounterDec.c ****     #if(BitCounterDec_UsingFixedFunction)
+ 441:Generated_Source\PSoC5/BitCounterDec.c ****         return ((uint8)CY_GET_REG16(BitCounterDec_PERIOD_LSB_PTR));
+ 442:Generated_Source\PSoC5/BitCounterDec.c ****     #else
+ 443:Generated_Source\PSoC5/BitCounterDec.c ****         return (CY_GET_REG8(BitCounterDec_PERIOD_LSB_PTR));
+ 289              		.loc 1 443 0
+ 290 0000 014B     		ldr	r3, .L32
+ 291 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 444:Generated_Source\PSoC5/BitCounterDec.c ****     #endif /* (BitCounterDec_UsingFixedFunction) */
+ 445:Generated_Source\PSoC5/BitCounterDec.c **** }
+ 292              		.loc 1 445 0
+ 293 0004 7047     		bx	lr
+ 294              	.L33:
+ 295 0006 00BF     		.align	2
+ 296              	.L32:
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 14
+
+
+ 297 0008 26640040 		.word	1073767462
+ 298              		.cfi_endproc
+ 299              	.LFE12:
+ 300              		.size	BitCounterDec_ReadPeriod, .-BitCounterDec_ReadPeriod
+ 301              		.section	.text.BitCounterDec_WriteCompare,"ax",%progbits
+ 302              		.align	2
+ 303              		.global	BitCounterDec_WriteCompare
+ 304              		.thumb
+ 305              		.thumb_func
+ 306              		.type	BitCounterDec_WriteCompare, %function
+ 307              	BitCounterDec_WriteCompare:
+ 308              	.LFB13:
+ 446:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 447:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 448:Generated_Source\PSoC5/BitCounterDec.c **** #if (!BitCounterDec_UsingFixedFunction)
+ 449:Generated_Source\PSoC5/BitCounterDec.c **** /*******************************************************************************
+ 450:Generated_Source\PSoC5/BitCounterDec.c **** * Function Name: BitCounterDec_WriteCompare
+ 451:Generated_Source\PSoC5/BitCounterDec.c **** ********************************************************************************
+ 452:Generated_Source\PSoC5/BitCounterDec.c **** * Summary:
+ 453:Generated_Source\PSoC5/BitCounterDec.c **** * Changes the compare value.  The compare output will 
+ 454:Generated_Source\PSoC5/BitCounterDec.c **** * reflect the new value on the next UDB clock.  The compare output will be 
+ 455:Generated_Source\PSoC5/BitCounterDec.c **** * driven high when the present counter value compares true based on the 
+ 456:Generated_Source\PSoC5/BitCounterDec.c **** * configured compare mode setting. 
+ 457:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 458:Generated_Source\PSoC5/BitCounterDec.c **** * Parameters:  
+ 459:Generated_Source\PSoC5/BitCounterDec.c **** *  Compare:  New compare value. 
+ 460:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 461:Generated_Source\PSoC5/BitCounterDec.c **** * Return: 
+ 462:Generated_Source\PSoC5/BitCounterDec.c **** *  void
+ 463:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 464:Generated_Source\PSoC5/BitCounterDec.c **** *******************************************************************************/
+ 465:Generated_Source\PSoC5/BitCounterDec.c **** void BitCounterDec_WriteCompare(uint8 compare) \
+ 466:Generated_Source\PSoC5/BitCounterDec.c ****                                    
+ 467:Generated_Source\PSoC5/BitCounterDec.c **** {
+ 309              		.loc 1 467 0
+ 310              		.cfi_startproc
+ 311              		@ args = 0, pretend = 0, frame = 0
+ 312              		@ frame_needed = 0, uses_anonymous_args = 0
+ 313              		@ link register save eliminated.
+ 314              	.LVL4:
+ 468:Generated_Source\PSoC5/BitCounterDec.c ****     #if(BitCounterDec_UsingFixedFunction)
+ 469:Generated_Source\PSoC5/BitCounterDec.c ****         CY_SET_REG16(BitCounterDec_COMPARE_LSB_PTR, (uint16)compare);
+ 470:Generated_Source\PSoC5/BitCounterDec.c ****     #else
+ 471:Generated_Source\PSoC5/BitCounterDec.c ****         CY_SET_REG8(BitCounterDec_COMPARE_LSB_PTR, compare);
+ 315              		.loc 1 471 0
+ 316 0000 014B     		ldr	r3, .L35
+ 317 0002 1870     		strb	r0, [r3]
+ 318 0004 7047     		bx	lr
+ 319              	.L36:
+ 320 0006 00BF     		.align	2
+ 321              	.L35:
+ 322 0008 36640040 		.word	1073767478
+ 323              		.cfi_endproc
+ 324              	.LFE13:
+ 325              		.size	BitCounterDec_WriteCompare, .-BitCounterDec_WriteCompare
+ 326              		.section	.text.BitCounterDec_ReadCompare,"ax",%progbits
+ 327              		.align	2
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 15
+
+
+ 328              		.global	BitCounterDec_ReadCompare
+ 329              		.thumb
+ 330              		.thumb_func
+ 331              		.type	BitCounterDec_ReadCompare, %function
+ 332              	BitCounterDec_ReadCompare:
+ 333              	.LFB14:
+ 472:Generated_Source\PSoC5/BitCounterDec.c ****     #endif /* (BitCounterDec_UsingFixedFunction) */
+ 473:Generated_Source\PSoC5/BitCounterDec.c **** }
+ 474:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 475:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 476:Generated_Source\PSoC5/BitCounterDec.c **** /*******************************************************************************
+ 477:Generated_Source\PSoC5/BitCounterDec.c **** * Function Name: BitCounterDec_ReadCompare
+ 478:Generated_Source\PSoC5/BitCounterDec.c **** ********************************************************************************
+ 479:Generated_Source\PSoC5/BitCounterDec.c **** * Summary:
+ 480:Generated_Source\PSoC5/BitCounterDec.c **** * Returns the compare value.
+ 481:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 482:Generated_Source\PSoC5/BitCounterDec.c **** * Parameters:  
+ 483:Generated_Source\PSoC5/BitCounterDec.c **** *  void:
+ 484:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 485:Generated_Source\PSoC5/BitCounterDec.c **** * Return: 
+ 486:Generated_Source\PSoC5/BitCounterDec.c **** *  (uint8) Present compare value.
+ 487:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 488:Generated_Source\PSoC5/BitCounterDec.c **** *******************************************************************************/
+ 489:Generated_Source\PSoC5/BitCounterDec.c **** uint8 BitCounterDec_ReadCompare(void) 
+ 490:Generated_Source\PSoC5/BitCounterDec.c **** {
+ 334              		.loc 1 490 0
+ 335              		.cfi_startproc
+ 336              		@ args = 0, pretend = 0, frame = 0
+ 337              		@ frame_needed = 0, uses_anonymous_args = 0
+ 338              		@ link register save eliminated.
+ 491:Generated_Source\PSoC5/BitCounterDec.c ****     return (CY_GET_REG8(BitCounterDec_COMPARE_LSB_PTR));
+ 339              		.loc 1 491 0
+ 340 0000 014B     		ldr	r3, .L38
+ 341 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 492:Generated_Source\PSoC5/BitCounterDec.c **** }
+ 342              		.loc 1 492 0
+ 343 0004 7047     		bx	lr
+ 344              	.L39:
+ 345 0006 00BF     		.align	2
+ 346              	.L38:
+ 347 0008 36640040 		.word	1073767478
+ 348              		.cfi_endproc
+ 349              	.LFE14:
+ 350              		.size	BitCounterDec_ReadCompare, .-BitCounterDec_ReadCompare
+ 351              		.section	.text.BitCounterDec_ClearFIFO,"ax",%progbits
+ 352              		.align	2
+ 353              		.global	BitCounterDec_ClearFIFO
+ 354              		.thumb
+ 355              		.thumb_func
+ 356              		.type	BitCounterDec_ClearFIFO, %function
+ 357              	BitCounterDec_ClearFIFO:
+ 358              	.LFB15:
+ 493:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 494:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 495:Generated_Source\PSoC5/BitCounterDec.c **** #if (BitCounterDec_COMPARE_MODE_SOFTWARE)
+ 496:Generated_Source\PSoC5/BitCounterDec.c **** /*******************************************************************************
+ 497:Generated_Source\PSoC5/BitCounterDec.c **** * Function Name: BitCounterDec_SetCompareMode
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 16
+
+
+ 498:Generated_Source\PSoC5/BitCounterDec.c **** ********************************************************************************
+ 499:Generated_Source\PSoC5/BitCounterDec.c **** * Summary:
+ 500:Generated_Source\PSoC5/BitCounterDec.c **** *  Sets the software controlled Compare Mode.
+ 501:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 502:Generated_Source\PSoC5/BitCounterDec.c **** * Parameters:
+ 503:Generated_Source\PSoC5/BitCounterDec.c **** *  compareMode:  Compare Mode Enumerated Type.
+ 504:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 505:Generated_Source\PSoC5/BitCounterDec.c **** * Return:
+ 506:Generated_Source\PSoC5/BitCounterDec.c **** *  void
+ 507:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 508:Generated_Source\PSoC5/BitCounterDec.c **** *******************************************************************************/
+ 509:Generated_Source\PSoC5/BitCounterDec.c **** void BitCounterDec_SetCompareMode(uint8 compareMode) 
+ 510:Generated_Source\PSoC5/BitCounterDec.c **** {
+ 511:Generated_Source\PSoC5/BitCounterDec.c ****     /* Clear the compare mode bits in the control register */
+ 512:Generated_Source\PSoC5/BitCounterDec.c ****     BitCounterDec_CONTROL &= ((uint8)(~BitCounterDec_CTRL_CMPMODE_MASK));
+ 513:Generated_Source\PSoC5/BitCounterDec.c ****     
+ 514:Generated_Source\PSoC5/BitCounterDec.c ****     /* Write the new setting */
+ 515:Generated_Source\PSoC5/BitCounterDec.c ****     BitCounterDec_CONTROL |= compareMode;
+ 516:Generated_Source\PSoC5/BitCounterDec.c **** }
+ 517:Generated_Source\PSoC5/BitCounterDec.c **** #endif  /* (BitCounterDec_COMPARE_MODE_SOFTWARE) */
+ 518:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 519:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 520:Generated_Source\PSoC5/BitCounterDec.c **** #if (BitCounterDec_CAPTURE_MODE_SOFTWARE)
+ 521:Generated_Source\PSoC5/BitCounterDec.c **** /*******************************************************************************
+ 522:Generated_Source\PSoC5/BitCounterDec.c **** * Function Name: BitCounterDec_SetCaptureMode
+ 523:Generated_Source\PSoC5/BitCounterDec.c **** ********************************************************************************
+ 524:Generated_Source\PSoC5/BitCounterDec.c **** * Summary:
+ 525:Generated_Source\PSoC5/BitCounterDec.c **** *  Sets the software controlled Capture Mode.
+ 526:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 527:Generated_Source\PSoC5/BitCounterDec.c **** * Parameters:
+ 528:Generated_Source\PSoC5/BitCounterDec.c **** *  captureMode:  Capture Mode Enumerated Type.
+ 529:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 530:Generated_Source\PSoC5/BitCounterDec.c **** * Return:
+ 531:Generated_Source\PSoC5/BitCounterDec.c **** *  void
+ 532:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 533:Generated_Source\PSoC5/BitCounterDec.c **** *******************************************************************************/
+ 534:Generated_Source\PSoC5/BitCounterDec.c **** void BitCounterDec_SetCaptureMode(uint8 captureMode) 
+ 535:Generated_Source\PSoC5/BitCounterDec.c **** {
+ 536:Generated_Source\PSoC5/BitCounterDec.c ****     /* Clear the capture mode bits in the control register */
+ 537:Generated_Source\PSoC5/BitCounterDec.c ****     BitCounterDec_CONTROL &= ((uint8)(~BitCounterDec_CTRL_CAPMODE_MASK));
+ 538:Generated_Source\PSoC5/BitCounterDec.c ****     
+ 539:Generated_Source\PSoC5/BitCounterDec.c ****     /* Write the new setting */
+ 540:Generated_Source\PSoC5/BitCounterDec.c ****     BitCounterDec_CONTROL |= ((uint8)((uint8)captureMode << BitCounterDec_CTRL_CAPMODE0_SHIFT));
+ 541:Generated_Source\PSoC5/BitCounterDec.c **** }
+ 542:Generated_Source\PSoC5/BitCounterDec.c **** #endif  /* (BitCounterDec_CAPTURE_MODE_SOFTWARE) */
+ 543:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 544:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 545:Generated_Source\PSoC5/BitCounterDec.c **** /*******************************************************************************
+ 546:Generated_Source\PSoC5/BitCounterDec.c **** * Function Name: BitCounterDec_ClearFIFO
+ 547:Generated_Source\PSoC5/BitCounterDec.c **** ********************************************************************************
+ 548:Generated_Source\PSoC5/BitCounterDec.c **** * Summary:
+ 549:Generated_Source\PSoC5/BitCounterDec.c **** *   This function clears all capture data from the capture FIFO
+ 550:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 551:Generated_Source\PSoC5/BitCounterDec.c **** * Parameters:  
+ 552:Generated_Source\PSoC5/BitCounterDec.c **** *  void:
+ 553:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 554:Generated_Source\PSoC5/BitCounterDec.c **** * Return: 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 17
+
+
+ 555:Generated_Source\PSoC5/BitCounterDec.c **** *  None
+ 556:Generated_Source\PSoC5/BitCounterDec.c **** *
+ 557:Generated_Source\PSoC5/BitCounterDec.c **** *******************************************************************************/
+ 558:Generated_Source\PSoC5/BitCounterDec.c **** void BitCounterDec_ClearFIFO(void) 
+ 559:Generated_Source\PSoC5/BitCounterDec.c **** {
+ 359              		.loc 1 559 0
+ 360              		.cfi_startproc
+ 361              		@ args = 0, pretend = 0, frame = 0
+ 362              		@ frame_needed = 0, uses_anonymous_args = 0
+ 363 0000 08B5     		push	{r3, lr}
+ 364              		.cfi_def_cfa_offset 8
+ 365              		.cfi_offset 3, -8
+ 366              		.cfi_offset 14, -4
+ 560:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 561:Generated_Source\PSoC5/BitCounterDec.c ****     while(0u != (BitCounterDec_ReadStatusRegister() & BitCounterDec_STATUS_FIFONEMP))
+ 367              		.loc 1 561 0
+ 368 0002 01E0     		b	.L41
+ 369              	.L42:
+ 562:Generated_Source\PSoC5/BitCounterDec.c ****     {
+ 563:Generated_Source\PSoC5/BitCounterDec.c ****         (void)BitCounterDec_ReadCapture();
+ 370              		.loc 1 563 0
+ 371 0004 FFF7FEFF 		bl	BitCounterDec_ReadCapture
+ 372              	.LVL5:
+ 373              	.L41:
+ 561:Generated_Source\PSoC5/BitCounterDec.c ****     {
+ 374              		.loc 1 561 0
+ 375 0008 FFF7FEFF 		bl	BitCounterDec_ReadStatusRegister
+ 376              	.LVL6:
+ 377 000c 10F0400F 		tst	r0, #64
+ 378 0010 F8D1     		bne	.L42
+ 564:Generated_Source\PSoC5/BitCounterDec.c ****     }
+ 565:Generated_Source\PSoC5/BitCounterDec.c **** 
+ 566:Generated_Source\PSoC5/BitCounterDec.c **** }
+ 379              		.loc 1 566 0
+ 380 0012 08BD     		pop	{r3, pc}
+ 381              		.cfi_endproc
+ 382              	.LFE15:
+ 383              		.size	BitCounterDec_ClearFIFO, .-BitCounterDec_ClearFIFO
+ 384              		.section	.text.BitCounterDec_Init,"ax",%progbits
+ 385              		.align	2
+ 386              		.global	BitCounterDec_Init
+ 387              		.thumb
+ 388              		.thumb_func
+ 389              		.type	BitCounterDec_Init, %function
+ 390              	BitCounterDec_Init:
+ 391              	.LFB0:
+  38:Generated_Source\PSoC5/BitCounterDec.c ****         #if (!BitCounterDec_UsingFixedFunction && !BitCounterDec_ControlRegRemoved)
+ 392              		.loc 1 38 0
+ 393              		.cfi_startproc
+ 394              		@ args = 0, pretend = 0, frame = 0
+ 395              		@ frame_needed = 0, uses_anonymous_args = 0
+ 396 0000 08B5     		push	{r3, lr}
+ 397              		.cfi_def_cfa_offset 8
+ 398              		.cfi_offset 3, -8
+ 399              		.cfi_offset 14, -4
+  79:Generated_Source\PSoC5/BitCounterDec.c ****             BitCounterDec_CONTROL = ctrl | BitCounterDec_DEFAULT_COMPARE_MODE;
+ 400              		.loc 1 79 0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 18
+
+
+ 401 0002 124A     		ldr	r2, .L46
+ 402 0004 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 403 0006 03F0F803 		and	r3, r3, #248
+ 404              	.LVL7:
+  80:Generated_Source\PSoC5/BitCounterDec.c ****             
+ 405              		.loc 1 80 0
+ 406 000a 43F00403 		orr	r3, r3, #4
+ 407              	.LVL8:
+ 408 000e 1370     		strb	r3, [r2]
+  83:Generated_Source\PSoC5/BitCounterDec.c ****             
+ 409              		.loc 1 83 0
+ 410 0010 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 411 0012 03F0FC03 		and	r3, r3, #252
+ 412              	.LVL9:
+  88:Generated_Source\PSoC5/BitCounterDec.c ****             #endif /* 0 != BitCounterDec_CAPTURE_MODE */ 
+ 413              		.loc 1 88 0
+ 414 0016 1370     		strb	r3, [r2]
+  96:Generated_Source\PSoC5/BitCounterDec.c ****         #endif /* (!BitCounterDec_UsingFixedFunction) */
+ 415              		.loc 1 96 0
+ 416 0018 FFF7FEFF 		bl	BitCounterDec_ClearFIFO
+ 417              	.LVL10:
+ 100:Generated_Source\PSoC5/BitCounterDec.c ****         #if (!(BitCounterDec_UsingFixedFunction && (CY_PSOC5A)))
+ 418              		.loc 1 100 0
+ 419 001c 2020     		movs	r0, #32
+ 420 001e FFF7FEFF 		bl	BitCounterDec_WritePeriod
+ 421              	.LVL11:
+ 102:Generated_Source\PSoC5/BitCounterDec.c ****         #endif /* (!(BitCounterDec_UsingFixedFunction && (CY_PSOC5A))) */
+ 422              		.loc 1 102 0
+ 423 0022 0020     		movs	r0, #0
+ 424 0024 FFF7FEFF 		bl	BitCounterDec_WriteCounter
+ 425              	.LVL12:
+ 104:Generated_Source\PSoC5/BitCounterDec.c ****         
+ 426              		.loc 1 104 0
+ 427 0028 0020     		movs	r0, #0
+ 428 002a FFF7FEFF 		bl	BitCounterDec_SetInterruptMode
+ 429              	.LVL13:
+ 108:Generated_Source\PSoC5/BitCounterDec.c ****             /* Set the compare value (only available to non-fixed function implementation */
+ 430              		.loc 1 108 0
+ 431 002e FFF7FEFF 		bl	BitCounterDec_ReadStatusRegister
+ 432              	.LVL14:
+ 110:Generated_Source\PSoC5/BitCounterDec.c ****             /* Use the interrupt output of the status register for IRQ output */
+ 433              		.loc 1 110 0
+ 434 0032 1F20     		movs	r0, #31
+ 435 0034 FFF7FEFF 		bl	BitCounterDec_WriteCompare
+ 436              	.LVL15:
+ 115:Generated_Source\PSoC5/BitCounterDec.c ****             
+ 437              		.loc 1 115 0
+ 438 0038 FFF7FEFF 		bl	CyEnterCriticalSection
+ 439              	.LVL16:
+ 117:Generated_Source\PSoC5/BitCounterDec.c ****             
+ 440              		.loc 1 117 0
+ 441 003c 044A     		ldr	r2, .L46+4
+ 442 003e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 443 0040 43F01003 		orr	r3, r3, #16
+ 444 0044 1370     		strb	r3, [r2]
+ 120:Generated_Source\PSoC5/BitCounterDec.c ****             
+ 445              		.loc 1 120 0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 19
+
+
+ 446 0046 FFF7FEFF 		bl	CyExitCriticalSection
+ 447              	.LVL17:
+ 448 004a 08BD     		pop	{r3, pc}
+ 449              	.L47:
+ 450              		.align	2
+ 451              	.L46:
+ 452 004c 77640040 		.word	1073767543
+ 453 0050 96640040 		.word	1073767574
+ 454              		.cfi_endproc
+ 455              	.LFE0:
+ 456              		.size	BitCounterDec_Init, .-BitCounterDec_Init
+ 457              		.section	.text.BitCounterDec_Start,"ax",%progbits
+ 458              		.align	2
+ 459              		.global	BitCounterDec_Start
+ 460              		.thumb
+ 461              		.thumb_func
+ 462              		.type	BitCounterDec_Start, %function
+ 463              	BitCounterDec_Start:
+ 464              	.LFB2:
+ 179:Generated_Source\PSoC5/BitCounterDec.c ****     if(BitCounterDec_initVar == 0u)
+ 465              		.loc 1 179 0
+ 466              		.cfi_startproc
+ 467              		@ args = 0, pretend = 0, frame = 0
+ 468              		@ frame_needed = 0, uses_anonymous_args = 0
+ 469 0000 08B5     		push	{r3, lr}
+ 470              		.cfi_def_cfa_offset 8
+ 471              		.cfi_offset 3, -8
+ 472              		.cfi_offset 14, -4
+ 180:Generated_Source\PSoC5/BitCounterDec.c ****     {
+ 473              		.loc 1 180 0
+ 474 0002 054B     		ldr	r3, .L51
+ 475 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 476 0006 23B9     		cbnz	r3, .L49
+ 182:Generated_Source\PSoC5/BitCounterDec.c ****         
+ 477              		.loc 1 182 0
+ 478 0008 FFF7FEFF 		bl	BitCounterDec_Init
+ 479              	.LVL18:
+ 184:Generated_Source\PSoC5/BitCounterDec.c ****     }
+ 480              		.loc 1 184 0
+ 481 000c 0122     		movs	r2, #1
+ 482 000e 024B     		ldr	r3, .L51
+ 483 0010 1A70     		strb	r2, [r3]
+ 484              	.L49:
+ 188:Generated_Source\PSoC5/BitCounterDec.c **** }
+ 485              		.loc 1 188 0
+ 486 0012 FFF7FEFF 		bl	BitCounterDec_Enable
+ 487              	.LVL19:
+ 488 0016 08BD     		pop	{r3, pc}
+ 489              	.L52:
+ 490              		.align	2
+ 491              	.L51:
+ 492 0018 00000000 		.word	.LANCHOR0
+ 493              		.cfi_endproc
+ 494              	.LFE2:
+ 495              		.size	BitCounterDec_Start, .-BitCounterDec_Start
+ 496              		.global	BitCounterDec_initVar
+ 497              		.bss
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 20
+
+
+ 498              		.set	.LANCHOR0,. + 0
+ 499              		.type	BitCounterDec_initVar, %object
+ 500              		.size	BitCounterDec_initVar, 1
+ 501              	BitCounterDec_initVar:
+ 502 0000 00       		.space	1
+ 503              		.text
+ 504              	.Letext0:
+ 505              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 506              		.file 3 "Generated_Source\\PSoC5\\CyLib.h"
+ 507              		.section	.debug_info,"",%progbits
+ 508              	.Ldebug_info0:
+ 509 0000 22030000 		.4byte	0x322
+ 510 0004 0400     		.2byte	0x4
+ 511 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 512 000a 04       		.byte	0x4
+ 513 000b 01       		.uleb128 0x1
+ 514 000c 3D010000 		.4byte	.LASF41
+ 515 0010 0C       		.byte	0xc
+ 516 0011 C6030000 		.4byte	.LASF42
+ 517 0015 1A000000 		.4byte	.LASF43
+ 518 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 519 001d 00000000 		.4byte	0
+ 520 0021 00000000 		.4byte	.Ldebug_line0
+ 521 0025 02       		.uleb128 0x2
+ 522 0026 01       		.byte	0x1
+ 523 0027 06       		.byte	0x6
+ 524 0028 78030000 		.4byte	.LASF0
+ 525 002c 02       		.uleb128 0x2
+ 526 002d 01       		.byte	0x1
+ 527 002e 08       		.byte	0x8
+ 528 002f 2F010000 		.4byte	.LASF1
+ 529 0033 02       		.uleb128 0x2
+ 530 0034 02       		.byte	0x2
+ 531 0035 05       		.byte	0x5
+ 532 0036 1C020000 		.4byte	.LASF2
+ 533 003a 02       		.uleb128 0x2
+ 534 003b 02       		.byte	0x2
+ 535 003c 07       		.byte	0x7
+ 536 003d 9B000000 		.4byte	.LASF3
+ 537 0041 02       		.uleb128 0x2
+ 538 0042 04       		.byte	0x4
+ 539 0043 05       		.byte	0x5
+ 540 0044 63030000 		.4byte	.LASF4
+ 541 0048 02       		.uleb128 0x2
+ 542 0049 04       		.byte	0x4
+ 543 004a 07       		.byte	0x7
+ 544 004b E6010000 		.4byte	.LASF5
+ 545 004f 02       		.uleb128 0x2
+ 546 0050 08       		.byte	0x8
+ 547 0051 05       		.byte	0x5
+ 548 0052 D6020000 		.4byte	.LASF6
+ 549 0056 02       		.uleb128 0x2
+ 550 0057 08       		.byte	0x8
+ 551 0058 07       		.byte	0x7
+ 552 0059 18010000 		.4byte	.LASF7
+ 553 005d 03       		.uleb128 0x3
+ 554 005e 04       		.byte	0x4
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 21
+
+
+ 555 005f 05       		.byte	0x5
+ 556 0060 696E7400 		.ascii	"int\000"
+ 557 0064 02       		.uleb128 0x2
+ 558 0065 04       		.byte	0x4
+ 559 0066 07       		.byte	0x7
+ 560 0067 6F020000 		.4byte	.LASF8
+ 561 006b 04       		.uleb128 0x4
+ 562 006c F8010000 		.4byte	.LASF12
+ 563 0070 02       		.byte	0x2
+ 564 0071 E401     		.2byte	0x1e4
+ 565 0073 2C000000 		.4byte	0x2c
+ 566 0077 02       		.uleb128 0x2
+ 567 0078 04       		.byte	0x4
+ 568 0079 04       		.byte	0x4
+ 569 007a 0A010000 		.4byte	.LASF9
+ 570 007e 02       		.uleb128 0x2
+ 571 007f 08       		.byte	0x8
+ 572 0080 04       		.byte	0x4
+ 573 0081 15020000 		.4byte	.LASF10
+ 574 0085 02       		.uleb128 0x2
+ 575 0086 01       		.byte	0x1
+ 576 0087 08       		.byte	0x8
+ 577 0088 E4020000 		.4byte	.LASF11
+ 578 008c 04       		.uleb128 0x4
+ 579 008d E1010000 		.4byte	.LASF13
+ 580 0091 02       		.byte	0x2
+ 581 0092 8E02     		.2byte	0x28e
+ 582 0094 98000000 		.4byte	0x98
+ 583 0098 05       		.uleb128 0x5
+ 584 0099 6B000000 		.4byte	0x6b
+ 585 009d 02       		.uleb128 0x2
+ 586 009e 08       		.byte	0x8
+ 587 009f 04       		.byte	0x4
+ 588 00a0 6C030000 		.4byte	.LASF14
+ 589 00a4 02       		.uleb128 0x2
+ 590 00a5 04       		.byte	0x4
+ 591 00a6 07       		.byte	0x7
+ 592 00a7 CD020000 		.4byte	.LASF15
+ 593 00ab 06       		.uleb128 0x6
+ 594 00ac E9020000 		.4byte	.LASF16
+ 595 00b0 01       		.byte	0x1
+ 596 00b1 8F       		.byte	0x8f
+ 597 00b2 00000000 		.4byte	.LFB1
+ 598 00b6 10000000 		.4byte	.LFE1-.LFB1
+ 599 00ba 01       		.uleb128 0x1
+ 600 00bb 9C       		.byte	0x9c
+ 601 00bc 06       		.uleb128 0x6
+ 602 00bd 88000000 		.4byte	.LASF17
+ 603 00c1 01       		.byte	0x1
+ 604 00c2 D0       		.byte	0xd0
+ 605 00c3 00000000 		.4byte	.LFB3
+ 606 00c7 10000000 		.4byte	.LFE3-.LFB3
+ 607 00cb 01       		.uleb128 0x1
+ 608 00cc 9C       		.byte	0x9c
+ 609 00cd 07       		.uleb128 0x7
+ 610 00ce EB000000 		.4byte	.LASF20
+ 611 00d2 01       		.byte	0x1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 22
+
+
+ 612 00d3 ED       		.byte	0xed
+ 613 00d4 00000000 		.4byte	.LFB4
+ 614 00d8 0C000000 		.4byte	.LFE4-.LFB4
+ 615 00dc 01       		.uleb128 0x1
+ 616 00dd 9C       		.byte	0x9c
+ 617 00de F0000000 		.4byte	0xf0
+ 618 00e2 08       		.uleb128 0x8
+ 619 00e3 06020000 		.4byte	.LASF22
+ 620 00e7 01       		.byte	0x1
+ 621 00e8 ED       		.byte	0xed
+ 622 00e9 6B000000 		.4byte	0x6b
+ 623 00ed 01       		.uleb128 0x1
+ 624 00ee 50       		.byte	0x50
+ 625 00ef 00       		.byte	0
+ 626 00f0 09       		.uleb128 0x9
+ 627 00f1 A5030000 		.4byte	.LASF18
+ 628 00f5 01       		.byte	0x1
+ 629 00f6 0501     		.2byte	0x105
+ 630 00f8 6B000000 		.4byte	0x6b
+ 631 00fc 00000000 		.4byte	.LFB5
+ 632 0100 0C000000 		.4byte	.LFE5-.LFB5
+ 633 0104 01       		.uleb128 0x1
+ 634 0105 9C       		.byte	0x9c
+ 635 0106 09       		.uleb128 0x9
+ 636 0107 92020000 		.4byte	.LASF19
+ 637 010b 01       		.byte	0x1
+ 638 010c 1B01     		.2byte	0x11b
+ 639 010e 6B000000 		.4byte	0x6b
+ 640 0112 00000000 		.4byte	.LFB6
+ 641 0116 0C000000 		.4byte	.LFE6-.LFB6
+ 642 011a 01       		.uleb128 0x1
+ 643 011b 9C       		.byte	0x9c
+ 644 011c 0A       		.uleb128 0xa
+ 645 011d AE000000 		.4byte	.LASF21
+ 646 0121 01       		.byte	0x1
+ 647 0122 3001     		.2byte	0x130
+ 648 0124 00000000 		.4byte	.LFB7
+ 649 0128 0C000000 		.4byte	.LFE7-.LFB7
+ 650 012c 01       		.uleb128 0x1
+ 651 012d 9C       		.byte	0x9c
+ 652 012e 41010000 		.4byte	0x141
+ 653 0132 0B       		.uleb128 0xb
+ 654 0133 FE010000 		.4byte	.LASF23
+ 655 0137 01       		.byte	0x1
+ 656 0138 3001     		.2byte	0x130
+ 657 013a 6B000000 		.4byte	0x6b
+ 658 013e 01       		.uleb128 0x1
+ 659 013f 50       		.byte	0x50
+ 660 0140 00       		.byte	0
+ 661 0141 0A       		.uleb128 0xa
+ 662 0142 6D000000 		.4byte	.LASF24
+ 663 0146 01       		.byte	0x1
+ 664 0147 4601     		.2byte	0x146
+ 665 0149 00000000 		.4byte	.LFB8
+ 666 014d 0C000000 		.4byte	.LFE8-.LFB8
+ 667 0151 01       		.uleb128 0x1
+ 668 0152 9C       		.byte	0x9c
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 23
+
+
+ 669 0153 66010000 		.4byte	0x166
+ 670 0157 0B       		.uleb128 0xb
+ 671 0158 10010000 		.4byte	.LASF25
+ 672 015c 01       		.byte	0x1
+ 673 015d 4601     		.2byte	0x146
+ 674 015f 6B000000 		.4byte	0x6b
+ 675 0163 01       		.uleb128 0x1
+ 676 0164 50       		.byte	0x50
+ 677 0165 00       		.byte	0
+ 678 0166 09       		.uleb128 0x9
+ 679 0167 D1000000 		.4byte	.LASF26
+ 680 016b 01       		.byte	0x1
+ 681 016c 6501     		.2byte	0x165
+ 682 016e 6B000000 		.4byte	0x6b
+ 683 0172 00000000 		.4byte	.LFB9
+ 684 0176 14000000 		.4byte	.LFE9-.LFB9
+ 685 017a 01       		.uleb128 0x1
+ 686 017b 9C       		.byte	0x9c
+ 687 017c 09       		.uleb128 0x9
+ 688 017d 00000000 		.4byte	.LASF27
+ 689 0181 01       		.byte	0x1
+ 690 0182 8601     		.2byte	0x186
+ 691 0184 6B000000 		.4byte	0x6b
+ 692 0188 00000000 		.4byte	.LFB10
+ 693 018c 0C000000 		.4byte	.LFE10-.LFB10
+ 694 0190 01       		.uleb128 0x1
+ 695 0191 9C       		.byte	0x9c
+ 696 0192 0A       		.uleb128 0xa
+ 697 0193 26020000 		.4byte	.LASF28
+ 698 0197 01       		.byte	0x1
+ 699 0198 9F01     		.2byte	0x19f
+ 700 019a 00000000 		.4byte	.LFB11
+ 701 019e 0C000000 		.4byte	.LFE11-.LFB11
+ 702 01a2 01       		.uleb128 0x1
+ 703 01a3 9C       		.byte	0x9c
+ 704 01a4 B7010000 		.4byte	0x1b7
+ 705 01a8 0B       		.uleb128 0xb
+ 706 01a9 66000000 		.4byte	.LASF29
+ 707 01ad 01       		.byte	0x1
+ 708 01ae 9F01     		.2byte	0x19f
+ 709 01b0 6B000000 		.4byte	0x6b
+ 710 01b4 01       		.uleb128 0x1
+ 711 01b5 50       		.byte	0x50
+ 712 01b6 00       		.byte	0
+ 713 01b7 09       		.uleb128 0x9
+ 714 01b8 8C030000 		.4byte	.LASF30
+ 715 01bc 01       		.byte	0x1
+ 716 01bd B601     		.2byte	0x1b6
+ 717 01bf 6B000000 		.4byte	0x6b
+ 718 01c3 00000000 		.4byte	.LFB12
+ 719 01c7 0C000000 		.4byte	.LFE12-.LFB12
+ 720 01cb 01       		.uleb128 0x1
+ 721 01cc 9C       		.byte	0x9c
+ 722 01cd 0A       		.uleb128 0xa
+ 723 01ce FE020000 		.4byte	.LASF31
+ 724 01d2 01       		.byte	0x1
+ 725 01d3 D101     		.2byte	0x1d1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 24
+
+
+ 726 01d5 00000000 		.4byte	.LFB13
+ 727 01d9 0C000000 		.4byte	.LFE13-.LFB13
+ 728 01dd 01       		.uleb128 0x1
+ 729 01de 9C       		.byte	0x9c
+ 730 01df F2010000 		.4byte	0x1f2
+ 731 01e3 0B       		.uleb128 0xb
+ 732 01e4 84030000 		.4byte	.LASF32
+ 733 01e8 01       		.byte	0x1
+ 734 01e9 D101     		.2byte	0x1d1
+ 735 01eb 6B000000 		.4byte	0x6b
+ 736 01ef 01       		.uleb128 0x1
+ 737 01f0 50       		.byte	0x50
+ 738 01f1 00       		.byte	0
+ 739 01f2 09       		.uleb128 0x9
+ 740 01f3 49030000 		.4byte	.LASF33
+ 741 01f7 01       		.byte	0x1
+ 742 01f8 E901     		.2byte	0x1e9
+ 743 01fa 6B000000 		.4byte	0x6b
+ 744 01fe 00000000 		.4byte	.LFB14
+ 745 0202 0C000000 		.4byte	.LFE14-.LFB14
+ 746 0206 01       		.uleb128 0x1
+ 747 0207 9C       		.byte	0x9c
+ 748 0208 0A       		.uleb128 0xa
+ 749 0209 40020000 		.4byte	.LASF34
+ 750 020d 01       		.byte	0x1
+ 751 020e 2E02     		.2byte	0x22e
+ 752 0210 00000000 		.4byte	.LFB15
+ 753 0214 14000000 		.4byte	.LFE15-.LFB15
+ 754 0218 01       		.uleb128 0x1
+ 755 0219 9C       		.byte	0x9c
+ 756 021a 31020000 		.4byte	0x231
+ 757 021e 0C       		.uleb128 0xc
+ 758 021f 08000000 		.4byte	.LVL5
+ 759 0223 7C010000 		.4byte	0x17c
+ 760 0227 0C       		.uleb128 0xc
+ 761 0228 0C000000 		.4byte	.LVL6
+ 762 022c F0000000 		.4byte	0xf0
+ 763 0230 00       		.byte	0
+ 764 0231 07       		.uleb128 0x7
+ 765 0232 19030000 		.4byte	.LASF35
+ 766 0236 01       		.byte	0x1
+ 767 0237 25       		.byte	0x25
+ 768 0238 00000000 		.4byte	.LFB0
+ 769 023c 54000000 		.4byte	.LFE0-.LFB0
+ 770 0240 01       		.uleb128 0x1
+ 771 0241 9C       		.byte	0x9c
+ 772 0242 D6020000 		.4byte	0x2d6
+ 773 0246 0D       		.uleb128 0xd
+ 774 0247 C8020000 		.4byte	.LASF36
+ 775 024b 01       		.byte	0x1
+ 776 024c 28       		.byte	0x28
+ 777 024d 6B000000 		.4byte	0x6b
+ 778 0251 00000000 		.4byte	.LLST0
+ 779 0255 0D       		.uleb128 0xd
+ 780 0256 2C030000 		.4byte	.LASF37
+ 781 025a 01       		.byte	0x1
+ 782 025b 2D       		.byte	0x2d
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 25
+
+
+ 783 025c 6B000000 		.4byte	0x6b
+ 784 0260 1E000000 		.4byte	.LLST1
+ 785 0264 0C       		.uleb128 0xc
+ 786 0265 1C000000 		.4byte	.LVL10
+ 787 0269 08020000 		.4byte	0x208
+ 788 026d 0E       		.uleb128 0xe
+ 789 026e 22000000 		.4byte	.LVL11
+ 790 0272 92010000 		.4byte	0x192
+ 791 0276 81020000 		.4byte	0x281
+ 792 027a 0F       		.uleb128 0xf
+ 793 027b 01       		.uleb128 0x1
+ 794 027c 50       		.byte	0x50
+ 795 027d 02       		.uleb128 0x2
+ 796 027e 08       		.byte	0x8
+ 797 027f 20       		.byte	0x20
+ 798 0280 00       		.byte	0
+ 799 0281 0E       		.uleb128 0xe
+ 800 0282 28000000 		.4byte	.LVL12
+ 801 0286 41010000 		.4byte	0x141
+ 802 028a 94020000 		.4byte	0x294
+ 803 028e 0F       		.uleb128 0xf
+ 804 028f 01       		.uleb128 0x1
+ 805 0290 50       		.byte	0x50
+ 806 0291 01       		.uleb128 0x1
+ 807 0292 30       		.byte	0x30
+ 808 0293 00       		.byte	0
+ 809 0294 0E       		.uleb128 0xe
+ 810 0295 2E000000 		.4byte	.LVL13
+ 811 0299 CD000000 		.4byte	0xcd
+ 812 029d A7020000 		.4byte	0x2a7
+ 813 02a1 0F       		.uleb128 0xf
+ 814 02a2 01       		.uleb128 0x1
+ 815 02a3 50       		.byte	0x50
+ 816 02a4 01       		.uleb128 0x1
+ 817 02a5 30       		.byte	0x30
+ 818 02a6 00       		.byte	0
+ 819 02a7 0C       		.uleb128 0xc
+ 820 02a8 32000000 		.4byte	.LVL14
+ 821 02ac F0000000 		.4byte	0xf0
+ 822 02b0 0E       		.uleb128 0xe
+ 823 02b1 38000000 		.4byte	.LVL15
+ 824 02b5 CD010000 		.4byte	0x1cd
+ 825 02b9 C3020000 		.4byte	0x2c3
+ 826 02bd 0F       		.uleb128 0xf
+ 827 02be 01       		.uleb128 0x1
+ 828 02bf 50       		.byte	0x50
+ 829 02c0 01       		.uleb128 0x1
+ 830 02c1 4F       		.byte	0x4f
+ 831 02c2 00       		.byte	0
+ 832 02c3 0C       		.uleb128 0xc
+ 833 02c4 3C000000 		.4byte	.LVL16
+ 834 02c8 0F030000 		.4byte	0x30f
+ 835 02cc 0C       		.uleb128 0xc
+ 836 02cd 4A000000 		.4byte	.LVL17
+ 837 02d1 1A030000 		.4byte	0x31a
+ 838 02d5 00       		.byte	0
+ 839 02d6 07       		.uleb128 0x7
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 26
+
+
+ 840 02d7 B4020000 		.4byte	.LASF38
+ 841 02db 01       		.byte	0x1
+ 842 02dc B2       		.byte	0xb2
+ 843 02dd 00000000 		.4byte	.LFB2
+ 844 02e1 1C000000 		.4byte	.LFE2-.LFB2
+ 845 02e5 01       		.uleb128 0x1
+ 846 02e6 9C       		.byte	0x9c
+ 847 02e7 FE020000 		.4byte	0x2fe
+ 848 02eb 0C       		.uleb128 0xc
+ 849 02ec 0C000000 		.4byte	.LVL18
+ 850 02f0 31020000 		.4byte	0x231
+ 851 02f4 0C       		.uleb128 0xc
+ 852 02f5 16000000 		.4byte	.LVL19
+ 853 02f9 AB000000 		.4byte	0xab
+ 854 02fd 00       		.byte	0
+ 855 02fe 10       		.uleb128 0x10
+ 856 02ff CB010000 		.4byte	.LASF44
+ 857 0303 01       		.byte	0x1
+ 858 0304 15       		.byte	0x15
+ 859 0305 6B000000 		.4byte	0x6b
+ 860 0309 05       		.uleb128 0x5
+ 861 030a 03       		.byte	0x3
+ 862 030b 00000000 		.4byte	BitCounterDec_initVar
+ 863 030f 11       		.uleb128 0x11
+ 864 0310 58020000 		.4byte	.LASF39
+ 865 0314 58020000 		.4byte	.LASF39
+ 866 0318 03       		.byte	0x3
+ 867 0319 7D       		.byte	0x7d
+ 868 031a 11       		.uleb128 0x11
+ 869 031b 7C020000 		.4byte	.LASF40
+ 870 031f 7C020000 		.4byte	.LASF40
+ 871 0323 03       		.byte	0x3
+ 872 0324 7E       		.byte	0x7e
+ 873 0325 00       		.byte	0
+ 874              		.section	.debug_abbrev,"",%progbits
+ 875              	.Ldebug_abbrev0:
+ 876 0000 01       		.uleb128 0x1
+ 877 0001 11       		.uleb128 0x11
+ 878 0002 01       		.byte	0x1
+ 879 0003 25       		.uleb128 0x25
+ 880 0004 0E       		.uleb128 0xe
+ 881 0005 13       		.uleb128 0x13
+ 882 0006 0B       		.uleb128 0xb
+ 883 0007 03       		.uleb128 0x3
+ 884 0008 0E       		.uleb128 0xe
+ 885 0009 1B       		.uleb128 0x1b
+ 886 000a 0E       		.uleb128 0xe
+ 887 000b 55       		.uleb128 0x55
+ 888 000c 17       		.uleb128 0x17
+ 889 000d 11       		.uleb128 0x11
+ 890 000e 01       		.uleb128 0x1
+ 891 000f 10       		.uleb128 0x10
+ 892 0010 17       		.uleb128 0x17
+ 893 0011 00       		.byte	0
+ 894 0012 00       		.byte	0
+ 895 0013 02       		.uleb128 0x2
+ 896 0014 24       		.uleb128 0x24
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 27
+
+
+ 897 0015 00       		.byte	0
+ 898 0016 0B       		.uleb128 0xb
+ 899 0017 0B       		.uleb128 0xb
+ 900 0018 3E       		.uleb128 0x3e
+ 901 0019 0B       		.uleb128 0xb
+ 902 001a 03       		.uleb128 0x3
+ 903 001b 0E       		.uleb128 0xe
+ 904 001c 00       		.byte	0
+ 905 001d 00       		.byte	0
+ 906 001e 03       		.uleb128 0x3
+ 907 001f 24       		.uleb128 0x24
+ 908 0020 00       		.byte	0
+ 909 0021 0B       		.uleb128 0xb
+ 910 0022 0B       		.uleb128 0xb
+ 911 0023 3E       		.uleb128 0x3e
+ 912 0024 0B       		.uleb128 0xb
+ 913 0025 03       		.uleb128 0x3
+ 914 0026 08       		.uleb128 0x8
+ 915 0027 00       		.byte	0
+ 916 0028 00       		.byte	0
+ 917 0029 04       		.uleb128 0x4
+ 918 002a 16       		.uleb128 0x16
+ 919 002b 00       		.byte	0
+ 920 002c 03       		.uleb128 0x3
+ 921 002d 0E       		.uleb128 0xe
+ 922 002e 3A       		.uleb128 0x3a
+ 923 002f 0B       		.uleb128 0xb
+ 924 0030 3B       		.uleb128 0x3b
+ 925 0031 05       		.uleb128 0x5
+ 926 0032 49       		.uleb128 0x49
+ 927 0033 13       		.uleb128 0x13
+ 928 0034 00       		.byte	0
+ 929 0035 00       		.byte	0
+ 930 0036 05       		.uleb128 0x5
+ 931 0037 35       		.uleb128 0x35
+ 932 0038 00       		.byte	0
+ 933 0039 49       		.uleb128 0x49
+ 934 003a 13       		.uleb128 0x13
+ 935 003b 00       		.byte	0
+ 936 003c 00       		.byte	0
+ 937 003d 06       		.uleb128 0x6
+ 938 003e 2E       		.uleb128 0x2e
+ 939 003f 00       		.byte	0
+ 940 0040 3F       		.uleb128 0x3f
+ 941 0041 19       		.uleb128 0x19
+ 942 0042 03       		.uleb128 0x3
+ 943 0043 0E       		.uleb128 0xe
+ 944 0044 3A       		.uleb128 0x3a
+ 945 0045 0B       		.uleb128 0xb
+ 946 0046 3B       		.uleb128 0x3b
+ 947 0047 0B       		.uleb128 0xb
+ 948 0048 27       		.uleb128 0x27
+ 949 0049 19       		.uleb128 0x19
+ 950 004a 11       		.uleb128 0x11
+ 951 004b 01       		.uleb128 0x1
+ 952 004c 12       		.uleb128 0x12
+ 953 004d 06       		.uleb128 0x6
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 28
+
+
+ 954 004e 40       		.uleb128 0x40
+ 955 004f 18       		.uleb128 0x18
+ 956 0050 9742     		.uleb128 0x2117
+ 957 0052 19       		.uleb128 0x19
+ 958 0053 00       		.byte	0
+ 959 0054 00       		.byte	0
+ 960 0055 07       		.uleb128 0x7
+ 961 0056 2E       		.uleb128 0x2e
+ 962 0057 01       		.byte	0x1
+ 963 0058 3F       		.uleb128 0x3f
+ 964 0059 19       		.uleb128 0x19
+ 965 005a 03       		.uleb128 0x3
+ 966 005b 0E       		.uleb128 0xe
+ 967 005c 3A       		.uleb128 0x3a
+ 968 005d 0B       		.uleb128 0xb
+ 969 005e 3B       		.uleb128 0x3b
+ 970 005f 0B       		.uleb128 0xb
+ 971 0060 27       		.uleb128 0x27
+ 972 0061 19       		.uleb128 0x19
+ 973 0062 11       		.uleb128 0x11
+ 974 0063 01       		.uleb128 0x1
+ 975 0064 12       		.uleb128 0x12
+ 976 0065 06       		.uleb128 0x6
+ 977 0066 40       		.uleb128 0x40
+ 978 0067 18       		.uleb128 0x18
+ 979 0068 9742     		.uleb128 0x2117
+ 980 006a 19       		.uleb128 0x19
+ 981 006b 01       		.uleb128 0x1
+ 982 006c 13       		.uleb128 0x13
+ 983 006d 00       		.byte	0
+ 984 006e 00       		.byte	0
+ 985 006f 08       		.uleb128 0x8
+ 986 0070 05       		.uleb128 0x5
+ 987 0071 00       		.byte	0
+ 988 0072 03       		.uleb128 0x3
+ 989 0073 0E       		.uleb128 0xe
+ 990 0074 3A       		.uleb128 0x3a
+ 991 0075 0B       		.uleb128 0xb
+ 992 0076 3B       		.uleb128 0x3b
+ 993 0077 0B       		.uleb128 0xb
+ 994 0078 49       		.uleb128 0x49
+ 995 0079 13       		.uleb128 0x13
+ 996 007a 02       		.uleb128 0x2
+ 997 007b 18       		.uleb128 0x18
+ 998 007c 00       		.byte	0
+ 999 007d 00       		.byte	0
+ 1000 007e 09       		.uleb128 0x9
+ 1001 007f 2E       		.uleb128 0x2e
+ 1002 0080 00       		.byte	0
+ 1003 0081 3F       		.uleb128 0x3f
+ 1004 0082 19       		.uleb128 0x19
+ 1005 0083 03       		.uleb128 0x3
+ 1006 0084 0E       		.uleb128 0xe
+ 1007 0085 3A       		.uleb128 0x3a
+ 1008 0086 0B       		.uleb128 0xb
+ 1009 0087 3B       		.uleb128 0x3b
+ 1010 0088 05       		.uleb128 0x5
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 29
+
+
+ 1011 0089 27       		.uleb128 0x27
+ 1012 008a 19       		.uleb128 0x19
+ 1013 008b 49       		.uleb128 0x49
+ 1014 008c 13       		.uleb128 0x13
+ 1015 008d 11       		.uleb128 0x11
+ 1016 008e 01       		.uleb128 0x1
+ 1017 008f 12       		.uleb128 0x12
+ 1018 0090 06       		.uleb128 0x6
+ 1019 0091 40       		.uleb128 0x40
+ 1020 0092 18       		.uleb128 0x18
+ 1021 0093 9742     		.uleb128 0x2117
+ 1022 0095 19       		.uleb128 0x19
+ 1023 0096 00       		.byte	0
+ 1024 0097 00       		.byte	0
+ 1025 0098 0A       		.uleb128 0xa
+ 1026 0099 2E       		.uleb128 0x2e
+ 1027 009a 01       		.byte	0x1
+ 1028 009b 3F       		.uleb128 0x3f
+ 1029 009c 19       		.uleb128 0x19
+ 1030 009d 03       		.uleb128 0x3
+ 1031 009e 0E       		.uleb128 0xe
+ 1032 009f 3A       		.uleb128 0x3a
+ 1033 00a0 0B       		.uleb128 0xb
+ 1034 00a1 3B       		.uleb128 0x3b
+ 1035 00a2 05       		.uleb128 0x5
+ 1036 00a3 27       		.uleb128 0x27
+ 1037 00a4 19       		.uleb128 0x19
+ 1038 00a5 11       		.uleb128 0x11
+ 1039 00a6 01       		.uleb128 0x1
+ 1040 00a7 12       		.uleb128 0x12
+ 1041 00a8 06       		.uleb128 0x6
+ 1042 00a9 40       		.uleb128 0x40
+ 1043 00aa 18       		.uleb128 0x18
+ 1044 00ab 9742     		.uleb128 0x2117
+ 1045 00ad 19       		.uleb128 0x19
+ 1046 00ae 01       		.uleb128 0x1
+ 1047 00af 13       		.uleb128 0x13
+ 1048 00b0 00       		.byte	0
+ 1049 00b1 00       		.byte	0
+ 1050 00b2 0B       		.uleb128 0xb
+ 1051 00b3 05       		.uleb128 0x5
+ 1052 00b4 00       		.byte	0
+ 1053 00b5 03       		.uleb128 0x3
+ 1054 00b6 0E       		.uleb128 0xe
+ 1055 00b7 3A       		.uleb128 0x3a
+ 1056 00b8 0B       		.uleb128 0xb
+ 1057 00b9 3B       		.uleb128 0x3b
+ 1058 00ba 05       		.uleb128 0x5
+ 1059 00bb 49       		.uleb128 0x49
+ 1060 00bc 13       		.uleb128 0x13
+ 1061 00bd 02       		.uleb128 0x2
+ 1062 00be 18       		.uleb128 0x18
+ 1063 00bf 00       		.byte	0
+ 1064 00c0 00       		.byte	0
+ 1065 00c1 0C       		.uleb128 0xc
+ 1066 00c2 898201   		.uleb128 0x4109
+ 1067 00c5 00       		.byte	0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 30
+
+
+ 1068 00c6 11       		.uleb128 0x11
+ 1069 00c7 01       		.uleb128 0x1
+ 1070 00c8 31       		.uleb128 0x31
+ 1071 00c9 13       		.uleb128 0x13
+ 1072 00ca 00       		.byte	0
+ 1073 00cb 00       		.byte	0
+ 1074 00cc 0D       		.uleb128 0xd
+ 1075 00cd 34       		.uleb128 0x34
+ 1076 00ce 00       		.byte	0
+ 1077 00cf 03       		.uleb128 0x3
+ 1078 00d0 0E       		.uleb128 0xe
+ 1079 00d1 3A       		.uleb128 0x3a
+ 1080 00d2 0B       		.uleb128 0xb
+ 1081 00d3 3B       		.uleb128 0x3b
+ 1082 00d4 0B       		.uleb128 0xb
+ 1083 00d5 49       		.uleb128 0x49
+ 1084 00d6 13       		.uleb128 0x13
+ 1085 00d7 02       		.uleb128 0x2
+ 1086 00d8 17       		.uleb128 0x17
+ 1087 00d9 00       		.byte	0
+ 1088 00da 00       		.byte	0
+ 1089 00db 0E       		.uleb128 0xe
+ 1090 00dc 898201   		.uleb128 0x4109
+ 1091 00df 01       		.byte	0x1
+ 1092 00e0 11       		.uleb128 0x11
+ 1093 00e1 01       		.uleb128 0x1
+ 1094 00e2 31       		.uleb128 0x31
+ 1095 00e3 13       		.uleb128 0x13
+ 1096 00e4 01       		.uleb128 0x1
+ 1097 00e5 13       		.uleb128 0x13
+ 1098 00e6 00       		.byte	0
+ 1099 00e7 00       		.byte	0
+ 1100 00e8 0F       		.uleb128 0xf
+ 1101 00e9 8A8201   		.uleb128 0x410a
+ 1102 00ec 00       		.byte	0
+ 1103 00ed 02       		.uleb128 0x2
+ 1104 00ee 18       		.uleb128 0x18
+ 1105 00ef 9142     		.uleb128 0x2111
+ 1106 00f1 18       		.uleb128 0x18
+ 1107 00f2 00       		.byte	0
+ 1108 00f3 00       		.byte	0
+ 1109 00f4 10       		.uleb128 0x10
+ 1110 00f5 34       		.uleb128 0x34
+ 1111 00f6 00       		.byte	0
+ 1112 00f7 03       		.uleb128 0x3
+ 1113 00f8 0E       		.uleb128 0xe
+ 1114 00f9 3A       		.uleb128 0x3a
+ 1115 00fa 0B       		.uleb128 0xb
+ 1116 00fb 3B       		.uleb128 0x3b
+ 1117 00fc 0B       		.uleb128 0xb
+ 1118 00fd 49       		.uleb128 0x49
+ 1119 00fe 13       		.uleb128 0x13
+ 1120 00ff 3F       		.uleb128 0x3f
+ 1121 0100 19       		.uleb128 0x19
+ 1122 0101 02       		.uleb128 0x2
+ 1123 0102 18       		.uleb128 0x18
+ 1124 0103 00       		.byte	0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 31
+
+
+ 1125 0104 00       		.byte	0
+ 1126 0105 11       		.uleb128 0x11
+ 1127 0106 2E       		.uleb128 0x2e
+ 1128 0107 00       		.byte	0
+ 1129 0108 3F       		.uleb128 0x3f
+ 1130 0109 19       		.uleb128 0x19
+ 1131 010a 3C       		.uleb128 0x3c
+ 1132 010b 19       		.uleb128 0x19
+ 1133 010c 6E       		.uleb128 0x6e
+ 1134 010d 0E       		.uleb128 0xe
+ 1135 010e 03       		.uleb128 0x3
+ 1136 010f 0E       		.uleb128 0xe
+ 1137 0110 3A       		.uleb128 0x3a
+ 1138 0111 0B       		.uleb128 0xb
+ 1139 0112 3B       		.uleb128 0x3b
+ 1140 0113 0B       		.uleb128 0xb
+ 1141 0114 00       		.byte	0
+ 1142 0115 00       		.byte	0
+ 1143 0116 00       		.byte	0
+ 1144              		.section	.debug_loc,"",%progbits
+ 1145              	.Ldebug_loc0:
+ 1146              	.LLST0:
+ 1147 0000 0A000000 		.4byte	.LVL7
+ 1148 0004 0E000000 		.4byte	.LVL8
+ 1149 0008 0100     		.2byte	0x1
+ 1150 000a 53       		.byte	0x53
+ 1151 000b 16000000 		.4byte	.LVL9
+ 1152 000f 1B000000 		.4byte	.LVL10-1
+ 1153 0013 0100     		.2byte	0x1
+ 1154 0015 53       		.byte	0x53
+ 1155 0016 00000000 		.4byte	0
+ 1156 001a 00000000 		.4byte	0
+ 1157              	.LLST1:
+ 1158 001e 3C000000 		.4byte	.LVL16
+ 1159 0022 49000000 		.4byte	.LVL17-1
+ 1160 0026 0100     		.2byte	0x1
+ 1161 0028 50       		.byte	0x50
+ 1162 0029 00000000 		.4byte	0
+ 1163 002d 00000000 		.4byte	0
+ 1164              		.section	.debug_aranges,"",%progbits
+ 1165 0000 94000000 		.4byte	0x94
+ 1166 0004 0200     		.2byte	0x2
+ 1167 0006 00000000 		.4byte	.Ldebug_info0
+ 1168 000a 04       		.byte	0x4
+ 1169 000b 00       		.byte	0
+ 1170 000c 0000     		.2byte	0
+ 1171 000e 0000     		.2byte	0
+ 1172 0010 00000000 		.4byte	.LFB1
+ 1173 0014 10000000 		.4byte	.LFE1-.LFB1
+ 1174 0018 00000000 		.4byte	.LFB3
+ 1175 001c 10000000 		.4byte	.LFE3-.LFB3
+ 1176 0020 00000000 		.4byte	.LFB4
+ 1177 0024 0C000000 		.4byte	.LFE4-.LFB4
+ 1178 0028 00000000 		.4byte	.LFB5
+ 1179 002c 0C000000 		.4byte	.LFE5-.LFB5
+ 1180 0030 00000000 		.4byte	.LFB6
+ 1181 0034 0C000000 		.4byte	.LFE6-.LFB6
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 32
+
+
+ 1182 0038 00000000 		.4byte	.LFB7
+ 1183 003c 0C000000 		.4byte	.LFE7-.LFB7
+ 1184 0040 00000000 		.4byte	.LFB8
+ 1185 0044 0C000000 		.4byte	.LFE8-.LFB8
+ 1186 0048 00000000 		.4byte	.LFB9
+ 1187 004c 14000000 		.4byte	.LFE9-.LFB9
+ 1188 0050 00000000 		.4byte	.LFB10
+ 1189 0054 0C000000 		.4byte	.LFE10-.LFB10
+ 1190 0058 00000000 		.4byte	.LFB11
+ 1191 005c 0C000000 		.4byte	.LFE11-.LFB11
+ 1192 0060 00000000 		.4byte	.LFB12
+ 1193 0064 0C000000 		.4byte	.LFE12-.LFB12
+ 1194 0068 00000000 		.4byte	.LFB13
+ 1195 006c 0C000000 		.4byte	.LFE13-.LFB13
+ 1196 0070 00000000 		.4byte	.LFB14
+ 1197 0074 0C000000 		.4byte	.LFE14-.LFB14
+ 1198 0078 00000000 		.4byte	.LFB15
+ 1199 007c 14000000 		.4byte	.LFE15-.LFB15
+ 1200 0080 00000000 		.4byte	.LFB0
+ 1201 0084 54000000 		.4byte	.LFE0-.LFB0
+ 1202 0088 00000000 		.4byte	.LFB2
+ 1203 008c 1C000000 		.4byte	.LFE2-.LFB2
+ 1204 0090 00000000 		.4byte	0
+ 1205 0094 00000000 		.4byte	0
+ 1206              		.section	.debug_ranges,"",%progbits
+ 1207              	.Ldebug_ranges0:
+ 1208 0000 00000000 		.4byte	.LFB1
+ 1209 0004 10000000 		.4byte	.LFE1
+ 1210 0008 00000000 		.4byte	.LFB3
+ 1211 000c 10000000 		.4byte	.LFE3
+ 1212 0010 00000000 		.4byte	.LFB4
+ 1213 0014 0C000000 		.4byte	.LFE4
+ 1214 0018 00000000 		.4byte	.LFB5
+ 1215 001c 0C000000 		.4byte	.LFE5
+ 1216 0020 00000000 		.4byte	.LFB6
+ 1217 0024 0C000000 		.4byte	.LFE6
+ 1218 0028 00000000 		.4byte	.LFB7
+ 1219 002c 0C000000 		.4byte	.LFE7
+ 1220 0030 00000000 		.4byte	.LFB8
+ 1221 0034 0C000000 		.4byte	.LFE8
+ 1222 0038 00000000 		.4byte	.LFB9
+ 1223 003c 14000000 		.4byte	.LFE9
+ 1224 0040 00000000 		.4byte	.LFB10
+ 1225 0044 0C000000 		.4byte	.LFE10
+ 1226 0048 00000000 		.4byte	.LFB11
+ 1227 004c 0C000000 		.4byte	.LFE11
+ 1228 0050 00000000 		.4byte	.LFB12
+ 1229 0054 0C000000 		.4byte	.LFE12
+ 1230 0058 00000000 		.4byte	.LFB13
+ 1231 005c 0C000000 		.4byte	.LFE13
+ 1232 0060 00000000 		.4byte	.LFB14
+ 1233 0064 0C000000 		.4byte	.LFE14
+ 1234 0068 00000000 		.4byte	.LFB15
+ 1235 006c 14000000 		.4byte	.LFE15
+ 1236 0070 00000000 		.4byte	.LFB0
+ 1237 0074 54000000 		.4byte	.LFE0
+ 1238 0078 00000000 		.4byte	.LFB2
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 33
+
+
+ 1239 007c 1C000000 		.4byte	.LFE2
+ 1240 0080 00000000 		.4byte	0
+ 1241 0084 00000000 		.4byte	0
+ 1242              		.section	.debug_line,"",%progbits
+ 1243              	.Ldebug_line0:
+ 1244 0000 89010000 		.section	.debug_str,"MS",%progbits,1
+ 1244      02005500 
+ 1244      00000201 
+ 1244      FB0E0D00 
+ 1244      01010101 
+ 1245              	.LASF27:
+ 1246 0000 42697443 		.ascii	"BitCounterDec_ReadCapture\000"
+ 1246      6F756E74 
+ 1246      65724465 
+ 1246      635F5265 
+ 1246      61644361 
+ 1247              	.LASF43:
+ 1248 001a 433A5C55 		.ascii	"C:\\Users\\e.ivanov\\Documents\\GitHub\\generic\\Ma"
+ 1248      73657273 
+ 1248      5C652E69 
+ 1248      76616E6F 
+ 1248      765C446F 
+ 1249 0047 6E636865 		.ascii	"nchester encoder-decoder.cydsn\000"
+ 1249      73746572 
+ 1249      20656E63 
+ 1249      6F646572 
+ 1249      2D646563 
+ 1250              	.LASF29:
+ 1251 0066 70657269 		.ascii	"period\000"
+ 1251      6F6400
+ 1252              	.LASF24:
+ 1253 006d 42697443 		.ascii	"BitCounterDec_WriteCounter\000"
+ 1253      6F756E74 
+ 1253      65724465 
+ 1253      635F5772 
+ 1253      69746543 
+ 1254              	.LASF17:
+ 1255 0088 42697443 		.ascii	"BitCounterDec_Stop\000"
+ 1255      6F756E74 
+ 1255      65724465 
+ 1255      635F5374 
+ 1255      6F7000
+ 1256              	.LASF3:
+ 1257 009b 73686F72 		.ascii	"short unsigned int\000"
+ 1257      7420756E 
+ 1257      7369676E 
+ 1257      65642069 
+ 1257      6E7400
+ 1258              	.LASF21:
+ 1259 00ae 42697443 		.ascii	"BitCounterDec_WriteControlRegister\000"
+ 1259      6F756E74 
+ 1259      65724465 
+ 1259      635F5772 
+ 1259      69746543 
+ 1260              	.LASF26:
+ 1261 00d1 42697443 		.ascii	"BitCounterDec_ReadCounter\000"
+ 1261      6F756E74 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 34
+
+
+ 1261      65724465 
+ 1261      635F5265 
+ 1261      6164436F 
+ 1262              	.LASF20:
+ 1263 00eb 42697443 		.ascii	"BitCounterDec_SetInterruptMode\000"
+ 1263      6F756E74 
+ 1263      65724465 
+ 1263      635F5365 
+ 1263      74496E74 
+ 1264              	.LASF9:
+ 1265 010a 666C6F61 		.ascii	"float\000"
+ 1265      7400
+ 1266              	.LASF25:
+ 1267 0110 636F756E 		.ascii	"counter\000"
+ 1267      74657200 
+ 1268              	.LASF7:
+ 1269 0118 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1269      206C6F6E 
+ 1269      6720756E 
+ 1269      7369676E 
+ 1269      65642069 
+ 1270              	.LASF1:
+ 1271 012f 756E7369 		.ascii	"unsigned char\000"
+ 1271      676E6564 
+ 1271      20636861 
+ 1271      7200
+ 1272              	.LASF41:
+ 1273 013d 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1273      43313120 
+ 1273      352E342E 
+ 1273      31203230 
+ 1273      31363036 
+ 1274 0170 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1274      20726576 
+ 1274      6973696F 
+ 1274      6E203233 
+ 1274      37373135 
+ 1275 01a3 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1275      66756E63 
+ 1275      74696F6E 
+ 1275      2D736563 
+ 1275      74696F6E 
+ 1276              	.LASF44:
+ 1277 01cb 42697443 		.ascii	"BitCounterDec_initVar\000"
+ 1277      6F756E74 
+ 1277      65724465 
+ 1277      635F696E 
+ 1277      69745661 
+ 1278              	.LASF13:
+ 1279 01e1 72656738 		.ascii	"reg8\000"
+ 1279      00
+ 1280              	.LASF5:
+ 1281 01e6 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1281      20756E73 
+ 1281      69676E65 
+ 1281      6420696E 
+ 1281      7400
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 35
+
+
+ 1282              	.LASF12:
+ 1283 01f8 75696E74 		.ascii	"uint8\000"
+ 1283      3800
+ 1284              	.LASF23:
+ 1285 01fe 636F6E74 		.ascii	"control\000"
+ 1285      726F6C00 
+ 1286              	.LASF22:
+ 1287 0206 696E7465 		.ascii	"interruptsMask\000"
+ 1287      72727570 
+ 1287      74734D61 
+ 1287      736B00
+ 1288              	.LASF10:
+ 1289 0215 646F7562 		.ascii	"double\000"
+ 1289      6C6500
+ 1290              	.LASF2:
+ 1291 021c 73686F72 		.ascii	"short int\000"
+ 1291      7420696E 
+ 1291      7400
+ 1292              	.LASF28:
+ 1293 0226 42697443 		.ascii	"BitCounterDec_WritePeriod\000"
+ 1293      6F756E74 
+ 1293      65724465 
+ 1293      635F5772 
+ 1293      69746550 
+ 1294              	.LASF34:
+ 1295 0240 42697443 		.ascii	"BitCounterDec_ClearFIFO\000"
+ 1295      6F756E74 
+ 1295      65724465 
+ 1295      635F436C 
+ 1295      65617246 
+ 1296              	.LASF39:
+ 1297 0258 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 1297      74657243 
+ 1297      72697469 
+ 1297      63616C53 
+ 1297      65637469 
+ 1298              	.LASF8:
+ 1299 026f 756E7369 		.ascii	"unsigned int\000"
+ 1299      676E6564 
+ 1299      20696E74 
+ 1299      00
+ 1300              	.LASF40:
+ 1301 027c 43794578 		.ascii	"CyExitCriticalSection\000"
+ 1301      69744372 
+ 1301      69746963 
+ 1301      616C5365 
+ 1301      6374696F 
+ 1302              	.LASF19:
+ 1303 0292 42697443 		.ascii	"BitCounterDec_ReadControlRegister\000"
+ 1303      6F756E74 
+ 1303      65724465 
+ 1303      635F5265 
+ 1303      6164436F 
+ 1304              	.LASF38:
+ 1305 02b4 42697443 		.ascii	"BitCounterDec_Start\000"
+ 1305      6F756E74 
+ 1305      65724465 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 36
+
+
+ 1305      635F5374 
+ 1305      61727400 
+ 1306              	.LASF36:
+ 1307 02c8 6374726C 		.ascii	"ctrl\000"
+ 1307      00
+ 1308              	.LASF15:
+ 1309 02cd 73697A65 		.ascii	"sizetype\000"
+ 1309      74797065 
+ 1309      00
+ 1310              	.LASF6:
+ 1311 02d6 6C6F6E67 		.ascii	"long long int\000"
+ 1311      206C6F6E 
+ 1311      6720696E 
+ 1311      7400
+ 1312              	.LASF11:
+ 1313 02e4 63686172 		.ascii	"char\000"
+ 1313      00
+ 1314              	.LASF16:
+ 1315 02e9 42697443 		.ascii	"BitCounterDec_Enable\000"
+ 1315      6F756E74 
+ 1315      65724465 
+ 1315      635F456E 
+ 1315      61626C65 
+ 1316              	.LASF31:
+ 1317 02fe 42697443 		.ascii	"BitCounterDec_WriteCompare\000"
+ 1317      6F756E74 
+ 1317      65724465 
+ 1317      635F5772 
+ 1317      69746543 
+ 1318              	.LASF35:
+ 1319 0319 42697443 		.ascii	"BitCounterDec_Init\000"
+ 1319      6F756E74 
+ 1319      65724465 
+ 1319      635F496E 
+ 1319      697400
+ 1320              	.LASF37:
+ 1321 032c 42697443 		.ascii	"BitCounterDec_interruptState\000"
+ 1321      6F756E74 
+ 1321      65724465 
+ 1321      635F696E 
+ 1321      74657272 
+ 1322              	.LASF33:
+ 1323 0349 42697443 		.ascii	"BitCounterDec_ReadCompare\000"
+ 1323      6F756E74 
+ 1323      65724465 
+ 1323      635F5265 
+ 1323      6164436F 
+ 1324              	.LASF4:
+ 1325 0363 6C6F6E67 		.ascii	"long int\000"
+ 1325      20696E74 
+ 1325      00
+ 1326              	.LASF14:
+ 1327 036c 6C6F6E67 		.ascii	"long double\000"
+ 1327      20646F75 
+ 1327      626C6500 
+ 1328              	.LASF0:
+ 1329 0378 7369676E 		.ascii	"signed char\000"
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFpcBce.s 			page 37
+
+
+ 1329      65642063 
+ 1329      68617200 
+ 1330              	.LASF32:
+ 1331 0384 636F6D70 		.ascii	"compare\000"
+ 1331      61726500 
+ 1332              	.LASF30:
+ 1333 038c 42697443 		.ascii	"BitCounterDec_ReadPeriod\000"
+ 1333      6F756E74 
+ 1333      65724465 
+ 1333      635F5265 
+ 1333      61645065 
+ 1334              	.LASF18:
+ 1335 03a5 42697443 		.ascii	"BitCounterDec_ReadStatusRegister\000"
+ 1335      6F756E74 
+ 1335      65724465 
+ 1335      635F5265 
+ 1335      61645374 
+ 1336              	.LASF42:
+ 1337 03c6 47656E65 		.ascii	"Generated_Source\\PSoC5\\BitCounterDec.c\000"
+ 1337      72617465 
+ 1337      645F536F 
+ 1337      75726365 
+ 1337      5C50536F 
+ 1338              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

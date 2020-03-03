@@ -1,0 +1,1954 @@
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cckmol3x.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"WordShifted.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.WordShifted_SetVector,"ax",%progbits
+  20              		.align	2
+  21              		.global	WordShifted_SetVector
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	WordShifted_SetVector, %function
+  25              	WordShifted_SetVector:
+  26              	.LFB4:
+  27              		.file 1 "Generated_Source\\PSoC5\\WordShifted.c"
+   1:Generated_Source\PSoC5/WordShifted.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/WordShifted.c **** * File Name: WordShifted.c  
+   3:Generated_Source\PSoC5/WordShifted.c **** * Version 1.70
+   4:Generated_Source\PSoC5/WordShifted.c **** *
+   5:Generated_Source\PSoC5/WordShifted.c **** *  Description:
+   6:Generated_Source\PSoC5/WordShifted.c **** *   API for controlling the state of an interrupt.
+   7:Generated_Source\PSoC5/WordShifted.c **** *
+   8:Generated_Source\PSoC5/WordShifted.c **** *
+   9:Generated_Source\PSoC5/WordShifted.c **** *  Note:
+  10:Generated_Source\PSoC5/WordShifted.c **** *
+  11:Generated_Source\PSoC5/WordShifted.c **** ********************************************************************************
+  12:Generated_Source\PSoC5/WordShifted.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC5/WordShifted.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  14:Generated_Source\PSoC5/WordShifted.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  15:Generated_Source\PSoC5/WordShifted.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC5/WordShifted.c **** *******************************************************************************/
+  17:Generated_Source\PSoC5/WordShifted.c **** 
+  18:Generated_Source\PSoC5/WordShifted.c **** 
+  19:Generated_Source\PSoC5/WordShifted.c **** #include <cydevice_trm.h>
+  20:Generated_Source\PSoC5/WordShifted.c **** #include <CyLib.h>
+  21:Generated_Source\PSoC5/WordShifted.c **** #include <WordShifted.h>
+  22:Generated_Source\PSoC5/WordShifted.c **** #include "cyapicallbacks.h"
+  23:Generated_Source\PSoC5/WordShifted.c **** 
+  24:Generated_Source\PSoC5/WordShifted.c **** #if !defined(WordShifted__REMOVED) /* Check for removal by optimization */
+  25:Generated_Source\PSoC5/WordShifted.c **** 
+  26:Generated_Source\PSoC5/WordShifted.c **** /*******************************************************************************
+  27:Generated_Source\PSoC5/WordShifted.c **** *  Place your includes, defines and code here 
+  28:Generated_Source\PSoC5/WordShifted.c **** ********************************************************************************/
+  29:Generated_Source\PSoC5/WordShifted.c **** /* `#START WordShifted_intc` */
+  30:Generated_Source\PSoC5/WordShifted.c **** #include <BitCounterDec.h>
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cckmol3x.s 			page 2
+
+
+  31:Generated_Source\PSoC5/WordShifted.c **** #include <RecieveShiftReg.h>
+  32:Generated_Source\PSoC5/WordShifted.c **** #include <reciver.h>
+  33:Generated_Source\PSoC5/WordShifted.c **** /* `#END` */
+  34:Generated_Source\PSoC5/WordShifted.c **** 
+  35:Generated_Source\PSoC5/WordShifted.c **** #ifndef CYINT_IRQ_BASE
+  36:Generated_Source\PSoC5/WordShifted.c **** #define CYINT_IRQ_BASE      16
+  37:Generated_Source\PSoC5/WordShifted.c **** #endif /* CYINT_IRQ_BASE */
+  38:Generated_Source\PSoC5/WordShifted.c **** #ifndef CYINT_VECT_TABLE
+  39:Generated_Source\PSoC5/WordShifted.c **** #define CYINT_VECT_TABLE    ((cyisraddress **) CYREG_NVIC_VECT_OFFSET)
+  40:Generated_Source\PSoC5/WordShifted.c **** #endif /* CYINT_VECT_TABLE */
+  41:Generated_Source\PSoC5/WordShifted.c **** 
+  42:Generated_Source\PSoC5/WordShifted.c **** /* Declared in startup, used to set unused interrupts to. */
+  43:Generated_Source\PSoC5/WordShifted.c **** CY_ISR_PROTO(IntDefaultHandler);
+  44:Generated_Source\PSoC5/WordShifted.c **** 
+  45:Generated_Source\PSoC5/WordShifted.c **** 
+  46:Generated_Source\PSoC5/WordShifted.c **** /*******************************************************************************
+  47:Generated_Source\PSoC5/WordShifted.c **** * Function Name: WordShifted_Start
+  48:Generated_Source\PSoC5/WordShifted.c **** ********************************************************************************
+  49:Generated_Source\PSoC5/WordShifted.c **** *
+  50:Generated_Source\PSoC5/WordShifted.c **** * Summary:
+  51:Generated_Source\PSoC5/WordShifted.c **** *  Set up the interrupt and enable it. This function disables the interrupt, 
+  52:Generated_Source\PSoC5/WordShifted.c **** *  sets the default interrupt vector, sets the priority from the value in the
+  53:Generated_Source\PSoC5/WordShifted.c **** *  Design Wide Resources Interrupt Editor, then enables the interrupt to the 
+  54:Generated_Source\PSoC5/WordShifted.c **** *  interrupt controller.
+  55:Generated_Source\PSoC5/WordShifted.c **** *
+  56:Generated_Source\PSoC5/WordShifted.c **** * Parameters:  
+  57:Generated_Source\PSoC5/WordShifted.c **** *   None
+  58:Generated_Source\PSoC5/WordShifted.c **** *
+  59:Generated_Source\PSoC5/WordShifted.c **** * Return:
+  60:Generated_Source\PSoC5/WordShifted.c **** *   None
+  61:Generated_Source\PSoC5/WordShifted.c **** *
+  62:Generated_Source\PSoC5/WordShifted.c **** *******************************************************************************/
+  63:Generated_Source\PSoC5/WordShifted.c **** void WordShifted_Start(void)
+  64:Generated_Source\PSoC5/WordShifted.c **** {
+  65:Generated_Source\PSoC5/WordShifted.c ****     /* For all we know the interrupt is active. */
+  66:Generated_Source\PSoC5/WordShifted.c ****     WordShifted_Disable();
+  67:Generated_Source\PSoC5/WordShifted.c **** 
+  68:Generated_Source\PSoC5/WordShifted.c ****     /* Set the ISR to point to the WordShifted Interrupt. */
+  69:Generated_Source\PSoC5/WordShifted.c ****     WordShifted_SetVector(&WordShifted_Interrupt);
+  70:Generated_Source\PSoC5/WordShifted.c **** 
+  71:Generated_Source\PSoC5/WordShifted.c ****     /* Set the priority. */
+  72:Generated_Source\PSoC5/WordShifted.c ****     WordShifted_SetPriority((uint8)WordShifted_INTC_PRIOR_NUMBER);
+  73:Generated_Source\PSoC5/WordShifted.c **** 
+  74:Generated_Source\PSoC5/WordShifted.c ****     /* Enable it. */
+  75:Generated_Source\PSoC5/WordShifted.c ****     WordShifted_Enable();
+  76:Generated_Source\PSoC5/WordShifted.c **** }
+  77:Generated_Source\PSoC5/WordShifted.c **** 
+  78:Generated_Source\PSoC5/WordShifted.c **** 
+  79:Generated_Source\PSoC5/WordShifted.c **** /*******************************************************************************
+  80:Generated_Source\PSoC5/WordShifted.c **** * Function Name: WordShifted_StartEx
+  81:Generated_Source\PSoC5/WordShifted.c **** ********************************************************************************
+  82:Generated_Source\PSoC5/WordShifted.c **** *
+  83:Generated_Source\PSoC5/WordShifted.c **** * Summary:
+  84:Generated_Source\PSoC5/WordShifted.c **** *  Sets up the interrupt and enables it. This function disables the interrupt,
+  85:Generated_Source\PSoC5/WordShifted.c **** *  sets the interrupt vector based on the address passed in, sets the priority 
+  86:Generated_Source\PSoC5/WordShifted.c **** *  from the value in the Design Wide Resources Interrupt Editor, then enables 
+  87:Generated_Source\PSoC5/WordShifted.c **** *  the interrupt to the interrupt controller.
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cckmol3x.s 			page 3
+
+
+  88:Generated_Source\PSoC5/WordShifted.c **** *  
+  89:Generated_Source\PSoC5/WordShifted.c **** *  When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+  90:Generated_Source\PSoC5/WordShifted.c **** *  used to provide consistent definition across compilers:
+  91:Generated_Source\PSoC5/WordShifted.c **** *  
+  92:Generated_Source\PSoC5/WordShifted.c **** *  Function definition example:
+  93:Generated_Source\PSoC5/WordShifted.c **** *   CY_ISR(MyISR)
+  94:Generated_Source\PSoC5/WordShifted.c **** *   {
+  95:Generated_Source\PSoC5/WordShifted.c **** *   }
+  96:Generated_Source\PSoC5/WordShifted.c **** *   Function prototype example:
+  97:Generated_Source\PSoC5/WordShifted.c **** *   CY_ISR_PROTO(MyISR);
+  98:Generated_Source\PSoC5/WordShifted.c **** *
+  99:Generated_Source\PSoC5/WordShifted.c **** * Parameters:  
+ 100:Generated_Source\PSoC5/WordShifted.c **** *   address: Address of the ISR to set in the interrupt vector table.
+ 101:Generated_Source\PSoC5/WordShifted.c **** *
+ 102:Generated_Source\PSoC5/WordShifted.c **** * Return:
+ 103:Generated_Source\PSoC5/WordShifted.c **** *   None
+ 104:Generated_Source\PSoC5/WordShifted.c **** *
+ 105:Generated_Source\PSoC5/WordShifted.c **** *******************************************************************************/
+ 106:Generated_Source\PSoC5/WordShifted.c **** void WordShifted_StartEx(cyisraddress address)
+ 107:Generated_Source\PSoC5/WordShifted.c **** {
+ 108:Generated_Source\PSoC5/WordShifted.c ****     /* For all we know the interrupt is active. */
+ 109:Generated_Source\PSoC5/WordShifted.c ****     WordShifted_Disable();
+ 110:Generated_Source\PSoC5/WordShifted.c **** 
+ 111:Generated_Source\PSoC5/WordShifted.c ****     /* Set the ISR to point to the WordShifted Interrupt. */
+ 112:Generated_Source\PSoC5/WordShifted.c ****     WordShifted_SetVector(address);
+ 113:Generated_Source\PSoC5/WordShifted.c **** 
+ 114:Generated_Source\PSoC5/WordShifted.c ****     /* Set the priority. */
+ 115:Generated_Source\PSoC5/WordShifted.c ****     WordShifted_SetPriority((uint8)WordShifted_INTC_PRIOR_NUMBER);
+ 116:Generated_Source\PSoC5/WordShifted.c **** 
+ 117:Generated_Source\PSoC5/WordShifted.c ****     /* Enable it. */
+ 118:Generated_Source\PSoC5/WordShifted.c ****     WordShifted_Enable();
+ 119:Generated_Source\PSoC5/WordShifted.c **** }
+ 120:Generated_Source\PSoC5/WordShifted.c **** 
+ 121:Generated_Source\PSoC5/WordShifted.c **** 
+ 122:Generated_Source\PSoC5/WordShifted.c **** /*******************************************************************************
+ 123:Generated_Source\PSoC5/WordShifted.c **** * Function Name: WordShifted_Stop
+ 124:Generated_Source\PSoC5/WordShifted.c **** ********************************************************************************
+ 125:Generated_Source\PSoC5/WordShifted.c **** *
+ 126:Generated_Source\PSoC5/WordShifted.c **** * Summary:
+ 127:Generated_Source\PSoC5/WordShifted.c **** *   Disables and removes the interrupt.
+ 128:Generated_Source\PSoC5/WordShifted.c **** *
+ 129:Generated_Source\PSoC5/WordShifted.c **** * Parameters:  
+ 130:Generated_Source\PSoC5/WordShifted.c **** *   None
+ 131:Generated_Source\PSoC5/WordShifted.c **** *
+ 132:Generated_Source\PSoC5/WordShifted.c **** * Return:
+ 133:Generated_Source\PSoC5/WordShifted.c **** *   None
+ 134:Generated_Source\PSoC5/WordShifted.c **** *
+ 135:Generated_Source\PSoC5/WordShifted.c **** *******************************************************************************/
+ 136:Generated_Source\PSoC5/WordShifted.c **** void WordShifted_Stop(void)
+ 137:Generated_Source\PSoC5/WordShifted.c **** {
+ 138:Generated_Source\PSoC5/WordShifted.c ****     /* Disable this interrupt. */
+ 139:Generated_Source\PSoC5/WordShifted.c ****     WordShifted_Disable();
+ 140:Generated_Source\PSoC5/WordShifted.c **** 
+ 141:Generated_Source\PSoC5/WordShifted.c ****     /* Set the ISR to point to the passive one. */
+ 142:Generated_Source\PSoC5/WordShifted.c ****     WordShifted_SetVector(&IntDefaultHandler);
+ 143:Generated_Source\PSoC5/WordShifted.c **** }
+ 144:Generated_Source\PSoC5/WordShifted.c **** 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cckmol3x.s 			page 4
+
+
+ 145:Generated_Source\PSoC5/WordShifted.c **** 
+ 146:Generated_Source\PSoC5/WordShifted.c **** /*******************************************************************************
+ 147:Generated_Source\PSoC5/WordShifted.c **** * Function Name: WordShifted_Interrupt
+ 148:Generated_Source\PSoC5/WordShifted.c **** ********************************************************************************
+ 149:Generated_Source\PSoC5/WordShifted.c **** *
+ 150:Generated_Source\PSoC5/WordShifted.c **** * Summary:
+ 151:Generated_Source\PSoC5/WordShifted.c **** *   The default Interrupt Service Routine for WordShifted.
+ 152:Generated_Source\PSoC5/WordShifted.c **** *
+ 153:Generated_Source\PSoC5/WordShifted.c **** *   Add custom code between the coments to keep the next version of this file
+ 154:Generated_Source\PSoC5/WordShifted.c **** *   from over writting your code.
+ 155:Generated_Source\PSoC5/WordShifted.c **** *
+ 156:Generated_Source\PSoC5/WordShifted.c **** * Parameters:  
+ 157:Generated_Source\PSoC5/WordShifted.c **** *
+ 158:Generated_Source\PSoC5/WordShifted.c **** * Return:
+ 159:Generated_Source\PSoC5/WordShifted.c **** *   None
+ 160:Generated_Source\PSoC5/WordShifted.c **** *
+ 161:Generated_Source\PSoC5/WordShifted.c **** *******************************************************************************/
+ 162:Generated_Source\PSoC5/WordShifted.c **** CY_ISR(WordShifted_Interrupt)
+ 163:Generated_Source\PSoC5/WordShifted.c **** {
+ 164:Generated_Source\PSoC5/WordShifted.c ****     #ifdef WordShifted_INTERRUPT_INTERRUPT_CALLBACK
+ 165:Generated_Source\PSoC5/WordShifted.c ****         WordShifted_Interrupt_InterruptCallback();
+ 166:Generated_Source\PSoC5/WordShifted.c ****     #endif /* WordShifted_INTERRUPT_INTERRUPT_CALLBACK */ 
+ 167:Generated_Source\PSoC5/WordShifted.c **** 
+ 168:Generated_Source\PSoC5/WordShifted.c ****     /*  Place your Interrupt code here. */
+ 169:Generated_Source\PSoC5/WordShifted.c ****     /* `#START WordShifted_Interrupt` */
+ 170:Generated_Source\PSoC5/WordShifted.c ****     //SetAllowStoreFlag();
+ 171:Generated_Source\PSoC5/WordShifted.c ****     Store();
+ 172:Generated_Source\PSoC5/WordShifted.c ****     //BitCounterDec_ReadStatusRegister();
+ 173:Generated_Source\PSoC5/WordShifted.c ****     RecieveShiftReg_GetIntStatus();
+ 174:Generated_Source\PSoC5/WordShifted.c ****     WordShifted_ClearPending();
+ 175:Generated_Source\PSoC5/WordShifted.c ****     //SetAllowStoreFlag();
+ 176:Generated_Source\PSoC5/WordShifted.c ****     /* `#END` */
+ 177:Generated_Source\PSoC5/WordShifted.c **** }
+ 178:Generated_Source\PSoC5/WordShifted.c **** 
+ 179:Generated_Source\PSoC5/WordShifted.c **** 
+ 180:Generated_Source\PSoC5/WordShifted.c **** /*******************************************************************************
+ 181:Generated_Source\PSoC5/WordShifted.c **** * Function Name: WordShifted_SetVector
+ 182:Generated_Source\PSoC5/WordShifted.c **** ********************************************************************************
+ 183:Generated_Source\PSoC5/WordShifted.c **** *
+ 184:Generated_Source\PSoC5/WordShifted.c **** * Summary:
+ 185:Generated_Source\PSoC5/WordShifted.c **** *   Change the ISR vector for the Interrupt. Note calling WordShifted_Start
+ 186:Generated_Source\PSoC5/WordShifted.c **** *   will override any effect this method would have had. To set the vector 
+ 187:Generated_Source\PSoC5/WordShifted.c **** *   before the component has been started use WordShifted_StartEx instead.
+ 188:Generated_Source\PSoC5/WordShifted.c **** * 
+ 189:Generated_Source\PSoC5/WordShifted.c **** *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+ 190:Generated_Source\PSoC5/WordShifted.c **** *   used to provide consistent definition across compilers:
+ 191:Generated_Source\PSoC5/WordShifted.c **** *
+ 192:Generated_Source\PSoC5/WordShifted.c **** *   Function definition example:
+ 193:Generated_Source\PSoC5/WordShifted.c **** *   CY_ISR(MyISR)
+ 194:Generated_Source\PSoC5/WordShifted.c **** *   {
+ 195:Generated_Source\PSoC5/WordShifted.c **** *   }
+ 196:Generated_Source\PSoC5/WordShifted.c **** *
+ 197:Generated_Source\PSoC5/WordShifted.c **** *   Function prototype example:
+ 198:Generated_Source\PSoC5/WordShifted.c **** *     CY_ISR_PROTO(MyISR);
+ 199:Generated_Source\PSoC5/WordShifted.c **** *
+ 200:Generated_Source\PSoC5/WordShifted.c **** * Parameters:
+ 201:Generated_Source\PSoC5/WordShifted.c **** *   address: Address of the ISR to set in the interrupt vector table.
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cckmol3x.s 			page 5
+
+
+ 202:Generated_Source\PSoC5/WordShifted.c **** *
+ 203:Generated_Source\PSoC5/WordShifted.c **** * Return:
+ 204:Generated_Source\PSoC5/WordShifted.c **** *   None
+ 205:Generated_Source\PSoC5/WordShifted.c **** *
+ 206:Generated_Source\PSoC5/WordShifted.c **** *******************************************************************************/
+ 207:Generated_Source\PSoC5/WordShifted.c **** void WordShifted_SetVector(cyisraddress address)
+ 208:Generated_Source\PSoC5/WordShifted.c **** {
+  28              		.loc 1 208 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+ 209:Generated_Source\PSoC5/WordShifted.c ****     cyisraddress * ramVectorTable;
+ 210:Generated_Source\PSoC5/WordShifted.c **** 
+ 211:Generated_Source\PSoC5/WordShifted.c ****     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
+  34              		.loc 1 211 0
+  35 0000 014B     		ldr	r3, .L2
+  36 0002 1B68     		ldr	r3, [r3]
+  37              	.LVL1:
+ 212:Generated_Source\PSoC5/WordShifted.c **** 
+ 213:Generated_Source\PSoC5/WordShifted.c ****     ramVectorTable[CYINT_IRQ_BASE + (uint32)WordShifted__INTC_NUMBER] = address;
+  38              		.loc 1 213 0
+  39 0004 9864     		str	r0, [r3, #72]
+  40 0006 7047     		bx	lr
+  41              	.L3:
+  42              		.align	2
+  43              	.L2:
+  44 0008 08ED00E0 		.word	-536810232
+  45              		.cfi_endproc
+  46              	.LFE4:
+  47              		.size	WordShifted_SetVector, .-WordShifted_SetVector
+  48              		.section	.text.WordShifted_GetVector,"ax",%progbits
+  49              		.align	2
+  50              		.global	WordShifted_GetVector
+  51              		.thumb
+  52              		.thumb_func
+  53              		.type	WordShifted_GetVector, %function
+  54              	WordShifted_GetVector:
+  55              	.LFB5:
+ 214:Generated_Source\PSoC5/WordShifted.c **** }
+ 215:Generated_Source\PSoC5/WordShifted.c **** 
+ 216:Generated_Source\PSoC5/WordShifted.c **** 
+ 217:Generated_Source\PSoC5/WordShifted.c **** /*******************************************************************************
+ 218:Generated_Source\PSoC5/WordShifted.c **** * Function Name: WordShifted_GetVector
+ 219:Generated_Source\PSoC5/WordShifted.c **** ********************************************************************************
+ 220:Generated_Source\PSoC5/WordShifted.c **** *
+ 221:Generated_Source\PSoC5/WordShifted.c **** * Summary:
+ 222:Generated_Source\PSoC5/WordShifted.c **** *   Gets the "address" of the current ISR vector for the Interrupt.
+ 223:Generated_Source\PSoC5/WordShifted.c **** *
+ 224:Generated_Source\PSoC5/WordShifted.c **** * Parameters:
+ 225:Generated_Source\PSoC5/WordShifted.c **** *   None
+ 226:Generated_Source\PSoC5/WordShifted.c **** *
+ 227:Generated_Source\PSoC5/WordShifted.c **** * Return:
+ 228:Generated_Source\PSoC5/WordShifted.c **** *   Address of the ISR in the interrupt vector table.
+ 229:Generated_Source\PSoC5/WordShifted.c **** *
+ 230:Generated_Source\PSoC5/WordShifted.c **** *******************************************************************************/
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cckmol3x.s 			page 6
+
+
+ 231:Generated_Source\PSoC5/WordShifted.c **** cyisraddress WordShifted_GetVector(void)
+ 232:Generated_Source\PSoC5/WordShifted.c **** {
+  56              		.loc 1 232 0
+  57              		.cfi_startproc
+  58              		@ args = 0, pretend = 0, frame = 0
+  59              		@ frame_needed = 0, uses_anonymous_args = 0
+  60              		@ link register save eliminated.
+ 233:Generated_Source\PSoC5/WordShifted.c ****     cyisraddress * ramVectorTable;
+ 234:Generated_Source\PSoC5/WordShifted.c **** 
+ 235:Generated_Source\PSoC5/WordShifted.c ****     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
+  61              		.loc 1 235 0
+  62 0000 014B     		ldr	r3, .L5
+  63 0002 1B68     		ldr	r3, [r3]
+  64              	.LVL2:
+ 236:Generated_Source\PSoC5/WordShifted.c **** 
+ 237:Generated_Source\PSoC5/WordShifted.c ****     return ramVectorTable[CYINT_IRQ_BASE + (uint32)WordShifted__INTC_NUMBER];
+ 238:Generated_Source\PSoC5/WordShifted.c **** }
+  65              		.loc 1 238 0
+  66 0004 986C     		ldr	r0, [r3, #72]
+  67 0006 7047     		bx	lr
+  68              	.L6:
+  69              		.align	2
+  70              	.L5:
+  71 0008 08ED00E0 		.word	-536810232
+  72              		.cfi_endproc
+  73              	.LFE5:
+  74              		.size	WordShifted_GetVector, .-WordShifted_GetVector
+  75              		.section	.text.WordShifted_SetPriority,"ax",%progbits
+  76              		.align	2
+  77              		.global	WordShifted_SetPriority
+  78              		.thumb
+  79              		.thumb_func
+  80              		.type	WordShifted_SetPriority, %function
+  81              	WordShifted_SetPriority:
+  82              	.LFB6:
+ 239:Generated_Source\PSoC5/WordShifted.c **** 
+ 240:Generated_Source\PSoC5/WordShifted.c **** 
+ 241:Generated_Source\PSoC5/WordShifted.c **** /*******************************************************************************
+ 242:Generated_Source\PSoC5/WordShifted.c **** * Function Name: WordShifted_SetPriority
+ 243:Generated_Source\PSoC5/WordShifted.c **** ********************************************************************************
+ 244:Generated_Source\PSoC5/WordShifted.c **** *
+ 245:Generated_Source\PSoC5/WordShifted.c **** * Summary:
+ 246:Generated_Source\PSoC5/WordShifted.c **** *   Sets the Priority of the Interrupt. 
+ 247:Generated_Source\PSoC5/WordShifted.c **** *
+ 248:Generated_Source\PSoC5/WordShifted.c **** *   Note calling WordShifted_Start or WordShifted_StartEx will 
+ 249:Generated_Source\PSoC5/WordShifted.c **** *   override any effect this API would have had. This API should only be called
+ 250:Generated_Source\PSoC5/WordShifted.c **** *   after WordShifted_Start or WordShifted_StartEx has been called. 
+ 251:Generated_Source\PSoC5/WordShifted.c **** *   To set the initial priority for the component, use the Design-Wide Resources
+ 252:Generated_Source\PSoC5/WordShifted.c **** *   Interrupt Editor.
+ 253:Generated_Source\PSoC5/WordShifted.c **** *
+ 254:Generated_Source\PSoC5/WordShifted.c **** *   Note This API has no effect on Non-maskable interrupt NMI).
+ 255:Generated_Source\PSoC5/WordShifted.c **** *
+ 256:Generated_Source\PSoC5/WordShifted.c **** * Parameters:
+ 257:Generated_Source\PSoC5/WordShifted.c **** *   priority: Priority of the interrupt, 0 being the highest priority
+ 258:Generated_Source\PSoC5/WordShifted.c **** *             PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 259:Generated_Source\PSoC5/WordShifted.c **** *             PSoC 4: Priority is from 0 to 3.
+ 260:Generated_Source\PSoC5/WordShifted.c **** *
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cckmol3x.s 			page 7
+
+
+ 261:Generated_Source\PSoC5/WordShifted.c **** * Return:
+ 262:Generated_Source\PSoC5/WordShifted.c **** *   None
+ 263:Generated_Source\PSoC5/WordShifted.c **** *
+ 264:Generated_Source\PSoC5/WordShifted.c **** *******************************************************************************/
+ 265:Generated_Source\PSoC5/WordShifted.c **** void WordShifted_SetPriority(uint8 priority)
+ 266:Generated_Source\PSoC5/WordShifted.c **** {
+  83              		.loc 1 266 0
+  84              		.cfi_startproc
+  85              		@ args = 0, pretend = 0, frame = 0
+  86              		@ frame_needed = 0, uses_anonymous_args = 0
+  87              		@ link register save eliminated.
+  88              	.LVL3:
+ 267:Generated_Source\PSoC5/WordShifted.c ****     *WordShifted_INTC_PRIOR = priority << 5;
+  89              		.loc 1 267 0
+  90 0000 4001     		lsls	r0, r0, #5
+  91              	.LVL4:
+  92 0002 C0B2     		uxtb	r0, r0
+  93 0004 014B     		ldr	r3, .L8
+  94 0006 1870     		strb	r0, [r3]
+  95 0008 7047     		bx	lr
+  96              	.L9:
+  97 000a 00BF     		.align	2
+  98              	.L8:
+  99 000c 02E400E0 		.word	-536812542
+ 100              		.cfi_endproc
+ 101              	.LFE6:
+ 102              		.size	WordShifted_SetPriority, .-WordShifted_SetPriority
+ 103              		.section	.text.WordShifted_GetPriority,"ax",%progbits
+ 104              		.align	2
+ 105              		.global	WordShifted_GetPriority
+ 106              		.thumb
+ 107              		.thumb_func
+ 108              		.type	WordShifted_GetPriority, %function
+ 109              	WordShifted_GetPriority:
+ 110              	.LFB7:
+ 268:Generated_Source\PSoC5/WordShifted.c **** }
+ 269:Generated_Source\PSoC5/WordShifted.c **** 
+ 270:Generated_Source\PSoC5/WordShifted.c **** 
+ 271:Generated_Source\PSoC5/WordShifted.c **** /*******************************************************************************
+ 272:Generated_Source\PSoC5/WordShifted.c **** * Function Name: WordShifted_GetPriority
+ 273:Generated_Source\PSoC5/WordShifted.c **** ********************************************************************************
+ 274:Generated_Source\PSoC5/WordShifted.c **** *
+ 275:Generated_Source\PSoC5/WordShifted.c **** * Summary:
+ 276:Generated_Source\PSoC5/WordShifted.c **** *   Gets the Priority of the Interrupt.
+ 277:Generated_Source\PSoC5/WordShifted.c **** *
+ 278:Generated_Source\PSoC5/WordShifted.c **** * Parameters:
+ 279:Generated_Source\PSoC5/WordShifted.c **** *   None
+ 280:Generated_Source\PSoC5/WordShifted.c **** *
+ 281:Generated_Source\PSoC5/WordShifted.c **** * Return:
+ 282:Generated_Source\PSoC5/WordShifted.c **** *   Priority of the interrupt, 0 being the highest priority
+ 283:Generated_Source\PSoC5/WordShifted.c **** *    PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 284:Generated_Source\PSoC5/WordShifted.c **** *    PSoC 4: Priority is from 0 to 3.
+ 285:Generated_Source\PSoC5/WordShifted.c **** *
+ 286:Generated_Source\PSoC5/WordShifted.c **** *******************************************************************************/
+ 287:Generated_Source\PSoC5/WordShifted.c **** uint8 WordShifted_GetPriority(void)
+ 288:Generated_Source\PSoC5/WordShifted.c **** {
+ 111              		.loc 1 288 0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cckmol3x.s 			page 8
+
+
+ 112              		.cfi_startproc
+ 113              		@ args = 0, pretend = 0, frame = 0
+ 114              		@ frame_needed = 0, uses_anonymous_args = 0
+ 115              		@ link register save eliminated.
+ 289:Generated_Source\PSoC5/WordShifted.c ****     uint8 priority;
+ 290:Generated_Source\PSoC5/WordShifted.c **** 
+ 291:Generated_Source\PSoC5/WordShifted.c **** 
+ 292:Generated_Source\PSoC5/WordShifted.c ****     priority = *WordShifted_INTC_PRIOR >> 5;
+ 116              		.loc 1 292 0
+ 117 0000 014B     		ldr	r3, .L11
+ 118 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 119              	.LVL5:
+ 293:Generated_Source\PSoC5/WordShifted.c **** 
+ 294:Generated_Source\PSoC5/WordShifted.c ****     return priority;
+ 295:Generated_Source\PSoC5/WordShifted.c **** }
+ 120              		.loc 1 295 0
+ 121 0004 4009     		lsrs	r0, r0, #5
+ 122              	.LVL6:
+ 123 0006 7047     		bx	lr
+ 124              	.L12:
+ 125              		.align	2
+ 126              	.L11:
+ 127 0008 02E400E0 		.word	-536812542
+ 128              		.cfi_endproc
+ 129              	.LFE7:
+ 130              		.size	WordShifted_GetPriority, .-WordShifted_GetPriority
+ 131              		.section	.text.WordShifted_Enable,"ax",%progbits
+ 132              		.align	2
+ 133              		.global	WordShifted_Enable
+ 134              		.thumb
+ 135              		.thumb_func
+ 136              		.type	WordShifted_Enable, %function
+ 137              	WordShifted_Enable:
+ 138              	.LFB8:
+ 296:Generated_Source\PSoC5/WordShifted.c **** 
+ 297:Generated_Source\PSoC5/WordShifted.c **** 
+ 298:Generated_Source\PSoC5/WordShifted.c **** /*******************************************************************************
+ 299:Generated_Source\PSoC5/WordShifted.c **** * Function Name: WordShifted_Enable
+ 300:Generated_Source\PSoC5/WordShifted.c **** ********************************************************************************
+ 301:Generated_Source\PSoC5/WordShifted.c **** *
+ 302:Generated_Source\PSoC5/WordShifted.c **** * Summary:
+ 303:Generated_Source\PSoC5/WordShifted.c **** *   Enables the interrupt to the interrupt controller. Do not call this function
+ 304:Generated_Source\PSoC5/WordShifted.c **** *   unless ISR_Start() has been called or the functionality of the ISR_Start() 
+ 305:Generated_Source\PSoC5/WordShifted.c **** *   function, which sets the vector and the priority, has been called.
+ 306:Generated_Source\PSoC5/WordShifted.c **** *
+ 307:Generated_Source\PSoC5/WordShifted.c **** * Parameters:
+ 308:Generated_Source\PSoC5/WordShifted.c **** *   None
+ 309:Generated_Source\PSoC5/WordShifted.c **** *
+ 310:Generated_Source\PSoC5/WordShifted.c **** * Return:
+ 311:Generated_Source\PSoC5/WordShifted.c **** *   None
+ 312:Generated_Source\PSoC5/WordShifted.c **** *
+ 313:Generated_Source\PSoC5/WordShifted.c **** *******************************************************************************/
+ 314:Generated_Source\PSoC5/WordShifted.c **** void WordShifted_Enable(void)
+ 315:Generated_Source\PSoC5/WordShifted.c **** {
+ 139              		.loc 1 315 0
+ 140              		.cfi_startproc
+ 141              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cckmol3x.s 			page 9
+
+
+ 142              		@ frame_needed = 0, uses_anonymous_args = 0
+ 143              		@ link register save eliminated.
+ 316:Generated_Source\PSoC5/WordShifted.c ****     /* Enable the general interrupt. */
+ 317:Generated_Source\PSoC5/WordShifted.c ****     *WordShifted_INTC_SET_EN = WordShifted__INTC_MASK;
+ 144              		.loc 1 317 0
+ 145 0000 0422     		movs	r2, #4
+ 146 0002 014B     		ldr	r3, .L14
+ 147 0004 1A60     		str	r2, [r3]
+ 148 0006 7047     		bx	lr
+ 149              	.L15:
+ 150              		.align	2
+ 151              	.L14:
+ 152 0008 00E100E0 		.word	-536813312
+ 153              		.cfi_endproc
+ 154              	.LFE8:
+ 155              		.size	WordShifted_Enable, .-WordShifted_Enable
+ 156              		.section	.text.WordShifted_GetState,"ax",%progbits
+ 157              		.align	2
+ 158              		.global	WordShifted_GetState
+ 159              		.thumb
+ 160              		.thumb_func
+ 161              		.type	WordShifted_GetState, %function
+ 162              	WordShifted_GetState:
+ 163              	.LFB9:
+ 318:Generated_Source\PSoC5/WordShifted.c **** }
+ 319:Generated_Source\PSoC5/WordShifted.c **** 
+ 320:Generated_Source\PSoC5/WordShifted.c **** 
+ 321:Generated_Source\PSoC5/WordShifted.c **** /*******************************************************************************
+ 322:Generated_Source\PSoC5/WordShifted.c **** * Function Name: WordShifted_GetState
+ 323:Generated_Source\PSoC5/WordShifted.c **** ********************************************************************************
+ 324:Generated_Source\PSoC5/WordShifted.c **** *
+ 325:Generated_Source\PSoC5/WordShifted.c **** * Summary:
+ 326:Generated_Source\PSoC5/WordShifted.c **** *   Gets the state (enabled, disabled) of the Interrupt.
+ 327:Generated_Source\PSoC5/WordShifted.c **** *
+ 328:Generated_Source\PSoC5/WordShifted.c **** * Parameters:
+ 329:Generated_Source\PSoC5/WordShifted.c **** *   None
+ 330:Generated_Source\PSoC5/WordShifted.c **** *
+ 331:Generated_Source\PSoC5/WordShifted.c **** * Return:
+ 332:Generated_Source\PSoC5/WordShifted.c **** *   1 if enabled, 0 if disabled.
+ 333:Generated_Source\PSoC5/WordShifted.c **** *
+ 334:Generated_Source\PSoC5/WordShifted.c **** *******************************************************************************/
+ 335:Generated_Source\PSoC5/WordShifted.c **** uint8 WordShifted_GetState(void)
+ 336:Generated_Source\PSoC5/WordShifted.c **** {
+ 164              		.loc 1 336 0
+ 165              		.cfi_startproc
+ 166              		@ args = 0, pretend = 0, frame = 0
+ 167              		@ frame_needed = 0, uses_anonymous_args = 0
+ 168              		@ link register save eliminated.
+ 337:Generated_Source\PSoC5/WordShifted.c ****     /* Get the state of the general interrupt. */
+ 338:Generated_Source\PSoC5/WordShifted.c ****     return ((*WordShifted_INTC_SET_EN & (uint32)WordShifted__INTC_MASK) != 0u) ? 1u:0u;
+ 169              		.loc 1 338 0
+ 170 0000 044B     		ldr	r3, .L19
+ 171 0002 1B68     		ldr	r3, [r3]
+ 172 0004 13F0040F 		tst	r3, #4
+ 173 0008 01D0     		beq	.L18
+ 174 000a 0120     		movs	r0, #1
+ 175 000c 7047     		bx	lr
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cckmol3x.s 			page 10
+
+
+ 176              	.L18:
+ 177 000e 0020     		movs	r0, #0
+ 339:Generated_Source\PSoC5/WordShifted.c **** }
+ 178              		.loc 1 339 0
+ 179 0010 7047     		bx	lr
+ 180              	.L20:
+ 181 0012 00BF     		.align	2
+ 182              	.L19:
+ 183 0014 00E100E0 		.word	-536813312
+ 184              		.cfi_endproc
+ 185              	.LFE9:
+ 186              		.size	WordShifted_GetState, .-WordShifted_GetState
+ 187              		.section	.text.WordShifted_Disable,"ax",%progbits
+ 188              		.align	2
+ 189              		.global	WordShifted_Disable
+ 190              		.thumb
+ 191              		.thumb_func
+ 192              		.type	WordShifted_Disable, %function
+ 193              	WordShifted_Disable:
+ 194              	.LFB10:
+ 340:Generated_Source\PSoC5/WordShifted.c **** 
+ 341:Generated_Source\PSoC5/WordShifted.c **** 
+ 342:Generated_Source\PSoC5/WordShifted.c **** /*******************************************************************************
+ 343:Generated_Source\PSoC5/WordShifted.c **** * Function Name: WordShifted_Disable
+ 344:Generated_Source\PSoC5/WordShifted.c **** ********************************************************************************
+ 345:Generated_Source\PSoC5/WordShifted.c **** *
+ 346:Generated_Source\PSoC5/WordShifted.c **** * Summary:
+ 347:Generated_Source\PSoC5/WordShifted.c **** *   Disables the Interrupt in the interrupt controller.
+ 348:Generated_Source\PSoC5/WordShifted.c **** *
+ 349:Generated_Source\PSoC5/WordShifted.c **** * Parameters:
+ 350:Generated_Source\PSoC5/WordShifted.c **** *   None
+ 351:Generated_Source\PSoC5/WordShifted.c **** *
+ 352:Generated_Source\PSoC5/WordShifted.c **** * Return:
+ 353:Generated_Source\PSoC5/WordShifted.c **** *   None
+ 354:Generated_Source\PSoC5/WordShifted.c **** *
+ 355:Generated_Source\PSoC5/WordShifted.c **** *******************************************************************************/
+ 356:Generated_Source\PSoC5/WordShifted.c **** void WordShifted_Disable(void)
+ 357:Generated_Source\PSoC5/WordShifted.c **** {
+ 195              		.loc 1 357 0
+ 196              		.cfi_startproc
+ 197              		@ args = 0, pretend = 0, frame = 0
+ 198              		@ frame_needed = 0, uses_anonymous_args = 0
+ 199              		@ link register save eliminated.
+ 358:Generated_Source\PSoC5/WordShifted.c ****     /* Disable the general interrupt. */
+ 359:Generated_Source\PSoC5/WordShifted.c ****     *WordShifted_INTC_CLR_EN = WordShifted__INTC_MASK;
+ 200              		.loc 1 359 0
+ 201 0000 0422     		movs	r2, #4
+ 202 0002 014B     		ldr	r3, .L22
+ 203 0004 1A60     		str	r2, [r3]
+ 204 0006 7047     		bx	lr
+ 205              	.L23:
+ 206              		.align	2
+ 207              	.L22:
+ 208 0008 80E100E0 		.word	-536813184
+ 209              		.cfi_endproc
+ 210              	.LFE10:
+ 211              		.size	WordShifted_Disable, .-WordShifted_Disable
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cckmol3x.s 			page 11
+
+
+ 212              		.section	.text.WordShifted_Start,"ax",%progbits
+ 213              		.align	2
+ 214              		.global	WordShifted_Start
+ 215              		.thumb
+ 216              		.thumb_func
+ 217              		.type	WordShifted_Start, %function
+ 218              	WordShifted_Start:
+ 219              	.LFB0:
+  64:Generated_Source\PSoC5/WordShifted.c ****     /* For all we know the interrupt is active. */
+ 220              		.loc 1 64 0
+ 221              		.cfi_startproc
+ 222              		@ args = 0, pretend = 0, frame = 0
+ 223              		@ frame_needed = 0, uses_anonymous_args = 0
+ 224 0000 08B5     		push	{r3, lr}
+ 225              		.cfi_def_cfa_offset 8
+ 226              		.cfi_offset 3, -8
+ 227              		.cfi_offset 14, -4
+  66:Generated_Source\PSoC5/WordShifted.c **** 
+ 228              		.loc 1 66 0
+ 229 0002 FFF7FEFF 		bl	WordShifted_Disable
+ 230              	.LVL7:
+  69:Generated_Source\PSoC5/WordShifted.c **** 
+ 231              		.loc 1 69 0
+ 232 0006 0448     		ldr	r0, .L26
+ 233 0008 FFF7FEFF 		bl	WordShifted_SetVector
+ 234              	.LVL8:
+  72:Generated_Source\PSoC5/WordShifted.c **** 
+ 235              		.loc 1 72 0
+ 236 000c 0620     		movs	r0, #6
+ 237 000e FFF7FEFF 		bl	WordShifted_SetPriority
+ 238              	.LVL9:
+  75:Generated_Source\PSoC5/WordShifted.c **** }
+ 239              		.loc 1 75 0
+ 240 0012 FFF7FEFF 		bl	WordShifted_Enable
+ 241              	.LVL10:
+ 242 0016 08BD     		pop	{r3, pc}
+ 243              	.L27:
+ 244              		.align	2
+ 245              	.L26:
+ 246 0018 00000000 		.word	WordShifted_Interrupt
+ 247              		.cfi_endproc
+ 248              	.LFE0:
+ 249              		.size	WordShifted_Start, .-WordShifted_Start
+ 250              		.section	.text.WordShifted_StartEx,"ax",%progbits
+ 251              		.align	2
+ 252              		.global	WordShifted_StartEx
+ 253              		.thumb
+ 254              		.thumb_func
+ 255              		.type	WordShifted_StartEx, %function
+ 256              	WordShifted_StartEx:
+ 257              	.LFB1:
+ 107:Generated_Source\PSoC5/WordShifted.c ****     /* For all we know the interrupt is active. */
+ 258              		.loc 1 107 0
+ 259              		.cfi_startproc
+ 260              		@ args = 0, pretend = 0, frame = 0
+ 261              		@ frame_needed = 0, uses_anonymous_args = 0
+ 262              	.LVL11:
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cckmol3x.s 			page 12
+
+
+ 263 0000 10B5     		push	{r4, lr}
+ 264              		.cfi_def_cfa_offset 8
+ 265              		.cfi_offset 4, -8
+ 266              		.cfi_offset 14, -4
+ 267 0002 0446     		mov	r4, r0
+ 109:Generated_Source\PSoC5/WordShifted.c **** 
+ 268              		.loc 1 109 0
+ 269 0004 FFF7FEFF 		bl	WordShifted_Disable
+ 270              	.LVL12:
+ 112:Generated_Source\PSoC5/WordShifted.c **** 
+ 271              		.loc 1 112 0
+ 272 0008 2046     		mov	r0, r4
+ 273 000a FFF7FEFF 		bl	WordShifted_SetVector
+ 274              	.LVL13:
+ 115:Generated_Source\PSoC5/WordShifted.c **** 
+ 275              		.loc 1 115 0
+ 276 000e 0620     		movs	r0, #6
+ 277 0010 FFF7FEFF 		bl	WordShifted_SetPriority
+ 278              	.LVL14:
+ 118:Generated_Source\PSoC5/WordShifted.c **** }
+ 279              		.loc 1 118 0
+ 280 0014 FFF7FEFF 		bl	WordShifted_Enable
+ 281              	.LVL15:
+ 282 0018 10BD     		pop	{r4, pc}
+ 283              		.cfi_endproc
+ 284              	.LFE1:
+ 285              		.size	WordShifted_StartEx, .-WordShifted_StartEx
+ 286 001a 00BF     		.section	.text.WordShifted_Stop,"ax",%progbits
+ 287              		.align	2
+ 288              		.global	WordShifted_Stop
+ 289              		.thumb
+ 290              		.thumb_func
+ 291              		.type	WordShifted_Stop, %function
+ 292              	WordShifted_Stop:
+ 293              	.LFB2:
+ 137:Generated_Source\PSoC5/WordShifted.c ****     /* Disable this interrupt. */
+ 294              		.loc 1 137 0
+ 295              		.cfi_startproc
+ 296              		@ args = 0, pretend = 0, frame = 0
+ 297              		@ frame_needed = 0, uses_anonymous_args = 0
+ 298 0000 08B5     		push	{r3, lr}
+ 299              		.cfi_def_cfa_offset 8
+ 300              		.cfi_offset 3, -8
+ 301              		.cfi_offset 14, -4
+ 139:Generated_Source\PSoC5/WordShifted.c **** 
+ 302              		.loc 1 139 0
+ 303 0002 FFF7FEFF 		bl	WordShifted_Disable
+ 304              	.LVL16:
+ 142:Generated_Source\PSoC5/WordShifted.c **** }
+ 305              		.loc 1 142 0
+ 306 0006 0248     		ldr	r0, .L32
+ 307 0008 FFF7FEFF 		bl	WordShifted_SetVector
+ 308              	.LVL17:
+ 309 000c 08BD     		pop	{r3, pc}
+ 310              	.L33:
+ 311 000e 00BF     		.align	2
+ 312              	.L32:
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cckmol3x.s 			page 13
+
+
+ 313 0010 00000000 		.word	IntDefaultHandler
+ 314              		.cfi_endproc
+ 315              	.LFE2:
+ 316              		.size	WordShifted_Stop, .-WordShifted_Stop
+ 317              		.section	.text.WordShifted_SetPending,"ax",%progbits
+ 318              		.align	2
+ 319              		.global	WordShifted_SetPending
+ 320              		.thumb
+ 321              		.thumb_func
+ 322              		.type	WordShifted_SetPending, %function
+ 323              	WordShifted_SetPending:
+ 324              	.LFB11:
+ 360:Generated_Source\PSoC5/WordShifted.c **** }
+ 361:Generated_Source\PSoC5/WordShifted.c **** 
+ 362:Generated_Source\PSoC5/WordShifted.c **** 
+ 363:Generated_Source\PSoC5/WordShifted.c **** /*******************************************************************************
+ 364:Generated_Source\PSoC5/WordShifted.c **** * Function Name: WordShifted_SetPending
+ 365:Generated_Source\PSoC5/WordShifted.c **** ********************************************************************************
+ 366:Generated_Source\PSoC5/WordShifted.c **** *
+ 367:Generated_Source\PSoC5/WordShifted.c **** * Summary:
+ 368:Generated_Source\PSoC5/WordShifted.c **** *   Causes the Interrupt to enter the pending state, a software method of
+ 369:Generated_Source\PSoC5/WordShifted.c **** *   generating the interrupt.
+ 370:Generated_Source\PSoC5/WordShifted.c **** *
+ 371:Generated_Source\PSoC5/WordShifted.c **** * Parameters:
+ 372:Generated_Source\PSoC5/WordShifted.c **** *   None
+ 373:Generated_Source\PSoC5/WordShifted.c **** *
+ 374:Generated_Source\PSoC5/WordShifted.c **** * Return:
+ 375:Generated_Source\PSoC5/WordShifted.c **** *   None
+ 376:Generated_Source\PSoC5/WordShifted.c **** *
+ 377:Generated_Source\PSoC5/WordShifted.c **** * Side Effects:
+ 378:Generated_Source\PSoC5/WordShifted.c **** *   If interrupts are enabled and the interrupt is set up properly, the ISR is
+ 379:Generated_Source\PSoC5/WordShifted.c **** *   entered (depending on the priority of this interrupt and other pending 
+ 380:Generated_Source\PSoC5/WordShifted.c **** *   interrupts).
+ 381:Generated_Source\PSoC5/WordShifted.c **** *
+ 382:Generated_Source\PSoC5/WordShifted.c **** *******************************************************************************/
+ 383:Generated_Source\PSoC5/WordShifted.c **** void WordShifted_SetPending(void)
+ 384:Generated_Source\PSoC5/WordShifted.c **** {
+ 325              		.loc 1 384 0
+ 326              		.cfi_startproc
+ 327              		@ args = 0, pretend = 0, frame = 0
+ 328              		@ frame_needed = 0, uses_anonymous_args = 0
+ 329              		@ link register save eliminated.
+ 385:Generated_Source\PSoC5/WordShifted.c ****     *WordShifted_INTC_SET_PD = WordShifted__INTC_MASK;
+ 330              		.loc 1 385 0
+ 331 0000 0422     		movs	r2, #4
+ 332 0002 014B     		ldr	r3, .L35
+ 333 0004 1A60     		str	r2, [r3]
+ 334 0006 7047     		bx	lr
+ 335              	.L36:
+ 336              		.align	2
+ 337              	.L35:
+ 338 0008 00E200E0 		.word	-536813056
+ 339              		.cfi_endproc
+ 340              	.LFE11:
+ 341              		.size	WordShifted_SetPending, .-WordShifted_SetPending
+ 342              		.section	.text.WordShifted_ClearPending,"ax",%progbits
+ 343              		.align	2
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cckmol3x.s 			page 14
+
+
+ 344              		.global	WordShifted_ClearPending
+ 345              		.thumb
+ 346              		.thumb_func
+ 347              		.type	WordShifted_ClearPending, %function
+ 348              	WordShifted_ClearPending:
+ 349              	.LFB12:
+ 386:Generated_Source\PSoC5/WordShifted.c **** }
+ 387:Generated_Source\PSoC5/WordShifted.c **** 
+ 388:Generated_Source\PSoC5/WordShifted.c **** 
+ 389:Generated_Source\PSoC5/WordShifted.c **** /*******************************************************************************
+ 390:Generated_Source\PSoC5/WordShifted.c **** * Function Name: WordShifted_ClearPending
+ 391:Generated_Source\PSoC5/WordShifted.c **** ********************************************************************************
+ 392:Generated_Source\PSoC5/WordShifted.c **** *
+ 393:Generated_Source\PSoC5/WordShifted.c **** * Summary:
+ 394:Generated_Source\PSoC5/WordShifted.c **** *   Clears a pending interrupt in the interrupt controller.
+ 395:Generated_Source\PSoC5/WordShifted.c **** *
+ 396:Generated_Source\PSoC5/WordShifted.c **** *   Note Some interrupt sources are clear-on-read and require the block 
+ 397:Generated_Source\PSoC5/WordShifted.c **** *   interrupt/status register to be read/cleared with the appropriate block API 
+ 398:Generated_Source\PSoC5/WordShifted.c **** *   (GPIO, UART, and so on). Otherwise the ISR will continue to remain in 
+ 399:Generated_Source\PSoC5/WordShifted.c **** *   pending state even though the interrupt itself is cleared using this API.
+ 400:Generated_Source\PSoC5/WordShifted.c **** *
+ 401:Generated_Source\PSoC5/WordShifted.c **** * Parameters:
+ 402:Generated_Source\PSoC5/WordShifted.c **** *   None
+ 403:Generated_Source\PSoC5/WordShifted.c **** *
+ 404:Generated_Source\PSoC5/WordShifted.c **** * Return:
+ 405:Generated_Source\PSoC5/WordShifted.c **** *   None
+ 406:Generated_Source\PSoC5/WordShifted.c **** *
+ 407:Generated_Source\PSoC5/WordShifted.c **** *******************************************************************************/
+ 408:Generated_Source\PSoC5/WordShifted.c **** void WordShifted_ClearPending(void)
+ 409:Generated_Source\PSoC5/WordShifted.c **** {
+ 350              		.loc 1 409 0
+ 351              		.cfi_startproc
+ 352              		@ args = 0, pretend = 0, frame = 0
+ 353              		@ frame_needed = 0, uses_anonymous_args = 0
+ 354              		@ link register save eliminated.
+ 410:Generated_Source\PSoC5/WordShifted.c ****     *WordShifted_INTC_CLR_PD = WordShifted__INTC_MASK;
+ 355              		.loc 1 410 0
+ 356 0000 0422     		movs	r2, #4
+ 357 0002 014B     		ldr	r3, .L38
+ 358 0004 1A60     		str	r2, [r3]
+ 359 0006 7047     		bx	lr
+ 360              	.L39:
+ 361              		.align	2
+ 362              	.L38:
+ 363 0008 80E200E0 		.word	-536812928
+ 364              		.cfi_endproc
+ 365              	.LFE12:
+ 366              		.size	WordShifted_ClearPending, .-WordShifted_ClearPending
+ 367              		.section	.text.WordShifted_Interrupt,"ax",%progbits
+ 368              		.align	2
+ 369              		.global	WordShifted_Interrupt
+ 370              		.thumb
+ 371              		.thumb_func
+ 372              		.type	WordShifted_Interrupt, %function
+ 373              	WordShifted_Interrupt:
+ 374              	.LFB3:
+ 163:Generated_Source\PSoC5/WordShifted.c ****     #ifdef WordShifted_INTERRUPT_INTERRUPT_CALLBACK
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cckmol3x.s 			page 15
+
+
+ 375              		.loc 1 163 0
+ 376              		.cfi_startproc
+ 377              		@ args = 0, pretend = 0, frame = 0
+ 378              		@ frame_needed = 0, uses_anonymous_args = 0
+ 379 0000 08B5     		push	{r3, lr}
+ 380              		.cfi_def_cfa_offset 8
+ 381              		.cfi_offset 3, -8
+ 382              		.cfi_offset 14, -4
+ 171:Generated_Source\PSoC5/WordShifted.c ****     //BitCounterDec_ReadStatusRegister();
+ 383              		.loc 1 171 0
+ 384 0002 FFF7FEFF 		bl	Store
+ 385              	.LVL18:
+ 173:Generated_Source\PSoC5/WordShifted.c ****     WordShifted_ClearPending();
+ 386              		.loc 1 173 0
+ 387 0006 FFF7FEFF 		bl	RecieveShiftReg_GetIntStatus
+ 388              	.LVL19:
+ 174:Generated_Source\PSoC5/WordShifted.c ****     //SetAllowStoreFlag();
+ 389              		.loc 1 174 0
+ 390 000a FFF7FEFF 		bl	WordShifted_ClearPending
+ 391              	.LVL20:
+ 392 000e 08BD     		pop	{r3, pc}
+ 393              		.cfi_endproc
+ 394              	.LFE3:
+ 395              		.size	WordShifted_Interrupt, .-WordShifted_Interrupt
+ 396              		.text
+ 397              	.Letext0:
+ 398              		.file 2 "Generated_Source\\PSoC5/cytypes.h"
+ 399              		.file 3 "./reciver.h"
+ 400              		.file 4 "Generated_Source\\PSoC5/RecieveShiftReg.h"
+ 401              		.section	.debug_info,"",%progbits
+ 402              	.Ldebug_info0:
+ 403 0000 04030000 		.4byte	0x304
+ 404 0004 0400     		.2byte	0x4
+ 405 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 406 000a 04       		.byte	0x4
+ 407 000b 01       		.uleb128 0x1
+ 408 000c C6000000 		.4byte	.LASF36
+ 409 0010 0C       		.byte	0xc
+ 410 0011 7F010000 		.4byte	.LASF37
+ 411 0015 06000000 		.4byte	.LASF38
+ 412 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 413 001d 00000000 		.4byte	0
+ 414 0021 00000000 		.4byte	.Ldebug_line0
+ 415 0025 02       		.uleb128 0x2
+ 416 0026 04       		.byte	0x4
+ 417 0027 05       		.byte	0x5
+ 418 0028 696E7400 		.ascii	"int\000"
+ 419 002c 03       		.uleb128 0x3
+ 420 002d 04       		.byte	0x4
+ 421 002e 07       		.byte	0x7
+ 422 002f 04020000 		.4byte	.LASF0
+ 423 0033 03       		.uleb128 0x3
+ 424 0034 08       		.byte	0x8
+ 425 0035 05       		.byte	0x5
+ 426 0036 7F020000 		.4byte	.LASF1
+ 427 003a 03       		.uleb128 0x3
+ 428 003b 08       		.byte	0x8
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cckmol3x.s 			page 16
+
+
+ 429 003c 04       		.byte	0x4
+ 430 003d E7020000 		.4byte	.LASF2
+ 431 0041 03       		.uleb128 0x3
+ 432 0042 01       		.byte	0x1
+ 433 0043 06       		.byte	0x6
+ 434 0044 F3020000 		.4byte	.LASF3
+ 435 0048 03       		.uleb128 0x3
+ 436 0049 01       		.byte	0x1
+ 437 004a 08       		.byte	0x8
+ 438 004b B8000000 		.4byte	.LASF4
+ 439 004f 03       		.uleb128 0x3
+ 440 0050 02       		.byte	0x2
+ 441 0051 05       		.byte	0x5
+ 442 0052 A1020000 		.4byte	.LASF5
+ 443 0056 03       		.uleb128 0x3
+ 444 0057 02       		.byte	0x2
+ 445 0058 07       		.byte	0x7
+ 446 0059 85000000 		.4byte	.LASF6
+ 447 005d 03       		.uleb128 0x3
+ 448 005e 04       		.byte	0x4
+ 449 005f 05       		.byte	0x5
+ 450 0060 DE020000 		.4byte	.LASF7
+ 451 0064 03       		.uleb128 0x3
+ 452 0065 04       		.byte	0x4
+ 453 0066 07       		.byte	0x7
+ 454 0067 6D010000 		.4byte	.LASF8
+ 455 006b 03       		.uleb128 0x3
+ 456 006c 08       		.byte	0x8
+ 457 006d 07       		.byte	0x7
+ 458 006e 3B020000 		.4byte	.LASF9
+ 459 0072 03       		.uleb128 0x3
+ 460 0073 04       		.byte	0x4
+ 461 0074 07       		.byte	0x7
+ 462 0075 76020000 		.4byte	.LASF10
+ 463 0079 03       		.uleb128 0x3
+ 464 007a 01       		.byte	0x1
+ 465 007b 08       		.byte	0x8
+ 466 007c 8D020000 		.4byte	.LASF11
+ 467 0080 04       		.uleb128 0x4
+ 468 0081 04       		.byte	0x4
+ 469 0082 86000000 		.4byte	0x86
+ 470 0086 05       		.uleb128 0x5
+ 471 0087 06       		.uleb128 0x6
+ 472 0088 A4010000 		.4byte	.LASF12
+ 473 008c 02       		.byte	0x2
+ 474 008d E401     		.2byte	0x1e4
+ 475 008f 48000000 		.4byte	0x48
+ 476 0093 06       		.uleb128 0x6
+ 477 0094 FD010000 		.4byte	.LASF13
+ 478 0098 02       		.byte	0x2
+ 479 0099 E601     		.2byte	0x1e6
+ 480 009b 64000000 		.4byte	0x64
+ 481 009f 03       		.uleb128 0x3
+ 482 00a0 04       		.byte	0x4
+ 483 00a1 04       		.byte	0x4
+ 484 00a2 B2000000 		.4byte	.LASF14
+ 485 00a6 03       		.uleb128 0x3
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cckmol3x.s 			page 17
+
+
+ 486 00a7 08       		.byte	0x8
+ 487 00a8 04       		.byte	0x4
+ 488 00a9 DE010000 		.4byte	.LASF15
+ 489 00ad 06       		.uleb128 0x6
+ 490 00ae 54010000 		.4byte	.LASF16
+ 491 00b2 02       		.byte	0x2
+ 492 00b3 8E02     		.2byte	0x28e
+ 493 00b5 B9000000 		.4byte	0xb9
+ 494 00b9 07       		.uleb128 0x7
+ 495 00ba 87000000 		.4byte	0x87
+ 496 00be 06       		.uleb128 0x6
+ 497 00bf 00000000 		.4byte	.LASF17
+ 498 00c3 02       		.byte	0x2
+ 499 00c4 9002     		.2byte	0x290
+ 500 00c6 CA000000 		.4byte	0xca
+ 501 00ca 07       		.uleb128 0x7
+ 502 00cb 93000000 		.4byte	0x93
+ 503 00cf 06       		.uleb128 0x6
+ 504 00d0 69020000 		.4byte	.LASF18
+ 505 00d4 02       		.byte	0x2
+ 506 00d5 A002     		.2byte	0x2a0
+ 507 00d7 80000000 		.4byte	0x80
+ 508 00db 08       		.uleb128 0x8
+ 509 00dc C8010000 		.4byte	.LASF20
+ 510 00e0 01       		.byte	0x1
+ 511 00e1 CF       		.byte	0xcf
+ 512 00e2 00000000 		.4byte	.LFB4
+ 513 00e6 0C000000 		.4byte	.LFE4-.LFB4
+ 514 00ea 01       		.uleb128 0x1
+ 515 00eb 9C       		.byte	0x9c
+ 516 00ec 0B010000 		.4byte	0x10b
+ 517 00f0 09       		.uleb128 0x9
+ 518 00f1 6A000000 		.4byte	.LASF22
+ 519 00f5 01       		.byte	0x1
+ 520 00f6 CF       		.byte	0xcf
+ 521 00f7 CF000000 		.4byte	0xcf
+ 522 00fb 01       		.uleb128 0x1
+ 523 00fc 50       		.byte	0x50
+ 524 00fd 0A       		.uleb128 0xa
+ 525 00fe 92020000 		.4byte	.LASF19
+ 526 0102 01       		.byte	0x1
+ 527 0103 D1       		.byte	0xd1
+ 528 0104 0B010000 		.4byte	0x10b
+ 529 0108 01       		.uleb128 0x1
+ 530 0109 53       		.byte	0x53
+ 531 010a 00       		.byte	0
+ 532 010b 04       		.uleb128 0x4
+ 533 010c 04       		.byte	0x4
+ 534 010d CF000000 		.4byte	0xcf
+ 535 0111 0B       		.uleb128 0xb
+ 536 0112 AB020000 		.4byte	.LASF24
+ 537 0116 01       		.byte	0x1
+ 538 0117 E7       		.byte	0xe7
+ 539 0118 CF000000 		.4byte	0xcf
+ 540 011c 00000000 		.4byte	.LFB5
+ 541 0120 0C000000 		.4byte	.LFE5-.LFB5
+ 542 0124 01       		.uleb128 0x1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cckmol3x.s 			page 18
+
+
+ 543 0125 9C       		.byte	0x9c
+ 544 0126 38010000 		.4byte	0x138
+ 545 012a 0A       		.uleb128 0xa
+ 546 012b 92020000 		.4byte	.LASF19
+ 547 012f 01       		.byte	0x1
+ 548 0130 E9       		.byte	0xe9
+ 549 0131 0B010000 		.4byte	0x10b
+ 550 0135 01       		.uleb128 0x1
+ 551 0136 53       		.byte	0x53
+ 552 0137 00       		.byte	0
+ 553 0138 0C       		.uleb128 0xc
+ 554 0139 E5010000 		.4byte	.LASF21
+ 555 013d 01       		.byte	0x1
+ 556 013e 0901     		.2byte	0x109
+ 557 0140 00000000 		.4byte	.LFB6
+ 558 0144 10000000 		.4byte	.LFE6-.LFB6
+ 559 0148 01       		.uleb128 0x1
+ 560 0149 9C       		.byte	0x9c
+ 561 014a 5F010000 		.4byte	0x15f
+ 562 014e 0D       		.uleb128 0xd
+ 563 014f BF010000 		.4byte	.LASF23
+ 564 0153 01       		.byte	0x1
+ 565 0154 0901     		.2byte	0x109
+ 566 0156 87000000 		.4byte	0x87
+ 567 015a 00000000 		.4byte	.LLST0
+ 568 015e 00       		.byte	0
+ 569 015f 0E       		.uleb128 0xe
+ 570 0160 52000000 		.4byte	.LASF25
+ 571 0164 01       		.byte	0x1
+ 572 0165 1F01     		.2byte	0x11f
+ 573 0167 87000000 		.4byte	0x87
+ 574 016b 00000000 		.4byte	.LFB7
+ 575 016f 0C000000 		.4byte	.LFE7-.LFB7
+ 576 0173 01       		.uleb128 0x1
+ 577 0174 9C       		.byte	0x9c
+ 578 0175 8A010000 		.4byte	0x18a
+ 579 0179 0F       		.uleb128 0xf
+ 580 017a BF010000 		.4byte	.LASF23
+ 581 017e 01       		.byte	0x1
+ 582 017f 2101     		.2byte	0x121
+ 583 0181 87000000 		.4byte	0x87
+ 584 0185 21000000 		.4byte	.LLST1
+ 585 0189 00       		.byte	0
+ 586 018a 10       		.uleb128 0x10
+ 587 018b 72000000 		.4byte	.LASF26
+ 588 018f 01       		.byte	0x1
+ 589 0190 3A01     		.2byte	0x13a
+ 590 0192 00000000 		.4byte	.LFB8
+ 591 0196 0C000000 		.4byte	.LFE8-.LFB8
+ 592 019a 01       		.uleb128 0x1
+ 593 019b 9C       		.byte	0x9c
+ 594 019c 11       		.uleb128 0x11
+ 595 019d AA010000 		.4byte	.LASF39
+ 596 01a1 01       		.byte	0x1
+ 597 01a2 4F01     		.2byte	0x14f
+ 598 01a4 87000000 		.4byte	0x87
+ 599 01a8 00000000 		.4byte	.LFB9
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cckmol3x.s 			page 19
+
+
+ 600 01ac 18000000 		.4byte	.LFE9-.LFB9
+ 601 01b0 01       		.uleb128 0x1
+ 602 01b1 9C       		.byte	0x9c
+ 603 01b2 10       		.uleb128 0x10
+ 604 01b3 9E000000 		.4byte	.LASF27
+ 605 01b7 01       		.byte	0x1
+ 606 01b8 6401     		.2byte	0x164
+ 607 01ba 00000000 		.4byte	.LFB10
+ 608 01be 0C000000 		.4byte	.LFE10-.LFB10
+ 609 01c2 01       		.uleb128 0x1
+ 610 01c3 9C       		.byte	0x9c
+ 611 01c4 08       		.uleb128 0x8
+ 612 01c5 15030000 		.4byte	.LASF28
+ 613 01c9 01       		.byte	0x1
+ 614 01ca 3F       		.byte	0x3f
+ 615 01cb 00000000 		.4byte	.LFB0
+ 616 01cf 1C000000 		.4byte	.LFE0-.LFB0
+ 617 01d3 01       		.uleb128 0x1
+ 618 01d4 9C       		.byte	0x9c
+ 619 01d5 16020000 		.4byte	0x216
+ 620 01d9 12       		.uleb128 0x12
+ 621 01da 06000000 		.4byte	.LVL7
+ 622 01de B2010000 		.4byte	0x1b2
+ 623 01e2 13       		.uleb128 0x13
+ 624 01e3 0C000000 		.4byte	.LVL8
+ 625 01e7 DB000000 		.4byte	0xdb
+ 626 01eb F9010000 		.4byte	0x1f9
+ 627 01ef 14       		.uleb128 0x14
+ 628 01f0 01       		.uleb128 0x1
+ 629 01f1 50       		.byte	0x50
+ 630 01f2 05       		.uleb128 0x5
+ 631 01f3 03       		.byte	0x3
+ 632 01f4 00000000 		.4byte	WordShifted_Interrupt
+ 633 01f8 00       		.byte	0
+ 634 01f9 13       		.uleb128 0x13
+ 635 01fa 12000000 		.4byte	.LVL9
+ 636 01fe 38010000 		.4byte	0x138
+ 637 0202 0C020000 		.4byte	0x20c
+ 638 0206 14       		.uleb128 0x14
+ 639 0207 01       		.uleb128 0x1
+ 640 0208 50       		.byte	0x50
+ 641 0209 01       		.uleb128 0x1
+ 642 020a 36       		.byte	0x36
+ 643 020b 00       		.byte	0
+ 644 020c 12       		.uleb128 0x12
+ 645 020d 16000000 		.4byte	.LVL10
+ 646 0211 8A010000 		.4byte	0x18a
+ 647 0215 00       		.byte	0
+ 648 0216 08       		.uleb128 0x8
+ 649 0217 59010000 		.4byte	.LASF29
+ 650 021b 01       		.byte	0x1
+ 651 021c 6A       		.byte	0x6a
+ 652 021d 00000000 		.4byte	.LFB1
+ 653 0221 1A000000 		.4byte	.LFE1-.LFB1
+ 654 0225 01       		.uleb128 0x1
+ 655 0226 9C       		.byte	0x9c
+ 656 0227 74020000 		.4byte	0x274
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cckmol3x.s 			page 20
+
+
+ 657 022b 15       		.uleb128 0x15
+ 658 022c 6A000000 		.4byte	.LASF22
+ 659 0230 01       		.byte	0x1
+ 660 0231 6A       		.byte	0x6a
+ 661 0232 CF000000 		.4byte	0xcf
+ 662 0236 38000000 		.4byte	.LLST2
+ 663 023a 12       		.uleb128 0x12
+ 664 023b 08000000 		.4byte	.LVL12
+ 665 023f B2010000 		.4byte	0x1b2
+ 666 0243 13       		.uleb128 0x13
+ 667 0244 0E000000 		.4byte	.LVL13
+ 668 0248 DB000000 		.4byte	0xdb
+ 669 024c 57020000 		.4byte	0x257
+ 670 0250 14       		.uleb128 0x14
+ 671 0251 01       		.uleb128 0x1
+ 672 0252 50       		.byte	0x50
+ 673 0253 02       		.uleb128 0x2
+ 674 0254 74       		.byte	0x74
+ 675 0255 00       		.sleb128 0
+ 676 0256 00       		.byte	0
+ 677 0257 13       		.uleb128 0x13
+ 678 0258 14000000 		.4byte	.LVL14
+ 679 025c 38010000 		.4byte	0x138
+ 680 0260 6A020000 		.4byte	0x26a
+ 681 0264 14       		.uleb128 0x14
+ 682 0265 01       		.uleb128 0x1
+ 683 0266 50       		.byte	0x50
+ 684 0267 01       		.uleb128 0x1
+ 685 0268 36       		.byte	0x36
+ 686 0269 00       		.byte	0
+ 687 026a 12       		.uleb128 0x12
+ 688 026b 18000000 		.4byte	.LVL15
+ 689 026f 8A010000 		.4byte	0x18a
+ 690 0273 00       		.byte	0
+ 691 0274 08       		.uleb128 0x8
+ 692 0275 2A020000 		.4byte	.LASF30
+ 693 0279 01       		.byte	0x1
+ 694 027a 88       		.byte	0x88
+ 695 027b 00000000 		.4byte	.LFB2
+ 696 027f 14000000 		.4byte	.LFE2-.LFB2
+ 697 0283 01       		.uleb128 0x1
+ 698 0284 9C       		.byte	0x9c
+ 699 0285 9C020000 		.4byte	0x29c
+ 700 0289 12       		.uleb128 0x12
+ 701 028a 06000000 		.4byte	.LVL16
+ 702 028e B2010000 		.4byte	0x1b2
+ 703 0292 12       		.uleb128 0x12
+ 704 0293 0C000000 		.4byte	.LVL17
+ 705 0297 DB000000 		.4byte	0xdb
+ 706 029b 00       		.byte	0
+ 707 029c 10       		.uleb128 0x10
+ 708 029d 52020000 		.4byte	.LASF31
+ 709 02a1 01       		.byte	0x1
+ 710 02a2 7F01     		.2byte	0x17f
+ 711 02a4 00000000 		.4byte	.LFB11
+ 712 02a8 0C000000 		.4byte	.LFE11-.LFB11
+ 713 02ac 01       		.uleb128 0x1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cckmol3x.s 			page 21
+
+
+ 714 02ad 9C       		.byte	0x9c
+ 715 02ae 10       		.uleb128 0x10
+ 716 02af 11020000 		.4byte	.LASF32
+ 717 02b3 01       		.byte	0x1
+ 718 02b4 9801     		.2byte	0x198
+ 719 02b6 00000000 		.4byte	.LFB12
+ 720 02ba 0C000000 		.4byte	.LFE12-.LFB12
+ 721 02be 01       		.uleb128 0x1
+ 722 02bf 9C       		.byte	0x9c
+ 723 02c0 08       		.uleb128 0x8
+ 724 02c1 FF020000 		.4byte	.LASF33
+ 725 02c5 01       		.byte	0x1
+ 726 02c6 A2       		.byte	0xa2
+ 727 02c7 00000000 		.4byte	.LFB3
+ 728 02cb 10000000 		.4byte	.LFE3-.LFB3
+ 729 02cf 01       		.uleb128 0x1
+ 730 02d0 9C       		.byte	0x9c
+ 731 02d1 F1020000 		.4byte	0x2f1
+ 732 02d5 12       		.uleb128 0x12
+ 733 02d6 06000000 		.4byte	.LVL18
+ 734 02da F1020000 		.4byte	0x2f1
+ 735 02de 12       		.uleb128 0x12
+ 736 02df 0A000000 		.4byte	.LVL19
+ 737 02e3 FC020000 		.4byte	0x2fc
+ 738 02e7 12       		.uleb128 0x12
+ 739 02e8 0E000000 		.4byte	.LVL20
+ 740 02ec AE020000 		.4byte	0x2ae
+ 741 02f0 00       		.byte	0
+ 742 02f1 16       		.uleb128 0x16
+ 743 02f2 98000000 		.4byte	.LASF34
+ 744 02f6 98000000 		.4byte	.LASF34
+ 745 02fa 03       		.byte	0x3
+ 746 02fb 1F       		.byte	0x1f
+ 747 02fc 16       		.uleb128 0x16
+ 748 02fd C1020000 		.4byte	.LASF35
+ 749 0301 C1020000 		.4byte	.LASF35
+ 750 0305 04       		.byte	0x4
+ 751 0306 47       		.byte	0x47
+ 752 0307 00       		.byte	0
+ 753              		.section	.debug_abbrev,"",%progbits
+ 754              	.Ldebug_abbrev0:
+ 755 0000 01       		.uleb128 0x1
+ 756 0001 11       		.uleb128 0x11
+ 757 0002 01       		.byte	0x1
+ 758 0003 25       		.uleb128 0x25
+ 759 0004 0E       		.uleb128 0xe
+ 760 0005 13       		.uleb128 0x13
+ 761 0006 0B       		.uleb128 0xb
+ 762 0007 03       		.uleb128 0x3
+ 763 0008 0E       		.uleb128 0xe
+ 764 0009 1B       		.uleb128 0x1b
+ 765 000a 0E       		.uleb128 0xe
+ 766 000b 55       		.uleb128 0x55
+ 767 000c 17       		.uleb128 0x17
+ 768 000d 11       		.uleb128 0x11
+ 769 000e 01       		.uleb128 0x1
+ 770 000f 10       		.uleb128 0x10
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cckmol3x.s 			page 22
+
+
+ 771 0010 17       		.uleb128 0x17
+ 772 0011 00       		.byte	0
+ 773 0012 00       		.byte	0
+ 774 0013 02       		.uleb128 0x2
+ 775 0014 24       		.uleb128 0x24
+ 776 0015 00       		.byte	0
+ 777 0016 0B       		.uleb128 0xb
+ 778 0017 0B       		.uleb128 0xb
+ 779 0018 3E       		.uleb128 0x3e
+ 780 0019 0B       		.uleb128 0xb
+ 781 001a 03       		.uleb128 0x3
+ 782 001b 08       		.uleb128 0x8
+ 783 001c 00       		.byte	0
+ 784 001d 00       		.byte	0
+ 785 001e 03       		.uleb128 0x3
+ 786 001f 24       		.uleb128 0x24
+ 787 0020 00       		.byte	0
+ 788 0021 0B       		.uleb128 0xb
+ 789 0022 0B       		.uleb128 0xb
+ 790 0023 3E       		.uleb128 0x3e
+ 791 0024 0B       		.uleb128 0xb
+ 792 0025 03       		.uleb128 0x3
+ 793 0026 0E       		.uleb128 0xe
+ 794 0027 00       		.byte	0
+ 795 0028 00       		.byte	0
+ 796 0029 04       		.uleb128 0x4
+ 797 002a 0F       		.uleb128 0xf
+ 798 002b 00       		.byte	0
+ 799 002c 0B       		.uleb128 0xb
+ 800 002d 0B       		.uleb128 0xb
+ 801 002e 49       		.uleb128 0x49
+ 802 002f 13       		.uleb128 0x13
+ 803 0030 00       		.byte	0
+ 804 0031 00       		.byte	0
+ 805 0032 05       		.uleb128 0x5
+ 806 0033 15       		.uleb128 0x15
+ 807 0034 00       		.byte	0
+ 808 0035 27       		.uleb128 0x27
+ 809 0036 19       		.uleb128 0x19
+ 810 0037 00       		.byte	0
+ 811 0038 00       		.byte	0
+ 812 0039 06       		.uleb128 0x6
+ 813 003a 16       		.uleb128 0x16
+ 814 003b 00       		.byte	0
+ 815 003c 03       		.uleb128 0x3
+ 816 003d 0E       		.uleb128 0xe
+ 817 003e 3A       		.uleb128 0x3a
+ 818 003f 0B       		.uleb128 0xb
+ 819 0040 3B       		.uleb128 0x3b
+ 820 0041 05       		.uleb128 0x5
+ 821 0042 49       		.uleb128 0x49
+ 822 0043 13       		.uleb128 0x13
+ 823 0044 00       		.byte	0
+ 824 0045 00       		.byte	0
+ 825 0046 07       		.uleb128 0x7
+ 826 0047 35       		.uleb128 0x35
+ 827 0048 00       		.byte	0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cckmol3x.s 			page 23
+
+
+ 828 0049 49       		.uleb128 0x49
+ 829 004a 13       		.uleb128 0x13
+ 830 004b 00       		.byte	0
+ 831 004c 00       		.byte	0
+ 832 004d 08       		.uleb128 0x8
+ 833 004e 2E       		.uleb128 0x2e
+ 834 004f 01       		.byte	0x1
+ 835 0050 3F       		.uleb128 0x3f
+ 836 0051 19       		.uleb128 0x19
+ 837 0052 03       		.uleb128 0x3
+ 838 0053 0E       		.uleb128 0xe
+ 839 0054 3A       		.uleb128 0x3a
+ 840 0055 0B       		.uleb128 0xb
+ 841 0056 3B       		.uleb128 0x3b
+ 842 0057 0B       		.uleb128 0xb
+ 843 0058 27       		.uleb128 0x27
+ 844 0059 19       		.uleb128 0x19
+ 845 005a 11       		.uleb128 0x11
+ 846 005b 01       		.uleb128 0x1
+ 847 005c 12       		.uleb128 0x12
+ 848 005d 06       		.uleb128 0x6
+ 849 005e 40       		.uleb128 0x40
+ 850 005f 18       		.uleb128 0x18
+ 851 0060 9742     		.uleb128 0x2117
+ 852 0062 19       		.uleb128 0x19
+ 853 0063 01       		.uleb128 0x1
+ 854 0064 13       		.uleb128 0x13
+ 855 0065 00       		.byte	0
+ 856 0066 00       		.byte	0
+ 857 0067 09       		.uleb128 0x9
+ 858 0068 05       		.uleb128 0x5
+ 859 0069 00       		.byte	0
+ 860 006a 03       		.uleb128 0x3
+ 861 006b 0E       		.uleb128 0xe
+ 862 006c 3A       		.uleb128 0x3a
+ 863 006d 0B       		.uleb128 0xb
+ 864 006e 3B       		.uleb128 0x3b
+ 865 006f 0B       		.uleb128 0xb
+ 866 0070 49       		.uleb128 0x49
+ 867 0071 13       		.uleb128 0x13
+ 868 0072 02       		.uleb128 0x2
+ 869 0073 18       		.uleb128 0x18
+ 870 0074 00       		.byte	0
+ 871 0075 00       		.byte	0
+ 872 0076 0A       		.uleb128 0xa
+ 873 0077 34       		.uleb128 0x34
+ 874 0078 00       		.byte	0
+ 875 0079 03       		.uleb128 0x3
+ 876 007a 0E       		.uleb128 0xe
+ 877 007b 3A       		.uleb128 0x3a
+ 878 007c 0B       		.uleb128 0xb
+ 879 007d 3B       		.uleb128 0x3b
+ 880 007e 0B       		.uleb128 0xb
+ 881 007f 49       		.uleb128 0x49
+ 882 0080 13       		.uleb128 0x13
+ 883 0081 02       		.uleb128 0x2
+ 884 0082 18       		.uleb128 0x18
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cckmol3x.s 			page 24
+
+
+ 885 0083 00       		.byte	0
+ 886 0084 00       		.byte	0
+ 887 0085 0B       		.uleb128 0xb
+ 888 0086 2E       		.uleb128 0x2e
+ 889 0087 01       		.byte	0x1
+ 890 0088 3F       		.uleb128 0x3f
+ 891 0089 19       		.uleb128 0x19
+ 892 008a 03       		.uleb128 0x3
+ 893 008b 0E       		.uleb128 0xe
+ 894 008c 3A       		.uleb128 0x3a
+ 895 008d 0B       		.uleb128 0xb
+ 896 008e 3B       		.uleb128 0x3b
+ 897 008f 0B       		.uleb128 0xb
+ 898 0090 27       		.uleb128 0x27
+ 899 0091 19       		.uleb128 0x19
+ 900 0092 49       		.uleb128 0x49
+ 901 0093 13       		.uleb128 0x13
+ 902 0094 11       		.uleb128 0x11
+ 903 0095 01       		.uleb128 0x1
+ 904 0096 12       		.uleb128 0x12
+ 905 0097 06       		.uleb128 0x6
+ 906 0098 40       		.uleb128 0x40
+ 907 0099 18       		.uleb128 0x18
+ 908 009a 9742     		.uleb128 0x2117
+ 909 009c 19       		.uleb128 0x19
+ 910 009d 01       		.uleb128 0x1
+ 911 009e 13       		.uleb128 0x13
+ 912 009f 00       		.byte	0
+ 913 00a0 00       		.byte	0
+ 914 00a1 0C       		.uleb128 0xc
+ 915 00a2 2E       		.uleb128 0x2e
+ 916 00a3 01       		.byte	0x1
+ 917 00a4 3F       		.uleb128 0x3f
+ 918 00a5 19       		.uleb128 0x19
+ 919 00a6 03       		.uleb128 0x3
+ 920 00a7 0E       		.uleb128 0xe
+ 921 00a8 3A       		.uleb128 0x3a
+ 922 00a9 0B       		.uleb128 0xb
+ 923 00aa 3B       		.uleb128 0x3b
+ 924 00ab 05       		.uleb128 0x5
+ 925 00ac 27       		.uleb128 0x27
+ 926 00ad 19       		.uleb128 0x19
+ 927 00ae 11       		.uleb128 0x11
+ 928 00af 01       		.uleb128 0x1
+ 929 00b0 12       		.uleb128 0x12
+ 930 00b1 06       		.uleb128 0x6
+ 931 00b2 40       		.uleb128 0x40
+ 932 00b3 18       		.uleb128 0x18
+ 933 00b4 9742     		.uleb128 0x2117
+ 934 00b6 19       		.uleb128 0x19
+ 935 00b7 01       		.uleb128 0x1
+ 936 00b8 13       		.uleb128 0x13
+ 937 00b9 00       		.byte	0
+ 938 00ba 00       		.byte	0
+ 939 00bb 0D       		.uleb128 0xd
+ 940 00bc 05       		.uleb128 0x5
+ 941 00bd 00       		.byte	0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cckmol3x.s 			page 25
+
+
+ 942 00be 03       		.uleb128 0x3
+ 943 00bf 0E       		.uleb128 0xe
+ 944 00c0 3A       		.uleb128 0x3a
+ 945 00c1 0B       		.uleb128 0xb
+ 946 00c2 3B       		.uleb128 0x3b
+ 947 00c3 05       		.uleb128 0x5
+ 948 00c4 49       		.uleb128 0x49
+ 949 00c5 13       		.uleb128 0x13
+ 950 00c6 02       		.uleb128 0x2
+ 951 00c7 17       		.uleb128 0x17
+ 952 00c8 00       		.byte	0
+ 953 00c9 00       		.byte	0
+ 954 00ca 0E       		.uleb128 0xe
+ 955 00cb 2E       		.uleb128 0x2e
+ 956 00cc 01       		.byte	0x1
+ 957 00cd 3F       		.uleb128 0x3f
+ 958 00ce 19       		.uleb128 0x19
+ 959 00cf 03       		.uleb128 0x3
+ 960 00d0 0E       		.uleb128 0xe
+ 961 00d1 3A       		.uleb128 0x3a
+ 962 00d2 0B       		.uleb128 0xb
+ 963 00d3 3B       		.uleb128 0x3b
+ 964 00d4 05       		.uleb128 0x5
+ 965 00d5 27       		.uleb128 0x27
+ 966 00d6 19       		.uleb128 0x19
+ 967 00d7 49       		.uleb128 0x49
+ 968 00d8 13       		.uleb128 0x13
+ 969 00d9 11       		.uleb128 0x11
+ 970 00da 01       		.uleb128 0x1
+ 971 00db 12       		.uleb128 0x12
+ 972 00dc 06       		.uleb128 0x6
+ 973 00dd 40       		.uleb128 0x40
+ 974 00de 18       		.uleb128 0x18
+ 975 00df 9742     		.uleb128 0x2117
+ 976 00e1 19       		.uleb128 0x19
+ 977 00e2 01       		.uleb128 0x1
+ 978 00e3 13       		.uleb128 0x13
+ 979 00e4 00       		.byte	0
+ 980 00e5 00       		.byte	0
+ 981 00e6 0F       		.uleb128 0xf
+ 982 00e7 34       		.uleb128 0x34
+ 983 00e8 00       		.byte	0
+ 984 00e9 03       		.uleb128 0x3
+ 985 00ea 0E       		.uleb128 0xe
+ 986 00eb 3A       		.uleb128 0x3a
+ 987 00ec 0B       		.uleb128 0xb
+ 988 00ed 3B       		.uleb128 0x3b
+ 989 00ee 05       		.uleb128 0x5
+ 990 00ef 49       		.uleb128 0x49
+ 991 00f0 13       		.uleb128 0x13
+ 992 00f1 02       		.uleb128 0x2
+ 993 00f2 17       		.uleb128 0x17
+ 994 00f3 00       		.byte	0
+ 995 00f4 00       		.byte	0
+ 996 00f5 10       		.uleb128 0x10
+ 997 00f6 2E       		.uleb128 0x2e
+ 998 00f7 00       		.byte	0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cckmol3x.s 			page 26
+
+
+ 999 00f8 3F       		.uleb128 0x3f
+ 1000 00f9 19       		.uleb128 0x19
+ 1001 00fa 03       		.uleb128 0x3
+ 1002 00fb 0E       		.uleb128 0xe
+ 1003 00fc 3A       		.uleb128 0x3a
+ 1004 00fd 0B       		.uleb128 0xb
+ 1005 00fe 3B       		.uleb128 0x3b
+ 1006 00ff 05       		.uleb128 0x5
+ 1007 0100 27       		.uleb128 0x27
+ 1008 0101 19       		.uleb128 0x19
+ 1009 0102 11       		.uleb128 0x11
+ 1010 0103 01       		.uleb128 0x1
+ 1011 0104 12       		.uleb128 0x12
+ 1012 0105 06       		.uleb128 0x6
+ 1013 0106 40       		.uleb128 0x40
+ 1014 0107 18       		.uleb128 0x18
+ 1015 0108 9742     		.uleb128 0x2117
+ 1016 010a 19       		.uleb128 0x19
+ 1017 010b 00       		.byte	0
+ 1018 010c 00       		.byte	0
+ 1019 010d 11       		.uleb128 0x11
+ 1020 010e 2E       		.uleb128 0x2e
+ 1021 010f 00       		.byte	0
+ 1022 0110 3F       		.uleb128 0x3f
+ 1023 0111 19       		.uleb128 0x19
+ 1024 0112 03       		.uleb128 0x3
+ 1025 0113 0E       		.uleb128 0xe
+ 1026 0114 3A       		.uleb128 0x3a
+ 1027 0115 0B       		.uleb128 0xb
+ 1028 0116 3B       		.uleb128 0x3b
+ 1029 0117 05       		.uleb128 0x5
+ 1030 0118 27       		.uleb128 0x27
+ 1031 0119 19       		.uleb128 0x19
+ 1032 011a 49       		.uleb128 0x49
+ 1033 011b 13       		.uleb128 0x13
+ 1034 011c 11       		.uleb128 0x11
+ 1035 011d 01       		.uleb128 0x1
+ 1036 011e 12       		.uleb128 0x12
+ 1037 011f 06       		.uleb128 0x6
+ 1038 0120 40       		.uleb128 0x40
+ 1039 0121 18       		.uleb128 0x18
+ 1040 0122 9742     		.uleb128 0x2117
+ 1041 0124 19       		.uleb128 0x19
+ 1042 0125 00       		.byte	0
+ 1043 0126 00       		.byte	0
+ 1044 0127 12       		.uleb128 0x12
+ 1045 0128 898201   		.uleb128 0x4109
+ 1046 012b 00       		.byte	0
+ 1047 012c 11       		.uleb128 0x11
+ 1048 012d 01       		.uleb128 0x1
+ 1049 012e 31       		.uleb128 0x31
+ 1050 012f 13       		.uleb128 0x13
+ 1051 0130 00       		.byte	0
+ 1052 0131 00       		.byte	0
+ 1053 0132 13       		.uleb128 0x13
+ 1054 0133 898201   		.uleb128 0x4109
+ 1055 0136 01       		.byte	0x1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cckmol3x.s 			page 27
+
+
+ 1056 0137 11       		.uleb128 0x11
+ 1057 0138 01       		.uleb128 0x1
+ 1058 0139 31       		.uleb128 0x31
+ 1059 013a 13       		.uleb128 0x13
+ 1060 013b 01       		.uleb128 0x1
+ 1061 013c 13       		.uleb128 0x13
+ 1062 013d 00       		.byte	0
+ 1063 013e 00       		.byte	0
+ 1064 013f 14       		.uleb128 0x14
+ 1065 0140 8A8201   		.uleb128 0x410a
+ 1066 0143 00       		.byte	0
+ 1067 0144 02       		.uleb128 0x2
+ 1068 0145 18       		.uleb128 0x18
+ 1069 0146 9142     		.uleb128 0x2111
+ 1070 0148 18       		.uleb128 0x18
+ 1071 0149 00       		.byte	0
+ 1072 014a 00       		.byte	0
+ 1073 014b 15       		.uleb128 0x15
+ 1074 014c 05       		.uleb128 0x5
+ 1075 014d 00       		.byte	0
+ 1076 014e 03       		.uleb128 0x3
+ 1077 014f 0E       		.uleb128 0xe
+ 1078 0150 3A       		.uleb128 0x3a
+ 1079 0151 0B       		.uleb128 0xb
+ 1080 0152 3B       		.uleb128 0x3b
+ 1081 0153 0B       		.uleb128 0xb
+ 1082 0154 49       		.uleb128 0x49
+ 1083 0155 13       		.uleb128 0x13
+ 1084 0156 02       		.uleb128 0x2
+ 1085 0157 17       		.uleb128 0x17
+ 1086 0158 00       		.byte	0
+ 1087 0159 00       		.byte	0
+ 1088 015a 16       		.uleb128 0x16
+ 1089 015b 2E       		.uleb128 0x2e
+ 1090 015c 00       		.byte	0
+ 1091 015d 3F       		.uleb128 0x3f
+ 1092 015e 19       		.uleb128 0x19
+ 1093 015f 3C       		.uleb128 0x3c
+ 1094 0160 19       		.uleb128 0x19
+ 1095 0161 6E       		.uleb128 0x6e
+ 1096 0162 0E       		.uleb128 0xe
+ 1097 0163 03       		.uleb128 0x3
+ 1098 0164 0E       		.uleb128 0xe
+ 1099 0165 3A       		.uleb128 0x3a
+ 1100 0166 0B       		.uleb128 0xb
+ 1101 0167 3B       		.uleb128 0x3b
+ 1102 0168 0B       		.uleb128 0xb
+ 1103 0169 00       		.byte	0
+ 1104 016a 00       		.byte	0
+ 1105 016b 00       		.byte	0
+ 1106              		.section	.debug_loc,"",%progbits
+ 1107              	.Ldebug_loc0:
+ 1108              	.LLST0:
+ 1109 0000 00000000 		.4byte	.LVL3
+ 1110 0004 02000000 		.4byte	.LVL4
+ 1111 0008 0100     		.2byte	0x1
+ 1112 000a 50       		.byte	0x50
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cckmol3x.s 			page 28
+
+
+ 1113 000b 02000000 		.4byte	.LVL4
+ 1114 000f 10000000 		.4byte	.LFE6
+ 1115 0013 0400     		.2byte	0x4
+ 1116 0015 F3       		.byte	0xf3
+ 1117 0016 01       		.uleb128 0x1
+ 1118 0017 50       		.byte	0x50
+ 1119 0018 9F       		.byte	0x9f
+ 1120 0019 00000000 		.4byte	0
+ 1121 001d 00000000 		.4byte	0
+ 1122              	.LLST1:
+ 1123 0021 04000000 		.4byte	.LVL5
+ 1124 0025 06000000 		.4byte	.LVL6
+ 1125 0029 0500     		.2byte	0x5
+ 1126 002b 70       		.byte	0x70
+ 1127 002c 00       		.sleb128 0
+ 1128 002d 35       		.byte	0x35
+ 1129 002e 25       		.byte	0x25
+ 1130 002f 9F       		.byte	0x9f
+ 1131 0030 00000000 		.4byte	0
+ 1132 0034 00000000 		.4byte	0
+ 1133              	.LLST2:
+ 1134 0038 00000000 		.4byte	.LVL11
+ 1135 003c 07000000 		.4byte	.LVL12-1
+ 1136 0040 0100     		.2byte	0x1
+ 1137 0042 50       		.byte	0x50
+ 1138 0043 07000000 		.4byte	.LVL12-1
+ 1139 0047 1A000000 		.4byte	.LFE1
+ 1140 004b 0100     		.2byte	0x1
+ 1141 004d 54       		.byte	0x54
+ 1142 004e 00000000 		.4byte	0
+ 1143 0052 00000000 		.4byte	0
+ 1144              		.section	.debug_aranges,"",%progbits
+ 1145 0000 7C000000 		.4byte	0x7c
+ 1146 0004 0200     		.2byte	0x2
+ 1147 0006 00000000 		.4byte	.Ldebug_info0
+ 1148 000a 04       		.byte	0x4
+ 1149 000b 00       		.byte	0
+ 1150 000c 0000     		.2byte	0
+ 1151 000e 0000     		.2byte	0
+ 1152 0010 00000000 		.4byte	.LFB4
+ 1153 0014 0C000000 		.4byte	.LFE4-.LFB4
+ 1154 0018 00000000 		.4byte	.LFB5
+ 1155 001c 0C000000 		.4byte	.LFE5-.LFB5
+ 1156 0020 00000000 		.4byte	.LFB6
+ 1157 0024 10000000 		.4byte	.LFE6-.LFB6
+ 1158 0028 00000000 		.4byte	.LFB7
+ 1159 002c 0C000000 		.4byte	.LFE7-.LFB7
+ 1160 0030 00000000 		.4byte	.LFB8
+ 1161 0034 0C000000 		.4byte	.LFE8-.LFB8
+ 1162 0038 00000000 		.4byte	.LFB9
+ 1163 003c 18000000 		.4byte	.LFE9-.LFB9
+ 1164 0040 00000000 		.4byte	.LFB10
+ 1165 0044 0C000000 		.4byte	.LFE10-.LFB10
+ 1166 0048 00000000 		.4byte	.LFB0
+ 1167 004c 1C000000 		.4byte	.LFE0-.LFB0
+ 1168 0050 00000000 		.4byte	.LFB1
+ 1169 0054 1A000000 		.4byte	.LFE1-.LFB1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cckmol3x.s 			page 29
+
+
+ 1170 0058 00000000 		.4byte	.LFB2
+ 1171 005c 14000000 		.4byte	.LFE2-.LFB2
+ 1172 0060 00000000 		.4byte	.LFB11
+ 1173 0064 0C000000 		.4byte	.LFE11-.LFB11
+ 1174 0068 00000000 		.4byte	.LFB12
+ 1175 006c 0C000000 		.4byte	.LFE12-.LFB12
+ 1176 0070 00000000 		.4byte	.LFB3
+ 1177 0074 10000000 		.4byte	.LFE3-.LFB3
+ 1178 0078 00000000 		.4byte	0
+ 1179 007c 00000000 		.4byte	0
+ 1180              		.section	.debug_ranges,"",%progbits
+ 1181              	.Ldebug_ranges0:
+ 1182 0000 00000000 		.4byte	.LFB4
+ 1183 0004 0C000000 		.4byte	.LFE4
+ 1184 0008 00000000 		.4byte	.LFB5
+ 1185 000c 0C000000 		.4byte	.LFE5
+ 1186 0010 00000000 		.4byte	.LFB6
+ 1187 0014 10000000 		.4byte	.LFE6
+ 1188 0018 00000000 		.4byte	.LFB7
+ 1189 001c 0C000000 		.4byte	.LFE7
+ 1190 0020 00000000 		.4byte	.LFB8
+ 1191 0024 0C000000 		.4byte	.LFE8
+ 1192 0028 00000000 		.4byte	.LFB9
+ 1193 002c 18000000 		.4byte	.LFE9
+ 1194 0030 00000000 		.4byte	.LFB10
+ 1195 0034 0C000000 		.4byte	.LFE10
+ 1196 0038 00000000 		.4byte	.LFB0
+ 1197 003c 1C000000 		.4byte	.LFE0
+ 1198 0040 00000000 		.4byte	.LFB1
+ 1199 0044 1A000000 		.4byte	.LFE1
+ 1200 0048 00000000 		.4byte	.LFB2
+ 1201 004c 14000000 		.4byte	.LFE2
+ 1202 0050 00000000 		.4byte	.LFB11
+ 1203 0054 0C000000 		.4byte	.LFE11
+ 1204 0058 00000000 		.4byte	.LFB12
+ 1205 005c 0C000000 		.4byte	.LFE12
+ 1206 0060 00000000 		.4byte	.LFB3
+ 1207 0064 10000000 		.4byte	.LFE3
+ 1208 0068 00000000 		.4byte	0
+ 1209 006c 00000000 		.4byte	0
+ 1210              		.section	.debug_line,"",%progbits
+ 1211              	.Ldebug_line0:
+ 1212 0000 5B010000 		.section	.debug_str,"MS",%progbits,1
+ 1212      02006C00 
+ 1212      00000201 
+ 1212      FB0E0D00 
+ 1212      01010101 
+ 1213              	.LASF17:
+ 1214 0000 72656733 		.ascii	"reg32\000"
+ 1214      3200
+ 1215              	.LASF38:
+ 1216 0006 433A5C55 		.ascii	"C:\\Users\\e.ivanov\\Documents\\GitHub\\generic\\Ma"
+ 1216      73657273 
+ 1216      5C652E69 
+ 1216      76616E6F 
+ 1216      765C446F 
+ 1217 0033 6E636865 		.ascii	"nchester encoder-decoder.cydsn\000"
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cckmol3x.s 			page 30
+
+
+ 1217      73746572 
+ 1217      20656E63 
+ 1217      6F646572 
+ 1217      2D646563 
+ 1218              	.LASF25:
+ 1219 0052 576F7264 		.ascii	"WordShifted_GetPriority\000"
+ 1219      53686966 
+ 1219      7465645F 
+ 1219      47657450 
+ 1219      72696F72 
+ 1220              	.LASF22:
+ 1221 006a 61646472 		.ascii	"address\000"
+ 1221      65737300 
+ 1222              	.LASF26:
+ 1223 0072 576F7264 		.ascii	"WordShifted_Enable\000"
+ 1223      53686966 
+ 1223      7465645F 
+ 1223      456E6162 
+ 1223      6C6500
+ 1224              	.LASF6:
+ 1225 0085 73686F72 		.ascii	"short unsigned int\000"
+ 1225      7420756E 
+ 1225      7369676E 
+ 1225      65642069 
+ 1225      6E7400
+ 1226              	.LASF34:
+ 1227 0098 53746F72 		.ascii	"Store\000"
+ 1227      6500
+ 1228              	.LASF27:
+ 1229 009e 576F7264 		.ascii	"WordShifted_Disable\000"
+ 1229      53686966 
+ 1229      7465645F 
+ 1229      44697361 
+ 1229      626C6500 
+ 1230              	.LASF14:
+ 1231 00b2 666C6F61 		.ascii	"float\000"
+ 1231      7400
+ 1232              	.LASF4:
+ 1233 00b8 756E7369 		.ascii	"unsigned char\000"
+ 1233      676E6564 
+ 1233      20636861 
+ 1233      7200
+ 1234              	.LASF36:
+ 1235 00c6 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1235      43313120 
+ 1235      352E342E 
+ 1235      31203230 
+ 1235      31363036 
+ 1236 00f9 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1236      20726576 
+ 1236      6973696F 
+ 1236      6E203233 
+ 1236      37373135 
+ 1237 012c 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1237      66756E63 
+ 1237      74696F6E 
+ 1237      2D736563 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cckmol3x.s 			page 31
+
+
+ 1237      74696F6E 
+ 1238              	.LASF16:
+ 1239 0154 72656738 		.ascii	"reg8\000"
+ 1239      00
+ 1240              	.LASF29:
+ 1241 0159 576F7264 		.ascii	"WordShifted_StartEx\000"
+ 1241      53686966 
+ 1241      7465645F 
+ 1241      53746172 
+ 1241      74457800 
+ 1242              	.LASF8:
+ 1243 016d 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1243      20756E73 
+ 1243      69676E65 
+ 1243      6420696E 
+ 1243      7400
+ 1244              	.LASF37:
+ 1245 017f 47656E65 		.ascii	"Generated_Source\\PSoC5\\WordShifted.c\000"
+ 1245      72617465 
+ 1245      645F536F 
+ 1245      75726365 
+ 1245      5C50536F 
+ 1246              	.LASF12:
+ 1247 01a4 75696E74 		.ascii	"uint8\000"
+ 1247      3800
+ 1248              	.LASF39:
+ 1249 01aa 576F7264 		.ascii	"WordShifted_GetState\000"
+ 1249      53686966 
+ 1249      7465645F 
+ 1249      47657453 
+ 1249      74617465 
+ 1250              	.LASF23:
+ 1251 01bf 7072696F 		.ascii	"priority\000"
+ 1251      72697479 
+ 1251      00
+ 1252              	.LASF20:
+ 1253 01c8 576F7264 		.ascii	"WordShifted_SetVector\000"
+ 1253      53686966 
+ 1253      7465645F 
+ 1253      53657456 
+ 1253      6563746F 
+ 1254              	.LASF15:
+ 1255 01de 646F7562 		.ascii	"double\000"
+ 1255      6C6500
+ 1256              	.LASF21:
+ 1257 01e5 576F7264 		.ascii	"WordShifted_SetPriority\000"
+ 1257      53686966 
+ 1257      7465645F 
+ 1257      53657450 
+ 1257      72696F72 
+ 1258              	.LASF13:
+ 1259 01fd 75696E74 		.ascii	"uint32\000"
+ 1259      333200
+ 1260              	.LASF0:
+ 1261 0204 756E7369 		.ascii	"unsigned int\000"
+ 1261      676E6564 
+ 1261      20696E74 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cckmol3x.s 			page 32
+
+
+ 1261      00
+ 1262              	.LASF32:
+ 1263 0211 576F7264 		.ascii	"WordShifted_ClearPending\000"
+ 1263      53686966 
+ 1263      7465645F 
+ 1263      436C6561 
+ 1263      7250656E 
+ 1264              	.LASF30:
+ 1265 022a 576F7264 		.ascii	"WordShifted_Stop\000"
+ 1265      53686966 
+ 1265      7465645F 
+ 1265      53746F70 
+ 1265      00
+ 1266              	.LASF9:
+ 1267 023b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1267      206C6F6E 
+ 1267      6720756E 
+ 1267      7369676E 
+ 1267      65642069 
+ 1268              	.LASF31:
+ 1269 0252 576F7264 		.ascii	"WordShifted_SetPending\000"
+ 1269      53686966 
+ 1269      7465645F 
+ 1269      53657450 
+ 1269      656E6469 
+ 1270              	.LASF18:
+ 1271 0269 63796973 		.ascii	"cyisraddress\000"
+ 1271      72616464 
+ 1271      72657373 
+ 1271      00
+ 1272              	.LASF10:
+ 1273 0276 73697A65 		.ascii	"sizetype\000"
+ 1273      74797065 
+ 1273      00
+ 1274              	.LASF1:
+ 1275 027f 6C6F6E67 		.ascii	"long long int\000"
+ 1275      206C6F6E 
+ 1275      6720696E 
+ 1275      7400
+ 1276              	.LASF11:
+ 1277 028d 63686172 		.ascii	"char\000"
+ 1277      00
+ 1278              	.LASF19:
+ 1279 0292 72616D56 		.ascii	"ramVectorTable\000"
+ 1279      6563746F 
+ 1279      72546162 
+ 1279      6C6500
+ 1280              	.LASF5:
+ 1281 02a1 73686F72 		.ascii	"short int\000"
+ 1281      7420696E 
+ 1281      7400
+ 1282              	.LASF24:
+ 1283 02ab 576F7264 		.ascii	"WordShifted_GetVector\000"
+ 1283      53686966 
+ 1283      7465645F 
+ 1283      47657456 
+ 1283      6563746F 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cckmol3x.s 			page 33
+
+
+ 1284              	.LASF35:
+ 1285 02c1 52656369 		.ascii	"RecieveShiftReg_GetIntStatus\000"
+ 1285      65766553 
+ 1285      68696674 
+ 1285      5265675F 
+ 1285      47657449 
+ 1286              	.LASF7:
+ 1287 02de 6C6F6E67 		.ascii	"long int\000"
+ 1287      20696E74 
+ 1287      00
+ 1288              	.LASF2:
+ 1289 02e7 6C6F6E67 		.ascii	"long double\000"
+ 1289      20646F75 
+ 1289      626C6500 
+ 1290              	.LASF3:
+ 1291 02f3 7369676E 		.ascii	"signed char\000"
+ 1291      65642063 
+ 1291      68617200 
+ 1292              	.LASF33:
+ 1293 02ff 576F7264 		.ascii	"WordShifted_Interrupt\000"
+ 1293      53686966 
+ 1293      7465645F 
+ 1293      496E7465 
+ 1293      72727570 
+ 1294              	.LASF28:
+ 1295 0315 576F7264 		.ascii	"WordShifted_Start\000"
+ 1295      53686966 
+ 1295      7465645F 
+ 1295      53746172 
+ 1295      7400
+ 1296              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

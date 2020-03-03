@@ -1,0 +1,2256 @@
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"isr_Load_TrShReg.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.isr_Load_TrShReg_SetVector,"ax",%progbits
+  20              		.align	2
+  21              		.global	isr_Load_TrShReg_SetVector
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	isr_Load_TrShReg_SetVector, %function
+  25              	isr_Load_TrShReg_SetVector:
+  26              	.LFB4:
+  27              		.file 1 "Generated_Source\\PSoC5\\isr_Load_TrShReg.c"
+   1:Generated_Source\PSoC5/isr_Load_TrShReg.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * File Name: isr_Load_TrShReg.c  
+   3:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Version 1.70
+   4:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+   5:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *  Description:
+   6:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   API for controlling the state of an interrupt.
+   7:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+   8:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+   9:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *  Note:
+  10:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+  11:Generated_Source\PSoC5/isr_Load_TrShReg.c **** ********************************************************************************
+  12:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  14:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  15:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *******************************************************************************/
+  17:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+  18:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+  19:Generated_Source\PSoC5/isr_Load_TrShReg.c **** #include <cydevice_trm.h>
+  20:Generated_Source\PSoC5/isr_Load_TrShReg.c **** #include <CyLib.h>
+  21:Generated_Source\PSoC5/isr_Load_TrShReg.c **** #include <isr_Load_TrShReg.h>
+  22:Generated_Source\PSoC5/isr_Load_TrShReg.c **** #include "cyapicallbacks.h"
+  23:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+  24:Generated_Source\PSoC5/isr_Load_TrShReg.c **** #if !defined(isr_Load_TrShReg__REMOVED) /* Check for removal by optimization */
+  25:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+  26:Generated_Source\PSoC5/isr_Load_TrShReg.c **** /*******************************************************************************
+  27:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *  Place your includes, defines and code here 
+  28:Generated_Source\PSoC5/isr_Load_TrShReg.c **** ********************************************************************************/
+  29:Generated_Source\PSoC5/isr_Load_TrShReg.c **** /* `#START isr_Load_TrShReg_intc` */
+  30:Generated_Source\PSoC5/isr_Load_TrShReg.c **** #include <TransmitShiftReg.h>
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 2
+
+
+  31:Generated_Source\PSoC5/isr_Load_TrShReg.c **** #include <StartTransmit.h>
+  32:Generated_Source\PSoC5/isr_Load_TrShReg.c **** #include <sender.h>    
+  33:Generated_Source\PSoC5/isr_Load_TrShReg.c **** #include <BitCounterEnc.h>
+  34:Generated_Source\PSoC5/isr_Load_TrShReg.c **** #include <TransmitWordShift.h>
+  35:Generated_Source\PSoC5/isr_Load_TrShReg.c **** #include <FrameAllow.h>
+  36:Generated_Source\PSoC5/isr_Load_TrShReg.c **** #include <FirstLoad.h>
+  37:Generated_Source\PSoC5/isr_Load_TrShReg.c **** /* `#END` */
+  38:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+  39:Generated_Source\PSoC5/isr_Load_TrShReg.c **** #ifndef CYINT_IRQ_BASE
+  40:Generated_Source\PSoC5/isr_Load_TrShReg.c **** #define CYINT_IRQ_BASE      16
+  41:Generated_Source\PSoC5/isr_Load_TrShReg.c **** #endif /* CYINT_IRQ_BASE */
+  42:Generated_Source\PSoC5/isr_Load_TrShReg.c **** #ifndef CYINT_VECT_TABLE
+  43:Generated_Source\PSoC5/isr_Load_TrShReg.c **** #define CYINT_VECT_TABLE    ((cyisraddress **) CYREG_NVIC_VECT_OFFSET)
+  44:Generated_Source\PSoC5/isr_Load_TrShReg.c **** #endif /* CYINT_VECT_TABLE */
+  45:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+  46:Generated_Source\PSoC5/isr_Load_TrShReg.c **** /* Declared in startup, used to set unused interrupts to. */
+  47:Generated_Source\PSoC5/isr_Load_TrShReg.c **** CY_ISR_PROTO(IntDefaultHandler);
+  48:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+  49:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+  50:Generated_Source\PSoC5/isr_Load_TrShReg.c **** /*******************************************************************************
+  51:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Function Name: isr_Load_TrShReg_Start
+  52:Generated_Source\PSoC5/isr_Load_TrShReg.c **** ********************************************************************************
+  53:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+  54:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Summary:
+  55:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *  Set up the interrupt and enable it. This function disables the interrupt, 
+  56:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *  sets the default interrupt vector, sets the priority from the value in the
+  57:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *  Design Wide Resources Interrupt Editor, then enables the interrupt to the 
+  58:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *  interrupt controller.
+  59:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+  60:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Parameters:  
+  61:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   None
+  62:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+  63:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Return:
+  64:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   None
+  65:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+  66:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *******************************************************************************/
+  67:Generated_Source\PSoC5/isr_Load_TrShReg.c **** void isr_Load_TrShReg_Start(void)
+  68:Generated_Source\PSoC5/isr_Load_TrShReg.c **** {
+  69:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     /* For all we know the interrupt is active. */
+  70:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     isr_Load_TrShReg_Disable();
+  71:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+  72:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     /* Set the ISR to point to the isr_Load_TrShReg Interrupt. */
+  73:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     isr_Load_TrShReg_SetVector(&isr_Load_TrShReg_Interrupt);
+  74:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+  75:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     /* Set the priority. */
+  76:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     isr_Load_TrShReg_SetPriority((uint8)isr_Load_TrShReg_INTC_PRIOR_NUMBER);
+  77:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+  78:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     /* Enable it. */
+  79:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     isr_Load_TrShReg_Enable();
+  80:Generated_Source\PSoC5/isr_Load_TrShReg.c **** }
+  81:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+  82:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+  83:Generated_Source\PSoC5/isr_Load_TrShReg.c **** /*******************************************************************************
+  84:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Function Name: isr_Load_TrShReg_StartEx
+  85:Generated_Source\PSoC5/isr_Load_TrShReg.c **** ********************************************************************************
+  86:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+  87:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Summary:
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 3
+
+
+  88:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *  Sets up the interrupt and enables it. This function disables the interrupt,
+  89:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *  sets the interrupt vector based on the address passed in, sets the priority 
+  90:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *  from the value in the Design Wide Resources Interrupt Editor, then enables 
+  91:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *  the interrupt to the interrupt controller.
+  92:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *  
+  93:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *  When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+  94:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *  used to provide consistent definition across compilers:
+  95:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *  
+  96:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *  Function definition example:
+  97:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   CY_ISR(MyISR)
+  98:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   {
+  99:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   }
+ 100:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   Function prototype example:
+ 101:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   CY_ISR_PROTO(MyISR);
+ 102:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 103:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Parameters:  
+ 104:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   address: Address of the ISR to set in the interrupt vector table.
+ 105:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 106:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Return:
+ 107:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   None
+ 108:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 109:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *******************************************************************************/
+ 110:Generated_Source\PSoC5/isr_Load_TrShReg.c **** void isr_Load_TrShReg_StartEx(cyisraddress address)
+ 111:Generated_Source\PSoC5/isr_Load_TrShReg.c **** {
+ 112:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     /* For all we know the interrupt is active. */
+ 113:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     isr_Load_TrShReg_Disable();
+ 114:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 115:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     /* Set the ISR to point to the isr_Load_TrShReg Interrupt. */
+ 116:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     isr_Load_TrShReg_SetVector(address);
+ 117:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 118:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     /* Set the priority. */
+ 119:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     isr_Load_TrShReg_SetPriority((uint8)isr_Load_TrShReg_INTC_PRIOR_NUMBER);
+ 120:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 121:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     /* Enable it. */
+ 122:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     isr_Load_TrShReg_Enable();
+ 123:Generated_Source\PSoC5/isr_Load_TrShReg.c **** }
+ 124:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 125:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 126:Generated_Source\PSoC5/isr_Load_TrShReg.c **** /*******************************************************************************
+ 127:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Function Name: isr_Load_TrShReg_Stop
+ 128:Generated_Source\PSoC5/isr_Load_TrShReg.c **** ********************************************************************************
+ 129:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 130:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Summary:
+ 131:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   Disables and removes the interrupt.
+ 132:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 133:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Parameters:  
+ 134:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   None
+ 135:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 136:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Return:
+ 137:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   None
+ 138:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 139:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *******************************************************************************/
+ 140:Generated_Source\PSoC5/isr_Load_TrShReg.c **** void isr_Load_TrShReg_Stop(void)
+ 141:Generated_Source\PSoC5/isr_Load_TrShReg.c **** {
+ 142:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     /* Disable this interrupt. */
+ 143:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     isr_Load_TrShReg_Disable();
+ 144:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 4
+
+
+ 145:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     /* Set the ISR to point to the passive one. */
+ 146:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     isr_Load_TrShReg_SetVector(&IntDefaultHandler);
+ 147:Generated_Source\PSoC5/isr_Load_TrShReg.c **** }
+ 148:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 149:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 150:Generated_Source\PSoC5/isr_Load_TrShReg.c **** /*******************************************************************************
+ 151:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Function Name: isr_Load_TrShReg_Interrupt
+ 152:Generated_Source\PSoC5/isr_Load_TrShReg.c **** ********************************************************************************
+ 153:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 154:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Summary:
+ 155:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   The default Interrupt Service Routine for isr_Load_TrShReg.
+ 156:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 157:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   Add custom code between the coments to keep the next version of this file
+ 158:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   from over writting your code.
+ 159:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 160:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Parameters:  
+ 161:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 162:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Return:
+ 163:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   None
+ 164:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 165:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *******************************************************************************/
+ 166:Generated_Source\PSoC5/isr_Load_TrShReg.c **** CY_ISR(isr_Load_TrShReg_Interrupt)
+ 167:Generated_Source\PSoC5/isr_Load_TrShReg.c **** {
+ 168:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     #ifdef isr_Load_TrShReg_INTERRUPT_INTERRUPT_CALLBACK
+ 169:Generated_Source\PSoC5/isr_Load_TrShReg.c ****         isr_Load_TrShReg_Interrupt_InterruptCallback();
+ 170:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     #endif /* isr_Load_TrShReg_INTERRUPT_INTERRUPT_CALLBACK */ 
+ 171:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 172:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     /*  Place your Interrupt code here. */
+ 173:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     /* `#START isr_Load_TrShReg_Interrupt` */
+ 174:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     //Load();
+ 175:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     SetNeedLoadFlag();
+ 176:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 177:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     *(char*)(&curStat)=TransmitShiftReg_SR_STATUS;
+ 178:Generated_Source\PSoC5/isr_Load_TrShReg.c **** //    if( TransmitShiftReg_RET_FIFO_EMPTY == TransmitShiftReg_GetFIFOStatus(TransmitShiftReg_IN_FIF
+ 179:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     if(curStat.F0_not_empty != 0){
+ 180:Generated_Source\PSoC5/isr_Load_TrShReg.c ****         StartTransmit_Write(0);
+ 181:Generated_Source\PSoC5/isr_Load_TrShReg.c ****         BitCounterEnc_ReadStatusRegister( );
+ 182:Generated_Source\PSoC5/isr_Load_TrShReg.c ****         TransmitWordShift_ClearPending( );
+ 183:Generated_Source\PSoC5/isr_Load_TrShReg.c ****         TransmitWordShift_Enable( );
+ 184:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     }
+ 185:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     TransmitShiftReg_GetIntStatus();
+ 186:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     isr_Load_TrShReg_ClearPending();
+ 187:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     /* `#END` */
+ 188:Generated_Source\PSoC5/isr_Load_TrShReg.c **** }
+ 189:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 190:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 191:Generated_Source\PSoC5/isr_Load_TrShReg.c **** /*******************************************************************************
+ 192:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Function Name: isr_Load_TrShReg_SetVector
+ 193:Generated_Source\PSoC5/isr_Load_TrShReg.c **** ********************************************************************************
+ 194:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 195:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Summary:
+ 196:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   Change the ISR vector for the Interrupt. Note calling isr_Load_TrShReg_Start
+ 197:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   will override any effect this method would have had. To set the vector 
+ 198:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   before the component has been started use isr_Load_TrShReg_StartEx instead.
+ 199:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * 
+ 200:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+ 201:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   used to provide consistent definition across compilers:
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 5
+
+
+ 202:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 203:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   Function definition example:
+ 204:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   CY_ISR(MyISR)
+ 205:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   {
+ 206:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   }
+ 207:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 208:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   Function prototype example:
+ 209:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *     CY_ISR_PROTO(MyISR);
+ 210:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 211:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Parameters:
+ 212:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   address: Address of the ISR to set in the interrupt vector table.
+ 213:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 214:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Return:
+ 215:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   None
+ 216:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 217:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *******************************************************************************/
+ 218:Generated_Source\PSoC5/isr_Load_TrShReg.c **** void isr_Load_TrShReg_SetVector(cyisraddress address)
+ 219:Generated_Source\PSoC5/isr_Load_TrShReg.c **** {
+  28              		.loc 1 219 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+ 220:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     cyisraddress * ramVectorTable;
+ 221:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 222:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
+  34              		.loc 1 222 0
+  35 0000 014B     		ldr	r3, .L2
+  36 0002 1B68     		ldr	r3, [r3]
+  37              	.LVL1:
+ 223:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 224:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     ramVectorTable[CYINT_IRQ_BASE + (uint32)isr_Load_TrShReg__INTC_NUMBER] = address;
+  38              		.loc 1 224 0
+  39 0004 1865     		str	r0, [r3, #80]
+  40 0006 7047     		bx	lr
+  41              	.L3:
+  42              		.align	2
+  43              	.L2:
+  44 0008 08ED00E0 		.word	-536810232
+  45              		.cfi_endproc
+  46              	.LFE4:
+  47              		.size	isr_Load_TrShReg_SetVector, .-isr_Load_TrShReg_SetVector
+  48              		.section	.text.isr_Load_TrShReg_GetVector,"ax",%progbits
+  49              		.align	2
+  50              		.global	isr_Load_TrShReg_GetVector
+  51              		.thumb
+  52              		.thumb_func
+  53              		.type	isr_Load_TrShReg_GetVector, %function
+  54              	isr_Load_TrShReg_GetVector:
+  55              	.LFB5:
+ 225:Generated_Source\PSoC5/isr_Load_TrShReg.c **** }
+ 226:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 227:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 228:Generated_Source\PSoC5/isr_Load_TrShReg.c **** /*******************************************************************************
+ 229:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Function Name: isr_Load_TrShReg_GetVector
+ 230:Generated_Source\PSoC5/isr_Load_TrShReg.c **** ********************************************************************************
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 6
+
+
+ 231:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 232:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Summary:
+ 233:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   Gets the "address" of the current ISR vector for the Interrupt.
+ 234:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 235:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Parameters:
+ 236:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   None
+ 237:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 238:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Return:
+ 239:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   Address of the ISR in the interrupt vector table.
+ 240:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 241:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *******************************************************************************/
+ 242:Generated_Source\PSoC5/isr_Load_TrShReg.c **** cyisraddress isr_Load_TrShReg_GetVector(void)
+ 243:Generated_Source\PSoC5/isr_Load_TrShReg.c **** {
+  56              		.loc 1 243 0
+  57              		.cfi_startproc
+  58              		@ args = 0, pretend = 0, frame = 0
+  59              		@ frame_needed = 0, uses_anonymous_args = 0
+  60              		@ link register save eliminated.
+ 244:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     cyisraddress * ramVectorTable;
+ 245:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 246:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
+  61              		.loc 1 246 0
+  62 0000 014B     		ldr	r3, .L5
+  63 0002 1B68     		ldr	r3, [r3]
+  64              	.LVL2:
+ 247:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 248:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     return ramVectorTable[CYINT_IRQ_BASE + (uint32)isr_Load_TrShReg__INTC_NUMBER];
+ 249:Generated_Source\PSoC5/isr_Load_TrShReg.c **** }
+  65              		.loc 1 249 0
+  66 0004 186D     		ldr	r0, [r3, #80]
+  67 0006 7047     		bx	lr
+  68              	.L6:
+  69              		.align	2
+  70              	.L5:
+  71 0008 08ED00E0 		.word	-536810232
+  72              		.cfi_endproc
+  73              	.LFE5:
+  74              		.size	isr_Load_TrShReg_GetVector, .-isr_Load_TrShReg_GetVector
+  75              		.section	.text.isr_Load_TrShReg_SetPriority,"ax",%progbits
+  76              		.align	2
+  77              		.global	isr_Load_TrShReg_SetPriority
+  78              		.thumb
+  79              		.thumb_func
+  80              		.type	isr_Load_TrShReg_SetPriority, %function
+  81              	isr_Load_TrShReg_SetPriority:
+  82              	.LFB6:
+ 250:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 251:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 252:Generated_Source\PSoC5/isr_Load_TrShReg.c **** /*******************************************************************************
+ 253:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Function Name: isr_Load_TrShReg_SetPriority
+ 254:Generated_Source\PSoC5/isr_Load_TrShReg.c **** ********************************************************************************
+ 255:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 256:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Summary:
+ 257:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   Sets the Priority of the Interrupt. 
+ 258:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 259:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   Note calling isr_Load_TrShReg_Start or isr_Load_TrShReg_StartEx will 
+ 260:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   override any effect this API would have had. This API should only be called
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 7
+
+
+ 261:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   after isr_Load_TrShReg_Start or isr_Load_TrShReg_StartEx has been called. 
+ 262:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   To set the initial priority for the component, use the Design-Wide Resources
+ 263:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   Interrupt Editor.
+ 264:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 265:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   Note This API has no effect on Non-maskable interrupt NMI).
+ 266:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 267:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Parameters:
+ 268:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   priority: Priority of the interrupt, 0 being the highest priority
+ 269:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *             PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 270:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *             PSoC 4: Priority is from 0 to 3.
+ 271:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 272:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Return:
+ 273:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   None
+ 274:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 275:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *******************************************************************************/
+ 276:Generated_Source\PSoC5/isr_Load_TrShReg.c **** void isr_Load_TrShReg_SetPriority(uint8 priority)
+ 277:Generated_Source\PSoC5/isr_Load_TrShReg.c **** {
+  83              		.loc 1 277 0
+  84              		.cfi_startproc
+  85              		@ args = 0, pretend = 0, frame = 0
+  86              		@ frame_needed = 0, uses_anonymous_args = 0
+  87              		@ link register save eliminated.
+  88              	.LVL3:
+ 278:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     *isr_Load_TrShReg_INTC_PRIOR = priority << 5;
+  89              		.loc 1 278 0
+  90 0000 4001     		lsls	r0, r0, #5
+  91              	.LVL4:
+  92 0002 C0B2     		uxtb	r0, r0
+  93 0004 014B     		ldr	r3, .L8
+  94 0006 1870     		strb	r0, [r3]
+  95 0008 7047     		bx	lr
+  96              	.L9:
+  97 000a 00BF     		.align	2
+  98              	.L8:
+  99 000c 04E400E0 		.word	-536812540
+ 100              		.cfi_endproc
+ 101              	.LFE6:
+ 102              		.size	isr_Load_TrShReg_SetPriority, .-isr_Load_TrShReg_SetPriority
+ 103              		.section	.text.isr_Load_TrShReg_GetPriority,"ax",%progbits
+ 104              		.align	2
+ 105              		.global	isr_Load_TrShReg_GetPriority
+ 106              		.thumb
+ 107              		.thumb_func
+ 108              		.type	isr_Load_TrShReg_GetPriority, %function
+ 109              	isr_Load_TrShReg_GetPriority:
+ 110              	.LFB7:
+ 279:Generated_Source\PSoC5/isr_Load_TrShReg.c **** }
+ 280:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 281:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 282:Generated_Source\PSoC5/isr_Load_TrShReg.c **** /*******************************************************************************
+ 283:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Function Name: isr_Load_TrShReg_GetPriority
+ 284:Generated_Source\PSoC5/isr_Load_TrShReg.c **** ********************************************************************************
+ 285:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 286:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Summary:
+ 287:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   Gets the Priority of the Interrupt.
+ 288:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 289:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Parameters:
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 8
+
+
+ 290:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   None
+ 291:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 292:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Return:
+ 293:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   Priority of the interrupt, 0 being the highest priority
+ 294:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *    PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 295:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *    PSoC 4: Priority is from 0 to 3.
+ 296:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 297:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *******************************************************************************/
+ 298:Generated_Source\PSoC5/isr_Load_TrShReg.c **** uint8 isr_Load_TrShReg_GetPriority(void)
+ 299:Generated_Source\PSoC5/isr_Load_TrShReg.c **** {
+ 111              		.loc 1 299 0
+ 112              		.cfi_startproc
+ 113              		@ args = 0, pretend = 0, frame = 0
+ 114              		@ frame_needed = 0, uses_anonymous_args = 0
+ 115              		@ link register save eliminated.
+ 300:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     uint8 priority;
+ 301:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 302:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 303:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     priority = *isr_Load_TrShReg_INTC_PRIOR >> 5;
+ 116              		.loc 1 303 0
+ 117 0000 014B     		ldr	r3, .L11
+ 118 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 119              	.LVL5:
+ 304:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 305:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     return priority;
+ 306:Generated_Source\PSoC5/isr_Load_TrShReg.c **** }
+ 120              		.loc 1 306 0
+ 121 0004 4009     		lsrs	r0, r0, #5
+ 122              	.LVL6:
+ 123 0006 7047     		bx	lr
+ 124              	.L12:
+ 125              		.align	2
+ 126              	.L11:
+ 127 0008 04E400E0 		.word	-536812540
+ 128              		.cfi_endproc
+ 129              	.LFE7:
+ 130              		.size	isr_Load_TrShReg_GetPriority, .-isr_Load_TrShReg_GetPriority
+ 131              		.section	.text.isr_Load_TrShReg_Enable,"ax",%progbits
+ 132              		.align	2
+ 133              		.global	isr_Load_TrShReg_Enable
+ 134              		.thumb
+ 135              		.thumb_func
+ 136              		.type	isr_Load_TrShReg_Enable, %function
+ 137              	isr_Load_TrShReg_Enable:
+ 138              	.LFB8:
+ 307:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 308:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 309:Generated_Source\PSoC5/isr_Load_TrShReg.c **** /*******************************************************************************
+ 310:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Function Name: isr_Load_TrShReg_Enable
+ 311:Generated_Source\PSoC5/isr_Load_TrShReg.c **** ********************************************************************************
+ 312:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 313:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Summary:
+ 314:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   Enables the interrupt to the interrupt controller. Do not call this function
+ 315:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   unless ISR_Start() has been called or the functionality of the ISR_Start() 
+ 316:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   function, which sets the vector and the priority, has been called.
+ 317:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 318:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Parameters:
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 9
+
+
+ 319:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   None
+ 320:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 321:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Return:
+ 322:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   None
+ 323:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 324:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *******************************************************************************/
+ 325:Generated_Source\PSoC5/isr_Load_TrShReg.c **** void isr_Load_TrShReg_Enable(void)
+ 326:Generated_Source\PSoC5/isr_Load_TrShReg.c **** {
+ 139              		.loc 1 326 0
+ 140              		.cfi_startproc
+ 141              		@ args = 0, pretend = 0, frame = 0
+ 142              		@ frame_needed = 0, uses_anonymous_args = 0
+ 143              		@ link register save eliminated.
+ 327:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     /* Enable the general interrupt. */
+ 328:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     *isr_Load_TrShReg_INTC_SET_EN = isr_Load_TrShReg__INTC_MASK;
+ 144              		.loc 1 328 0
+ 145 0000 1022     		movs	r2, #16
+ 146 0002 014B     		ldr	r3, .L14
+ 147 0004 1A60     		str	r2, [r3]
+ 148 0006 7047     		bx	lr
+ 149              	.L15:
+ 150              		.align	2
+ 151              	.L14:
+ 152 0008 00E100E0 		.word	-536813312
+ 153              		.cfi_endproc
+ 154              	.LFE8:
+ 155              		.size	isr_Load_TrShReg_Enable, .-isr_Load_TrShReg_Enable
+ 156              		.section	.text.isr_Load_TrShReg_GetState,"ax",%progbits
+ 157              		.align	2
+ 158              		.global	isr_Load_TrShReg_GetState
+ 159              		.thumb
+ 160              		.thumb_func
+ 161              		.type	isr_Load_TrShReg_GetState, %function
+ 162              	isr_Load_TrShReg_GetState:
+ 163              	.LFB9:
+ 329:Generated_Source\PSoC5/isr_Load_TrShReg.c **** }
+ 330:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 331:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 332:Generated_Source\PSoC5/isr_Load_TrShReg.c **** /*******************************************************************************
+ 333:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Function Name: isr_Load_TrShReg_GetState
+ 334:Generated_Source\PSoC5/isr_Load_TrShReg.c **** ********************************************************************************
+ 335:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 336:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Summary:
+ 337:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   Gets the state (enabled, disabled) of the Interrupt.
+ 338:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 339:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Parameters:
+ 340:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   None
+ 341:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 342:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Return:
+ 343:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   1 if enabled, 0 if disabled.
+ 344:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 345:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *******************************************************************************/
+ 346:Generated_Source\PSoC5/isr_Load_TrShReg.c **** uint8 isr_Load_TrShReg_GetState(void)
+ 347:Generated_Source\PSoC5/isr_Load_TrShReg.c **** {
+ 164              		.loc 1 347 0
+ 165              		.cfi_startproc
+ 166              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 10
+
+
+ 167              		@ frame_needed = 0, uses_anonymous_args = 0
+ 168              		@ link register save eliminated.
+ 348:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     /* Get the state of the general interrupt. */
+ 349:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     return ((*isr_Load_TrShReg_INTC_SET_EN & (uint32)isr_Load_TrShReg__INTC_MASK) != 0u) ? 1u:0u;
+ 169              		.loc 1 349 0
+ 170 0000 044B     		ldr	r3, .L19
+ 171 0002 1B68     		ldr	r3, [r3]
+ 172 0004 13F0100F 		tst	r3, #16
+ 173 0008 01D0     		beq	.L18
+ 174 000a 0120     		movs	r0, #1
+ 175 000c 7047     		bx	lr
+ 176              	.L18:
+ 177 000e 0020     		movs	r0, #0
+ 350:Generated_Source\PSoC5/isr_Load_TrShReg.c **** }
+ 178              		.loc 1 350 0
+ 179 0010 7047     		bx	lr
+ 180              	.L20:
+ 181 0012 00BF     		.align	2
+ 182              	.L19:
+ 183 0014 00E100E0 		.word	-536813312
+ 184              		.cfi_endproc
+ 185              	.LFE9:
+ 186              		.size	isr_Load_TrShReg_GetState, .-isr_Load_TrShReg_GetState
+ 187              		.section	.text.isr_Load_TrShReg_Disable,"ax",%progbits
+ 188              		.align	2
+ 189              		.global	isr_Load_TrShReg_Disable
+ 190              		.thumb
+ 191              		.thumb_func
+ 192              		.type	isr_Load_TrShReg_Disable, %function
+ 193              	isr_Load_TrShReg_Disable:
+ 194              	.LFB10:
+ 351:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 352:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 353:Generated_Source\PSoC5/isr_Load_TrShReg.c **** /*******************************************************************************
+ 354:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Function Name: isr_Load_TrShReg_Disable
+ 355:Generated_Source\PSoC5/isr_Load_TrShReg.c **** ********************************************************************************
+ 356:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 357:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Summary:
+ 358:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   Disables the Interrupt in the interrupt controller.
+ 359:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 360:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Parameters:
+ 361:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   None
+ 362:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 363:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Return:
+ 364:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   None
+ 365:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 366:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *******************************************************************************/
+ 367:Generated_Source\PSoC5/isr_Load_TrShReg.c **** void isr_Load_TrShReg_Disable(void)
+ 368:Generated_Source\PSoC5/isr_Load_TrShReg.c **** {
+ 195              		.loc 1 368 0
+ 196              		.cfi_startproc
+ 197              		@ args = 0, pretend = 0, frame = 0
+ 198              		@ frame_needed = 0, uses_anonymous_args = 0
+ 199              		@ link register save eliminated.
+ 369:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     /* Disable the general interrupt. */
+ 370:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     *isr_Load_TrShReg_INTC_CLR_EN = isr_Load_TrShReg__INTC_MASK;
+ 200              		.loc 1 370 0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 11
+
+
+ 201 0000 1022     		movs	r2, #16
+ 202 0002 014B     		ldr	r3, .L22
+ 203 0004 1A60     		str	r2, [r3]
+ 204 0006 7047     		bx	lr
+ 205              	.L23:
+ 206              		.align	2
+ 207              	.L22:
+ 208 0008 80E100E0 		.word	-536813184
+ 209              		.cfi_endproc
+ 210              	.LFE10:
+ 211              		.size	isr_Load_TrShReg_Disable, .-isr_Load_TrShReg_Disable
+ 212              		.section	.text.isr_Load_TrShReg_Start,"ax",%progbits
+ 213              		.align	2
+ 214              		.global	isr_Load_TrShReg_Start
+ 215              		.thumb
+ 216              		.thumb_func
+ 217              		.type	isr_Load_TrShReg_Start, %function
+ 218              	isr_Load_TrShReg_Start:
+ 219              	.LFB0:
+  68:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     /* For all we know the interrupt is active. */
+ 220              		.loc 1 68 0
+ 221              		.cfi_startproc
+ 222              		@ args = 0, pretend = 0, frame = 0
+ 223              		@ frame_needed = 0, uses_anonymous_args = 0
+ 224 0000 08B5     		push	{r3, lr}
+ 225              		.cfi_def_cfa_offset 8
+ 226              		.cfi_offset 3, -8
+ 227              		.cfi_offset 14, -4
+  70:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 228              		.loc 1 70 0
+ 229 0002 FFF7FEFF 		bl	isr_Load_TrShReg_Disable
+ 230              	.LVL7:
+  73:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 231              		.loc 1 73 0
+ 232 0006 0448     		ldr	r0, .L26
+ 233 0008 FFF7FEFF 		bl	isr_Load_TrShReg_SetVector
+ 234              	.LVL8:
+  76:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 235              		.loc 1 76 0
+ 236 000c 0620     		movs	r0, #6
+ 237 000e FFF7FEFF 		bl	isr_Load_TrShReg_SetPriority
+ 238              	.LVL9:
+  79:Generated_Source\PSoC5/isr_Load_TrShReg.c **** }
+ 239              		.loc 1 79 0
+ 240 0012 FFF7FEFF 		bl	isr_Load_TrShReg_Enable
+ 241              	.LVL10:
+ 242 0016 08BD     		pop	{r3, pc}
+ 243              	.L27:
+ 244              		.align	2
+ 245              	.L26:
+ 246 0018 00000000 		.word	isr_Load_TrShReg_Interrupt
+ 247              		.cfi_endproc
+ 248              	.LFE0:
+ 249              		.size	isr_Load_TrShReg_Start, .-isr_Load_TrShReg_Start
+ 250              		.section	.text.isr_Load_TrShReg_StartEx,"ax",%progbits
+ 251              		.align	2
+ 252              		.global	isr_Load_TrShReg_StartEx
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 12
+
+
+ 253              		.thumb
+ 254              		.thumb_func
+ 255              		.type	isr_Load_TrShReg_StartEx, %function
+ 256              	isr_Load_TrShReg_StartEx:
+ 257              	.LFB1:
+ 111:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     /* For all we know the interrupt is active. */
+ 258              		.loc 1 111 0
+ 259              		.cfi_startproc
+ 260              		@ args = 0, pretend = 0, frame = 0
+ 261              		@ frame_needed = 0, uses_anonymous_args = 0
+ 262              	.LVL11:
+ 263 0000 10B5     		push	{r4, lr}
+ 264              		.cfi_def_cfa_offset 8
+ 265              		.cfi_offset 4, -8
+ 266              		.cfi_offset 14, -4
+ 267 0002 0446     		mov	r4, r0
+ 113:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 268              		.loc 1 113 0
+ 269 0004 FFF7FEFF 		bl	isr_Load_TrShReg_Disable
+ 270              	.LVL12:
+ 116:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 271              		.loc 1 116 0
+ 272 0008 2046     		mov	r0, r4
+ 273 000a FFF7FEFF 		bl	isr_Load_TrShReg_SetVector
+ 274              	.LVL13:
+ 119:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 275              		.loc 1 119 0
+ 276 000e 0620     		movs	r0, #6
+ 277 0010 FFF7FEFF 		bl	isr_Load_TrShReg_SetPriority
+ 278              	.LVL14:
+ 122:Generated_Source\PSoC5/isr_Load_TrShReg.c **** }
+ 279              		.loc 1 122 0
+ 280 0014 FFF7FEFF 		bl	isr_Load_TrShReg_Enable
+ 281              	.LVL15:
+ 282 0018 10BD     		pop	{r4, pc}
+ 283              		.cfi_endproc
+ 284              	.LFE1:
+ 285              		.size	isr_Load_TrShReg_StartEx, .-isr_Load_TrShReg_StartEx
+ 286 001a 00BF     		.section	.text.isr_Load_TrShReg_Stop,"ax",%progbits
+ 287              		.align	2
+ 288              		.global	isr_Load_TrShReg_Stop
+ 289              		.thumb
+ 290              		.thumb_func
+ 291              		.type	isr_Load_TrShReg_Stop, %function
+ 292              	isr_Load_TrShReg_Stop:
+ 293              	.LFB2:
+ 141:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     /* Disable this interrupt. */
+ 294              		.loc 1 141 0
+ 295              		.cfi_startproc
+ 296              		@ args = 0, pretend = 0, frame = 0
+ 297              		@ frame_needed = 0, uses_anonymous_args = 0
+ 298 0000 08B5     		push	{r3, lr}
+ 299              		.cfi_def_cfa_offset 8
+ 300              		.cfi_offset 3, -8
+ 301              		.cfi_offset 14, -4
+ 143:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 302              		.loc 1 143 0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 13
+
+
+ 303 0002 FFF7FEFF 		bl	isr_Load_TrShReg_Disable
+ 304              	.LVL16:
+ 146:Generated_Source\PSoC5/isr_Load_TrShReg.c **** }
+ 305              		.loc 1 146 0
+ 306 0006 0248     		ldr	r0, .L32
+ 307 0008 FFF7FEFF 		bl	isr_Load_TrShReg_SetVector
+ 308              	.LVL17:
+ 309 000c 08BD     		pop	{r3, pc}
+ 310              	.L33:
+ 311 000e 00BF     		.align	2
+ 312              	.L32:
+ 313 0010 00000000 		.word	IntDefaultHandler
+ 314              		.cfi_endproc
+ 315              	.LFE2:
+ 316              		.size	isr_Load_TrShReg_Stop, .-isr_Load_TrShReg_Stop
+ 317              		.section	.text.isr_Load_TrShReg_SetPending,"ax",%progbits
+ 318              		.align	2
+ 319              		.global	isr_Load_TrShReg_SetPending
+ 320              		.thumb
+ 321              		.thumb_func
+ 322              		.type	isr_Load_TrShReg_SetPending, %function
+ 323              	isr_Load_TrShReg_SetPending:
+ 324              	.LFB11:
+ 371:Generated_Source\PSoC5/isr_Load_TrShReg.c **** }
+ 372:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 373:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 374:Generated_Source\PSoC5/isr_Load_TrShReg.c **** /*******************************************************************************
+ 375:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Function Name: isr_Load_TrShReg_SetPending
+ 376:Generated_Source\PSoC5/isr_Load_TrShReg.c **** ********************************************************************************
+ 377:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 378:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Summary:
+ 379:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   Causes the Interrupt to enter the pending state, a software method of
+ 380:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   generating the interrupt.
+ 381:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 382:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Parameters:
+ 383:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   None
+ 384:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 385:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Return:
+ 386:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   None
+ 387:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 388:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Side Effects:
+ 389:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   If interrupts are enabled and the interrupt is set up properly, the ISR is
+ 390:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   entered (depending on the priority of this interrupt and other pending 
+ 391:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   interrupts).
+ 392:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 393:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *******************************************************************************/
+ 394:Generated_Source\PSoC5/isr_Load_TrShReg.c **** void isr_Load_TrShReg_SetPending(void)
+ 395:Generated_Source\PSoC5/isr_Load_TrShReg.c **** {
+ 325              		.loc 1 395 0
+ 326              		.cfi_startproc
+ 327              		@ args = 0, pretend = 0, frame = 0
+ 328              		@ frame_needed = 0, uses_anonymous_args = 0
+ 329              		@ link register save eliminated.
+ 396:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     *isr_Load_TrShReg_INTC_SET_PD = isr_Load_TrShReg__INTC_MASK;
+ 330              		.loc 1 396 0
+ 331 0000 1022     		movs	r2, #16
+ 332 0002 014B     		ldr	r3, .L35
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 14
+
+
+ 333 0004 1A60     		str	r2, [r3]
+ 334 0006 7047     		bx	lr
+ 335              	.L36:
+ 336              		.align	2
+ 337              	.L35:
+ 338 0008 00E200E0 		.word	-536813056
+ 339              		.cfi_endproc
+ 340              	.LFE11:
+ 341              		.size	isr_Load_TrShReg_SetPending, .-isr_Load_TrShReg_SetPending
+ 342              		.section	.text.isr_Load_TrShReg_ClearPending,"ax",%progbits
+ 343              		.align	2
+ 344              		.global	isr_Load_TrShReg_ClearPending
+ 345              		.thumb
+ 346              		.thumb_func
+ 347              		.type	isr_Load_TrShReg_ClearPending, %function
+ 348              	isr_Load_TrShReg_ClearPending:
+ 349              	.LFB12:
+ 397:Generated_Source\PSoC5/isr_Load_TrShReg.c **** }
+ 398:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 399:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 400:Generated_Source\PSoC5/isr_Load_TrShReg.c **** /*******************************************************************************
+ 401:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Function Name: isr_Load_TrShReg_ClearPending
+ 402:Generated_Source\PSoC5/isr_Load_TrShReg.c **** ********************************************************************************
+ 403:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 404:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Summary:
+ 405:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   Clears a pending interrupt in the interrupt controller.
+ 406:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 407:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   Note Some interrupt sources are clear-on-read and require the block 
+ 408:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   interrupt/status register to be read/cleared with the appropriate block API 
+ 409:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   (GPIO, UART, and so on). Otherwise the ISR will continue to remain in 
+ 410:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   pending state even though the interrupt itself is cleared using this API.
+ 411:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 412:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Parameters:
+ 413:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   None
+ 414:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 415:Generated_Source\PSoC5/isr_Load_TrShReg.c **** * Return:
+ 416:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *   None
+ 417:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *
+ 418:Generated_Source\PSoC5/isr_Load_TrShReg.c **** *******************************************************************************/
+ 419:Generated_Source\PSoC5/isr_Load_TrShReg.c **** void isr_Load_TrShReg_ClearPending(void)
+ 420:Generated_Source\PSoC5/isr_Load_TrShReg.c **** {
+ 350              		.loc 1 420 0
+ 351              		.cfi_startproc
+ 352              		@ args = 0, pretend = 0, frame = 0
+ 353              		@ frame_needed = 0, uses_anonymous_args = 0
+ 354              		@ link register save eliminated.
+ 421:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     *isr_Load_TrShReg_INTC_CLR_PD = isr_Load_TrShReg__INTC_MASK;
+ 355              		.loc 1 421 0
+ 356 0000 1022     		movs	r2, #16
+ 357 0002 014B     		ldr	r3, .L38
+ 358 0004 1A60     		str	r2, [r3]
+ 359 0006 7047     		bx	lr
+ 360              	.L39:
+ 361              		.align	2
+ 362              	.L38:
+ 363 0008 80E200E0 		.word	-536812928
+ 364              		.cfi_endproc
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 15
+
+
+ 365              	.LFE12:
+ 366              		.size	isr_Load_TrShReg_ClearPending, .-isr_Load_TrShReg_ClearPending
+ 367              		.section	.text.isr_Load_TrShReg_Interrupt,"ax",%progbits
+ 368              		.align	2
+ 369              		.global	isr_Load_TrShReg_Interrupt
+ 370              		.thumb
+ 371              		.thumb_func
+ 372              		.type	isr_Load_TrShReg_Interrupt, %function
+ 373              	isr_Load_TrShReg_Interrupt:
+ 374              	.LFB3:
+ 167:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     #ifdef isr_Load_TrShReg_INTERRUPT_INTERRUPT_CALLBACK
+ 375              		.loc 1 167 0
+ 376              		.cfi_startproc
+ 377              		@ args = 0, pretend = 0, frame = 0
+ 378              		@ frame_needed = 0, uses_anonymous_args = 0
+ 379 0000 08B5     		push	{r3, lr}
+ 380              		.cfi_def_cfa_offset 8
+ 381              		.cfi_offset 3, -8
+ 382              		.cfi_offset 14, -4
+ 175:Generated_Source\PSoC5/isr_Load_TrShReg.c **** 
+ 383              		.loc 1 175 0
+ 384 0002 FFF7FEFF 		bl	SetNeedLoadFlag
+ 385              	.LVL18:
+ 177:Generated_Source\PSoC5/isr_Load_TrShReg.c **** //    if( TransmitShiftReg_RET_FIFO_EMPTY == TransmitShiftReg_GetFIFOStatus(TransmitShiftReg_IN_FIF
+ 386              		.loc 1 177 0
+ 387 0006 0B4B     		ldr	r3, .L43
+ 388 0008 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 389 000a DBB2     		uxtb	r3, r3
+ 390 000c 0A4A     		ldr	r2, .L43+4
+ 391 000e 1370     		strb	r3, [r2]
+ 179:Generated_Source\PSoC5/isr_Load_TrShReg.c ****         StartTransmit_Write(0);
+ 392              		.loc 1 179 0
+ 393 0010 13F0080F 		tst	r3, #8
+ 394 0014 08D0     		beq	.L41
+ 180:Generated_Source\PSoC5/isr_Load_TrShReg.c ****         BitCounterEnc_ReadStatusRegister( );
+ 395              		.loc 1 180 0
+ 396 0016 0020     		movs	r0, #0
+ 397 0018 FFF7FEFF 		bl	StartTransmit_Write
+ 398              	.LVL19:
+ 181:Generated_Source\PSoC5/isr_Load_TrShReg.c ****         TransmitWordShift_ClearPending( );
+ 399              		.loc 1 181 0
+ 400 001c FFF7FEFF 		bl	BitCounterEnc_ReadStatusRegister
+ 401              	.LVL20:
+ 182:Generated_Source\PSoC5/isr_Load_TrShReg.c ****         TransmitWordShift_Enable( );
+ 402              		.loc 1 182 0
+ 403 0020 FFF7FEFF 		bl	TransmitWordShift_ClearPending
+ 404              	.LVL21:
+ 183:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     }
+ 405              		.loc 1 183 0
+ 406 0024 FFF7FEFF 		bl	TransmitWordShift_Enable
+ 407              	.LVL22:
+ 408              	.L41:
+ 185:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     isr_Load_TrShReg_ClearPending();
+ 409              		.loc 1 185 0
+ 410 0028 FFF7FEFF 		bl	TransmitShiftReg_GetIntStatus
+ 411              	.LVL23:
+ 186:Generated_Source\PSoC5/isr_Load_TrShReg.c ****     /* `#END` */
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 16
+
+
+ 412              		.loc 1 186 0
+ 413 002c FFF7FEFF 		bl	isr_Load_TrShReg_ClearPending
+ 414              	.LVL24:
+ 415 0030 08BD     		pop	{r3, pc}
+ 416              	.L44:
+ 417 0032 00BF     		.align	2
+ 418              	.L43:
+ 419 0034 68650040 		.word	1073767784
+ 420 0038 00000000 		.word	curStat
+ 421              		.cfi_endproc
+ 422              	.LFE3:
+ 423              		.size	isr_Load_TrShReg_Interrupt, .-isr_Load_TrShReg_Interrupt
+ 424              		.text
+ 425              	.Letext0:
+ 426              		.file 2 "Generated_Source\\PSoC5/cytypes.h"
+ 427              		.file 3 "./sender.h"
+ 428              		.file 4 "Generated_Source\\PSoC5/StartTransmit.h"
+ 429              		.file 5 "Generated_Source\\PSoC5/BitCounterEnc.h"
+ 430              		.file 6 "Generated_Source\\PSoC5/TransmitWordShift.h"
+ 431              		.file 7 "Generated_Source\\PSoC5/TransmitShiftReg.h"
+ 432              		.section	.debug_info,"",%progbits
+ 433              	.Ldebug_info0:
+ 434 0000 E6030000 		.4byte	0x3e6
+ 435 0004 0400     		.2byte	0x4
+ 436 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 437 000a 04       		.byte	0x4
+ 438 000b 01       		.uleb128 0x1
+ 439 000c 1C010000 		.4byte	.LASF48
+ 440 0010 0C       		.byte	0xc
+ 441 0011 0A020000 		.4byte	.LASF49
+ 442 0015 22000000 		.4byte	.LASF50
+ 443 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 444 001d 00000000 		.4byte	0
+ 445 0021 00000000 		.4byte	.Ldebug_line0
+ 446 0025 02       		.uleb128 0x2
+ 447 0026 04       		.byte	0x4
+ 448 0027 05       		.byte	0x5
+ 449 0028 696E7400 		.ascii	"int\000"
+ 450 002c 03       		.uleb128 0x3
+ 451 002d 04       		.byte	0x4
+ 452 002e 07       		.byte	0x7
+ 453 002f 6B020000 		.4byte	.LASF0
+ 454 0033 03       		.uleb128 0x3
+ 455 0034 08       		.byte	0x8
+ 456 0035 05       		.byte	0x5
+ 457 0036 64030000 		.4byte	.LASF1
+ 458 003a 03       		.uleb128 0x3
+ 459 003b 08       		.byte	0x8
+ 460 003c 04       		.byte	0x4
+ 461 003d E9030000 		.4byte	.LASF2
+ 462 0041 03       		.uleb128 0x3
+ 463 0042 01       		.byte	0x1
+ 464 0043 06       		.byte	0x6
+ 465 0044 F5030000 		.4byte	.LASF3
+ 466 0048 03       		.uleb128 0x3
+ 467 0049 01       		.byte	0x1
+ 468 004a 08       		.byte	0x8
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 17
+
+
+ 469 004b 0E010000 		.4byte	.LASF4
+ 470 004f 03       		.uleb128 0x3
+ 471 0050 02       		.byte	0x2
+ 472 0051 05       		.byte	0x5
+ 473 0052 AA030000 		.4byte	.LASF5
+ 474 0056 03       		.uleb128 0x3
+ 475 0057 02       		.byte	0x2
+ 476 0058 07       		.byte	0x7
+ 477 0059 AE000000 		.4byte	.LASF6
+ 478 005d 03       		.uleb128 0x3
+ 479 005e 04       		.byte	0x4
+ 480 005f 05       		.byte	0x5
+ 481 0060 E0030000 		.4byte	.LASF7
+ 482 0064 03       		.uleb128 0x3
+ 483 0065 04       		.byte	0x4
+ 484 0066 07       		.byte	0x7
+ 485 0067 E9010000 		.4byte	.LASF8
+ 486 006b 03       		.uleb128 0x3
+ 487 006c 08       		.byte	0x8
+ 488 006d 07       		.byte	0x7
+ 489 006e 9B020000 		.4byte	.LASF9
+ 490 0072 03       		.uleb128 0x3
+ 491 0073 04       		.byte	0x4
+ 492 0074 07       		.byte	0x7
+ 493 0075 5B030000 		.4byte	.LASF10
+ 494 0079 03       		.uleb128 0x3
+ 495 007a 01       		.byte	0x1
+ 496 007b 08       		.byte	0x8
+ 497 007c 89030000 		.4byte	.LASF11
+ 498 0080 04       		.uleb128 0x4
+ 499 0081 04       		.byte	0x4
+ 500 0082 86000000 		.4byte	0x86
+ 501 0086 05       		.uleb128 0x5
+ 502 0087 06       		.uleb128 0x6
+ 503 0088 FB010000 		.4byte	.LASF12
+ 504 008c 02       		.byte	0x2
+ 505 008d E401     		.2byte	0x1e4
+ 506 008f 48000000 		.4byte	0x48
+ 507 0093 06       		.uleb128 0x6
+ 508 0094 64020000 		.4byte	.LASF13
+ 509 0098 02       		.byte	0x2
+ 510 0099 E601     		.2byte	0x1e6
+ 511 009b 64000000 		.4byte	0x64
+ 512 009f 03       		.uleb128 0x3
+ 513 00a0 04       		.byte	0x4
+ 514 00a1 04       		.byte	0x4
+ 515 00a2 00010000 		.4byte	.LASF14
+ 516 00a6 03       		.uleb128 0x3
+ 517 00a7 08       		.byte	0x8
+ 518 00a8 04       		.byte	0x4
+ 519 00a9 34020000 		.4byte	.LASF15
+ 520 00ad 06       		.uleb128 0x6
+ 521 00ae AA010000 		.4byte	.LASF16
+ 522 00b2 02       		.byte	0x2
+ 523 00b3 8E02     		.2byte	0x28e
+ 524 00b5 B9000000 		.4byte	0xb9
+ 525 00b9 07       		.uleb128 0x7
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 18
+
+
+ 526 00ba 87000000 		.4byte	0x87
+ 527 00be 06       		.uleb128 0x6
+ 528 00bf 1C000000 		.4byte	.LASF17
+ 529 00c3 02       		.byte	0x2
+ 530 00c4 9002     		.2byte	0x290
+ 531 00c6 CA000000 		.4byte	0xca
+ 532 00ca 07       		.uleb128 0x7
+ 533 00cb 93000000 		.4byte	0x93
+ 534 00cf 06       		.uleb128 0x6
+ 535 00d0 E8020000 		.4byte	.LASF18
+ 536 00d4 02       		.byte	0x2
+ 537 00d5 A002     		.2byte	0x2a0
+ 538 00d7 80000000 		.4byte	0x80
+ 539 00db 08       		.uleb128 0x8
+ 540 00dc 04       		.byte	0x4
+ 541 00dd 03       		.byte	0x3
+ 542 00de 0F       		.byte	0xf
+ 543 00df 4D010000 		.4byte	0x14d
+ 544 00e3 09       		.uleb128 0x9
+ 545 00e4 B4030000 		.4byte	.LASF19
+ 546 00e8 03       		.byte	0x3
+ 547 00e9 10       		.byte	0x10
+ 548 00ea 25000000 		.4byte	0x25
+ 549 00ee 04       		.byte	0x4
+ 550 00ef 01       		.byte	0x1
+ 551 00f0 1F       		.byte	0x1f
+ 552 00f1 00       		.byte	0
+ 553 00f2 09       		.uleb128 0x9
+ 554 00f3 DA030000 		.4byte	.LASF20
+ 555 00f7 03       		.byte	0x3
+ 556 00f8 11       		.byte	0x11
+ 557 00f9 25000000 		.4byte	0x25
+ 558 00fd 04       		.byte	0x4
+ 559 00fe 01       		.byte	0x1
+ 560 00ff 1E       		.byte	0x1e
+ 561 0100 00       		.byte	0
+ 562 0101 09       		.uleb128 0x9
+ 563 0102 6E000000 		.4byte	.LASF21
+ 564 0106 03       		.byte	0x3
+ 565 0107 12       		.byte	0x12
+ 566 0108 25000000 		.4byte	0x25
+ 567 010c 04       		.byte	0x4
+ 568 010d 01       		.byte	0x1
+ 569 010e 1D       		.byte	0x1d
+ 570 010f 00       		.byte	0
+ 571 0110 09       		.uleb128 0x9
+ 572 0111 9D030000 		.4byte	.LASF22
+ 573 0115 03       		.byte	0x3
+ 574 0116 13       		.byte	0x13
+ 575 0117 25000000 		.4byte	0x25
+ 576 011b 04       		.byte	0x4
+ 577 011c 01       		.byte	0x1
+ 578 011d 1C       		.byte	0x1c
+ 579 011e 00       		.byte	0
+ 580 011f 09       		.uleb128 0x9
+ 581 0120 14030000 		.4byte	.LASF23
+ 582 0124 03       		.byte	0x3
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 19
+
+
+ 583 0125 14       		.byte	0x14
+ 584 0126 25000000 		.4byte	0x25
+ 585 012a 04       		.byte	0x4
+ 586 012b 01       		.byte	0x1
+ 587 012c 1B       		.byte	0x1b
+ 588 012d 00       		.byte	0
+ 589 012e 09       		.uleb128 0x9
+ 590 012f A6000000 		.4byte	.LASF24
+ 591 0133 03       		.byte	0x3
+ 592 0134 15       		.byte	0x15
+ 593 0135 25000000 		.4byte	0x25
+ 594 0139 04       		.byte	0x4
+ 595 013a 01       		.byte	0x1
+ 596 013b 1A       		.byte	0x1a
+ 597 013c 00       		.byte	0
+ 598 013d 09       		.uleb128 0x9
+ 599 013e F5000000 		.4byte	.LASF25
+ 600 0142 03       		.byte	0x3
+ 601 0143 16       		.byte	0x16
+ 602 0144 25000000 		.4byte	0x25
+ 603 0148 04       		.byte	0x4
+ 604 0149 01       		.byte	0x1
+ 605 014a 19       		.byte	0x19
+ 606 014b 00       		.byte	0
+ 607 014c 00       		.byte	0
+ 608 014d 0A       		.uleb128 0xa
+ 609 014e B9030000 		.4byte	.LASF26
+ 610 0152 03       		.byte	0x3
+ 611 0153 18       		.byte	0x18
+ 612 0154 DB000000 		.4byte	0xdb
+ 613 0158 0B       		.uleb128 0xb
+ 614 0159 CD020000 		.4byte	.LASF28
+ 615 015d 01       		.byte	0x1
+ 616 015e DA       		.byte	0xda
+ 617 015f 00000000 		.4byte	.LFB4
+ 618 0163 0C000000 		.4byte	.LFE4-.LFB4
+ 619 0167 01       		.uleb128 0x1
+ 620 0168 9C       		.byte	0x9c
+ 621 0169 88010000 		.4byte	0x188
+ 622 016d 0C       		.uleb128 0xc
+ 623 016e 93020000 		.4byte	.LASF30
+ 624 0172 01       		.byte	0x1
+ 625 0173 DA       		.byte	0xda
+ 626 0174 CF000000 		.4byte	0xcf
+ 627 0178 01       		.uleb128 0x1
+ 628 0179 50       		.byte	0x50
+ 629 017a 0D       		.uleb128 0xd
+ 630 017b 8E030000 		.4byte	.LASF27
+ 631 017f 01       		.byte	0x1
+ 632 0180 DC       		.byte	0xdc
+ 633 0181 88010000 		.4byte	0x188
+ 634 0185 01       		.uleb128 0x1
+ 635 0186 53       		.byte	0x53
+ 636 0187 00       		.byte	0
+ 637 0188 04       		.uleb128 0x4
+ 638 0189 04       		.byte	0x4
+ 639 018a CF000000 		.4byte	0xcf
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 20
+
+
+ 640 018e 0E       		.uleb128 0xe
+ 641 018f 78020000 		.4byte	.LASF32
+ 642 0193 01       		.byte	0x1
+ 643 0194 F2       		.byte	0xf2
+ 644 0195 CF000000 		.4byte	0xcf
+ 645 0199 00000000 		.4byte	.LFB5
+ 646 019d 0C000000 		.4byte	.LFE5-.LFB5
+ 647 01a1 01       		.uleb128 0x1
+ 648 01a2 9C       		.byte	0x9c
+ 649 01a3 B5010000 		.4byte	0x1b5
+ 650 01a7 0D       		.uleb128 0xd
+ 651 01a8 8E030000 		.4byte	.LASF27
+ 652 01ac 01       		.byte	0x1
+ 653 01ad F4       		.byte	0xf4
+ 654 01ae 88010000 		.4byte	0x188
+ 655 01b2 01       		.uleb128 0x1
+ 656 01b3 53       		.byte	0x53
+ 657 01b4 00       		.byte	0
+ 658 01b5 0F       		.uleb128 0xf
+ 659 01b6 15040000 		.4byte	.LASF29
+ 660 01ba 01       		.byte	0x1
+ 661 01bb 1401     		.2byte	0x114
+ 662 01bd 00000000 		.4byte	.LFB6
+ 663 01c1 10000000 		.4byte	.LFE6-.LFB6
+ 664 01c5 01       		.uleb128 0x1
+ 665 01c6 9C       		.byte	0x9c
+ 666 01c7 DC010000 		.4byte	0x1dc
+ 667 01cb 10       		.uleb128 0x10
+ 668 01cc 01020000 		.4byte	.LASF31
+ 669 01d0 01       		.byte	0x1
+ 670 01d1 1401     		.2byte	0x114
+ 671 01d3 87000000 		.4byte	0x87
+ 672 01d7 00000000 		.4byte	.LLST0
+ 673 01db 00       		.byte	0
+ 674 01dc 11       		.uleb128 0x11
+ 675 01dd 20030000 		.4byte	.LASF33
+ 676 01e1 01       		.byte	0x1
+ 677 01e2 2A01     		.2byte	0x12a
+ 678 01e4 87000000 		.4byte	0x87
+ 679 01e8 00000000 		.4byte	.LFB7
+ 680 01ec 0C000000 		.4byte	.LFE7-.LFB7
+ 681 01f0 01       		.uleb128 0x1
+ 682 01f1 9C       		.byte	0x9c
+ 683 01f2 07020000 		.4byte	0x207
+ 684 01f6 12       		.uleb128 0x12
+ 685 01f7 01020000 		.4byte	.LASF31
+ 686 01fb 01       		.byte	0x1
+ 687 01fc 2C01     		.2byte	0x12c
+ 688 01fe 87000000 		.4byte	0x87
+ 689 0202 21000000 		.4byte	.LLST1
+ 690 0206 00       		.byte	0
+ 691 0207 13       		.uleb128 0x13
+ 692 0208 74000000 		.4byte	.LASF34
+ 693 020c 01       		.byte	0x1
+ 694 020d 4501     		.2byte	0x145
+ 695 020f 00000000 		.4byte	.LFB8
+ 696 0213 0C000000 		.4byte	.LFE8-.LFB8
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 21
+
+
+ 697 0217 01       		.uleb128 0x1
+ 698 0218 9C       		.byte	0x9c
+ 699 0219 14       		.uleb128 0x14
+ 700 021a 8C000000 		.4byte	.LASF51
+ 701 021e 01       		.byte	0x1
+ 702 021f 5A01     		.2byte	0x15a
+ 703 0221 87000000 		.4byte	0x87
+ 704 0225 00000000 		.4byte	.LFB9
+ 705 0229 18000000 		.4byte	.LFE9-.LFB9
+ 706 022d 01       		.uleb128 0x1
+ 707 022e 9C       		.byte	0x9c
+ 708 022f 13       		.uleb128 0x13
+ 709 0230 3B020000 		.4byte	.LASF35
+ 710 0234 01       		.byte	0x1
+ 711 0235 6F01     		.2byte	0x16f
+ 712 0237 00000000 		.4byte	.LFB10
+ 713 023b 0C000000 		.4byte	.LFE10-.LFB10
+ 714 023f 01       		.uleb128 0x1
+ 715 0240 9C       		.byte	0x9c
+ 716 0241 0B       		.uleb128 0xb
+ 717 0242 72030000 		.4byte	.LASF36
+ 718 0246 01       		.byte	0x1
+ 719 0247 43       		.byte	0x43
+ 720 0248 00000000 		.4byte	.LFB0
+ 721 024c 1C000000 		.4byte	.LFE0-.LFB0
+ 722 0250 01       		.uleb128 0x1
+ 723 0251 9C       		.byte	0x9c
+ 724 0252 93020000 		.4byte	0x293
+ 725 0256 15       		.uleb128 0x15
+ 726 0257 06000000 		.4byte	.LVL7
+ 727 025b 2F020000 		.4byte	0x22f
+ 728 025f 16       		.uleb128 0x16
+ 729 0260 0C000000 		.4byte	.LVL8
+ 730 0264 58010000 		.4byte	0x158
+ 731 0268 76020000 		.4byte	0x276
+ 732 026c 17       		.uleb128 0x17
+ 733 026d 01       		.uleb128 0x1
+ 734 026e 50       		.byte	0x50
+ 735 026f 05       		.uleb128 0x5
+ 736 0270 03       		.byte	0x3
+ 737 0271 00000000 		.4byte	isr_Load_TrShReg_Interrupt
+ 738 0275 00       		.byte	0
+ 739 0276 16       		.uleb128 0x16
+ 740 0277 12000000 		.4byte	.LVL9
+ 741 027b B5010000 		.4byte	0x1b5
+ 742 027f 89020000 		.4byte	0x289
+ 743 0283 17       		.uleb128 0x17
+ 744 0284 01       		.uleb128 0x1
+ 745 0285 50       		.byte	0x50
+ 746 0286 01       		.uleb128 0x1
+ 747 0287 36       		.byte	0x36
+ 748 0288 00       		.byte	0
+ 749 0289 15       		.uleb128 0x15
+ 750 028a 16000000 		.4byte	.LVL10
+ 751 028e 07020000 		.4byte	0x207
+ 752 0292 00       		.byte	0
+ 753 0293 0B       		.uleb128 0xb
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 22
+
+
+ 754 0294 AF010000 		.4byte	.LASF37
+ 755 0298 01       		.byte	0x1
+ 756 0299 6E       		.byte	0x6e
+ 757 029a 00000000 		.4byte	.LFB1
+ 758 029e 1A000000 		.4byte	.LFE1-.LFB1
+ 759 02a2 01       		.uleb128 0x1
+ 760 02a3 9C       		.byte	0x9c
+ 761 02a4 F1020000 		.4byte	0x2f1
+ 762 02a8 18       		.uleb128 0x18
+ 763 02a9 93020000 		.4byte	.LASF30
+ 764 02ad 01       		.byte	0x1
+ 765 02ae 6E       		.byte	0x6e
+ 766 02af CF000000 		.4byte	0xcf
+ 767 02b3 38000000 		.4byte	.LLST2
+ 768 02b7 15       		.uleb128 0x15
+ 769 02b8 08000000 		.4byte	.LVL12
+ 770 02bc 2F020000 		.4byte	0x22f
+ 771 02c0 16       		.uleb128 0x16
+ 772 02c1 0E000000 		.4byte	.LVL13
+ 773 02c5 58010000 		.4byte	0x158
+ 774 02c9 D4020000 		.4byte	0x2d4
+ 775 02cd 17       		.uleb128 0x17
+ 776 02ce 01       		.uleb128 0x1
+ 777 02cf 50       		.byte	0x50
+ 778 02d0 02       		.uleb128 0x2
+ 779 02d1 74       		.byte	0x74
+ 780 02d2 00       		.sleb128 0
+ 781 02d3 00       		.byte	0
+ 782 02d4 16       		.uleb128 0x16
+ 783 02d5 14000000 		.4byte	.LVL14
+ 784 02d9 B5010000 		.4byte	0x1b5
+ 785 02dd E7020000 		.4byte	0x2e7
+ 786 02e1 17       		.uleb128 0x17
+ 787 02e2 01       		.uleb128 0x1
+ 788 02e3 50       		.byte	0x50
+ 789 02e4 01       		.uleb128 0x1
+ 790 02e5 36       		.byte	0x36
+ 791 02e6 00       		.byte	0
+ 792 02e7 15       		.uleb128 0x15
+ 793 02e8 18000000 		.4byte	.LVL15
+ 794 02ec 07020000 		.4byte	0x207
+ 795 02f0 00       		.byte	0
+ 796 02f1 0B       		.uleb128 0xb
+ 797 02f2 C1000000 		.4byte	.LASF38
+ 798 02f6 01       		.byte	0x1
+ 799 02f7 8C       		.byte	0x8c
+ 800 02f8 00000000 		.4byte	.LFB2
+ 801 02fc 14000000 		.4byte	.LFE2-.LFB2
+ 802 0300 01       		.uleb128 0x1
+ 803 0301 9C       		.byte	0x9c
+ 804 0302 19030000 		.4byte	0x319
+ 805 0306 15       		.uleb128 0x15
+ 806 0307 06000000 		.4byte	.LVL16
+ 807 030b 2F020000 		.4byte	0x22f
+ 808 030f 15       		.uleb128 0x15
+ 809 0310 0C000000 		.4byte	.LVL17
+ 810 0314 58010000 		.4byte	0x158
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 23
+
+
+ 811 0318 00       		.byte	0
+ 812 0319 13       		.uleb128 0x13
+ 813 031a 00000000 		.4byte	.LASF39
+ 814 031e 01       		.byte	0x1
+ 815 031f 8A01     		.2byte	0x18a
+ 816 0321 00000000 		.4byte	.LFB11
+ 817 0325 0C000000 		.4byte	.LFE11-.LFB11
+ 818 0329 01       		.uleb128 0x1
+ 819 032a 9C       		.byte	0x9c
+ 820 032b 13       		.uleb128 0x13
+ 821 032c D7000000 		.4byte	.LASF40
+ 822 0330 01       		.byte	0x1
+ 823 0331 A301     		.2byte	0x1a3
+ 824 0333 00000000 		.4byte	.LFB12
+ 825 0337 0C000000 		.4byte	.LFE12-.LFB12
+ 826 033b 01       		.uleb128 0x1
+ 827 033c 9C       		.byte	0x9c
+ 828 033d 0B       		.uleb128 0xb
+ 829 033e B2020000 		.4byte	.LASF41
+ 830 0342 01       		.byte	0x1
+ 831 0343 A6       		.byte	0xa6
+ 832 0344 00000000 		.4byte	.LFB3
+ 833 0348 3C000000 		.4byte	.LFE3-.LFB3
+ 834 034c 01       		.uleb128 0x1
+ 835 034d 9C       		.byte	0x9c
+ 836 034e 9C030000 		.4byte	0x39c
+ 837 0352 15       		.uleb128 0x15
+ 838 0353 06000000 		.4byte	.LVL18
+ 839 0357 A7030000 		.4byte	0x3a7
+ 840 035b 16       		.uleb128 0x16
+ 841 035c 1C000000 		.4byte	.LVL19
+ 842 0360 B2030000 		.4byte	0x3b2
+ 843 0364 6E030000 		.4byte	0x36e
+ 844 0368 17       		.uleb128 0x17
+ 845 0369 01       		.uleb128 0x1
+ 846 036a 50       		.byte	0x50
+ 847 036b 01       		.uleb128 0x1
+ 848 036c 30       		.byte	0x30
+ 849 036d 00       		.byte	0
+ 850 036e 15       		.uleb128 0x15
+ 851 036f 20000000 		.4byte	.LVL20
+ 852 0373 BD030000 		.4byte	0x3bd
+ 853 0377 15       		.uleb128 0x15
+ 854 0378 24000000 		.4byte	.LVL21
+ 855 037c C8030000 		.4byte	0x3c8
+ 856 0380 15       		.uleb128 0x15
+ 857 0381 28000000 		.4byte	.LVL22
+ 858 0385 D3030000 		.4byte	0x3d3
+ 859 0389 15       		.uleb128 0x15
+ 860 038a 2C000000 		.4byte	.LVL23
+ 861 038e DE030000 		.4byte	0x3de
+ 862 0392 15       		.uleb128 0x15
+ 863 0393 30000000 		.4byte	.LVL24
+ 864 0397 2B030000 		.4byte	0x32b
+ 865 039b 00       		.byte	0
+ 866 039c 19       		.uleb128 0x19
+ 867 039d 06010000 		.4byte	.LASF52
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 24
+
+
+ 868 03a1 03       		.byte	0x3
+ 869 03a2 19       		.byte	0x19
+ 870 03a3 4D010000 		.4byte	0x14d
+ 871 03a7 1A       		.uleb128 0x1a
+ 872 03a8 54020000 		.4byte	.LASF42
+ 873 03ac 54020000 		.4byte	.LASF42
+ 874 03b0 03       		.byte	0x3
+ 875 03b1 21       		.byte	0x21
+ 876 03b2 1A       		.uleb128 0x1a
+ 877 03b3 01040000 		.4byte	.LASF43
+ 878 03b7 01040000 		.4byte	.LASF43
+ 879 03bb 04       		.byte	0x4
+ 880 03bc 2F       		.byte	0x2f
+ 881 03bd 1A       		.uleb128 0x1a
+ 882 03be C8010000 		.4byte	.LASF44
+ 883 03c2 C8010000 		.4byte	.LASF44
+ 884 03c6 05       		.byte	0x5
+ 885 03c7 52       		.byte	0x52
+ 886 03c8 1A       		.uleb128 0x1a
+ 887 03c9 F5020000 		.4byte	.LASF45
+ 888 03cd F5020000 		.4byte	.LASF45
+ 889 03d1 06       		.byte	0x6
+ 890 03d2 28       		.byte	0x28
+ 891 03d3 1A       		.uleb128 0x1a
+ 892 03d4 C1030000 		.4byte	.LASF46
+ 893 03d8 C1030000 		.4byte	.LASF46
+ 894 03dc 06       		.byte	0x6
+ 895 03dd 23       		.byte	0x23
+ 896 03de 1A       		.uleb128 0x1a
+ 897 03df 3D030000 		.4byte	.LASF47
+ 898 03e3 3D030000 		.4byte	.LASF47
+ 899 03e7 07       		.byte	0x7
+ 900 03e8 47       		.byte	0x47
+ 901 03e9 00       		.byte	0
+ 902              		.section	.debug_abbrev,"",%progbits
+ 903              	.Ldebug_abbrev0:
+ 904 0000 01       		.uleb128 0x1
+ 905 0001 11       		.uleb128 0x11
+ 906 0002 01       		.byte	0x1
+ 907 0003 25       		.uleb128 0x25
+ 908 0004 0E       		.uleb128 0xe
+ 909 0005 13       		.uleb128 0x13
+ 910 0006 0B       		.uleb128 0xb
+ 911 0007 03       		.uleb128 0x3
+ 912 0008 0E       		.uleb128 0xe
+ 913 0009 1B       		.uleb128 0x1b
+ 914 000a 0E       		.uleb128 0xe
+ 915 000b 55       		.uleb128 0x55
+ 916 000c 17       		.uleb128 0x17
+ 917 000d 11       		.uleb128 0x11
+ 918 000e 01       		.uleb128 0x1
+ 919 000f 10       		.uleb128 0x10
+ 920 0010 17       		.uleb128 0x17
+ 921 0011 00       		.byte	0
+ 922 0012 00       		.byte	0
+ 923 0013 02       		.uleb128 0x2
+ 924 0014 24       		.uleb128 0x24
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 25
+
+
+ 925 0015 00       		.byte	0
+ 926 0016 0B       		.uleb128 0xb
+ 927 0017 0B       		.uleb128 0xb
+ 928 0018 3E       		.uleb128 0x3e
+ 929 0019 0B       		.uleb128 0xb
+ 930 001a 03       		.uleb128 0x3
+ 931 001b 08       		.uleb128 0x8
+ 932 001c 00       		.byte	0
+ 933 001d 00       		.byte	0
+ 934 001e 03       		.uleb128 0x3
+ 935 001f 24       		.uleb128 0x24
+ 936 0020 00       		.byte	0
+ 937 0021 0B       		.uleb128 0xb
+ 938 0022 0B       		.uleb128 0xb
+ 939 0023 3E       		.uleb128 0x3e
+ 940 0024 0B       		.uleb128 0xb
+ 941 0025 03       		.uleb128 0x3
+ 942 0026 0E       		.uleb128 0xe
+ 943 0027 00       		.byte	0
+ 944 0028 00       		.byte	0
+ 945 0029 04       		.uleb128 0x4
+ 946 002a 0F       		.uleb128 0xf
+ 947 002b 00       		.byte	0
+ 948 002c 0B       		.uleb128 0xb
+ 949 002d 0B       		.uleb128 0xb
+ 950 002e 49       		.uleb128 0x49
+ 951 002f 13       		.uleb128 0x13
+ 952 0030 00       		.byte	0
+ 953 0031 00       		.byte	0
+ 954 0032 05       		.uleb128 0x5
+ 955 0033 15       		.uleb128 0x15
+ 956 0034 00       		.byte	0
+ 957 0035 27       		.uleb128 0x27
+ 958 0036 19       		.uleb128 0x19
+ 959 0037 00       		.byte	0
+ 960 0038 00       		.byte	0
+ 961 0039 06       		.uleb128 0x6
+ 962 003a 16       		.uleb128 0x16
+ 963 003b 00       		.byte	0
+ 964 003c 03       		.uleb128 0x3
+ 965 003d 0E       		.uleb128 0xe
+ 966 003e 3A       		.uleb128 0x3a
+ 967 003f 0B       		.uleb128 0xb
+ 968 0040 3B       		.uleb128 0x3b
+ 969 0041 05       		.uleb128 0x5
+ 970 0042 49       		.uleb128 0x49
+ 971 0043 13       		.uleb128 0x13
+ 972 0044 00       		.byte	0
+ 973 0045 00       		.byte	0
+ 974 0046 07       		.uleb128 0x7
+ 975 0047 35       		.uleb128 0x35
+ 976 0048 00       		.byte	0
+ 977 0049 49       		.uleb128 0x49
+ 978 004a 13       		.uleb128 0x13
+ 979 004b 00       		.byte	0
+ 980 004c 00       		.byte	0
+ 981 004d 08       		.uleb128 0x8
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 26
+
+
+ 982 004e 13       		.uleb128 0x13
+ 983 004f 01       		.byte	0x1
+ 984 0050 0B       		.uleb128 0xb
+ 985 0051 0B       		.uleb128 0xb
+ 986 0052 3A       		.uleb128 0x3a
+ 987 0053 0B       		.uleb128 0xb
+ 988 0054 3B       		.uleb128 0x3b
+ 989 0055 0B       		.uleb128 0xb
+ 990 0056 01       		.uleb128 0x1
+ 991 0057 13       		.uleb128 0x13
+ 992 0058 00       		.byte	0
+ 993 0059 00       		.byte	0
+ 994 005a 09       		.uleb128 0x9
+ 995 005b 0D       		.uleb128 0xd
+ 996 005c 00       		.byte	0
+ 997 005d 03       		.uleb128 0x3
+ 998 005e 0E       		.uleb128 0xe
+ 999 005f 3A       		.uleb128 0x3a
+ 1000 0060 0B       		.uleb128 0xb
+ 1001 0061 3B       		.uleb128 0x3b
+ 1002 0062 0B       		.uleb128 0xb
+ 1003 0063 49       		.uleb128 0x49
+ 1004 0064 13       		.uleb128 0x13
+ 1005 0065 0B       		.uleb128 0xb
+ 1006 0066 0B       		.uleb128 0xb
+ 1007 0067 0D       		.uleb128 0xd
+ 1008 0068 0B       		.uleb128 0xb
+ 1009 0069 0C       		.uleb128 0xc
+ 1010 006a 0B       		.uleb128 0xb
+ 1011 006b 38       		.uleb128 0x38
+ 1012 006c 0B       		.uleb128 0xb
+ 1013 006d 00       		.byte	0
+ 1014 006e 00       		.byte	0
+ 1015 006f 0A       		.uleb128 0xa
+ 1016 0070 16       		.uleb128 0x16
+ 1017 0071 00       		.byte	0
+ 1018 0072 03       		.uleb128 0x3
+ 1019 0073 0E       		.uleb128 0xe
+ 1020 0074 3A       		.uleb128 0x3a
+ 1021 0075 0B       		.uleb128 0xb
+ 1022 0076 3B       		.uleb128 0x3b
+ 1023 0077 0B       		.uleb128 0xb
+ 1024 0078 49       		.uleb128 0x49
+ 1025 0079 13       		.uleb128 0x13
+ 1026 007a 00       		.byte	0
+ 1027 007b 00       		.byte	0
+ 1028 007c 0B       		.uleb128 0xb
+ 1029 007d 2E       		.uleb128 0x2e
+ 1030 007e 01       		.byte	0x1
+ 1031 007f 3F       		.uleb128 0x3f
+ 1032 0080 19       		.uleb128 0x19
+ 1033 0081 03       		.uleb128 0x3
+ 1034 0082 0E       		.uleb128 0xe
+ 1035 0083 3A       		.uleb128 0x3a
+ 1036 0084 0B       		.uleb128 0xb
+ 1037 0085 3B       		.uleb128 0x3b
+ 1038 0086 0B       		.uleb128 0xb
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 27
+
+
+ 1039 0087 27       		.uleb128 0x27
+ 1040 0088 19       		.uleb128 0x19
+ 1041 0089 11       		.uleb128 0x11
+ 1042 008a 01       		.uleb128 0x1
+ 1043 008b 12       		.uleb128 0x12
+ 1044 008c 06       		.uleb128 0x6
+ 1045 008d 40       		.uleb128 0x40
+ 1046 008e 18       		.uleb128 0x18
+ 1047 008f 9742     		.uleb128 0x2117
+ 1048 0091 19       		.uleb128 0x19
+ 1049 0092 01       		.uleb128 0x1
+ 1050 0093 13       		.uleb128 0x13
+ 1051 0094 00       		.byte	0
+ 1052 0095 00       		.byte	0
+ 1053 0096 0C       		.uleb128 0xc
+ 1054 0097 05       		.uleb128 0x5
+ 1055 0098 00       		.byte	0
+ 1056 0099 03       		.uleb128 0x3
+ 1057 009a 0E       		.uleb128 0xe
+ 1058 009b 3A       		.uleb128 0x3a
+ 1059 009c 0B       		.uleb128 0xb
+ 1060 009d 3B       		.uleb128 0x3b
+ 1061 009e 0B       		.uleb128 0xb
+ 1062 009f 49       		.uleb128 0x49
+ 1063 00a0 13       		.uleb128 0x13
+ 1064 00a1 02       		.uleb128 0x2
+ 1065 00a2 18       		.uleb128 0x18
+ 1066 00a3 00       		.byte	0
+ 1067 00a4 00       		.byte	0
+ 1068 00a5 0D       		.uleb128 0xd
+ 1069 00a6 34       		.uleb128 0x34
+ 1070 00a7 00       		.byte	0
+ 1071 00a8 03       		.uleb128 0x3
+ 1072 00a9 0E       		.uleb128 0xe
+ 1073 00aa 3A       		.uleb128 0x3a
+ 1074 00ab 0B       		.uleb128 0xb
+ 1075 00ac 3B       		.uleb128 0x3b
+ 1076 00ad 0B       		.uleb128 0xb
+ 1077 00ae 49       		.uleb128 0x49
+ 1078 00af 13       		.uleb128 0x13
+ 1079 00b0 02       		.uleb128 0x2
+ 1080 00b1 18       		.uleb128 0x18
+ 1081 00b2 00       		.byte	0
+ 1082 00b3 00       		.byte	0
+ 1083 00b4 0E       		.uleb128 0xe
+ 1084 00b5 2E       		.uleb128 0x2e
+ 1085 00b6 01       		.byte	0x1
+ 1086 00b7 3F       		.uleb128 0x3f
+ 1087 00b8 19       		.uleb128 0x19
+ 1088 00b9 03       		.uleb128 0x3
+ 1089 00ba 0E       		.uleb128 0xe
+ 1090 00bb 3A       		.uleb128 0x3a
+ 1091 00bc 0B       		.uleb128 0xb
+ 1092 00bd 3B       		.uleb128 0x3b
+ 1093 00be 0B       		.uleb128 0xb
+ 1094 00bf 27       		.uleb128 0x27
+ 1095 00c0 19       		.uleb128 0x19
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 28
+
+
+ 1096 00c1 49       		.uleb128 0x49
+ 1097 00c2 13       		.uleb128 0x13
+ 1098 00c3 11       		.uleb128 0x11
+ 1099 00c4 01       		.uleb128 0x1
+ 1100 00c5 12       		.uleb128 0x12
+ 1101 00c6 06       		.uleb128 0x6
+ 1102 00c7 40       		.uleb128 0x40
+ 1103 00c8 18       		.uleb128 0x18
+ 1104 00c9 9742     		.uleb128 0x2117
+ 1105 00cb 19       		.uleb128 0x19
+ 1106 00cc 01       		.uleb128 0x1
+ 1107 00cd 13       		.uleb128 0x13
+ 1108 00ce 00       		.byte	0
+ 1109 00cf 00       		.byte	0
+ 1110 00d0 0F       		.uleb128 0xf
+ 1111 00d1 2E       		.uleb128 0x2e
+ 1112 00d2 01       		.byte	0x1
+ 1113 00d3 3F       		.uleb128 0x3f
+ 1114 00d4 19       		.uleb128 0x19
+ 1115 00d5 03       		.uleb128 0x3
+ 1116 00d6 0E       		.uleb128 0xe
+ 1117 00d7 3A       		.uleb128 0x3a
+ 1118 00d8 0B       		.uleb128 0xb
+ 1119 00d9 3B       		.uleb128 0x3b
+ 1120 00da 05       		.uleb128 0x5
+ 1121 00db 27       		.uleb128 0x27
+ 1122 00dc 19       		.uleb128 0x19
+ 1123 00dd 11       		.uleb128 0x11
+ 1124 00de 01       		.uleb128 0x1
+ 1125 00df 12       		.uleb128 0x12
+ 1126 00e0 06       		.uleb128 0x6
+ 1127 00e1 40       		.uleb128 0x40
+ 1128 00e2 18       		.uleb128 0x18
+ 1129 00e3 9742     		.uleb128 0x2117
+ 1130 00e5 19       		.uleb128 0x19
+ 1131 00e6 01       		.uleb128 0x1
+ 1132 00e7 13       		.uleb128 0x13
+ 1133 00e8 00       		.byte	0
+ 1134 00e9 00       		.byte	0
+ 1135 00ea 10       		.uleb128 0x10
+ 1136 00eb 05       		.uleb128 0x5
+ 1137 00ec 00       		.byte	0
+ 1138 00ed 03       		.uleb128 0x3
+ 1139 00ee 0E       		.uleb128 0xe
+ 1140 00ef 3A       		.uleb128 0x3a
+ 1141 00f0 0B       		.uleb128 0xb
+ 1142 00f1 3B       		.uleb128 0x3b
+ 1143 00f2 05       		.uleb128 0x5
+ 1144 00f3 49       		.uleb128 0x49
+ 1145 00f4 13       		.uleb128 0x13
+ 1146 00f5 02       		.uleb128 0x2
+ 1147 00f6 17       		.uleb128 0x17
+ 1148 00f7 00       		.byte	0
+ 1149 00f8 00       		.byte	0
+ 1150 00f9 11       		.uleb128 0x11
+ 1151 00fa 2E       		.uleb128 0x2e
+ 1152 00fb 01       		.byte	0x1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 29
+
+
+ 1153 00fc 3F       		.uleb128 0x3f
+ 1154 00fd 19       		.uleb128 0x19
+ 1155 00fe 03       		.uleb128 0x3
+ 1156 00ff 0E       		.uleb128 0xe
+ 1157 0100 3A       		.uleb128 0x3a
+ 1158 0101 0B       		.uleb128 0xb
+ 1159 0102 3B       		.uleb128 0x3b
+ 1160 0103 05       		.uleb128 0x5
+ 1161 0104 27       		.uleb128 0x27
+ 1162 0105 19       		.uleb128 0x19
+ 1163 0106 49       		.uleb128 0x49
+ 1164 0107 13       		.uleb128 0x13
+ 1165 0108 11       		.uleb128 0x11
+ 1166 0109 01       		.uleb128 0x1
+ 1167 010a 12       		.uleb128 0x12
+ 1168 010b 06       		.uleb128 0x6
+ 1169 010c 40       		.uleb128 0x40
+ 1170 010d 18       		.uleb128 0x18
+ 1171 010e 9742     		.uleb128 0x2117
+ 1172 0110 19       		.uleb128 0x19
+ 1173 0111 01       		.uleb128 0x1
+ 1174 0112 13       		.uleb128 0x13
+ 1175 0113 00       		.byte	0
+ 1176 0114 00       		.byte	0
+ 1177 0115 12       		.uleb128 0x12
+ 1178 0116 34       		.uleb128 0x34
+ 1179 0117 00       		.byte	0
+ 1180 0118 03       		.uleb128 0x3
+ 1181 0119 0E       		.uleb128 0xe
+ 1182 011a 3A       		.uleb128 0x3a
+ 1183 011b 0B       		.uleb128 0xb
+ 1184 011c 3B       		.uleb128 0x3b
+ 1185 011d 05       		.uleb128 0x5
+ 1186 011e 49       		.uleb128 0x49
+ 1187 011f 13       		.uleb128 0x13
+ 1188 0120 02       		.uleb128 0x2
+ 1189 0121 17       		.uleb128 0x17
+ 1190 0122 00       		.byte	0
+ 1191 0123 00       		.byte	0
+ 1192 0124 13       		.uleb128 0x13
+ 1193 0125 2E       		.uleb128 0x2e
+ 1194 0126 00       		.byte	0
+ 1195 0127 3F       		.uleb128 0x3f
+ 1196 0128 19       		.uleb128 0x19
+ 1197 0129 03       		.uleb128 0x3
+ 1198 012a 0E       		.uleb128 0xe
+ 1199 012b 3A       		.uleb128 0x3a
+ 1200 012c 0B       		.uleb128 0xb
+ 1201 012d 3B       		.uleb128 0x3b
+ 1202 012e 05       		.uleb128 0x5
+ 1203 012f 27       		.uleb128 0x27
+ 1204 0130 19       		.uleb128 0x19
+ 1205 0131 11       		.uleb128 0x11
+ 1206 0132 01       		.uleb128 0x1
+ 1207 0133 12       		.uleb128 0x12
+ 1208 0134 06       		.uleb128 0x6
+ 1209 0135 40       		.uleb128 0x40
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 30
+
+
+ 1210 0136 18       		.uleb128 0x18
+ 1211 0137 9742     		.uleb128 0x2117
+ 1212 0139 19       		.uleb128 0x19
+ 1213 013a 00       		.byte	0
+ 1214 013b 00       		.byte	0
+ 1215 013c 14       		.uleb128 0x14
+ 1216 013d 2E       		.uleb128 0x2e
+ 1217 013e 00       		.byte	0
+ 1218 013f 3F       		.uleb128 0x3f
+ 1219 0140 19       		.uleb128 0x19
+ 1220 0141 03       		.uleb128 0x3
+ 1221 0142 0E       		.uleb128 0xe
+ 1222 0143 3A       		.uleb128 0x3a
+ 1223 0144 0B       		.uleb128 0xb
+ 1224 0145 3B       		.uleb128 0x3b
+ 1225 0146 05       		.uleb128 0x5
+ 1226 0147 27       		.uleb128 0x27
+ 1227 0148 19       		.uleb128 0x19
+ 1228 0149 49       		.uleb128 0x49
+ 1229 014a 13       		.uleb128 0x13
+ 1230 014b 11       		.uleb128 0x11
+ 1231 014c 01       		.uleb128 0x1
+ 1232 014d 12       		.uleb128 0x12
+ 1233 014e 06       		.uleb128 0x6
+ 1234 014f 40       		.uleb128 0x40
+ 1235 0150 18       		.uleb128 0x18
+ 1236 0151 9742     		.uleb128 0x2117
+ 1237 0153 19       		.uleb128 0x19
+ 1238 0154 00       		.byte	0
+ 1239 0155 00       		.byte	0
+ 1240 0156 15       		.uleb128 0x15
+ 1241 0157 898201   		.uleb128 0x4109
+ 1242 015a 00       		.byte	0
+ 1243 015b 11       		.uleb128 0x11
+ 1244 015c 01       		.uleb128 0x1
+ 1245 015d 31       		.uleb128 0x31
+ 1246 015e 13       		.uleb128 0x13
+ 1247 015f 00       		.byte	0
+ 1248 0160 00       		.byte	0
+ 1249 0161 16       		.uleb128 0x16
+ 1250 0162 898201   		.uleb128 0x4109
+ 1251 0165 01       		.byte	0x1
+ 1252 0166 11       		.uleb128 0x11
+ 1253 0167 01       		.uleb128 0x1
+ 1254 0168 31       		.uleb128 0x31
+ 1255 0169 13       		.uleb128 0x13
+ 1256 016a 01       		.uleb128 0x1
+ 1257 016b 13       		.uleb128 0x13
+ 1258 016c 00       		.byte	0
+ 1259 016d 00       		.byte	0
+ 1260 016e 17       		.uleb128 0x17
+ 1261 016f 8A8201   		.uleb128 0x410a
+ 1262 0172 00       		.byte	0
+ 1263 0173 02       		.uleb128 0x2
+ 1264 0174 18       		.uleb128 0x18
+ 1265 0175 9142     		.uleb128 0x2111
+ 1266 0177 18       		.uleb128 0x18
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 31
+
+
+ 1267 0178 00       		.byte	0
+ 1268 0179 00       		.byte	0
+ 1269 017a 18       		.uleb128 0x18
+ 1270 017b 05       		.uleb128 0x5
+ 1271 017c 00       		.byte	0
+ 1272 017d 03       		.uleb128 0x3
+ 1273 017e 0E       		.uleb128 0xe
+ 1274 017f 3A       		.uleb128 0x3a
+ 1275 0180 0B       		.uleb128 0xb
+ 1276 0181 3B       		.uleb128 0x3b
+ 1277 0182 0B       		.uleb128 0xb
+ 1278 0183 49       		.uleb128 0x49
+ 1279 0184 13       		.uleb128 0x13
+ 1280 0185 02       		.uleb128 0x2
+ 1281 0186 17       		.uleb128 0x17
+ 1282 0187 00       		.byte	0
+ 1283 0188 00       		.byte	0
+ 1284 0189 19       		.uleb128 0x19
+ 1285 018a 34       		.uleb128 0x34
+ 1286 018b 00       		.byte	0
+ 1287 018c 03       		.uleb128 0x3
+ 1288 018d 0E       		.uleb128 0xe
+ 1289 018e 3A       		.uleb128 0x3a
+ 1290 018f 0B       		.uleb128 0xb
+ 1291 0190 3B       		.uleb128 0x3b
+ 1292 0191 0B       		.uleb128 0xb
+ 1293 0192 49       		.uleb128 0x49
+ 1294 0193 13       		.uleb128 0x13
+ 1295 0194 3F       		.uleb128 0x3f
+ 1296 0195 19       		.uleb128 0x19
+ 1297 0196 3C       		.uleb128 0x3c
+ 1298 0197 19       		.uleb128 0x19
+ 1299 0198 00       		.byte	0
+ 1300 0199 00       		.byte	0
+ 1301 019a 1A       		.uleb128 0x1a
+ 1302 019b 2E       		.uleb128 0x2e
+ 1303 019c 00       		.byte	0
+ 1304 019d 3F       		.uleb128 0x3f
+ 1305 019e 19       		.uleb128 0x19
+ 1306 019f 3C       		.uleb128 0x3c
+ 1307 01a0 19       		.uleb128 0x19
+ 1308 01a1 6E       		.uleb128 0x6e
+ 1309 01a2 0E       		.uleb128 0xe
+ 1310 01a3 03       		.uleb128 0x3
+ 1311 01a4 0E       		.uleb128 0xe
+ 1312 01a5 3A       		.uleb128 0x3a
+ 1313 01a6 0B       		.uleb128 0xb
+ 1314 01a7 3B       		.uleb128 0x3b
+ 1315 01a8 0B       		.uleb128 0xb
+ 1316 01a9 00       		.byte	0
+ 1317 01aa 00       		.byte	0
+ 1318 01ab 00       		.byte	0
+ 1319              		.section	.debug_loc,"",%progbits
+ 1320              	.Ldebug_loc0:
+ 1321              	.LLST0:
+ 1322 0000 00000000 		.4byte	.LVL3
+ 1323 0004 02000000 		.4byte	.LVL4
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 32
+
+
+ 1324 0008 0100     		.2byte	0x1
+ 1325 000a 50       		.byte	0x50
+ 1326 000b 02000000 		.4byte	.LVL4
+ 1327 000f 10000000 		.4byte	.LFE6
+ 1328 0013 0400     		.2byte	0x4
+ 1329 0015 F3       		.byte	0xf3
+ 1330 0016 01       		.uleb128 0x1
+ 1331 0017 50       		.byte	0x50
+ 1332 0018 9F       		.byte	0x9f
+ 1333 0019 00000000 		.4byte	0
+ 1334 001d 00000000 		.4byte	0
+ 1335              	.LLST1:
+ 1336 0021 04000000 		.4byte	.LVL5
+ 1337 0025 06000000 		.4byte	.LVL6
+ 1338 0029 0500     		.2byte	0x5
+ 1339 002b 70       		.byte	0x70
+ 1340 002c 00       		.sleb128 0
+ 1341 002d 35       		.byte	0x35
+ 1342 002e 25       		.byte	0x25
+ 1343 002f 9F       		.byte	0x9f
+ 1344 0030 00000000 		.4byte	0
+ 1345 0034 00000000 		.4byte	0
+ 1346              	.LLST2:
+ 1347 0038 00000000 		.4byte	.LVL11
+ 1348 003c 07000000 		.4byte	.LVL12-1
+ 1349 0040 0100     		.2byte	0x1
+ 1350 0042 50       		.byte	0x50
+ 1351 0043 07000000 		.4byte	.LVL12-1
+ 1352 0047 1A000000 		.4byte	.LFE1
+ 1353 004b 0100     		.2byte	0x1
+ 1354 004d 54       		.byte	0x54
+ 1355 004e 00000000 		.4byte	0
+ 1356 0052 00000000 		.4byte	0
+ 1357              		.section	.debug_aranges,"",%progbits
+ 1358 0000 7C000000 		.4byte	0x7c
+ 1359 0004 0200     		.2byte	0x2
+ 1360 0006 00000000 		.4byte	.Ldebug_info0
+ 1361 000a 04       		.byte	0x4
+ 1362 000b 00       		.byte	0
+ 1363 000c 0000     		.2byte	0
+ 1364 000e 0000     		.2byte	0
+ 1365 0010 00000000 		.4byte	.LFB4
+ 1366 0014 0C000000 		.4byte	.LFE4-.LFB4
+ 1367 0018 00000000 		.4byte	.LFB5
+ 1368 001c 0C000000 		.4byte	.LFE5-.LFB5
+ 1369 0020 00000000 		.4byte	.LFB6
+ 1370 0024 10000000 		.4byte	.LFE6-.LFB6
+ 1371 0028 00000000 		.4byte	.LFB7
+ 1372 002c 0C000000 		.4byte	.LFE7-.LFB7
+ 1373 0030 00000000 		.4byte	.LFB8
+ 1374 0034 0C000000 		.4byte	.LFE8-.LFB8
+ 1375 0038 00000000 		.4byte	.LFB9
+ 1376 003c 18000000 		.4byte	.LFE9-.LFB9
+ 1377 0040 00000000 		.4byte	.LFB10
+ 1378 0044 0C000000 		.4byte	.LFE10-.LFB10
+ 1379 0048 00000000 		.4byte	.LFB0
+ 1380 004c 1C000000 		.4byte	.LFE0-.LFB0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 33
+
+
+ 1381 0050 00000000 		.4byte	.LFB1
+ 1382 0054 1A000000 		.4byte	.LFE1-.LFB1
+ 1383 0058 00000000 		.4byte	.LFB2
+ 1384 005c 14000000 		.4byte	.LFE2-.LFB2
+ 1385 0060 00000000 		.4byte	.LFB11
+ 1386 0064 0C000000 		.4byte	.LFE11-.LFB11
+ 1387 0068 00000000 		.4byte	.LFB12
+ 1388 006c 0C000000 		.4byte	.LFE12-.LFB12
+ 1389 0070 00000000 		.4byte	.LFB3
+ 1390 0074 3C000000 		.4byte	.LFE3-.LFB3
+ 1391 0078 00000000 		.4byte	0
+ 1392 007c 00000000 		.4byte	0
+ 1393              		.section	.debug_ranges,"",%progbits
+ 1394              	.Ldebug_ranges0:
+ 1395 0000 00000000 		.4byte	.LFB4
+ 1396 0004 0C000000 		.4byte	.LFE4
+ 1397 0008 00000000 		.4byte	.LFB5
+ 1398 000c 0C000000 		.4byte	.LFE5
+ 1399 0010 00000000 		.4byte	.LFB6
+ 1400 0014 10000000 		.4byte	.LFE6
+ 1401 0018 00000000 		.4byte	.LFB7
+ 1402 001c 0C000000 		.4byte	.LFE7
+ 1403 0020 00000000 		.4byte	.LFB8
+ 1404 0024 0C000000 		.4byte	.LFE8
+ 1405 0028 00000000 		.4byte	.LFB9
+ 1406 002c 18000000 		.4byte	.LFE9
+ 1407 0030 00000000 		.4byte	.LFB10
+ 1408 0034 0C000000 		.4byte	.LFE10
+ 1409 0038 00000000 		.4byte	.LFB0
+ 1410 003c 1C000000 		.4byte	.LFE0
+ 1411 0040 00000000 		.4byte	.LFB1
+ 1412 0044 1A000000 		.4byte	.LFE1
+ 1413 0048 00000000 		.4byte	.LFB2
+ 1414 004c 14000000 		.4byte	.LFE2
+ 1415 0050 00000000 		.4byte	.LFB11
+ 1416 0054 0C000000 		.4byte	.LFE11
+ 1417 0058 00000000 		.4byte	.LFB12
+ 1418 005c 0C000000 		.4byte	.LFE12
+ 1419 0060 00000000 		.4byte	.LFB3
+ 1420 0064 3C000000 		.4byte	.LFE3
+ 1421 0068 00000000 		.4byte	0
+ 1422 006c 00000000 		.4byte	0
+ 1423              		.section	.debug_line,"",%progbits
+ 1424              	.Ldebug_line0:
+ 1425 0000 A4010000 		.section	.debug_str,"MS",%progbits,1
+ 1425      0200AE00 
+ 1425      00000201 
+ 1425      FB0E0D00 
+ 1425      01010101 
+ 1426              	.LASF39:
+ 1427 0000 6973725F 		.ascii	"isr_Load_TrShReg_SetPending\000"
+ 1427      4C6F6164 
+ 1427      5F547253 
+ 1427      68526567 
+ 1427      5F536574 
+ 1428              	.LASF17:
+ 1429 001c 72656733 		.ascii	"reg32\000"
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 34
+
+
+ 1429      3200
+ 1430              	.LASF50:
+ 1431 0022 433A5C55 		.ascii	"C:\\Users\\e.ivanov\\Documents\\GitHub\\generic\\Ma"
+ 1431      73657273 
+ 1431      5C652E69 
+ 1431      76616E6F 
+ 1431      765C446F 
+ 1432 004f 6E636865 		.ascii	"nchester encoder-decoder.cydsn\000"
+ 1432      73746572 
+ 1432      20656E63 
+ 1432      6F646572 
+ 1432      2D646563 
+ 1433              	.LASF21:
+ 1434 006e 72657365 		.ascii	"reset\000"
+ 1434      7400
+ 1435              	.LASF34:
+ 1436 0074 6973725F 		.ascii	"isr_Load_TrShReg_Enable\000"
+ 1436      4C6F6164 
+ 1436      5F547253 
+ 1436      68526567 
+ 1436      5F456E61 
+ 1437              	.LASF51:
+ 1438 008c 6973725F 		.ascii	"isr_Load_TrShReg_GetState\000"
+ 1438      4C6F6164 
+ 1438      5F547253 
+ 1438      68526567 
+ 1438      5F476574 
+ 1439              	.LASF24:
+ 1440 00a6 46315F66 		.ascii	"F1_full\000"
+ 1440      756C6C00 
+ 1441              	.LASF6:
+ 1442 00ae 73686F72 		.ascii	"short unsigned int\000"
+ 1442      7420756E 
+ 1442      7369676E 
+ 1442      65642069 
+ 1442      6E7400
+ 1443              	.LASF38:
+ 1444 00c1 6973725F 		.ascii	"isr_Load_TrShReg_Stop\000"
+ 1444      4C6F6164 
+ 1444      5F547253 
+ 1444      68526567 
+ 1444      5F53746F 
+ 1445              	.LASF40:
+ 1446 00d7 6973725F 		.ascii	"isr_Load_TrShReg_ClearPending\000"
+ 1446      4C6F6164 
+ 1446      5F547253 
+ 1446      68526567 
+ 1446      5F436C65 
+ 1447              	.LASF25:
+ 1448 00f5 46315F70 		.ascii	"F1_partial\000"
+ 1448      61727469 
+ 1448      616C00
+ 1449              	.LASF14:
+ 1450 0100 666C6F61 		.ascii	"float\000"
+ 1450      7400
+ 1451              	.LASF52:
+ 1452 0106 63757253 		.ascii	"curStat\000"
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 35
+
+
+ 1452      74617400 
+ 1453              	.LASF4:
+ 1454 010e 756E7369 		.ascii	"unsigned char\000"
+ 1454      676E6564 
+ 1454      20636861 
+ 1454      7200
+ 1455              	.LASF48:
+ 1456 011c 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1456      43313120 
+ 1456      352E342E 
+ 1456      31203230 
+ 1456      31363036 
+ 1457 014f 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1457      20726576 
+ 1457      6973696F 
+ 1457      6E203233 
+ 1457      37373135 
+ 1458 0182 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1458      66756E63 
+ 1458      74696F6E 
+ 1458      2D736563 
+ 1458      74696F6E 
+ 1459              	.LASF16:
+ 1460 01aa 72656738 		.ascii	"reg8\000"
+ 1460      00
+ 1461              	.LASF37:
+ 1462 01af 6973725F 		.ascii	"isr_Load_TrShReg_StartEx\000"
+ 1462      4C6F6164 
+ 1462      5F547253 
+ 1462      68526567 
+ 1462      5F537461 
+ 1463              	.LASF44:
+ 1464 01c8 42697443 		.ascii	"BitCounterEnc_ReadStatusRegister\000"
+ 1464      6F756E74 
+ 1464      6572456E 
+ 1464      635F5265 
+ 1464      61645374 
+ 1465              	.LASF8:
+ 1466 01e9 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1466      20756E73 
+ 1466      69676E65 
+ 1466      6420696E 
+ 1466      7400
+ 1467              	.LASF12:
+ 1468 01fb 75696E74 		.ascii	"uint8\000"
+ 1468      3800
+ 1469              	.LASF31:
+ 1470 0201 7072696F 		.ascii	"priority\000"
+ 1470      72697479 
+ 1470      00
+ 1471              	.LASF49:
+ 1472 020a 47656E65 		.ascii	"Generated_Source\\PSoC5\\isr_Load_TrShReg.c\000"
+ 1472      72617465 
+ 1472      645F536F 
+ 1472      75726365 
+ 1472      5C50536F 
+ 1473              	.LASF15:
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 36
+
+
+ 1474 0234 646F7562 		.ascii	"double\000"
+ 1474      6C6500
+ 1475              	.LASF35:
+ 1476 023b 6973725F 		.ascii	"isr_Load_TrShReg_Disable\000"
+ 1476      4C6F6164 
+ 1476      5F547253 
+ 1476      68526567 
+ 1476      5F446973 
+ 1477              	.LASF42:
+ 1478 0254 5365744E 		.ascii	"SetNeedLoadFlag\000"
+ 1478      6565644C 
+ 1478      6F616446 
+ 1478      6C616700 
+ 1479              	.LASF13:
+ 1480 0264 75696E74 		.ascii	"uint32\000"
+ 1480      333200
+ 1481              	.LASF0:
+ 1482 026b 756E7369 		.ascii	"unsigned int\000"
+ 1482      676E6564 
+ 1482      20696E74 
+ 1482      00
+ 1483              	.LASF32:
+ 1484 0278 6973725F 		.ascii	"isr_Load_TrShReg_GetVector\000"
+ 1484      4C6F6164 
+ 1484      5F547253 
+ 1484      68526567 
+ 1484      5F476574 
+ 1485              	.LASF30:
+ 1486 0293 61646472 		.ascii	"address\000"
+ 1486      65737300 
+ 1487              	.LASF9:
+ 1488 029b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1488      206C6F6E 
+ 1488      6720756E 
+ 1488      7369676E 
+ 1488      65642069 
+ 1489              	.LASF41:
+ 1490 02b2 6973725F 		.ascii	"isr_Load_TrShReg_Interrupt\000"
+ 1490      4C6F6164 
+ 1490      5F547253 
+ 1490      68526567 
+ 1490      5F496E74 
+ 1491              	.LASF28:
+ 1492 02cd 6973725F 		.ascii	"isr_Load_TrShReg_SetVector\000"
+ 1492      4C6F6164 
+ 1492      5F547253 
+ 1492      68526567 
+ 1492      5F536574 
+ 1493              	.LASF18:
+ 1494 02e8 63796973 		.ascii	"cyisraddress\000"
+ 1494      72616464 
+ 1494      72657373 
+ 1494      00
+ 1495              	.LASF45:
+ 1496 02f5 5472616E 		.ascii	"TransmitWordShift_ClearPending\000"
+ 1496      736D6974 
+ 1496      576F7264 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 37
+
+
+ 1496      53686966 
+ 1496      745F436C 
+ 1497              	.LASF23:
+ 1498 0314 46305F6E 		.ascii	"F0_not_full\000"
+ 1498      6F745F66 
+ 1498      756C6C00 
+ 1499              	.LASF33:
+ 1500 0320 6973725F 		.ascii	"isr_Load_TrShReg_GetPriority\000"
+ 1500      4C6F6164 
+ 1500      5F547253 
+ 1500      68526567 
+ 1500      5F476574 
+ 1501              	.LASF47:
+ 1502 033d 5472616E 		.ascii	"TransmitShiftReg_GetIntStatus\000"
+ 1502      736D6974 
+ 1502      53686966 
+ 1502      74526567 
+ 1502      5F476574 
+ 1503              	.LASF10:
+ 1504 035b 73697A65 		.ascii	"sizetype\000"
+ 1504      74797065 
+ 1504      00
+ 1505              	.LASF1:
+ 1506 0364 6C6F6E67 		.ascii	"long long int\000"
+ 1506      206C6F6E 
+ 1506      6720696E 
+ 1506      7400
+ 1507              	.LASF36:
+ 1508 0372 6973725F 		.ascii	"isr_Load_TrShReg_Start\000"
+ 1508      4C6F6164 
+ 1508      5F547253 
+ 1508      68526567 
+ 1508      5F537461 
+ 1509              	.LASF11:
+ 1510 0389 63686172 		.ascii	"char\000"
+ 1510      00
+ 1511              	.LASF27:
+ 1512 038e 72616D56 		.ascii	"ramVectorTable\000"
+ 1512      6563746F 
+ 1512      72546162 
+ 1512      6C6500
+ 1513              	.LASF22:
+ 1514 039d 46305F6E 		.ascii	"F0_not_empty\000"
+ 1514      6F745F65 
+ 1514      6D707479 
+ 1514      00
+ 1515              	.LASF5:
+ 1516 03aa 73686F72 		.ascii	"short int\000"
+ 1516      7420696E 
+ 1516      7400
+ 1517              	.LASF19:
+ 1518 03b4 6C6F6164 		.ascii	"load\000"
+ 1518      00
+ 1519              	.LASF26:
+ 1520 03b9 73746174 		.ascii	"statReg\000"
+ 1520      52656700 
+ 1521              	.LASF46:
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc8prSmW.s 			page 38
+
+
+ 1522 03c1 5472616E 		.ascii	"TransmitWordShift_Enable\000"
+ 1522      736D6974 
+ 1522      576F7264 
+ 1522      53686966 
+ 1522      745F456E 
+ 1523              	.LASF20:
+ 1524 03da 73746F72 		.ascii	"store\000"
+ 1524      6500
+ 1525              	.LASF7:
+ 1526 03e0 6C6F6E67 		.ascii	"long int\000"
+ 1526      20696E74 
+ 1526      00
+ 1527              	.LASF2:
+ 1528 03e9 6C6F6E67 		.ascii	"long double\000"
+ 1528      20646F75 
+ 1528      626C6500 
+ 1529              	.LASF3:
+ 1530 03f5 7369676E 		.ascii	"signed char\000"
+ 1530      65642063 
+ 1530      68617200 
+ 1531              	.LASF43:
+ 1532 0401 53746172 		.ascii	"StartTransmit_Write\000"
+ 1532      74547261 
+ 1532      6E736D69 
+ 1532      745F5772 
+ 1532      69746500 
+ 1533              	.LASF29:
+ 1534 0415 6973725F 		.ascii	"isr_Load_TrShReg_SetPriority\000"
+ 1534      4C6F6164 
+ 1534      5F547253 
+ 1534      68526567 
+ 1534      5F536574 
+ 1535              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

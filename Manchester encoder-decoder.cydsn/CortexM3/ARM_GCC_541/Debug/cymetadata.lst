@@ -1,0 +1,3894 @@
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"cymetadata.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	cy_metadata
+  20              		.global	cy_meta_flashprotect
+  21              		.global	cy_meta_wonvl
+  22              		.global	cy_meta_custnvl
+  23              		.global	cy_meta_configecc
+  24              		.section	.cyconfigecc,"a",%progbits
+  25              		.align	2
+  26              		.type	cy_meta_configecc, %object
+  27              		.size	cy_meta_configecc, 3220
+  28              	cy_meta_configecc:
+  29 0000 02       		.byte	2
+  30 0001 4F       		.byte	79
+  31 0002 00       		.byte	0
+  32 0003 40       		.byte	64
+  33 0004 0B       		.byte	11
+  34 0005 52       		.byte	82
+  35 0006 00       		.byte	0
+  36 0007 40       		.byte	64
+  37 0008 06       		.byte	6
+  38 0009 64       		.byte	100
+  39 000a 00       		.byte	0
+  40 000b 40       		.byte	64
+  41 000c 03       		.byte	3
+  42 000d 65       		.byte	101
+  43 000e 00       		.byte	0
+  44 000f 40       		.byte	64
+  45 0010 58       		.byte	88
+  46 0011 00       		.byte	0
+  47 0012 01       		.byte	1
+  48 0013 40       		.byte	64
+  49 0014 2E       		.byte	46
+  50 0015 01       		.byte	1
+  51 0016 01       		.byte	1
+  52 0017 40       		.byte	64
+  53 0018 52       		.byte	82
+  54 0019 02       		.byte	2
+  55 001a 01       		.byte	1
+  56 001b 40       		.byte	64
+  57 001c 2C       		.byte	44
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 2
+
+
+  58 001d 03       		.byte	3
+  59 001e 01       		.byte	1
+  60 001f 40       		.byte	64
+  61 0020 3F       		.byte	63
+  62 0021 04       		.byte	4
+  63 0022 01       		.byte	1
+  64 0023 40       		.byte	64
+  65 0024 3D       		.byte	61
+  66 0025 05       		.byte	5
+  67 0026 01       		.byte	1
+  68 0027 40       		.byte	64
+  69 0028 5B       		.byte	91
+  70 0029 06       		.byte	6
+  71 002a 01       		.byte	1
+  72 002b 40       		.byte	64
+  73 002c 44       		.byte	68
+  74 002d 07       		.byte	7
+  75 002e 01       		.byte	1
+  76 002f 40       		.byte	64
+  77 0030 37       		.byte	55
+  78 0031 08       		.byte	8
+  79 0032 01       		.byte	1
+  80 0033 40       		.byte	64
+  81 0034 3C       		.byte	60
+  82 0035 09       		.byte	9
+  83 0036 01       		.byte	1
+  84 0037 40       		.byte	64
+  85 0038 1E       		.byte	30
+  86 0039 0A       		.byte	10
+  87 003a 01       		.byte	1
+  88 003b 40       		.byte	64
+  89 003c 25       		.byte	37
+  90 003d 0B       		.byte	11
+  91 003e 01       		.byte	1
+  92 003f 40       		.byte	64
+  93 0040 03       		.byte	3
+  94 0041 0D       		.byte	13
+  95 0042 01       		.byte	1
+  96 0043 40       		.byte	64
+  97 0044 01       		.byte	1
+  98 0045 0F       		.byte	15
+  99 0046 01       		.byte	1
+ 100 0047 40       		.byte	64
+ 101 0048 60       		.byte	96
+ 102 0049 14       		.byte	20
+ 103 004a 01       		.byte	1
+ 104 004b 40       		.byte	64
+ 105 004c 45       		.byte	69
+ 106 004d 15       		.byte	21
+ 107 004e 01       		.byte	1
+ 108 004f 40       		.byte	64
+ 109 0050 19       		.byte	25
+ 110 0051 16       		.byte	22
+ 111 0052 01       		.byte	1
+ 112 0053 40       		.byte	64
+ 113 0054 4C       		.byte	76
+ 114 0055 17       		.byte	23
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 3
+
+
+ 115 0056 01       		.byte	1
+ 116 0057 40       		.byte	64
+ 117 0058 50       		.byte	80
+ 118 0059 18       		.byte	24
+ 119 005a 01       		.byte	1
+ 120 005b 40       		.byte	64
+ 121 005c 3C       		.byte	60
+ 122 005d 19       		.byte	25
+ 123 005e 01       		.byte	1
+ 124 005f 40       		.byte	64
+ 125 0060 4E       		.byte	78
+ 126 0061 1A       		.byte	26
+ 127 0062 01       		.byte	1
+ 128 0063 40       		.byte	64
+ 129 0064 38       		.byte	56
+ 130 0065 1B       		.byte	27
+ 131 0066 01       		.byte	1
+ 132 0067 40       		.byte	64
+ 133 0068 0A       		.byte	10
+ 134 0069 40       		.byte	64
+ 135 006a 01       		.byte	1
+ 136 006b 40       		.byte	64
+ 137 006c 0D       		.byte	13
+ 138 006d 41       		.byte	65
+ 139 006e 01       		.byte	1
+ 140 006f 40       		.byte	64
+ 141 0070 0C       		.byte	12
+ 142 0071 42       		.byte	66
+ 143 0072 01       		.byte	1
+ 144 0073 40       		.byte	64
+ 145 0074 09       		.byte	9
+ 146 0075 43       		.byte	67
+ 147 0076 01       		.byte	1
+ 148 0077 40       		.byte	64
+ 149 0078 07       		.byte	7
+ 150 0079 44       		.byte	68
+ 151 007a 01       		.byte	1
+ 152 007b 40       		.byte	64
+ 153 007c 0D       		.byte	13
+ 154 007d 45       		.byte	69
+ 155 007e 01       		.byte	1
+ 156 007f 40       		.byte	64
+ 157 0080 10       		.byte	16
+ 158 0081 46       		.byte	70
+ 159 0082 01       		.byte	1
+ 160 0083 40       		.byte	64
+ 161 0084 05       		.byte	5
+ 162 0085 47       		.byte	71
+ 163 0086 01       		.byte	1
+ 164 0087 40       		.byte	64
+ 165 0088 09       		.byte	9
+ 166 0089 48       		.byte	72
+ 167 008a 01       		.byte	1
+ 168 008b 40       		.byte	64
+ 169 008c 12       		.byte	18
+ 170 008d 49       		.byte	73
+ 171 008e 01       		.byte	1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 4
+
+
+ 172 008f 40       		.byte	64
+ 173 0090 0F       		.byte	15
+ 174 0091 4C       		.byte	76
+ 175 0092 01       		.byte	1
+ 176 0093 40       		.byte	64
+ 177 0094 08       		.byte	8
+ 178 0095 4D       		.byte	77
+ 179 0096 01       		.byte	1
+ 180 0097 40       		.byte	64
+ 181 0098 09       		.byte	9
+ 182 0099 50       		.byte	80
+ 183 009a 01       		.byte	1
+ 184 009b 40       		.byte	64
+ 185 009c 02       		.byte	2
+ 186 009d 51       		.byte	81
+ 187 009e 01       		.byte	1
+ 188 009f 40       		.byte	64
+ 189 00a0 01       		.byte	1
+ 190 00a1 80       		.byte	-128
+ 191 00a2 0A       		.byte	10
+ 192 00a3 1B       		.byte	27
+ 193 00a4 00       		.byte	0
+ 194 00a5 08       		.byte	8
+ 195 00a6 01       		.byte	1
+ 196 00a7 88       		.byte	-120
+ 197 00a8 08       		.byte	8
+ 198 00a9 64       		.byte	100
+ 199 00aa 09       		.byte	9
+ 200 00ab 30       		.byte	48
+ 201 00ac 10       		.byte	16
+ 202 00ad 81       		.byte	-127
+ 203 00ae 11       		.byte	17
+ 204 00af C1       		.byte	-63
+ 205 00b0 18       		.byte	24
+ 206 00b1 C0       		.byte	-64
+ 207 00b2 19       		.byte	25
+ 208 00b3 41       		.byte	65
+ 209 00b4 60       		.byte	96
+ 210 00b5 AC       		.byte	-84
+ 211 00b6 61       		.byte	97
+ 212 00b7 C8       		.byte	-56
+ 213 00b8 78       		.byte	120
+ 214 00b9 20       		.byte	32
+ 215 00ba 24       		.byte	36
+ 216 00bb 09       		.byte	9
+ 217 00bc 76       		.byte	118
+ 218 00bd 01       		.byte	1
+ 219 00be 81       		.byte	-127
+ 220 00bf 77       		.byte	119
+ 221 00c0 82       		.byte	-126
+ 222 00c1 01       		.byte	1
+ 223 00c2 86       		.byte	-122
+ 224 00c3 67       		.byte	103
+ 225 00c4 89       		.byte	-119
+ 226 00c5 67       		.byte	103
+ 227 00c6 84       		.byte	-124
+ 228 00c7 77       		.byte	119
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 5
+
+
+ 229 00c8 87       		.byte	-121
+ 230 00c9 02       		.byte	2
+ 231 00ca 88       		.byte	-120
+ 232 00cb 01       		.byte	1
+ 233 00cc 03       		.byte	3
+ 234 00cd 01       		.byte	1
+ 235 00ce 13       		.byte	19
+ 236 00cf 01       		.byte	1
+ 237 00d0 1E       		.byte	30
+ 238 00d1 02       		.byte	2
+ 239 00d2 1F       		.byte	31
+ 240 00d3 02       		.byte	2
+ 241 00d4 25       		.byte	37
+ 242 00d5 01       		.byte	1
+ 243 00d6 29       		.byte	41
+ 244 00d7 02       		.byte	2
+ 245 00d8 2E       		.byte	46
+ 246 00d9 01       		.byte	1
+ 247 00da 32       		.byte	50
+ 248 00db 01       		.byte	1
+ 249 00dc 33       		.byte	51
+ 250 00dd 02       		.byte	2
+ 251 00de 34       		.byte	52
+ 252 00df 02       		.byte	2
+ 253 00e0 35       		.byte	53
+ 254 00e1 01       		.byte	1
+ 255 00e2 37       		.byte	55
+ 256 00e3 02       		.byte	2
+ 257 00e4 3F       		.byte	63
+ 258 00e5 54       		.byte	84
+ 259 00e6 40       		.byte	64
+ 260 00e7 24       		.byte	36
+ 261 00e8 41       		.byte	65
+ 262 00e9 05       		.byte	5
+ 263 00ea 42       		.byte	66
+ 264 00eb 03       		.byte	3
+ 265 00ec 49       		.byte	73
+ 266 00ed FF       		.byte	-1
+ 267 00ee 4A       		.byte	74
+ 268 00ef FF       		.byte	-1
+ 269 00f0 4B       		.byte	75
+ 270 00f1 FF       		.byte	-1
+ 271 00f2 4D       		.byte	77
+ 272 00f3 A0       		.byte	-96
+ 273 00f4 4F       		.byte	79
+ 274 00f5 01       		.byte	1
+ 275 00f6 50       		.byte	80
+ 276 00f7 18       		.byte	24
+ 277 00f8 52       		.byte	82
+ 278 00f9 80       		.byte	-128
+ 279 00fa 58       		.byte	88
+ 280 00fb 04       		.byte	4
+ 281 00fc 59       		.byte	89
+ 282 00fd 04       		.byte	4
+ 283 00fe 5A       		.byte	90
+ 284 00ff 04       		.byte	4
+ 285 0100 5B       		.byte	91
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 6
+
+
+ 286 0101 04       		.byte	4
+ 287 0102 5C       		.byte	92
+ 288 0103 09       		.byte	9
+ 289 0104 5D       		.byte	93
+ 290 0105 99       		.byte	-103
+ 291 0106 5F       		.byte	95
+ 292 0107 01       		.byte	1
+ 293 0108 60       		.byte	96
+ 294 0109 40       		.byte	64
+ 295 010a 62       		.byte	98
+ 296 010b 80       		.byte	-128
+ 297 010c 64       		.byte	100
+ 298 010d 40       		.byte	64
+ 299 010e 65       		.byte	101
+ 300 010f 40       		.byte	64
+ 301 0110 66       		.byte	102
+ 302 0111 80       		.byte	-128
+ 303 0112 68       		.byte	104
+ 304 0113 40       		.byte	64
+ 305 0114 6A       		.byte	106
+ 306 0115 50       		.byte	80
+ 307 0116 6B       		.byte	107
+ 308 0117 A8       		.byte	-88
+ 309 0118 6C       		.byte	108
+ 310 0119 40       		.byte	64
+ 311 011a 6D       		.byte	109
+ 312 011b 20       		.byte	32
+ 313 011c 6E       		.byte	110
+ 314 011d 50       		.byte	80
+ 315 011e 6F       		.byte	111
+ 316 011f A8       		.byte	-88
+ 317 0120 83       		.byte	-125
+ 318 0121 02       		.byte	2
+ 319 0122 9E       		.byte	-98
+ 320 0123 02       		.byte	2
+ 321 0124 9F       		.byte	-97
+ 322 0125 01       		.byte	1
+ 323 0126 A2       		.byte	-94
+ 324 0127 01       		.byte	1
+ 325 0128 A5       		.byte	-91
+ 326 0129 02       		.byte	2
+ 327 012a A9       		.byte	-87
+ 328 012b 01       		.byte	1
+ 329 012c B1       		.byte	-79
+ 330 012d 01       		.byte	1
+ 331 012e B2       		.byte	-78
+ 332 012f 01       		.byte	1
+ 333 0130 B4       		.byte	-76
+ 334 0131 02       		.byte	2
+ 335 0132 B5       		.byte	-75
+ 336 0133 02       		.byte	2
+ 337 0134 BF       		.byte	-65
+ 338 0135 11       		.byte	17
+ 339 0136 C0       		.byte	-64
+ 340 0137 24       		.byte	36
+ 341 0138 C1       		.byte	-63
+ 342 0139 05       		.byte	5
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 7
+
+
+ 343 013a C2       		.byte	-62
+ 344 013b 01       		.byte	1
+ 345 013c C5       		.byte	-59
+ 346 013d 4C       		.byte	76
+ 347 013e C6       		.byte	-58
+ 348 013f 20       		.byte	32
+ 349 0140 C7       		.byte	-57
+ 350 0141 0E       		.byte	14
+ 351 0142 C8       		.byte	-56
+ 352 0143 3B       		.byte	59
+ 353 0144 C9       		.byte	-55
+ 354 0145 FF       		.byte	-1
+ 355 0146 CA       		.byte	-54
+ 356 0147 FF       		.byte	-1
+ 357 0148 CB       		.byte	-53
+ 358 0149 FF       		.byte	-1
+ 359 014a CD       		.byte	-51
+ 360 014b AF       		.byte	-81
+ 361 014c CE       		.byte	-50
+ 362 014d 07       		.byte	7
+ 363 014e CF       		.byte	-49
+ 364 014f 01       		.byte	1
+ 365 0150 D0       		.byte	-48
+ 366 0151 18       		.byte	24
+ 367 0152 D4       		.byte	-44
+ 368 0153 17       		.byte	23
+ 369 0154 D6       		.byte	-42
+ 370 0155 04       		.byte	4
+ 371 0156 D8       		.byte	-40
+ 372 0157 04       		.byte	4
+ 373 0158 D9       		.byte	-39
+ 374 0159 04       		.byte	4
+ 375 015a DA       		.byte	-38
+ 376 015b 04       		.byte	4
+ 377 015c DB       		.byte	-37
+ 378 015d 04       		.byte	4
+ 379 015e DC       		.byte	-36
+ 380 015f 09       		.byte	9
+ 381 0160 DD       		.byte	-35
+ 382 0161 99       		.byte	-103
+ 383 0162 DF       		.byte	-33
+ 384 0163 01       		.byte	1
+ 385 0164 E0       		.byte	-32
+ 386 0165 40       		.byte	64
+ 387 0166 E2       		.byte	-30
+ 388 0167 80       		.byte	-128
+ 389 0168 E4       		.byte	-28
+ 390 0169 40       		.byte	64
+ 391 016a E5       		.byte	-27
+ 392 016b 40       		.byte	64
+ 393 016c E6       		.byte	-26
+ 394 016d 80       		.byte	-128
+ 395 016e E8       		.byte	-24
+ 396 016f 40       		.byte	64
+ 397 0170 EA       		.byte	-22
+ 398 0171 50       		.byte	80
+ 399 0172 EB       		.byte	-21
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 8
+
+
+ 400 0173 A8       		.byte	-88
+ 401 0174 EC       		.byte	-20
+ 402 0175 40       		.byte	64
+ 403 0176 ED       		.byte	-19
+ 404 0177 20       		.byte	32
+ 405 0178 EE       		.byte	-18
+ 406 0179 50       		.byte	80
+ 407 017a EF       		.byte	-17
+ 408 017b A8       		.byte	-88
+ 409 017c 0A       		.byte	10
+ 410 017d 01       		.byte	1
+ 411 017e 0F       		.byte	15
+ 412 017f 02       		.byte	2
+ 413 0180 10       		.byte	16
+ 414 0181 02       		.byte	2
+ 415 0182 15       		.byte	21
+ 416 0183 01       		.byte	1
+ 417 0184 19       		.byte	25
+ 418 0185 14       		.byte	20
+ 419 0186 1F       		.byte	31
+ 420 0187 24       		.byte	36
+ 421 0188 20       		.byte	32
+ 422 0189 14       		.byte	20
+ 423 018a 21       		.byte	33
+ 424 018b A0       		.byte	-96
+ 425 018c 23       		.byte	35
+ 426 018d 01       		.byte	1
+ 427 018e 27       		.byte	39
+ 428 018f 88       		.byte	-120
+ 429 0190 29       		.byte	41
+ 430 0191 14       		.byte	20
+ 431 0192 2F       		.byte	47
+ 432 0193 24       		.byte	36
+ 433 0194 30       		.byte	48
+ 434 0195 02       		.byte	2
+ 435 0196 31       		.byte	49
+ 436 0197 40       		.byte	64
+ 437 0198 32       		.byte	50
+ 438 0199 01       		.byte	1
+ 439 019a 36       		.byte	54
+ 440 019b 80       		.byte	-128
+ 441 019c 38       		.byte	56
+ 442 019d 02       		.byte	2
+ 443 019e 3F       		.byte	63
+ 444 019f 02       		.byte	2
+ 445 01a0 40       		.byte	64
+ 446 01a1 14       		.byte	20
+ 447 01a2 41       		.byte	65
+ 448 01a3 02       		.byte	2
+ 449 01a4 45       		.byte	69
+ 450 01a5 A2       		.byte	-94
+ 451 01a6 4A       		.byte	74
+ 452 01a7 02       		.byte	2
+ 453 01a8 4D       		.byte	77
+ 454 01a9 01       		.byte	1
+ 455 01aa 4E       		.byte	78
+ 456 01ab 82       		.byte	-126
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 9
+
+
+ 457 01ac 4F       		.byte	79
+ 458 01ad 04       		.byte	4
+ 459 01ae 55       		.byte	85
+ 460 01af 02       		.byte	2
+ 461 01b0 56       		.byte	86
+ 462 01b1 08       		.byte	8
+ 463 01b2 57       		.byte	87
+ 464 01b3 11       		.byte	17
+ 465 01b4 5F       		.byte	95
+ 466 01b5 98       		.byte	-104
+ 467 01b6 63       		.byte	99
+ 468 01b7 30       		.byte	48
+ 469 01b8 66       		.byte	102
+ 470 01b9 08       		.byte	8
+ 471 01ba 67       		.byte	103
+ 472 01bb 45       		.byte	69
+ 473 01bc 70       		.byte	112
+ 474 01bd 01       		.byte	1
+ 475 01be 82       		.byte	-126
+ 476 01bf 20       		.byte	32
+ 477 01c0 83       		.byte	-125
+ 478 01c1 20       		.byte	32
+ 479 01c2 87       		.byte	-121
+ 480 01c3 40       		.byte	64
+ 481 01c4 C2       		.byte	-62
+ 482 01c5 81       		.byte	-127
+ 483 01c6 C4       		.byte	-60
+ 484 01c7 11       		.byte	17
+ 485 01c8 CA       		.byte	-54
+ 486 01c9 66       		.byte	102
+ 487 01ca CC       		.byte	-52
+ 488 01cb 19       		.byte	25
+ 489 01cc CE       		.byte	-50
+ 490 01cd 81       		.byte	-127
+ 491 01ce D0       		.byte	-48
+ 492 01cf B7       		.byte	-73
+ 493 01d0 D2       		.byte	-46
+ 494 01d1 18       		.byte	24
+ 495 01d2 D6       		.byte	-42
+ 496 01d3 70       		.byte	112
+ 497 01d4 D8       		.byte	-40
+ 498 01d5 F0       		.byte	-16
+ 499 01d6 E4       		.byte	-28
+ 500 01d7 04       		.byte	4
+ 501 01d8 38       		.byte	56
+ 502 01d9 80       		.byte	-128
+ 503 01da 3C       		.byte	60
+ 504 01db 80       		.byte	-128
+ 505 01dc 40       		.byte	64
+ 506 01dd 30       		.byte	48
+ 507 01de 41       		.byte	65
+ 508 01df 04       		.byte	4
+ 509 01e0 44       		.byte	68
+ 510 01e1 06       		.byte	6
+ 511 01e2 45       		.byte	69
+ 512 01e3 ED       		.byte	-19
+ 513 01e4 46       		.byte	70
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 10
+
+
+ 514 01e5 0B       		.byte	11
+ 515 01e6 47       		.byte	71
+ 516 01e7 CF       		.byte	-49
+ 517 01e8 48       		.byte	72
+ 518 01e9 37       		.byte	55
+ 519 01ea 49       		.byte	73
+ 520 01eb FF       		.byte	-1
+ 521 01ec 4A       		.byte	74
+ 522 01ed FF       		.byte	-1
+ 523 01ee 4B       		.byte	75
+ 524 01ef FF       		.byte	-1
+ 525 01f0 4C       		.byte	76
+ 526 01f1 EA       		.byte	-22
+ 527 01f2 4D       		.byte	77
+ 528 01f3 55       		.byte	85
+ 529 01f4 4E       		.byte	78
+ 530 01f5 F0       		.byte	-16
+ 531 01f6 4F       		.byte	79
+ 532 01f7 48       		.byte	72
+ 533 01f8 50       		.byte	80
+ 534 01f9 1C       		.byte	28
+ 535 01fa 52       		.byte	82
+ 536 01fb 01       		.byte	1
+ 537 01fc 54       		.byte	84
+ 538 01fd 01       		.byte	1
+ 539 01fe 58       		.byte	88
+ 540 01ff 04       		.byte	4
+ 541 0200 5A       		.byte	90
+ 542 0201 24       		.byte	36
+ 543 0202 5B       		.byte	91
+ 544 0203 24       		.byte	36
+ 545 0204 5C       		.byte	92
+ 546 0205 08       		.byte	8
+ 547 0206 5D       		.byte	93
+ 548 0207 99       		.byte	-103
+ 549 0208 5F       		.byte	95
+ 550 0209 31       		.byte	49
+ 551 020a 61       		.byte	97
+ 552 020b 08       		.byte	8
+ 553 020c 63       		.byte	99
+ 554 020d 08       		.byte	8
+ 555 020e 65       		.byte	101
+ 556 020f 08       		.byte	8
+ 557 0210 67       		.byte	103
+ 558 0211 08       		.byte	8
+ 559 0212 68       		.byte	104
+ 560 0213 50       		.byte	80
+ 561 0214 69       		.byte	105
+ 562 0215 0A       		.byte	10
+ 563 0216 6A       		.byte	106
+ 564 0217 40       		.byte	64
+ 565 0218 6B       		.byte	107
+ 566 0219 A8       		.byte	-88
+ 567 021a 6C       		.byte	108
+ 568 021b C0       		.byte	-64
+ 569 021c 6E       		.byte	110
+ 570 021d 40       		.byte	64
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 11
+
+
+ 571 021e 6F       		.byte	111
+ 572 021f A8       		.byte	-88
+ 573 0220 88       		.byte	-120
+ 574 0221 16       		.byte	22
+ 575 0222 8A       		.byte	-118
+ 576 0223 09       		.byte	9
+ 577 0224 A0       		.byte	-96
+ 578 0225 03       		.byte	3
+ 579 0226 A2       		.byte	-94
+ 580 0227 3C       		.byte	60
+ 581 0228 AC       		.byte	-84
+ 582 0229 05       		.byte	5
+ 583 022a AE       		.byte	-82
+ 584 022b 1A       		.byte	26
+ 585 022c B0       		.byte	-80
+ 586 022d 0F       		.byte	15
+ 587 022e B2       		.byte	-78
+ 588 022f 11       		.byte	17
+ 589 0230 B4       		.byte	-76
+ 590 0231 20       		.byte	32
+ 591 0232 B9       		.byte	-71
+ 592 0233 02       		.byte	2
+ 593 0234 BA       		.byte	-70
+ 594 0235 08       		.byte	8
+ 595 0236 BB       		.byte	-69
+ 596 0237 0C       		.byte	12
+ 597 0238 BF       		.byte	-65
+ 598 0239 01       		.byte	1
+ 599 023a C1       		.byte	-63
+ 600 023b 01       		.byte	1
+ 601 023c C4       		.byte	-60
+ 602 023d 04       		.byte	4
+ 603 023e C5       		.byte	-59
+ 604 023f C0       		.byte	-64
+ 605 0240 C6       		.byte	-58
+ 606 0241 DE       		.byte	-34
+ 607 0242 C7       		.byte	-57
+ 608 0243 BF       		.byte	-65
+ 609 0244 C8       		.byte	-56
+ 610 0245 3E       		.byte	62
+ 611 0246 C9       		.byte	-55
+ 612 0247 FF       		.byte	-1
+ 613 0248 CA       		.byte	-54
+ 614 0249 FF       		.byte	-1
+ 615 024a CB       		.byte	-53
+ 616 024b FF       		.byte	-1
+ 617 024c CC       		.byte	-52
+ 618 024d EA       		.byte	-22
+ 619 024e CD       		.byte	-51
+ 620 024f 55       		.byte	85
+ 621 0250 CE       		.byte	-50
+ 622 0251 F0       		.byte	-16
+ 623 0252 CF       		.byte	-49
+ 624 0253 48       		.byte	72
+ 625 0254 D0       		.byte	-48
+ 626 0255 1C       		.byte	28
+ 627 0256 D2       		.byte	-46
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 12
+
+
+ 628 0257 01       		.byte	1
+ 629 0258 D8       		.byte	-40
+ 630 0259 04       		.byte	4
+ 631 025a D9       		.byte	-39
+ 632 025b 0B       		.byte	11
+ 633 025c DA       		.byte	-38
+ 634 025d 24       		.byte	36
+ 635 025e DB       		.byte	-37
+ 636 025f 24       		.byte	36
+ 637 0260 DC       		.byte	-36
+ 638 0261 89       		.byte	-119
+ 639 0262 DD       		.byte	-35
+ 640 0263 99       		.byte	-103
+ 641 0264 DF       		.byte	-33
+ 642 0265 21       		.byte	33
+ 643 0266 E1       		.byte	-31
+ 644 0267 08       		.byte	8
+ 645 0268 E3       		.byte	-29
+ 646 0269 08       		.byte	8
+ 647 026a E5       		.byte	-27
+ 648 026b 08       		.byte	8
+ 649 026c E7       		.byte	-25
+ 650 026d 08       		.byte	8
+ 651 026e E8       		.byte	-24
+ 652 026f 50       		.byte	80
+ 653 0270 E9       		.byte	-23
+ 654 0271 0A       		.byte	10
+ 655 0272 EA       		.byte	-22
+ 656 0273 40       		.byte	64
+ 657 0274 EB       		.byte	-21
+ 658 0275 A8       		.byte	-88
+ 659 0276 EC       		.byte	-20
+ 660 0277 C0       		.byte	-64
+ 661 0278 EE       		.byte	-18
+ 662 0279 40       		.byte	64
+ 663 027a EF       		.byte	-17
+ 664 027b A8       		.byte	-88
+ 665 027c 00       		.byte	0
+ 666 027d 10       		.byte	16
+ 667 027e 06       		.byte	6
+ 668 027f 02       		.byte	2
+ 669 0280 07       		.byte	7
+ 670 0281 02       		.byte	2
+ 671 0282 10       		.byte	16
+ 672 0283 82       		.byte	-126
+ 673 0284 18       		.byte	24
+ 674 0285 50       		.byte	80
+ 675 0286 1B       		.byte	27
+ 676 0287 10       		.byte	16
+ 677 0288 1D       		.byte	29
+ 678 0289 40       		.byte	64
+ 679 028a 1E       		.byte	30
+ 680 028b 01       		.byte	1
+ 681 028c 21       		.byte	33
+ 682 028d 04       		.byte	4
+ 683 028e 22       		.byte	34
+ 684 028f 02       		.byte	2
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 13
+
+
+ 685 0290 40       		.byte	64
+ 686 0291 40       		.byte	64
+ 687 0292 41       		.byte	65
+ 688 0293 40       		.byte	64
+ 689 0294 47       		.byte	71
+ 690 0295 05       		.byte	5
+ 691 0296 49       		.byte	73
+ 692 0297 01       		.byte	1
+ 693 0298 4F       		.byte	79
+ 694 0299 25       		.byte	37
+ 695 029a 50       		.byte	80
+ 696 029b 02       		.byte	2
+ 697 029c 51       		.byte	81
+ 698 029d 28       		.byte	40
+ 699 029e 52       		.byte	82
+ 700 029f 40       		.byte	64
+ 701 02a0 54       		.byte	84
+ 702 02a1 80       		.byte	-128
+ 703 02a2 56       		.byte	86
+ 704 02a3 0A       		.byte	10
+ 705 02a4 59       		.byte	89
+ 706 02a5 01       		.byte	1
+ 707 02a6 5F       		.byte	95
+ 708 02a7 82       		.byte	-126
+ 709 02a8 61       		.byte	97
+ 710 02a9 28       		.byte	40
+ 711 02aa 62       		.byte	98
+ 712 02ab 40       		.byte	64
+ 713 02ac 66       		.byte	102
+ 714 02ad 08       		.byte	8
+ 715 02ae 67       		.byte	103
+ 716 02af 05       		.byte	5
+ 717 02b0 69       		.byte	105
+ 718 02b1 80       		.byte	-128
+ 719 02b2 6F       		.byte	111
+ 720 02b3 01       		.byte	1
+ 721 02b4 78       		.byte	120
+ 722 02b5 08       		.byte	8
+ 723 02b6 79       		.byte	121
+ 724 02b7 02       		.byte	2
+ 725 02b8 7D       		.byte	125
+ 726 02b9 80       		.byte	-128
+ 727 02ba 7F       		.byte	127
+ 728 02bb 40       		.byte	64
+ 729 02bc 87       		.byte	-121
+ 730 02bd 40       		.byte	64
+ 731 02be 96       		.byte	-106
+ 732 02bf 03       		.byte	3
+ 733 02c0 9D       		.byte	-99
+ 734 02c1 40       		.byte	64
+ 735 02c2 A6       		.byte	-90
+ 736 02c3 22       		.byte	34
+ 737 02c4 C0       		.byte	-64
+ 738 02c5 02       		.byte	2
+ 739 02c6 C4       		.byte	-60
+ 740 02c7 09       		.byte	9
+ 741 02c8 D0       		.byte	-48
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 14
+
+
+ 742 02c9 C9       		.byte	-55
+ 743 02ca D2       		.byte	-46
+ 744 02cb 20       		.byte	32
+ 745 02cc D6       		.byte	-42
+ 746 02cd 91       		.byte	-111
+ 747 02ce D8       		.byte	-40
+ 748 02cf 7E       		.byte	126
+ 749 02d0 DE       		.byte	-34
+ 750 02d1 93       		.byte	-109
+ 751 02d2 E6       		.byte	-26
+ 752 02d3 40       		.byte	64
+ 753 02d4 04       		.byte	4
+ 754 02d5 01       		.byte	1
+ 755 02d6 06       		.byte	6
+ 756 02d7 02       		.byte	2
+ 757 02d8 0B       		.byte	11
+ 758 02d9 01       		.byte	1
+ 759 02da 0C       		.byte	12
+ 760 02db 08       		.byte	8
+ 761 02dc 0E       		.byte	14
+ 762 02dd 10       		.byte	16
+ 763 02de 10       		.byte	16
+ 764 02df 10       		.byte	16
+ 765 02e0 12       		.byte	18
+ 766 02e1 28       		.byte	40
+ 767 02e2 14       		.byte	20
+ 768 02e3 04       		.byte	4
+ 769 02e4 19       		.byte	25
+ 770 02e5 02       		.byte	2
+ 771 02e6 1A       		.byte	26
+ 772 02e7 04       		.byte	4
+ 773 02e8 24       		.byte	36
+ 774 02e9 02       		.byte	2
+ 775 02ea 26       		.byte	38
+ 776 02eb 01       		.byte	1
+ 777 02ec 28       		.byte	40
+ 778 02ed 20       		.byte	32
+ 779 02ee 2A       		.byte	42
+ 780 02ef 10       		.byte	16
+ 781 02f0 30       		.byte	48
+ 782 02f1 04       		.byte	4
+ 783 02f2 31       		.byte	49
+ 784 02f3 01       		.byte	1
+ 785 02f4 32       		.byte	50
+ 786 02f5 38       		.byte	56
+ 787 02f6 34       		.byte	52
+ 788 02f7 03       		.byte	3
+ 789 02f8 35       		.byte	53
+ 790 02f9 02       		.byte	2
+ 791 02fa 38       		.byte	56
+ 792 02fb 02       		.byte	2
+ 793 02fc 3E       		.byte	62
+ 794 02fd 11       		.byte	17
+ 795 02fe 3F       		.byte	63
+ 796 02ff 10       		.byte	16
+ 797 0300 40       		.byte	64
+ 798 0301 26       		.byte	38
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 15
+
+
+ 799 0302 45       		.byte	69
+ 800 0303 20       		.byte	32
+ 801 0304 48       		.byte	72
+ 802 0305 02       		.byte	2
+ 803 0306 49       		.byte	73
+ 804 0307 FF       		.byte	-1
+ 805 0308 4A       		.byte	74
+ 806 0309 FF       		.byte	-1
+ 807 030a 4B       		.byte	75
+ 808 030b FF       		.byte	-1
+ 809 030c 52       		.byte	82
+ 810 030d 01       		.byte	1
+ 811 030e 58       		.byte	88
+ 812 030f 04       		.byte	4
+ 813 0310 59       		.byte	89
+ 814 0311 08       		.byte	8
+ 815 0312 5A       		.byte	90
+ 816 0313 04       		.byte	4
+ 817 0314 5B       		.byte	91
+ 818 0315 09       		.byte	9
+ 819 0316 5C       		.byte	92
+ 820 0317 89       		.byte	-119
+ 821 0318 5D       		.byte	93
+ 822 0319 99       		.byte	-103
+ 823 031a 5F       		.byte	95
+ 824 031b 21       		.byte	33
+ 825 031c 60       		.byte	96
+ 826 031d 80       		.byte	-128
+ 827 031e 62       		.byte	98
+ 828 031f 40       		.byte	64
+ 829 0320 63       		.byte	99
+ 830 0321 40       		.byte	64
+ 831 0322 64       		.byte	100
+ 832 0323 40       		.byte	64
+ 833 0324 65       		.byte	101
+ 834 0325 40       		.byte	64
+ 835 0326 66       		.byte	102
+ 836 0327 80       		.byte	-128
+ 837 0328 68       		.byte	104
+ 838 0329 80       		.byte	-128
+ 839 032a 6A       		.byte	106
+ 840 032b 80       		.byte	-128
+ 841 032c 6C       		.byte	108
+ 842 032d 80       		.byte	-128
+ 843 032e 6E       		.byte	110
+ 844 032f 80       		.byte	-128
+ 845 0330 86       		.byte	-122
+ 846 0331 01       		.byte	1
+ 847 0332 8A       		.byte	-118
+ 848 0333 02       		.byte	2
+ 849 0334 8E       		.byte	-114
+ 850 0335 02       		.byte	2
+ 851 0336 93       		.byte	-109
+ 852 0337 01       		.byte	1
+ 853 0338 9B       		.byte	-101
+ 854 0339 02       		.byte	2
+ 855 033a A5       		.byte	-91
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 16
+
+
+ 856 033b 02       		.byte	2
+ 857 033c B0       		.byte	-80
+ 858 033d 02       		.byte	2
+ 859 033e B3       		.byte	-77
+ 860 033f 01       		.byte	1
+ 861 0340 B4       		.byte	-76
+ 862 0341 01       		.byte	1
+ 863 0342 B5       		.byte	-75
+ 864 0343 02       		.byte	2
+ 865 0344 BE       		.byte	-66
+ 866 0345 01       		.byte	1
+ 867 0346 BF       		.byte	-65
+ 868 0347 10       		.byte	16
+ 869 0348 D8       		.byte	-40
+ 870 0349 24       		.byte	36
+ 871 034a D9       		.byte	-39
+ 872 034b 04       		.byte	4
+ 873 034c DB       		.byte	-37
+ 874 034d 04       		.byte	4
+ 875 034e DC       		.byte	-36
+ 876 034f 89       		.byte	-119
+ 877 0350 DF       		.byte	-33
+ 878 0351 11       		.byte	17
+ 879 0352 01       		.byte	1
+ 880 0353 80       		.byte	-128
+ 881 0354 02       		.byte	2
+ 882 0355 10       		.byte	16
+ 883 0356 05       		.byte	5
+ 884 0357 90       		.byte	-112
+ 885 0358 07       		.byte	7
+ 886 0359 10       		.byte	16
+ 887 035a 08       		.byte	8
+ 888 035b 08       		.byte	8
+ 889 035c 09       		.byte	9
+ 890 035d 06       		.byte	6
+ 891 035e 0A       		.byte	10
+ 892 035f 0C       		.byte	12
+ 893 0360 10       		.byte	16
+ 894 0361 08       		.byte	8
+ 895 0362 13       		.byte	19
+ 896 0363 04       		.byte	4
+ 897 0364 18       		.byte	24
+ 898 0365 24       		.byte	36
+ 899 0366 1B       		.byte	27
+ 900 0367 01       		.byte	1
+ 901 0368 1D       		.byte	29
+ 902 0369 01       		.byte	1
+ 903 036a 1F       		.byte	31
+ 904 036b 20       		.byte	32
+ 905 036c 21       		.byte	33
+ 906 036d 01       		.byte	1
+ 907 036e 22       		.byte	34
+ 908 036f 21       		.byte	33
+ 909 0370 27       		.byte	39
+ 910 0371 14       		.byte	20
+ 911 0372 2F       		.byte	47
+ 912 0373 20       		.byte	32
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 17
+
+
+ 913 0374 31       		.byte	49
+ 914 0375 10       		.byte	16
+ 915 0376 37       		.byte	55
+ 916 0377 11       		.byte	17
+ 917 0378 38       		.byte	56
+ 918 0379 10       		.byte	16
+ 919 037a 40       		.byte	64
+ 920 037b 04       		.byte	4
+ 921 037c 48       		.byte	72
+ 922 037d 08       		.byte	8
+ 923 037e 49       		.byte	73
+ 924 037f 10       		.byte	16
+ 925 0380 4B       		.byte	75
+ 926 0381 01       		.byte	1
+ 927 0382 5B       		.byte	91
+ 928 0383 40       		.byte	64
+ 929 0384 5E       		.byte	94
+ 930 0385 40       		.byte	64
+ 931 0386 69       		.byte	105
+ 932 0387 40       		.byte	64
+ 933 0388 6F       		.byte	111
+ 934 0389 01       		.byte	1
+ 935 038a 78       		.byte	120
+ 936 038b 08       		.byte	8
+ 937 038c 7A       		.byte	122
+ 938 038d 08       		.byte	8
+ 939 038e 7B       		.byte	123
+ 940 038f 01       		.byte	1
+ 941 0390 7E       		.byte	126
+ 942 0391 04       		.byte	4
+ 943 0392 81       		.byte	-127
+ 944 0393 10       		.byte	16
+ 945 0394 82       		.byte	-126
+ 946 0395 40       		.byte	64
+ 947 0396 83       		.byte	-125
+ 948 0397 10       		.byte	16
+ 949 0398 87       		.byte	-121
+ 950 0399 04       		.byte	4
+ 951 039a 8A       		.byte	-118
+ 952 039b 04       		.byte	4
+ 953 039c 90       		.byte	-112
+ 954 039d 10       		.byte	16
+ 955 039e 95       		.byte	-107
+ 956 039f 02       		.byte	2
+ 957 03a0 96       		.byte	-106
+ 958 03a1 02       		.byte	2
+ 959 03a2 9C       		.byte	-100
+ 960 03a3 08       		.byte	8
+ 961 03a4 9F       		.byte	-97
+ 962 03a5 04       		.byte	4
+ 963 03a6 A2       		.byte	-94
+ 964 03a7 02       		.byte	2
+ 965 03a8 A5       		.byte	-91
+ 966 03a9 40       		.byte	64
+ 967 03aa A6       		.byte	-90
+ 968 03ab 20       		.byte	32
+ 969 03ac AB       		.byte	-85
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 18
+
+
+ 970 03ad 84       		.byte	-124
+ 971 03ae B1       		.byte	-79
+ 972 03af 04       		.byte	4
+ 973 03b0 C0       		.byte	-64
+ 974 03b1 E5       		.byte	-27
+ 975 03b2 C2       		.byte	-62
+ 976 03b3 0E       		.byte	14
+ 977 03b4 C4       		.byte	-60
+ 978 03b5 06       		.byte	6
+ 979 03b6 CA       		.byte	-54
+ 980 03b7 40       		.byte	64
+ 981 03b8 CC       		.byte	-52
+ 982 03b9 A4       		.byte	-92
+ 983 03ba CE       		.byte	-50
+ 984 03bb 04       		.byte	4
+ 985 03bc D0       		.byte	-48
+ 986 03bd 04       		.byte	4
+ 987 03be D2       		.byte	-46
+ 988 03bf 04       		.byte	4
+ 989 03c0 D6       		.byte	-42
+ 990 03c1 18       		.byte	24
+ 991 03c2 DE       		.byte	-34
+ 992 03c3 2E       		.byte	46
+ 993 03c4 E2       		.byte	-30
+ 994 03c5 02       		.byte	2
+ 995 03c6 E4       		.byte	-28
+ 996 03c7 20       		.byte	32
+ 997 03c8 E6       		.byte	-26
+ 998 03c9 01       		.byte	1
+ 999 03ca EE       		.byte	-18
+ 1000 03cb 80       		.byte	-128
+ 1001 03cc 03       		.byte	3
+ 1002 03cd 01       		.byte	1
+ 1003 03ce 0E       		.byte	14
+ 1004 03cf 01       		.byte	1
+ 1005 03d0 2C       		.byte	44
+ 1006 03d1 01       		.byte	1
+ 1007 03d2 31       		.byte	49
+ 1008 03d3 01       		.byte	1
+ 1009 03d4 34       		.byte	52
+ 1010 03d5 01       		.byte	1
+ 1011 03d6 3E       		.byte	62
+ 1012 03d7 10       		.byte	16
+ 1013 03d8 40       		.byte	64
+ 1014 03d9 31       		.byte	49
+ 1015 03da 41       		.byte	65
+ 1016 03db 05       		.byte	5
+ 1017 03dc 45       		.byte	69
+ 1018 03dd 50       		.byte	80
+ 1019 03de 46       		.byte	70
+ 1020 03df C2       		.byte	-62
+ 1021 03e0 47       		.byte	71
+ 1022 03e1 0E       		.byte	14
+ 1023 03e2 48       		.byte	72
+ 1024 03e3 3E       		.byte	62
+ 1025 03e4 49       		.byte	73
+ 1026 03e5 FF       		.byte	-1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 19
+
+
+ 1027 03e6 4A       		.byte	74
+ 1028 03e7 FF       		.byte	-1
+ 1029 03e8 4B       		.byte	75
+ 1030 03e9 FF       		.byte	-1
+ 1031 03ea 4D       		.byte	77
+ 1032 03eb A0       		.byte	-96
+ 1033 03ec 4F       		.byte	79
+ 1034 03ed 01       		.byte	1
+ 1035 03ee 50       		.byte	80
+ 1036 03ef 18       		.byte	24
+ 1037 03f0 54       		.byte	84
+ 1038 03f1 07       		.byte	7
+ 1039 03f2 58       		.byte	88
+ 1040 03f3 04       		.byte	4
+ 1041 03f4 59       		.byte	89
+ 1042 03f5 04       		.byte	4
+ 1043 03f6 5A       		.byte	90
+ 1044 03f7 04       		.byte	4
+ 1045 03f8 5B       		.byte	91
+ 1046 03f9 04       		.byte	4
+ 1047 03fa 5C       		.byte	92
+ 1048 03fb 90       		.byte	-112
+ 1049 03fc 5D       		.byte	93
+ 1050 03fd 99       		.byte	-103
+ 1051 03fe 5E       		.byte	94
+ 1052 03ff 80       		.byte	-128
+ 1053 0400 5F       		.byte	95
+ 1054 0401 05       		.byte	5
+ 1055 0402 60       		.byte	96
+ 1056 0403 40       		.byte	64
+ 1057 0404 62       		.byte	98
+ 1058 0405 80       		.byte	-128
+ 1059 0406 64       		.byte	100
+ 1060 0407 40       		.byte	64
+ 1061 0408 65       		.byte	101
+ 1062 0409 40       		.byte	64
+ 1063 040a 66       		.byte	102
+ 1064 040b 80       		.byte	-128
+ 1065 040c 68       		.byte	104
+ 1066 040d 40       		.byte	64
+ 1067 040e 6A       		.byte	106
+ 1068 040f 50       		.byte	80
+ 1069 0410 6B       		.byte	107
+ 1070 0411 A8       		.byte	-88
+ 1071 0412 6C       		.byte	108
+ 1072 0413 40       		.byte	64
+ 1073 0414 6D       		.byte	109
+ 1074 0415 20       		.byte	32
+ 1075 0416 6E       		.byte	110
+ 1076 0417 50       		.byte	80
+ 1077 0418 6F       		.byte	111
+ 1078 0419 A8       		.byte	-88
+ 1079 041a 84       		.byte	-124
+ 1080 041b 02       		.byte	2
+ 1081 041c 89       		.byte	-119
+ 1082 041d 18       		.byte	24
+ 1083 041e 8F       		.byte	-113
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 20
+
+
+ 1084 041f 18       		.byte	24
+ 1085 0420 91       		.byte	-111
+ 1086 0421 12       		.byte	18
+ 1087 0422 93       		.byte	-109
+ 1088 0423 0D       		.byte	13
+ 1089 0424 99       		.byte	-103
+ 1090 0425 04       		.byte	4
+ 1091 0426 9B       		.byte	-101
+ 1092 0427 1A       		.byte	26
+ 1093 0428 9C       		.byte	-100
+ 1094 0429 02       		.byte	2
+ 1095 042a AD       		.byte	-83
+ 1096 042b 09       		.byte	9
+ 1097 042c AE       		.byte	-82
+ 1098 042d 01       		.byte	1
+ 1099 042e AF       		.byte	-81
+ 1100 042f 12       		.byte	18
+ 1101 0430 B0       		.byte	-80
+ 1102 0431 02       		.byte	2
+ 1103 0432 B2       		.byte	-78
+ 1104 0433 01       		.byte	1
+ 1105 0434 B3       		.byte	-77
+ 1106 0435 07       		.byte	7
+ 1107 0436 B5       		.byte	-75
+ 1108 0437 18       		.byte	24
+ 1109 0438 BB       		.byte	-69
+ 1110 0439 03       		.byte	3
+ 1111 043a BD       		.byte	-67
+ 1112 043b 01       		.byte	1
+ 1113 043c BE       		.byte	-66
+ 1114 043d 01       		.byte	1
+ 1115 043e BF       		.byte	-65
+ 1116 043f 14       		.byte	20
+ 1117 0440 C0       		.byte	-64
+ 1118 0441 24       		.byte	36
+ 1119 0442 C1       		.byte	-63
+ 1120 0443 05       		.byte	5
+ 1121 0444 C2       		.byte	-62
+ 1122 0445 04       		.byte	4
+ 1123 0446 C5       		.byte	-59
+ 1124 0447 0E       		.byte	14
+ 1125 0448 C6       		.byte	-58
+ 1126 0449 C2       		.byte	-62
+ 1127 044a C7       		.byte	-57
+ 1128 044b 50       		.byte	80
+ 1129 044c C8       		.byte	-56
+ 1130 044d 2F       		.byte	47
+ 1131 044e C9       		.byte	-55
+ 1132 044f FF       		.byte	-1
+ 1133 0450 CA       		.byte	-54
+ 1134 0451 FF       		.byte	-1
+ 1135 0452 CB       		.byte	-53
+ 1136 0453 FF       		.byte	-1
+ 1137 0454 CD       		.byte	-51
+ 1138 0455 A0       		.byte	-96
+ 1139 0456 CF       		.byte	-49
+ 1140 0457 01       		.byte	1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 21
+
+
+ 1141 0458 D0       		.byte	-48
+ 1142 0459 18       		.byte	24
+ 1143 045a D2       		.byte	-46
+ 1144 045b 80       		.byte	-128
+ 1145 045c D8       		.byte	-40
+ 1146 045d 0B       		.byte	11
+ 1147 045e D9       		.byte	-39
+ 1148 045f 0A       		.byte	10
+ 1149 0460 DA       		.byte	-38
+ 1150 0461 04       		.byte	4
+ 1151 0462 DB       		.byte	-37
+ 1152 0463 04       		.byte	4
+ 1153 0464 DC       		.byte	-36
+ 1154 0465 99       		.byte	-103
+ 1155 0466 DD       		.byte	-35
+ 1156 0467 99       		.byte	-103
+ 1157 0468 DF       		.byte	-33
+ 1158 0469 41       		.byte	65
+ 1159 046a E0       		.byte	-32
+ 1160 046b 40       		.byte	64
+ 1161 046c E2       		.byte	-30
+ 1162 046d 80       		.byte	-128
+ 1163 046e E4       		.byte	-28
+ 1164 046f 40       		.byte	64
+ 1165 0470 E5       		.byte	-27
+ 1166 0471 40       		.byte	64
+ 1167 0472 E6       		.byte	-26
+ 1168 0473 80       		.byte	-128
+ 1169 0474 E8       		.byte	-24
+ 1170 0475 40       		.byte	64
+ 1171 0476 EA       		.byte	-22
+ 1172 0477 50       		.byte	80
+ 1173 0478 EB       		.byte	-21
+ 1174 0479 A8       		.byte	-88
+ 1175 047a EC       		.byte	-20
+ 1176 047b 40       		.byte	64
+ 1177 047c ED       		.byte	-19
+ 1178 047d 20       		.byte	32
+ 1179 047e EE       		.byte	-18
+ 1180 047f 50       		.byte	80
+ 1181 0480 EF       		.byte	-17
+ 1182 0481 A8       		.byte	-88
+ 1183 0482 01       		.byte	1
+ 1184 0483 04       		.byte	4
+ 1185 0484 06       		.byte	6
+ 1186 0485 02       		.byte	2
+ 1187 0486 0B       		.byte	11
+ 1188 0487 02       		.byte	2
+ 1189 0488 10       		.byte	16
+ 1190 0489 01       		.byte	1
+ 1191 048a 17       		.byte	23
+ 1192 048b 40       		.byte	64
+ 1193 048c 1A       		.byte	26
+ 1194 048d 40       		.byte	64
+ 1195 048e 1B       		.byte	27
+ 1196 048f 08       		.byte	8
+ 1197 0490 1E       		.byte	30
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 22
+
+
+ 1198 0491 08       		.byte	8
+ 1199 0492 21       		.byte	33
+ 1200 0493 02       		.byte	2
+ 1201 0494 22       		.byte	34
+ 1202 0495 08       		.byte	8
+ 1203 0496 23       		.byte	35
+ 1204 0497 08       		.byte	8
+ 1205 0498 27       		.byte	39
+ 1206 0499 40       		.byte	64
+ 1207 049a 29       		.byte	41
+ 1208 049b 80       		.byte	-128
+ 1209 049c 30       		.byte	48
+ 1210 049d 10       		.byte	16
+ 1211 049e 31       		.byte	49
+ 1212 049f 12       		.byte	18
+ 1213 04a0 33       		.byte	51
+ 1214 04a1 20       		.byte	32
+ 1215 04a2 38       		.byte	56
+ 1216 04a3 20       		.byte	32
+ 1217 04a4 3A       		.byte	58
+ 1218 04a5 80       		.byte	-128
+ 1219 04a6 3E       		.byte	62
+ 1220 04a7 02       		.byte	2
+ 1221 04a8 40       		.byte	64
+ 1222 04a9 44       		.byte	68
+ 1223 04aa 46       		.byte	70
+ 1224 04ab 02       		.byte	2
+ 1225 04ac 47       		.byte	71
+ 1226 04ad 08       		.byte	8
+ 1227 04ae 48       		.byte	72
+ 1228 04af 80       		.byte	-128
+ 1229 04b0 49       		.byte	73
+ 1230 04b1 04       		.byte	4
+ 1231 04b2 4A       		.byte	74
+ 1232 04b3 02       		.byte	2
+ 1233 04b4 4E       		.byte	78
+ 1234 04b5 82       		.byte	-126
+ 1235 04b6 51       		.byte	81
+ 1236 04b7 40       		.byte	64
+ 1237 04b8 52       		.byte	82
+ 1238 04b9 20       		.byte	32
+ 1239 04ba 53       		.byte	83
+ 1240 04bb 01       		.byte	1
+ 1241 04bc 56       		.byte	86
+ 1242 04bd 1A       		.byte	26
+ 1243 04be 57       		.byte	87
+ 1244 04bf 80       		.byte	-128
+ 1245 04c0 5E       		.byte	94
+ 1246 04c1 A8       		.byte	-88
+ 1247 04c2 66       		.byte	102
+ 1248 04c3 18       		.byte	24
+ 1249 04c4 6D       		.byte	109
+ 1250 04c5 80       		.byte	-128
+ 1251 04c6 72       		.byte	114
+ 1252 04c7 80       		.byte	-128
+ 1253 04c8 78       		.byte	120
+ 1254 04c9 10       		.byte	16
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 23
+
+
+ 1255 04ca 79       		.byte	121
+ 1256 04cb 06       		.byte	6
+ 1257 04cc 7F       		.byte	127
+ 1258 04cd 20       		.byte	32
+ 1259 04ce 86       		.byte	-122
+ 1260 04cf 10       		.byte	16
+ 1261 04d0 87       		.byte	-121
+ 1262 04d1 80       		.byte	-128
+ 1263 04d2 8D       		.byte	-115
+ 1264 04d3 01       		.byte	1
+ 1265 04d4 8F       		.byte	-113
+ 1266 04d5 40       		.byte	64
+ 1267 04d6 90       		.byte	-112
+ 1268 04d7 20       		.byte	32
+ 1269 04d8 91       		.byte	-111
+ 1270 04d9 40       		.byte	64
+ 1271 04da 93       		.byte	-109
+ 1272 04db 05       		.byte	5
+ 1273 04dc 98       		.byte	-104
+ 1274 04dd 01       		.byte	1
+ 1275 04de 99       		.byte	-103
+ 1276 04df 01       		.byte	1
+ 1277 04e0 9D       		.byte	-99
+ 1278 04e1 90       		.byte	-112
+ 1279 04e2 A2       		.byte	-94
+ 1280 04e3 02       		.byte	2
+ 1281 04e4 A5       		.byte	-91
+ 1282 04e5 46       		.byte	70
+ 1283 04e6 A6       		.byte	-90
+ 1284 04e7 08       		.byte	8
+ 1285 04e8 B0       		.byte	-80
+ 1286 04e9 01       		.byte	1
+ 1287 04ea B2       		.byte	-78
+ 1288 04eb 10       		.byte	16
+ 1289 04ec B6       		.byte	-74
+ 1290 04ed 20       		.byte	32
+ 1291 04ee B7       		.byte	-73
+ 1292 04ef 40       		.byte	64
+ 1293 04f0 C0       		.byte	-64
+ 1294 04f1 84       		.byte	-124
+ 1295 04f2 C2       		.byte	-62
+ 1296 04f3 01       		.byte	1
+ 1297 04f4 C4       		.byte	-60
+ 1298 04f5 81       		.byte	-127
+ 1299 04f6 CA       		.byte	-54
+ 1300 04f7 08       		.byte	8
+ 1301 04f8 CC       		.byte	-52
+ 1302 04f9 05       		.byte	5
+ 1303 04fa CE       		.byte	-50
+ 1304 04fb 8C       		.byte	-116
+ 1305 04fc D0       		.byte	-48
+ 1306 04fd 55       		.byte	85
+ 1307 04fe D2       		.byte	-46
+ 1308 04ff 18       		.byte	24
+ 1309 0500 D6       		.byte	-42
+ 1310 0501 70       		.byte	112
+ 1311 0502 D8       		.byte	-40
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 24
+
+
+ 1312 0503 60       		.byte	96
+ 1313 0504 DE       		.byte	-34
+ 1314 0505 47       		.byte	71
+ 1315 0506 E2       		.byte	-30
+ 1316 0507 10       		.byte	16
+ 1317 0508 E6       		.byte	-26
+ 1318 0509 50       		.byte	80
+ 1319 050a 21       		.byte	33
+ 1320 050b 01       		.byte	1
+ 1321 050c 37       		.byte	55
+ 1322 050d 01       		.byte	1
+ 1323 050e 3A       		.byte	58
+ 1324 050f 30       		.byte	48
+ 1325 0510 3C       		.byte	60
+ 1326 0511 10       		.byte	16
+ 1327 0512 58       		.byte	88
+ 1328 0513 0B       		.byte	11
+ 1329 0514 59       		.byte	89
+ 1330 0515 04       		.byte	4
+ 1331 0516 5C       		.byte	92
+ 1332 0517 99       		.byte	-103
+ 1333 0518 5F       		.byte	95
+ 1334 0519 41       		.byte	65
+ 1335 051a 85       		.byte	-123
+ 1336 051b 02       		.byte	2
+ 1337 051c 8A       		.byte	-118
+ 1338 051d 01       		.byte	1
+ 1339 051e 8E       		.byte	-114
+ 1340 051f 01       		.byte	1
+ 1341 0520 8F       		.byte	-113
+ 1342 0521 01       		.byte	1
+ 1343 0522 93       		.byte	-109
+ 1344 0523 02       		.byte	2
+ 1345 0524 9B       		.byte	-101
+ 1346 0525 02       		.byte	2
+ 1347 0526 9C       		.byte	-100
+ 1348 0527 01       		.byte	1
+ 1349 0528 AD       		.byte	-83
+ 1350 0529 01       		.byte	1
+ 1351 052a B1       		.byte	-79
+ 1352 052b 02       		.byte	2
+ 1353 052c B4       		.byte	-76
+ 1354 052d 01       		.byte	1
+ 1355 052e B5       		.byte	-75
+ 1356 052f 01       		.byte	1
+ 1357 0530 BC       		.byte	-68
+ 1358 0531 01       		.byte	1
+ 1359 0532 BE       		.byte	-66
+ 1360 0533 10       		.byte	16
+ 1361 0534 BF       		.byte	-65
+ 1362 0535 51       		.byte	81
+ 1363 0536 C0       		.byte	-64
+ 1364 0537 41       		.byte	65
+ 1365 0538 C1       		.byte	-63
+ 1366 0539 02       		.byte	2
+ 1367 053a C5       		.byte	-59
+ 1368 053b 52       		.byte	82
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 25
+
+
+ 1369 053c C6       		.byte	-58
+ 1370 053d C0       		.byte	-64
+ 1371 053e C7       		.byte	-57
+ 1372 053f 0E       		.byte	14
+ 1373 0540 C8       		.byte	-56
+ 1374 0541 1F       		.byte	31
+ 1375 0542 C9       		.byte	-55
+ 1376 0543 FF       		.byte	-1
+ 1377 0544 CA       		.byte	-54
+ 1378 0545 FF       		.byte	-1
+ 1379 0546 CB       		.byte	-53
+ 1380 0547 FF       		.byte	-1
+ 1381 0548 CD       		.byte	-51
+ 1382 0549 A0       		.byte	-96
+ 1383 054a CF       		.byte	-49
+ 1384 054b 01       		.byte	1
+ 1385 054c D0       		.byte	-48
+ 1386 054d 18       		.byte	24
+ 1387 054e D4       		.byte	-44
+ 1388 054f 07       		.byte	7
+ 1389 0550 D6       		.byte	-42
+ 1390 0551 04       		.byte	4
+ 1391 0552 D8       		.byte	-40
+ 1392 0553 08       		.byte	8
+ 1393 0554 D9       		.byte	-39
+ 1394 0555 04       		.byte	4
+ 1395 0556 DA       		.byte	-38
+ 1396 0557 04       		.byte	4
+ 1397 0558 DB       		.byte	-37
+ 1398 0559 04       		.byte	4
+ 1399 055a DC       		.byte	-36
+ 1400 055b 09       		.byte	9
+ 1401 055c DD       		.byte	-35
+ 1402 055d 99       		.byte	-103
+ 1403 055e DF       		.byte	-33
+ 1404 055f 01       		.byte	1
+ 1405 0560 E0       		.byte	-32
+ 1406 0561 40       		.byte	64
+ 1407 0562 E2       		.byte	-30
+ 1408 0563 80       		.byte	-128
+ 1409 0564 E4       		.byte	-28
+ 1410 0565 40       		.byte	64
+ 1411 0566 E5       		.byte	-27
+ 1412 0567 40       		.byte	64
+ 1413 0568 E6       		.byte	-26
+ 1414 0569 80       		.byte	-128
+ 1415 056a E8       		.byte	-24
+ 1416 056b 40       		.byte	64
+ 1417 056c EA       		.byte	-22
+ 1418 056d 50       		.byte	80
+ 1419 056e EB       		.byte	-21
+ 1420 056f A8       		.byte	-88
+ 1421 0570 EC       		.byte	-20
+ 1422 0571 40       		.byte	64
+ 1423 0572 ED       		.byte	-19
+ 1424 0573 20       		.byte	32
+ 1425 0574 EE       		.byte	-18
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 26
+
+
+ 1426 0575 50       		.byte	80
+ 1427 0576 EF       		.byte	-17
+ 1428 0577 A8       		.byte	-88
+ 1429 0578 01       		.byte	1
+ 1430 0579 60       		.byte	96
+ 1431 057a 09       		.byte	9
+ 1432 057b 80       		.byte	-128
+ 1433 057c 19       		.byte	25
+ 1434 057d 01       		.byte	1
+ 1435 057e 1B       		.byte	27
+ 1436 057f 12       		.byte	18
+ 1437 0580 1C       		.byte	28
+ 1438 0581 08       		.byte	8
+ 1439 0582 1D       		.byte	29
+ 1440 0583 10       		.byte	16
+ 1441 0584 20       		.byte	32
+ 1442 0585 40       		.byte	64
+ 1443 0586 23       		.byte	35
+ 1444 0587 09       		.byte	9
+ 1445 0588 27       		.byte	39
+ 1446 0589 02       		.byte	2
+ 1447 058a 29       		.byte	41
+ 1448 058b 40       		.byte	64
+ 1449 058c 2B       		.byte	43
+ 1450 058d 01       		.byte	1
+ 1451 058e 2F       		.byte	47
+ 1452 058f 80       		.byte	-128
+ 1453 0590 30       		.byte	48
+ 1454 0591 01       		.byte	1
+ 1455 0592 31       		.byte	49
+ 1456 0593 11       		.byte	17
+ 1457 0594 38       		.byte	56
+ 1458 0595 04       		.byte	4
+ 1459 0596 39       		.byte	57
+ 1460 0597 80       		.byte	-128
+ 1461 0598 40       		.byte	64
+ 1462 0599 40       		.byte	64
+ 1463 059a 41       		.byte	65
+ 1464 059b 40       		.byte	64
+ 1465 059c 42       		.byte	66
+ 1466 059d 04       		.byte	4
+ 1467 059e 49       		.byte	73
+ 1468 059f 02       		.byte	2
+ 1469 05a0 4A       		.byte	74
+ 1470 05a1 10       		.byte	16
+ 1471 05a2 4D       		.byte	77
+ 1472 05a3 40       		.byte	64
+ 1473 05a4 4F       		.byte	79
+ 1474 05a5 80       		.byte	-128
+ 1475 05a6 51       		.byte	81
+ 1476 05a7 40       		.byte	64
+ 1477 05a8 52       		.byte	82
+ 1478 05a9 14       		.byte	20
+ 1479 05aa 53       		.byte	83
+ 1480 05ab 40       		.byte	64
+ 1481 05ac 58       		.byte	88
+ 1482 05ad 20       		.byte	32
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 27
+
+
+ 1483 05ae 5A       		.byte	90
+ 1484 05af 80       		.byte	-128
+ 1485 05b0 5B       		.byte	91
+ 1486 05b1 08       		.byte	8
+ 1487 05b2 5C       		.byte	92
+ 1488 05b3 20       		.byte	32
+ 1489 05b4 5E       		.byte	94
+ 1490 05b5 20       		.byte	32
+ 1491 05b6 62       		.byte	98
+ 1492 05b7 15       		.byte	21
+ 1493 05b8 7B       		.byte	123
+ 1494 05b9 41       		.byte	65
+ 1495 05ba 7E       		.byte	126
+ 1496 05bb 80       		.byte	-128
+ 1497 05bc 7F       		.byte	127
+ 1498 05bd 02       		.byte	2
+ 1499 05be 8F       		.byte	-113
+ 1500 05bf 01       		.byte	1
+ 1501 05c0 90       		.byte	-112
+ 1502 05c1 04       		.byte	4
+ 1503 05c2 92       		.byte	-110
+ 1504 05c3 10       		.byte	16
+ 1505 05c4 95       		.byte	-107
+ 1506 05c5 40       		.byte	64
+ 1507 05c6 96       		.byte	-106
+ 1508 05c7 01       		.byte	1
+ 1509 05c8 97       		.byte	-105
+ 1510 05c9 80       		.byte	-128
+ 1511 05ca 99       		.byte	-103
+ 1512 05cb 40       		.byte	64
+ 1513 05cc 9C       		.byte	-100
+ 1514 05cd 01       		.byte	1
+ 1515 05ce 9D       		.byte	-99
+ 1516 05cf 20       		.byte	32
+ 1517 05d0 9E       		.byte	-98
+ 1518 05d1 01       		.byte	1
+ 1519 05d2 9F       		.byte	-97
+ 1520 05d3 02       		.byte	2
+ 1521 05d4 A1       		.byte	-95
+ 1522 05d5 80       		.byte	-128
+ 1523 05d6 A2       		.byte	-94
+ 1524 05d7 80       		.byte	-128
+ 1525 05d8 A4       		.byte	-92
+ 1526 05d9 04       		.byte	4
+ 1527 05da C0       		.byte	-64
+ 1528 05db 03       		.byte	3
+ 1529 05dc C2       		.byte	-62
+ 1530 05dd 01       		.byte	1
+ 1531 05de CA       		.byte	-54
+ 1532 05df 88       		.byte	-120
+ 1533 05e0 CC       		.byte	-52
+ 1534 05e1 05       		.byte	5
+ 1535 05e2 CE       		.byte	-50
+ 1536 05e3 0A       		.byte	10
+ 1537 05e4 D0       		.byte	-48
+ 1538 05e5 0D       		.byte	13
+ 1539 05e6 D6       		.byte	-42
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 28
+
+
+ 1540 05e7 0E       		.byte	14
+ 1541 05e8 D8       		.byte	-40
+ 1542 05e9 07       		.byte	7
+ 1543 05ea DE       		.byte	-34
+ 1544 05eb 99       		.byte	-103
+ 1545 05ec E6       		.byte	-26
+ 1546 05ed 10       		.byte	16
+ 1547 05ee EE       		.byte	-18
+ 1548 05ef 20       		.byte	32
+ 1549 05f0 01       		.byte	1
+ 1550 05f1 01       		.byte	1
+ 1551 05f2 06       		.byte	6
+ 1552 05f3 02       		.byte	2
+ 1553 05f4 0A       		.byte	10
+ 1554 05f5 04       		.byte	4
+ 1555 05f6 0E       		.byte	14
+ 1556 05f7 04       		.byte	4
+ 1557 05f8 0F       		.byte	15
+ 1558 05f9 02       		.byte	2
+ 1559 05fa 12       		.byte	18
+ 1560 05fb 08       		.byte	8
+ 1561 05fc 1E       		.byte	30
+ 1562 05fd 01       		.byte	1
+ 1563 05fe 2B       		.byte	43
+ 1564 05ff 02       		.byte	2
+ 1565 0600 30       		.byte	48
+ 1566 0601 04       		.byte	4
+ 1567 0602 31       		.byte	49
+ 1568 0603 01       		.byte	1
+ 1569 0604 32       		.byte	50
+ 1570 0605 01       		.byte	1
+ 1571 0606 34       		.byte	52
+ 1572 0607 02       		.byte	2
+ 1573 0608 36       		.byte	54
+ 1574 0609 08       		.byte	8
+ 1575 060a 37       		.byte	55
+ 1576 060b 02       		.byte	2
+ 1577 060c 3C       		.byte	60
+ 1578 060d 04       		.byte	4
+ 1579 060e 3E       		.byte	62
+ 1580 060f 01       		.byte	1
+ 1581 0610 3F       		.byte	63
+ 1582 0611 01       		.byte	1
+ 1583 0612 56       		.byte	86
+ 1584 0613 08       		.byte	8
+ 1585 0614 58       		.byte	88
+ 1586 0615 04       		.byte	4
+ 1587 0616 59       		.byte	89
+ 1588 0617 0A       		.byte	10
+ 1589 0618 5B       		.byte	91
+ 1590 0619 04       		.byte	4
+ 1591 061a 5C       		.byte	92
+ 1592 061b 99       		.byte	-103
+ 1593 061c 5D       		.byte	93
+ 1594 061d 90       		.byte	-112
+ 1595 061e 5F       		.byte	95
+ 1596 061f 41       		.byte	65
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 29
+
+
+ 1597 0620 BB       		.byte	-69
+ 1598 0621 C0       		.byte	-64
+ 1599 0622 BD       		.byte	-67
+ 1600 0623 40       		.byte	64
+ 1601 0624 D9       		.byte	-39
+ 1602 0625 08       		.byte	8
+ 1603 0626 DB       		.byte	-37
+ 1604 0627 04       		.byte	4
+ 1605 0628 DC       		.byte	-36
+ 1606 0629 90       		.byte	-112
+ 1607 062a DF       		.byte	-33
+ 1608 062b 41       		.byte	65
+ 1609 062c 00       		.byte	0
+ 1610 062d 08       		.byte	8
+ 1611 062e 01       		.byte	1
+ 1612 062f 64       		.byte	100
+ 1613 0630 0A       		.byte	10
+ 1614 0631 01       		.byte	1
+ 1615 0632 0B       		.byte	11
+ 1616 0633 82       		.byte	-126
+ 1617 0634 18       		.byte	24
+ 1618 0635 04       		.byte	4
+ 1619 0636 19       		.byte	25
+ 1620 0637 40       		.byte	64
+ 1621 0638 1A       		.byte	26
+ 1622 0639 90       		.byte	-112
+ 1623 063a 21       		.byte	33
+ 1624 063b 80       		.byte	-128
+ 1625 063c 23       		.byte	35
+ 1626 063d 80       		.byte	-128
+ 1627 063e 26       		.byte	38
+ 1628 063f 80       		.byte	-128
+ 1629 0640 29       		.byte	41
+ 1630 0641 20       		.byte	32
+ 1631 0642 39       		.byte	57
+ 1632 0643 40       		.byte	64
+ 1633 0644 3B       		.byte	59
+ 1634 0645 01       		.byte	1
+ 1635 0646 5A       		.byte	90
+ 1636 0647 40       		.byte	64
+ 1637 0648 5F       		.byte	95
+ 1638 0649 80       		.byte	-128
+ 1639 064a 63       		.byte	99
+ 1640 064b 01       		.byte	1
+ 1641 064c 69       		.byte	105
+ 1642 064d 80       		.byte	-128
+ 1643 064e 78       		.byte	120
+ 1644 064f 01       		.byte	1
+ 1645 0650 79       		.byte	121
+ 1646 0651 04       		.byte	4
+ 1647 0652 7B       		.byte	123
+ 1648 0653 80       		.byte	-128
+ 1649 0654 7F       		.byte	127
+ 1650 0655 81       		.byte	-127
+ 1651 0656 82       		.byte	-126
+ 1652 0657 40       		.byte	64
+ 1653 0658 85       		.byte	-123
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 30
+
+
+ 1654 0659 60       		.byte	96
+ 1655 065a 8D       		.byte	-115
+ 1656 065b 40       		.byte	64
+ 1657 065c 92       		.byte	-110
+ 1658 065d 40       		.byte	64
+ 1659 065e 9E       		.byte	-98
+ 1660 065f 01       		.byte	1
+ 1661 0660 9F       		.byte	-97
+ 1662 0661 02       		.byte	2
+ 1663 0662 B6       		.byte	-74
+ 1664 0663 40       		.byte	64
+ 1665 0664 C0       		.byte	-64
+ 1666 0665 07       		.byte	7
+ 1667 0666 C2       		.byte	-62
+ 1668 0667 09       		.byte	9
+ 1669 0668 CA       		.byte	-54
+ 1670 0669 04       		.byte	4
+ 1671 066a CE       		.byte	-50
+ 1672 066b 09       		.byte	9
+ 1673 066c D6       		.byte	-42
+ 1674 066d 18       		.byte	24
+ 1675 066e D8       		.byte	-40
+ 1676 066f 08       		.byte	8
+ 1677 0670 DE       		.byte	-34
+ 1678 0671 93       		.byte	-109
+ 1679 0672 E2       		.byte	-30
+ 1680 0673 02       		.byte	2
+ 1681 0674 E4       		.byte	-28
+ 1682 0675 2A       		.byte	42
+ 1683 0676 8E       		.byte	-114
+ 1684 0677 01       		.byte	1
+ 1685 0678 8F       		.byte	-113
+ 1686 0679 02       		.byte	2
+ 1687 067a E6       		.byte	-26
+ 1688 067b 40       		.byte	64
+ 1689 067c E4       		.byte	-28
+ 1690 067d 04       		.byte	4
+ 1691 067e 05       		.byte	5
+ 1692 067f 01       		.byte	1
+ 1693 0680 07       		.byte	7
+ 1694 0681 02       		.byte	2
+ 1695 0682 08       		.byte	8
+ 1696 0683 05       		.byte	5
+ 1697 0684 0A       		.byte	10
+ 1698 0685 0A       		.byte	10
+ 1699 0686 0C       		.byte	12
+ 1700 0687 06       		.byte	6
+ 1701 0688 0E       		.byte	14
+ 1702 0689 09       		.byte	9
+ 1703 068a 14       		.byte	20
+ 1704 068b 10       		.byte	16
+ 1705 068c 15       		.byte	21
+ 1706 068d 02       		.byte	2
+ 1707 068e 17       		.byte	23
+ 1708 068f 01       		.byte	1
+ 1709 0690 1C       		.byte	28
+ 1710 0691 09       		.byte	9
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 31
+
+
+ 1711 0692 1E       		.byte	30
+ 1712 0693 06       		.byte	6
+ 1713 0694 1F       		.byte	31
+ 1714 0695 04       		.byte	4
+ 1715 0696 22       		.byte	34
+ 1716 0697 10       		.byte	16
+ 1717 0698 24       		.byte	36
+ 1718 0699 03       		.byte	3
+ 1719 069a 26       		.byte	38
+ 1720 069b 0C       		.byte	12
+ 1721 069c 33       		.byte	51
+ 1722 069d 04       		.byte	4
+ 1723 069e 34       		.byte	52
+ 1724 069f 10       		.byte	16
+ 1725 06a0 36       		.byte	54
+ 1726 06a1 0F       		.byte	15
+ 1727 06a2 37       		.byte	55
+ 1728 06a3 03       		.byte	3
+ 1729 06a4 3A       		.byte	58
+ 1730 06a5 80       		.byte	-128
+ 1731 06a6 3E       		.byte	62
+ 1732 06a7 10       		.byte	16
+ 1733 06a8 41       		.byte	65
+ 1734 06a9 05       		.byte	5
+ 1735 06aa 42       		.byte	66
+ 1736 06ab 60       		.byte	96
+ 1737 06ac 44       		.byte	68
+ 1738 06ad 04       		.byte	4
+ 1739 06ae 49       		.byte	73
+ 1740 06af FF       		.byte	-1
+ 1741 06b0 4A       		.byte	74
+ 1742 06b1 FF       		.byte	-1
+ 1743 06b2 4B       		.byte	75
+ 1744 06b3 FF       		.byte	-1
+ 1745 06b4 4C       		.byte	76
+ 1746 06b5 EA       		.byte	-22
+ 1747 06b6 4D       		.byte	77
+ 1748 06b7 55       		.byte	85
+ 1749 06b8 4E       		.byte	78
+ 1750 06b9 70       		.byte	112
+ 1751 06ba 4F       		.byte	79
+ 1752 06bb 08       		.byte	8
+ 1753 06bc 50       		.byte	80
+ 1754 06bd 1C       		.byte	28
+ 1755 06be 54       		.byte	84
+ 1756 06bf 17       		.byte	23
+ 1757 06c0 58       		.byte	88
+ 1758 06c1 04       		.byte	4
+ 1759 06c2 59       		.byte	89
+ 1760 06c3 04       		.byte	4
+ 1761 06c4 5A       		.byte	90
+ 1762 06c5 09       		.byte	9
+ 1763 06c6 5B       		.byte	91
+ 1764 06c7 04       		.byte	4
+ 1765 06c8 5C       		.byte	92
+ 1766 06c9 99       		.byte	-103
+ 1767 06ca 5D       		.byte	93
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 32
+
+
+ 1768 06cb 99       		.byte	-103
+ 1769 06cc 5E       		.byte	94
+ 1770 06cd 80       		.byte	-128
+ 1771 06ce 5F       		.byte	95
+ 1772 06cf 05       		.byte	5
+ 1773 06d0 61       		.byte	97
+ 1774 06d1 08       		.byte	8
+ 1775 06d2 63       		.byte	99
+ 1776 06d3 08       		.byte	8
+ 1777 06d4 65       		.byte	101
+ 1778 06d5 08       		.byte	8
+ 1779 06d6 67       		.byte	103
+ 1780 06d7 08       		.byte	8
+ 1781 06d8 68       		.byte	104
+ 1782 06d9 50       		.byte	80
+ 1783 06da 69       		.byte	105
+ 1784 06db 09       		.byte	9
+ 1785 06dc 6A       		.byte	106
+ 1786 06dd 40       		.byte	64
+ 1787 06de 6B       		.byte	107
+ 1788 06df A8       		.byte	-88
+ 1789 06e0 6C       		.byte	108
+ 1790 06e1 C0       		.byte	-64
+ 1791 06e2 6E       		.byte	110
+ 1792 06e3 40       		.byte	64
+ 1793 06e4 6F       		.byte	111
+ 1794 06e5 A8       		.byte	-88
+ 1795 06e6 89       		.byte	-119
+ 1796 06e7 02       		.byte	2
+ 1797 06e8 8B       		.byte	-117
+ 1798 06e9 04       		.byte	4
+ 1799 06ea 96       		.byte	-106
+ 1800 06eb 01       		.byte	1
+ 1801 06ec 99       		.byte	-103
+ 1802 06ed 04       		.byte	4
+ 1803 06ee 9B       		.byte	-101
+ 1804 06ef 02       		.byte	2
+ 1805 06f0 9D       		.byte	-99
+ 1806 06f1 01       		.byte	1
+ 1807 06f2 A5       		.byte	-91
+ 1808 06f3 01       		.byte	1
+ 1809 06f4 A9       		.byte	-87
+ 1810 06f5 02       		.byte	2
+ 1811 06f6 AB       		.byte	-85
+ 1812 06f7 04       		.byte	4
+ 1813 06f8 AC       		.byte	-84
+ 1814 06f9 02       		.byte	2
+ 1815 06fa B2       		.byte	-78
+ 1816 06fb 01       		.byte	1
+ 1817 06fc B3       		.byte	-77
+ 1818 06fd 06       		.byte	6
+ 1819 06fe B4       		.byte	-76
+ 1820 06ff 02       		.byte	2
+ 1821 0700 B7       		.byte	-73
+ 1822 0701 01       		.byte	1
+ 1823 0702 BB       		.byte	-69
+ 1824 0703 08       		.byte	8
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 33
+
+
+ 1825 0704 BF       		.byte	-65
+ 1826 0705 40       		.byte	64
+ 1827 0706 C1       		.byte	-63
+ 1828 0707 05       		.byte	5
+ 1829 0708 C2       		.byte	-62
+ 1830 0709 30       		.byte	48
+ 1831 070a C4       		.byte	-60
+ 1832 070b 02       		.byte	2
+ 1833 070c C9       		.byte	-55
+ 1834 070d FF       		.byte	-1
+ 1835 070e CA       		.byte	-54
+ 1836 070f FF       		.byte	-1
+ 1837 0710 CB       		.byte	-53
+ 1838 0711 FF       		.byte	-1
+ 1839 0712 CC       		.byte	-52
+ 1840 0713 EF       		.byte	-17
+ 1841 0714 CD       		.byte	-51
+ 1842 0715 55       		.byte	85
+ 1843 0716 CE       		.byte	-50
+ 1844 0717 72       		.byte	114
+ 1845 0718 CF       		.byte	-49
+ 1846 0719 08       		.byte	8
+ 1847 071a D0       		.byte	-48
+ 1848 071b 1C       		.byte	28
+ 1849 071c D8       		.byte	-40
+ 1850 071d 04       		.byte	4
+ 1851 071e D9       		.byte	-39
+ 1852 071f 04       		.byte	4
+ 1853 0720 DA       		.byte	-38
+ 1854 0721 09       		.byte	9
+ 1855 0722 DC       		.byte	-36
+ 1856 0723 99       		.byte	-103
+ 1857 0724 DD       		.byte	-35
+ 1858 0725 09       		.byte	9
+ 1859 0726 DF       		.byte	-33
+ 1860 0727 01       		.byte	1
+ 1861 0728 E1       		.byte	-31
+ 1862 0729 08       		.byte	8
+ 1863 072a E3       		.byte	-29
+ 1864 072b 08       		.byte	8
+ 1865 072c E5       		.byte	-27
+ 1866 072d 08       		.byte	8
+ 1867 072e E7       		.byte	-25
+ 1868 072f 08       		.byte	8
+ 1869 0730 E8       		.byte	-24
+ 1870 0731 50       		.byte	80
+ 1871 0732 E9       		.byte	-23
+ 1872 0733 09       		.byte	9
+ 1873 0734 EA       		.byte	-22
+ 1874 0735 40       		.byte	64
+ 1875 0736 EB       		.byte	-21
+ 1876 0737 A8       		.byte	-88
+ 1877 0738 EC       		.byte	-20
+ 1878 0739 C0       		.byte	-64
+ 1879 073a EE       		.byte	-18
+ 1880 073b 40       		.byte	64
+ 1881 073c EF       		.byte	-17
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 34
+
+
+ 1882 073d A8       		.byte	-88
+ 1883 073e 01       		.byte	1
+ 1884 073f 80       		.byte	-128
+ 1885 0740 03       		.byte	3
+ 1886 0741 08       		.byte	8
+ 1887 0742 09       		.byte	9
+ 1888 0743 88       		.byte	-120
+ 1889 0744 0F       		.byte	15
+ 1890 0745 10       		.byte	16
+ 1891 0746 10       		.byte	16
+ 1892 0747 80       		.byte	-128
+ 1893 0748 13       		.byte	19
+ 1894 0749 04       		.byte	4
+ 1895 074a 17       		.byte	23
+ 1896 074b 40       		.byte	64
+ 1897 074c 19       		.byte	25
+ 1898 074d 80       		.byte	-128
+ 1899 074e 1A       		.byte	26
+ 1900 074f 04       		.byte	4
+ 1901 0750 1F       		.byte	31
+ 1902 0751 14       		.byte	20
+ 1903 0752 21       		.byte	33
+ 1904 0753 88       		.byte	-120
+ 1905 0754 26       		.byte	38
+ 1906 0755 40       		.byte	64
+ 1907 0756 27       		.byte	39
+ 1908 0757 30       		.byte	48
+ 1909 0758 2C       		.byte	44
+ 1910 0759 10       		.byte	16
+ 1911 075a 2F       		.byte	47
+ 1912 075b 14       		.byte	20
+ 1913 075c 30       		.byte	48
+ 1914 075d 80       		.byte	-128
+ 1915 075e 33       		.byte	51
+ 1916 075f 08       		.byte	8
+ 1917 0760 36       		.byte	54
+ 1918 0761 80       		.byte	-128
+ 1919 0762 37       		.byte	55
+ 1920 0763 50       		.byte	80
+ 1921 0764 3B       		.byte	59
+ 1922 0765 04       		.byte	4
+ 1923 0766 3F       		.byte	63
+ 1924 0767 10       		.byte	16
+ 1925 0768 41       		.byte	65
+ 1926 0769 02       		.byte	2
+ 1927 076a 44       		.byte	68
+ 1928 076b 10       		.byte	16
+ 1929 076c 46       		.byte	70
+ 1930 076d 04       		.byte	4
+ 1931 076e 48       		.byte	72
+ 1932 076f 02       		.byte	2
+ 1933 0770 4B       		.byte	75
+ 1934 0771 20       		.byte	32
+ 1935 0772 4C       		.byte	76
+ 1936 0773 02       		.byte	2
+ 1937 0774 4D       		.byte	77
+ 1938 0775 40       		.byte	64
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 35
+
+
+ 1939 0776 5A       		.byte	90
+ 1940 0777 54       		.byte	84
+ 1941 0778 61       		.byte	97
+ 1942 0779 04       		.byte	4
+ 1943 077a 62       		.byte	98
+ 1944 077b 20       		.byte	32
+ 1945 077c 63       		.byte	99
+ 1946 077d 02       		.byte	2
+ 1947 077e 7A       		.byte	122
+ 1948 077f 08       		.byte	8
+ 1949 0780 7B       		.byte	123
+ 1950 0781 10       		.byte	16
+ 1951 0782 7E       		.byte	126
+ 1952 0783 08       		.byte	8
+ 1953 0784 82       		.byte	-126
+ 1954 0785 01       		.byte	1
+ 1955 0786 83       		.byte	-125
+ 1956 0787 20       		.byte	32
+ 1957 0788 88       		.byte	-120
+ 1958 0789 10       		.byte	16
+ 1959 078a 91       		.byte	-111
+ 1960 078b 40       		.byte	64
+ 1961 078c 92       		.byte	-110
+ 1962 078d 50       		.byte	80
+ 1963 078e 93       		.byte	-109
+ 1964 078f 14       		.byte	20
+ 1965 0790 97       		.byte	-105
+ 1966 0791 20       		.byte	32
+ 1967 0792 99       		.byte	-103
+ 1968 0793 04       		.byte	4
+ 1969 0794 9A       		.byte	-102
+ 1970 0795 05       		.byte	5
+ 1971 0796 9C       		.byte	-100
+ 1972 0797 10       		.byte	16
+ 1973 0798 9D       		.byte	-99
+ 1974 0799 80       		.byte	-128
+ 1975 079a A0       		.byte	-96
+ 1976 079b 80       		.byte	-128
+ 1977 079c A1       		.byte	-95
+ 1978 079d 02       		.byte	2
+ 1979 079e A2       		.byte	-94
+ 1980 079f A8       		.byte	-88
+ 1981 07a0 A3       		.byte	-93
+ 1982 07a1 19       		.byte	25
+ 1983 07a2 A6       		.byte	-90
+ 1984 07a3 40       		.byte	64
+ 1985 07a4 AB       		.byte	-85
+ 1986 07a5 40       		.byte	64
+ 1987 07a6 B2       		.byte	-78
+ 1988 07a7 0C       		.byte	12
+ 1989 07a8 B7       		.byte	-73
+ 1990 07a9 40       		.byte	64
+ 1991 07aa C0       		.byte	-64
+ 1992 07ab 03       		.byte	3
+ 1993 07ac C2       		.byte	-62
+ 1994 07ad 25       		.byte	37
+ 1995 07ae C4       		.byte	-60
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 36
+
+
+ 1996 07af 8C       		.byte	-116
+ 1997 07b0 CA       		.byte	-54
+ 1998 07b1 60       		.byte	96
+ 1999 07b2 CC       		.byte	-52
+ 2000 07b3 3A       		.byte	58
+ 2001 07b4 CE       		.byte	-50
+ 2002 07b5 22       		.byte	34
+ 2003 07b6 D0       		.byte	-48
+ 2004 07b7 61       		.byte	97
+ 2005 07b8 D2       		.byte	-46
+ 2006 07b9 1C       		.byte	28
+ 2007 07ba D6       		.byte	-42
+ 2008 07bb 0E       		.byte	14
+ 2009 07bc D8       		.byte	-40
+ 2010 07bd 0E       		.byte	14
+ 2011 07be DE       		.byte	-34
+ 2012 07bf 26       		.byte	38
+ 2013 07c0 E2       		.byte	-30
+ 2014 07c1 20       		.byte	32
+ 2015 07c2 E6       		.byte	-26
+ 2016 07c3 40       		.byte	64
+ 2017 07c4 E8       		.byte	-24
+ 2018 07c5 10       		.byte	16
+ 2019 07c6 EA       		.byte	-22
+ 2020 07c7 04       		.byte	4
+ 2021 07c8 41       		.byte	65
+ 2022 07c9 05       		.byte	5
+ 2023 07ca 42       		.byte	66
+ 2024 07cb 30       		.byte	48
+ 2025 07cc 44       		.byte	68
+ 2026 07cd 02       		.byte	2
+ 2027 07ce 49       		.byte	73
+ 2028 07cf FF       		.byte	-1
+ 2029 07d0 4A       		.byte	74
+ 2030 07d1 FF       		.byte	-1
+ 2031 07d2 4B       		.byte	75
+ 2032 07d3 FF       		.byte	-1
+ 2033 07d4 4C       		.byte	76
+ 2034 07d5 EF       		.byte	-17
+ 2035 07d6 4D       		.byte	77
+ 2036 07d7 55       		.byte	85
+ 2037 07d8 4E       		.byte	78
+ 2038 07d9 72       		.byte	114
+ 2039 07da 4F       		.byte	79
+ 2040 07db 08       		.byte	8
+ 2041 07dc 50       		.byte	80
+ 2042 07dd 1C       		.byte	28
+ 2043 07de 5A       		.byte	90
+ 2044 07df 09       		.byte	9
+ 2045 07e0 5D       		.byte	93
+ 2046 07e1 09       		.byte	9
+ 2047 07e2 5F       		.byte	95
+ 2048 07e3 01       		.byte	1
+ 2049 07e4 61       		.byte	97
+ 2050 07e5 08       		.byte	8
+ 2051 07e6 63       		.byte	99
+ 2052 07e7 08       		.byte	8
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 37
+
+
+ 2053 07e8 65       		.byte	101
+ 2054 07e9 08       		.byte	8
+ 2055 07ea 67       		.byte	103
+ 2056 07eb 08       		.byte	8
+ 2057 07ec 68       		.byte	104
+ 2058 07ed 50       		.byte	80
+ 2059 07ee 69       		.byte	105
+ 2060 07ef 09       		.byte	9
+ 2061 07f0 6A       		.byte	106
+ 2062 07f1 40       		.byte	64
+ 2063 07f2 6B       		.byte	107
+ 2064 07f3 A8       		.byte	-88
+ 2065 07f4 6C       		.byte	108
+ 2066 07f5 C0       		.byte	-64
+ 2067 07f6 6E       		.byte	110
+ 2068 07f7 40       		.byte	64
+ 2069 07f8 6F       		.byte	111
+ 2070 07f9 A8       		.byte	-88
+ 2071 07fa 01       		.byte	1
+ 2072 07fb 80       		.byte	-128
+ 2073 07fc 03       		.byte	3
+ 2074 07fd 40       		.byte	64
+ 2075 07fe 08       		.byte	8
+ 2076 07ff 01       		.byte	1
+ 2077 0800 0A       		.byte	10
+ 2078 0801 24       		.byte	36
+ 2079 0802 0B       		.byte	11
+ 2080 0803 01       		.byte	1
+ 2081 0804 13       		.byte	19
+ 2082 0805 04       		.byte	4
+ 2083 0806 18       		.byte	24
+ 2084 0807 40       		.byte	64
+ 2085 0808 19       		.byte	25
+ 2086 0809 10       		.byte	16
+ 2087 080a 1A       		.byte	26
+ 2088 080b 24       		.byte	36
+ 2089 080c 1B       		.byte	27
+ 2090 080d 91       		.byte	-111
+ 2091 080e 20       		.byte	32
+ 2092 080f 04       		.byte	4
+ 2093 0810 21       		.byte	33
+ 2094 0811 01       		.byte	1
+ 2095 0812 22       		.byte	34
+ 2096 0813 04       		.byte	4
+ 2097 0814 23       		.byte	35
+ 2098 0815 10       		.byte	16
+ 2099 0816 28       		.byte	40
+ 2100 0817 01       		.byte	1
+ 2101 0818 2B       		.byte	43
+ 2102 0819 80       		.byte	-128
+ 2103 081a 31       		.byte	49
+ 2104 081b 10       		.byte	16
+ 2105 081c 33       		.byte	51
+ 2106 081d 40       		.byte	64
+ 2107 081e 34       		.byte	52
+ 2108 081f 08       		.byte	8
+ 2109 0820 36       		.byte	54
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 38
+
+
+ 2110 0821 08       		.byte	8
+ 2111 0822 39       		.byte	57
+ 2112 0823 80       		.byte	-128
+ 2113 0824 3B       		.byte	59
+ 2114 0825 04       		.byte	4
+ 2115 0826 41       		.byte	65
+ 2116 0827 02       		.byte	2
+ 2117 0828 44       		.byte	68
+ 2118 0829 10       		.byte	16
+ 2119 082a 46       		.byte	70
+ 2120 082b 04       		.byte	4
+ 2121 082c 49       		.byte	73
+ 2122 082d 01       		.byte	1
+ 2123 082e 4B       		.byte	75
+ 2124 082f 60       		.byte	96
+ 2125 0830 4D       		.byte	77
+ 2126 0831 40       		.byte	64
+ 2127 0832 4F       		.byte	79
+ 2128 0833 40       		.byte	64
+ 2129 0834 51       		.byte	81
+ 2130 0835 08       		.byte	8
+ 2131 0836 52       		.byte	82
+ 2132 0837 50       		.byte	80
+ 2133 0838 58       		.byte	88
+ 2134 0839 10       		.byte	16
+ 2135 083a 59       		.byte	89
+ 2136 083b 01       		.byte	1
+ 2137 083c 61       		.byte	97
+ 2138 083d 08       		.byte	8
+ 2139 083e 62       		.byte	98
+ 2140 083f 51       		.byte	81
+ 2141 0840 69       		.byte	105
+ 2142 0841 80       		.byte	-128
+ 2143 0842 78       		.byte	120
+ 2144 0843 28       		.byte	40
+ 2145 0844 7B       		.byte	123
+ 2146 0845 40       		.byte	64
+ 2147 0846 7E       		.byte	126
+ 2148 0847 08       		.byte	8
+ 2149 0848 8C       		.byte	-116
+ 2150 0849 20       		.byte	32
+ 2151 084a 8D       		.byte	-115
+ 2152 084b 02       		.byte	2
+ 2153 084c 8E       		.byte	-114
+ 2154 084d 04       		.byte	4
+ 2155 084e 91       		.byte	-111
+ 2156 084f 40       		.byte	64
+ 2157 0850 92       		.byte	-110
+ 2158 0851 50       		.byte	80
+ 2159 0852 93       		.byte	-109
+ 2160 0853 05       		.byte	5
+ 2161 0854 94       		.byte	-108
+ 2162 0855 44       		.byte	68
+ 2163 0856 95       		.byte	-107
+ 2164 0857 02       		.byte	2
+ 2165 0858 98       		.byte	-104
+ 2166 0859 01       		.byte	1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 39
+
+
+ 2167 085a 99       		.byte	-103
+ 2168 085b 04       		.byte	4
+ 2169 085c 9D       		.byte	-99
+ 2170 085d 90       		.byte	-112
+ 2171 085e A0       		.byte	-96
+ 2172 085f 80       		.byte	-128
+ 2173 0860 A1       		.byte	-95
+ 2174 0861 02       		.byte	2
+ 2175 0862 A2       		.byte	-94
+ 2176 0863 A8       		.byte	-88
+ 2177 0864 A3       		.byte	-93
+ 2178 0865 08       		.byte	8
+ 2179 0866 A6       		.byte	-90
+ 2180 0867 40       		.byte	64
+ 2181 0868 A9       		.byte	-87
+ 2182 0869 40       		.byte	64
+ 2183 086a AA       		.byte	-86
+ 2184 086b 10       		.byte	16
+ 2185 086c AB       		.byte	-85
+ 2186 086d 01       		.byte	1
+ 2187 086e AD       		.byte	-83
+ 2188 086f 04       		.byte	4
+ 2189 0870 AE       		.byte	-82
+ 2190 0871 02       		.byte	2
+ 2191 0872 B5       		.byte	-75
+ 2192 0873 04       		.byte	4
+ 2193 0874 C0       		.byte	-64
+ 2194 0875 09       		.byte	9
+ 2195 0876 C2       		.byte	-62
+ 2196 0877 0F       		.byte	15
+ 2197 0878 C4       		.byte	-60
+ 2198 0879 04       		.byte	4
+ 2199 087a CA       		.byte	-54
+ 2200 087b 09       		.byte	9
+ 2201 087c CC       		.byte	-52
+ 2202 087d 0C       		.byte	12
+ 2203 087e CE       		.byte	-50
+ 2204 087f 0A       		.byte	10
+ 2205 0880 D0       		.byte	-48
+ 2206 0881 61       		.byte	97
+ 2207 0882 D2       		.byte	-46
+ 2208 0883 1C       		.byte	28
+ 2209 0884 D6       		.byte	-42
+ 2210 0885 05       		.byte	5
+ 2211 0886 D8       		.byte	-40
+ 2212 0887 0F       		.byte	15
+ 2213 0888 DE       		.byte	-34
+ 2214 0889 27       		.byte	39
+ 2215 088a E2       		.byte	-30
+ 2216 088b 48       		.byte	72
+ 2217 088c E8       		.byte	-24
+ 2218 088d 02       		.byte	2
+ 2219 088e EC       		.byte	-20
+ 2220 088f 44       		.byte	68
+ 2221 0890 EE       		.byte	-18
+ 2222 0891 02       		.byte	2
+ 2223 0892 03       		.byte	3
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 40
+
+
+ 2224 0893 0F       		.byte	15
+ 2225 0894 08       		.byte	8
+ 2226 0895 02       		.byte	2
+ 2227 0896 0A       		.byte	10
+ 2228 0897 01       		.byte	1
+ 2229 0898 0D       		.byte	13
+ 2230 0899 03       		.byte	3
+ 2231 089a 0F       		.byte	15
+ 2232 089b 0C       		.byte	12
+ 2233 089c 10       		.byte	16
+ 2234 089d 01       		.byte	1
+ 2235 089e 12       		.byte	18
+ 2236 089f 02       		.byte	2
+ 2237 08a0 19       		.byte	25
+ 2238 08a1 0C       		.byte	12
+ 2239 08a2 1B       		.byte	27
+ 2240 08a3 03       		.byte	3
+ 2241 08a4 1F       		.byte	31
+ 2242 08a5 15       		.byte	21
+ 2243 08a6 27       		.byte	39
+ 2244 08a7 1A       		.byte	26
+ 2245 08a8 2E       		.byte	46
+ 2246 08a9 03       		.byte	3
+ 2247 08aa 31       		.byte	49
+ 2248 08ab 1F       		.byte	31
+ 2249 08ac 34       		.byte	52
+ 2250 08ad 03       		.byte	3
+ 2251 08ae 40       		.byte	64
+ 2252 08af 60       		.byte	96
+ 2253 08b0 41       		.byte	65
+ 2254 08b1 04       		.byte	4
+ 2255 08b2 44       		.byte	68
+ 2256 08b3 02       		.byte	2
+ 2257 08b4 49       		.byte	73
+ 2258 08b5 FF       		.byte	-1
+ 2259 08b6 4A       		.byte	74
+ 2260 08b7 FF       		.byte	-1
+ 2261 08b8 4B       		.byte	75
+ 2262 08b9 FF       		.byte	-1
+ 2263 08ba 4C       		.byte	76
+ 2264 08bb EA       		.byte	-22
+ 2265 08bc 4D       		.byte	77
+ 2266 08bd 55       		.byte	85
+ 2267 08be 4E       		.byte	78
+ 2268 08bf 70       		.byte	112
+ 2269 08c0 4F       		.byte	79
+ 2270 08c1 08       		.byte	8
+ 2271 08c2 50       		.byte	80
+ 2272 08c3 1C       		.byte	28
+ 2273 08c4 54       		.byte	84
+ 2274 08c5 01       		.byte	1
+ 2275 08c6 56       		.byte	86
+ 2276 08c7 04       		.byte	4
+ 2277 08c8 58       		.byte	88
+ 2278 08c9 04       		.byte	4
+ 2279 08ca 59       		.byte	89
+ 2280 08cb 04       		.byte	4
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 41
+
+
+ 2281 08cc 5A       		.byte	90
+ 2282 08cd 0A       		.byte	10
+ 2283 08ce 5B       		.byte	91
+ 2284 08cf 0A       		.byte	10
+ 2285 08d0 5C       		.byte	92
+ 2286 08d1 99       		.byte	-103
+ 2287 08d2 5D       		.byte	93
+ 2288 08d3 99       		.byte	-103
+ 2289 08d4 5F       		.byte	95
+ 2290 08d5 01       		.byte	1
+ 2291 08d6 61       		.byte	97
+ 2292 08d7 08       		.byte	8
+ 2293 08d8 63       		.byte	99
+ 2294 08d9 08       		.byte	8
+ 2295 08da 65       		.byte	101
+ 2296 08db 08       		.byte	8
+ 2297 08dc 67       		.byte	103
+ 2298 08dd 08       		.byte	8
+ 2299 08de 68       		.byte	104
+ 2300 08df 50       		.byte	80
+ 2301 08e0 69       		.byte	105
+ 2302 08e1 09       		.byte	9
+ 2303 08e2 6A       		.byte	106
+ 2304 08e3 40       		.byte	64
+ 2305 08e4 6B       		.byte	107
+ 2306 08e5 A8       		.byte	-88
+ 2307 08e6 6C       		.byte	108
+ 2308 08e7 C0       		.byte	-64
+ 2309 08e8 6E       		.byte	110
+ 2310 08e9 40       		.byte	64
+ 2311 08ea 6F       		.byte	111
+ 2312 08eb A8       		.byte	-88
+ 2313 08ec 80       		.byte	-128
+ 2314 08ed 02       		.byte	2
+ 2315 08ee 96       		.byte	-106
+ 2316 08ef 01       		.byte	1
+ 2317 08f0 9E       		.byte	-98
+ 2318 08f1 01       		.byte	1
+ 2319 08f2 B4       		.byte	-76
+ 2320 08f3 02       		.byte	2
+ 2321 08f4 B6       		.byte	-74
+ 2322 08f5 01       		.byte	1
+ 2323 08f6 B8       		.byte	-72
+ 2324 08f7 80       		.byte	-128
+ 2325 08f8 BC       		.byte	-68
+ 2326 08f9 40       		.byte	64
+ 2327 08fa C0       		.byte	-64
+ 2328 08fb 30       		.byte	48
+ 2329 08fc C1       		.byte	-63
+ 2330 08fd 04       		.byte	4
+ 2331 08fe C4       		.byte	-60
+ 2332 08ff 02       		.byte	2
+ 2333 0900 C9       		.byte	-55
+ 2334 0901 FF       		.byte	-1
+ 2335 0902 CA       		.byte	-54
+ 2336 0903 FF       		.byte	-1
+ 2337 0904 CB       		.byte	-53
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 42
+
+
+ 2338 0905 FF       		.byte	-1
+ 2339 0906 CC       		.byte	-52
+ 2340 0907 EF       		.byte	-17
+ 2341 0908 CD       		.byte	-51
+ 2342 0909 55       		.byte	85
+ 2343 090a CE       		.byte	-50
+ 2344 090b 72       		.byte	114
+ 2345 090c CF       		.byte	-49
+ 2346 090d 08       		.byte	8
+ 2347 090e D0       		.byte	-48
+ 2348 090f 1C       		.byte	28
+ 2349 0910 D8       		.byte	-40
+ 2350 0911 04       		.byte	4
+ 2351 0912 DA       		.byte	-38
+ 2352 0913 09       		.byte	9
+ 2353 0914 DB       		.byte	-37
+ 2354 0915 04       		.byte	4
+ 2355 0916 DC       		.byte	-36
+ 2356 0917 09       		.byte	9
+ 2357 0918 DD       		.byte	-35
+ 2358 0919 09       		.byte	9
+ 2359 091a DF       		.byte	-33
+ 2360 091b 41       		.byte	65
+ 2361 091c E1       		.byte	-31
+ 2362 091d 08       		.byte	8
+ 2363 091e E3       		.byte	-29
+ 2364 091f 08       		.byte	8
+ 2365 0920 E5       		.byte	-27
+ 2366 0921 08       		.byte	8
+ 2367 0922 E7       		.byte	-25
+ 2368 0923 08       		.byte	8
+ 2369 0924 E8       		.byte	-24
+ 2370 0925 50       		.byte	80
+ 2371 0926 E9       		.byte	-23
+ 2372 0927 09       		.byte	9
+ 2373 0928 EA       		.byte	-22
+ 2374 0929 40       		.byte	64
+ 2375 092a EB       		.byte	-21
+ 2376 092b A8       		.byte	-88
+ 2377 092c EC       		.byte	-20
+ 2378 092d C0       		.byte	-64
+ 2379 092e EE       		.byte	-18
+ 2380 092f 40       		.byte	64
+ 2381 0930 EF       		.byte	-17
+ 2382 0931 A8       		.byte	-88
+ 2383 0932 01       		.byte	1
+ 2384 0933 02       		.byte	2
+ 2385 0934 05       		.byte	5
+ 2386 0935 10       		.byte	16
+ 2387 0936 0A       		.byte	10
+ 2388 0937 11       		.byte	17
+ 2389 0938 0F       		.byte	15
+ 2390 0939 80       		.byte	-128
+ 2391 093a 16       		.byte	22
+ 2392 093b 02       		.byte	2
+ 2393 093c 19       		.byte	25
+ 2394 093d 20       		.byte	32
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 43
+
+
+ 2395 093e 1A       		.byte	26
+ 2396 093f 01       		.byte	1
+ 2397 0940 1F       		.byte	31
+ 2398 0941 20       		.byte	32
+ 2399 0942 27       		.byte	39
+ 2400 0943 80       		.byte	-128
+ 2401 0944 2F       		.byte	47
+ 2402 0945 20       		.byte	32
+ 2403 0946 34       		.byte	52
+ 2404 0947 10       		.byte	16
+ 2405 0948 35       		.byte	53
+ 2406 0949 10       		.byte	16
+ 2407 094a 36       		.byte	54
+ 2408 094b 20       		.byte	32
+ 2409 094c 37       		.byte	55
+ 2410 094d 80       		.byte	-128
+ 2411 094e 3E       		.byte	62
+ 2412 094f 02       		.byte	2
+ 2413 0950 3F       		.byte	63
+ 2414 0951 80       		.byte	-128
+ 2415 0952 40       		.byte	64
+ 2416 0953 20       		.byte	32
+ 2417 0954 42       		.byte	66
+ 2418 0955 40       		.byte	64
+ 2419 0956 43       		.byte	67
+ 2420 0957 11       		.byte	17
+ 2421 0958 47       		.byte	71
+ 2422 0959 31       		.byte	49
+ 2423 095a 48       		.byte	72
+ 2424 095b 01       		.byte	1
+ 2425 095c 4A       		.byte	74
+ 2426 095d 01       		.byte	1
+ 2427 095e 4F       		.byte	79
+ 2428 095f 20       		.byte	32
+ 2429 0960 5C       		.byte	92
+ 2430 0961 80       		.byte	-128
+ 2431 0962 5E       		.byte	94
+ 2432 0963 02       		.byte	2
+ 2433 0964 64       		.byte	100
+ 2434 0965 40       		.byte	64
+ 2435 0966 66       		.byte	102
+ 2436 0967 24       		.byte	36
+ 2437 0968 67       		.byte	103
+ 2438 0969 81       		.byte	-127
+ 2439 096a 69       		.byte	105
+ 2440 096b 40       		.byte	64
+ 2441 096c 78       		.byte	120
+ 2442 096d 11       		.byte	17
+ 2443 096e 7E       		.byte	126
+ 2444 096f 20       		.byte	32
+ 2445 0970 80       		.byte	-128
+ 2446 0971 80       		.byte	-128
+ 2447 0972 83       		.byte	-125
+ 2448 0973 10       		.byte	16
+ 2449 0974 87       		.byte	-121
+ 2450 0975 40       		.byte	64
+ 2451 0976 88       		.byte	-120
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 44
+
+
+ 2452 0977 40       		.byte	64
+ 2453 0978 8D       		.byte	-115
+ 2454 0979 10       		.byte	16
+ 2455 097a 92       		.byte	-110
+ 2456 097b 10       		.byte	16
+ 2457 097c 95       		.byte	-107
+ 2458 097d 40       		.byte	64
+ 2459 097e 96       		.byte	-106
+ 2460 097f 81       		.byte	-127
+ 2461 0980 98       		.byte	-104
+ 2462 0981 01       		.byte	1
+ 2463 0982 99       		.byte	-103
+ 2464 0983 13       		.byte	19
+ 2465 0984 9B       		.byte	-101
+ 2466 0985 20       		.byte	32
+ 2467 0986 9D       		.byte	-99
+ 2468 0987 20       		.byte	32
+ 2469 0988 A3       		.byte	-93
+ 2470 0989 10       		.byte	16
+ 2471 098a AB       		.byte	-85
+ 2472 098b 80       		.byte	-128
+ 2473 098c AE       		.byte	-82
+ 2474 098d 04       		.byte	4
+ 2475 098e AF       		.byte	-81
+ 2476 098f 22       		.byte	34
+ 2477 0990 C0       		.byte	-64
+ 2478 0991 48       		.byte	72
+ 2479 0992 C2       		.byte	-62
+ 2480 0993 15       		.byte	21
+ 2481 0994 C4       		.byte	-60
+ 2482 0995 80       		.byte	-128
+ 2483 0996 CA       		.byte	-54
+ 2484 0997 40       		.byte	64
+ 2485 0998 CC       		.byte	-52
+ 2486 0999 30       		.byte	48
+ 2487 099a CE       		.byte	-50
+ 2488 099b 90       		.byte	-112
+ 2489 099c D0       		.byte	-48
+ 2490 099d A7       		.byte	-89
+ 2491 099e D2       		.byte	-46
+ 2492 099f 20       		.byte	32
+ 2493 09a0 D6       		.byte	-42
+ 2494 09a1 90       		.byte	-112
+ 2495 09a2 D8       		.byte	-40
+ 2496 09a3 F0       		.byte	-16
+ 2497 09a4 DE       		.byte	-34
+ 2498 09a5 45       		.byte	69
+ 2499 09a6 E2       		.byte	-30
+ 2500 09a7 40       		.byte	64
+ 2501 09a8 E4       		.byte	-28
+ 2502 09a9 10       		.byte	16
+ 2503 09aa 21       		.byte	33
+ 2504 09ab 01       		.byte	1
+ 2505 09ac 29       		.byte	41
+ 2506 09ad 01       		.byte	1
+ 2507 09ae 37       		.byte	55
+ 2508 09af 01       		.byte	1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 45
+
+
+ 2509 09b0 3F       		.byte	63
+ 2510 09b1 40       		.byte	64
+ 2511 09b2 40       		.byte	64
+ 2512 09b3 30       		.byte	48
+ 2513 09b4 41       		.byte	65
+ 2514 09b5 04       		.byte	4
+ 2515 09b6 44       		.byte	68
+ 2516 09b7 02       		.byte	2
+ 2517 09b8 49       		.byte	73
+ 2518 09b9 FF       		.byte	-1
+ 2519 09ba 4A       		.byte	74
+ 2520 09bb FF       		.byte	-1
+ 2521 09bc 4B       		.byte	75
+ 2522 09bd FF       		.byte	-1
+ 2523 09be 4C       		.byte	76
+ 2524 09bf EF       		.byte	-17
+ 2525 09c0 4D       		.byte	77
+ 2526 09c1 55       		.byte	85
+ 2527 09c2 4E       		.byte	78
+ 2528 09c3 72       		.byte	114
+ 2529 09c4 4F       		.byte	79
+ 2530 09c5 08       		.byte	8
+ 2531 09c6 50       		.byte	80
+ 2532 09c7 1C       		.byte	28
+ 2533 09c8 59       		.byte	89
+ 2534 09c9 04       		.byte	4
+ 2535 09ca 5A       		.byte	90
+ 2536 09cb 09       		.byte	9
+ 2537 09cc 5D       		.byte	93
+ 2538 09cd 09       		.byte	9
+ 2539 09ce 5F       		.byte	95
+ 2540 09cf 01       		.byte	1
+ 2541 09d0 61       		.byte	97
+ 2542 09d1 08       		.byte	8
+ 2543 09d2 63       		.byte	99
+ 2544 09d3 08       		.byte	8
+ 2545 09d4 65       		.byte	101
+ 2546 09d5 08       		.byte	8
+ 2547 09d6 67       		.byte	103
+ 2548 09d7 08       		.byte	8
+ 2549 09d8 68       		.byte	104
+ 2550 09d9 50       		.byte	80
+ 2551 09da 69       		.byte	105
+ 2552 09db 09       		.byte	9
+ 2553 09dc 6A       		.byte	106
+ 2554 09dd 40       		.byte	64
+ 2555 09de 6B       		.byte	107
+ 2556 09df A8       		.byte	-88
+ 2557 09e0 6C       		.byte	108
+ 2558 09e1 C0       		.byte	-64
+ 2559 09e2 6E       		.byte	110
+ 2560 09e3 40       		.byte	64
+ 2561 09e4 6F       		.byte	111
+ 2562 09e5 A8       		.byte	-88
+ 2563 09e6 83       		.byte	-125
+ 2564 09e7 0F       		.byte	15
+ 2565 09e8 88       		.byte	-120
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 46
+
+
+ 2566 09e9 01       		.byte	1
+ 2567 09ea 8A       		.byte	-118
+ 2568 09eb 02       		.byte	2
+ 2569 09ec 8D       		.byte	-115
+ 2570 09ed 03       		.byte	3
+ 2571 09ee 8F       		.byte	-113
+ 2572 09ef 0C       		.byte	12
+ 2573 09f0 90       		.byte	-112
+ 2574 09f1 01       		.byte	1
+ 2575 09f2 92       		.byte	-110
+ 2576 09f3 02       		.byte	2
+ 2577 09f4 99       		.byte	-103
+ 2578 09f5 03       		.byte	3
+ 2579 09f6 9B       		.byte	-101
+ 2580 09f7 0C       		.byte	12
+ 2581 09f8 9F       		.byte	-97
+ 2582 09f9 1A       		.byte	26
+ 2583 09fa A3       		.byte	-93
+ 2584 09fb 15       		.byte	21
+ 2585 09fc AE       		.byte	-82
+ 2586 09fd 03       		.byte	3
+ 2587 09fe B1       		.byte	-79
+ 2588 09ff 1F       		.byte	31
+ 2589 0a00 B6       		.byte	-74
+ 2590 0a01 03       		.byte	3
+ 2591 0a02 C0       		.byte	-64
+ 2592 0a03 60       		.byte	96
+ 2593 0a04 C1       		.byte	-63
+ 2594 0a05 04       		.byte	4
+ 2595 0a06 C4       		.byte	-60
+ 2596 0a07 02       		.byte	2
+ 2597 0a08 C5       		.byte	-59
+ 2598 0a09 E0       		.byte	-32
+ 2599 0a0a C6       		.byte	-58
+ 2600 0a0b DB       		.byte	-37
+ 2601 0a0c C7       		.byte	-57
+ 2602 0a0d CF       		.byte	-49
+ 2603 0a0e C8       		.byte	-56
+ 2604 0a0f 3E       		.byte	62
+ 2605 0a10 C9       		.byte	-55
+ 2606 0a11 FF       		.byte	-1
+ 2607 0a12 CA       		.byte	-54
+ 2608 0a13 FF       		.byte	-1
+ 2609 0a14 CB       		.byte	-53
+ 2610 0a15 FF       		.byte	-1
+ 2611 0a16 CC       		.byte	-52
+ 2612 0a17 EF       		.byte	-17
+ 2613 0a18 CD       		.byte	-51
+ 2614 0a19 55       		.byte	85
+ 2615 0a1a CE       		.byte	-50
+ 2616 0a1b F2       		.byte	-14
+ 2617 0a1c CF       		.byte	-49
+ 2618 0a1d 08       		.byte	8
+ 2619 0a1e D0       		.byte	-48
+ 2620 0a1f 1C       		.byte	28
+ 2621 0a20 D2       		.byte	-46
+ 2622 0a21 01       		.byte	1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 47
+
+
+ 2623 0a22 D8       		.byte	-40
+ 2624 0a23 04       		.byte	4
+ 2625 0a24 D9       		.byte	-39
+ 2626 0a25 04       		.byte	4
+ 2627 0a26 DA       		.byte	-38
+ 2628 0a27 0A       		.byte	10
+ 2629 0a28 DB       		.byte	-37
+ 2630 0a29 0A       		.byte	10
+ 2631 0a2a DC       		.byte	-36
+ 2632 0a2b 99       		.byte	-103
+ 2633 0a2c DD       		.byte	-35
+ 2634 0a2d 99       		.byte	-103
+ 2635 0a2e DF       		.byte	-33
+ 2636 0a2f 01       		.byte	1
+ 2637 0a30 E1       		.byte	-31
+ 2638 0a31 08       		.byte	8
+ 2639 0a32 E3       		.byte	-29
+ 2640 0a33 08       		.byte	8
+ 2641 0a34 E5       		.byte	-27
+ 2642 0a35 08       		.byte	8
+ 2643 0a36 E7       		.byte	-25
+ 2644 0a37 08       		.byte	8
+ 2645 0a38 E8       		.byte	-24
+ 2646 0a39 50       		.byte	80
+ 2647 0a3a E9       		.byte	-23
+ 2648 0a3b 09       		.byte	9
+ 2649 0a3c EA       		.byte	-22
+ 2650 0a3d 40       		.byte	64
+ 2651 0a3e EB       		.byte	-21
+ 2652 0a3f A8       		.byte	-88
+ 2653 0a40 EC       		.byte	-20
+ 2654 0a41 C0       		.byte	-64
+ 2655 0a42 EE       		.byte	-18
+ 2656 0a43 40       		.byte	64
+ 2657 0a44 EF       		.byte	-17
+ 2658 0a45 A8       		.byte	-88
+ 2659 0a46 05       		.byte	5
+ 2660 0a47 10       		.byte	16
+ 2661 0a48 0F       		.byte	15
+ 2662 0a49 80       		.byte	-128
+ 2663 0a4a 16       		.byte	22
+ 2664 0a4b 02       		.byte	2
+ 2665 0a4c 1F       		.byte	31
+ 2666 0a4d 40       		.byte	64
+ 2667 0a4e 22       		.byte	34
+ 2668 0a4f 40       		.byte	64
+ 2669 0a50 27       		.byte	39
+ 2670 0a51 40       		.byte	64
+ 2671 0a52 28       		.byte	40
+ 2672 0a53 20       		.byte	32
+ 2673 0a54 29       		.byte	41
+ 2674 0a55 22       		.byte	34
+ 2675 0a56 2B       		.byte	43
+ 2676 0a57 10       		.byte	16
+ 2677 0a58 2F       		.byte	47
+ 2678 0a59 40       		.byte	64
+ 2679 0a5a 34       		.byte	52
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 48
+
+
+ 2680 0a5b 10       		.byte	16
+ 2681 0a5c 35       		.byte	53
+ 2682 0a5d 10       		.byte	16
+ 2683 0a5e 36       		.byte	54
+ 2684 0a5f 20       		.byte	32
+ 2685 0a60 37       		.byte	55
+ 2686 0a61 40       		.byte	64
+ 2687 0a62 3E       		.byte	62
+ 2688 0a63 02       		.byte	2
+ 2689 0a64 3F       		.byte	63
+ 2690 0a65 80       		.byte	-128
+ 2691 0a66 40       		.byte	64
+ 2692 0a67 20       		.byte	32
+ 2693 0a68 42       		.byte	66
+ 2694 0a69 40       		.byte	64
+ 2695 0a6a 43       		.byte	67
+ 2696 0a6b 10       		.byte	16
+ 2697 0a6c 47       		.byte	71
+ 2698 0a6d 11       		.byte	17
+ 2699 0a6e 4F       		.byte	79
+ 2700 0a6f 21       		.byte	33
+ 2701 0a70 54       		.byte	84
+ 2702 0a71 01       		.byte	1
+ 2703 0a72 56       		.byte	86
+ 2704 0a73 24       		.byte	36
+ 2705 0a74 57       		.byte	87
+ 2706 0a75 40       		.byte	64
+ 2707 0a76 6E       		.byte	110
+ 2708 0a77 40       		.byte	64
+ 2709 0a78 6F       		.byte	111
+ 2710 0a79 01       		.byte	1
+ 2711 0a7a 78       		.byte	120
+ 2712 0a7b 10       		.byte	16
+ 2713 0a7c 7E       		.byte	126
+ 2714 0a7d 20       		.byte	32
+ 2715 0a7e 83       		.byte	-125
+ 2716 0a7f C0       		.byte	-64
+ 2717 0a80 8F       		.byte	-113
+ 2718 0a81 40       		.byte	64
+ 2719 0a82 96       		.byte	-106
+ 2720 0a83 C0       		.byte	-64
+ 2721 0a84 97       		.byte	-105
+ 2722 0a85 01       		.byte	1
+ 2723 0a86 99       		.byte	-103
+ 2724 0a87 32       		.byte	50
+ 2725 0a88 9A       		.byte	-102
+ 2726 0a89 02       		.byte	2
+ 2727 0a8a 9B       		.byte	-101
+ 2728 0a8b 90       		.byte	-112
+ 2729 0a8c 9C       		.byte	-100
+ 2730 0a8d 20       		.byte	32
+ 2731 0a8e 9E       		.byte	-98
+ 2732 0a8f 24       		.byte	36
+ 2733 0a90 A3       		.byte	-93
+ 2734 0a91 10       		.byte	16
+ 2735 0a92 A4       		.byte	-92
+ 2736 0a93 01       		.byte	1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 49
+
+
+ 2737 0a94 A7       		.byte	-89
+ 2738 0a95 40       		.byte	64
+ 2739 0a96 A9       		.byte	-87
+ 2740 0a97 01       		.byte	1
+ 2741 0a98 B2       		.byte	-78
+ 2742 0a99 02       		.byte	2
+ 2743 0a9a C0       		.byte	-64
+ 2744 0a9b 40       		.byte	64
+ 2745 0a9c C2       		.byte	-62
+ 2746 0a9d 10       		.byte	16
+ 2747 0a9e C4       		.byte	-60
+ 2748 0a9f 80       		.byte	-128
+ 2749 0aa0 CA       		.byte	-54
+ 2750 0aa1 85       		.byte	-123
+ 2751 0aa2 CC       		.byte	-52
+ 2752 0aa3 30       		.byte	48
+ 2753 0aa4 CE       		.byte	-50
+ 2754 0aa5 90       		.byte	-112
+ 2755 0aa6 D0       		.byte	-48
+ 2756 0aa7 A7       		.byte	-89
+ 2757 0aa8 D2       		.byte	-46
+ 2758 0aa9 20       		.byte	32
+ 2759 0aaa DE       		.byte	-34
+ 2760 0aab 44       		.byte	68
+ 2761 0aac E0       		.byte	-32
+ 2762 0aad 01       		.byte	1
+ 2763 0aae E4       		.byte	-28
+ 2764 0aaf 01       		.byte	1
+ 2765 0ab0 E6       		.byte	-26
+ 2766 0ab1 40       		.byte	64
+ 2767 0ab2 E8       		.byte	-24
+ 2768 0ab3 80       		.byte	-128
+ 2769 0ab4 EC       		.byte	-20
+ 2770 0ab5 80       		.byte	-128
+ 2771 0ab6 31       		.byte	49
+ 2772 0ab7 01       		.byte	1
+ 2773 0ab8 32       		.byte	50
+ 2774 0ab9 40       		.byte	64
+ 2775 0aba 35       		.byte	53
+ 2776 0abb 80       		.byte	-128
+ 2777 0abc 37       		.byte	55
+ 2778 0abd 02       		.byte	2
+ 2779 0abe 3B       		.byte	59
+ 2780 0abf 80       		.byte	-128
+ 2781 0ac0 82       		.byte	-126
+ 2782 0ac1 40       		.byte	64
+ 2783 0ac2 87       		.byte	-121
+ 2784 0ac3 02       		.byte	2
+ 2785 0ac4 CC       		.byte	-52
+ 2786 0ac5 F0       		.byte	-16
+ 2787 0ac6 CE       		.byte	-50
+ 2788 0ac7 10       		.byte	16
+ 2789 0ac8 E6       		.byte	-26
+ 2790 0ac9 C0       		.byte	-64
+ 2791 0aca 03       		.byte	3
+ 2792 0acb 02       		.byte	2
+ 2793 0acc 50       		.byte	80
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 50
+
+
+ 2794 0acd 04       		.byte	4
+ 2795 0ace 5F       		.byte	95
+ 2796 0acf 10       		.byte	16
+ 2797 0ad0 60       		.byte	96
+ 2798 0ad1 20       		.byte	32
+ 2799 0ad2 87       		.byte	-121
+ 2800 0ad3 02       		.byte	2
+ 2801 0ad4 8D       		.byte	-115
+ 2802 0ad5 80       		.byte	-128
+ 2803 0ad6 97       		.byte	-105
+ 2804 0ad7 80       		.byte	-128
+ 2805 0ad8 9D       		.byte	-99
+ 2806 0ad9 81       		.byte	-127
+ 2807 0ada C0       		.byte	-64
+ 2808 0adb 40       		.byte	64
+ 2809 0adc D4       		.byte	-44
+ 2810 0add 20       		.byte	32
+ 2811 0ade D6       		.byte	-42
+ 2812 0adf 20       		.byte	32
+ 2813 0ae0 D8       		.byte	-40
+ 2814 0ae1 40       		.byte	64
+ 2815 0ae2 E0       		.byte	-32
+ 2816 0ae3 10       		.byte	16
+ 2817 0ae4 13       		.byte	19
+ 2818 0ae5 04       		.byte	4
+ 2819 0ae6 57       		.byte	87
+ 2820 0ae7 10       		.byte	16
+ 2821 0ae8 80       		.byte	-128
+ 2822 0ae9 24       		.byte	36
+ 2823 0aea 8B       		.byte	-117
+ 2824 0aeb 04       		.byte	4
+ 2825 0aec 94       		.byte	-108
+ 2826 0aed 08       		.byte	8
+ 2827 0aee 97       		.byte	-105
+ 2828 0aef 80       		.byte	-128
+ 2829 0af0 9C       		.byte	-100
+ 2830 0af1 20       		.byte	32
+ 2831 0af2 9D       		.byte	-99
+ 2832 0af3 01       		.byte	1
+ 2833 0af4 B3       		.byte	-77
+ 2834 0af5 10       		.byte	16
+ 2835 0af6 C4       		.byte	-60
+ 2836 0af7 10       		.byte	16
+ 2837 0af8 D4       		.byte	-44
+ 2838 0af9 40       		.byte	64
+ 2839 0afa E6       		.byte	-26
+ 2840 0afb A0       		.byte	-96
+ 2841 0afc 21       		.byte	33
+ 2842 0afd 20       		.byte	32
+ 2843 0afe 61       		.byte	97
+ 2844 0aff 02       		.byte	2
+ 2845 0b00 8D       		.byte	-115
+ 2846 0b01 82       		.byte	-126
+ 2847 0b02 8F       		.byte	-113
+ 2848 0b03 10       		.byte	16
+ 2849 0b04 97       		.byte	-105
+ 2850 0b05 80       		.byte	-128
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 51
+
+
+ 2851 0b06 9D       		.byte	-99
+ 2852 0b07 01       		.byte	1
+ 2853 0b08 A7       		.byte	-89
+ 2854 0b09 10       		.byte	16
+ 2855 0b0a C8       		.byte	-56
+ 2856 0b0b 10       		.byte	16
+ 2857 0b0c D8       		.byte	-40
+ 2858 0b0d 40       		.byte	64
+ 2859 0b0e 2A       		.byte	42
+ 2860 0b0f 10       		.byte	16
+ 2861 0b10 7A       		.byte	122
+ 2862 0b11 01       		.byte	1
+ 2863 0b12 7F       		.byte	127
+ 2864 0b13 01       		.byte	1
+ 2865 0b14 83       		.byte	-125
+ 2866 0b15 01       		.byte	1
+ 2867 0b16 CA       		.byte	-54
+ 2868 0b17 08       		.byte	8
+ 2869 0b18 DC       		.byte	-36
+ 2870 0b19 01       		.byte	1
+ 2871 0b1a DE       		.byte	-34
+ 2872 0b1b 04       		.byte	4
+ 2873 0b1c 01       		.byte	1
+ 2874 0b1d 80       		.byte	-128
+ 2875 0b1e 50       		.byte	80
+ 2876 0b1f 08       		.byte	8
+ 2877 0b20 54       		.byte	84
+ 2878 0b21 01       		.byte	1
+ 2879 0b22 63       		.byte	99
+ 2880 0b23 40       		.byte	64
+ 2881 0b24 64       		.byte	100
+ 2882 0b25 08       		.byte	8
+ 2883 0b26 8E       		.byte	-114
+ 2884 0b27 01       		.byte	1
+ 2885 0b28 9A       		.byte	-102
+ 2886 0b29 10       		.byte	16
+ 2887 0b2a A6       		.byte	-90
+ 2888 0b2b 01       		.byte	1
+ 2889 0b2c C0       		.byte	-64
+ 2890 0b2d 02       		.byte	2
+ 2891 0b2e D4       		.byte	-44
+ 2892 0b2f 04       		.byte	4
+ 2893 0b30 D6       		.byte	-42
+ 2894 0b31 04       		.byte	4
+ 2895 0b32 D8       		.byte	-40
+ 2896 0b33 03       		.byte	3
+ 2897 0b34 E0       		.byte	-32
+ 2898 0b35 08       		.byte	8
+ 2899 0b36 02       		.byte	2
+ 2900 0b37 02       		.byte	2
+ 2901 0b38 56       		.byte	86
+ 2902 0b39 80       		.byte	-128
+ 2903 0b3a 84       		.byte	-124
+ 2904 0b3b 08       		.byte	8
+ 2905 0b3c 86       		.byte	-122
+ 2906 0b3d 10       		.byte	16
+ 2907 0b3e 87       		.byte	-121
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 52
+
+
+ 2908 0b3f 40       		.byte	64
+ 2909 0b40 8A       		.byte	-118
+ 2910 0b41 80       		.byte	-128
+ 2911 0b42 8C       		.byte	-116
+ 2912 0b43 08       		.byte	8
+ 2913 0b44 97       		.byte	-105
+ 2914 0b45 40       		.byte	64
+ 2915 0b46 9A       		.byte	-102
+ 2916 0b47 10       		.byte	16
+ 2917 0b48 9C       		.byte	-100
+ 2918 0b49 08       		.byte	8
+ 2919 0b4a A4       		.byte	-92
+ 2920 0b4b 09       		.byte	9
+ 2921 0b4c B5       		.byte	-75
+ 2922 0b4d 80       		.byte	-128
+ 2923 0b4e C0       		.byte	-64
+ 2924 0b4f 02       		.byte	2
+ 2925 0b50 D4       		.byte	-44
+ 2926 0b51 02       		.byte	2
+ 2927 0b52 E4       		.byte	-28
+ 2928 0b53 0C       		.byte	12
+ 2929 0b54 EE       		.byte	-18
+ 2930 0b55 02       		.byte	2
+ 2931 0b56 9A       		.byte	-102
+ 2932 0b57 10       		.byte	16
+ 2933 0b58 A2       		.byte	-94
+ 2934 0b59 02       		.byte	2
+ 2935 0b5a A4       		.byte	-92
+ 2936 0b5b 01       		.byte	1
+ 2937 0b5c B2       		.byte	-78
+ 2938 0b5d 02       		.byte	2
+ 2939 0b5e EE       		.byte	-18
+ 2940 0b5f 04       		.byte	4
+ 2941 0b60 27       		.byte	39
+ 2942 0b61 02       		.byte	2
+ 2943 0b62 87       		.byte	-121
+ 2944 0b63 40       		.byte	64
+ 2945 0b64 8D       		.byte	-115
+ 2946 0b65 02       		.byte	2
+ 2947 0b66 97       		.byte	-105
+ 2948 0b67 80       		.byte	-128
+ 2949 0b68 99       		.byte	-103
+ 2950 0b69 80       		.byte	-128
+ 2951 0b6a 9D       		.byte	-99
+ 2952 0b6b 01       		.byte	1
+ 2953 0b6c B5       		.byte	-75
+ 2954 0b6d 20       		.byte	32
+ 2955 0b6e C8       		.byte	-56
+ 2956 0b6f 20       		.byte	32
+ 2957 0b70 E2       		.byte	-30
+ 2958 0b71 10       		.byte	16
+ 2959 0b72 53       		.byte	83
+ 2960 0b73 10       		.byte	16
+ 2961 0b74 59       		.byte	89
+ 2962 0b75 80       		.byte	-128
+ 2963 0b76 5B       		.byte	91
+ 2964 0b77 04       		.byte	4
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 53
+
+
+ 2965 0b78 5D       		.byte	93
+ 2966 0b79 02       		.byte	2
+ 2967 0b7a 66       		.byte	102
+ 2968 0b7b 01       		.byte	1
+ 2969 0b7c 77       		.byte	119
+ 2970 0b7d 10       		.byte	16
+ 2971 0b7e 81       		.byte	-127
+ 2972 0b7f 01       		.byte	1
+ 2973 0b80 83       		.byte	-125
+ 2974 0b81 14       		.byte	20
+ 2975 0b82 8B       		.byte	-117
+ 2976 0b83 10       		.byte	16
+ 2977 0b84 8E       		.byte	-114
+ 2978 0b85 01       		.byte	1
+ 2979 0b86 99       		.byte	-103
+ 2980 0b87 82       		.byte	-126
+ 2981 0b88 9D       		.byte	-99
+ 2982 0b89 01       		.byte	1
+ 2983 0b8a B7       		.byte	-73
+ 2984 0b8b 02       		.byte	2
+ 2985 0b8c D4       		.byte	-44
+ 2986 0b8d A0       		.byte	-96
+ 2987 0b8e D6       		.byte	-42
+ 2988 0b8f C0       		.byte	-64
+ 2989 0b90 D8       		.byte	-40
+ 2990 0b91 80       		.byte	-128
+ 2991 0b92 DE       		.byte	-34
+ 2992 0b93 20       		.byte	32
+ 2993 0b94 E2       		.byte	-30
+ 2994 0b95 A0       		.byte	-96
+ 2995 0b96 56       		.byte	86
+ 2996 0b97 10       		.byte	16
+ 2997 0b98 62       		.byte	98
+ 2998 0b99 02       		.byte	2
+ 2999 0b9a 63       		.byte	99
+ 3000 0b9b 01       		.byte	1
+ 3001 0b9c 66       		.byte	102
+ 3002 0b9d 42       		.byte	66
+ 3003 0b9e 88       		.byte	-120
+ 3004 0b9f 01       		.byte	1
+ 3005 0ba0 8E       		.byte	-114
+ 3006 0ba1 02       		.byte	2
+ 3007 0ba2 8F       		.byte	-113
+ 3008 0ba3 01       		.byte	1
+ 3009 0ba4 9A       		.byte	-102
+ 3010 0ba5 10       		.byte	16
+ 3011 0ba6 A2       		.byte	-94
+ 3012 0ba7 02       		.byte	2
+ 3013 0ba8 A4       		.byte	-92
+ 3014 0ba9 01       		.byte	1
+ 3015 0baa D4       		.byte	-44
+ 3016 0bab 02       		.byte	2
+ 3017 0bac D6       		.byte	-42
+ 3018 0bad 03       		.byte	3
+ 3019 0bae D8       		.byte	-40
+ 3020 0baf 03       		.byte	3
+ 3021 0bb0 E0       		.byte	-32
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 54
+
+
+ 3022 0bb1 03       		.byte	3
+ 3023 0bb2 E4       		.byte	-28
+ 3024 0bb3 08       		.byte	8
+ 3025 0bb4 77       		.byte	119
+ 3026 0bb5 20       		.byte	32
+ 3027 0bb6 78       		.byte	120
+ 3028 0bb7 80       		.byte	-128
+ 3029 0bb8 80       		.byte	-128
+ 3030 0bb9 80       		.byte	-128
+ 3031 0bba 83       		.byte	-125
+ 3032 0bbb 20       		.byte	32
+ 3033 0bbc B2       		.byte	-78
+ 3034 0bbd 40       		.byte	64
+ 3035 0bbe DC       		.byte	-36
+ 3036 0bbf 01       		.byte	1
+ 3037 0bc0 DE       		.byte	-34
+ 3038 0bc1 04       		.byte	4
+ 3039 0bc2 EC       		.byte	-20
+ 3040 0bc3 01       		.byte	1
+ 3041 0bc4 01       		.byte	1
+ 3042 0bc5 01       		.byte	1
+ 3043 0bc6 02       		.byte	2
+ 3044 0bc7 14       		.byte	20
+ 3045 0bc8 09       		.byte	9
+ 3046 0bc9 01       		.byte	1
+ 3047 0bca 0B       		.byte	11
+ 3048 0bcb 01       		.byte	1
+ 3049 0bcc 0D       		.byte	13
+ 3050 0bcd 01       		.byte	1
+ 3051 0bce 11       		.byte	17
+ 3052 0bcf 01       		.byte	1
+ 3053 0bd0 12       		.byte	18
+ 3054 0bd1 14       		.byte	20
+ 3055 0bd2 1B       		.byte	27
+ 3056 0bd3 01       		.byte	1
+ 3057 0bd4 1D       		.byte	29
+ 3058 0bd5 01       		.byte	1
+ 3059 0bd6 00       		.byte	0
+ 3060 0bd7 FF       		.byte	-1
+ 3061 0bd8 01       		.byte	1
+ 3062 0bd9 03       		.byte	3
+ 3063 0bda 00       		.byte	0
+ 3064 0bdb 00       		.byte	0
+ 3065 0bdc 00       		.byte	0
+ 3066 0bdd 00       		.byte	0
+ 3067 0bde 80       		.byte	-128
+ 3068 0bdf 00       		.byte	0
+ 3069 0be0 00       		.byte	0
+ 3070 0be1 04       		.byte	4
+ 3071 0be2 00       		.byte	0
+ 3072 0be3 02       		.byte	2
+ 3073 0be4 00       		.byte	0
+ 3074 0be5 00       		.byte	0
+ 3075 0be6 00       		.byte	0
+ 3076 0be7 00       		.byte	0
+ 3077 0be8 10       		.byte	16
+ 3078 0be9 00       		.byte	0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 55
+
+
+ 3079 0bea 21       		.byte	33
+ 3080 0beb 01       		.byte	1
+ 3081 0bec 02       		.byte	2
+ 3082 0bed 00       		.byte	0
+ 3083 0bee 04       		.byte	4
+ 3084 0bef 00       		.byte	0
+ 3085 0bf0 20       		.byte	32
+ 3086 0bf1 00       		.byte	0
+ 3087 0bf2 50       		.byte	80
+ 3088 0bf3 00       		.byte	0
+ 3089 0bf4 40       		.byte	64
+ 3090 0bf5 06       		.byte	6
+ 3091 0bf6 29       		.byte	41
+ 3092 0bf7 08       		.byte	8
+ 3093 0bf8 08       		.byte	8
+ 3094 0bf9 00       		.byte	0
+ 3095 0bfa 00       		.byte	0
+ 3096 0bfb 08       		.byte	8
+ 3097 0bfc 00       		.byte	0
+ 3098 0bfd 08       		.byte	8
+ 3099 0bfe 00       		.byte	0
+ 3100 0bff 00       		.byte	0
+ 3101 0c00 04       		.byte	4
+ 3102 0c01 00       		.byte	0
+ 3103 0c02 02       		.byte	2
+ 3104 0c03 00       		.byte	0
+ 3105 0c04 00       		.byte	0
+ 3106 0c05 00       		.byte	0
+ 3107 0c06 00       		.byte	0
+ 3108 0c07 00       		.byte	0
+ 3109 0c08 00       		.byte	0
+ 3110 0c09 02       		.byte	2
+ 3111 0c0a 00       		.byte	0
+ 3112 0c0b 04       		.byte	4
+ 3113 0c0c 70       		.byte	112
+ 3114 0c0d 06       		.byte	6
+ 3115 0c0e 01       		.byte	1
+ 3116 0c0f 01       		.byte	1
+ 3117 0c10 0E       		.byte	14
+ 3118 0c11 08       		.byte	8
+ 3119 0c12 80       		.byte	-128
+ 3120 0c13 00       		.byte	0
+ 3121 0c14 00       		.byte	0
+ 3122 0c15 00       		.byte	0
+ 3123 0c16 00       		.byte	0
+ 3124 0c17 00       		.byte	0
+ 3125 0c18 00       		.byte	0
+ 3126 0c19 08       		.byte	8
+ 3127 0c1a 01       		.byte	1
+ 3128 0c1b 11       		.byte	17
+ 3129 0c1c 00       		.byte	0
+ 3130 0c1d 05       		.byte	5
+ 3131 0c1e 60       		.byte	96
+ 3132 0c1f 00       		.byte	0
+ 3133 0c20 04       		.byte	4
+ 3134 0c21 C0       		.byte	-64
+ 3135 0c22 DE       		.byte	-34
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 56
+
+
+ 3136 0c23 0F       		.byte	15
+ 3137 0c24 1E       		.byte	30
+ 3138 0c25 FF       		.byte	-1
+ 3139 0c26 FF       		.byte	-1
+ 3140 0c27 FF       		.byte	-1
+ 3141 0c28 EF       		.byte	-17
+ 3142 0c29 55       		.byte	85
+ 3143 0c2a F2       		.byte	-14
+ 3144 0c2b 08       		.byte	8
+ 3145 0c2c 1C       		.byte	28
+ 3146 0c2d 00       		.byte	0
+ 3147 0c2e 00       		.byte	0
+ 3148 0c2f 00       		.byte	0
+ 3149 0c30 02       		.byte	2
+ 3150 0c31 00       		.byte	0
+ 3151 0c32 04       		.byte	4
+ 3152 0c33 00       		.byte	0
+ 3153 0c34 04       		.byte	4
+ 3154 0c35 09       		.byte	9
+ 3155 0c36 0A       		.byte	10
+ 3156 0c37 0A       		.byte	10
+ 3157 0c38 99       		.byte	-103
+ 3158 0c39 99       		.byte	-103
+ 3159 0c3a 00       		.byte	0
+ 3160 0c3b 41       		.byte	65
+ 3161 0c3c 00       		.byte	0
+ 3162 0c3d 08       		.byte	8
+ 3163 0c3e 00       		.byte	0
+ 3164 0c3f 08       		.byte	8
+ 3165 0c40 00       		.byte	0
+ 3166 0c41 08       		.byte	8
+ 3167 0c42 00       		.byte	0
+ 3168 0c43 08       		.byte	8
+ 3169 0c44 50       		.byte	80
+ 3170 0c45 09       		.byte	9
+ 3171 0c46 40       		.byte	64
+ 3172 0c47 A8       		.byte	-88
+ 3173 0c48 C0       		.byte	-64
+ 3174 0c49 00       		.byte	0
+ 3175 0c4a 40       		.byte	64
+ 3176 0c4b A8       		.byte	-88
+ 3177 0c4c 00       		.byte	0
+ 3178 0c4d 00       		.byte	0
+ 3179 0c4e 00       		.byte	0
+ 3180 0c4f 00       		.byte	0
+ 3181 0c50 00       		.byte	0
+ 3182 0c51 00       		.byte	0
+ 3183 0c52 00       		.byte	0
+ 3184 0c53 00       		.byte	0
+ 3185 0c54 00       		.byte	0
+ 3186 0c55 00       		.byte	0
+ 3187 0c56 00       		.byte	0
+ 3188 0c57 00       		.byte	0
+ 3189 0c58 00       		.byte	0
+ 3190 0c59 00       		.byte	0
+ 3191 0c5a 00       		.byte	0
+ 3192 0c5b 00       		.byte	0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 57
+
+
+ 3193 0c5c 02       		.byte	2
+ 3194 0c5d 00       		.byte	0
+ 3195 0c5e 04       		.byte	4
+ 3196 0c5f 8A       		.byte	-118
+ 3197 0c60 8A       		.byte	-118
+ 3198 0c61 00       		.byte	0
+ 3199 0c62 8A       		.byte	-118
+ 3200 0c63 00       		.byte	0
+ 3201 0c64 70       		.byte	112
+ 3202 0c65 00       		.byte	0
+ 3203 0c66 00       		.byte	0
+ 3204 0c67 00       		.byte	0
+ 3205 0c68 00       		.byte	0
+ 3206 0c69 FC       		.byte	-4
+ 3207 0c6a FC       		.byte	-4
+ 3208 0c6b 00       		.byte	0
+ 3209 0c6c FC       		.byte	-4
+ 3210 0c6d 00       		.byte	0
+ 3211 0c6e 00       		.byte	0
+ 3212 0c6f 00       		.byte	0
+ 3213 0c70 00       		.byte	0
+ 3214 0c71 20       		.byte	32
+ 3215 0c72 20       		.byte	32
+ 3216 0c73 00       		.byte	0
+ 3217 0c74 20       		.byte	32
+ 3218 0c75 00       		.byte	0
+ 3219 0c76 00       		.byte	0
+ 3220 0c77 00       		.byte	0
+ 3221 0c78 00       		.byte	0
+ 3222 0c79 FF       		.byte	-1
+ 3223 0c7a FF       		.byte	-1
+ 3224 0c7b 00       		.byte	0
+ 3225 0c7c F4       		.byte	-12
+ 3226 0c7d 00       		.byte	0
+ 3227 0c7e 00       		.byte	0
+ 3228 0c7f 00       		.byte	0
+ 3229 0c80 05       		.byte	5
+ 3230 0c81 00       		.byte	0
+ 3231 0c82 00       		.byte	0
+ 3232 0c83 C7       		.byte	-57
+ 3233 0c84 C3       		.byte	-61
+ 3234 0c85 00       		.byte	0
+ 3235 0c86 C3       		.byte	-61
+ 3236 0c87 00       		.byte	0
+ 3237 0c88 00       		.byte	0
+ 3238 0c89 00       		.byte	0
+ 3239 0c8a 00       		.byte	0
+ 3240 0c8b 00       		.byte	0
+ 3241 0c8c 00       		.byte	0
+ 3242 0c8d E3       		.byte	-29
+ 3243 0c8e E3       		.byte	-29
+ 3244 0c8f 00       		.byte	0
+ 3245 0c90 E3       		.byte	-29
+ 3246 0c91 00       		.byte	0
+ 3247 0c92 00       		.byte	0
+ 3248 0c93 00       		.byte	0
+ 3249              		.section	.cywolatch,"a",%progbits
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 58
+
+
+ 3250              		.align	2
+ 3251              		.type	cy_meta_wonvl, %object
+ 3252              		.size	cy_meta_wonvl, 4
+ 3253              	cy_meta_wonvl:
+ 3254 0000 BC       		.byte	-68
+ 3255 0001 90       		.byte	-112
+ 3256 0002 AC       		.byte	-84
+ 3257 0003 AF       		.byte	-81
+ 3258              		.section	.cycustnvl,"a",%progbits
+ 3259              		.align	2
+ 3260              		.type	cy_meta_custnvl, %object
+ 3261              		.size	cy_meta_custnvl, 4
+ 3262              	cy_meta_custnvl:
+ 3263 0000 00       		.byte	0
+ 3264 0001 00       		.byte	0
+ 3265 0002 40       		.byte	64
+ 3266 0003 05       		.byte	5
+ 3267              		.section	.cymeta,"a",%progbits
+ 3268              		.align	2
+ 3269              		.type	cy_metadata, %object
+ 3270              		.size	cy_metadata, 12
+ 3271              	cy_metadata:
+ 3272 0000 00       		.byte	0
+ 3273 0001 01       		.byte	1
+ 3274 0002 2E       		.byte	46
+ 3275 0003 16       		.byte	22
+ 3276 0004 10       		.byte	16
+ 3277 0005 69       		.byte	105
+ 3278 0006 00       		.byte	0
+ 3279 0007 01       		.byte	1
+ 3280 0008 00       		.byte	0
+ 3281 0009 00       		.byte	0
+ 3282 000a 00       		.byte	0
+ 3283 000b 00       		.byte	0
+ 3284              		.section	.cyflashprotect,"a",%progbits
+ 3285              		.align	2
+ 3286              		.type	cy_meta_flashprotect, %object
+ 3287              		.size	cy_meta_flashprotect, 256
+ 3288              	cy_meta_flashprotect:
+ 3289 0000 00000000 		.space	256
+ 3289      00000000 
+ 3289      00000000 
+ 3289      00000000 
+ 3289      00000000 
+ 3290              		.text
+ 3291              	.Letext0:
+ 3292              		.file 1 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 3293              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 3294              		.file 3 "Generated_Source\\PSoC5\\cymetadata.c"
+ 3295              		.section	.debug_info,"",%progbits
+ 3296              	.Ldebug_info0:
+ 3297 0000 35010000 		.4byte	0x135
+ 3298 0004 0400     		.2byte	0x4
+ 3299 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 3300 000a 04       		.byte	0x4
+ 3301 000b 01       		.uleb128 0x1
+ 3302 000c 70000000 		.4byte	.LASF17
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 59
+
+
+ 3303 0010 0C       		.byte	0xc
+ 3304 0011 CA010000 		.4byte	.LASF18
+ 3305 0015 0A000000 		.4byte	.LASF19
+ 3306 0019 00000000 		.4byte	.Ldebug_line0
+ 3307 001d 02       		.uleb128 0x2
+ 3308 001e 01       		.byte	0x1
+ 3309 001f 06       		.byte	0x6
+ 3310 0020 BE010000 		.4byte	.LASF0
+ 3311 0024 03       		.uleb128 0x3
+ 3312 0025 00000000 		.4byte	.LASF9
+ 3313 0029 01       		.byte	0x1
+ 3314 002a 1D       		.byte	0x1d
+ 3315 002b 2F000000 		.4byte	0x2f
+ 3316 002f 02       		.uleb128 0x2
+ 3317 0030 01       		.byte	0x1
+ 3318 0031 08       		.byte	0x8
+ 3319 0032 62000000 		.4byte	.LASF1
+ 3320 0036 02       		.uleb128 0x2
+ 3321 0037 02       		.byte	0x2
+ 3322 0038 05       		.byte	0x5
+ 3323 0039 AB010000 		.4byte	.LASF2
+ 3324 003d 02       		.uleb128 0x2
+ 3325 003e 02       		.byte	0x2
+ 3326 003f 07       		.byte	0x7
+ 3327 0040 10010000 		.4byte	.LASF3
+ 3328 0044 02       		.uleb128 0x2
+ 3329 0045 04       		.byte	0x4
+ 3330 0046 05       		.byte	0x5
+ 3331 0047 B5010000 		.4byte	.LASF4
+ 3332 004b 02       		.uleb128 0x2
+ 3333 004c 04       		.byte	0x4
+ 3334 004d 07       		.byte	0x7
+ 3335 004e FE000000 		.4byte	.LASF5
+ 3336 0052 02       		.uleb128 0x2
+ 3337 0053 08       		.byte	0x8
+ 3338 0054 05       		.byte	0x5
+ 3339 0055 9D010000 		.4byte	.LASF6
+ 3340 0059 02       		.uleb128 0x2
+ 3341 005a 08       		.byte	0x8
+ 3342 005b 07       		.byte	0x7
+ 3343 005c 52010000 		.4byte	.LASF7
+ 3344 0060 04       		.uleb128 0x4
+ 3345 0061 04       		.byte	0x4
+ 3346 0062 05       		.byte	0x5
+ 3347 0063 696E7400 		.ascii	"int\000"
+ 3348 0067 02       		.uleb128 0x2
+ 3349 0068 04       		.byte	0x4
+ 3350 0069 07       		.byte	0x7
+ 3351 006a 45010000 		.4byte	.LASF8
+ 3352 006e 03       		.uleb128 0x3
+ 3353 006f 69010000 		.4byte	.LASF10
+ 3354 0073 02       		.byte	0x2
+ 3355 0074 18       		.byte	0x18
+ 3356 0075 24000000 		.4byte	0x24
+ 3357 0079 05       		.uleb128 0x5
+ 3358 007a 91000000 		.4byte	0x91
+ 3359 007e 8A000000 		.4byte	0x8a
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 60
+
+
+ 3360 0082 06       		.uleb128 0x6
+ 3361 0083 8A000000 		.4byte	0x8a
+ 3362 0087 930C     		.2byte	0xc93
+ 3363 0089 00       		.byte	0
+ 3364 008a 02       		.uleb128 0x2
+ 3365 008b 04       		.byte	0x4
+ 3366 008c 07       		.byte	0x7
+ 3367 008d 94010000 		.4byte	.LASF11
+ 3368 0091 07       		.uleb128 0x7
+ 3369 0092 6E000000 		.4byte	0x6e
+ 3370 0096 08       		.uleb128 0x8
+ 3371 0097 33010000 		.4byte	.LASF12
+ 3372 009b 03       		.byte	0x3
+ 3373 009c 1F       		.byte	0x1f
+ 3374 009d A7000000 		.4byte	0xa7
+ 3375 00a1 05       		.uleb128 0x5
+ 3376 00a2 03       		.byte	0x3
+ 3377 00a3 00000000 		.4byte	cy_meta_configecc
+ 3378 00a7 07       		.uleb128 0x7
+ 3379 00a8 79000000 		.4byte	0x79
+ 3380 00ac 05       		.uleb128 0x5
+ 3381 00ad 91000000 		.4byte	0x91
+ 3382 00b1 BC000000 		.4byte	0xbc
+ 3383 00b5 09       		.uleb128 0x9
+ 3384 00b6 8A000000 		.4byte	0x8a
+ 3385 00ba 03       		.byte	0x3
+ 3386 00bb 00       		.byte	0
+ 3387 00bc 0A       		.uleb128 0xa
+ 3388 00bd 23010000 		.4byte	.LASF13
+ 3389 00c1 03       		.byte	0x3
+ 3390 00c2 BF01     		.2byte	0x1bf
+ 3391 00c4 CE000000 		.4byte	0xce
+ 3392 00c8 05       		.uleb128 0x5
+ 3393 00c9 03       		.byte	0x3
+ 3394 00ca 00000000 		.4byte	cy_meta_custnvl
+ 3395 00ce 07       		.uleb128 0x7
+ 3396 00cf AC000000 		.4byte	0xac
+ 3397 00d3 0A       		.uleb128 0xa
+ 3398 00d4 86010000 		.4byte	.LASF14
+ 3399 00d8 03       		.byte	0x3
+ 3400 00d9 CD01     		.2byte	0x1cd
+ 3401 00db E5000000 		.4byte	0xe5
+ 3402 00df 05       		.uleb128 0x5
+ 3403 00e0 03       		.byte	0x3
+ 3404 00e1 00000000 		.4byte	cy_meta_wonvl
+ 3405 00e5 07       		.uleb128 0x7
+ 3406 00e6 AC000000 		.4byte	0xac
+ 3407 00ea 05       		.uleb128 0x5
+ 3408 00eb 91000000 		.4byte	0x91
+ 3409 00ef FA000000 		.4byte	0xfa
+ 3410 00f3 09       		.uleb128 0x9
+ 3411 00f4 8A000000 		.4byte	0x8a
+ 3412 00f8 FF       		.byte	0xff
+ 3413 00f9 00       		.byte	0
+ 3414 00fa 0A       		.uleb128 0xa
+ 3415 00fb 71010000 		.4byte	.LASF15
+ 3416 00ff 03       		.byte	0x3
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 61
+
+
+ 3417 0100 DB01     		.2byte	0x1db
+ 3418 0102 0C010000 		.4byte	0x10c
+ 3419 0106 05       		.uleb128 0x5
+ 3420 0107 03       		.byte	0x3
+ 3421 0108 00000000 		.4byte	cy_meta_flashprotect
+ 3422 010c 07       		.uleb128 0x7
+ 3423 010d EA000000 		.4byte	0xea
+ 3424 0111 05       		.uleb128 0x5
+ 3425 0112 91000000 		.4byte	0x91
+ 3426 0116 21010000 		.4byte	0x121
+ 3427 011a 09       		.uleb128 0x9
+ 3428 011b 8A000000 		.4byte	0x8a
+ 3429 011f 0B       		.byte	0xb
+ 3430 0120 00       		.byte	0
+ 3431 0121 0A       		.uleb128 0xa
+ 3432 0122 56000000 		.4byte	.LASF16
+ 3433 0126 03       		.byte	0x3
+ 3434 0127 0802     		.2byte	0x208
+ 3435 0129 33010000 		.4byte	0x133
+ 3436 012d 05       		.uleb128 0x5
+ 3437 012e 03       		.byte	0x3
+ 3438 012f 00000000 		.4byte	cy_metadata
+ 3439 0133 07       		.uleb128 0x7
+ 3440 0134 11010000 		.4byte	0x111
+ 3441 0138 00       		.byte	0
+ 3442              		.section	.debug_abbrev,"",%progbits
+ 3443              	.Ldebug_abbrev0:
+ 3444 0000 01       		.uleb128 0x1
+ 3445 0001 11       		.uleb128 0x11
+ 3446 0002 01       		.byte	0x1
+ 3447 0003 25       		.uleb128 0x25
+ 3448 0004 0E       		.uleb128 0xe
+ 3449 0005 13       		.uleb128 0x13
+ 3450 0006 0B       		.uleb128 0xb
+ 3451 0007 03       		.uleb128 0x3
+ 3452 0008 0E       		.uleb128 0xe
+ 3453 0009 1B       		.uleb128 0x1b
+ 3454 000a 0E       		.uleb128 0xe
+ 3455 000b 10       		.uleb128 0x10
+ 3456 000c 17       		.uleb128 0x17
+ 3457 000d 00       		.byte	0
+ 3458 000e 00       		.byte	0
+ 3459 000f 02       		.uleb128 0x2
+ 3460 0010 24       		.uleb128 0x24
+ 3461 0011 00       		.byte	0
+ 3462 0012 0B       		.uleb128 0xb
+ 3463 0013 0B       		.uleb128 0xb
+ 3464 0014 3E       		.uleb128 0x3e
+ 3465 0015 0B       		.uleb128 0xb
+ 3466 0016 03       		.uleb128 0x3
+ 3467 0017 0E       		.uleb128 0xe
+ 3468 0018 00       		.byte	0
+ 3469 0019 00       		.byte	0
+ 3470 001a 03       		.uleb128 0x3
+ 3471 001b 16       		.uleb128 0x16
+ 3472 001c 00       		.byte	0
+ 3473 001d 03       		.uleb128 0x3
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 62
+
+
+ 3474 001e 0E       		.uleb128 0xe
+ 3475 001f 3A       		.uleb128 0x3a
+ 3476 0020 0B       		.uleb128 0xb
+ 3477 0021 3B       		.uleb128 0x3b
+ 3478 0022 0B       		.uleb128 0xb
+ 3479 0023 49       		.uleb128 0x49
+ 3480 0024 13       		.uleb128 0x13
+ 3481 0025 00       		.byte	0
+ 3482 0026 00       		.byte	0
+ 3483 0027 04       		.uleb128 0x4
+ 3484 0028 24       		.uleb128 0x24
+ 3485 0029 00       		.byte	0
+ 3486 002a 0B       		.uleb128 0xb
+ 3487 002b 0B       		.uleb128 0xb
+ 3488 002c 3E       		.uleb128 0x3e
+ 3489 002d 0B       		.uleb128 0xb
+ 3490 002e 03       		.uleb128 0x3
+ 3491 002f 08       		.uleb128 0x8
+ 3492 0030 00       		.byte	0
+ 3493 0031 00       		.byte	0
+ 3494 0032 05       		.uleb128 0x5
+ 3495 0033 01       		.uleb128 0x1
+ 3496 0034 01       		.byte	0x1
+ 3497 0035 49       		.uleb128 0x49
+ 3498 0036 13       		.uleb128 0x13
+ 3499 0037 01       		.uleb128 0x1
+ 3500 0038 13       		.uleb128 0x13
+ 3501 0039 00       		.byte	0
+ 3502 003a 00       		.byte	0
+ 3503 003b 06       		.uleb128 0x6
+ 3504 003c 21       		.uleb128 0x21
+ 3505 003d 00       		.byte	0
+ 3506 003e 49       		.uleb128 0x49
+ 3507 003f 13       		.uleb128 0x13
+ 3508 0040 2F       		.uleb128 0x2f
+ 3509 0041 05       		.uleb128 0x5
+ 3510 0042 00       		.byte	0
+ 3511 0043 00       		.byte	0
+ 3512 0044 07       		.uleb128 0x7
+ 3513 0045 26       		.uleb128 0x26
+ 3514 0046 00       		.byte	0
+ 3515 0047 49       		.uleb128 0x49
+ 3516 0048 13       		.uleb128 0x13
+ 3517 0049 00       		.byte	0
+ 3518 004a 00       		.byte	0
+ 3519 004b 08       		.uleb128 0x8
+ 3520 004c 34       		.uleb128 0x34
+ 3521 004d 00       		.byte	0
+ 3522 004e 03       		.uleb128 0x3
+ 3523 004f 0E       		.uleb128 0xe
+ 3524 0050 3A       		.uleb128 0x3a
+ 3525 0051 0B       		.uleb128 0xb
+ 3526 0052 3B       		.uleb128 0x3b
+ 3527 0053 0B       		.uleb128 0xb
+ 3528 0054 49       		.uleb128 0x49
+ 3529 0055 13       		.uleb128 0x13
+ 3530 0056 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 63
+
+
+ 3531 0057 19       		.uleb128 0x19
+ 3532 0058 02       		.uleb128 0x2
+ 3533 0059 18       		.uleb128 0x18
+ 3534 005a 00       		.byte	0
+ 3535 005b 00       		.byte	0
+ 3536 005c 09       		.uleb128 0x9
+ 3537 005d 21       		.uleb128 0x21
+ 3538 005e 00       		.byte	0
+ 3539 005f 49       		.uleb128 0x49
+ 3540 0060 13       		.uleb128 0x13
+ 3541 0061 2F       		.uleb128 0x2f
+ 3542 0062 0B       		.uleb128 0xb
+ 3543 0063 00       		.byte	0
+ 3544 0064 00       		.byte	0
+ 3545 0065 0A       		.uleb128 0xa
+ 3546 0066 34       		.uleb128 0x34
+ 3547 0067 00       		.byte	0
+ 3548 0068 03       		.uleb128 0x3
+ 3549 0069 0E       		.uleb128 0xe
+ 3550 006a 3A       		.uleb128 0x3a
+ 3551 006b 0B       		.uleb128 0xb
+ 3552 006c 3B       		.uleb128 0x3b
+ 3553 006d 05       		.uleb128 0x5
+ 3554 006e 49       		.uleb128 0x49
+ 3555 006f 13       		.uleb128 0x13
+ 3556 0070 3F       		.uleb128 0x3f
+ 3557 0071 19       		.uleb128 0x19
+ 3558 0072 02       		.uleb128 0x2
+ 3559 0073 18       		.uleb128 0x18
+ 3560 0074 00       		.byte	0
+ 3561 0075 00       		.byte	0
+ 3562 0076 00       		.byte	0
+ 3563              		.section	.debug_aranges,"",%progbits
+ 3564 0000 14000000 		.4byte	0x14
+ 3565 0004 0200     		.2byte	0x2
+ 3566 0006 00000000 		.4byte	.Ldebug_info0
+ 3567 000a 04       		.byte	0x4
+ 3568 000b 00       		.byte	0
+ 3569 000c 0000     		.2byte	0
+ 3570 000e 0000     		.2byte	0
+ 3571 0010 00000000 		.4byte	0
+ 3572 0014 00000000 		.4byte	0
+ 3573              		.section	.debug_line,"",%progbits
+ 3574              	.Ldebug_line0:
+ 3575 0000 3D010000 		.section	.debug_str,"MS",%progbits,1
+ 3575      02003701 
+ 3575      00000201 
+ 3575      FB0E0D00 
+ 3575      01010101 
+ 3576              	.LASF9:
+ 3577 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 3577      6E74385F 
+ 3577      7400
+ 3578              	.LASF19:
+ 3579 000a 433A5C55 		.ascii	"C:\\Users\\e.ivanov\\Documents\\GitHub\\generic\\Ma"
+ 3579      73657273 
+ 3579      5C652E69 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 64
+
+
+ 3579      76616E6F 
+ 3579      765C446F 
+ 3580 0037 6E636865 		.ascii	"nchester encoder-decoder.cydsn\000"
+ 3580      73746572 
+ 3580      20656E63 
+ 3580      6F646572 
+ 3580      2D646563 
+ 3581              	.LASF16:
+ 3582 0056 63795F6D 		.ascii	"cy_metadata\000"
+ 3582      65746164 
+ 3582      61746100 
+ 3583              	.LASF1:
+ 3584 0062 756E7369 		.ascii	"unsigned char\000"
+ 3584      676E6564 
+ 3584      20636861 
+ 3584      7200
+ 3585              	.LASF17:
+ 3586 0070 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 3586      43313120 
+ 3586      352E342E 
+ 3586      31203230 
+ 3586      31363036 
+ 3587 00a3 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 3587      20726576 
+ 3587      6973696F 
+ 3587      6E203233 
+ 3587      37373135 
+ 3588 00d6 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 3588      66756E63 
+ 3588      74696F6E 
+ 3588      2D736563 
+ 3588      74696F6E 
+ 3589              	.LASF5:
+ 3590 00fe 6C6F6E67 		.ascii	"long unsigned int\000"
+ 3590      20756E73 
+ 3590      69676E65 
+ 3590      6420696E 
+ 3590      7400
+ 3591              	.LASF3:
+ 3592 0110 73686F72 		.ascii	"short unsigned int\000"
+ 3592      7420756E 
+ 3592      7369676E 
+ 3592      65642069 
+ 3592      6E7400
+ 3593              	.LASF13:
+ 3594 0123 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 3594      6574615F 
+ 3594      63757374 
+ 3594      6E766C00 
+ 3595              	.LASF12:
+ 3596 0133 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 3596      6574615F 
+ 3596      636F6E66 
+ 3596      69676563 
+ 3596      6300
+ 3597              	.LASF8:
+ 3598 0145 756E7369 		.ascii	"unsigned int\000"
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSIu9ki.s 			page 65
+
+
+ 3598      676E6564 
+ 3598      20696E74 
+ 3598      00
+ 3599              	.LASF7:
+ 3600 0152 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 3600      206C6F6E 
+ 3600      6720756E 
+ 3600      7369676E 
+ 3600      65642069 
+ 3601              	.LASF10:
+ 3602 0169 75696E74 		.ascii	"uint8_t\000"
+ 3602      385F7400 
+ 3603              	.LASF15:
+ 3604 0171 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 3604      6574615F 
+ 3604      666C6173 
+ 3604      6870726F 
+ 3604      74656374 
+ 3605              	.LASF14:
+ 3606 0186 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 3606      6574615F 
+ 3606      776F6E76 
+ 3606      6C00
+ 3607              	.LASF11:
+ 3608 0194 73697A65 		.ascii	"sizetype\000"
+ 3608      74797065 
+ 3608      00
+ 3609              	.LASF6:
+ 3610 019d 6C6F6E67 		.ascii	"long long int\000"
+ 3610      206C6F6E 
+ 3610      6720696E 
+ 3610      7400
+ 3611              	.LASF2:
+ 3612 01ab 73686F72 		.ascii	"short int\000"
+ 3612      7420696E 
+ 3612      7400
+ 3613              	.LASF4:
+ 3614 01b5 6C6F6E67 		.ascii	"long int\000"
+ 3614      20696E74 
+ 3614      00
+ 3615              	.LASF0:
+ 3616 01be 7369676E 		.ascii	"signed char\000"
+ 3616      65642063 
+ 3616      68617200 
+ 3617              	.LASF18:
+ 3618 01ca 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
+ 3618      72617465 
+ 3618      645F536F 
+ 3618      75726365 
+ 3618      5C50536F 
+ 3619              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

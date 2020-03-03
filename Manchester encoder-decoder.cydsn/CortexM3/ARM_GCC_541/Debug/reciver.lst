@@ -1,0 +1,1793 @@
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFk5kY2.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"reciver.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.Store,"ax",%progbits
+  20              		.align	2
+  21              		.global	Store
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	Store, %function
+  25              	Store:
+  26              	.LFB0:
+  27              		.file 1 "reciver.c"
+   1:reciver.c     **** /* ========================================
+   2:reciver.c     ****  *
+   3:reciver.c     ****  * Copyright YOUR COMPANY, THE YEAR
+   4:reciver.c     ****  * All Rights Reserved
+   5:reciver.c     ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:reciver.c     ****  *
+   7:reciver.c     ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:reciver.c     ****  * WHICH IS THE PROPERTY OF your company.
+   9:reciver.c     ****  *
+  10:reciver.c     ****  * ========================================
+  11:reciver.c     **** */
+  12:reciver.c     **** #include "reciver.h"
+  13:reciver.c     **** #include <RecieveShiftReg.h>
+  14:reciver.c     **** #include <BitCounterDec.h>
+  15:reciver.c     **** #include <StartTransmit.h>
+  16:reciver.c     **** #include <FrameAllow.h>
+  17:reciver.c     **** 
+  18:reciver.c     **** RecieveStatReg curStatRecive;
+  19:reciver.c     **** 
+  20:reciver.c     **** static volatile unsigned int AllowStoreFlag = 0, AllowPrepareToStoreFlag = 0, first = 0, second =0,
+  21:reciver.c     **** static volatile unsigned int CountToRecieve, rcstatus=0;
+  22:reciver.c     **** static uint32 *current_word  = (uint32*)(0), trash;
+  23:reciver.c     **** 
+  24:reciver.c     **** 
+  25:reciver.c     **** void Store(void){
+  28              		.loc 1 25 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 10B5     		push	{r4, lr}
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFk5kY2.s 			page 2
+
+
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+  26:reciver.c     **** //    while (CountToRecieve)
+  27:reciver.c     **** //    {
+  28:reciver.c     ****         if(first == 0) {
+  36              		.loc 1 28 0
+  37 0002 104B     		ldr	r3, .L7
+  38 0004 1B68     		ldr	r3, [r3]
+  39 0006 2BB9     		cbnz	r3, .L2
+  29:reciver.c     ****                 first = 1;
+  40              		.loc 1 29 0
+  41 0008 0122     		movs	r2, #1
+  42 000a 0E4B     		ldr	r3, .L7
+  43 000c 1A60     		str	r2, [r3]
+  30:reciver.c     ****                 trash = RecieveShiftReg_ReadData() | 0x80000000;
+  44              		.loc 1 30 0
+  45 000e FFF7FEFF 		bl	RecieveShiftReg_ReadData
+  46              	.LVL0:
+  47 0012 10BD     		pop	{r4, pc}
+  48              	.L2:
+  31:reciver.c     ****                }
+  32:reciver.c     ****         else {
+  33:reciver.c     **** //            *(char*)(&curStatRecive) = RecieveShiftReg_SR_STATUS;
+  34:reciver.c     **** //            if(curStatRecive.F1_partial)      
+  35:reciver.c     **** //                {
+  36:reciver.c     **** //                    if(first == 0) {
+  37:reciver.c     **** //                        first = 1;                
+  38:reciver.c     **** //                        trash = RecieveShiftReg_ReadData() | 0x80000000;
+  39:reciver.c     **** //                        //current_word--;
+  40:reciver.c     **** //                    }
+  41:reciver.c     **** //                    else {
+  42:reciver.c     ****                         if (second == 0){
+  49              		.loc 1 42 0
+  50 0014 0B4B     		ldr	r3, .L7
+  51 0016 5B68     		ldr	r3, [r3, #4]
+  52 0018 4BB9     		cbnz	r3, .L4
+  43:reciver.c     ****                         second = 1;
+  53              		.loc 1 43 0
+  54 001a 0A4B     		ldr	r3, .L7
+  55 001c 0122     		movs	r2, #1
+  56 001e 5A60     		str	r2, [r3, #4]
+  44:reciver.c     ****                         *current_word = RecieveShiftReg_ReadData() | 0x80000000;
+  57              		.loc 1 44 0
+  58 0020 9C68     		ldr	r4, [r3, #8]
+  59 0022 FFF7FEFF 		bl	RecieveShiftReg_ReadData
+  60              	.LVL1:
+  61 0026 40F00040 		orr	r0, r0, #-2147483648
+  62 002a 2060     		str	r0, [r4]
+  63 002c 04E0     		b	.L5
+  64              	.L4:
+  45:reciver.c     ****                         }
+  46:reciver.c     ****                         else {
+  47:reciver.c     ****                             *current_word = RecieveShiftReg_ReadData();
+  65              		.loc 1 47 0
+  66 002e 054B     		ldr	r3, .L7
+  67 0030 9C68     		ldr	r4, [r3, #8]
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFk5kY2.s 			page 3
+
+
+  68 0032 FFF7FEFF 		bl	RecieveShiftReg_ReadData
+  69              	.LVL2:
+  70 0036 2060     		str	r0, [r4]
+  71              	.L5:
+  48:reciver.c     ****                         }
+  49:reciver.c     ****                         current_word++;
+  72              		.loc 1 49 0
+  73 0038 024A     		ldr	r2, .L7
+  74 003a 9368     		ldr	r3, [r2, #8]
+  75 003c 0433     		adds	r3, r3, #4
+  76 003e 9360     		str	r3, [r2, #8]
+  77 0040 10BD     		pop	{r4, pc}
+  78              	.L8:
+  79 0042 00BF     		.align	2
+  80              	.L7:
+  81 0044 00000000 		.word	.LANCHOR0
+  82              		.cfi_endproc
+  83              	.LFE0:
+  84              		.size	Store, .-Store
+  85              		.section	.text.SetAllowPrepareToStoreFlag,"ax",%progbits
+  86              		.align	2
+  87              		.global	SetAllowPrepareToStoreFlag
+  88              		.thumb
+  89              		.thumb_func
+  90              		.type	SetAllowPrepareToStoreFlag, %function
+  91              	SetAllowPrepareToStoreFlag:
+  92              	.LFB1:
+  50:reciver.c     ****                         //CountToRecieve--;
+  51:reciver.c     **** //                    }
+  52:reciver.c     **** //                }
+  53:reciver.c     **** //            else{
+  54:reciver.c     **** //                CountToRecieve=CountToRecieve;
+  55:reciver.c     **** //                break;            
+  56:reciver.c     ****             }
+  57:reciver.c     **** //        }
+  58:reciver.c     **** //    }
+  59:reciver.c     **** }
+  60:reciver.c     **** 
+  61:reciver.c     **** void SetAllowPrepareToStoreFlag(void){
+  93              		.loc 1 61 0
+  94              		.cfi_startproc
+  95              		@ args = 0, pretend = 0, frame = 0
+  96              		@ frame_needed = 0, uses_anonymous_args = 0
+  97              		@ link register save eliminated.
+  62:reciver.c     ****     AllowPrepareToStoreFlag = 1;
+  98              		.loc 1 62 0
+  99 0000 0122     		movs	r2, #1
+ 100 0002 014B     		ldr	r3, .L10
+ 101 0004 DA60     		str	r2, [r3, #12]
+ 102 0006 7047     		bx	lr
+ 103              	.L11:
+ 104              		.align	2
+ 105              	.L10:
+ 106 0008 00000000 		.word	.LANCHOR0
+ 107              		.cfi_endproc
+ 108              	.LFE1:
+ 109              		.size	SetAllowPrepareToStoreFlag, .-SetAllowPrepareToStoreFlag
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFk5kY2.s 			page 4
+
+
+ 110              		.section	.text.CheckAllowPrepareToStoreFlag,"ax",%progbits
+ 111              		.align	2
+ 112              		.global	CheckAllowPrepareToStoreFlag
+ 113              		.thumb
+ 114              		.thumb_func
+ 115              		.type	CheckAllowPrepareToStoreFlag, %function
+ 116              	CheckAllowPrepareToStoreFlag:
+ 117              	.LFB2:
+  63:reciver.c     **** }
+  64:reciver.c     **** 
+  65:reciver.c     **** int CheckAllowPrepareToStoreFlag(void){
+ 118              		.loc 1 65 0
+ 119              		.cfi_startproc
+ 120              		@ args = 0, pretend = 0, frame = 0
+ 121              		@ frame_needed = 0, uses_anonymous_args = 0
+ 122              		@ link register save eliminated.
+  66:reciver.c     ****     return AllowPrepareToStoreFlag;
+ 123              		.loc 1 66 0
+ 124 0000 014B     		ldr	r3, .L13
+ 125 0002 D868     		ldr	r0, [r3, #12]
+  67:reciver.c     **** }
+ 126              		.loc 1 67 0
+ 127 0004 7047     		bx	lr
+ 128              	.L14:
+ 129 0006 00BF     		.align	2
+ 130              	.L13:
+ 131 0008 00000000 		.word	.LANCHOR0
+ 132              		.cfi_endproc
+ 133              	.LFE2:
+ 134              		.size	CheckAllowPrepareToStoreFlag, .-CheckAllowPrepareToStoreFlag
+ 135              		.section	.text.ClearAllowPrepareToStoreFlag,"ax",%progbits
+ 136              		.align	2
+ 137              		.global	ClearAllowPrepareToStoreFlag
+ 138              		.thumb
+ 139              		.thumb_func
+ 140              		.type	ClearAllowPrepareToStoreFlag, %function
+ 141              	ClearAllowPrepareToStoreFlag:
+ 142              	.LFB3:
+  68:reciver.c     **** 
+  69:reciver.c     **** void ClearAllowPrepareToStoreFlag(void){
+ 143              		.loc 1 69 0
+ 144              		.cfi_startproc
+ 145              		@ args = 0, pretend = 0, frame = 0
+ 146              		@ frame_needed = 0, uses_anonymous_args = 0
+ 147              		@ link register save eliminated.
+  70:reciver.c     ****     AllowPrepareToStoreFlag = 0;
+ 148              		.loc 1 70 0
+ 149 0000 0022     		movs	r2, #0
+ 150 0002 014B     		ldr	r3, .L16
+ 151 0004 DA60     		str	r2, [r3, #12]
+ 152 0006 7047     		bx	lr
+ 153              	.L17:
+ 154              		.align	2
+ 155              	.L16:
+ 156 0008 00000000 		.word	.LANCHOR0
+ 157              		.cfi_endproc
+ 158              	.LFE3:
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFk5kY2.s 			page 5
+
+
+ 159              		.size	ClearAllowPrepareToStoreFlag, .-ClearAllowPrepareToStoreFlag
+ 160              		.section	.text.SetAllowStoreFlag,"ax",%progbits
+ 161              		.align	2
+ 162              		.global	SetAllowStoreFlag
+ 163              		.thumb
+ 164              		.thumb_func
+ 165              		.type	SetAllowStoreFlag, %function
+ 166              	SetAllowStoreFlag:
+ 167              	.LFB4:
+  71:reciver.c     **** }
+  72:reciver.c     **** 
+  73:reciver.c     **** void SetAllowStoreFlag(void){
+ 168              		.loc 1 73 0
+ 169              		.cfi_startproc
+ 170              		@ args = 0, pretend = 0, frame = 0
+ 171              		@ frame_needed = 0, uses_anonymous_args = 0
+ 172              		@ link register save eliminated.
+  74:reciver.c     ****     AllowStoreFlag = 1;
+ 173              		.loc 1 74 0
+ 174 0000 0122     		movs	r2, #1
+ 175 0002 014B     		ldr	r3, .L19
+ 176 0004 1A61     		str	r2, [r3, #16]
+ 177 0006 7047     		bx	lr
+ 178              	.L20:
+ 179              		.align	2
+ 180              	.L19:
+ 181 0008 00000000 		.word	.LANCHOR0
+ 182              		.cfi_endproc
+ 183              	.LFE4:
+ 184              		.size	SetAllowStoreFlag, .-SetAllowStoreFlag
+ 185              		.section	.text.CheckAllowStoreFlag,"ax",%progbits
+ 186              		.align	2
+ 187              		.global	CheckAllowStoreFlag
+ 188              		.thumb
+ 189              		.thumb_func
+ 190              		.type	CheckAllowStoreFlag, %function
+ 191              	CheckAllowStoreFlag:
+ 192              	.LFB5:
+  75:reciver.c     **** }
+  76:reciver.c     **** 
+  77:reciver.c     **** int CheckAllowStoreFlag(void){
+ 193              		.loc 1 77 0
+ 194              		.cfi_startproc
+ 195              		@ args = 0, pretend = 0, frame = 0
+ 196              		@ frame_needed = 0, uses_anonymous_args = 0
+ 197              		@ link register save eliminated.
+  78:reciver.c     ****     return AllowStoreFlag;
+ 198              		.loc 1 78 0
+ 199 0000 014B     		ldr	r3, .L22
+ 200 0002 1869     		ldr	r0, [r3, #16]
+  79:reciver.c     **** }
+ 201              		.loc 1 79 0
+ 202 0004 7047     		bx	lr
+ 203              	.L23:
+ 204 0006 00BF     		.align	2
+ 205              	.L22:
+ 206 0008 00000000 		.word	.LANCHOR0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFk5kY2.s 			page 6
+
+
+ 207              		.cfi_endproc
+ 208              	.LFE5:
+ 209              		.size	CheckAllowStoreFlag, .-CheckAllowStoreFlag
+ 210              		.section	.text.ClearAllowStoreFlag,"ax",%progbits
+ 211              		.align	2
+ 212              		.global	ClearAllowStoreFlag
+ 213              		.thumb
+ 214              		.thumb_func
+ 215              		.type	ClearAllowStoreFlag, %function
+ 216              	ClearAllowStoreFlag:
+ 217              	.LFB6:
+  80:reciver.c     **** 
+  81:reciver.c     **** void ClearAllowStoreFlag(void){
+ 218              		.loc 1 81 0
+ 219              		.cfi_startproc
+ 220              		@ args = 0, pretend = 0, frame = 0
+ 221              		@ frame_needed = 0, uses_anonymous_args = 0
+ 222              		@ link register save eliminated.
+  82:reciver.c     ****     AllowStoreFlag = 0;
+ 223              		.loc 1 82 0
+ 224 0000 0022     		movs	r2, #0
+ 225 0002 014B     		ldr	r3, .L25
+ 226 0004 1A61     		str	r2, [r3, #16]
+ 227 0006 7047     		bx	lr
+ 228              	.L26:
+ 229              		.align	2
+ 230              	.L25:
+ 231 0008 00000000 		.word	.LANCHOR0
+ 232              		.cfi_endproc
+ 233              	.LFE6:
+ 234              		.size	ClearAllowStoreFlag, .-ClearAllowStoreFlag
+ 235              		.section	.text.CheckNumberOfWords,"ax",%progbits
+ 236              		.align	2
+ 237              		.global	CheckNumberOfWords
+ 238              		.thumb
+ 239              		.thumb_func
+ 240              		.type	CheckNumberOfWords, %function
+ 241              	CheckNumberOfWords:
+ 242              	.LFB7:
+  83:reciver.c     **** }
+  84:reciver.c     **** 
+  85:reciver.c     **** int CheckNumberOfWords(void){
+ 243              		.loc 1 85 0
+ 244              		.cfi_startproc
+ 245              		@ args = 0, pretend = 0, frame = 0
+ 246              		@ frame_needed = 0, uses_anonymous_args = 0
+ 247              		@ link register save eliminated.
+  86:reciver.c     ****     return CountToRecieve;
+ 248              		.loc 1 86 0
+ 249 0000 014B     		ldr	r3, .L28
+ 250 0002 5869     		ldr	r0, [r3, #20]
+  87:reciver.c     **** }
+ 251              		.loc 1 87 0
+ 252 0004 7047     		bx	lr
+ 253              	.L29:
+ 254 0006 00BF     		.align	2
+ 255              	.L28:
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFk5kY2.s 			page 7
+
+
+ 256 0008 00000000 		.word	.LANCHOR0
+ 257              		.cfi_endproc
+ 258              	.LFE7:
+ 259              		.size	CheckNumberOfWords, .-CheckNumberOfWords
+ 260              		.section	.text.ClearRcStatus,"ax",%progbits
+ 261              		.align	2
+ 262              		.global	ClearRcStatus
+ 263              		.thumb
+ 264              		.thumb_func
+ 265              		.type	ClearRcStatus, %function
+ 266              	ClearRcStatus:
+ 267              	.LFB8:
+  88:reciver.c     **** 
+  89:reciver.c     **** void ClearRcStatus(void){
+ 268              		.loc 1 89 0
+ 269              		.cfi_startproc
+ 270              		@ args = 0, pretend = 0, frame = 0
+ 271              		@ frame_needed = 0, uses_anonymous_args = 0
+ 272              		@ link register save eliminated.
+  90:reciver.c     ****     rcstatus = 0;
+ 273              		.loc 1 90 0
+ 274 0000 0022     		movs	r2, #0
+ 275 0002 014B     		ldr	r3, .L31
+ 276 0004 9A61     		str	r2, [r3, #24]
+ 277 0006 7047     		bx	lr
+ 278              	.L32:
+ 279              		.align	2
+ 280              	.L31:
+ 281 0008 00000000 		.word	.LANCHOR0
+ 282              		.cfi_endproc
+ 283              	.LFE8:
+ 284              		.size	ClearRcStatus, .-ClearRcStatus
+ 285              		.section	.text.PrepareToStore,"ax",%progbits
+ 286              		.align	2
+ 287              		.global	PrepareToStore
+ 288              		.thumb
+ 289              		.thumb_func
+ 290              		.type	PrepareToStore, %function
+ 291              	PrepareToStore:
+ 292              	.LFB9:
+  91:reciver.c     **** }
+  92:reciver.c     **** 
+  93:reciver.c     **** RcResult PrepareToStore(uint32* recieve_buf){//, int LENGTH){
+ 293              		.loc 1 93 0
+ 294              		.cfi_startproc
+ 295              		@ args = 0, pretend = 0, frame = 0
+ 296              		@ frame_needed = 0, uses_anonymous_args = 0
+ 297              		@ link register save eliminated.
+ 298              	.LVL3:
+  94:reciver.c     ****     if (rcstatus)
+ 299              		.loc 1 94 0
+ 300 0000 064B     		ldr	r3, .L36
+ 301 0002 9B69     		ldr	r3, [r3, #24]
+ 302 0004 43B9     		cbnz	r3, .L35
+  95:reciver.c     ****         return RCBUSY;
+  96:reciver.c     ****     rcstatus = 1;
+ 303              		.loc 1 96 0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFk5kY2.s 			page 8
+
+
+ 304 0006 054A     		ldr	r2, .L36
+ 305 0008 0123     		movs	r3, #1
+ 306 000a 9361     		str	r3, [r2, #24]
+  97:reciver.c     ****     //CountToRecieve = LENGTH;
+  98:reciver.c     ****     current_word = recieve_buf;
+ 307              		.loc 1 98 0
+ 308 000c 9060     		str	r0, [r2, #8]
+  99:reciver.c     ****     //BitCounterDec_WriteCounter(31);
+ 100:reciver.c     ****     first = 0;
+ 309              		.loc 1 100 0
+ 310 000e 0021     		movs	r1, #0
+ 311 0010 1160     		str	r1, [r2]
+ 101:reciver.c     ****     second = 0;
+ 312              		.loc 1 101 0
+ 313 0012 5160     		str	r1, [r2, #4]
+ 102:reciver.c     **** //    Store();
+ 103:reciver.c     ****     return RCSUCCSSY;
+ 314              		.loc 1 103 0
+ 315 0014 1846     		mov	r0, r3
+ 316              	.LVL4:
+ 317 0016 7047     		bx	lr
+ 318              	.LVL5:
+ 319              	.L35:
+  95:reciver.c     ****     rcstatus = 1;
+ 320              		.loc 1 95 0
+ 321 0018 0020     		movs	r0, #0
+ 322              	.LVL6:
+ 104:reciver.c     **** }
+ 323              		.loc 1 104 0
+ 324 001a 7047     		bx	lr
+ 325              	.L37:
+ 326              		.align	2
+ 327              	.L36:
+ 328 001c 00000000 		.word	.LANCHOR0
+ 329              		.cfi_endproc
+ 330              	.LFE9:
+ 331              		.size	PrepareToStore, .-PrepareToStore
+ 332              		.section	.text.ClearShiftRecieverError,"ax",%progbits
+ 333              		.align	2
+ 334              		.global	ClearShiftRecieverError
+ 335              		.thumb
+ 336              		.thumb_func
+ 337              		.type	ClearShiftRecieverError, %function
+ 338              	ClearShiftRecieverError:
+ 339              	.LFB10:
+ 105:reciver.c     **** 
+ 106:reciver.c     **** 
+ 107:reciver.c     **** void ClearShiftRecieverError(uint32* recieve_buf, int LENGTH){
+ 340              		.loc 1 107 0
+ 341              		.cfi_startproc
+ 342              		@ args = 0, pretend = 0, frame = 0
+ 343              		@ frame_needed = 0, uses_anonymous_args = 0
+ 344              	.LVL7:
+ 345 0000 08B5     		push	{r3, lr}
+ 346              		.cfi_def_cfa_offset 8
+ 347              		.cfi_offset 3, -8
+ 348              		.cfi_offset 14, -4
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFk5kY2.s 			page 9
+
+
+ 108:reciver.c     ****     CountToRecieve = LENGTH;
+ 349              		.loc 1 108 0
+ 350 0002 034B     		ldr	r3, .L40
+ 351 0004 5961     		str	r1, [r3, #20]
+ 109:reciver.c     ****     current_word = recieve_buf;
+ 352              		.loc 1 109 0
+ 353 0006 9860     		str	r0, [r3, #8]
+ 110:reciver.c     ****     Store();
+ 354              		.loc 1 110 0
+ 355 0008 FFF7FEFF 		bl	Store
+ 356              	.LVL8:
+ 357 000c 08BD     		pop	{r3, pc}
+ 358              	.L41:
+ 359 000e 00BF     		.align	2
+ 360              	.L40:
+ 361 0010 00000000 		.word	.LANCHOR0
+ 362              		.cfi_endproc
+ 363              	.LFE10:
+ 364              		.size	ClearShiftRecieverError, .-ClearShiftRecieverError
+ 365              		.section	.text.GetStatusFifoReciever,"ax",%progbits
+ 366              		.align	2
+ 367              		.global	GetStatusFifoReciever
+ 368              		.thumb
+ 369              		.thumb_func
+ 370              		.type	GetStatusFifoReciever, %function
+ 371              	GetStatusFifoReciever:
+ 372              	.LFB11:
+ 111:reciver.c     **** }
+ 112:reciver.c     **** 
+ 113:reciver.c     **** void GetStatusFifoReciever (uint8 *RecieverFifo){
+ 373              		.loc 1 113 0
+ 374              		.cfi_startproc
+ 375              		@ args = 0, pretend = 0, frame = 0
+ 376              		@ frame_needed = 0, uses_anonymous_args = 0
+ 377              		@ link register save eliminated.
+ 378              	.LVL9:
+ 114:reciver.c     ****     *RecieverFifo = RecieveShiftReg_SR_STATUS;    
+ 379              		.loc 1 114 0
+ 380 0000 014B     		ldr	r3, .L43
+ 381 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 382 0004 0370     		strb	r3, [r0]
+ 383 0006 7047     		bx	lr
+ 384              	.L44:
+ 385              		.align	2
+ 386              	.L43:
+ 387 0008 67650040 		.word	1073767783
+ 388              		.cfi_endproc
+ 389              	.LFE11:
+ 390              		.size	GetStatusFifoReciever, .-GetStatusFifoReciever
+ 391              		.comm	curStatRecive,4,4
+ 392              		.bss
+ 393              		.align	2
+ 394              		.set	.LANCHOR0,. + 0
+ 395              		.type	first, %object
+ 396              		.size	first, 4
+ 397              	first:
+ 398 0000 00000000 		.space	4
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFk5kY2.s 			page 10
+
+
+ 399              		.type	second, %object
+ 400              		.size	second, 4
+ 401              	second:
+ 402 0004 00000000 		.space	4
+ 403              		.type	current_word, %object
+ 404              		.size	current_word, 4
+ 405              	current_word:
+ 406 0008 00000000 		.space	4
+ 407              		.type	AllowPrepareToStoreFlag, %object
+ 408              		.size	AllowPrepareToStoreFlag, 4
+ 409              	AllowPrepareToStoreFlag:
+ 410 000c 00000000 		.space	4
+ 411              		.type	AllowStoreFlag, %object
+ 412              		.size	AllowStoreFlag, 4
+ 413              	AllowStoreFlag:
+ 414 0010 00000000 		.space	4
+ 415              		.type	CountToRecieve, %object
+ 416              		.size	CountToRecieve, 4
+ 417              	CountToRecieve:
+ 418 0014 00000000 		.space	4
+ 419              		.type	rcstatus, %object
+ 420              		.size	rcstatus, 4
+ 421              	rcstatus:
+ 422 0018 00000000 		.space	4
+ 423              		.type	third, %object
+ 424              		.size	third, 4
+ 425              	third:
+ 426 001c 00000000 		.space	4
+ 427              		.text
+ 428              	.Letext0:
+ 429              		.file 2 "Generated_Source\\PSoC5/cytypes.h"
+ 430              		.file 3 "reciver.h"
+ 431              		.file 4 "Generated_Source\\PSoC5/RecieveShiftReg.h"
+ 432              		.section	.debug_info,"",%progbits
+ 433              	.Ldebug_info0:
+ 434 0000 63030000 		.4byte	0x363
+ 435 0004 0400     		.2byte	0x4
+ 436 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 437 000a 04       		.byte	0x4
+ 438 000b 01       		.uleb128 0x1
+ 439 000c 01010000 		.4byte	.LASF50
+ 440 0010 0C       		.byte	0xc
+ 441 0011 16020000 		.4byte	.LASF51
+ 442 0015 00000000 		.4byte	.LASF52
+ 443 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 444 001d 00000000 		.4byte	0
+ 445 0021 00000000 		.4byte	.Ldebug_line0
+ 446 0025 02       		.uleb128 0x2
+ 447 0026 01       		.byte	0x1
+ 448 0027 06       		.byte	0x6
+ 449 0028 61030000 		.4byte	.LASF0
+ 450 002c 02       		.uleb128 0x2
+ 451 002d 01       		.byte	0x1
+ 452 002e 08       		.byte	0x8
+ 453 002f F3000000 		.4byte	.LASF1
+ 454 0033 02       		.uleb128 0x2
+ 455 0034 02       		.byte	0x2
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFk5kY2.s 			page 11
+
+
+ 456 0035 05       		.byte	0x5
+ 457 0036 0C020000 		.4byte	.LASF2
+ 458 003a 02       		.uleb128 0x2
+ 459 003b 02       		.byte	0x2
+ 460 003c 07       		.byte	0x7
+ 461 003d 97000000 		.4byte	.LASF3
+ 462 0041 02       		.uleb128 0x2
+ 463 0042 04       		.byte	0x4
+ 464 0043 05       		.byte	0x5
+ 465 0044 4C030000 		.4byte	.LASF4
+ 466 0048 02       		.uleb128 0x2
+ 467 0049 04       		.byte	0x4
+ 468 004a 07       		.byte	0x7
+ 469 004b BB010000 		.4byte	.LASF5
+ 470 004f 02       		.uleb128 0x2
+ 471 0050 08       		.byte	0x8
+ 472 0051 05       		.byte	0x5
+ 473 0052 C6020000 		.4byte	.LASF6
+ 474 0056 02       		.uleb128 0x2
+ 475 0057 08       		.byte	0x8
+ 476 0058 07       		.byte	0x7
+ 477 0059 51020000 		.4byte	.LASF7
+ 478 005d 03       		.uleb128 0x3
+ 479 005e 04       		.byte	0x4
+ 480 005f 05       		.byte	0x5
+ 481 0060 696E7400 		.ascii	"int\000"
+ 482 0064 02       		.uleb128 0x2
+ 483 0065 04       		.byte	0x4
+ 484 0066 07       		.byte	0x7
+ 485 0067 35020000 		.4byte	.LASF8
+ 486 006b 04       		.uleb128 0x4
+ 487 006c CD010000 		.4byte	.LASF9
+ 488 0070 02       		.byte	0x2
+ 489 0071 E401     		.2byte	0x1e4
+ 490 0073 2C000000 		.4byte	0x2c
+ 491 0077 04       		.uleb128 0x4
+ 492 0078 2E020000 		.4byte	.LASF10
+ 493 007c 02       		.byte	0x2
+ 494 007d E601     		.2byte	0x1e6
+ 495 007f 48000000 		.4byte	0x48
+ 496 0083 02       		.uleb128 0x2
+ 497 0084 04       		.byte	0x4
+ 498 0085 04       		.byte	0x4
+ 499 0086 CA000000 		.4byte	.LASF11
+ 500 008a 02       		.uleb128 0x2
+ 501 008b 08       		.byte	0x8
+ 502 008c 04       		.byte	0x4
+ 503 008d ED010000 		.4byte	.LASF12
+ 504 0091 02       		.uleb128 0x2
+ 505 0092 01       		.byte	0x1
+ 506 0093 08       		.byte	0x8
+ 507 0094 FF020000 		.4byte	.LASF13
+ 508 0098 04       		.uleb128 0x4
+ 509 0099 A2010000 		.4byte	.LASF14
+ 510 009d 02       		.byte	0x2
+ 511 009e 8E02     		.2byte	0x28e
+ 512 00a0 A4000000 		.4byte	0xa4
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFk5kY2.s 			page 12
+
+
+ 513 00a4 05       		.uleb128 0x5
+ 514 00a5 6B000000 		.4byte	0x6b
+ 515 00a9 02       		.uleb128 0x2
+ 516 00aa 08       		.byte	0x8
+ 517 00ab 04       		.byte	0x4
+ 518 00ac 55030000 		.4byte	.LASF15
+ 519 00b0 02       		.uleb128 0x2
+ 520 00b1 04       		.byte	0x4
+ 521 00b2 07       		.byte	0x7
+ 522 00b3 BD020000 		.4byte	.LASF16
+ 523 00b7 06       		.uleb128 0x6
+ 524 00b8 04       		.byte	0x4
+ 525 00b9 03       		.byte	0x3
+ 526 00ba 11       		.byte	0x11
+ 527 00bb 29010000 		.4byte	0x129
+ 528 00bf 07       		.uleb128 0x7
+ 529 00c0 20030000 		.4byte	.LASF17
+ 530 00c4 03       		.byte	0x3
+ 531 00c5 12       		.byte	0x12
+ 532 00c6 5D000000 		.4byte	0x5d
+ 533 00ca 04       		.byte	0x4
+ 534 00cb 01       		.byte	0x1
+ 535 00cc 1F       		.byte	0x1f
+ 536 00cd 00       		.byte	0
+ 537 00ce 07       		.uleb128 0x7
+ 538 00cf 46030000 		.4byte	.LASF18
+ 539 00d3 03       		.byte	0x3
+ 540 00d4 13       		.byte	0x13
+ 541 00d5 5D000000 		.4byte	0x5d
+ 542 00d9 04       		.byte	0x4
+ 543 00da 01       		.byte	0x1
+ 544 00db 1E       		.byte	0x1e
+ 545 00dc 00       		.byte	0
+ 546 00dd 07       		.uleb128 0x7
+ 547 00de 6E000000 		.4byte	.LASF19
+ 548 00e2 03       		.byte	0x3
+ 549 00e3 14       		.byte	0x14
+ 550 00e4 5D000000 		.4byte	0x5d
+ 551 00e8 04       		.byte	0x4
+ 552 00e9 01       		.byte	0x1
+ 553 00ea 1D       		.byte	0x1d
+ 554 00eb 00       		.byte	0
+ 555 00ec 07       		.uleb128 0x7
+ 556 00ed 04030000 		.4byte	.LASF20
+ 557 00f1 03       		.byte	0x3
+ 558 00f2 15       		.byte	0x15
+ 559 00f3 5D000000 		.4byte	0x5d
+ 560 00f7 04       		.byte	0x4
+ 561 00f8 01       		.byte	0x1
+ 562 00f9 1C       		.byte	0x1c
+ 563 00fa 00       		.byte	0
+ 564 00fb 07       		.uleb128 0x7
+ 565 00fc B1020000 		.4byte	.LASF21
+ 566 0100 03       		.byte	0x3
+ 567 0101 16       		.byte	0x16
+ 568 0102 5D000000 		.4byte	0x5d
+ 569 0106 04       		.byte	0x4
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFk5kY2.s 			page 13
+
+
+ 570 0107 01       		.byte	0x1
+ 571 0108 1B       		.byte	0x1b
+ 572 0109 00       		.byte	0
+ 573 010a 07       		.uleb128 0x7
+ 574 010b 8F000000 		.4byte	.LASF22
+ 575 010f 03       		.byte	0x3
+ 576 0110 17       		.byte	0x17
+ 577 0111 5D000000 		.4byte	0x5d
+ 578 0115 04       		.byte	0x4
+ 579 0116 01       		.byte	0x1
+ 580 0117 1A       		.byte	0x1a
+ 581 0118 00       		.byte	0
+ 582 0119 07       		.uleb128 0x7
+ 583 011a BF000000 		.4byte	.LASF23
+ 584 011e 03       		.byte	0x3
+ 585 011f 18       		.byte	0x18
+ 586 0120 5D000000 		.4byte	0x5d
+ 587 0124 04       		.byte	0x4
+ 588 0125 01       		.byte	0x1
+ 589 0126 19       		.byte	0x19
+ 590 0127 00       		.byte	0
+ 591 0128 00       		.byte	0
+ 592 0129 08       		.uleb128 0x8
+ 593 012a 42020000 		.4byte	.LASF24
+ 594 012e 03       		.byte	0x3
+ 595 012f 1A       		.byte	0x1a
+ 596 0130 B7000000 		.4byte	0xb7
+ 597 0134 09       		.uleb128 0x9
+ 598 0135 01       		.byte	0x1
+ 599 0136 2C000000 		.4byte	0x2c
+ 600 013a 03       		.byte	0x3
+ 601 013b 1D       		.byte	0x1d
+ 602 013c 4D010000 		.4byte	0x14d
+ 603 0140 0A       		.uleb128 0xa
+ 604 0141 A7010000 		.4byte	.LASF25
+ 605 0145 00       		.byte	0
+ 606 0146 0A       		.uleb128 0xa
+ 607 0147 86030000 		.4byte	.LASF26
+ 608 014b 01       		.byte	0x1
+ 609 014c 00       		.byte	0
+ 610 014d 08       		.uleb128 0x8
+ 611 014e B6000000 		.4byte	.LASF27
+ 612 0152 03       		.byte	0x3
+ 613 0153 1D       		.byte	0x1d
+ 614 0154 34010000 		.4byte	0x134
+ 615 0158 0B       		.uleb128 0xb
+ 616 0159 B0000000 		.4byte	.LASF36
+ 617 015d 01       		.byte	0x1
+ 618 015e 19       		.byte	0x19
+ 619 015f 00000000 		.4byte	.LFB0
+ 620 0163 48000000 		.4byte	.LFE0-.LFB0
+ 621 0167 01       		.uleb128 0x1
+ 622 0168 9C       		.byte	0x9c
+ 623 0169 89010000 		.4byte	0x189
+ 624 016d 0C       		.uleb128 0xc
+ 625 016e 12000000 		.4byte	.LVL0
+ 626 0172 5B030000 		.4byte	0x35b
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFk5kY2.s 			page 14
+
+
+ 627 0176 0C       		.uleb128 0xc
+ 628 0177 26000000 		.4byte	.LVL1
+ 629 017b 5B030000 		.4byte	0x35b
+ 630 017f 0C       		.uleb128 0xc
+ 631 0180 36000000 		.4byte	.LVL2
+ 632 0184 5B030000 		.4byte	0x35b
+ 633 0188 00       		.byte	0
+ 634 0189 0D       		.uleb128 0xd
+ 635 018a 53000000 		.4byte	.LASF28
+ 636 018e 01       		.byte	0x1
+ 637 018f 3D       		.byte	0x3d
+ 638 0190 00000000 		.4byte	.LFB1
+ 639 0194 0C000000 		.4byte	.LFE1-.LFB1
+ 640 0198 01       		.uleb128 0x1
+ 641 0199 9C       		.byte	0x9c
+ 642 019a 0E       		.uleb128 0xe
+ 643 019b 94020000 		.4byte	.LASF31
+ 644 019f 01       		.byte	0x1
+ 645 01a0 41       		.byte	0x41
+ 646 01a1 5D000000 		.4byte	0x5d
+ 647 01a5 00000000 		.4byte	.LFB2
+ 648 01a9 0C000000 		.4byte	.LFE2-.LFB2
+ 649 01ad 01       		.uleb128 0x1
+ 650 01ae 9C       		.byte	0x9c
+ 651 01af 0D       		.uleb128 0xd
+ 652 01b0 D4020000 		.4byte	.LASF29
+ 653 01b4 01       		.byte	0x1
+ 654 01b5 45       		.byte	0x45
+ 655 01b6 00000000 		.4byte	.LFB3
+ 656 01ba 0C000000 		.4byte	.LFE3-.LFB3
+ 657 01be 01       		.uleb128 0x1
+ 658 01bf 9C       		.byte	0x9c
+ 659 01c0 0D       		.uleb128 0xd
+ 660 01c1 F4010000 		.4byte	.LASF30
+ 661 01c5 01       		.byte	0x1
+ 662 01c6 49       		.byte	0x49
+ 663 01c7 00000000 		.4byte	.LFB4
+ 664 01cb 0C000000 		.4byte	.LFE4-.LFB4
+ 665 01cf 01       		.uleb128 0x1
+ 666 01d0 9C       		.byte	0x9c
+ 667 01d1 0E       		.uleb128 0xe
+ 668 01d2 80020000 		.4byte	.LASF32
+ 669 01d6 01       		.byte	0x1
+ 670 01d7 4D       		.byte	0x4d
+ 671 01d8 5D000000 		.4byte	0x5d
+ 672 01dc 00000000 		.4byte	.LFB5
+ 673 01e0 0C000000 		.4byte	.LFE5-.LFB5
+ 674 01e4 01       		.uleb128 0x1
+ 675 01e5 9C       		.byte	0x9c
+ 676 01e6 0D       		.uleb128 0xd
+ 677 01e7 DF000000 		.4byte	.LASF33
+ 678 01eb 01       		.byte	0x1
+ 679 01ec 51       		.byte	0x51
+ 680 01ed 00000000 		.4byte	.LFB6
+ 681 01f1 0C000000 		.4byte	.LFE6-.LFB6
+ 682 01f5 01       		.uleb128 0x1
+ 683 01f6 9C       		.byte	0x9c
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFk5kY2.s 			page 15
+
+
+ 684 01f7 0E       		.uleb128 0xe
+ 685 01f8 8F010000 		.4byte	.LASF34
+ 686 01fc 01       		.byte	0x1
+ 687 01fd 55       		.byte	0x55
+ 688 01fe 5D000000 		.4byte	0x5d
+ 689 0202 00000000 		.4byte	.LFB7
+ 690 0206 0C000000 		.4byte	.LFE7-.LFB7
+ 691 020a 01       		.uleb128 0x1
+ 692 020b 9C       		.byte	0x9c
+ 693 020c 0D       		.uleb128 0xd
+ 694 020d 20020000 		.4byte	.LASF35
+ 695 0211 01       		.byte	0x1
+ 696 0212 59       		.byte	0x59
+ 697 0213 00000000 		.4byte	.LFB8
+ 698 0217 0C000000 		.4byte	.LFE8-.LFB8
+ 699 021b 01       		.uleb128 0x1
+ 700 021c 9C       		.byte	0x9c
+ 701 021d 0F       		.uleb128 0xf
+ 702 021e 11030000 		.4byte	.LASF53
+ 703 0222 01       		.byte	0x1
+ 704 0223 5D       		.byte	0x5d
+ 705 0224 4D010000 		.4byte	0x14d
+ 706 0228 00000000 		.4byte	.LFB9
+ 707 022c 20000000 		.4byte	.LFE9-.LFB9
+ 708 0230 01       		.uleb128 0x1
+ 709 0231 9C       		.byte	0x9c
+ 710 0232 46020000 		.4byte	0x246
+ 711 0236 10       		.uleb128 0x10
+ 712 0237 74000000 		.4byte	.LASF38
+ 713 023b 01       		.byte	0x1
+ 714 023c 5D       		.byte	0x5d
+ 715 023d 46020000 		.4byte	0x246
+ 716 0241 00000000 		.4byte	.LLST0
+ 717 0245 00       		.byte	0
+ 718 0246 11       		.uleb128 0x11
+ 719 0247 04       		.byte	0x4
+ 720 0248 77000000 		.4byte	0x77
+ 721 024c 0B       		.uleb128 0xb
+ 722 024d 2E030000 		.4byte	.LASF37
+ 723 0251 01       		.byte	0x1
+ 724 0252 6B       		.byte	0x6b
+ 725 0253 00000000 		.4byte	.LFB10
+ 726 0257 14000000 		.4byte	.LFE10-.LFB10
+ 727 025b 01       		.uleb128 0x1
+ 728 025c 9C       		.byte	0x9c
+ 729 025d 89020000 		.4byte	0x289
+ 730 0261 10       		.uleb128 0x10
+ 731 0262 74000000 		.4byte	.LASF38
+ 732 0266 01       		.byte	0x1
+ 733 0267 6B       		.byte	0x6b
+ 734 0268 46020000 		.4byte	0x246
+ 735 026c 3B000000 		.4byte	.LLST1
+ 736 0270 10       		.uleb128 0x10
+ 737 0271 4C000000 		.4byte	.LASF39
+ 738 0275 01       		.byte	0x1
+ 739 0276 6B       		.byte	0x6b
+ 740 0277 5D000000 		.4byte	0x5d
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFk5kY2.s 			page 16
+
+
+ 741 027b 5C000000 		.4byte	.LLST2
+ 742 027f 0C       		.uleb128 0xc
+ 743 0280 0C000000 		.4byte	.LVL8
+ 744 0284 58010000 		.4byte	0x158
+ 745 0288 00       		.byte	0
+ 746 0289 0B       		.uleb128 0xb
+ 747 028a 90030000 		.4byte	.LASF40
+ 748 028e 01       		.byte	0x1
+ 749 028f 71       		.byte	0x71
+ 750 0290 00000000 		.4byte	.LFB11
+ 751 0294 0C000000 		.4byte	.LFE11-.LFB11
+ 752 0298 01       		.uleb128 0x1
+ 753 0299 9C       		.byte	0x9c
+ 754 029a AC020000 		.4byte	0x2ac
+ 755 029e 12       		.uleb128 0x12
+ 756 029f AE010000 		.4byte	.LASF41
+ 757 02a3 01       		.byte	0x1
+ 758 02a4 71       		.byte	0x71
+ 759 02a5 AC020000 		.4byte	0x2ac
+ 760 02a9 01       		.uleb128 0x1
+ 761 02aa 50       		.byte	0x50
+ 762 02ab 00       		.byte	0
+ 763 02ac 11       		.uleb128 0x11
+ 764 02ad 04       		.byte	0x4
+ 765 02ae 6B000000 		.4byte	0x6b
+ 766 02b2 13       		.uleb128 0x13
+ 767 02b3 80000000 		.4byte	.LASF42
+ 768 02b7 01       		.byte	0x1
+ 769 02b8 14       		.byte	0x14
+ 770 02b9 C3020000 		.4byte	0x2c3
+ 771 02bd 05       		.uleb128 0x5
+ 772 02be 03       		.byte	0x3
+ 773 02bf 10000000 		.4byte	AllowStoreFlag
+ 774 02c3 05       		.uleb128 0x5
+ 775 02c4 64000000 		.4byte	0x64
+ 776 02c8 13       		.uleb128 0x13
+ 777 02c9 68020000 		.4byte	.LASF43
+ 778 02cd 01       		.byte	0x1
+ 779 02ce 14       		.byte	0x14
+ 780 02cf C3020000 		.4byte	0x2c3
+ 781 02d3 05       		.uleb128 0x5
+ 782 02d4 03       		.byte	0x3
+ 783 02d5 0C000000 		.4byte	AllowPrepareToStoreFlag
+ 784 02d9 13       		.uleb128 0x13
+ 785 02da AA000000 		.4byte	.LASF44
+ 786 02de 01       		.byte	0x1
+ 787 02df 14       		.byte	0x14
+ 788 02e0 C3020000 		.4byte	0x2c3
+ 789 02e4 05       		.uleb128 0x5
+ 790 02e5 03       		.byte	0x3
+ 791 02e6 00000000 		.4byte	first
+ 792 02ea 13       		.uleb128 0x13
+ 793 02eb E6010000 		.4byte	.LASF45
+ 794 02ef 01       		.byte	0x1
+ 795 02f0 14       		.byte	0x14
+ 796 02f1 C3020000 		.4byte	0x2c3
+ 797 02f5 05       		.uleb128 0x5
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFk5kY2.s 			page 17
+
+
+ 798 02f6 03       		.byte	0x3
+ 799 02f7 04000000 		.4byte	second
+ 800 02fb 13       		.uleb128 0x13
+ 801 02fc 06020000 		.4byte	.LASF46
+ 802 0300 01       		.byte	0x1
+ 803 0301 14       		.byte	0x14
+ 804 0302 C3020000 		.4byte	0x2c3
+ 805 0306 05       		.uleb128 0x5
+ 806 0307 03       		.byte	0x3
+ 807 0308 1C000000 		.4byte	third
+ 808 030c 13       		.uleb128 0x13
+ 809 030d D0000000 		.4byte	.LASF47
+ 810 0311 01       		.byte	0x1
+ 811 0312 15       		.byte	0x15
+ 812 0313 C3020000 		.4byte	0x2c3
+ 813 0317 05       		.uleb128 0x5
+ 814 0318 03       		.byte	0x3
+ 815 0319 14000000 		.4byte	CountToRecieve
+ 816 031d 13       		.uleb128 0x13
+ 817 031e 25030000 		.4byte	.LASF48
+ 818 0322 01       		.byte	0x1
+ 819 0323 15       		.byte	0x15
+ 820 0324 C3020000 		.4byte	0x2c3
+ 821 0328 05       		.uleb128 0x5
+ 822 0329 03       		.byte	0x3
+ 823 032a 18000000 		.4byte	rcstatus
+ 824 032e 13       		.uleb128 0x13
+ 825 032f D9010000 		.4byte	.LASF49
+ 826 0333 01       		.byte	0x1
+ 827 0334 16       		.byte	0x16
+ 828 0335 46020000 		.4byte	0x246
+ 829 0339 05       		.uleb128 0x5
+ 830 033a 03       		.byte	0x3
+ 831 033b 08000000 		.4byte	current_word
+ 832 033f 14       		.uleb128 0x14
+ 833 0340 D3010000 		.4byte	.LASF54
+ 834 0344 01       		.byte	0x1
+ 835 0345 16       		.byte	0x16
+ 836 0346 77000000 		.4byte	0x77
+ 837 034a 15       		.uleb128 0x15
+ 838 034b F1020000 		.4byte	.LASF55
+ 839 034f 01       		.byte	0x1
+ 840 0350 12       		.byte	0x12
+ 841 0351 29010000 		.4byte	0x129
+ 842 0355 05       		.uleb128 0x5
+ 843 0356 03       		.byte	0x3
+ 844 0357 00000000 		.4byte	curStatRecive
+ 845 035b 16       		.uleb128 0x16
+ 846 035c 6D030000 		.4byte	.LASF56
+ 847 0360 6D030000 		.4byte	.LASF56
+ 848 0364 04       		.byte	0x4
+ 849 0365 53       		.byte	0x53
+ 850 0366 00       		.byte	0
+ 851              		.section	.debug_abbrev,"",%progbits
+ 852              	.Ldebug_abbrev0:
+ 853 0000 01       		.uleb128 0x1
+ 854 0001 11       		.uleb128 0x11
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFk5kY2.s 			page 18
+
+
+ 855 0002 01       		.byte	0x1
+ 856 0003 25       		.uleb128 0x25
+ 857 0004 0E       		.uleb128 0xe
+ 858 0005 13       		.uleb128 0x13
+ 859 0006 0B       		.uleb128 0xb
+ 860 0007 03       		.uleb128 0x3
+ 861 0008 0E       		.uleb128 0xe
+ 862 0009 1B       		.uleb128 0x1b
+ 863 000a 0E       		.uleb128 0xe
+ 864 000b 55       		.uleb128 0x55
+ 865 000c 17       		.uleb128 0x17
+ 866 000d 11       		.uleb128 0x11
+ 867 000e 01       		.uleb128 0x1
+ 868 000f 10       		.uleb128 0x10
+ 869 0010 17       		.uleb128 0x17
+ 870 0011 00       		.byte	0
+ 871 0012 00       		.byte	0
+ 872 0013 02       		.uleb128 0x2
+ 873 0014 24       		.uleb128 0x24
+ 874 0015 00       		.byte	0
+ 875 0016 0B       		.uleb128 0xb
+ 876 0017 0B       		.uleb128 0xb
+ 877 0018 3E       		.uleb128 0x3e
+ 878 0019 0B       		.uleb128 0xb
+ 879 001a 03       		.uleb128 0x3
+ 880 001b 0E       		.uleb128 0xe
+ 881 001c 00       		.byte	0
+ 882 001d 00       		.byte	0
+ 883 001e 03       		.uleb128 0x3
+ 884 001f 24       		.uleb128 0x24
+ 885 0020 00       		.byte	0
+ 886 0021 0B       		.uleb128 0xb
+ 887 0022 0B       		.uleb128 0xb
+ 888 0023 3E       		.uleb128 0x3e
+ 889 0024 0B       		.uleb128 0xb
+ 890 0025 03       		.uleb128 0x3
+ 891 0026 08       		.uleb128 0x8
+ 892 0027 00       		.byte	0
+ 893 0028 00       		.byte	0
+ 894 0029 04       		.uleb128 0x4
+ 895 002a 16       		.uleb128 0x16
+ 896 002b 00       		.byte	0
+ 897 002c 03       		.uleb128 0x3
+ 898 002d 0E       		.uleb128 0xe
+ 899 002e 3A       		.uleb128 0x3a
+ 900 002f 0B       		.uleb128 0xb
+ 901 0030 3B       		.uleb128 0x3b
+ 902 0031 05       		.uleb128 0x5
+ 903 0032 49       		.uleb128 0x49
+ 904 0033 13       		.uleb128 0x13
+ 905 0034 00       		.byte	0
+ 906 0035 00       		.byte	0
+ 907 0036 05       		.uleb128 0x5
+ 908 0037 35       		.uleb128 0x35
+ 909 0038 00       		.byte	0
+ 910 0039 49       		.uleb128 0x49
+ 911 003a 13       		.uleb128 0x13
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFk5kY2.s 			page 19
+
+
+ 912 003b 00       		.byte	0
+ 913 003c 00       		.byte	0
+ 914 003d 06       		.uleb128 0x6
+ 915 003e 13       		.uleb128 0x13
+ 916 003f 01       		.byte	0x1
+ 917 0040 0B       		.uleb128 0xb
+ 918 0041 0B       		.uleb128 0xb
+ 919 0042 3A       		.uleb128 0x3a
+ 920 0043 0B       		.uleb128 0xb
+ 921 0044 3B       		.uleb128 0x3b
+ 922 0045 0B       		.uleb128 0xb
+ 923 0046 01       		.uleb128 0x1
+ 924 0047 13       		.uleb128 0x13
+ 925 0048 00       		.byte	0
+ 926 0049 00       		.byte	0
+ 927 004a 07       		.uleb128 0x7
+ 928 004b 0D       		.uleb128 0xd
+ 929 004c 00       		.byte	0
+ 930 004d 03       		.uleb128 0x3
+ 931 004e 0E       		.uleb128 0xe
+ 932 004f 3A       		.uleb128 0x3a
+ 933 0050 0B       		.uleb128 0xb
+ 934 0051 3B       		.uleb128 0x3b
+ 935 0052 0B       		.uleb128 0xb
+ 936 0053 49       		.uleb128 0x49
+ 937 0054 13       		.uleb128 0x13
+ 938 0055 0B       		.uleb128 0xb
+ 939 0056 0B       		.uleb128 0xb
+ 940 0057 0D       		.uleb128 0xd
+ 941 0058 0B       		.uleb128 0xb
+ 942 0059 0C       		.uleb128 0xc
+ 943 005a 0B       		.uleb128 0xb
+ 944 005b 38       		.uleb128 0x38
+ 945 005c 0B       		.uleb128 0xb
+ 946 005d 00       		.byte	0
+ 947 005e 00       		.byte	0
+ 948 005f 08       		.uleb128 0x8
+ 949 0060 16       		.uleb128 0x16
+ 950 0061 00       		.byte	0
+ 951 0062 03       		.uleb128 0x3
+ 952 0063 0E       		.uleb128 0xe
+ 953 0064 3A       		.uleb128 0x3a
+ 954 0065 0B       		.uleb128 0xb
+ 955 0066 3B       		.uleb128 0x3b
+ 956 0067 0B       		.uleb128 0xb
+ 957 0068 49       		.uleb128 0x49
+ 958 0069 13       		.uleb128 0x13
+ 959 006a 00       		.byte	0
+ 960 006b 00       		.byte	0
+ 961 006c 09       		.uleb128 0x9
+ 962 006d 04       		.uleb128 0x4
+ 963 006e 01       		.byte	0x1
+ 964 006f 0B       		.uleb128 0xb
+ 965 0070 0B       		.uleb128 0xb
+ 966 0071 49       		.uleb128 0x49
+ 967 0072 13       		.uleb128 0x13
+ 968 0073 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFk5kY2.s 			page 20
+
+
+ 969 0074 0B       		.uleb128 0xb
+ 970 0075 3B       		.uleb128 0x3b
+ 971 0076 0B       		.uleb128 0xb
+ 972 0077 01       		.uleb128 0x1
+ 973 0078 13       		.uleb128 0x13
+ 974 0079 00       		.byte	0
+ 975 007a 00       		.byte	0
+ 976 007b 0A       		.uleb128 0xa
+ 977 007c 28       		.uleb128 0x28
+ 978 007d 00       		.byte	0
+ 979 007e 03       		.uleb128 0x3
+ 980 007f 0E       		.uleb128 0xe
+ 981 0080 1C       		.uleb128 0x1c
+ 982 0081 0B       		.uleb128 0xb
+ 983 0082 00       		.byte	0
+ 984 0083 00       		.byte	0
+ 985 0084 0B       		.uleb128 0xb
+ 986 0085 2E       		.uleb128 0x2e
+ 987 0086 01       		.byte	0x1
+ 988 0087 3F       		.uleb128 0x3f
+ 989 0088 19       		.uleb128 0x19
+ 990 0089 03       		.uleb128 0x3
+ 991 008a 0E       		.uleb128 0xe
+ 992 008b 3A       		.uleb128 0x3a
+ 993 008c 0B       		.uleb128 0xb
+ 994 008d 3B       		.uleb128 0x3b
+ 995 008e 0B       		.uleb128 0xb
+ 996 008f 27       		.uleb128 0x27
+ 997 0090 19       		.uleb128 0x19
+ 998 0091 11       		.uleb128 0x11
+ 999 0092 01       		.uleb128 0x1
+ 1000 0093 12       		.uleb128 0x12
+ 1001 0094 06       		.uleb128 0x6
+ 1002 0095 40       		.uleb128 0x40
+ 1003 0096 18       		.uleb128 0x18
+ 1004 0097 9742     		.uleb128 0x2117
+ 1005 0099 19       		.uleb128 0x19
+ 1006 009a 01       		.uleb128 0x1
+ 1007 009b 13       		.uleb128 0x13
+ 1008 009c 00       		.byte	0
+ 1009 009d 00       		.byte	0
+ 1010 009e 0C       		.uleb128 0xc
+ 1011 009f 898201   		.uleb128 0x4109
+ 1012 00a2 00       		.byte	0
+ 1013 00a3 11       		.uleb128 0x11
+ 1014 00a4 01       		.uleb128 0x1
+ 1015 00a5 31       		.uleb128 0x31
+ 1016 00a6 13       		.uleb128 0x13
+ 1017 00a7 00       		.byte	0
+ 1018 00a8 00       		.byte	0
+ 1019 00a9 0D       		.uleb128 0xd
+ 1020 00aa 2E       		.uleb128 0x2e
+ 1021 00ab 00       		.byte	0
+ 1022 00ac 3F       		.uleb128 0x3f
+ 1023 00ad 19       		.uleb128 0x19
+ 1024 00ae 03       		.uleb128 0x3
+ 1025 00af 0E       		.uleb128 0xe
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFk5kY2.s 			page 21
+
+
+ 1026 00b0 3A       		.uleb128 0x3a
+ 1027 00b1 0B       		.uleb128 0xb
+ 1028 00b2 3B       		.uleb128 0x3b
+ 1029 00b3 0B       		.uleb128 0xb
+ 1030 00b4 27       		.uleb128 0x27
+ 1031 00b5 19       		.uleb128 0x19
+ 1032 00b6 11       		.uleb128 0x11
+ 1033 00b7 01       		.uleb128 0x1
+ 1034 00b8 12       		.uleb128 0x12
+ 1035 00b9 06       		.uleb128 0x6
+ 1036 00ba 40       		.uleb128 0x40
+ 1037 00bb 18       		.uleb128 0x18
+ 1038 00bc 9742     		.uleb128 0x2117
+ 1039 00be 19       		.uleb128 0x19
+ 1040 00bf 00       		.byte	0
+ 1041 00c0 00       		.byte	0
+ 1042 00c1 0E       		.uleb128 0xe
+ 1043 00c2 2E       		.uleb128 0x2e
+ 1044 00c3 00       		.byte	0
+ 1045 00c4 3F       		.uleb128 0x3f
+ 1046 00c5 19       		.uleb128 0x19
+ 1047 00c6 03       		.uleb128 0x3
+ 1048 00c7 0E       		.uleb128 0xe
+ 1049 00c8 3A       		.uleb128 0x3a
+ 1050 00c9 0B       		.uleb128 0xb
+ 1051 00ca 3B       		.uleb128 0x3b
+ 1052 00cb 0B       		.uleb128 0xb
+ 1053 00cc 27       		.uleb128 0x27
+ 1054 00cd 19       		.uleb128 0x19
+ 1055 00ce 49       		.uleb128 0x49
+ 1056 00cf 13       		.uleb128 0x13
+ 1057 00d0 11       		.uleb128 0x11
+ 1058 00d1 01       		.uleb128 0x1
+ 1059 00d2 12       		.uleb128 0x12
+ 1060 00d3 06       		.uleb128 0x6
+ 1061 00d4 40       		.uleb128 0x40
+ 1062 00d5 18       		.uleb128 0x18
+ 1063 00d6 9742     		.uleb128 0x2117
+ 1064 00d8 19       		.uleb128 0x19
+ 1065 00d9 00       		.byte	0
+ 1066 00da 00       		.byte	0
+ 1067 00db 0F       		.uleb128 0xf
+ 1068 00dc 2E       		.uleb128 0x2e
+ 1069 00dd 01       		.byte	0x1
+ 1070 00de 3F       		.uleb128 0x3f
+ 1071 00df 19       		.uleb128 0x19
+ 1072 00e0 03       		.uleb128 0x3
+ 1073 00e1 0E       		.uleb128 0xe
+ 1074 00e2 3A       		.uleb128 0x3a
+ 1075 00e3 0B       		.uleb128 0xb
+ 1076 00e4 3B       		.uleb128 0x3b
+ 1077 00e5 0B       		.uleb128 0xb
+ 1078 00e6 27       		.uleb128 0x27
+ 1079 00e7 19       		.uleb128 0x19
+ 1080 00e8 49       		.uleb128 0x49
+ 1081 00e9 13       		.uleb128 0x13
+ 1082 00ea 11       		.uleb128 0x11
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFk5kY2.s 			page 22
+
+
+ 1083 00eb 01       		.uleb128 0x1
+ 1084 00ec 12       		.uleb128 0x12
+ 1085 00ed 06       		.uleb128 0x6
+ 1086 00ee 40       		.uleb128 0x40
+ 1087 00ef 18       		.uleb128 0x18
+ 1088 00f0 9742     		.uleb128 0x2117
+ 1089 00f2 19       		.uleb128 0x19
+ 1090 00f3 01       		.uleb128 0x1
+ 1091 00f4 13       		.uleb128 0x13
+ 1092 00f5 00       		.byte	0
+ 1093 00f6 00       		.byte	0
+ 1094 00f7 10       		.uleb128 0x10
+ 1095 00f8 05       		.uleb128 0x5
+ 1096 00f9 00       		.byte	0
+ 1097 00fa 03       		.uleb128 0x3
+ 1098 00fb 0E       		.uleb128 0xe
+ 1099 00fc 3A       		.uleb128 0x3a
+ 1100 00fd 0B       		.uleb128 0xb
+ 1101 00fe 3B       		.uleb128 0x3b
+ 1102 00ff 0B       		.uleb128 0xb
+ 1103 0100 49       		.uleb128 0x49
+ 1104 0101 13       		.uleb128 0x13
+ 1105 0102 02       		.uleb128 0x2
+ 1106 0103 17       		.uleb128 0x17
+ 1107 0104 00       		.byte	0
+ 1108 0105 00       		.byte	0
+ 1109 0106 11       		.uleb128 0x11
+ 1110 0107 0F       		.uleb128 0xf
+ 1111 0108 00       		.byte	0
+ 1112 0109 0B       		.uleb128 0xb
+ 1113 010a 0B       		.uleb128 0xb
+ 1114 010b 49       		.uleb128 0x49
+ 1115 010c 13       		.uleb128 0x13
+ 1116 010d 00       		.byte	0
+ 1117 010e 00       		.byte	0
+ 1118 010f 12       		.uleb128 0x12
+ 1119 0110 05       		.uleb128 0x5
+ 1120 0111 00       		.byte	0
+ 1121 0112 03       		.uleb128 0x3
+ 1122 0113 0E       		.uleb128 0xe
+ 1123 0114 3A       		.uleb128 0x3a
+ 1124 0115 0B       		.uleb128 0xb
+ 1125 0116 3B       		.uleb128 0x3b
+ 1126 0117 0B       		.uleb128 0xb
+ 1127 0118 49       		.uleb128 0x49
+ 1128 0119 13       		.uleb128 0x13
+ 1129 011a 02       		.uleb128 0x2
+ 1130 011b 18       		.uleb128 0x18
+ 1131 011c 00       		.byte	0
+ 1132 011d 00       		.byte	0
+ 1133 011e 13       		.uleb128 0x13
+ 1134 011f 34       		.uleb128 0x34
+ 1135 0120 00       		.byte	0
+ 1136 0121 03       		.uleb128 0x3
+ 1137 0122 0E       		.uleb128 0xe
+ 1138 0123 3A       		.uleb128 0x3a
+ 1139 0124 0B       		.uleb128 0xb
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFk5kY2.s 			page 23
+
+
+ 1140 0125 3B       		.uleb128 0x3b
+ 1141 0126 0B       		.uleb128 0xb
+ 1142 0127 49       		.uleb128 0x49
+ 1143 0128 13       		.uleb128 0x13
+ 1144 0129 02       		.uleb128 0x2
+ 1145 012a 18       		.uleb128 0x18
+ 1146 012b 00       		.byte	0
+ 1147 012c 00       		.byte	0
+ 1148 012d 14       		.uleb128 0x14
+ 1149 012e 34       		.uleb128 0x34
+ 1150 012f 00       		.byte	0
+ 1151 0130 03       		.uleb128 0x3
+ 1152 0131 0E       		.uleb128 0xe
+ 1153 0132 3A       		.uleb128 0x3a
+ 1154 0133 0B       		.uleb128 0xb
+ 1155 0134 3B       		.uleb128 0x3b
+ 1156 0135 0B       		.uleb128 0xb
+ 1157 0136 49       		.uleb128 0x49
+ 1158 0137 13       		.uleb128 0x13
+ 1159 0138 00       		.byte	0
+ 1160 0139 00       		.byte	0
+ 1161 013a 15       		.uleb128 0x15
+ 1162 013b 34       		.uleb128 0x34
+ 1163 013c 00       		.byte	0
+ 1164 013d 03       		.uleb128 0x3
+ 1165 013e 0E       		.uleb128 0xe
+ 1166 013f 3A       		.uleb128 0x3a
+ 1167 0140 0B       		.uleb128 0xb
+ 1168 0141 3B       		.uleb128 0x3b
+ 1169 0142 0B       		.uleb128 0xb
+ 1170 0143 49       		.uleb128 0x49
+ 1171 0144 13       		.uleb128 0x13
+ 1172 0145 3F       		.uleb128 0x3f
+ 1173 0146 19       		.uleb128 0x19
+ 1174 0147 02       		.uleb128 0x2
+ 1175 0148 18       		.uleb128 0x18
+ 1176 0149 00       		.byte	0
+ 1177 014a 00       		.byte	0
+ 1178 014b 16       		.uleb128 0x16
+ 1179 014c 2E       		.uleb128 0x2e
+ 1180 014d 00       		.byte	0
+ 1181 014e 3F       		.uleb128 0x3f
+ 1182 014f 19       		.uleb128 0x19
+ 1183 0150 3C       		.uleb128 0x3c
+ 1184 0151 19       		.uleb128 0x19
+ 1185 0152 6E       		.uleb128 0x6e
+ 1186 0153 0E       		.uleb128 0xe
+ 1187 0154 03       		.uleb128 0x3
+ 1188 0155 0E       		.uleb128 0xe
+ 1189 0156 3A       		.uleb128 0x3a
+ 1190 0157 0B       		.uleb128 0xb
+ 1191 0158 3B       		.uleb128 0x3b
+ 1192 0159 0B       		.uleb128 0xb
+ 1193 015a 00       		.byte	0
+ 1194 015b 00       		.byte	0
+ 1195 015c 00       		.byte	0
+ 1196              		.section	.debug_loc,"",%progbits
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFk5kY2.s 			page 24
+
+
+ 1197              	.Ldebug_loc0:
+ 1198              	.LLST0:
+ 1199 0000 00000000 		.4byte	.LVL3
+ 1200 0004 16000000 		.4byte	.LVL4
+ 1201 0008 0100     		.2byte	0x1
+ 1202 000a 50       		.byte	0x50
+ 1203 000b 16000000 		.4byte	.LVL4
+ 1204 000f 18000000 		.4byte	.LVL5
+ 1205 0013 0500     		.2byte	0x5
+ 1206 0015 03       		.byte	0x3
+ 1207 0016 08000000 		.4byte	current_word
+ 1208 001a 18000000 		.4byte	.LVL5
+ 1209 001e 1A000000 		.4byte	.LVL6
+ 1210 0022 0100     		.2byte	0x1
+ 1211 0024 50       		.byte	0x50
+ 1212 0025 1A000000 		.4byte	.LVL6
+ 1213 0029 20000000 		.4byte	.LFE9
+ 1214 002d 0400     		.2byte	0x4
+ 1215 002f F3       		.byte	0xf3
+ 1216 0030 01       		.uleb128 0x1
+ 1217 0031 50       		.byte	0x50
+ 1218 0032 9F       		.byte	0x9f
+ 1219 0033 00000000 		.4byte	0
+ 1220 0037 00000000 		.4byte	0
+ 1221              	.LLST1:
+ 1222 003b 00000000 		.4byte	.LVL7
+ 1223 003f 0B000000 		.4byte	.LVL8-1
+ 1224 0043 0100     		.2byte	0x1
+ 1225 0045 50       		.byte	0x50
+ 1226 0046 0B000000 		.4byte	.LVL8-1
+ 1227 004a 14000000 		.4byte	.LFE10
+ 1228 004e 0400     		.2byte	0x4
+ 1229 0050 F3       		.byte	0xf3
+ 1230 0051 01       		.uleb128 0x1
+ 1231 0052 50       		.byte	0x50
+ 1232 0053 9F       		.byte	0x9f
+ 1233 0054 00000000 		.4byte	0
+ 1234 0058 00000000 		.4byte	0
+ 1235              	.LLST2:
+ 1236 005c 00000000 		.4byte	.LVL7
+ 1237 0060 0B000000 		.4byte	.LVL8-1
+ 1238 0064 0100     		.2byte	0x1
+ 1239 0066 51       		.byte	0x51
+ 1240 0067 0B000000 		.4byte	.LVL8-1
+ 1241 006b 14000000 		.4byte	.LFE10
+ 1242 006f 0400     		.2byte	0x4
+ 1243 0071 F3       		.byte	0xf3
+ 1244 0072 01       		.uleb128 0x1
+ 1245 0073 51       		.byte	0x51
+ 1246 0074 9F       		.byte	0x9f
+ 1247 0075 00000000 		.4byte	0
+ 1248 0079 00000000 		.4byte	0
+ 1249              		.section	.debug_aranges,"",%progbits
+ 1250 0000 74000000 		.4byte	0x74
+ 1251 0004 0200     		.2byte	0x2
+ 1252 0006 00000000 		.4byte	.Ldebug_info0
+ 1253 000a 04       		.byte	0x4
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFk5kY2.s 			page 25
+
+
+ 1254 000b 00       		.byte	0
+ 1255 000c 0000     		.2byte	0
+ 1256 000e 0000     		.2byte	0
+ 1257 0010 00000000 		.4byte	.LFB0
+ 1258 0014 48000000 		.4byte	.LFE0-.LFB0
+ 1259 0018 00000000 		.4byte	.LFB1
+ 1260 001c 0C000000 		.4byte	.LFE1-.LFB1
+ 1261 0020 00000000 		.4byte	.LFB2
+ 1262 0024 0C000000 		.4byte	.LFE2-.LFB2
+ 1263 0028 00000000 		.4byte	.LFB3
+ 1264 002c 0C000000 		.4byte	.LFE3-.LFB3
+ 1265 0030 00000000 		.4byte	.LFB4
+ 1266 0034 0C000000 		.4byte	.LFE4-.LFB4
+ 1267 0038 00000000 		.4byte	.LFB5
+ 1268 003c 0C000000 		.4byte	.LFE5-.LFB5
+ 1269 0040 00000000 		.4byte	.LFB6
+ 1270 0044 0C000000 		.4byte	.LFE6-.LFB6
+ 1271 0048 00000000 		.4byte	.LFB7
+ 1272 004c 0C000000 		.4byte	.LFE7-.LFB7
+ 1273 0050 00000000 		.4byte	.LFB8
+ 1274 0054 0C000000 		.4byte	.LFE8-.LFB8
+ 1275 0058 00000000 		.4byte	.LFB9
+ 1276 005c 20000000 		.4byte	.LFE9-.LFB9
+ 1277 0060 00000000 		.4byte	.LFB10
+ 1278 0064 14000000 		.4byte	.LFE10-.LFB10
+ 1279 0068 00000000 		.4byte	.LFB11
+ 1280 006c 0C000000 		.4byte	.LFE11-.LFB11
+ 1281 0070 00000000 		.4byte	0
+ 1282 0074 00000000 		.4byte	0
+ 1283              		.section	.debug_ranges,"",%progbits
+ 1284              	.Ldebug_ranges0:
+ 1285 0000 00000000 		.4byte	.LFB0
+ 1286 0004 48000000 		.4byte	.LFE0
+ 1287 0008 00000000 		.4byte	.LFB1
+ 1288 000c 0C000000 		.4byte	.LFE1
+ 1289 0010 00000000 		.4byte	.LFB2
+ 1290 0014 0C000000 		.4byte	.LFE2
+ 1291 0018 00000000 		.4byte	.LFB3
+ 1292 001c 0C000000 		.4byte	.LFE3
+ 1293 0020 00000000 		.4byte	.LFB4
+ 1294 0024 0C000000 		.4byte	.LFE4
+ 1295 0028 00000000 		.4byte	.LFB5
+ 1296 002c 0C000000 		.4byte	.LFE5
+ 1297 0030 00000000 		.4byte	.LFB6
+ 1298 0034 0C000000 		.4byte	.LFE6
+ 1299 0038 00000000 		.4byte	.LFB7
+ 1300 003c 0C000000 		.4byte	.LFE7
+ 1301 0040 00000000 		.4byte	.LFB8
+ 1302 0044 0C000000 		.4byte	.LFE8
+ 1303 0048 00000000 		.4byte	.LFB9
+ 1304 004c 20000000 		.4byte	.LFE9
+ 1305 0050 00000000 		.4byte	.LFB10
+ 1306 0054 14000000 		.4byte	.LFE10
+ 1307 0058 00000000 		.4byte	.LFB11
+ 1308 005c 0C000000 		.4byte	.LFE11
+ 1309 0060 00000000 		.4byte	0
+ 1310 0064 00000000 		.4byte	0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFk5kY2.s 			page 26
+
+
+ 1311              		.section	.debug_line,"",%progbits
+ 1312              	.Ldebug_line0:
+ 1313 0000 4F010000 		.section	.debug_str,"MS",%progbits,1
+ 1313      02006600 
+ 1313      00000201 
+ 1313      FB0E0D00 
+ 1313      01010101 
+ 1314              	.LASF52:
+ 1315 0000 433A5C55 		.ascii	"C:\\Users\\e.ivanov\\Documents\\GitHub\\generic\\Ma"
+ 1315      73657273 
+ 1315      5C652E69 
+ 1315      76616E6F 
+ 1315      765C446F 
+ 1316 002d 6E636865 		.ascii	"nchester encoder-decoder.cydsn\000"
+ 1316      73746572 
+ 1316      20656E63 
+ 1316      6F646572 
+ 1316      2D646563 
+ 1317              	.LASF39:
+ 1318 004c 4C454E47 		.ascii	"LENGTH\000"
+ 1318      544800
+ 1319              	.LASF28:
+ 1320 0053 53657441 		.ascii	"SetAllowPrepareToStoreFlag\000"
+ 1320      6C6C6F77 
+ 1320      50726570 
+ 1320      61726554 
+ 1320      6F53746F 
+ 1321              	.LASF19:
+ 1322 006e 72657365 		.ascii	"reset\000"
+ 1322      7400
+ 1323              	.LASF38:
+ 1324 0074 72656369 		.ascii	"recieve_buf\000"
+ 1324      6576655F 
+ 1324      62756600 
+ 1325              	.LASF42:
+ 1326 0080 416C6C6F 		.ascii	"AllowStoreFlag\000"
+ 1326      7753746F 
+ 1326      7265466C 
+ 1326      616700
+ 1327              	.LASF22:
+ 1328 008f 46315F66 		.ascii	"F1_full\000"
+ 1328      756C6C00 
+ 1329              	.LASF3:
+ 1330 0097 73686F72 		.ascii	"short unsigned int\000"
+ 1330      7420756E 
+ 1330      7369676E 
+ 1330      65642069 
+ 1330      6E7400
+ 1331              	.LASF44:
+ 1332 00aa 66697273 		.ascii	"first\000"
+ 1332      7400
+ 1333              	.LASF36:
+ 1334 00b0 53746F72 		.ascii	"Store\000"
+ 1334      6500
+ 1335              	.LASF27:
+ 1336 00b6 52635265 		.ascii	"RcResult\000"
+ 1336      73756C74 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFk5kY2.s 			page 27
+
+
+ 1336      00
+ 1337              	.LASF23:
+ 1338 00bf 46315F70 		.ascii	"F1_partial\000"
+ 1338      61727469 
+ 1338      616C00
+ 1339              	.LASF11:
+ 1340 00ca 666C6F61 		.ascii	"float\000"
+ 1340      7400
+ 1341              	.LASF47:
+ 1342 00d0 436F756E 		.ascii	"CountToRecieve\000"
+ 1342      74546F52 
+ 1342      65636965 
+ 1342      766500
+ 1343              	.LASF33:
+ 1344 00df 436C6561 		.ascii	"ClearAllowStoreFlag\000"
+ 1344      72416C6C 
+ 1344      6F775374 
+ 1344      6F726546 
+ 1344      6C616700 
+ 1345              	.LASF1:
+ 1346 00f3 756E7369 		.ascii	"unsigned char\000"
+ 1346      676E6564 
+ 1346      20636861 
+ 1346      7200
+ 1347              	.LASF50:
+ 1348 0101 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1348      43313120 
+ 1348      352E342E 
+ 1348      31203230 
+ 1348      31363036 
+ 1349 0134 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1349      20726576 
+ 1349      6973696F 
+ 1349      6E203233 
+ 1349      37373135 
+ 1350 0167 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1350      66756E63 
+ 1350      74696F6E 
+ 1350      2D736563 
+ 1350      74696F6E 
+ 1351              	.LASF34:
+ 1352 018f 43686563 		.ascii	"CheckNumberOfWords\000"
+ 1352      6B4E756D 
+ 1352      6265724F 
+ 1352      66576F72 
+ 1352      647300
+ 1353              	.LASF14:
+ 1354 01a2 72656738 		.ascii	"reg8\000"
+ 1354      00
+ 1355              	.LASF25:
+ 1356 01a7 52434255 		.ascii	"RCBUSY\000"
+ 1356      535900
+ 1357              	.LASF41:
+ 1358 01ae 52656369 		.ascii	"RecieverFifo\000"
+ 1358      65766572 
+ 1358      4669666F 
+ 1358      00
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFk5kY2.s 			page 28
+
+
+ 1359              	.LASF5:
+ 1360 01bb 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1360      20756E73 
+ 1360      69676E65 
+ 1360      6420696E 
+ 1360      7400
+ 1361              	.LASF9:
+ 1362 01cd 75696E74 		.ascii	"uint8\000"
+ 1362      3800
+ 1363              	.LASF54:
+ 1364 01d3 74726173 		.ascii	"trash\000"
+ 1364      6800
+ 1365              	.LASF49:
+ 1366 01d9 63757272 		.ascii	"current_word\000"
+ 1366      656E745F 
+ 1366      776F7264 
+ 1366      00
+ 1367              	.LASF45:
+ 1368 01e6 7365636F 		.ascii	"second\000"
+ 1368      6E6400
+ 1369              	.LASF12:
+ 1370 01ed 646F7562 		.ascii	"double\000"
+ 1370      6C6500
+ 1371              	.LASF30:
+ 1372 01f4 53657441 		.ascii	"SetAllowStoreFlag\000"
+ 1372      6C6C6F77 
+ 1372      53746F72 
+ 1372      65466C61 
+ 1372      6700
+ 1373              	.LASF46:
+ 1374 0206 74686972 		.ascii	"third\000"
+ 1374      6400
+ 1375              	.LASF2:
+ 1376 020c 73686F72 		.ascii	"short int\000"
+ 1376      7420696E 
+ 1376      7400
+ 1377              	.LASF51:
+ 1378 0216 72656369 		.ascii	"reciver.c\000"
+ 1378      7665722E 
+ 1378      6300
+ 1379              	.LASF35:
+ 1380 0220 436C6561 		.ascii	"ClearRcStatus\000"
+ 1380      72526353 
+ 1380      74617475 
+ 1380      7300
+ 1381              	.LASF10:
+ 1382 022e 75696E74 		.ascii	"uint32\000"
+ 1382      333200
+ 1383              	.LASF8:
+ 1384 0235 756E7369 		.ascii	"unsigned int\000"
+ 1384      676E6564 
+ 1384      20696E74 
+ 1384      00
+ 1385              	.LASF24:
+ 1386 0242 52656369 		.ascii	"RecieveStatReg\000"
+ 1386      65766553 
+ 1386      74617452 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFk5kY2.s 			page 29
+
+
+ 1386      656700
+ 1387              	.LASF7:
+ 1388 0251 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1388      206C6F6E 
+ 1388      6720756E 
+ 1388      7369676E 
+ 1388      65642069 
+ 1389              	.LASF43:
+ 1390 0268 416C6C6F 		.ascii	"AllowPrepareToStoreFlag\000"
+ 1390      77507265 
+ 1390      70617265 
+ 1390      546F5374 
+ 1390      6F726546 
+ 1391              	.LASF32:
+ 1392 0280 43686563 		.ascii	"CheckAllowStoreFlag\000"
+ 1392      6B416C6C 
+ 1392      6F775374 
+ 1392      6F726546 
+ 1392      6C616700 
+ 1393              	.LASF31:
+ 1394 0294 43686563 		.ascii	"CheckAllowPrepareToStoreFlag\000"
+ 1394      6B416C6C 
+ 1394      6F775072 
+ 1394      65706172 
+ 1394      65546F53 
+ 1395              	.LASF21:
+ 1396 02b1 46305F6E 		.ascii	"F0_not_full\000"
+ 1396      6F745F66 
+ 1396      756C6C00 
+ 1397              	.LASF16:
+ 1398 02bd 73697A65 		.ascii	"sizetype\000"
+ 1398      74797065 
+ 1398      00
+ 1399              	.LASF6:
+ 1400 02c6 6C6F6E67 		.ascii	"long long int\000"
+ 1400      206C6F6E 
+ 1400      6720696E 
+ 1400      7400
+ 1401              	.LASF29:
+ 1402 02d4 436C6561 		.ascii	"ClearAllowPrepareToStoreFlag\000"
+ 1402      72416C6C 
+ 1402      6F775072 
+ 1402      65706172 
+ 1402      65546F53 
+ 1403              	.LASF55:
+ 1404 02f1 63757253 		.ascii	"curStatRecive\000"
+ 1404      74617452 
+ 1404      65636976 
+ 1404      6500
+ 1405              	.LASF13:
+ 1406 02ff 63686172 		.ascii	"char\000"
+ 1406      00
+ 1407              	.LASF20:
+ 1408 0304 46305F6E 		.ascii	"F0_not_empty\000"
+ 1408      6F745F65 
+ 1408      6D707479 
+ 1408      00
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccFk5kY2.s 			page 30
+
+
+ 1409              	.LASF53:
+ 1410 0311 50726570 		.ascii	"PrepareToStore\000"
+ 1410      61726554 
+ 1410      6F53746F 
+ 1410      726500
+ 1411              	.LASF17:
+ 1412 0320 6C6F6164 		.ascii	"load\000"
+ 1412      00
+ 1413              	.LASF48:
+ 1414 0325 72637374 		.ascii	"rcstatus\000"
+ 1414      61747573 
+ 1414      00
+ 1415              	.LASF37:
+ 1416 032e 436C6561 		.ascii	"ClearShiftRecieverError\000"
+ 1416      72536869 
+ 1416      66745265 
+ 1416      63696576 
+ 1416      65724572 
+ 1417              	.LASF18:
+ 1418 0346 73746F72 		.ascii	"store\000"
+ 1418      6500
+ 1419              	.LASF4:
+ 1420 034c 6C6F6E67 		.ascii	"long int\000"
+ 1420      20696E74 
+ 1420      00
+ 1421              	.LASF15:
+ 1422 0355 6C6F6E67 		.ascii	"long double\000"
+ 1422      20646F75 
+ 1422      626C6500 
+ 1423              	.LASF0:
+ 1424 0361 7369676E 		.ascii	"signed char\000"
+ 1424      65642063 
+ 1424      68617200 
+ 1425              	.LASF56:
+ 1426 036d 52656369 		.ascii	"RecieveShiftReg_ReadData\000"
+ 1426      65766553 
+ 1426      68696674 
+ 1426      5265675F 
+ 1426      52656164 
+ 1427              	.LASF26:
+ 1428 0386 52435355 		.ascii	"RCSUCCSSY\000"
+ 1428      43435353 
+ 1428      5900
+ 1429              	.LASF40:
+ 1430 0390 47657453 		.ascii	"GetStatusFifoReciever\000"
+ 1430      74617475 
+ 1430      73466966 
+ 1430      6F526563 
+ 1430      69657665 
+ 1431              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

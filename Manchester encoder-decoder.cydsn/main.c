@@ -11,10 +11,140 @@
 */
 #include "global.h"
 #include "sender.h"
-#include "Clock.h"
+#include <Clock.h>
 #include <BitCounterDec.h>
 
 uint32 incr_compare = 512; // зависит от той частоты, которую мы хотим получить
+
+uint8 errorStatus = 0u;
+uint8 data_ready_flag=0, lenght_rxData_buf;
+uint8 count_char=0,                      // счетчик длины буфера
+        count_char_mirror=0;             // счетчик для записи двух символов после "*"
+
+typedef enum {WAITINGOFDOLLAR, WAITINGOFSTAR, WAITINGOFCHSUM, ENDSENTENS} State;
+
+gps_rmc RMC_stamp, *pRMC_stamp;
+
+State state;
+Sentence sentence;
+
+char mess_gps1[100], mess_gps2[100], *gps1, *gps2;
+char *pstr;
+char str1[10]="ab,de,,h", *pteststr1, str2[10], *pteststr2, test;
+
+long long utc_time;
+long long pps_time;
+uint32 capture_flag, NtpTime; 
+char *ptok, *ptok2;
+
+char* strtok_e (char *pstr1, const char* pstr2){
+    
+    uint8 i = 0;
+    test = *ptok;
+    if (pstr1 == NULL)
+    {
+        pstr1 = ptok2 + 1;
+    }
+    if (pstr1 != NULL)
+        {
+            ptok = pstr1;
+        }
+    for (i = 0; i < strlen(pstr1); i++)
+    {        
+        if (*pstr1 == *pstr2)
+        {
+            *pstr1 = 0;
+            ptok2 = pstr1;
+            break;
+        }
+        pstr1++;
+    }
+    if (i == 0) return NULL;
+    return  ptok;
+}
+
+/*******************************************************************************
+* Function Name: RxIsr
+********************************************************************************
+*
+* Summary:
+*  Interrupt Service Routine for RX portion of the UART
+*
+* Parameters:
+*  None.
+*
+* Return:
+*  None.
+*
+*******************************************************************************/
+CY_ISR(RxIsr)
+{
+    uint8 rxStatus;         
+    uint8 rxData;
+    char* tmp;
+    
+    do
+    {
+        /* Read receiver status register */
+        rxStatus = UART_RXSTATUS_REG;
+
+        if((rxStatus & (UART_RX_STS_BREAK      | UART_RX_STS_PAR_ERROR |
+                        UART_RX_STS_STOP_ERROR | UART_RX_STS_OVERRUN)) != 0u)
+        {
+            /* ERROR handling. */
+            errorStatus |= rxStatus & ( UART_RX_STS_BREAK      | UART_RX_STS_PAR_ERROR | 
+                                        UART_RX_STS_STOP_ERROR | UART_RX_STS_OVERRUN);
+        }
+        
+        if((rxStatus & UART_RX_STS_FIFO_NOTEMPTY) != 0u)
+        {
+            /* Read data from the RX data register */
+            rxData = UART_RXDATA_REG;
+            
+            switch (state)
+            {
+                /* */
+                case WAITINGOFDOLLAR: 
+                    if (rxData == '$')
+                    {
+                        count_char=1;       //обнуление счетчика символов 
+                        *gps1 = rxData;     //запись символа                        
+                        state = WAITINGOFSTAR;
+                    }
+                break;
+                    
+                case WAITINGOFSTAR:
+                    if (rxData == '*')
+                    {                    
+                        count_char_mirror = count_char;  //после присвоения будем записывать еще 2 символа
+                        state = WAITINGOFCHSUM;          //смена состояния для прекращения накомления буфера
+                    }
+                    count_char++;
+                    gps1++;             //следующий элемент массива
+                    *gps1 = rxData;     //запись символа                    
+                break;
+                    
+                case WAITINGOFCHSUM: 
+                    if ( (count_char - count_char_mirror) > 2) state = ENDSENTENS;
+                    count_char++;       //инкремент счетчика символов
+                    gps1++;             //следующий элемент массива
+                    *gps1 = rxData;     //запись символа                    
+                break;
+                    
+                case ENDSENTENS:
+                    gps1 -= (count_char - 1);
+                    tmp = gps1;
+                    gps1 = gps2;
+                    gps2 = tmp;
+                    data_ready_flag = 1;
+                    lenght_rxData_buf = count_char;
+                    state = WAITINGOFDOLLAR;
+                break;
+            }
+        }
+    }while((rxStatus & UART_RX_STS_FIFO_NOTEMPTY) != 0u);
+    count_char = count_char;
+}
 
 // задание структуры для регистра статуса ShiftReg
 struct control {
@@ -54,6 +184,10 @@ static volatile long long  period;
 
 int main(void)
 {
+    
+    gps1 = mess_gps1;
+    gps2 = mess_gps2;
+    
     incr_compare = desired_freq / 1L; 
     period = ( long long ) capacity * divider_freq * desired_freq / (1 * main_freq);    //977343669
     period = 1956895899;
@@ -70,8 +204,8 @@ int main(void)
     usec_counter_Start();
     sec_counter_Start();
     cap_comp_tc_Start();
-    
-    
+    UART_Start();
+    isr_rx_StartEx(RxIsr);
     
     // Инициализация прерываний
     //StartFrame_Start();
@@ -82,8 +216,7 @@ int main(void)
     TransmitWordShift_Disable( );
     int delay = 0xFFffff;
     
-    CyGlobalIntEnable; /* Enable global interrupts. */
-    
+    CyGlobalIntEnable; /* Enable global interrupts. */    
 
 //    TransmitShiftReg_WriteData(1);
 //    BitCounterEnc_WriteCounter(BitCounterEnc_ReadCompare());
@@ -120,6 +253,35 @@ int main(void)
         
         while(1) 
         {
+            if (data_ready_flag)
+            {
+                                
+                pteststr1 = str1;                             
+                pteststr2 = str2;                
+                data_ready_flag = 0;
+                sentence = WhatSentence(gps2);
+                switch (sentence)
+                {
+                    case RMC:
+                        RMC_stamp = ReadGpsTime(gps2);
+                        NtpTime = GpsDataToInt(RMC_stamp.data);
+                        NtpTime += GpsTimeToInt(RMC_stamp.utc_time);                        
+                        data_ready_flag = 0;
+                        break;
+                    case GGA:
+                        break;
+                    case GLL:
+                        break;
+                    case GSA:
+                        break;
+                    case GSV:
+                        break;
+                    case VTG:
+                        break;
+                    case ERROR:
+                        break;
+                }
+            }
             UpdatePeriod(period);
             //int i=0;
 
@@ -225,85 +387,85 @@ int main(void)
 
     #else
             
-    FrameAllow_Write(0);
-    
-    PrepareToSend(massage,0);
-    Send();
-    
-    while(PrepareToSend(massage,0)==BUSY);
-    
-    FrameAllow_Write(1);
-    
-    ClearShiftRecieverError((uint32*)massage, LENGTH_OF(massage));
-    
-    //int massage = 0xAAAA5555;
-    int flag = 0, LED = 0, true_word = 0;
-    int store = 0;
-    uint8 RecieverFIFO[1]= {0x0};    
-    
-    while(1) 
-    {
-        int i=0;
-        //PrepareToSend(ex_buf,LENGTH_OF(ex_buf));
+        FrameAllow_Write(0);
         
-        //          *******Передатчик*******
+        PrepareToSend(massage,0);
+        Send();
         
-        if (CheckAllowPrepareToStoreFlag())
+        while(PrepareToSend(massage,0)==BUSY);
+        
+        FrameAllow_Write(1);
+        
+        ClearShiftRecieverError((uint32*)massage, LENGTH_OF(massage));
+        
+        //int massage = 0xAAAA5555;
+        int flag = 0, LED = 0, true_word = 0;
+        int store = 0;
+        uint8 RecieverFIFO[1]= {0x0};    
+        
+        while(1) 
         {
-            ClearAllowPrepareToStoreFlag();
-            for (int i = 0; i < 72; i++) recieve_buf[i] = 0x0;
-            LED = 0;
-            LED_ON_Write(LED);     
-            PrepareToStore(recieve_buf, length);
-            PrepareToSend(ex_buf, length); 
-            Send();
-        }
-       
-        if (CheckNeedLoadFlag()){
-            ClearNeedLoadFlag();
-            Load();
-        }
-        
-        //                  ********КОНЕЦ Передатчика********
-        
-        
-        //                  *******Приемник*******               
-        
-//        if (CheckNumberOfWords() <= 0) {
-//                //ClearShiftRecieverError((uint32*)massage, LENGTH_OF(massage));
-//                PrepareToStore(recieve_buf, length);
-//        }
-                
-        
-        if (CheckAllowStoreFlag())
-        {
-            ClearAllowStoreFlag();
-            Store();
-        }
-        
-//        for (i = 0; i < length; i++){
-//            if( *p1 == *p2 ) true_word++;
-//                p1++;
-//                p2++;
-            if (*(p1+length-1) == *(p2+length-1)){
-                LED = 1;
-                LED_ON_Write(LED);
+            int i=0;
+            //PrepareToSend(ex_buf,LENGTH_OF(ex_buf));
+            
+            //          *******Передатчик*******
+            
+            if (CheckAllowPrepareToStoreFlag())
+            {
+                ClearAllowPrepareToStoreFlag();
+                for (int i = 0; i < 72; i++) recieve_buf[i] = 0x0;
+                LED = 0;
+                LED_ON_Write(LED);     
+                PrepareToStore(recieve_buf, length);
+                PrepareToSend(ex_buf, length); 
+                Send();
+            }
+           
+            if (CheckNeedLoadFlag()){
+                ClearNeedLoadFlag();
+                Load();
             }
             
-//        
-//        true_word = 0;
-        
-        
-        
-        
-        GetStatusFifoReciever(RecieverFIFO);
-        GetStatusFifoReciever(RecieverFIFO);
+            //                  ********КОНЕЦ Передатчика********
+            
+            
+            //                  *******Приемник*******               
+            
+    //        if (CheckNumberOfWords() <= 0) {
+    //                //ClearShiftRecieverError((uint32*)massage, LENGTH_OF(massage));
+    //                PrepareToStore(recieve_buf, length);
+    //        }
+                    
+            
+            if (CheckAllowStoreFlag())
+            {
+                ClearAllowStoreFlag();
+                Store();
+            }
+            
+    //        for (i = 0; i < length; i++){
+    //            if( *p1 == *p2 ) true_word++;
+    //                p1++;
+    //                p2++;
+                if (*(p1+length-1) == *(p2+length-1)){
+                    LED = 1;
+                    LED_ON_Write(LED);
+                }
+                
+    //        
+    //        true_word = 0;
+            
+            
+            
+            
+            GetStatusFifoReciever(RecieverFIFO);
+            GetStatusFifoReciever(RecieverFIFO);
 
-       
-        //                  ********КОНЕЦ Приемника********
-        
-        
-    }
+           
+            //                  ********КОНЕЦ Приемника********
+            
+            
+        }
     #endif
 }
 

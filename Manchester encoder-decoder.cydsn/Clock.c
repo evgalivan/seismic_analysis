@@ -28,12 +28,12 @@ void Strobe () {
     Control_Period_Write(1);
     while ((Status_Period_Read()&1) == 0);
     Control_Period_Write(0);
-    while ((Status_Period_Read()&1) != 0);    
+    while ((Status_Period_Read()&1) != 0);
 }
 
 void UpdatePeriod(uint32 NewPeriod) {
     Period_WriteData(NewPeriod);
-    Strobe();    
+    Strobe();
 }
 
 gps_rmc ReadGpsTime(char *gps)
@@ -150,6 +150,27 @@ Sentence WhatSentence (char *pstr)
         return gps_sentence;
     }
     return ERROR;
+}
+
+uint32 UnixToCountSec(uint32 time_stamp){
+    long long _time_stamp;
+    uint32 sec_count;
+    sec_count = ((long long)time_stamp * 1000) >> 14;
+    return sec_count;
+}
+
+uint32 UnixToCountuSec(uint32 time_stamp){
+    long long _time_stamp;
+    uint32 usec_count;
+    usec_count = ((long long)time_stamp * 1000) - (UnixToCountSec(time_stamp) << 14);    
+    usec_count <<= usec_counter_Resolution - 14u;
+    return usec_count;
+}
+
+void SetupSpeedInternalClock (int delta){
+    long long Speed;
+    Speed = period + 2*delta;
+    UpdatePeriod(Speed);
 }
 
 /* [] END OF FILE */

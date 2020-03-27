@@ -28,12 +28,13 @@
 ********************************************************************************/
 /* `#START cap_comp_tc_intc` */
 #include <global.h>
+#include <Clock.h>
     
 long long convert_to_utc (uint32 high, uint32 low) {
     long long result = (((long long)high << usec_counter_Resolution) + low);
     result >>= 11;
     result /= 1000;
-    result >>= 11;    
+    result >>= 11;
     return result;
 }
 
@@ -42,12 +43,21 @@ long long convert_to_utc (uint32 high, uint32 low) {
     result *= 1000;
     return result;
 }
+
+static volatile uint32 capture_high, capture_low1, capture_low2;
     
+/* 
+**********************************************************************
+Функция compare_service меняет значение compare в счетчике 
+usec_counter, если сработало прерывание по compare, а также .
+Также если это событие произошло одновременно с capture не позволяет.
+**********************************************************************
+*/
 void compare_service(uint32 tmp) 
 {
     if ((tmp & usec_counter_STATUS_CMP) != 0)
     {
-        uint32 capture_high, capture_low1, capture_low2; 
+        
         uint32 compare =  capture_low2 = usec_counter_ReadCompare();
         compare += incr_compare;
         compare &= (1 << usec_counter_Resolution)-1;
@@ -56,12 +66,18 @@ void compare_service(uint32 tmp)
         {
             do{
                 capture_low1 = capture_low2;
-                capture_high = sec_counter_ReadCapture();
-                capture_low2 = usec_counter_ReadCapture();
+                capture_high = sec_counter_ReadCounter();
+                capture_low2 = usec_counter_ReadCounter();                
             } while (capture_low1 > capture_low2);
-            utc_time = convert_to_utc(capture_high , capture_low1);
+            time_ready_flag = 1;
+            *p_ex_buf = capture_high;
+            *(p_ex_buf +1) = (capture_low2 << 8);
         }
-        else utc_time = pps_time;
+        else{
+            time_ready_flag = 1;
+            *p_ex_buf = capture_high;
+            *(p_ex_buf + 1) = (capture_low2 << 8);
+        }
     }
     capture_flag = 0;
 }
@@ -203,11 +219,12 @@ CY_ISR(cap_comp_tc_Interrupt)
 
     /*  Place your Interrupt code here. */
     /* `#START cap_comp_tc_Interrupt` */
-    uint32 capture_high, capture_low2;
+    
+    
+    
+    uint8 tmp = usec_counter_ReadStatusRegister();
     cap_comp_tc_ClearPending();
     
-    uint32 tmp = usec_counter_ReadStatusRegister();
-        
     if ((tmp & usec_counter_STATUS_CAPTURE) != 0)
     {
         Control_Capture_Write(1);
@@ -215,9 +232,23 @@ CY_ISR(cap_comp_tc_Interrupt)
         capture_flag = 1;
         capture_high = sec_counter_ReadCapture();
         capture_low2 = usec_counter_ReadCapture();
-        pps_time = convert_to_utc(capture_high , capture_low2);
-    }    
-    compare_service(tmp);    
+        if (value_sec_gps != capture_high && GlobalPrepareFlag == 0){
+            GlobalPrepareFlag = 1;
+            sec_counter_WriteCounter(value_sec_gps);
+            usec_counter_WriteCounter(value_usec_gps);
+        }
+        else {
+            if (capture_low2 != value_usec_gps){
+                delta_clock = capture_low2 - value_usec_gps;
+                SetupSpeedInternalClock(delta_clock);
+            }
+        }
+    }
+    if ((tmp & usec_counter_STATUS_OVERFLOW) !=0){
+        Control_Capture_Write(1);
+        Control_Capture_Write(0);
+    }
+    compare_service(tmp);
     
     /* `#END` */
 }

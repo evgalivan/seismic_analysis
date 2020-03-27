@@ -15,12 +15,14 @@
 #include <BitCounterDec.h>
 
 uint32 incr_compare = 512; // зависит от той частоты, которую мы хотим получить
+uint32 value_usec_gps, value_sec_gps;
 
 uint8 errorStatus = 0u;
 uint8 data_ready_flag=0, lenght_rxData_buf;
 uint8 count_char=0,                      // счетчик длины буфера
         count_char_mirror=0;             // счетчик для записи двух символов после "*"
-
+uint8 GlobalPrepareFlag = 0;
+int delta_clock = 0;
 typedef enum {WAITINGOFDOLLAR, WAITINGOFSTAR, WAITINGOFCHSUM, ENDSENTENS} State;
 
 gps_rmc RMC_stamp, *pRMC_stamp;
@@ -34,7 +36,8 @@ char str1[10]="ab,de,,h", *pteststr1, str2[10], *pteststr2, test;
 
 long long utc_time;
 long long pps_time;
-uint32 capture_flag, NtpTime; 
+uint32 capture_flag, UnixTime1, time_ready_flag = 0;
+long long UnixTime2;
 char *ptok, *ptok2;
 
 char* strtok_e (char *pstr1, const char* pstr2){
@@ -158,16 +161,10 @@ struct control {
     int : 1;         //empty bit
 } Control;
 
-uint32 ex_buf[72] = { 0xAA000005 , 0xFFFFFFFF, 0x7F00FF01, 0x4F4F4F4E , 0x80000000 , 0xFAFAFAFA, 0x8000FFFF, 0x7EEEAAAA, 
-                         0xAA00000A , 0xFFFFFFFF, 0x7F00FF01, 0x4F4F4F4E , 0x80000000 , 0xFAFAFAFA, 0x8000FFFF, 0x7EEEAAAA,
-                             0xAA00000A , 0xFFFFFFFF, 0x7F00FF01, 0x4F4F4F4E , 0x80000000 , 0xFAFAFAFA, 0x8000FFFF, 0x7EEEAAAA,
-                         0xAA00000A , 0xFFFFFFFF, 0x7F00FF01, 0x4F4F4F4E , 0x80000000 , 0xFAFAFAFA, 0x8000FFFF, 0x7EEEAAAA,
-                             0xAA00000A , 0xFFFFFFFF, 0x7F00FF01, 0x4F4F4F4E , 0x80000000 , 0xFAFAFAFA, 0x8000FFFF, 0x7EEEAAAA,
-                         0xAA00000A , 0xFFFFFFFF, 0x7F00FF01, 0x4F4F4F4E , 0x80000000 , 0xFAFAFAFA, 0x8000FFFF, 0x7EEEAAAA,
-                             0xAA00000A , 0xFFFFFFFF, 0x7F00FF01, 0x4F4F4F4E , 0x80000000 , 0xFAFAFAFA, 0x8000FFFF, 0x7EEEAAAA,
-                         0xAA00000A , 0xFFFFFFFF, 0x7F00FF01, 0x4F4F4F4E , 0x80000000 , 0xFAFAFAFA, 0x8000FFFF, 0x7EEEAAAA,
-                             0xAA00000A , 0xFFFFFFFF, 0x7F00FF01, 0x4F4F4F4E , 0x80000000 , 0xFAFAFAFA, 0x8000FFFF, 0x7EEEAAAA};
+uint32 ex_buf[4];
 uint32 massage[1] = { 0xFAAAAAAF };
+
+uint32 *p_ex_buf;
 
 uint32 main_freq =  72000000LL;
 uint32 desired_freq  = 1024000LL;
@@ -179,18 +176,19 @@ uint32 capacity = (0xffffffffLL);  //емкость сумматора
 #define LENGTH_OF(Array) (sizeof(Array)/sizeof(Array[0]))
 #define SENDER      //RESIEVER or SENDER
 volatile int storeflag=0, length = 72;
-static volatile long long  period;
+volatile long long  period;
 
 
 int main(void)
 {
+    p_ex_buf = ex_buf;
     
     gps1 = mess_gps1;
     gps2 = mess_gps2;
     
-    incr_compare = desired_freq / 1L; 
+    incr_compare = desired_freq/ 1000L; 
     period = ( long long ) capacity * divider_freq * desired_freq / (1 * main_freq);    //977343669
-    period = 1956895899;
+    //period = 1956895899;
     CyGlobalIntDisable; /* Enable global interrupts. */
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
     // Инициализация устройств Encoder
@@ -198,15 +196,14 @@ int main(void)
     BitCounterEnc_Start( );
     
 	// Инициализация устройств Clock
+    UART_Start();
+    isr_rx_StartEx(RxIsr);
     Period_Start();
     SigmaReg_Start();
     Boundary32bit_Start();
     usec_counter_Start();
     sec_counter_Start();
     cap_comp_tc_Start();
-    UART_Start();
-    isr_rx_StartEx(RxIsr);
-    
     // Инициализация прерываний
     //StartFrame_Start();
     
@@ -230,6 +227,38 @@ int main(void)
 //    }
     
     #ifdef SENDER
+        
+        while (value_sec_gps == 0){
+            if (data_ready_flag)
+            {
+                data_ready_flag = 0;
+                sentence = WhatSentence(gps2);
+                switch (sentence)
+                {
+                    case RMC:
+                        RMC_stamp = ReadGpsTime(gps2);
+                        UnixTime1 = GpsDataToInt(RMC_stamp.data);
+                        UnixTime1 += GpsTimeToInt(RMC_stamp.utc_time);
+                        value_sec_gps = UnixToCountSec(UnixTime1);
+                        value_usec_gps = UnixToCountuSec(UnixTime1);
+                        time_ready_flag = 1;
+                        break;
+                    case GGA:
+                        break;
+                    case GLL:
+                        break;
+                    case GSA:
+                        break;
+                    case GSV:
+                        break;
+                    case VTG:
+                        break;
+                    case ERROR:
+                        break;
+                }
+            }
+        }
+    
     
         Control_Capture_Write(0);
         FrameAllow_Write(0);
@@ -249,7 +278,7 @@ int main(void)
         int store = 0;
         uint8 RecieverFIFO[1]= {0x0};
         uint32 *p1=ex_buf;
-            
+        UpdatePeriod(period);
         
         while(1) 
         {
@@ -264,8 +293,10 @@ int main(void)
                 {
                     case RMC:
                         RMC_stamp = ReadGpsTime(gps2);
-                        NtpTime = GpsDataToInt(RMC_stamp.data);
-                        NtpTime += GpsTimeToInt(RMC_stamp.utc_time);                        
+                        UnixTime1 = GpsDataToInt(RMC_stamp.data);
+                        UnixTime1 += GpsTimeToInt(RMC_stamp.utc_time);
+                        value_sec_gps = UnixToCountSec(UnixTime1);
+                        value_usec_gps = UnixToCountuSec(UnixTime1);                        
                         data_ready_flag = 0;
                         break;
                     case GGA:
@@ -281,8 +312,8 @@ int main(void)
                     case ERROR:
                         break;
                 }
-            }
-            UpdatePeriod(period);
+            }          
+            //UpdatePeriod(period);
             //int i=0;
 
             
@@ -292,7 +323,11 @@ int main(void)
             
             //, length);
             
-            //PrepareToSend(ex_buf,LENGTH_OF(ex_buf));
+            if (GlobalPrepareFlag && time_ready_flag){
+                time_ready_flag = 0;
+                PrepareToSend(ex_buf,LENGTH_OF(ex_buf));
+                p_ex_buf = ex_buf;
+            }
             
             //          *******Передатчик*******
             //while (PrepareToStore(recieve_buf) == RCBUSY);

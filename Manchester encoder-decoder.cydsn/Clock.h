@@ -44,5 +44,8 @@ gps_rmc ReadGpsTime(char *gps);
 uint32 GpsTimeToInt(char time[]);
 uint32 GpsDataToInt(char *data);
 Sentence WhatSentence (char *pstr);
+uint32 UnixToCountSec(uint32 time_stamp);
+uint32 UnixToCountuSec(uint32 time_stamp);
+void SetupSpeedInternalClock (int delta);
 
 /* [] END OF FILE */

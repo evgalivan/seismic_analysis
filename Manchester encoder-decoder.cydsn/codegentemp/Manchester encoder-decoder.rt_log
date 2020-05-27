@@ -13,18 +13,29 @@ I1206: Completed Reading of file Manchester encoder-decoder.sdc
 I1204: Reading architecture from file C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\dev\psoc5/psoc5lp/route_arch-rrg.cydata
 I1206: Completed Reading of file C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\dev\psoc5/psoc5lp/route_arch-rrg.cydata
 I1209: Started routing
-I1223: Total Nets : 319 
-I1212: Iteration  1 :   107 unrouted : 0 seconds
-I1212: Iteration  2 :    20 unrouted : 1 seconds
-I1212: Iteration  3 :    13 unrouted : 0 seconds
-I1212: Iteration  4 :     5 unrouted : 0 seconds
-I1212: Iteration  5 :     2 unrouted : 0 seconds
-I1212: Iteration  6 :     0 unrouted : 0 seconds
+I1223: Total Nets : 280 
+I1212: Iteration  1 :   137 unrouted : 1 seconds
+I1212: Iteration  2 :    63 unrouted : 0 seconds
+I1212: Iteration  3 :    33 unrouted : 0 seconds
+I1212: Iteration  4 :    22 unrouted : 1 seconds
+I1212: Iteration  5 :     8 unrouted : 0 seconds
+I1212: Iteration  6 :     7 unrouted : 0 seconds
+I1212: Iteration  7 :     7 unrouted : 0 seconds
+I1212: Iteration  8 :     6 unrouted : 0 seconds
+I1212: Iteration  9 :     2 unrouted : 0 seconds
+I1212: Iteration 10 :     3 unrouted : 0 seconds
+I1212: Iteration 11 :     0 unrouted : 0 seconds
 I1215: Routing is successful
 Warning-1366: Setup time violation found in a path from clock ( CyBUS_CLK(routed) ) to clock ( CyBUS_CLK(routed) ).
 Warning-1366: Setup time violation found in a path from clock ( CyBUS_CLK ) to clock ( CyBUS_CLK ).
 Warning-1366: Setup time violation found in a path from clock ( CyBUS_CLK ) to clock ( UART_IntClock ).
+Warning-1366: Setup time violation found in a path from clock ( HI_10/q ) to clock ( CyBUS_CLK(routed) ).
+Warning-1366: Setup time violation found in a path from clock ( HI_9/q ) to clock ( CyBUS_CLK(routed) ).
+Warning-1366: Setup time violation found in a path from clock ( HI_8/q ) to clock ( CyBUS_CLK(routed) ).
+Warning-1366: Setup time violation found in a path from clock ( HI_7/q ) to clock ( CyBUS_CLK(routed) ).
+Warning-1366: Setup time violation found in a path from clock ( \Control_FREQ:Sync:ctrl_reg\/control_1 ) to clock ( CyBUS_CLK ).
+Warning-1366: Setup time violation found in a path from clock ( \Control_FREQ:Sync:ctrl_reg\/control_0 ) to clock ( CyBUS_CLK ).
 I1207: Completed routing
 I1210: Writing routes
 I1218: Exiting the router
-I1224: Total Time : 2 seconds
+I1224: Total Time : 3 seconds

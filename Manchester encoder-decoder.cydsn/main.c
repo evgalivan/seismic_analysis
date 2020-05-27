@@ -18,10 +18,10 @@ uint32 incr_compare = 512; // зависит от той частоты, кот�
 uint32 value_usec_gps, value_sec_gps;
 
 uint8 errorStatus = 0u;
-uint8 data_ready_flag=0, lenght_rxData_buf;
-uint8 count_char=0,                      // счетчик длины буфера
+uint8 data_ready_flag = 0, lenght_rxData_buf;
+uint8 count_char = 0,                      // счетчик длины буфера
         count_char_mirror=0;             // счетчик для записи двух символов после "*"
-uint8 GlobalPrepareFlag = 0;
+uint8 GlobalPrepareFlag = 0, GlobalTimeReady = 0;
 int delta_clock = 0;
 typedef enum {WAITINGOFDOLLAR, WAITINGOFSTAR, WAITINGOFCHSUM, ENDSENTENS} State;
 
@@ -166,8 +166,8 @@ uint32 massage[1] = { 0xFAAAAAAF };
 
 uint32 *p_ex_buf;
 
-uint32 main_freq =  72000000LL;
-uint32 desired_freq  = 1024000LL;
+uint32 main_freq =  72000000LL; //сдули BusClock
+uint32 desired_freq  = 512000LL;
 uint32 divider_freq = (32LL);
 uint32 capacity = (0xffffffffLL);  //емкость сумматора 
 
@@ -177,8 +177,8 @@ uint32 capacity = (0xffffffffLL);  //емкость сумматора
 #define SENDER      //RESIEVER or SENDER
 volatile int storeflag=0, length = 72;
 volatile long long  period;
-
-
+enum Regim curRegim = DUMMY; 
+inline uint32 set_increment(uint32 discr_freq){return (desired_freq/ discr_freq);}
 int main(void)
 {
     p_ex_buf = ex_buf;
@@ -186,7 +186,7 @@ int main(void)
     gps1 = mess_gps1;
     gps2 = mess_gps2;
     
-    incr_compare = desired_freq/ 1000L; 
+    incr_compare =set_increment(1000L); 
     period = ( long long ) capacity * divider_freq * desired_freq / (1 * main_freq);    //977343669
     //period = 1956895899;
     CyGlobalIntDisable; /* Enable global interrupts. */
@@ -201,9 +201,12 @@ int main(void)
     Period_Start();
     SigmaReg_Start();
     Boundary32bit_Start();
-    usec_counter_Start();
-    sec_counter_Start();
-    cap_comp_tc_Start();
+//    usec_counter_Start();
+//    sec_counter_Start();
+//    cap_comp_tc_Start();
+    isr_comp_Start();
+//    isr_cap_Start();
+    isr_tc_Start();
     // Инициализация прерываний
     //StartFrame_Start();
     
@@ -225,41 +228,13 @@ int main(void)
 //        StartTransmit_Write(0);
 //        *(char*)(&curStat)=TransmitShiftReg_SR_STATUS;
 //    }
-    
+        LED_ON_Write(1);
+        UpdatePeriod(period);
     #ifdef SENDER
         
-        while (value_sec_gps == 0){
-            if (data_ready_flag)
-            {
-                data_ready_flag = 0;
-                sentence = WhatSentence(gps2);
-                switch (sentence)
-                {
-                    case RMC:
-                        RMC_stamp = ReadGpsTime(gps2);
-                        UnixTime1 = GpsDataToInt(RMC_stamp.data);
-                        UnixTime1 += GpsTimeToInt(RMC_stamp.utc_time);
-                        value_sec_gps = UnixToCountSec(UnixTime1);
-                        value_usec_gps = UnixToCountuSec(UnixTime1);
-                        time_ready_flag = 1;
-                        break;
-                    case GGA:
-                        break;
-                    case GLL:
-                        break;
-                    case GSA:
-                        break;
-                    case GSV:
-                        break;
-                    case VTG:
-                        break;
-                    case ERROR:
-                        break;
-                }
-            }
-        }
+//  Polling_GPS();
     
-    
+//DO NOT TOUCH !!!!!
         Control_Capture_Write(0);
         FrameAllow_Write(0);
         
@@ -269,6 +244,7 @@ int main(void)
         while(PrepareToSend(massage,0)==TRBUSY);
         
         FrameAllow_Write(1);
+//only if You known about it
         
         
         //while (PrepareToStore(recieve_buf) == RCBUSY);
@@ -278,7 +254,11 @@ int main(void)
         int store = 0;
         uint8 RecieverFIFO[1]= {0x0};
         uint32 *p1=ex_buf;
-        UpdatePeriod(period);
+        CyGlobalIntDisable;
+        GlobalTimeReady = 1;
+        value_sec_gps = 0x55555555;
+        curRegim = TIME_STMP;
+        CyGlobalIntEnable;
         
         while(1) 
         {
@@ -312,73 +292,12 @@ int main(void)
                     case ERROR:
                         break;
                 }
-            }          
-            //UpdatePeriod(period);
-            //int i=0;
-
-            
-            //if (CheckAllowStoreFlag()) 
-                
-            
-            
-            //, length);
-            
-            if (GlobalPrepareFlag && time_ready_flag){
-                time_ready_flag = 0;
-                PrepareToSend(ex_buf,LENGTH_OF(ex_buf));
-                p_ex_buf = ex_buf;
             }
             
-            //          *******Передатчик*******
-            //while (PrepareToStore(recieve_buf) == RCBUSY);
-    //        if (1)
-    //        {
-    //            //if (StartButton_Read() != 0)
-    //            if (PrepareToSend(ex_buf,length) == TRSUCCSSY )
-    //            {
-    //                
-    //    //            delay = 0x1; //‭44AA200‬
-    //    //            while (delay--);
-    //                //flag = 1;
-    //
-    ////                for (int i = 0; i < 72; i++) recieve_buf[i] = 0x0;
-    //    //            LED = 0;
-    //    //            LED_ON_Write(LED);
-    //    //            delay = 0x1; //‭44AA200‬
-    //    //            while (delay--);
-    //                LED_ON_Write(0);
-    //    //            delay = 0x1;
-    //    //            while (delay--);
-    //                Send();
-    //                
-    //                
-    //    //            flag++;
-    //            }
-    //            
-    //        }
-           /* else if (flag != 0)
-            {
-                flag = 0;
-                
-                //PrepareToStore(recieve_buf, length);
-                //PrepareToSend(ex_buf, length); 
-                Send();
-                */
-                    
-                /*
-                TransmitShiftReg_WriteData(massage);
-                BitCounterEnc_WriteCounter(BitCounterEnc_ReadCompare());
-                StartTransmit_Write(1);
-                
-                starttransmit_write(0);
-                wordshifted_clearpending();
-                */
-    //        }
-
-            if (CheckNeedLoadFlag()){
-                ClearNeedLoadFlag();
-                Load();
-            }
+            GeneralSend (curRegim );
+            
+            
+           
             
             //                  ********КОНЕЦ Передатчика********
             

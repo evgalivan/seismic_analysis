@@ -9,7 +9,7 @@
  *
  * ========================================
 */
-#include <TransmitShiftReg.h>
+#include <project.h>
 //
 // задание структуры для регистра статуса ShiftReg
 typedef struct{

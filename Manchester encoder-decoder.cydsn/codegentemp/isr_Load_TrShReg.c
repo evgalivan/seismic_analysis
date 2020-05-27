@@ -171,8 +171,8 @@ CY_ISR(isr_Load_TrShReg_Interrupt)
 
     /*  Place your Interrupt code here. */
     /* `#START isr_Load_TrShReg_Interrupt` */
-    //Load();
-    SetNeedLoadFlag();
+    Load();
+    //SetNeedLoadFlag();
 
     *(char*)(&curStat)=TransmitShiftReg_SR_STATUS;
 //    if( TransmitShiftReg_RET_FIFO_EMPTY == TransmitShiftReg_GetFIFOStatus(TransmitShiftReg_IN_FIFO)){

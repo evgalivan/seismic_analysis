@@ -163,7 +163,7 @@ uint32 UnixToCountuSec(uint32 time_stamp){
     long long _time_stamp;
     uint32 usec_count;
     usec_count = ((long long)time_stamp * 1000) - (UnixToCountSec(time_stamp) << 14);    
-    usec_count <<= usec_counter_Resolution - 14u;
+//    usec_count <<= usec_counter_Resolution - 14u;
     return usec_count;
 }
 
@@ -173,4 +173,36 @@ void SetupSpeedInternalClock (int delta){
     UpdatePeriod(Speed);
 }
 
+void Polling_GPS(void){
+//    if (value_sec_gps == 0){
+//        if (data_ready_flag)
+//        {
+//            data_ready_flag = 0;
+//            sentence = WhatSentence(gps2);
+            switch (0/*sentence*/)
+            {
+                case RMC:
+//                    RMC_stamp = ReadGpsTime(gps2);
+//                    UnixTime1 = GpsDataToInt(RMC_stamp.data);
+//                    UnixTime1 += GpsTimeToInt(RMC_stamp.utc_time);
+//                    value_sec_gps = UnixToCountSec(UnixTime1);
+//                    value_usec_gps = UnixToCountuSec(UnixTime1);
+//                    time_ready_flag = 1;
+                    break;
+                case GGA:
+                    break;
+                case GLL:
+                    break;
+                case GSA:
+                    break;
+                case GSV:
+                    break;
+                case VTG:
+                    break;
+                case ERROR:
+                    break;
+            }
+//        }
+//   }
+}
 /* [] END OF FILE */

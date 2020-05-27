@@ -29,6 +29,8 @@
 /* `#START cap_comp_tc_intc` */
 #include <global.h>
 #include <Clock.h>
+
+uint32 time_stamp_low, time_stamp_high;
     
 long long convert_to_utc (uint32 high, uint32 low) {
     long long result = (((long long)high << usec_counter_Resolution) + low);
@@ -57,10 +59,10 @@ void compare_service(uint32 tmp)
 {
     if ((tmp & usec_counter_STATUS_CMP) != 0)
     {
-        
+        capture_high = sec_counter_ReadCounter();
         uint32 compare =  capture_low2 = usec_counter_ReadCompare();
         compare += incr_compare;
-        compare &= (1 << usec_counter_Resolution)-1;
+        compare &= (1 << usec_counter_Resolution)-1; //накладываем маску, чтобы остаться внутри 24 разрядов
         usec_counter_WriteCompare(compare); 
         if (capture_flag == 0)
         {
@@ -225,30 +227,50 @@ CY_ISR(cap_comp_tc_Interrupt)
     uint8 tmp = usec_counter_ReadStatusRegister();
     cap_comp_tc_ClearPending();
     
+    if ((tmp & usec_counter_STATUS_OVERFLOW) !=0){
+        //здесь нужно заготовить кусок метки времени из страшего счетчика секунд.
+        time_stamp_high = sec_counter_ReadCounter();
+    }
     if ((tmp & usec_counter_STATUS_CAPTURE) != 0)
     {
         Control_Capture_Write(1);
-        Control_Capture_Write(0);
-        capture_flag = 1;
+        if (GlobalPrepareFlag) capture_flag = 1;
         capture_high = sec_counter_ReadCapture();
         capture_low2 = usec_counter_ReadCapture();
-        if (value_sec_gps != capture_high && GlobalPrepareFlag == 0){
-            GlobalPrepareFlag = 1;
-            sec_counter_WriteCounter(value_sec_gps);
-            usec_counter_WriteCounter(value_usec_gps);
-        }
-        else {
-            if (capture_low2 != value_usec_gps){
-                delta_clock = capture_low2 - value_usec_gps;
-                SetupSpeedInternalClock(delta_clock);
+        if (GlobalPrepareFlag == 0){ /*должен быть флаг, была инициализация времени с GPS или нет?
+                                                                        Есть ли реально время */
+            if (GlobalTimeReady/* флаг факта наличия реалного времени с GPS*/){
+                GlobalPrepareFlag = 1;
+                //usec_counter_Stop();//because zero
+                usec_counter_WriteCounter(0);
+                sec_counter_WriteCounter(value_sec_gps);
+                time_stamp_high = sec_counter_ReadCounter();
+                time_stamp_low = 0;
+                usec_counter_WriteCompare(time_stamp_low);
+                //usec_counter_Start();;//because zero
             }
         }
-    }
-    if ((tmp & usec_counter_STATUS_OVERFLOW) !=0){
-        Control_Capture_Write(1);
         Control_Capture_Write(0);
     }
-    compare_service(tmp);
+     
+    //compare_service(tmp);
+    
+    //#define MAX_usec_VALUE ((1 << usec_counter_Resolution)-1)
+    #define MAX_usec_VALUE (usec_counter_INIT_PERIOD_VALUE)
+    if ((tmp & usec_counter_STATUS_CMP) != 0)
+    {
+        if (GlobalPrepareFlag){
+            time_stamp_low += incr_compare;
+            if (time_stamp_low > MAX_usec_VALUE){
+                time_stamp_high++;
+                time_stamp_low = 0;
+            }
+            usec_counter_WriteCompare(time_stamp_low);
+//            time_stmp_buf[2] = time_stamp_high;
+//            time_stmp_buf[3] = time_stamp_low;
+        }
+    }
+    
     
     /* `#END` */
 }

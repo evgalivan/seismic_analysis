@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccB00qXo.s 			page 1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc7pUyMF.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccB00qXo.s 			page 1
   28:Generated_Source\PSoC5/TransmitShiftReg_PM.c ****         ((uint32) TransmitShiftReg_INT_SRC),
   29:Generated_Source\PSoC5/TransmitShiftReg_PM.c ****     #endif /* (CY_UDB_V0) */
   30:Generated_Source\PSoC5/TransmitShiftReg_PM.c **** };
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccB00qXo.s 			page 2
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc7pUyMF.s 			page 2
 
 
   31:Generated_Source\PSoC5/TransmitShiftReg_PM.c **** 
@@ -91,21 +91,21 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccB00qXo.s 			page 1
   53:Generated_Source\PSoC5/TransmitShiftReg_PM.c ****     TransmitShiftReg_backup.saveSrA0Reg   = CY_GET_REG32(TransmitShiftReg_SHIFT_REG_LSB_PTR);
   33              		.loc 1 53 0
   34 0000 034B     		ldr	r3, .L2
-  35 0002 1A68     		ldr	r2, [r3]	@ unaligned
+  35 0002 1A68     		ldr	r2, [r3]
   36 0004 034B     		ldr	r3, .L2+4
   37 0006 5A60     		str	r2, [r3, #4]
   54:Generated_Source\PSoC5/TransmitShiftReg_PM.c ****     TransmitShiftReg_backup.saveSrA1Reg   = CY_GET_REG32(TransmitShiftReg_SHIFT_REG_VALUE_LSB_PTR);
   38              		.loc 1 54 0
   39 0008 034A     		ldr	r2, .L2+8
-  40 000a 1268     		ldr	r2, [r2]	@ unaligned
+  40 000a 1268     		ldr	r2, [r2]
   41 000c 9A60     		str	r2, [r3, #8]
   42 000e 7047     		bx	lr
   43              	.L3:
   44              		.align	2
   45              	.L2:
-  46 0010 0A640040 		.word	1073767434
+  46 0010 08650040 		.word	1073767688
   47 0014 00000000 		.word	.LANCHOR0
-  48 0018 1A640040 		.word	1073767450
+  48 0018 18650040 		.word	1073767704
   49              		.cfi_endproc
   50              	.LFE0:
   51              		.size	TransmitShiftReg_SaveConfig, .-TransmitShiftReg_SaveConfig
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccB00qXo.s 			page 1
   58              	TransmitShiftReg_RestoreConfig:
   59              	.LFB1:
   55:Generated_Source\PSoC5/TransmitShiftReg_PM.c **** 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccB00qXo.s 			page 3
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc7pUyMF.s 			page 3
 
 
   56:Generated_Source\PSoC5/TransmitShiftReg_PM.c ****     #if(CY_UDB_V0)
@@ -154,19 +154,19 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccB00qXo.s 			page 1
   66 0000 034B     		ldr	r3, .L5
   67 0002 5968     		ldr	r1, [r3, #4]
   68 0004 034A     		ldr	r2, .L5+4
-  69 0006 1160     		str	r1, [r2]	@ unaligned
+  69 0006 1160     		str	r1, [r2]
   80:Generated_Source\PSoC5/TransmitShiftReg_PM.c ****     CY_SET_REG32(TransmitShiftReg_SHIFT_REG_VALUE_LSB_PTR, TransmitShiftReg_backup.saveSrA1Reg);
   70              		.loc 1 80 0
   71 0008 9A68     		ldr	r2, [r3, #8]
   72 000a 034B     		ldr	r3, .L5+8
-  73 000c 1A60     		str	r2, [r3]	@ unaligned
+  73 000c 1A60     		str	r2, [r3]
   74 000e 7047     		bx	lr
   75              	.L6:
   76              		.align	2
   77              	.L5:
   78 0010 00000000 		.word	.LANCHOR0
-  79 0014 0A640040 		.word	1073767434
-  80 0018 1A640040 		.word	1073767450
+  79 0014 08650040 		.word	1073767688
+  80 0018 18650040 		.word	1073767704
   81              		.cfi_endproc
   82              	.LFE1:
   83              		.size	TransmitShiftReg_RestoreConfig, .-TransmitShiftReg_RestoreConfig
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccB00qXo.s 			page 1
   89              		.type	TransmitShiftReg_Sleep, %function
   90              	TransmitShiftReg_Sleep:
   91              	.LFB2:
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccB00qXo.s 			page 4
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc7pUyMF.s 			page 4
 
 
   81:Generated_Source\PSoC5/TransmitShiftReg_PM.c **** 
@@ -235,10 +235,10 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccB00qXo.s 			page 1
  113              	.L10:
  114              		.align	2
  115              	.L9:
- 116 0018 7E640040 		.word	1073767550
+ 116 0018 78640040 		.word	1073767544
  117 001c 00000000 		.word	.LANCHOR0
  118              		.cfi_endproc
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccB00qXo.s 			page 5
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc7pUyMF.s 			page 5
 
 
  119              	.LFE2:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccB00qXo.s 			page 1
  149              	.L15:
  150 0012 00BF     		.align	2
  151              	.L14:
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccB00qXo.s 			page 6
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc7pUyMF.s 			page 6
 
 
  152 0014 00000000 		.word	.LANCHOR0
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccB00qXo.s 			page 1
  204 004b 82010000 		.4byte	.LASF5
  205 004f 02       		.uleb128 0x2
  206 0050 08       		.byte	0x8
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccB00qXo.s 			page 7
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc7pUyMF.s 			page 7
 
 
  207 0051 05       		.byte	0x5
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccB00qXo.s 			page 1
  261 00c1 02       		.uleb128 0x2
  262 00c2 04       		.byte	0x4
  263 00c3 07       		.byte	0x7
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccB00qXo.s 			page 8
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc7pUyMF.s 			page 8
 
 
  264 00c4 34020000 		.4byte	.LASF17
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccB00qXo.s 			page 1
  318 0133 4A010000 		.4byte	0x14a
  319 0137 0B       		.uleb128 0xb
  320 0138 12000000 		.4byte	.LVL0
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccB00qXo.s 			page 9
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc7pUyMF.s 			page 9
 
 
  321 013c 83010000 		.4byte	0x183
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccB00qXo.s 			page 1
  375 000c 17       		.uleb128 0x17
  376 000d 11       		.uleb128 0x11
  377 000e 01       		.uleb128 0x1
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccB00qXo.s 			page 10
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc7pUyMF.s 			page 10
 
 
  378 000f 10       		.uleb128 0x10
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccB00qXo.s 			page 1
  432 0045 0B       		.uleb128 0xb
  433 0046 01       		.uleb128 0x1
  434 0047 13       		.uleb128 0x13
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccB00qXo.s 			page 11
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc7pUyMF.s 			page 11
 
 
  435 0048 00       		.byte	0
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccB00qXo.s 			page 1
  489 007f 2E       		.uleb128 0x2e
  490 0080 01       		.byte	0x1
  491 0081 3F       		.uleb128 0x3f
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccB00qXo.s 			page 12
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc7pUyMF.s 			page 12
 
 
  492 0082 19       		.uleb128 0x19
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccB00qXo.s 			page 1
  546 00bb 03       		.uleb128 0x3
  547 00bc 0E       		.uleb128 0xe
  548 00bd 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccB00qXo.s 			page 13
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc7pUyMF.s 			page 13
 
 
  549 00be 0B       		.uleb128 0xb
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccB00qXo.s 			page 1
  593      736D6974 
  593      53686966 
  593      74526567 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccB00qXo.s 			page 14
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc7pUyMF.s 			page 14
 
 
  593      5F53746F 
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccB00qXo.s 			page 1
  612      66756E63 
  612      74696F6E 
  612      2D736563 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccB00qXo.s 			page 15
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc7pUyMF.s 			page 15
 
 
  612      74696F6E 
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccB00qXo.s 			page 1
  636      74797065 
  636      00
  637              	.LASF6:
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccB00qXo.s 			page 16
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc7pUyMF.s 			page 16
 
 
  638 023d 6C6F6E67 		.ascii	"long long int\000"

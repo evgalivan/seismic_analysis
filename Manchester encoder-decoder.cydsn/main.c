@@ -167,11 +167,14 @@ uint32 massage[1] = { 0xFAAAAAAF };
 uint32 *p_ex_buf;
 
 uint32 main_freq =  72000000LL; //сдули BusClock
-uint32 desired_freq  = 512000LL;
+uint32 desired_freq  = 1024000LL;
 uint32 divider_freq = (32LL);
 uint32 capacity = (0xffffffffLL);  //емкость сумматора 
 
-
+inline long long PeriodCalculation(long long desired_freq){
+    return ( long long )  capacity * divider_freq * desired_freq / (1 * main_freq);    //977343669
+    //period = 1956895899;
+}
 
 #define LENGTH_OF(Array) (sizeof(Array)/sizeof(Array[0]))
 #define SENDER      //RESIEVER or SENDER
@@ -187,7 +190,7 @@ int main(void)
     gps2 = mess_gps2;
     
     incr_compare =set_increment(1000L); 
-    period = ( long long ) capacity * divider_freq * desired_freq / (1 * main_freq);    //977343669
+    period = ( long long ) PeriodCalculation( desired_freq);    //977343669
     //period = 1956895899;
     CyGlobalIntDisable; /* Enable global interrupts. */
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
@@ -229,6 +232,13 @@ int main(void)
 //        *(char*)(&curStat)=TransmitShiftReg_SR_STATUS;
 //    }
         LED_ON_Write(1);
+        UpdatePeriod(0xffffffff);
+        UpdatePeriod(0x7fffffff);
+        UpdatePeriod(0x3fffffff);
+        UpdatePeriod(0x1fffffff);
+        UpdatePeriod(0x0fffffff);
+        UpdatePeriod(0x07ffffff);
+        UpdatePeriod(period);
         UpdatePeriod(period);
     #ifdef SENDER
         
@@ -295,6 +305,7 @@ int main(void)
             }
             
             GeneralSend (curRegim );
+            //UpdatePeriod(period);
             
             
            

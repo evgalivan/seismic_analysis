@@ -10,7 +10,7 @@
  * ========================================
 */
 #include "sender.h"
-#include "global.h"
+
 
 
 statReg curStat;

@@ -1,6 +1,6 @@
 // ======================================================================
 // Manchester encoder-decoder.v generated from TopDesign.cysch
-// 05/27/2020 at 16:50
+// 05/29/2020 at 16:03
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -727,7 +727,7 @@ endmodule
 `include "C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\mux_v1_10\mux_v1_10.v"
 `endif
 
-// ShiftReg_v2_30(ControlRegUsageReplacemetString=SyncCtl, CyGetRegReplacementString=CY_GET_REG32, CySetRegReplacementString=CY_SET_REG32, DefSi=0, Direction=1, FifoSize=4, InterruptSource=1, Length=32, RegDefReplacementString=reg32, RegSizeReplacementString=uint32, UseInputFifo=true, UseInterrupt=false, UseOutputFifo=false, UseShiftIn=true, UseShiftOut=true, VerilogSectionReplacementString=sC32, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=ShiftReg_v2_30, CY_CONFIG_TITLE=Period, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=Period, CY_INSTANCE_SHORT_NAME=Period, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=30, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.2, INSTANCE_NAME=Period, )
+// ShiftReg_v2_30(ControlRegUsageReplacemetString=SyncCtl, CyGetRegReplacementString=CY_GET_REG32, CySetRegReplacementString=CY_SET_REG32, DefSi=0, Direction=1, FifoSize=4, InterruptSource=1, Length=32, RegDefReplacementString=reg32, RegSizeReplacementString=uint32, UseInputFifo=true, UseInterrupt=true, UseOutputFifo=false, UseShiftIn=true, UseShiftOut=true, VerilogSectionReplacementString=sC32, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=ShiftReg_v2_30, CY_CONFIG_TITLE=Period, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=Period, CY_INSTANCE_SHORT_NAME=Period, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=30, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.2, INSTANCE_NAME=Period, )
 module ShiftReg_v2_30_5 (
     shift_in,
     load,
@@ -775,7 +775,7 @@ module ShiftReg_v2_30_5 (
     defparam bSR.InterruptSource = 1;
     defparam bSR.Length = 32;
     defparam bSR.UseInputFifo = 1;
-    defparam bSR.UseInterrupt = 0;
+    defparam bSR.UseInterrupt = 1;
     defparam bSR.UseOutputFifo = 0;
 
 
@@ -808,9 +808,115 @@ endmodule
 `include "C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\DigitalComp_v1_0\DigitalComp_v1_0.v"
 `endif
 
+// Counter_v3_0(CaptureMode=1, CaptureModeSoftware=0, ClockMode=0, CompareMode=1, CompareModeSoftware=0, CompareStatusEdgeSense=true, CompareValue=128, CONTROL3=0, ControlRegRemoved=0, CyGetRegReplacementString=CY_GET_REG32, CySetRegReplacementString=CY_SET_REG32, EnableMode=0, FF16=false, FF8=false, FixedFunction=false, FixedFunctionUsed=0, InitCounterValue=0, InterruptOnCapture=true, InterruptOnCompare=false, InterruptOnOverUnderFlow=false, InterruptOnTC=false, Period=4294967294, RegDefReplacementString=reg32, RegSizeReplacementString=uint32, ReloadOnCapture=false, ReloadOnCompare=false, ReloadOnOverUnder=true, ReloadOnReset=true, Resolution=32, RunMode=0, UDB16=false, UDB24=false, UDB32=true, UDB8=false, UDBControlReg=true, UseInterrupt=true, VerilogSectionReplacementString=sC32, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=Counter_v3_0, CY_CONFIG_TITLE=Counter_1, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=Counter_1, CY_INSTANCE_SHORT_NAME=Counter_1, CY_MAJOR_VERSION=3, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.2, INSTANCE_NAME=Counter_1, )
+module Counter_v3_0_6 (
+    reset,
+    tc,
+    comp,
+    clock,
+    interrupt,
+    enable,
+    capture,
+    upCnt,
+    downCnt,
+    up_ndown,
+    count);
+    input       reset;
+    output      tc;
+    output      comp;
+    input       clock;
+    output      interrupt;
+    input       enable;
+    input       capture;
+    input       upCnt;
+    input       downCnt;
+    input       up_ndown;
+    input       count;
+
+    parameter CaptureMode = 1;
+    parameter ClockMode = 0;
+    parameter CompareMode = 1;
+    parameter CompareStatusEdgeSense = 1;
+    parameter EnableMode = 0;
+    parameter ReloadOnCapture = 0;
+    parameter ReloadOnCompare = 0;
+    parameter ReloadOnOverUnder = 1;
+    parameter ReloadOnReset = 1;
+    parameter Resolution = 32;
+    parameter RunMode = 0;
+    parameter UseInterrupt = 1;
+
+          wire  Net_47;
+          wire  Net_102;
+          wire  Net_95;
+          wire  Net_82;
+          wire  Net_91;
+          wire  Net_89;
+          wire  Net_49;
+          wire  Net_48;
+          wire  Net_42;
+          wire  Net_43;
+
+	// int_vm (cy_virtualmux_v1_0)
+	assign interrupt = Net_43;
+
+	// TC_vm (cy_virtualmux_v1_0)
+	assign tc = Net_49;
+
+    ZeroTerminal ZeroTerminal_1 (
+        .z(Net_82));
+
+	// VirtualMux_1 (cy_virtualmux_v1_0)
+	assign Net_89 = up_ndown;
+
+    ZeroTerminal ZeroTerminal_2 (
+        .z(Net_95));
+
+	// vmEnableMode (cy_virtualmux_v1_0)
+	assign Net_91 = enable;
+
+    OneTerminal OneTerminal_1 (
+        .o(Net_102));
+
+    B_Counter_v3_0 CounterUDB (
+        .reset(reset),
+        .tc_out(Net_49),
+        .cmp_out(comp),
+        .clock(clock),
+        .irq_out(Net_43),
+        .up_ndown(Net_89),
+        .upcnt(upCnt),
+        .dwncnt(downCnt),
+        .enable(enable),
+        .capture(capture),
+        .count(count));
+    defparam CounterUDB.CaptureMode = 1;
+    defparam CounterUDB.ClockMode = 0;
+    defparam CounterUDB.CompareMode = 1;
+    defparam CounterUDB.CompareStatusEdgeSense = 1;
+    defparam CounterUDB.EnableMode = 0;
+    defparam CounterUDB.ReloadOnCapture = 0;
+    defparam CounterUDB.ReloadOnCompare = 0;
+    defparam CounterUDB.ReloadOnOverUnder = 1;
+    defparam CounterUDB.ReloadOnReset = 1;
+    defparam CounterUDB.Resolution = 32;
+    defparam CounterUDB.RunMode = 0;
+    defparam CounterUDB.UseInterrupt = 1;
+
+
+
+endmodule
+
 // top
 module top ;
 
+          wire  Net_12442;
+          wire  Net_12441;
+          wire  Net_12440;
+          wire  Net_12438;
+          wire  Net_12435;
+          wire  Net_12434;
+          wire  Net_12433;
           wire  Net_11962;
           wire  Net_11961;
           wire  Net_11960;
@@ -832,6 +938,7 @@ module top ;
           wire  Net_11944;
           wire  Net_11943;
           wire  Net_11942;
+          wire  S;
           wire  Net_11941;
           wire  Net_11940;
           wire  Net_11938;
@@ -839,7 +946,8 @@ module top ;
           wire  Net_11936;
           wire  Net_11935;
           wire  Net_11934;
-          wire  S;
+          wire [2:0] preouts;
+          wire [2:0] My_wire;
           wire  Net_11933;
           wire  Net_11932;
           wire  Net_11931;
@@ -847,11 +955,9 @@ module top ;
           wire  Net_11929;
           wire  Net_11928;
           wire  Net_11927;
-          wire [2:0] preouts;
-          wire [2:0] My_wire;
           wire  Net_11926;
           wire  Net_11925;
-          wire [6:0] Net_11924;
+          wire [19:0] Net_11924;
           wire  Net_11921;
           wire  Net_11907;
           wire  Net_11904;
@@ -863,20 +969,9 @@ module top ;
           wire  Net_11897;
           wire  Net_11896;
           wire  Net_11895;
-          wire [7:0] Net_12268;
-          wire  Net_12267;
-          wire  Net_12266;
-          wire  Net_12265;
-          wire  Net_12264;
-          wire  Net_12263;
-          wire  Net_12261;
-          wire  Net_12260;
-          wire  Net_12259;
-          wire  Net_12205;
-          wire  Net_12204;
-          wire  Net_12203;
+          wire  Net_12478;
+          wire  Net_12477;
           wire  Net_12187;
-          wire  Net_12176;
           wire  Net_11501;
           wire  Net_11499;
           wire  Net_11504;
@@ -896,21 +991,18 @@ module top ;
           wire  Net_11529;
           wire  Net_11528;
           wire  Net_11527;
+          wire [19:0] HI;
           wire  Net_11526;
           wire  Net_12217;
           wire  Net_12216;
           wire  Net_12215;
           wire  Net_12214;
           wire  Net_12213;
-          wire [19:0] HI;
           wire  Net_12212;
-          wire  Net_12211;
           wire  Net_12210;
           wire  Net_11442;
           wire  Net_11430;
           wire  Net_11431;
-          wire  Net_12180;
-          wire  Net_12177;
           wire  Net_11419;
           wire  Net_11418;
           wire  Net_11417;
@@ -924,15 +1016,14 @@ module top ;
           wire  Net_11409;
           wire  Net_11408;
           wire  Net_11407;
-          wire  Net_12226;
-          wire  Net_12225;
-          wire  Net_12224;
-          wire  Net_12223;
-          wire  Net_12222;
-          wire  Net_12221;
-          wire  Net_12220;
-          wire  Net_12219;
-          wire  Net_12218;
+          wire  Net_12472;
+          wire  Net_12471;
+          wire  Net_12470;
+          wire  Net_12469;
+          wire  Net_12468;
+          wire  Net_12467;
+          wire  Net_12466;
+          wire  Net_12465;
           wire  Net_12209;
           wire  Net_12208;
           wire  Net_12207;
@@ -946,10 +1037,9 @@ module top ;
           wire  Net_12242;
           wire  Net_12241;
           wire  Net_12240;
-          wire  Net_12317;
-          wire  Net_12262;
-          wire  Net_11008;
           wire  StartOfFrame;
+          wire  Net_12545;
+          wire  Net_11008;
           wire  Net_10811;
           wire  Net_10810;
           wire  Net_10809;
@@ -961,9 +1051,9 @@ module top ;
           wire  Net_10802;
           wire  Net_10829;
           wire  Net_10538;
+          wire  Clock_ticktack;
           wire  Net_10537;
           wire  Net_10536;
-          wire  Clock_ticktack;
           wire  Net_10535;
           wire  Net_11057;
           wire  Net_11441;
@@ -1005,23 +1095,23 @@ module top ;
           wire  Net_10584;
           wire  Net_11111;
           wire  Net_11403;
-          wire  Net_853;
-          wire  Net_10946;
-          wire  Net_698;
-          wire  Net_860;
-          wire  Net_867;
-          wire  Net_10916;
-          wire  Net_10925;
-          wire  Net_12290;
-          wire  Net_677;
-          wire  Net_686;
+          wire  Net_12456;
           wire  Net_11393;
-          wire  Net_12186;
-          wire  Net_12175;
-          wire [1:0] Net_11923;
+          wire  Net_12205;
+          wire  Net_12461;
+          wire  Net_12462;
+          wire  Net_10916;
+          wire  Net_860;
           wire  Net_11873;
-          wire  Net_12064;
-          wire  Net_11898;
+          wire  Net_686;
+          wire  Net_10925;
+          wire  Net_12420;
+          wire  Net_698;
+          wire  Net_12290;
+          wire  Net_12515;
+          wire  Net_12186;
+          wire [1:0] Net_11923;
+          wire  Net_12432;
           wire  Net_12170;
           wire  Net_11939;
           wire  Net_11906;
@@ -1928,7 +2018,7 @@ module top ;
 
     // -- DFF Start --
     reg  cydff_10;
-    always @(posedge Net_867)
+    always @(posedge Net_12456)
     begin
         cydff_10 <= Net_860;
     end
@@ -2313,7 +2403,21 @@ module top ;
 
     assign Net_11008 = Net_1037 & Net_1453;
 
-    assign Net_12262 = 1'h1;
+    // -- DFF Start --
+    reg  cydff_7;
+    always @(posedge Net_12205 or posedge Net_12461)
+    begin
+        if (Net_12205)
+        begin
+            cydff_7 <= 0;
+        end
+        else
+        begin
+            cydff_7 <= Net_12462;
+        end
+    end
+    assign Net_860 = cydff_7;
+    // -- DFF End --
 
 
 	cy_clock_v1_0
@@ -2413,7 +2517,7 @@ module top ;
 
     Counter_v3_0_2 Boundary32bit (
         .reset(1'b0),
-        .tc(Net_867),
+        .tc(Net_12456),
         .comp(Net_12241),
         .clock(Net_12290),
         .interrupt(Net_12242),
@@ -2435,6 +2539,81 @@ module top ;
     defparam Boundary32bit.Resolution = 8;
     defparam Boundary32bit.RunMode = 0;
     defparam Boundary32bit.UseInterrupt = 1;
+
+	wire [0:0] tmpOE__Out_TikTak_1_net;
+	wire [0:0] tmpFB_0__Out_TikTak_1_net;
+	wire [0:0] tmpIO_0__Out_TikTak_1_net;
+	wire [0:0] tmpINTERRUPT_0__Out_TikTak_1_net;
+	electrical [0:0] tmpSIOVREF__Out_TikTak_1_net;
+
+	cy_psoc3_pins_v1_10
+		#(.id("2a5cf71c-d641-43da-924d-526bc3c75f6e"),
+		  .drive_mode(3'b110),
+		  .ibuf_enabled(1'b1),
+		  .init_dr_st(1'b0),
+		  .input_clk_en(0),
+		  .input_sync(1'b1),
+		  .input_sync_mode(1'b0),
+		  .intr_mode(2'b00),
+		  .invert_in_clock(0),
+		  .invert_in_clock_en(0),
+		  .invert_in_reset(0),
+		  .invert_out_clock(0),
+		  .invert_out_clock_en(0),
+		  .invert_out_reset(0),
+		  .io_voltage(""),
+		  .layout_mode("CONTIGUOUS"),
+		  .oe_conn(1'b0),
+		  .oe_reset(0),
+		  .oe_sync(1'b0),
+		  .output_clk_en(0),
+		  .output_clock_mode(1'b0),
+		  .output_conn(1'b1),
+		  .output_mode(1'b0),
+		  .output_reset(0),
+		  .output_sync(1'b0),
+		  .pa_in_clock(-1),
+		  .pa_in_clock_en(-1),
+		  .pa_in_reset(-1),
+		  .pa_out_clock(-1),
+		  .pa_out_clock_en(-1),
+		  .pa_out_reset(-1),
+		  .pin_aliases(""),
+		  .pin_mode("O"),
+		  .por_state(4),
+		  .sio_group_cnt(0),
+		  .sio_hyst(1'b1),
+		  .sio_ibuf(""),
+		  .sio_info(2'b00),
+		  .sio_obuf(""),
+		  .sio_refsel(""),
+		  .sio_vtrip(""),
+		  .sio_hifreq(""),
+		  .sio_vohsel(""),
+		  .slew_rate(1'b0),
+		  .spanning(0),
+		  .use_annotation(1'b0),
+		  .vtrip(2'b10),
+		  .width(1),
+		  .ovt_hyst_trim(1'b0),
+		  .ovt_needed(1'b0),
+		  .ovt_slew_control(2'b00),
+		  .input_buffer_sel(2'b00))
+		Out_TikTak_1
+		 (.oe(tmpOE__Out_TikTak_1_net),
+		  .y({Net_12170}),
+		  .fb({tmpFB_0__Out_TikTak_1_net[0:0]}),
+		  .io({tmpIO_0__Out_TikTak_1_net[0:0]}),
+		  .siovref(tmpSIOVREF__Out_TikTak_1_net),
+		  .interrupt({tmpINTERRUPT_0__Out_TikTak_1_net[0:0]}),
+		  .in_clock({1'b0}),
+		  .in_clock_en({1'b1}),
+		  .in_reset({1'b0}),
+		  .out_clock({1'b0}),
+		  .out_clock_en({1'b1}),
+		  .out_reset({1'b0}));
+
+	assign tmpOE__Out_TikTak_1_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
 
 	wire [0:0] tmpOE__TC_word_net;
 	wire [0:0] tmpFB_0__TC_word_net;
@@ -2497,7 +2676,7 @@ module top ;
 		  .input_buffer_sel(2'b00))
 		TC_word
 		 (.oe(tmpOE__TC_word_net),
-		  .y({Net_867}),
+		  .y({Net_12456}),
 		  .fb({tmpFB_0__TC_word_net[0:0]}),
 		  .io({tmpIO_0__TC_word_net[0:0]}),
 		  .siovref(tmpSIOVREF__TC_word_net),
@@ -2511,23 +2690,11 @@ module top ;
 
 	assign tmpOE__TC_word_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
 
-
-    assign Net_677 = ~Net_12290;
-
-    // -- DFF Start --
-    reg  cydff_1;
-    always @(posedge Net_12290)
-    begin
-        cydff_1 <= Net_11393;
-    end
-    assign Net_10925 = cydff_1;
-    // -- DFF End --
-
     ShiftReg_v2_30_3 SigmaReg (
-        .shift_in(Net_10946),
+        .shift_in(Net_12420),
         .load(1'b0),
         .store(1'b0),
-        .clock(Net_677),
+        .clock(Net_12515),
         .reset(1'b0),
         .shift_out(Net_698),
         .interrupt(Net_12209));
@@ -2536,14 +2703,14 @@ module top ;
     defparam SigmaReg.Length = 32;
 
     CyControlReg_v1_80 Control_Period (
-        .control_1(Net_12218),
-        .control_2(Net_12219),
-        .control_3(Net_12220),
-        .control_0(Net_860),
-        .control_4(Net_12221),
-        .control_5(Net_12222),
-        .control_6(Net_12223),
-        .control_7(Net_12224),
+        .control_1(Net_12461),
+        .control_2(Net_12465),
+        .control_3(Net_12466),
+        .control_0(Net_12462),
+        .control_4(Net_12467),
+        .control_5(Net_12468),
+        .control_6(Net_12469),
+        .control_7(Net_12470),
         .clock(1'b0),
         .reset(1'b0));
     defparam Control_Period.Bit0Mode = 0;
@@ -2557,7 +2724,7 @@ module top ;
     defparam Control_Period.BitValue = 0;
     defparam Control_Period.BusDisplay = 0;
     defparam Control_Period.ExtrReset = 0;
-    defparam Control_Period.NumOutputs = 1;
+    defparam Control_Period.NumOutputs = 2;
 
     UART_v2_50_4 UART (
         .cts_n(1'b0),
@@ -2742,21 +2909,6 @@ module top ;
 		 (.int_signal(Net_11415));
 
 
-
-	cy_clock_v1_0
-		#(.id("77db52f9-8fc5-40d8-ae33-f749577858e2"),
-		  .source_clock_id("75C2148C-3656-4d8a-846D-0CAE99AB6FF7"),
-		  .divisor(0),
-		  .period("0"),
-		  .is_direct(1),
-		  .is_digital(1))
-		Clock_1
-		 (.clock_out(Net_12177));
-
-
-
-    assign Net_853 = Net_867 & Net_677;
-
 	wire [0:0] tmpOE__CH32kHZ_IN_net;
 	wire [0:0] tmpIO_0__CH32kHZ_IN_net;
 	wire [0:0] tmpINTERRUPT_0__CH32kHZ_IN_net;
@@ -2929,23 +3081,23 @@ module top ;
     // -- LUT Sigma start --
     if (1)
     begin : Sigma
-        reg [1:0] tmp__Sigma_reg;
+        reg [2:0] tmp__Sigma_reg;
         wire [2:0] tmp__Sigma_ins;
         assign tmp__Sigma_ins = {Net_686,Net_698,Net_11393};
         always @(posedge Net_12290)
         begin
             case (tmp__Sigma_ins)
-                3'b000 :  tmp__Sigma_reg = 2'b00;
-                3'b001 :  tmp__Sigma_reg = 2'b01;
-                3'b010 :  tmp__Sigma_reg = 2'b01;
-                3'b011 :  tmp__Sigma_reg = 2'b10;
-                3'b100 :  tmp__Sigma_reg = 2'b01;
-                3'b101 :  tmp__Sigma_reg = 2'b10;
-                3'b110 :  tmp__Sigma_reg = 2'b10;
-                3'b111 :  tmp__Sigma_reg = 2'b11;
+                3'b000 :  tmp__Sigma_reg = 3'b000;
+                3'b001 :  tmp__Sigma_reg = 3'b011;
+                3'b010 :  tmp__Sigma_reg = 3'b010;
+                3'b011 :  tmp__Sigma_reg = 3'b101;
+                3'b100 :  tmp__Sigma_reg = 3'b010;
+                3'b101 :  tmp__Sigma_reg = 3'b101;
+                3'b110 :  tmp__Sigma_reg = 3'b100;
+                3'b111 :  tmp__Sigma_reg = 3'b111;
             endcase
         end
-        assign {Net_686,Net_10946} = tmp__Sigma_reg;
+        assign {Net_686,Net_12420,Net_10925} = tmp__Sigma_reg;
     end
     // -- LUT Sigma end --
 
@@ -3559,15 +3711,6 @@ module top ;
 
 	assign tmpOE__DOut_CH4_N_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
 
-    GlitchFilter_v2_0 GlitchFilter_1 (
-        .d(Net_12175),
-        .reset(1'b0),
-        .clock(Net_12177),
-        .q(Net_11939));
-    defparam GlitchFilter_1.BypassFilter = 0;
-    defparam GlitchFilter_1.GlitchLength = 1;
-    defparam GlitchFilter_1.SignalWidth = 1;
-
 	wire [0:0] tmpOE__Out_TikTak_3_net;
 	wire [0:0] tmpFB_0__Out_TikTak_3_net;
 	wire [0:0] tmpIO_0__Out_TikTak_3_net;
@@ -3629,7 +3772,7 @@ module top ;
 		  .input_buffer_sel(2'b00))
 		Out_TikTak_3
 		 (.oe(tmpOE__Out_TikTak_3_net),
-		  .y({HI[10]}),
+		  .y({HI[9]}),
 		  .fb({tmpFB_0__Out_TikTak_3_net[0:0]}),
 		  .io({tmpIO_0__Out_TikTak_3_net[0:0]}),
 		  .siovref(tmpSIOVREF__Out_TikTak_3_net),
@@ -3652,7 +3795,7 @@ module top ;
         .shift_in(Net_10925),
         .load(Net_10916),
         .store(1'b0),
-        .clock(Net_677),
+        .clock(Net_12515),
         .reset(1'b0),
         .shift_out(Net_11393),
         .interrupt(Net_12205));
@@ -3667,39 +3810,11 @@ module top ;
 		 (.int_signal(StartOfFrame));
 
 
-
-    assign Net_11403 = ~Net_853;
-
-    CyStatusReg_v1_90 Status_Period (
-        .status_0(Net_10916),
-        .status_1(1'b0),
-        .status_2(1'b0),
-        .status_3(1'b0),
-        .clock(Net_12262),
-        .status_4(1'b0),
-        .status_5(1'b0),
-        .status_6(1'b0),
-        .status_7(1'b0),
-        .intr(Net_12267),
-        .status_bus(8'b0));
-    defparam Status_Period.Bit0Mode = 0;
-    defparam Status_Period.Bit1Mode = 0;
-    defparam Status_Period.Bit2Mode = 0;
-    defparam Status_Period.Bit3Mode = 0;
-    defparam Status_Period.Bit4Mode = 0;
-    defparam Status_Period.Bit5Mode = 0;
-    defparam Status_Period.Bit6Mode = 0;
-    defparam Status_Period.Bit7Mode = 0;
-    defparam Status_Period.BusDisplay = 0;
-    defparam Status_Period.Interrupt = 0;
-    defparam Status_Period.MaskValue = 0;
-    defparam Status_Period.NumInputs = 1;
-
     CyControlReg_v1_80 Control_Capture (
         .control_1(Net_11895),
         .control_2(Net_11896),
         .control_3(Net_11897),
-        .control_0(Net_11898),
+        .control_0(Net_12432),
         .control_4(Net_11899),
         .control_5(Net_11900),
         .control_6(Net_11901),
@@ -3721,9 +3836,9 @@ module top ;
 
     // -- DFF Start --
     reg  cydff_14;
-    always @(posedge Net_11898 or posedge Net_11906)
+    always @(posedge Net_12432 or posedge Net_11906)
     begin
-        if (Net_11898)
+        if (Net_12432)
         begin
             cydff_14 <= 0;
         end
@@ -3744,9 +3859,9 @@ module top ;
 
 	cy_psoc3_pins_v1_10
 		#(.id("c60b2da1-4c7b-4418-868d-04e2d0efb712"),
-		  .drive_mode(3'b101),
+		  .drive_mode(3'b010),
 		  .ibuf_enabled(1'b1),
-		  .init_dr_st(1'b0),
+		  .init_dr_st(1'b1),
 		  .input_clk_en(0),
 		  .input_sync(1'b0),
 		  .input_sync_mode(1'b0),
@@ -3887,25 +4002,6 @@ module top ;
 	assign tmpOE__Out_TikTak_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
 
 
-    assign Net_12064 = ~Clock_ticktack;
-
-    // -- DFF Start --
-    reg  cydff_7;
-    always @(posedge Net_11898 or posedge Net_12064)
-    begin
-        if (Net_11898)
-        begin
-            cydff_7 <= 0;
-        end
-        else
-        begin
-            cydff_7 <= Net_11873;
-        end
-    end
-    assign Net_12175 = cydff_7;
-    // -- DFF End --
-
-
 	cy_isr_v1_0
 		#(.int_type(2'b10))
 		isr_tc
@@ -3929,19 +4025,19 @@ module top ;
         always @(HI or HI or HI or HI or Net_11923)
         begin
             case (Net_11923[1:0])
-                2'b00 :  tmp__mux_10_reg = HI[10];
-                2'b01 :  tmp__mux_10_reg = HI[9];
-                2'b10 :  tmp__mux_10_reg = HI[8];
-                2'b11 :  tmp__mux_10_reg = HI[7];
+                2'b00 :  tmp__mux_10_reg = HI[9];
+                2'b01 :  tmp__mux_10_reg = HI[8];
+                2'b10 :  tmp__mux_10_reg = HI[7];
+                2'b11 :  tmp__mux_10_reg = HI[6];
             endcase
         end
         assign Net_12186 = tmp__mux_10_reg;
     end
     // -- Mux end --
 
-    assign Net_12170 = (Net_11924[6:0] == HI[19:13]);
+    assign Net_12170 = (Net_11924[19:0] == HI[19:0]);
 
-    assign Net_11924[6:0] = 7'h7D;
+    assign Net_11924[19:0] = 20'h18FFF;
 
     assign Net_11921 = 1'h1;
 
@@ -3965,7 +4061,7 @@ module top ;
     defparam Control_FREQ.Bit5Mode = 0;
     defparam Control_FREQ.Bit6Mode = 0;
     defparam Control_FREQ.Bit7Mode = 0;
-    defparam Control_FREQ.BitValue = 2;
+    defparam Control_FREQ.BitValue = 1;
     defparam Control_FREQ.BusDisplay = 1;
     defparam Control_FREQ.ExtrReset = 0;
     defparam Control_FREQ.NumOutputs = 2;
@@ -4044,6 +4140,337 @@ module top ;
     defparam CAPT_HIGH.Interrupt = 0;
     defparam CAPT_HIGH.MaskValue = 0;
     defparam CAPT_HIGH.NumInputs = 6;
+
+    Counter_v3_0_6 Counter_1 (
+        .reset(1'b0),
+        .tc(Net_12434),
+        .comp(Net_12435),
+        .clock(Clock_ticktack),
+        .interrupt(Net_11939),
+        .enable(1'b0),
+        .capture(Net_11873),
+        .upCnt(1'b0),
+        .downCnt(1'b0),
+        .up_ndown(1'b1),
+        .count(Net_12170));
+    defparam Counter_1.CaptureMode = 1;
+    defparam Counter_1.ClockMode = 0;
+    defparam Counter_1.CompareMode = 1;
+    defparam Counter_1.CompareStatusEdgeSense = 1;
+    defparam Counter_1.EnableMode = 0;
+    defparam Counter_1.ReloadOnCapture = 0;
+    defparam Counter_1.ReloadOnCompare = 0;
+    defparam Counter_1.ReloadOnOverUnder = 1;
+    defparam Counter_1.ReloadOnReset = 1;
+    defparam Counter_1.Resolution = 32;
+    defparam Counter_1.RunMode = 0;
+    defparam Counter_1.UseInterrupt = 1;
+
+	wire [0:0] tmpOE__Clock_tiktak_1_net;
+	wire [0:0] tmpFB_0__Clock_tiktak_1_net;
+	wire [0:0] tmpIO_0__Clock_tiktak_1_net;
+	wire [0:0] tmpINTERRUPT_0__Clock_tiktak_1_net;
+	electrical [0:0] tmpSIOVREF__Clock_tiktak_1_net;
+
+	cy_psoc3_pins_v1_10
+		#(.id("e98c02ef-9872-493b-99a0-01704d5c3513"),
+		  .drive_mode(3'b110),
+		  .ibuf_enabled(1'b1),
+		  .init_dr_st(1'b0),
+		  .input_clk_en(0),
+		  .input_sync(1'b1),
+		  .input_sync_mode(1'b0),
+		  .intr_mode(2'b00),
+		  .invert_in_clock(0),
+		  .invert_in_clock_en(0),
+		  .invert_in_reset(0),
+		  .invert_out_clock(0),
+		  .invert_out_clock_en(0),
+		  .invert_out_reset(0),
+		  .io_voltage(""),
+		  .layout_mode("CONTIGUOUS"),
+		  .oe_conn(1'b0),
+		  .oe_reset(0),
+		  .oe_sync(1'b0),
+		  .output_clk_en(0),
+		  .output_clock_mode(1'b0),
+		  .output_conn(1'b1),
+		  .output_mode(1'b0),
+		  .output_reset(0),
+		  .output_sync(1'b0),
+		  .pa_in_clock(-1),
+		  .pa_in_clock_en(-1),
+		  .pa_in_reset(-1),
+		  .pa_out_clock(-1),
+		  .pa_out_clock_en(-1),
+		  .pa_out_reset(-1),
+		  .pin_aliases(""),
+		  .pin_mode("O"),
+		  .por_state(4),
+		  .sio_group_cnt(0),
+		  .sio_hyst(1'b1),
+		  .sio_ibuf(""),
+		  .sio_info(2'b00),
+		  .sio_obuf(""),
+		  .sio_refsel(""),
+		  .sio_vtrip(""),
+		  .sio_hifreq(""),
+		  .sio_vohsel(""),
+		  .slew_rate(1'b0),
+		  .spanning(0),
+		  .use_annotation(1'b0),
+		  .vtrip(2'b10),
+		  .width(1),
+		  .ovt_hyst_trim(1'b0),
+		  .ovt_needed(1'b0),
+		  .ovt_slew_control(2'b00),
+		  .input_buffer_sel(2'b00))
+		Clock_tiktak_1
+		 (.oe(tmpOE__Clock_tiktak_1_net),
+		  .y({Net_11403}),
+		  .fb({tmpFB_0__Clock_tiktak_1_net[0:0]}),
+		  .io({tmpIO_0__Clock_tiktak_1_net[0:0]}),
+		  .siovref(tmpSIOVREF__Clock_tiktak_1_net),
+		  .interrupt({tmpINTERRUPT_0__Clock_tiktak_1_net[0:0]}),
+		  .in_clock({1'b0}),
+		  .in_clock_en({1'b1}),
+		  .in_reset({1'b0}),
+		  .out_clock({1'b0}),
+		  .out_clock_en({1'b1}),
+		  .out_reset({1'b0}));
+
+	assign tmpOE__Clock_tiktak_1_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
+
+	wire [0:0] tmpOE__Clock_tiktak_2_net;
+	wire [0:0] tmpFB_0__Clock_tiktak_2_net;
+	wire [0:0] tmpIO_0__Clock_tiktak_2_net;
+	wire [0:0] tmpINTERRUPT_0__Clock_tiktak_2_net;
+	electrical [0:0] tmpSIOVREF__Clock_tiktak_2_net;
+
+	cy_psoc3_pins_v1_10
+		#(.id("abab926c-71fd-4cab-82a9-b40699e10c1c"),
+		  .drive_mode(3'b110),
+		  .ibuf_enabled(1'b1),
+		  .init_dr_st(1'b0),
+		  .input_clk_en(0),
+		  .input_sync(1'b1),
+		  .input_sync_mode(1'b0),
+		  .intr_mode(2'b00),
+		  .invert_in_clock(0),
+		  .invert_in_clock_en(0),
+		  .invert_in_reset(0),
+		  .invert_out_clock(0),
+		  .invert_out_clock_en(0),
+		  .invert_out_reset(0),
+		  .io_voltage(""),
+		  .layout_mode("CONTIGUOUS"),
+		  .oe_conn(1'b0),
+		  .oe_reset(0),
+		  .oe_sync(1'b0),
+		  .output_clk_en(0),
+		  .output_clock_mode(1'b0),
+		  .output_conn(1'b1),
+		  .output_mode(1'b0),
+		  .output_reset(0),
+		  .output_sync(1'b0),
+		  .pa_in_clock(-1),
+		  .pa_in_clock_en(-1),
+		  .pa_in_reset(-1),
+		  .pa_out_clock(-1),
+		  .pa_out_clock_en(-1),
+		  .pa_out_reset(-1),
+		  .pin_aliases(""),
+		  .pin_mode("O"),
+		  .por_state(4),
+		  .sio_group_cnt(0),
+		  .sio_hyst(1'b1),
+		  .sio_ibuf(""),
+		  .sio_info(2'b00),
+		  .sio_obuf(""),
+		  .sio_refsel(""),
+		  .sio_vtrip(""),
+		  .sio_hifreq(""),
+		  .sio_vohsel(""),
+		  .slew_rate(1'b0),
+		  .spanning(0),
+		  .use_annotation(1'b0),
+		  .vtrip(2'b10),
+		  .width(1),
+		  .ovt_hyst_trim(1'b0),
+		  .ovt_needed(1'b0),
+		  .ovt_slew_control(2'b00),
+		  .input_buffer_sel(2'b00))
+		Clock_tiktak_2
+		 (.oe(tmpOE__Clock_tiktak_2_net),
+		  .y({Net_860}),
+		  .fb({tmpFB_0__Clock_tiktak_2_net[0:0]}),
+		  .io({tmpIO_0__Clock_tiktak_2_net[0:0]}),
+		  .siovref(tmpSIOVREF__Clock_tiktak_2_net),
+		  .interrupt({tmpINTERRUPT_0__Clock_tiktak_2_net[0:0]}),
+		  .in_clock({1'b0}),
+		  .in_clock_en({1'b1}),
+		  .in_reset({1'b0}),
+		  .out_clock({1'b0}),
+		  .out_clock_en({1'b1}),
+		  .out_reset({1'b0}));
+
+	assign tmpOE__Clock_tiktak_2_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
+
+	wire [0:0] tmpOE__Clock_tiktak_3_net;
+	wire [0:0] tmpFB_0__Clock_tiktak_3_net;
+	wire [0:0] tmpIO_0__Clock_tiktak_3_net;
+	wire [0:0] tmpINTERRUPT_0__Clock_tiktak_3_net;
+	electrical [0:0] tmpSIOVREF__Clock_tiktak_3_net;
+
+	cy_psoc3_pins_v1_10
+		#(.id("4d2b68ad-9ac5-4275-ada5-63550fff7286"),
+		  .drive_mode(3'b110),
+		  .ibuf_enabled(1'b1),
+		  .init_dr_st(1'b0),
+		  .input_clk_en(0),
+		  .input_sync(1'b1),
+		  .input_sync_mode(1'b0),
+		  .intr_mode(2'b00),
+		  .invert_in_clock(0),
+		  .invert_in_clock_en(0),
+		  .invert_in_reset(0),
+		  .invert_out_clock(0),
+		  .invert_out_clock_en(0),
+		  .invert_out_reset(0),
+		  .io_voltage(""),
+		  .layout_mode("CONTIGUOUS"),
+		  .oe_conn(1'b0),
+		  .oe_reset(0),
+		  .oe_sync(1'b0),
+		  .output_clk_en(0),
+		  .output_clock_mode(1'b0),
+		  .output_conn(1'b1),
+		  .output_mode(1'b0),
+		  .output_reset(0),
+		  .output_sync(1'b0),
+		  .pa_in_clock(-1),
+		  .pa_in_clock_en(-1),
+		  .pa_in_reset(-1),
+		  .pa_out_clock(-1),
+		  .pa_out_clock_en(-1),
+		  .pa_out_reset(-1),
+		  .pin_aliases(""),
+		  .pin_mode("O"),
+		  .por_state(4),
+		  .sio_group_cnt(0),
+		  .sio_hyst(1'b1),
+		  .sio_ibuf(""),
+		  .sio_info(2'b00),
+		  .sio_obuf(""),
+		  .sio_refsel(""),
+		  .sio_vtrip(""),
+		  .sio_hifreq(""),
+		  .sio_vohsel(""),
+		  .slew_rate(1'b0),
+		  .spanning(0),
+		  .use_annotation(1'b0),
+		  .vtrip(2'b10),
+		  .width(1),
+		  .ovt_hyst_trim(1'b0),
+		  .ovt_needed(1'b0),
+		  .ovt_slew_control(2'b00),
+		  .input_buffer_sel(2'b00))
+		Clock_tiktak_3
+		 (.oe(tmpOE__Clock_tiktak_3_net),
+		  .y({Net_686}),
+		  .fb({tmpFB_0__Clock_tiktak_3_net[0:0]}),
+		  .io({tmpIO_0__Clock_tiktak_3_net[0:0]}),
+		  .siovref(tmpSIOVREF__Clock_tiktak_3_net),
+		  .interrupt({tmpINTERRUPT_0__Clock_tiktak_3_net[0:0]}),
+		  .in_clock({1'b0}),
+		  .in_clock_en({1'b1}),
+		  .in_reset({1'b0}),
+		  .out_clock({1'b0}),
+		  .out_clock_en({1'b1}),
+		  .out_reset({1'b0}));
+
+	assign tmpOE__Clock_tiktak_3_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
+
+	wire [0:0] tmpOE__Clock_tiktak_4_net;
+	wire [0:0] tmpFB_0__Clock_tiktak_4_net;
+	wire [0:0] tmpIO_0__Clock_tiktak_4_net;
+	wire [0:0] tmpINTERRUPT_0__Clock_tiktak_4_net;
+	electrical [0:0] tmpSIOVREF__Clock_tiktak_4_net;
+
+	cy_psoc3_pins_v1_10
+		#(.id("4ffd591a-922a-484b-9733-bdf82c02c887"),
+		  .drive_mode(3'b110),
+		  .ibuf_enabled(1'b1),
+		  .init_dr_st(1'b0),
+		  .input_clk_en(0),
+		  .input_sync(1'b1),
+		  .input_sync_mode(1'b0),
+		  .intr_mode(2'b00),
+		  .invert_in_clock(0),
+		  .invert_in_clock_en(0),
+		  .invert_in_reset(0),
+		  .invert_out_clock(0),
+		  .invert_out_clock_en(0),
+		  .invert_out_reset(0),
+		  .io_voltage(""),
+		  .layout_mode("CONTIGUOUS"),
+		  .oe_conn(1'b0),
+		  .oe_reset(0),
+		  .oe_sync(1'b0),
+		  .output_clk_en(0),
+		  .output_clock_mode(1'b0),
+		  .output_conn(1'b1),
+		  .output_mode(1'b0),
+		  .output_reset(0),
+		  .output_sync(1'b0),
+		  .pa_in_clock(-1),
+		  .pa_in_clock_en(-1),
+		  .pa_in_reset(-1),
+		  .pa_out_clock(-1),
+		  .pa_out_clock_en(-1),
+		  .pa_out_reset(-1),
+		  .pin_aliases(""),
+		  .pin_mode("O"),
+		  .por_state(4),
+		  .sio_group_cnt(0),
+		  .sio_hyst(1'b1),
+		  .sio_ibuf(""),
+		  .sio_info(2'b00),
+		  .sio_obuf(""),
+		  .sio_refsel(""),
+		  .sio_vtrip(""),
+		  .sio_hifreq(""),
+		  .sio_vohsel(""),
+		  .slew_rate(1'b0),
+		  .spanning(0),
+		  .use_annotation(1'b0),
+		  .vtrip(2'b10),
+		  .width(1),
+		  .ovt_hyst_trim(1'b0),
+		  .ovt_needed(1'b0),
+		  .ovt_slew_control(2'b00),
+		  .input_buffer_sel(2'b00))
+		Clock_tiktak_4
+		 (.oe(tmpOE__Clock_tiktak_4_net),
+		  .y({Net_10925}),
+		  .fb({tmpFB_0__Clock_tiktak_4_net[0:0]}),
+		  .io({tmpIO_0__Clock_tiktak_4_net[0:0]}),
+		  .siovref(tmpSIOVREF__Clock_tiktak_4_net),
+		  .interrupt({tmpINTERRUPT_0__Clock_tiktak_4_net[0:0]}),
+		  .in_clock({1'b0}),
+		  .in_clock_en({1'b1}),
+		  .in_reset({1'b0}),
+		  .out_clock({1'b0}),
+		  .out_clock_en({1'b1}),
+		  .out_reset({1'b0}));
+
+	assign tmpOE__Clock_tiktak_4_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
+
+
+    assign Net_12515 = ~Net_12290;
+
+
+    assign Net_11403 = ~Net_12456;
 
 
 

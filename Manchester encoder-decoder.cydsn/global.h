@@ -20,6 +20,18 @@
 #include <string.h>
 #include <stdlib.h>
 
+typedef struct{
+    int load: 1;        //Load status bit
+    int store: 1;       //Store status bit
+    int reset: 1;       //Reset status bit
+    int F0_empty: 1;    //Input FIFO is empty
+    int F0_not_full: 1;  //Input FIFO is neither full nor empty
+    int F1_full: 1;     //Output FIFO is full
+    int F1_partial: 1;  //Output FIFO is neither full nor empty
+    int : 1;         //empty bit
+}statReg;
+extern statReg curStatPeriod;
+
 enum Regim {DUMMY, TIME_STMP, ADDR_SET1, ADDR_SET2, ADDR_SET3, ADDR_SET4};
 char* strtok_e(char* pstr1, const char* pstr2);
 void Load(void);

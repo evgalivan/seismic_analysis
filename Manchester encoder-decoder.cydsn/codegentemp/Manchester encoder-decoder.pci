@@ -1,5 +1,5 @@
 # Manchester encoder-decoder
-# 2020-05-27 13:50:47Z
+# 2020-05-29 13:03:53Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
@@ -23,6 +23,7 @@ set_io "ClockEnc(0)" iocell 1 5
 set_io "LOAD_1(0)" iocell 2 0
 set_io "LED(0)" iocell 2 1
 set_io "Clock_tiktak(0)" iocell 2 5
+set_io "Out_TikTak_1(0)" iocell 0 7
 set_io "TC_word(0)" iocell 1 6
 set_io "CH32kHZ_IN(0)" iocell 15 3
 set_io "CH32kHZ_OUT(0)" iocell 15 2
@@ -33,3 +34,6 @@ set_io "DOut_CH3_P(0)" iocell 12 5
 set_io "DOut_CH4_P(0)" iocell 12 7
 set_io "DOut_CH4_N(0)" iocell 12 6
 set_io "Out_TikTak_3(0)" iocell 0 0
+set_io "PPS(0)" iocell 2 2
+set_io "Clock_tiktak_2(0)" iocell 0 6
+set_io "Clock_tiktak_4(0)" iocell 15 5

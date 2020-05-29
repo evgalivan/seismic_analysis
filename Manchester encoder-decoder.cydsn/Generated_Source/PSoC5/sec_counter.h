@@ -163,11 +163,11 @@ void sec_counter_Wakeup(void)        ;
 #else
 #define sec_counter_INIT_COMPARE_VALUE      128u
 #define sec_counter_INIT_INTERRUPTS_MASK ((uint8)((uint8)0u << sec_counter_STATUS_ZERO_INT_EN_MASK_SHIFT) | \
-        ((uint8)((uint8)1u << sec_counter_STATUS_CAPTURE_INT_EN_MASK_SHIFT)) | \
+        ((uint8)((uint8)0u << sec_counter_STATUS_CAPTURE_INT_EN_MASK_SHIFT)) | \
         ((uint8)((uint8)0u << sec_counter_STATUS_CMP_INT_EN_MASK_SHIFT)) | \
         ((uint8)((uint8)0u << sec_counter_STATUS_OVERFLOW_INT_EN_MASK_SHIFT)) | \
         ((uint8)((uint8)0u << sec_counter_STATUS_UNDERFLOW_INT_EN_MASK_SHIFT)))
-#define sec_counter_DEFAULT_COMPARE_MODE    0u
+#define sec_counter_DEFAULT_COMPARE_MODE    1u
 
 #if( 0 != sec_counter_CAPTURE_MODE_CONF)
     #define sec_counter_DEFAULT_CAPTURE_MODE    ((uint8)((uint8)1u << sec_counter_CTRL_CAPMODE0_SHIFT))

@@ -176,7 +176,7 @@ CY_ISR(isr_Load_TrShReg_Interrupt)
 
     *(char*)(&curStat)=TransmitShiftReg_SR_STATUS;
 //    if( TransmitShiftReg_RET_FIFO_EMPTY == TransmitShiftReg_GetFIFOStatus(TransmitShiftReg_IN_FIFO)){
-    if(curStat.F0_not_empty != 0){
+    if(curStat.F0_empty != 0){
         StartTransmit_Write(0);
         BitCounterEnc_ReadStatusRegister( );
         TransmitWordShift_ClearPending( );

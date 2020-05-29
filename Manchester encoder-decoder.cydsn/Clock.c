@@ -18,6 +18,7 @@
 #define	_TBIAS_YEAR		1900
 #define MONTAB(year)		((((year) & 03) || ((year) == 0)) ? mos : lmos)
 
+statReg curStatPeriod;
 const s16_t	lmos[] = {0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335};
 const s16_t	mos[] = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334};
 
@@ -25,15 +26,25 @@ const s16_t	mos[] = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334};
 
 
 void Strobe () {
-    Control_Period_Write(1);
-    while ((Status_Period_Read()&1) == 0);
     Control_Period_Write(0);
-    while ((Status_Period_Read()&1) != 0);
+    Control_Period_Write(2);
+    while((Period_SR_STATUS)&1); //сигнал load
+    Control_Period_Write(1);
+    Control_Period_Write(3);    
+}
+
+void EmptyFIFO(void){
+    while((Period_SR_STATUS&8) == 0) Strobe();
 }
 
 void UpdatePeriod(uint32 NewPeriod) {
-    Period_WriteData(NewPeriod);
-    Strobe();
+    EmptyFIFO();     
+    CY_SET_REG32(Period_IN_FIFO_VAL_LSB_PTR, NewPeriod);
+    CY_SET_REG32(Period_IN_FIFO_VAL_LSB_PTR, NewPeriod);
+    CY_SET_REG32(Period_IN_FIFO_VAL_LSB_PTR, NewPeriod);
+    CY_SET_REG32(Period_IN_FIFO_VAL_LSB_PTR, NewPeriod);
+    //Period_WriteData(NewPeriod);
+    EmptyFIFO(); 
 }
 
 gps_rmc ReadGpsTime(char *gps)

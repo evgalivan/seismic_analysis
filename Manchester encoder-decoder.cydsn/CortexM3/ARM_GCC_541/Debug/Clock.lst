@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc55GI1c.s 			page 1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqdQVTZ.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc55GI1c.s 			page 1
   39              	.LVL0:
   40              	.L2:
   17:Clock.c       ****     while ((Status_Period_Read()&1) == 0);
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc55GI1c.s 			page 2
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqdQVTZ.s 			page 2
 
 
   41              		.loc 1 17 0 discriminator 1
@@ -105,7 +105,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc55GI1c.s 			page 1
   77              		.cfi_offset 14, -4
   23:Clock.c       ****     Period_WriteData(NewPeriod);
   78              		.loc 1 23 0
-  79 0002 C0B2     		uxtb	r0, r0
+  79 0002 80B2     		uxth	r0, r0
   80              	.LVL5:
   81 0004 FFF7FEFF 		bl	Period_WriteData
   82              	.LVL6:
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc55GI1c.s 			page 1
   88              	.LFE64:
   89              		.size	UpdatePeriod, .-UpdatePeriod
   90 000e 00BF     		.text
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc55GI1c.s 			page 3
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqdQVTZ.s 			page 3
 
 
   91              	.Letext0:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc55GI1c.s 			page 1
  145 005d 65010000 		.4byte	.LASF6
  146 0061 02       		.uleb128 0x2
  147 0062 08       		.byte	0x8
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc55GI1c.s 			page 4
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqdQVTZ.s 			page 4
 
 
  148 0063 07       		.byte	0x7
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc55GI1c.s 			page 1
  202 00d3 01       		.uleb128 0x1
  203 00d4 50       		.byte	0x50
  204 00d5 01       		.uleb128 0x1
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc55GI1c.s 			page 5
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqdQVTZ.s 			page 5
 
 
  205 00d6 31       		.byte	0x31
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc55GI1c.s 			page 1
  259 0149 4D010000 		.4byte	0x14d
  260 014d 0D       		.uleb128 0xd
  261 014e 76000000 		.4byte	0x76
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc55GI1c.s 			page 6
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqdQVTZ.s 			page 6
 
 
  262 0152 0E       		.uleb128 0xe
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc55GI1c.s 			page 1
  316 0024 0B       		.uleb128 0xb
  317 0025 3B       		.uleb128 0x3b
  318 0026 0B       		.uleb128 0xb
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc55GI1c.s 			page 7
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqdQVTZ.s 			page 7
 
 
  319 0027 49       		.uleb128 0x49
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc55GI1c.s 			page 1
  373 0060 11       		.uleb128 0x11
  374 0061 01       		.uleb128 0x1
  375 0062 31       		.uleb128 0x31
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc55GI1c.s 			page 8
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqdQVTZ.s 			page 8
 
 
  376 0063 13       		.uleb128 0x13
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc55GI1c.s 			page 1
  430 009f 0B       		.uleb128 0xb
  431 00a0 3B       		.uleb128 0x3b
  432 00a1 0B       		.uleb128 0xb
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc55GI1c.s 			page 9
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqdQVTZ.s 			page 9
 
 
  433 00a2 49       		.uleb128 0x49
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc55GI1c.s 			page 1
  487 000a 50       		.byte	0x50
  488 000b 04000000 		.4byte	.LVL5
  489 000f 0E000000 		.4byte	.LFE64
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc55GI1c.s 			page 10
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqdQVTZ.s 			page 10
 
 
  490 0013 0400     		.2byte	0x4
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc55GI1c.s 			page 1
  530              	.LASF0:
  531 0033 7369676E 		.ascii	"signed char\000"
  531      65642063 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc55GI1c.s 			page 11
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqdQVTZ.s 			page 11
 
 
  531      68617200 
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc55GI1c.s 			page 1
  550              	.LASF14:
  551 013d 63686172 		.ascii	"char\000"
  551      00
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc55GI1c.s 			page 12
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqdQVTZ.s 			page 12
 
 
  552              	.LASF18:
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc55GI1c.s 			page 1
  576      74797065 
  576      00
  577              	.LASF23:
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc55GI1c.s 			page 13
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqdQVTZ.s 			page 13
 
 
  578 0203 5374726F 		.ascii	"Strobe\000"

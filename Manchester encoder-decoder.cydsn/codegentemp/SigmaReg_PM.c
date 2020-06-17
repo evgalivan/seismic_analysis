@@ -21,11 +21,11 @@ static SigmaReg_BACKUP_STRUCT SigmaReg_backup =
 {
     SigmaReg_DISABLED,
 
-    ((uint8) SigmaReg_DEFAULT_A0),
-    ((uint8) SigmaReg_DEFAULT_A1),
+    ((uint16) SigmaReg_DEFAULT_A0),
+    ((uint16) SigmaReg_DEFAULT_A1),
 
     #if(CY_UDB_V0)
-        ((uint8) SigmaReg_INT_SRC),
+        ((uint16) SigmaReg_INT_SRC),
     #endif /* (CY_UDB_V0) */
 };
 
@@ -50,8 +50,8 @@ static SigmaReg_BACKUP_STRUCT SigmaReg_backup =
 void SigmaReg_SaveConfig(void) 
 {
     /* Store working registers A0 and A1 */
-    SigmaReg_backup.saveSrA0Reg   = CY_GET_REG8(SigmaReg_SHIFT_REG_LSB_PTR);
-    SigmaReg_backup.saveSrA1Reg   = CY_GET_REG8(SigmaReg_SHIFT_REG_VALUE_LSB_PTR);
+    SigmaReg_backup.saveSrA0Reg   = CY_GET_REG16(SigmaReg_SHIFT_REG_LSB_PTR);
+    SigmaReg_backup.saveSrA1Reg   = CY_GET_REG16(SigmaReg_SHIFT_REG_VALUE_LSB_PTR);
 
     #if(CY_UDB_V0)
         SigmaReg_backup.saveSrIntMask = SigmaReg_SR_STATUS_MASK;
@@ -76,8 +76,8 @@ void SigmaReg_SaveConfig(void)
 void SigmaReg_RestoreConfig(void) 
 {
     /* Restore working registers A0 and A1 */
-    CY_SET_REG8(SigmaReg_SHIFT_REG_LSB_PTR, SigmaReg_backup.saveSrA0Reg);
-    CY_SET_REG8(SigmaReg_SHIFT_REG_VALUE_LSB_PTR, SigmaReg_backup.saveSrA1Reg);
+    CY_SET_REG16(SigmaReg_SHIFT_REG_LSB_PTR, SigmaReg_backup.saveSrA0Reg);
+    CY_SET_REG16(SigmaReg_SHIFT_REG_VALUE_LSB_PTR, SigmaReg_backup.saveSrA1Reg);
 
     #if(CY_UDB_V0)
         SigmaReg_SR_STATUS_MASK = ((uint8) SigmaReg_backup.saveSrIntMask);

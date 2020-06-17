@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccG5FAQQ.s 			page 1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc3ltxaV.s 			page 1
 
 
    1              		.syntax unified
@@ -51,14 +51,14 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccG5FAQQ.s 			page 1
   21:Generated_Source\PSoC5/SigmaReg_PM.c **** {
   22:Generated_Source\PSoC5/SigmaReg_PM.c ****     SigmaReg_DISABLED,
   23:Generated_Source\PSoC5/SigmaReg_PM.c **** 
-  24:Generated_Source\PSoC5/SigmaReg_PM.c ****     ((uint8) SigmaReg_DEFAULT_A0),
-  25:Generated_Source\PSoC5/SigmaReg_PM.c ****     ((uint8) SigmaReg_DEFAULT_A1),
+  24:Generated_Source\PSoC5/SigmaReg_PM.c ****     ((uint16) SigmaReg_DEFAULT_A0),
+  25:Generated_Source\PSoC5/SigmaReg_PM.c ****     ((uint16) SigmaReg_DEFAULT_A1),
   26:Generated_Source\PSoC5/SigmaReg_PM.c **** 
   27:Generated_Source\PSoC5/SigmaReg_PM.c ****     #if(CY_UDB_V0)
-  28:Generated_Source\PSoC5/SigmaReg_PM.c ****         ((uint8) SigmaReg_INT_SRC),
+  28:Generated_Source\PSoC5/SigmaReg_PM.c ****         ((uint16) SigmaReg_INT_SRC),
   29:Generated_Source\PSoC5/SigmaReg_PM.c ****     #endif /* (CY_UDB_V0) */
   30:Generated_Source\PSoC5/SigmaReg_PM.c **** };
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccG5FAQQ.s 			page 2
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc3ltxaV.s 			page 2
 
 
   31:Generated_Source\PSoC5/SigmaReg_PM.c **** 
@@ -88,24 +88,24 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccG5FAQQ.s 			page 1
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   32              		@ link register save eliminated.
   52:Generated_Source\PSoC5/SigmaReg_PM.c ****     /* Store working registers A0 and A1 */
-  53:Generated_Source\PSoC5/SigmaReg_PM.c ****     SigmaReg_backup.saveSrA0Reg   = CY_GET_REG8(SigmaReg_SHIFT_REG_LSB_PTR);
+  53:Generated_Source\PSoC5/SigmaReg_PM.c ****     SigmaReg_backup.saveSrA0Reg   = CY_GET_REG16(SigmaReg_SHIFT_REG_LSB_PTR);
   33              		.loc 1 53 0
   34 0000 034B     		ldr	r3, .L2
-  35 0002 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+  35 0002 1A88     		ldrh	r2, [r3]
   36 0004 034B     		ldr	r3, .L2+4
-  37 0006 5A70     		strb	r2, [r3, #1]
-  54:Generated_Source\PSoC5/SigmaReg_PM.c ****     SigmaReg_backup.saveSrA1Reg   = CY_GET_REG8(SigmaReg_SHIFT_REG_VALUE_LSB_PTR);
+  37 0006 5A80     		strh	r2, [r3, #2]	@ movhi
+  54:Generated_Source\PSoC5/SigmaReg_PM.c ****     SigmaReg_backup.saveSrA1Reg   = CY_GET_REG16(SigmaReg_SHIFT_REG_VALUE_LSB_PTR);
   38              		.loc 1 54 0
   39 0008 034A     		ldr	r2, .L2+8
-  40 000a 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
-  41 000c 9A70     		strb	r2, [r3, #2]
+  40 000a 1288     		ldrh	r2, [r2]
+  41 000c 9A80     		strh	r2, [r3, #4]	@ movhi
   42 000e 7047     		bx	lr
   43              	.L3:
   44              		.align	2
   45              	.L2:
-  46 0010 03640040 		.word	1073767427
+  46 0010 0C640040 		.word	1073767436
   47 0014 00000000 		.word	.LANCHOR0
-  48 0018 13640040 		.word	1073767443
+  48 0018 1C640040 		.word	1073767452
   49              		.cfi_endproc
   50              	.LFE0:
   51              		.size	SigmaReg_SaveConfig, .-SigmaReg_SaveConfig
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccG5FAQQ.s 			page 1
   58              	SigmaReg_RestoreConfig:
   59              	.LFB1:
   55:Generated_Source\PSoC5/SigmaReg_PM.c **** 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccG5FAQQ.s 			page 3
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc3ltxaV.s 			page 3
 
 
   56:Generated_Source\PSoC5/SigmaReg_PM.c ****     #if(CY_UDB_V0)
@@ -149,24 +149,24 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccG5FAQQ.s 			page 1
   63              		@ frame_needed = 0, uses_anonymous_args = 0
   64              		@ link register save eliminated.
   78:Generated_Source\PSoC5/SigmaReg_PM.c ****     /* Restore working registers A0 and A1 */
-  79:Generated_Source\PSoC5/SigmaReg_PM.c ****     CY_SET_REG8(SigmaReg_SHIFT_REG_LSB_PTR, SigmaReg_backup.saveSrA0Reg);
+  79:Generated_Source\PSoC5/SigmaReg_PM.c ****     CY_SET_REG16(SigmaReg_SHIFT_REG_LSB_PTR, SigmaReg_backup.saveSrA0Reg);
   65              		.loc 1 79 0
   66 0000 034B     		ldr	r3, .L5
-  67 0002 5978     		ldrb	r1, [r3, #1]	@ zero_extendqisi2
+  67 0002 5988     		ldrh	r1, [r3, #2]
   68 0004 034A     		ldr	r2, .L5+4
-  69 0006 1170     		strb	r1, [r2]
-  80:Generated_Source\PSoC5/SigmaReg_PM.c ****     CY_SET_REG8(SigmaReg_SHIFT_REG_VALUE_LSB_PTR, SigmaReg_backup.saveSrA1Reg);
+  69 0006 1180     		strh	r1, [r2]	@ movhi
+  80:Generated_Source\PSoC5/SigmaReg_PM.c ****     CY_SET_REG16(SigmaReg_SHIFT_REG_VALUE_LSB_PTR, SigmaReg_backup.saveSrA1Reg);
   70              		.loc 1 80 0
-  71 0008 9A78     		ldrb	r2, [r3, #2]	@ zero_extendqisi2
+  71 0008 9A88     		ldrh	r2, [r3, #4]
   72 000a 034B     		ldr	r3, .L5+8
-  73 000c 1A70     		strb	r2, [r3]
+  73 000c 1A80     		strh	r2, [r3]	@ movhi
   74 000e 7047     		bx	lr
   75              	.L6:
   76              		.align	2
   77              	.L5:
   78 0010 00000000 		.word	.LANCHOR0
-  79 0014 03640040 		.word	1073767427
-  80 0018 13640040 		.word	1073767443
+  79 0014 0C640040 		.word	1073767436
+  80 0018 1C640040 		.word	1073767452
   81              		.cfi_endproc
   82              	.LFE1:
   83              		.size	SigmaReg_RestoreConfig, .-SigmaReg_RestoreConfig
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccG5FAQQ.s 			page 1
   89              		.type	SigmaReg_Sleep, %function
   90              	SigmaReg_Sleep:
   91              	.LFB2:
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccG5FAQQ.s 			page 4
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc3ltxaV.s 			page 4
 
 
   81:Generated_Source\PSoC5/SigmaReg_PM.c **** 
@@ -235,10 +235,10 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccG5FAQQ.s 			page 1
  113              	.L10:
  114              		.align	2
  115              	.L9:
- 116 0018 73640040 		.word	1073767539
+ 116 0018 7C640040 		.word	1073767548
  117 001c 00000000 		.word	.LANCHOR0
  118              		.cfi_endproc
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccG5FAQQ.s 			page 5
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc3ltxaV.s 			page 5
 
 
  119              	.LFE2:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccG5FAQQ.s 			page 1
  149              	.L15:
  150 0012 00BF     		.align	2
  151              	.L14:
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccG5FAQQ.s 			page 6
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc3ltxaV.s 			page 6
 
 
  152 0014 00000000 		.word	.LANCHOR0
@@ -309,62 +309,63 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccG5FAQQ.s 			page 1
  157              		.align	2
  158              		.set	.LANCHOR0,. + 0
  159              		.type	SigmaReg_backup, %object
- 160              		.size	SigmaReg_backup, 3
+ 160              		.size	SigmaReg_backup, 6
  161              	SigmaReg_backup:
- 162 0000 000000   		.space	3
+ 162 0000 00000000 		.space	6
+ 162      0000
  163              		.text
  164              	.Letext0:
  165              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
  166              		.file 3 "Generated_Source\\PSoC5\\SigmaReg.h"
  167              		.section	.debug_info,"",%progbits
  168              	.Ldebug_info0:
- 169 0000 79010000 		.4byte	0x179
+ 169 0000 96010000 		.4byte	0x196
  170 0004 0400     		.2byte	0x4
  171 0006 00000000 		.4byte	.Ldebug_abbrev0
  172 000a 04       		.byte	0x4
  173 000b 01       		.uleb128 0x1
- 174 000c D2000000 		.4byte	.LASF26
+ 174 000c D8000000 		.4byte	.LASF28
  175 0010 0C       		.byte	0xc
- 176 0011 63000000 		.4byte	.LASF27
- 177 0015 17000000 		.4byte	.LASF28
+ 176 0011 69000000 		.4byte	.LASF29
+ 177 0015 1D000000 		.4byte	.LASF30
  178 0019 00000000 		.4byte	.Ldebug_ranges0+0
  179 001d 00000000 		.4byte	0
  180 0021 00000000 		.4byte	.Ldebug_line0
  181 0025 02       		.uleb128 0x2
  182 0026 01       		.byte	0x1
  183 0027 06       		.byte	0x6
- 184 0028 50020000 		.4byte	.LASF0
+ 184 0028 5D020000 		.4byte	.LASF0
  185 002c 02       		.uleb128 0x2
  186 002d 01       		.byte	0x1
  187 002e 08       		.byte	0x8
- 188 002f C4000000 		.4byte	.LASF1
+ 188 002f CA000000 		.4byte	.LASF1
  189 0033 02       		.uleb128 0x2
  190 0034 02       		.byte	0x2
  191 0035 05       		.byte	0x5
- 192 0036 25020000 		.4byte	.LASF2
+ 192 0036 32020000 		.4byte	.LASF2
  193 003a 02       		.uleb128 0x2
  194 003b 02       		.byte	0x2
  195 003c 07       		.byte	0x7
- 196 003d 88000000 		.4byte	.LASF3
+ 196 003d 8E000000 		.4byte	.LASF3
  197 0041 02       		.uleb128 0x2
  198 0042 04       		.byte	0x4
  199 0043 05       		.byte	0x5
- 200 0044 2F020000 		.4byte	.LASF4
+ 200 0044 3C020000 		.4byte	.LASF4
  201 0048 02       		.uleb128 0x2
  202 0049 04       		.byte	0x4
  203 004a 07       		.byte	0x7
- 204 004b 65010000 		.4byte	.LASF5
+ 204 004b 6B010000 		.4byte	.LASF5
  205 004f 02       		.uleb128 0x2
  206 0050 08       		.byte	0x8
  207 0051 05       		.byte	0x5
- 208 0052 12020000 		.4byte	.LASF6
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccG5FAQQ.s 			page 7
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc3ltxaV.s 			page 7
 
 
+ 208 0052 1F020000 		.4byte	.LASF6
  209 0056 02       		.uleb128 0x2
  210 0057 08       		.byte	0x8
  211 0058 07       		.byte	0x7
- 212 0059 E2010000 		.4byte	.LASF7
+ 212 0059 EF010000 		.4byte	.LASF7
  213 005d 03       		.uleb128 0x3
  214 005e 04       		.byte	0x4
  215 005f 05       		.byte	0x5
@@ -372,547 +373,565 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccG5FAQQ.s 			page 1
  217 0064 02       		.uleb128 0x2
  218 0065 04       		.byte	0x4
  219 0066 07       		.byte	0x7
- 220 0067 D5010000 		.4byte	.LASF8
+ 220 0067 E2010000 		.4byte	.LASF8
  221 006b 04       		.uleb128 0x4
- 222 006c 77010000 		.4byte	.LASF12
+ 222 006c 7D010000 		.4byte	.LASF9
  223 0070 02       		.byte	0x2
  224 0071 E401     		.2byte	0x1e4
  225 0073 2C000000 		.4byte	0x2c
- 226 0077 02       		.uleb128 0x2
- 227 0078 04       		.byte	0x4
- 228 0079 04       		.byte	0x4
- 229 007a BE000000 		.4byte	.LASF9
- 230 007e 02       		.uleb128 0x2
- 231 007f 08       		.byte	0x8
- 232 0080 04       		.byte	0x4
- 233 0081 BA010000 		.4byte	.LASF10
- 234 0085 02       		.uleb128 0x2
- 235 0086 01       		.byte	0x1
- 236 0087 08       		.byte	0x8
- 237 0088 20020000 		.4byte	.LASF11
- 238 008c 04       		.uleb128 0x4
- 239 008d 60010000 		.4byte	.LASF13
- 240 0091 02       		.byte	0x2
- 241 0092 8E02     		.2byte	0x28e
- 242 0094 98000000 		.4byte	0x98
- 243 0098 05       		.uleb128 0x5
- 244 0099 6B000000 		.4byte	0x6b
- 245 009d 02       		.uleb128 0x2
- 246 009e 08       		.byte	0x8
- 247 009f 04       		.byte	0x4
- 248 00a0 44020000 		.4byte	.LASF14
- 249 00a4 02       		.uleb128 0x2
- 250 00a5 04       		.byte	0x4
- 251 00a6 07       		.byte	0x7
- 252 00a7 09020000 		.4byte	.LASF15
- 253 00ab 06       		.uleb128 0x6
- 254 00ac 03       		.byte	0x3
- 255 00ad 03       		.byte	0x3
- 256 00ae 2A       		.byte	0x2a
- 257 00af D8000000 		.4byte	0xd8
- 258 00b3 07       		.uleb128 0x7
- 259 00b4 38020000 		.4byte	.LASF16
- 260 00b8 03       		.byte	0x3
- 261 00b9 2C       		.byte	0x2c
- 262 00ba 6B000000 		.4byte	0x6b
- 263 00be 00       		.byte	0
- 264 00bf 07       		.uleb128 0x7
- 265 00c0 5C020000 		.4byte	.LASF17
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccG5FAQQ.s 			page 8
+ 226 0077 04       		.uleb128 0x4
+ 227 0078 C7010000 		.4byte	.LASF10
+ 228 007c 02       		.byte	0x2
+ 229 007d E501     		.2byte	0x1e5
+ 230 007f 3A000000 		.4byte	0x3a
+ 231 0083 02       		.uleb128 0x2
+ 232 0084 04       		.byte	0x4
+ 233 0085 04       		.byte	0x4
+ 234 0086 C4000000 		.4byte	.LASF11
+ 235 008a 02       		.uleb128 0x2
+ 236 008b 08       		.byte	0x8
+ 237 008c 04       		.byte	0x4
+ 238 008d C0010000 		.4byte	.LASF12
+ 239 0091 02       		.uleb128 0x2
+ 240 0092 01       		.byte	0x1
+ 241 0093 08       		.byte	0x8
+ 242 0094 2D020000 		.4byte	.LASF13
+ 243 0098 04       		.uleb128 0x4
+ 244 0099 66010000 		.4byte	.LASF14
+ 245 009d 02       		.byte	0x2
+ 246 009e 8E02     		.2byte	0x28e
+ 247 00a0 A4000000 		.4byte	0xa4
+ 248 00a4 05       		.uleb128 0x5
+ 249 00a5 6B000000 		.4byte	0x6b
+ 250 00a9 04       		.uleb128 0x4
+ 251 00aa 00000000 		.4byte	.LASF15
+ 252 00ae 02       		.byte	0x2
+ 253 00af 8F02     		.2byte	0x28f
+ 254 00b1 B5000000 		.4byte	0xb5
+ 255 00b5 05       		.uleb128 0x5
+ 256 00b6 77000000 		.4byte	0x77
+ 257 00ba 02       		.uleb128 0x2
+ 258 00bb 08       		.byte	0x8
+ 259 00bc 04       		.byte	0x4
+ 260 00bd 51020000 		.4byte	.LASF16
+ 261 00c1 02       		.uleb128 0x2
+ 262 00c2 04       		.byte	0x4
+ 263 00c3 07       		.byte	0x7
+ 264 00c4 16020000 		.4byte	.LASF17
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc3ltxaV.s 			page 8
 
 
- 266 00c4 03       		.byte	0x3
- 267 00c5 2E       		.byte	0x2e
- 268 00c6 6B000000 		.4byte	0x6b
- 269 00ca 01       		.byte	0x1
- 270 00cb 07       		.uleb128 0x7
- 271 00cc 9B000000 		.4byte	.LASF18
- 272 00d0 03       		.byte	0x3
- 273 00d1 2F       		.byte	0x2f
- 274 00d2 6B000000 		.4byte	0x6b
- 275 00d6 02       		.byte	0x2
- 276 00d7 00       		.byte	0
- 277 00d8 08       		.uleb128 0x8
- 278 00d9 00000000 		.4byte	.LASF19
- 279 00dd 03       		.byte	0x3
- 280 00de 35       		.byte	0x35
- 281 00df AB000000 		.4byte	0xab
- 282 00e3 09       		.uleb128 0x9
- 283 00e4 C1010000 		.4byte	.LASF20
- 284 00e8 01       		.byte	0x1
- 285 00e9 32       		.byte	0x32
- 286 00ea 00000000 		.4byte	.LFB0
- 287 00ee 1C000000 		.4byte	.LFE0-.LFB0
- 288 00f2 01       		.uleb128 0x1
- 289 00f3 9C       		.byte	0x9c
- 290 00f4 09       		.uleb128 0x9
- 291 00f5 A7000000 		.4byte	.LASF21
- 292 00f9 01       		.byte	0x1
- 293 00fa 4C       		.byte	0x4c
- 294 00fb 00000000 		.4byte	.LFB1
- 295 00ff 1C000000 		.4byte	.LFE1-.LFB1
- 296 0103 01       		.uleb128 0x1
- 297 0104 9C       		.byte	0x9c
- 298 0105 0A       		.uleb128 0xa
- 299 0106 9D010000 		.4byte	.LASF22
- 300 010a 01       		.byte	0x1
- 301 010b 69       		.byte	0x69
- 302 010c 00000000 		.4byte	.LFB2
- 303 0110 20000000 		.4byte	.LFE2-.LFB2
- 304 0114 01       		.uleb128 0x1
- 305 0115 9C       		.byte	0x9c
- 306 0116 2D010000 		.4byte	0x12d
- 307 011a 0B       		.uleb128 0xb
- 308 011b 12000000 		.4byte	.LVL0
- 309 011f 66010000 		.4byte	0x166
- 310 0123 0B       		.uleb128 0xb
- 311 0124 16000000 		.4byte	.LVL1
- 312 0128 E3000000 		.4byte	0xe3
- 313 012c 00       		.byte	0
- 314 012d 0A       		.uleb128 0xa
- 315 012e F9010000 		.4byte	.LASF23
- 316 0132 01       		.byte	0x1
- 317 0133 80       		.byte	0x80
- 318 0134 00000000 		.4byte	.LFB3
- 319 0138 18000000 		.4byte	.LFE3-.LFB3
- 320 013c 01       		.uleb128 0x1
- 321 013d 9C       		.byte	0x9c
- 322 013e 55010000 		.4byte	0x155
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccG5FAQQ.s 			page 9
+ 265 00c8 06       		.uleb128 0x6
+ 266 00c9 06       		.byte	0x6
+ 267 00ca 03       		.byte	0x3
+ 268 00cb 2A       		.byte	0x2a
+ 269 00cc F5000000 		.4byte	0xf5
+ 270 00d0 07       		.uleb128 0x7
+ 271 00d1 45020000 		.4byte	.LASF18
+ 272 00d5 03       		.byte	0x3
+ 273 00d6 2C       		.byte	0x2c
+ 274 00d7 6B000000 		.4byte	0x6b
+ 275 00db 00       		.byte	0
+ 276 00dc 07       		.uleb128 0x7
+ 277 00dd 69020000 		.4byte	.LASF19
+ 278 00e1 03       		.byte	0x3
+ 279 00e2 2E       		.byte	0x2e
+ 280 00e3 77000000 		.4byte	0x77
+ 281 00e7 02       		.byte	0x2
+ 282 00e8 07       		.uleb128 0x7
+ 283 00e9 A1000000 		.4byte	.LASF20
+ 284 00ed 03       		.byte	0x3
+ 285 00ee 2F       		.byte	0x2f
+ 286 00ef 77000000 		.4byte	0x77
+ 287 00f3 04       		.byte	0x4
+ 288 00f4 00       		.byte	0
+ 289 00f5 08       		.uleb128 0x8
+ 290 00f6 06000000 		.4byte	.LASF21
+ 291 00fa 03       		.byte	0x3
+ 292 00fb 35       		.byte	0x35
+ 293 00fc C8000000 		.4byte	0xc8
+ 294 0100 09       		.uleb128 0x9
+ 295 0101 CE010000 		.4byte	.LASF22
+ 296 0105 01       		.byte	0x1
+ 297 0106 32       		.byte	0x32
+ 298 0107 00000000 		.4byte	.LFB0
+ 299 010b 1C000000 		.4byte	.LFE0-.LFB0
+ 300 010f 01       		.uleb128 0x1
+ 301 0110 9C       		.byte	0x9c
+ 302 0111 09       		.uleb128 0x9
+ 303 0112 AD000000 		.4byte	.LASF23
+ 304 0116 01       		.byte	0x1
+ 305 0117 4C       		.byte	0x4c
+ 306 0118 00000000 		.4byte	.LFB1
+ 307 011c 1C000000 		.4byte	.LFE1-.LFB1
+ 308 0120 01       		.uleb128 0x1
+ 309 0121 9C       		.byte	0x9c
+ 310 0122 0A       		.uleb128 0xa
+ 311 0123 A3010000 		.4byte	.LASF24
+ 312 0127 01       		.byte	0x1
+ 313 0128 69       		.byte	0x69
+ 314 0129 00000000 		.4byte	.LFB2
+ 315 012d 20000000 		.4byte	.LFE2-.LFB2
+ 316 0131 01       		.uleb128 0x1
+ 317 0132 9C       		.byte	0x9c
+ 318 0133 4A010000 		.4byte	0x14a
+ 319 0137 0B       		.uleb128 0xb
+ 320 0138 12000000 		.4byte	.LVL0
+ 321 013c 83010000 		.4byte	0x183
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc3ltxaV.s 			page 9
 
 
- 323 0142 0B       		.uleb128 0xb
- 324 0143 06000000 		.4byte	.LVL2
- 325 0147 F4000000 		.4byte	0xf4
- 326 014b 0B       		.uleb128 0xb
- 327 014c 10000000 		.4byte	.LVL3
- 328 0150 71010000 		.4byte	0x171
- 329 0154 00       		.byte	0
- 330 0155 0C       		.uleb128 0xc
- 331 0156 7D010000 		.4byte	.LASF29
- 332 015a 01       		.byte	0x1
- 333 015b 14       		.byte	0x14
- 334 015c D8000000 		.4byte	0xd8
- 335 0160 05       		.uleb128 0x5
- 336 0161 03       		.byte	0x3
- 337 0162 00000000 		.4byte	SigmaReg_backup
- 338 0166 0D       		.uleb128 0xd
- 339 0167 AC010000 		.4byte	.LASF24
- 340 016b AC010000 		.4byte	.LASF24
- 341 016f 03       		.byte	0x3
- 342 0170 3D       		.byte	0x3d
- 343 0171 0D       		.uleb128 0xd
- 344 0172 8D010000 		.4byte	.LASF25
- 345 0176 8D010000 		.4byte	.LASF25
- 346 017a 03       		.byte	0x3
- 347 017b 3F       		.byte	0x3f
- 348 017c 00       		.byte	0
- 349              		.section	.debug_abbrev,"",%progbits
- 350              	.Ldebug_abbrev0:
- 351 0000 01       		.uleb128 0x1
- 352 0001 11       		.uleb128 0x11
- 353 0002 01       		.byte	0x1
- 354 0003 25       		.uleb128 0x25
- 355 0004 0E       		.uleb128 0xe
- 356 0005 13       		.uleb128 0x13
- 357 0006 0B       		.uleb128 0xb
- 358 0007 03       		.uleb128 0x3
- 359 0008 0E       		.uleb128 0xe
- 360 0009 1B       		.uleb128 0x1b
- 361 000a 0E       		.uleb128 0xe
- 362 000b 55       		.uleb128 0x55
- 363 000c 17       		.uleb128 0x17
- 364 000d 11       		.uleb128 0x11
- 365 000e 01       		.uleb128 0x1
- 366 000f 10       		.uleb128 0x10
- 367 0010 17       		.uleb128 0x17
- 368 0011 00       		.byte	0
- 369 0012 00       		.byte	0
- 370 0013 02       		.uleb128 0x2
- 371 0014 24       		.uleb128 0x24
- 372 0015 00       		.byte	0
- 373 0016 0B       		.uleb128 0xb
- 374 0017 0B       		.uleb128 0xb
- 375 0018 3E       		.uleb128 0x3e
- 376 0019 0B       		.uleb128 0xb
- 377 001a 03       		.uleb128 0x3
- 378 001b 0E       		.uleb128 0xe
- 379 001c 00       		.byte	0
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccG5FAQQ.s 			page 10
+ 322 0140 0B       		.uleb128 0xb
+ 323 0141 16000000 		.4byte	.LVL1
+ 324 0145 00010000 		.4byte	0x100
+ 325 0149 00       		.byte	0
+ 326 014a 0A       		.uleb128 0xa
+ 327 014b 06020000 		.4byte	.LASF25
+ 328 014f 01       		.byte	0x1
+ 329 0150 80       		.byte	0x80
+ 330 0151 00000000 		.4byte	.LFB3
+ 331 0155 18000000 		.4byte	.LFE3-.LFB3
+ 332 0159 01       		.uleb128 0x1
+ 333 015a 9C       		.byte	0x9c
+ 334 015b 72010000 		.4byte	0x172
+ 335 015f 0B       		.uleb128 0xb
+ 336 0160 06000000 		.4byte	.LVL2
+ 337 0164 11010000 		.4byte	0x111
+ 338 0168 0B       		.uleb128 0xb
+ 339 0169 10000000 		.4byte	.LVL3
+ 340 016d 8E010000 		.4byte	0x18e
+ 341 0171 00       		.byte	0
+ 342 0172 0C       		.uleb128 0xc
+ 343 0173 83010000 		.4byte	.LASF31
+ 344 0177 01       		.byte	0x1
+ 345 0178 14       		.byte	0x14
+ 346 0179 F5000000 		.4byte	0xf5
+ 347 017d 05       		.uleb128 0x5
+ 348 017e 03       		.byte	0x3
+ 349 017f 00000000 		.4byte	SigmaReg_backup
+ 350 0183 0D       		.uleb128 0xd
+ 351 0184 B2010000 		.4byte	.LASF26
+ 352 0188 B2010000 		.4byte	.LASF26
+ 353 018c 03       		.byte	0x3
+ 354 018d 3D       		.byte	0x3d
+ 355 018e 0D       		.uleb128 0xd
+ 356 018f 93010000 		.4byte	.LASF27
+ 357 0193 93010000 		.4byte	.LASF27
+ 358 0197 03       		.byte	0x3
+ 359 0198 3F       		.byte	0x3f
+ 360 0199 00       		.byte	0
+ 361              		.section	.debug_abbrev,"",%progbits
+ 362              	.Ldebug_abbrev0:
+ 363 0000 01       		.uleb128 0x1
+ 364 0001 11       		.uleb128 0x11
+ 365 0002 01       		.byte	0x1
+ 366 0003 25       		.uleb128 0x25
+ 367 0004 0E       		.uleb128 0xe
+ 368 0005 13       		.uleb128 0x13
+ 369 0006 0B       		.uleb128 0xb
+ 370 0007 03       		.uleb128 0x3
+ 371 0008 0E       		.uleb128 0xe
+ 372 0009 1B       		.uleb128 0x1b
+ 373 000a 0E       		.uleb128 0xe
+ 374 000b 55       		.uleb128 0x55
+ 375 000c 17       		.uleb128 0x17
+ 376 000d 11       		.uleb128 0x11
+ 377 000e 01       		.uleb128 0x1
+ 378 000f 10       		.uleb128 0x10
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc3ltxaV.s 			page 10
 
 
- 380 001d 00       		.byte	0
- 381 001e 03       		.uleb128 0x3
- 382 001f 24       		.uleb128 0x24
- 383 0020 00       		.byte	0
- 384 0021 0B       		.uleb128 0xb
- 385 0022 0B       		.uleb128 0xb
- 386 0023 3E       		.uleb128 0x3e
- 387 0024 0B       		.uleb128 0xb
- 388 0025 03       		.uleb128 0x3
- 389 0026 08       		.uleb128 0x8
- 390 0027 00       		.byte	0
- 391 0028 00       		.byte	0
- 392 0029 04       		.uleb128 0x4
- 393 002a 16       		.uleb128 0x16
- 394 002b 00       		.byte	0
- 395 002c 03       		.uleb128 0x3
- 396 002d 0E       		.uleb128 0xe
- 397 002e 3A       		.uleb128 0x3a
- 398 002f 0B       		.uleb128 0xb
- 399 0030 3B       		.uleb128 0x3b
- 400 0031 05       		.uleb128 0x5
- 401 0032 49       		.uleb128 0x49
- 402 0033 13       		.uleb128 0x13
- 403 0034 00       		.byte	0
- 404 0035 00       		.byte	0
- 405 0036 05       		.uleb128 0x5
- 406 0037 35       		.uleb128 0x35
- 407 0038 00       		.byte	0
- 408 0039 49       		.uleb128 0x49
- 409 003a 13       		.uleb128 0x13
- 410 003b 00       		.byte	0
- 411 003c 00       		.byte	0
- 412 003d 06       		.uleb128 0x6
- 413 003e 13       		.uleb128 0x13
- 414 003f 01       		.byte	0x1
- 415 0040 0B       		.uleb128 0xb
- 416 0041 0B       		.uleb128 0xb
- 417 0042 3A       		.uleb128 0x3a
- 418 0043 0B       		.uleb128 0xb
- 419 0044 3B       		.uleb128 0x3b
- 420 0045 0B       		.uleb128 0xb
- 421 0046 01       		.uleb128 0x1
- 422 0047 13       		.uleb128 0x13
- 423 0048 00       		.byte	0
- 424 0049 00       		.byte	0
- 425 004a 07       		.uleb128 0x7
- 426 004b 0D       		.uleb128 0xd
- 427 004c 00       		.byte	0
- 428 004d 03       		.uleb128 0x3
- 429 004e 0E       		.uleb128 0xe
- 430 004f 3A       		.uleb128 0x3a
- 431 0050 0B       		.uleb128 0xb
- 432 0051 3B       		.uleb128 0x3b
- 433 0052 0B       		.uleb128 0xb
- 434 0053 49       		.uleb128 0x49
- 435 0054 13       		.uleb128 0x13
- 436 0055 38       		.uleb128 0x38
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccG5FAQQ.s 			page 11
+ 379 0010 17       		.uleb128 0x17
+ 380 0011 00       		.byte	0
+ 381 0012 00       		.byte	0
+ 382 0013 02       		.uleb128 0x2
+ 383 0014 24       		.uleb128 0x24
+ 384 0015 00       		.byte	0
+ 385 0016 0B       		.uleb128 0xb
+ 386 0017 0B       		.uleb128 0xb
+ 387 0018 3E       		.uleb128 0x3e
+ 388 0019 0B       		.uleb128 0xb
+ 389 001a 03       		.uleb128 0x3
+ 390 001b 0E       		.uleb128 0xe
+ 391 001c 00       		.byte	0
+ 392 001d 00       		.byte	0
+ 393 001e 03       		.uleb128 0x3
+ 394 001f 24       		.uleb128 0x24
+ 395 0020 00       		.byte	0
+ 396 0021 0B       		.uleb128 0xb
+ 397 0022 0B       		.uleb128 0xb
+ 398 0023 3E       		.uleb128 0x3e
+ 399 0024 0B       		.uleb128 0xb
+ 400 0025 03       		.uleb128 0x3
+ 401 0026 08       		.uleb128 0x8
+ 402 0027 00       		.byte	0
+ 403 0028 00       		.byte	0
+ 404 0029 04       		.uleb128 0x4
+ 405 002a 16       		.uleb128 0x16
+ 406 002b 00       		.byte	0
+ 407 002c 03       		.uleb128 0x3
+ 408 002d 0E       		.uleb128 0xe
+ 409 002e 3A       		.uleb128 0x3a
+ 410 002f 0B       		.uleb128 0xb
+ 411 0030 3B       		.uleb128 0x3b
+ 412 0031 05       		.uleb128 0x5
+ 413 0032 49       		.uleb128 0x49
+ 414 0033 13       		.uleb128 0x13
+ 415 0034 00       		.byte	0
+ 416 0035 00       		.byte	0
+ 417 0036 05       		.uleb128 0x5
+ 418 0037 35       		.uleb128 0x35
+ 419 0038 00       		.byte	0
+ 420 0039 49       		.uleb128 0x49
+ 421 003a 13       		.uleb128 0x13
+ 422 003b 00       		.byte	0
+ 423 003c 00       		.byte	0
+ 424 003d 06       		.uleb128 0x6
+ 425 003e 13       		.uleb128 0x13
+ 426 003f 01       		.byte	0x1
+ 427 0040 0B       		.uleb128 0xb
+ 428 0041 0B       		.uleb128 0xb
+ 429 0042 3A       		.uleb128 0x3a
+ 430 0043 0B       		.uleb128 0xb
+ 431 0044 3B       		.uleb128 0x3b
+ 432 0045 0B       		.uleb128 0xb
+ 433 0046 01       		.uleb128 0x1
+ 434 0047 13       		.uleb128 0x13
+ 435 0048 00       		.byte	0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc3ltxaV.s 			page 11
 
 
- 437 0056 0B       		.uleb128 0xb
- 438 0057 00       		.byte	0
- 439 0058 00       		.byte	0
- 440 0059 08       		.uleb128 0x8
- 441 005a 16       		.uleb128 0x16
- 442 005b 00       		.byte	0
- 443 005c 03       		.uleb128 0x3
- 444 005d 0E       		.uleb128 0xe
- 445 005e 3A       		.uleb128 0x3a
- 446 005f 0B       		.uleb128 0xb
- 447 0060 3B       		.uleb128 0x3b
- 448 0061 0B       		.uleb128 0xb
- 449 0062 49       		.uleb128 0x49
- 450 0063 13       		.uleb128 0x13
- 451 0064 00       		.byte	0
- 452 0065 00       		.byte	0
- 453 0066 09       		.uleb128 0x9
- 454 0067 2E       		.uleb128 0x2e
- 455 0068 00       		.byte	0
- 456 0069 3F       		.uleb128 0x3f
- 457 006a 19       		.uleb128 0x19
- 458 006b 03       		.uleb128 0x3
- 459 006c 0E       		.uleb128 0xe
- 460 006d 3A       		.uleb128 0x3a
- 461 006e 0B       		.uleb128 0xb
- 462 006f 3B       		.uleb128 0x3b
- 463 0070 0B       		.uleb128 0xb
- 464 0071 27       		.uleb128 0x27
- 465 0072 19       		.uleb128 0x19
- 466 0073 11       		.uleb128 0x11
- 467 0074 01       		.uleb128 0x1
- 468 0075 12       		.uleb128 0x12
- 469 0076 06       		.uleb128 0x6
- 470 0077 40       		.uleb128 0x40
- 471 0078 18       		.uleb128 0x18
- 472 0079 9742     		.uleb128 0x2117
- 473 007b 19       		.uleb128 0x19
- 474 007c 00       		.byte	0
- 475 007d 00       		.byte	0
- 476 007e 0A       		.uleb128 0xa
- 477 007f 2E       		.uleb128 0x2e
- 478 0080 01       		.byte	0x1
- 479 0081 3F       		.uleb128 0x3f
- 480 0082 19       		.uleb128 0x19
- 481 0083 03       		.uleb128 0x3
- 482 0084 0E       		.uleb128 0xe
- 483 0085 3A       		.uleb128 0x3a
- 484 0086 0B       		.uleb128 0xb
- 485 0087 3B       		.uleb128 0x3b
- 486 0088 0B       		.uleb128 0xb
- 487 0089 27       		.uleb128 0x27
- 488 008a 19       		.uleb128 0x19
- 489 008b 11       		.uleb128 0x11
- 490 008c 01       		.uleb128 0x1
- 491 008d 12       		.uleb128 0x12
- 492 008e 06       		.uleb128 0x6
- 493 008f 40       		.uleb128 0x40
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccG5FAQQ.s 			page 12
+ 436 0049 00       		.byte	0
+ 437 004a 07       		.uleb128 0x7
+ 438 004b 0D       		.uleb128 0xd
+ 439 004c 00       		.byte	0
+ 440 004d 03       		.uleb128 0x3
+ 441 004e 0E       		.uleb128 0xe
+ 442 004f 3A       		.uleb128 0x3a
+ 443 0050 0B       		.uleb128 0xb
+ 444 0051 3B       		.uleb128 0x3b
+ 445 0052 0B       		.uleb128 0xb
+ 446 0053 49       		.uleb128 0x49
+ 447 0054 13       		.uleb128 0x13
+ 448 0055 38       		.uleb128 0x38
+ 449 0056 0B       		.uleb128 0xb
+ 450 0057 00       		.byte	0
+ 451 0058 00       		.byte	0
+ 452 0059 08       		.uleb128 0x8
+ 453 005a 16       		.uleb128 0x16
+ 454 005b 00       		.byte	0
+ 455 005c 03       		.uleb128 0x3
+ 456 005d 0E       		.uleb128 0xe
+ 457 005e 3A       		.uleb128 0x3a
+ 458 005f 0B       		.uleb128 0xb
+ 459 0060 3B       		.uleb128 0x3b
+ 460 0061 0B       		.uleb128 0xb
+ 461 0062 49       		.uleb128 0x49
+ 462 0063 13       		.uleb128 0x13
+ 463 0064 00       		.byte	0
+ 464 0065 00       		.byte	0
+ 465 0066 09       		.uleb128 0x9
+ 466 0067 2E       		.uleb128 0x2e
+ 467 0068 00       		.byte	0
+ 468 0069 3F       		.uleb128 0x3f
+ 469 006a 19       		.uleb128 0x19
+ 470 006b 03       		.uleb128 0x3
+ 471 006c 0E       		.uleb128 0xe
+ 472 006d 3A       		.uleb128 0x3a
+ 473 006e 0B       		.uleb128 0xb
+ 474 006f 3B       		.uleb128 0x3b
+ 475 0070 0B       		.uleb128 0xb
+ 476 0071 27       		.uleb128 0x27
+ 477 0072 19       		.uleb128 0x19
+ 478 0073 11       		.uleb128 0x11
+ 479 0074 01       		.uleb128 0x1
+ 480 0075 12       		.uleb128 0x12
+ 481 0076 06       		.uleb128 0x6
+ 482 0077 40       		.uleb128 0x40
+ 483 0078 18       		.uleb128 0x18
+ 484 0079 9742     		.uleb128 0x2117
+ 485 007b 19       		.uleb128 0x19
+ 486 007c 00       		.byte	0
+ 487 007d 00       		.byte	0
+ 488 007e 0A       		.uleb128 0xa
+ 489 007f 2E       		.uleb128 0x2e
+ 490 0080 01       		.byte	0x1
+ 491 0081 3F       		.uleb128 0x3f
+ 492 0082 19       		.uleb128 0x19
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc3ltxaV.s 			page 12
 
 
- 494 0090 18       		.uleb128 0x18
- 495 0091 9742     		.uleb128 0x2117
- 496 0093 19       		.uleb128 0x19
- 497 0094 01       		.uleb128 0x1
- 498 0095 13       		.uleb128 0x13
- 499 0096 00       		.byte	0
- 500 0097 00       		.byte	0
- 501 0098 0B       		.uleb128 0xb
- 502 0099 898201   		.uleb128 0x4109
- 503 009c 00       		.byte	0
- 504 009d 11       		.uleb128 0x11
- 505 009e 01       		.uleb128 0x1
- 506 009f 31       		.uleb128 0x31
- 507 00a0 13       		.uleb128 0x13
- 508 00a1 00       		.byte	0
- 509 00a2 00       		.byte	0
- 510 00a3 0C       		.uleb128 0xc
- 511 00a4 34       		.uleb128 0x34
- 512 00a5 00       		.byte	0
- 513 00a6 03       		.uleb128 0x3
- 514 00a7 0E       		.uleb128 0xe
- 515 00a8 3A       		.uleb128 0x3a
- 516 00a9 0B       		.uleb128 0xb
- 517 00aa 3B       		.uleb128 0x3b
- 518 00ab 0B       		.uleb128 0xb
- 519 00ac 49       		.uleb128 0x49
- 520 00ad 13       		.uleb128 0x13
- 521 00ae 02       		.uleb128 0x2
- 522 00af 18       		.uleb128 0x18
- 523 00b0 00       		.byte	0
- 524 00b1 00       		.byte	0
- 525 00b2 0D       		.uleb128 0xd
- 526 00b3 2E       		.uleb128 0x2e
- 527 00b4 00       		.byte	0
- 528 00b5 3F       		.uleb128 0x3f
- 529 00b6 19       		.uleb128 0x19
- 530 00b7 3C       		.uleb128 0x3c
- 531 00b8 19       		.uleb128 0x19
- 532 00b9 6E       		.uleb128 0x6e
- 533 00ba 0E       		.uleb128 0xe
- 534 00bb 03       		.uleb128 0x3
- 535 00bc 0E       		.uleb128 0xe
- 536 00bd 3A       		.uleb128 0x3a
- 537 00be 0B       		.uleb128 0xb
- 538 00bf 3B       		.uleb128 0x3b
- 539 00c0 0B       		.uleb128 0xb
- 540 00c1 00       		.byte	0
- 541 00c2 00       		.byte	0
- 542 00c3 00       		.byte	0
- 543              		.section	.debug_aranges,"",%progbits
- 544 0000 34000000 		.4byte	0x34
- 545 0004 0200     		.2byte	0x2
- 546 0006 00000000 		.4byte	.Ldebug_info0
- 547 000a 04       		.byte	0x4
- 548 000b 00       		.byte	0
- 549 000c 0000     		.2byte	0
- 550 000e 0000     		.2byte	0
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccG5FAQQ.s 			page 13
+ 493 0083 03       		.uleb128 0x3
+ 494 0084 0E       		.uleb128 0xe
+ 495 0085 3A       		.uleb128 0x3a
+ 496 0086 0B       		.uleb128 0xb
+ 497 0087 3B       		.uleb128 0x3b
+ 498 0088 0B       		.uleb128 0xb
+ 499 0089 27       		.uleb128 0x27
+ 500 008a 19       		.uleb128 0x19
+ 501 008b 11       		.uleb128 0x11
+ 502 008c 01       		.uleb128 0x1
+ 503 008d 12       		.uleb128 0x12
+ 504 008e 06       		.uleb128 0x6
+ 505 008f 40       		.uleb128 0x40
+ 506 0090 18       		.uleb128 0x18
+ 507 0091 9742     		.uleb128 0x2117
+ 508 0093 19       		.uleb128 0x19
+ 509 0094 01       		.uleb128 0x1
+ 510 0095 13       		.uleb128 0x13
+ 511 0096 00       		.byte	0
+ 512 0097 00       		.byte	0
+ 513 0098 0B       		.uleb128 0xb
+ 514 0099 898201   		.uleb128 0x4109
+ 515 009c 00       		.byte	0
+ 516 009d 11       		.uleb128 0x11
+ 517 009e 01       		.uleb128 0x1
+ 518 009f 31       		.uleb128 0x31
+ 519 00a0 13       		.uleb128 0x13
+ 520 00a1 00       		.byte	0
+ 521 00a2 00       		.byte	0
+ 522 00a3 0C       		.uleb128 0xc
+ 523 00a4 34       		.uleb128 0x34
+ 524 00a5 00       		.byte	0
+ 525 00a6 03       		.uleb128 0x3
+ 526 00a7 0E       		.uleb128 0xe
+ 527 00a8 3A       		.uleb128 0x3a
+ 528 00a9 0B       		.uleb128 0xb
+ 529 00aa 3B       		.uleb128 0x3b
+ 530 00ab 0B       		.uleb128 0xb
+ 531 00ac 49       		.uleb128 0x49
+ 532 00ad 13       		.uleb128 0x13
+ 533 00ae 02       		.uleb128 0x2
+ 534 00af 18       		.uleb128 0x18
+ 535 00b0 00       		.byte	0
+ 536 00b1 00       		.byte	0
+ 537 00b2 0D       		.uleb128 0xd
+ 538 00b3 2E       		.uleb128 0x2e
+ 539 00b4 00       		.byte	0
+ 540 00b5 3F       		.uleb128 0x3f
+ 541 00b6 19       		.uleb128 0x19
+ 542 00b7 3C       		.uleb128 0x3c
+ 543 00b8 19       		.uleb128 0x19
+ 544 00b9 6E       		.uleb128 0x6e
+ 545 00ba 0E       		.uleb128 0xe
+ 546 00bb 03       		.uleb128 0x3
+ 547 00bc 0E       		.uleb128 0xe
+ 548 00bd 3A       		.uleb128 0x3a
+ 549 00be 0B       		.uleb128 0xb
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc3ltxaV.s 			page 13
 
 
- 551 0010 00000000 		.4byte	.LFB0
- 552 0014 1C000000 		.4byte	.LFE0-.LFB0
- 553 0018 00000000 		.4byte	.LFB1
- 554 001c 1C000000 		.4byte	.LFE1-.LFB1
- 555 0020 00000000 		.4byte	.LFB2
- 556 0024 20000000 		.4byte	.LFE2-.LFB2
- 557 0028 00000000 		.4byte	.LFB3
- 558 002c 18000000 		.4byte	.LFE3-.LFB3
- 559 0030 00000000 		.4byte	0
- 560 0034 00000000 		.4byte	0
- 561              		.section	.debug_ranges,"",%progbits
- 562              	.Ldebug_ranges0:
- 563 0000 00000000 		.4byte	.LFB0
- 564 0004 1C000000 		.4byte	.LFE0
- 565 0008 00000000 		.4byte	.LFB1
- 566 000c 1C000000 		.4byte	.LFE1
- 567 0010 00000000 		.4byte	.LFB2
- 568 0014 20000000 		.4byte	.LFE2
- 569 0018 00000000 		.4byte	.LFB3
- 570 001c 18000000 		.4byte	.LFE3
- 571 0020 00000000 		.4byte	0
- 572 0024 00000000 		.4byte	0
- 573              		.section	.debug_line,"",%progbits
- 574              	.Ldebug_line0:
- 575 0000 A5000000 		.section	.debug_str,"MS",%progbits,1
- 575      02005600 
- 575      00000201 
- 575      FB0E0D00 
- 575      01010101 
- 576              	.LASF19:
- 577 0000 5369676D 		.ascii	"SigmaReg_BACKUP_STRUCT\000"
- 577      61526567 
- 577      5F424143 
- 577      4B55505F 
- 577      53545255 
- 578              	.LASF28:
- 579 0017 433A5C55 		.ascii	"C:\\Users\\e.ivanov\\Documents\\GitHub\\generic\\Ma"
- 579      73657273 
- 579      5C652E69 
- 579      76616E6F 
- 579      765C446F 
- 580 0044 6E636865 		.ascii	"nchester encoder-decoder.cydsn\000"
- 580      73746572 
- 580      20656E63 
- 580      6F646572 
- 580      2D646563 
- 581              	.LASF27:
- 582 0063 47656E65 		.ascii	"Generated_Source\\PSoC5\\SigmaReg_PM.c\000"
- 582      72617465 
- 582      645F536F 
- 582      75726365 
- 582      5C50536F 
- 583              	.LASF3:
- 584 0088 73686F72 		.ascii	"short unsigned int\000"
- 584      7420756E 
- 584      7369676E 
- 584      65642069 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccG5FAQQ.s 			page 14
+ 550 00bf 3B       		.uleb128 0x3b
+ 551 00c0 0B       		.uleb128 0xb
+ 552 00c1 00       		.byte	0
+ 553 00c2 00       		.byte	0
+ 554 00c3 00       		.byte	0
+ 555              		.section	.debug_aranges,"",%progbits
+ 556 0000 34000000 		.4byte	0x34
+ 557 0004 0200     		.2byte	0x2
+ 558 0006 00000000 		.4byte	.Ldebug_info0
+ 559 000a 04       		.byte	0x4
+ 560 000b 00       		.byte	0
+ 561 000c 0000     		.2byte	0
+ 562 000e 0000     		.2byte	0
+ 563 0010 00000000 		.4byte	.LFB0
+ 564 0014 1C000000 		.4byte	.LFE0-.LFB0
+ 565 0018 00000000 		.4byte	.LFB1
+ 566 001c 1C000000 		.4byte	.LFE1-.LFB1
+ 567 0020 00000000 		.4byte	.LFB2
+ 568 0024 20000000 		.4byte	.LFE2-.LFB2
+ 569 0028 00000000 		.4byte	.LFB3
+ 570 002c 18000000 		.4byte	.LFE3-.LFB3
+ 571 0030 00000000 		.4byte	0
+ 572 0034 00000000 		.4byte	0
+ 573              		.section	.debug_ranges,"",%progbits
+ 574              	.Ldebug_ranges0:
+ 575 0000 00000000 		.4byte	.LFB0
+ 576 0004 1C000000 		.4byte	.LFE0
+ 577 0008 00000000 		.4byte	.LFB1
+ 578 000c 1C000000 		.4byte	.LFE1
+ 579 0010 00000000 		.4byte	.LFB2
+ 580 0014 20000000 		.4byte	.LFE2
+ 581 0018 00000000 		.4byte	.LFB3
+ 582 001c 18000000 		.4byte	.LFE3
+ 583 0020 00000000 		.4byte	0
+ 584 0024 00000000 		.4byte	0
+ 585              		.section	.debug_line,"",%progbits
+ 586              	.Ldebug_line0:
+ 587 0000 A5000000 		.section	.debug_str,"MS",%progbits,1
+ 587      02005600 
+ 587      00000201 
+ 587      FB0E0D00 
+ 587      01010101 
+ 588              	.LASF15:
+ 589 0000 72656731 		.ascii	"reg16\000"
+ 589      3600
+ 590              	.LASF21:
+ 591 0006 5369676D 		.ascii	"SigmaReg_BACKUP_STRUCT\000"
+ 591      61526567 
+ 591      5F424143 
+ 591      4B55505F 
+ 591      53545255 
+ 592              	.LASF30:
+ 593 001d 433A5C55 		.ascii	"C:\\Users\\e.ivanov\\Documents\\GitHub\\generic\\Ma"
+ 593      73657273 
+ 593      5C652E69 
+ 593      76616E6F 
+ 593      765C446F 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc3ltxaV.s 			page 14
 
 
- 584      6E7400
- 585              	.LASF18:
- 586 009b 73617665 		.ascii	"saveSrA1Reg\000"
- 586      53724131 
- 586      52656700 
- 587              	.LASF21:
- 588 00a7 5369676D 		.ascii	"SigmaReg_RestoreConfig\000"
- 588      61526567 
- 588      5F526573 
- 588      746F7265 
- 588      436F6E66 
- 589              	.LASF9:
- 590 00be 666C6F61 		.ascii	"float\000"
- 590      7400
- 591              	.LASF1:
- 592 00c4 756E7369 		.ascii	"unsigned char\000"
- 592      676E6564 
- 592      20636861 
- 592      7200
- 593              	.LASF26:
- 594 00d2 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 594      43313120 
- 594      352E342E 
- 594      31203230 
- 594      31363036 
- 595 0105 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 595      20726576 
- 595      6973696F 
- 595      6E203233 
- 595      37373135 
- 596 0138 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 596      66756E63 
- 596      74696F6E 
- 596      2D736563 
- 596      74696F6E 
- 597              	.LASF13:
- 598 0160 72656738 		.ascii	"reg8\000"
- 598      00
- 599              	.LASF5:
- 600 0165 6C6F6E67 		.ascii	"long unsigned int\000"
- 600      20756E73 
- 600      69676E65 
- 600      6420696E 
- 600      7400
- 601              	.LASF12:
- 602 0177 75696E74 		.ascii	"uint8\000"
- 602      3800
- 603              	.LASF29:
- 604 017d 5369676D 		.ascii	"SigmaReg_backup\000"
- 604      61526567 
- 604      5F626163 
- 604      6B757000 
- 605              	.LASF25:
- 606 018d 5369676D 		.ascii	"SigmaReg_Enable\000"
- 606      61526567 
- 606      5F456E61 
- 606      626C6500 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccG5FAQQ.s 			page 15
+ 594 004a 6E636865 		.ascii	"nchester encoder-decoder.cydsn\000"
+ 594      73746572 
+ 594      20656E63 
+ 594      6F646572 
+ 594      2D646563 
+ 595              	.LASF29:
+ 596 0069 47656E65 		.ascii	"Generated_Source\\PSoC5\\SigmaReg_PM.c\000"
+ 596      72617465 
+ 596      645F536F 
+ 596      75726365 
+ 596      5C50536F 
+ 597              	.LASF3:
+ 598 008e 73686F72 		.ascii	"short unsigned int\000"
+ 598      7420756E 
+ 598      7369676E 
+ 598      65642069 
+ 598      6E7400
+ 599              	.LASF20:
+ 600 00a1 73617665 		.ascii	"saveSrA1Reg\000"
+ 600      53724131 
+ 600      52656700 
+ 601              	.LASF23:
+ 602 00ad 5369676D 		.ascii	"SigmaReg_RestoreConfig\000"
+ 602      61526567 
+ 602      5F526573 
+ 602      746F7265 
+ 602      436F6E66 
+ 603              	.LASF11:
+ 604 00c4 666C6F61 		.ascii	"float\000"
+ 604      7400
+ 605              	.LASF1:
+ 606 00ca 756E7369 		.ascii	"unsigned char\000"
+ 606      676E6564 
+ 606      20636861 
+ 606      7200
+ 607              	.LASF28:
+ 608 00d8 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 608      43313120 
+ 608      352E342E 
+ 608      31203230 
+ 608      31363036 
+ 609 010b 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 609      20726576 
+ 609      6973696F 
+ 609      6E203233 
+ 609      37373135 
+ 610 013e 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 610      66756E63 
+ 610      74696F6E 
+ 610      2D736563 
+ 610      74696F6E 
+ 611              	.LASF14:
+ 612 0166 72656738 		.ascii	"reg8\000"
+ 612      00
+ 613              	.LASF5:
+ 614 016b 6C6F6E67 		.ascii	"long unsigned int\000"
+ 614      20756E73 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc3ltxaV.s 			page 15
 
 
- 607              	.LASF22:
- 608 019d 5369676D 		.ascii	"SigmaReg_Sleep\000"
- 608      61526567 
- 608      5F536C65 
- 608      657000
- 609              	.LASF24:
- 610 01ac 5369676D 		.ascii	"SigmaReg_Stop\000"
- 610      61526567 
- 610      5F53746F 
- 610      7000
- 611              	.LASF10:
- 612 01ba 646F7562 		.ascii	"double\000"
- 612      6C6500
- 613              	.LASF20:
- 614 01c1 5369676D 		.ascii	"SigmaReg_SaveConfig\000"
- 614      61526567 
- 614      5F536176 
- 614      65436F6E 
- 614      66696700 
- 615              	.LASF8:
- 616 01d5 756E7369 		.ascii	"unsigned int\000"
- 616      676E6564 
- 616      20696E74 
- 616      00
- 617              	.LASF7:
- 618 01e2 6C6F6E67 		.ascii	"long long unsigned int\000"
- 618      206C6F6E 
- 618      6720756E 
- 618      7369676E 
- 618      65642069 
- 619              	.LASF23:
- 620 01f9 5369676D 		.ascii	"SigmaReg_Wakeup\000"
+ 614      69676E65 
+ 614      6420696E 
+ 614      7400
+ 615              	.LASF9:
+ 616 017d 75696E74 		.ascii	"uint8\000"
+ 616      3800
+ 617              	.LASF31:
+ 618 0183 5369676D 		.ascii	"SigmaReg_backup\000"
+ 618      61526567 
+ 618      5F626163 
+ 618      6B757000 
+ 619              	.LASF27:
+ 620 0193 5369676D 		.ascii	"SigmaReg_Enable\000"
  620      61526567 
- 620      5F57616B 
- 620      65757000 
- 621              	.LASF15:
- 622 0209 73697A65 		.ascii	"sizetype\000"
- 622      74797065 
- 622      00
- 623              	.LASF6:
- 624 0212 6C6F6E67 		.ascii	"long long int\000"
- 624      206C6F6E 
- 624      6720696E 
- 624      7400
- 625              	.LASF11:
- 626 0220 63686172 		.ascii	"char\000"
- 626      00
- 627              	.LASF2:
- 628 0225 73686F72 		.ascii	"short int\000"
- 628      7420696E 
- 628      7400
- 629              	.LASF4:
- 630 022f 6C6F6E67 		.ascii	"long int\000"
- 630      20696E74 
- 630      00
- 631              	.LASF16:
- 632 0238 656E6162 		.ascii	"enableState\000"
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccG5FAQQ.s 			page 16
-
-
- 632      6C655374 
- 632      61746500 
- 633              	.LASF14:
- 634 0244 6C6F6E67 		.ascii	"long double\000"
- 634      20646F75 
- 634      626C6500 
- 635              	.LASF0:
- 636 0250 7369676E 		.ascii	"signed char\000"
- 636      65642063 
- 636      68617200 
+ 620      5F456E61 
+ 620      626C6500 
+ 621              	.LASF24:
+ 622 01a3 5369676D 		.ascii	"SigmaReg_Sleep\000"
+ 622      61526567 
+ 622      5F536C65 
+ 622      657000
+ 623              	.LASF26:
+ 624 01b2 5369676D 		.ascii	"SigmaReg_Stop\000"
+ 624      61526567 
+ 624      5F53746F 
+ 624      7000
+ 625              	.LASF12:
+ 626 01c0 646F7562 		.ascii	"double\000"
+ 626      6C6500
+ 627              	.LASF10:
+ 628 01c7 75696E74 		.ascii	"uint16\000"
+ 628      313600
+ 629              	.LASF22:
+ 630 01ce 5369676D 		.ascii	"SigmaReg_SaveConfig\000"
+ 630      61526567 
+ 630      5F536176 
+ 630      65436F6E 
+ 630      66696700 
+ 631              	.LASF8:
+ 632 01e2 756E7369 		.ascii	"unsigned int\000"
+ 632      676E6564 
+ 632      20696E74 
+ 632      00
+ 633              	.LASF7:
+ 634 01ef 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 634      206C6F6E 
+ 634      6720756E 
+ 634      7369676E 
+ 634      65642069 
+ 635              	.LASF25:
+ 636 0206 5369676D 		.ascii	"SigmaReg_Wakeup\000"
+ 636      61526567 
+ 636      5F57616B 
+ 636      65757000 
  637              	.LASF17:
- 638 025c 73617665 		.ascii	"saveSrA0Reg\000"
- 638      53724130 
- 638      52656700 
- 639              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 638 0216 73697A65 		.ascii	"sizetype\000"
+ 638      74797065 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc3ltxaV.s 			page 16
+
+
+ 638      00
+ 639              	.LASF6:
+ 640 021f 6C6F6E67 		.ascii	"long long int\000"
+ 640      206C6F6E 
+ 640      6720696E 
+ 640      7400
+ 641              	.LASF13:
+ 642 022d 63686172 		.ascii	"char\000"
+ 642      00
+ 643              	.LASF2:
+ 644 0232 73686F72 		.ascii	"short int\000"
+ 644      7420696E 
+ 644      7400
+ 645              	.LASF4:
+ 646 023c 6C6F6E67 		.ascii	"long int\000"
+ 646      20696E74 
+ 646      00
+ 647              	.LASF18:
+ 648 0245 656E6162 		.ascii	"enableState\000"
+ 648      6C655374 
+ 648      61746500 
+ 649              	.LASF16:
+ 650 0251 6C6F6E67 		.ascii	"long double\000"
+ 650      20646F75 
+ 650      626C6500 
+ 651              	.LASF0:
+ 652 025d 7369676E 		.ascii	"signed char\000"
+ 652      65642063 
+ 652      68617200 
+ 653              	.LASF19:
+ 654 0269 73617665 		.ascii	"saveSrA0Reg\000"
+ 654      53724130 
+ 654      52656700 
+ 655              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

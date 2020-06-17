@@ -1,6 +1,6 @@
 // ======================================================================
 // Manchester encoder-decoder.v generated from TopDesign.cysch
-// 03/03/2020 at 16:39
+// 06/15/2020 at 15:49
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -872,7 +872,7 @@ module Counter_v3_0_8 (
 
 endmodule
 
-// ShiftReg_v2_30(ControlRegUsageReplacemetString=SyncCtl, CyGetRegReplacementString=CY_GET_REG8, CySetRegReplacementString=CY_SET_REG8, DefSi=0, Direction=1, FifoSize=4, InterruptSource=1, Length=8, RegDefReplacementString=reg8, RegSizeReplacementString=uint8, UseInputFifo=true, UseInterrupt=false, UseOutputFifo=false, UseShiftIn=true, UseShiftOut=true, VerilogSectionReplacementString=sC8, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=ShiftReg_v2_30, CY_CONFIG_TITLE=Period, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=Period, CY_INSTANCE_SHORT_NAME=Period, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=30, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.2, INSTANCE_NAME=Period, )
+// ShiftReg_v2_30(ControlRegUsageReplacemetString=SyncCtl, CyGetRegReplacementString=CY_GET_REG16, CySetRegReplacementString=CY_SET_REG16, DefSi=0, Direction=1, FifoSize=4, InterruptSource=1, Length=9, RegDefReplacementString=reg16, RegSizeReplacementString=uint16, UseInputFifo=true, UseInterrupt=false, UseOutputFifo=false, UseShiftIn=true, UseShiftOut=true, VerilogSectionReplacementString=sC16, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=ShiftReg_v2_30, CY_CONFIG_TITLE=Period, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=Period, CY_INSTANCE_SHORT_NAME=Period, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=30, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.2, INSTANCE_NAME=Period, )
 module ShiftReg_v2_30_9 (
     shift_in,
     load,
@@ -891,7 +891,7 @@ module ShiftReg_v2_30_9 (
 
     parameter Direction = 1;
     parameter FifoSize = 4;
-    parameter Length = 8;
+    parameter Length = 9;
 
           wire  Net_2;
           wire  Net_1;
@@ -918,7 +918,7 @@ module ShiftReg_v2_30_9 (
     defparam bSR.Direction = 1;
     defparam bSR.FifoSize = 4;
     defparam bSR.InterruptSource = 1;
-    defparam bSR.Length = 8;
+    defparam bSR.Length = 9;
     defparam bSR.UseInputFifo = 1;
     defparam bSR.UseInterrupt = 0;
     defparam bSR.UseOutputFifo = 0;
@@ -927,7 +927,7 @@ module ShiftReg_v2_30_9 (
 
 endmodule
 
-// ShiftReg_v2_30(ControlRegUsageReplacemetString=SyncCtl, CyGetRegReplacementString=CY_GET_REG8, CySetRegReplacementString=CY_SET_REG8, DefSi=0, Direction=1, FifoSize=4, InterruptSource=0, Length=8, RegDefReplacementString=reg8, RegSizeReplacementString=uint8, UseInputFifo=false, UseInterrupt=false, UseOutputFifo=false, UseShiftIn=true, UseShiftOut=true, VerilogSectionReplacementString=sC8, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=ShiftReg_v2_30, CY_CONFIG_TITLE=SigmaReg, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=SigmaReg, CY_INSTANCE_SHORT_NAME=SigmaReg, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=30, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.2, INSTANCE_NAME=SigmaReg, )
+// ShiftReg_v2_30(ControlRegUsageReplacemetString=SyncCtl, CyGetRegReplacementString=CY_GET_REG16, CySetRegReplacementString=CY_SET_REG16, DefSi=0, Direction=1, FifoSize=4, InterruptSource=0, Length=9, RegDefReplacementString=reg16, RegSizeReplacementString=uint16, UseInputFifo=false, UseInterrupt=false, UseOutputFifo=false, UseShiftIn=true, UseShiftOut=true, VerilogSectionReplacementString=sC16, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=ShiftReg_v2_30, CY_CONFIG_TITLE=SigmaReg, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=SigmaReg, CY_INSTANCE_SHORT_NAME=SigmaReg, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=30, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.2, INSTANCE_NAME=SigmaReg, )
 module ShiftReg_v2_30_10 (
     shift_in,
     load,
@@ -946,7 +946,7 @@ module ShiftReg_v2_30_10 (
 
     parameter Direction = 1;
     parameter FifoSize = 4;
-    parameter Length = 8;
+    parameter Length = 9;
 
           wire  Net_2;
           wire  Net_1;
@@ -973,7 +973,7 @@ module ShiftReg_v2_30_10 (
     defparam bSR.Direction = 1;
     defparam bSR.FifoSize = 4;
     defparam bSR.InterruptSource = 0;
-    defparam bSR.Length = 8;
+    defparam bSR.Length = 9;
     defparam bSR.UseInputFifo = 0;
     defparam bSR.UseInterrupt = 0;
     defparam bSR.UseOutputFifo = 0;
@@ -995,7 +995,7 @@ endmodule
 `include "C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\LUT_v1_50\LUT_v1_50.v"
 `endif
 
-// Counter_v3_0(CaptureMode=1, CaptureModeSoftware=0, ClockMode=0, CompareMode=0, CompareModeSoftware=0, CompareStatusEdgeSense=true, CompareValue=512, CONTROL3=0, ControlRegRemoved=0, CyGetRegReplacementString=CY_GET_REG16, CySetRegReplacementString=CY_SET_REG16, EnableMode=0, FF16=false, FF8=false, FixedFunction=false, FixedFunctionUsed=0, InitCounterValue=0, InterruptOnCapture=true, InterruptOnCompare=true, InterruptOnOverUnderFlow=true, InterruptOnTC=false, Period=4095, RegDefReplacementString=reg16, RegSizeReplacementString=uint16, ReloadOnCapture=false, ReloadOnCompare=false, ReloadOnOverUnder=true, ReloadOnReset=false, Resolution=16, RunMode=0, UDB16=true, UDB24=false, UDB32=false, UDB8=false, UDBControlReg=true, UseInterrupt=true, VerilogSectionReplacementString=sC16, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=Counter_v3_0, CY_CONFIG_TITLE=usec_counter, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=usec_counter, CY_INSTANCE_SHORT_NAME=usec_counter, CY_MAJOR_VERSION=3, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.2, INSTANCE_NAME=usec_counter, )
+// Counter_v3_0(CaptureMode=1, CaptureModeSoftware=0, ClockMode=3, CompareMode=0, CompareModeSoftware=0, CompareStatusEdgeSense=true, CompareValue=1, CONTROL3=0, ControlRegRemoved=0, CyGetRegReplacementString=CY_GET_REG16, CySetRegReplacementString=CY_SET_REG16, EnableMode=0, FF16=false, FF8=false, FixedFunction=false, FixedFunctionUsed=0, InitCounterValue=10239, InterruptOnCapture=true, InterruptOnCompare=true, InterruptOnOverUnderFlow=true, InterruptOnTC=false, Period=10239, RegDefReplacementString=reg16, RegSizeReplacementString=uint16, ReloadOnCapture=false, ReloadOnCompare=false, ReloadOnOverUnder=true, ReloadOnReset=true, Resolution=16, RunMode=0, UDB16=true, UDB24=false, UDB32=false, UDB8=false, UDBControlReg=true, UseInterrupt=true, VerilogSectionReplacementString=sC16, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=Counter_v3_0, CY_CONFIG_TITLE=usec_counter, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=usec_counter, CY_INSTANCE_SHORT_NAME=usec_counter, CY_MAJOR_VERSION=3, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.2, INSTANCE_NAME=usec_counter, )
 module Counter_v3_0_11 (
     reset,
     tc,
@@ -1021,14 +1021,14 @@ module Counter_v3_0_11 (
     input       count;
 
     parameter CaptureMode = 1;
-    parameter ClockMode = 0;
+    parameter ClockMode = 3;
     parameter CompareMode = 0;
     parameter CompareStatusEdgeSense = 1;
     parameter EnableMode = 0;
     parameter ReloadOnCapture = 0;
     parameter ReloadOnCompare = 0;
     parameter ReloadOnOverUnder = 1;
-    parameter ReloadOnReset = 0;
+    parameter ReloadOnReset = 1;
     parameter Resolution = 16;
     parameter RunMode = 0;
     parameter UseInterrupt = 1;
@@ -1054,7 +1054,7 @@ module Counter_v3_0_11 (
         .z(Net_82));
 
 	// VirtualMux_1 (cy_virtualmux_v1_0)
-	assign Net_89 = up_ndown;
+	assign Net_89 = Net_95;
 
     ZeroTerminal ZeroTerminal_2 (
         .z(Net_95));
@@ -1078,14 +1078,14 @@ module Counter_v3_0_11 (
         .capture(capture),
         .count(count));
     defparam CounterUDB.CaptureMode = 1;
-    defparam CounterUDB.ClockMode = 0;
+    defparam CounterUDB.ClockMode = 3;
     defparam CounterUDB.CompareMode = 0;
     defparam CounterUDB.CompareStatusEdgeSense = 1;
     defparam CounterUDB.EnableMode = 0;
     defparam CounterUDB.ReloadOnCapture = 0;
     defparam CounterUDB.ReloadOnCompare = 0;
     defparam CounterUDB.ReloadOnOverUnder = 1;
-    defparam CounterUDB.ReloadOnReset = 0;
+    defparam CounterUDB.ReloadOnReset = 1;
     defparam CounterUDB.Resolution = 16;
     defparam CounterUDB.RunMode = 0;
     defparam CounterUDB.UseInterrupt = 1;
@@ -1094,7 +1094,7 @@ module Counter_v3_0_11 (
 
 endmodule
 
-// Counter_v3_0(CaptureMode=0, CaptureModeSoftware=0, ClockMode=0, CompareMode=1, CompareModeSoftware=0, CompareStatusEdgeSense=true, CompareValue=3, CONTROL3=1, ControlRegRemoved=0, CyGetRegReplacementString=CY_GET_REG8, CySetRegReplacementString=CY_SET_REG8, EnableMode=0, FF16=false, FF8=true, FixedFunction=true, FixedFunctionUsed=1, InitCounterValue=0, InterruptOnCapture=false, InterruptOnCompare=false, InterruptOnOverUnderFlow=false, InterruptOnTC=false, Period=7, RegDefReplacementString=reg8, RegSizeReplacementString=uint8, ReloadOnCapture=false, ReloadOnCompare=false, ReloadOnOverUnder=true, ReloadOnReset=true, Resolution=8, RunMode=0, UDB16=false, UDB24=false, UDB32=false, UDB8=false, UDBControlReg=false, UseInterrupt=true, VerilogSectionReplacementString=sC8, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=Counter_v3_0, CY_CONFIG_TITLE=Boundary8bit, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=Boundary8bit, CY_INSTANCE_SHORT_NAME=Boundary8bit, CY_MAJOR_VERSION=3, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.2, INSTANCE_NAME=Boundary8bit, )
+// Counter_v3_0(CaptureMode=0, CaptureModeSoftware=0, ClockMode=0, CompareMode=1, CompareModeSoftware=0, CompareStatusEdgeSense=true, CompareValue=3, CONTROL3=1, ControlRegRemoved=0, CyGetRegReplacementString=CY_GET_REG8, CySetRegReplacementString=CY_SET_REG8, EnableMode=0, FF16=false, FF8=true, FixedFunction=true, FixedFunctionUsed=1, InitCounterValue=0, InterruptOnCapture=false, InterruptOnCompare=false, InterruptOnOverUnderFlow=false, InterruptOnTC=false, Period=8, RegDefReplacementString=reg8, RegSizeReplacementString=uint8, ReloadOnCapture=false, ReloadOnCompare=false, ReloadOnOverUnder=true, ReloadOnReset=true, Resolution=8, RunMode=0, UDB16=false, UDB24=false, UDB32=false, UDB8=false, UDBControlReg=false, UseInterrupt=true, VerilogSectionReplacementString=sC8, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=Counter_v3_0, CY_CONFIG_TITLE=Boundary8bit, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=Boundary8bit, CY_INSTANCE_SHORT_NAME=Boundary8bit, CY_MAJOR_VERSION=3, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.2, INSTANCE_NAME=Boundary8bit, )
 module Counter_v3_0_12 (
     reset,
     tc,
@@ -1181,11 +1181,22 @@ endmodule
 // top
 module top ;
 
+          wire  Net_11351;
+          wire  Net_11331;
+          wire  Net_11327;
+          wire [1:1] FrameRX;
+          wire  Net_11326;
+          wire  Net_11325;
+          wire  Net_11324;
+          wire  Net_11323;
+          wire  Net_11322;
+          wire  Net_11320;
+          wire  Net_11319;
+          wire [0:0] Data;
           wire  Net_11244;
           wire [7:0] Net_11194;
           wire  Net_11193;
           wire  Net_11192;
-          wire [1:1] FrameRX;
           wire  Net_11191;
           wire  Net_11190;
           wire  Net_11189;
@@ -1193,7 +1204,6 @@ module top ;
           wire  Net_11187;
           wire  Net_11186;
           wire  Net_11185;
-          wire [0:0] Data;
           wire  Net_11184;
           wire  Net_11183;
           wire  Net_11182;
@@ -1204,10 +1214,12 @@ module top ;
           wire  Net_11177;
           wire  Net_11176;
           wire  Net_11175;
+          wire [0:0] Data_sync;
           wire  Net_11290;
           wire  Net_11263;
           wire  Net_11262;
           wire  Net_11261;
+          wire [1:1] Frame_clear;
           wire  Net_11260;
           wire  Net_11259;
           wire  Net_11258;
@@ -1216,14 +1228,10 @@ module top ;
           wire  Net_11255;
           wire  Net_11156;
           wire  Net_11155;
-          wire [0:0] Data_sync;
           wire  Net_11154;
           wire  Net_11153;
-          wire  Net_11207;
-          wire  Net_11068;
-          wire  Net_11152;
           wire  Net_11151;
-          wire [1:1] Frame_clear;
+          wire  S;
           wire  Net_11150;
           wire  Net_11149;
           wire  Net_11148;
@@ -1234,25 +1242,24 @@ module top ;
           wire  Net_11143;
           wire  Net_11142;
           wire  Net_11141;
+          wire [2:0] preouts;
           wire  Net_11140;
-          wire  S;
           wire  Net_11139;
           wire  Net_11138;
           wire  Net_11137;
           wire  Net_11136;
+          wire [2:0] My_wire;
           wire  Net_11135;
           wire  Net_11134;
           wire  Net_11133;
           wire  Net_11132;
           wire  Net_11131;
           wire  Net_11312;
-          wire [2:0] preouts;
           wire  Net_11311;
           wire  Net_11309;
           wire  Net_11008;
           wire [7:0] Net_11124;
           wire  Net_11123;
-          wire [2:0] My_wire;
           wire  Net_11122;
           wire  Net_11121;
           wire  Net_11120;
@@ -1279,15 +1286,16 @@ module top ;
           wire  Net_10536;
           wire  Net_10535;
           wire  Net_11057;
-          wire  Net_10534;
-          wire  Net_10533;
-          wire  Net_10532;
-          wire  Net_10531;
-          wire  Net_10530;
-          wire  Net_10529;
-          wire  Net_10528;
-          wire  Net_10527;
-          wire  Net_10526;
+          wire  Net_11350;
+          wire  Net_11349;
+          wire  Net_11348;
+          wire  Net_11347;
+          wire  n123;
+          wire  Net_11346;
+          wire  Net_11345;
+          wire  Net_11344;
+          wire  Net_11343;
+          wire  Net_11342;
           wire [7:0] Net_10560;
           wire  Net_10559;
           wire  Net_10558;
@@ -1295,11 +1303,11 @@ module top ;
           wire  Net_10556;
           wire  Net_10555;
           wire  Net_10553;
-          wire  n123;
           wire  Net_10552;
           wire  Net_10551;
     electrical  Net_10561;
     electrical  Net_10562;
+          wire  n124;
           wire  Net_10554;
           wire  Net_10691;
           wire  Net_10690;
@@ -1312,7 +1320,6 @@ module top ;
           wire  Net_7166;
           wire  Net_7163;
           wire  Net_7130;
-          wire  n124;
           wire  Net_7129;
           wire  Net_7128;
           wire  Net_7127;
@@ -1343,6 +1350,14 @@ module top ;
     electrical  Net_7061;
           wire  Net_7067;
           wire  Net_7069;
+          wire  Net_11446;
+          wire  Net_11447;
+          wire  Net_11341;
+          wire  Net_11338;
+          wire  Net_11333;
+          wire  Net_11152;
+          wire  Net_11317;
+          wire  Net_11337;
           wire  Net_10925;
           wire  Net_11303;
           wire  Net_11293;
@@ -1387,10 +1402,13 @@ module top ;
           wire  Net_9792;
           wire  Net_7248;
           wire  Net_10667;
+          wire  Mhz4_096;
           wire  Net_10649;
           wire  Net_10480;
           wire  Net_10110;
           wire  Net_10749;
+          wire  Start_adc;
+          wire  DRDY;
           wire  Net_10457;
           wire  Net_7404;
           wire  Net_10452;
@@ -1408,7 +1426,6 @@ module top ;
     electrical  Net_73;
     electrical  Net_53;
     electrical  Net_54;
-          wire  Mhz4_096;
     electrical  Net_63;
     electrical  Net_43;
           wire  Net_5580;
@@ -3087,14 +3104,14 @@ module top ;
     assign Net_10625 = Net_10679 & Net_10457;
 
     CyControlReg_v1_80 StartTransmit (
-        .control_1(Net_10526),
-        .control_2(Net_10527),
-        .control_3(Net_10528),
-        .control_0(Net_10457),
-        .control_4(Net_10529),
-        .control_5(Net_10530),
-        .control_6(Net_10531),
-        .control_7(Net_10532),
+        .control_1(Net_11342),
+        .control_2(Net_11343),
+        .control_3(Net_11344),
+        .control_0(Net_11447),
+        .control_4(Net_11345),
+        .control_5(Net_11346),
+        .control_6(Net_11347),
+        .control_7(Net_11348),
         .clock(1'b0),
         .reset(1'b0));
     defparam StartTransmit.Bit0Mode = 0;
@@ -3952,7 +3969,7 @@ module top ;
         .interrupt(Net_11312));
     defparam Period.Direction = 1;
     defparam Period.FifoSize = 4;
-    defparam Period.Length = 8;
+    defparam Period.Length = 9;
 
     ShiftReg_v2_30_10 SigmaReg (
         .shift_in(Net_10946),
@@ -3964,7 +3981,7 @@ module top ;
         .interrupt(Net_11134));
     defparam SigmaReg.Direction = 1;
     defparam SigmaReg.FifoSize = 4;
-    defparam SigmaReg.Length = 8;
+    defparam SigmaReg.Length = 9;
 
     // -- LUT Sigma start --
     if (1)
@@ -4032,9 +4049,9 @@ module top ;
     defparam Control_Period.NumOutputs = 1;
 
     Counter_v3_0_11 usec_counter (
-        .reset(1'b0),
-        .tc(Net_11068),
-        .comp(Net_11207),
+        .reset(Net_11152),
+        .tc(Net_11338),
+        .comp(Net_11337),
         .clock(Net_819),
         .interrupt(Net_11018),
         .enable(1'b0),
@@ -4044,14 +4061,14 @@ module top ;
         .up_ndown(1'b1),
         .count(Mhz4_096));
     defparam usec_counter.CaptureMode = 1;
-    defparam usec_counter.ClockMode = 0;
+    defparam usec_counter.ClockMode = 3;
     defparam usec_counter.CompareMode = 0;
     defparam usec_counter.CompareStatusEdgeSense = 1;
     defparam usec_counter.EnableMode = 0;
     defparam usec_counter.ReloadOnCapture = 0;
     defparam usec_counter.ReloadOnCompare = 0;
     defparam usec_counter.ReloadOnOverUnder = 1;
-    defparam usec_counter.ReloadOnReset = 0;
+    defparam usec_counter.ReloadOnReset = 1;
     defparam usec_counter.Resolution = 16;
     defparam usec_counter.RunMode = 0;
     defparam usec_counter.UseInterrupt = 1;
@@ -4484,7 +4501,7 @@ module top ;
 		  .input_buffer_sel(2'b00))
 		Out_TikTak_1
 		 (.oe(tmpOE__Out_TikTak_1_net),
-		  .y({Net_11068}),
+		  .y({Net_11338}),
 		  .fb({tmpFB_0__Out_TikTak_1_net[0:0]}),
 		  .io({tmpIO_0__Out_TikTak_1_net[0:0]}),
 		  .siovref(tmpSIOVREF__Out_TikTak_1_net),
@@ -4497,6 +4514,246 @@ module top ;
 		  .out_reset({1'b0}));
 
 	assign tmpOE__Out_TikTak_1_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
+
+    // -- DFF Start --
+    reg  cydff_13;
+    always @(posedge Net_11341 or posedge Net_11337)
+    begin
+        if (Net_11341)
+        begin
+            cydff_13 <= 0;
+        end
+        else
+        begin
+            cydff_13 <= Net_11317;
+        end
+    end
+    assign Start_adc = cydff_13;
+    // -- DFF End --
+
+    CyControlReg_v1_80 Control_Capture_1 (
+        .control_1(Net_11341),
+        .control_2(Net_11319),
+        .control_3(Net_11320),
+        .control_0(Net_11317),
+        .control_4(Net_11322),
+        .control_5(Net_11323),
+        .control_6(Net_11324),
+        .control_7(Net_11325),
+        .clock(1'b0),
+        .reset(1'b0));
+    defparam Control_Capture_1.Bit0Mode = 0;
+    defparam Control_Capture_1.Bit1Mode = 0;
+    defparam Control_Capture_1.Bit2Mode = 0;
+    defparam Control_Capture_1.Bit3Mode = 0;
+    defparam Control_Capture_1.Bit4Mode = 0;
+    defparam Control_Capture_1.Bit5Mode = 0;
+    defparam Control_Capture_1.Bit6Mode = 0;
+    defparam Control_Capture_1.Bit7Mode = 0;
+    defparam Control_Capture_1.BitValue = 1;
+    defparam Control_Capture_1.BusDisplay = 0;
+    defparam Control_Capture_1.ExtrReset = 0;
+    defparam Control_Capture_1.NumOutputs = 2;
+
+
+	cy_isr_v1_0
+		#(.int_type(2'b10))
+		isr_DRDY
+		 (.int_signal(DRDY));
+
+
+    // -- DFF Start --
+    reg  cydff_14;
+    always @(posedge Net_11338 or posedge Net_11333)
+    begin
+        if (Net_11338)
+        begin
+            cydff_14 <= 0;
+        end
+        else
+        begin
+            cydff_14 <= Net_11331;
+        end
+    end
+    assign Net_11152 = cydff_14;
+    // -- DFF End --
+
+
+    assign Net_11333 = ~DRDY;
+
+    assign Net_11331 = 1'h1;
+
+    // -- DFF Start --
+    reg  cydff_16;
+    wire  tmp__cydff_16_clk;
+    assign tmp__cydff_16_clk = Frame_clear[1];
+    always @(posedge Net_11446 or posedge tmp__cydff_16_clk)
+    begin
+        if (Net_11446)
+        begin
+            cydff_16 <= 0;
+        end
+        else
+        begin
+            cydff_16 <= Net_11351;
+        end
+    end
+    assign Net_10457 = cydff_16;
+    // -- DFF End --
+
+
+    assign Net_11446 = ~Net_11447;
+
+    assign Net_11351 = 1'h1;
+
+	wire [0:0] tmpOE__Pin_1_net;
+	wire [0:0] tmpIO_0__Pin_1_net;
+	wire [0:0] tmpINTERRUPT_0__Pin_1_net;
+	electrical [0:0] tmpSIOVREF__Pin_1_net;
+
+	cy_psoc3_pins_v1_10
+		#(.id("723e0263-b6c5-44b2-b329-82e6950cbcc5"),
+		  .drive_mode(3'b001),
+		  .ibuf_enabled(1'b1),
+		  .init_dr_st(1'b0),
+		  .input_clk_en(0),
+		  .input_sync(1'b0),
+		  .input_sync_mode(1'b0),
+		  .intr_mode(2'b00),
+		  .invert_in_clock(0),
+		  .invert_in_clock_en(0),
+		  .invert_in_reset(0),
+		  .invert_out_clock(0),
+		  .invert_out_clock_en(0),
+		  .invert_out_reset(0),
+		  .io_voltage(""),
+		  .layout_mode("CONTIGUOUS"),
+		  .oe_conn(1'b0),
+		  .oe_reset(0),
+		  .oe_sync(1'b0),
+		  .output_clk_en(0),
+		  .output_clock_mode(1'b0),
+		  .output_conn(1'b0),
+		  .output_mode(1'b0),
+		  .output_reset(0),
+		  .output_sync(1'b0),
+		  .pa_in_clock(-1),
+		  .pa_in_clock_en(-1),
+		  .pa_in_reset(-1),
+		  .pa_out_clock(-1),
+		  .pa_out_clock_en(-1),
+		  .pa_out_reset(-1),
+		  .pin_aliases(""),
+		  .pin_mode("I"),
+		  .por_state(4),
+		  .sio_group_cnt(0),
+		  .sio_hyst(1'b1),
+		  .sio_ibuf(""),
+		  .sio_info(2'b00),
+		  .sio_obuf(""),
+		  .sio_refsel(""),
+		  .sio_vtrip(""),
+		  .sio_hifreq(""),
+		  .sio_vohsel(""),
+		  .slew_rate(1'b0),
+		  .spanning(0),
+		  .use_annotation(1'b0),
+		  .vtrip(2'b00),
+		  .width(1),
+		  .ovt_hyst_trim(1'b0),
+		  .ovt_needed(1'b0),
+		  .ovt_slew_control(2'b00),
+		  .input_buffer_sel(2'b00))
+		Pin_1
+		 (.oe(tmpOE__Pin_1_net),
+		  .y({1'b0}),
+		  .fb({DRDY}),
+		  .io({tmpIO_0__Pin_1_net[0:0]}),
+		  .siovref(tmpSIOVREF__Pin_1_net),
+		  .interrupt({tmpINTERRUPT_0__Pin_1_net[0:0]}),
+		  .in_clock({1'b0}),
+		  .in_clock_en({1'b1}),
+		  .in_reset({1'b0}),
+		  .out_clock({1'b0}),
+		  .out_clock_en({1'b1}),
+		  .out_reset({1'b0}));
+
+	assign tmpOE__Pin_1_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
+
+	wire [0:0] tmpOE__Pin_2_net;
+	wire [0:0] tmpFB_0__Pin_2_net;
+	wire [0:0] tmpIO_0__Pin_2_net;
+	wire [0:0] tmpINTERRUPT_0__Pin_2_net;
+	electrical [0:0] tmpSIOVREF__Pin_2_net;
+
+	cy_psoc3_pins_v1_10
+		#(.id("332428a3-5503-4125-afe0-7b6744364815"),
+		  .drive_mode(3'b110),
+		  .ibuf_enabled(1'b1),
+		  .init_dr_st(1'b0),
+		  .input_clk_en(0),
+		  .input_sync(1'b1),
+		  .input_sync_mode(1'b0),
+		  .intr_mode(2'b00),
+		  .invert_in_clock(0),
+		  .invert_in_clock_en(0),
+		  .invert_in_reset(0),
+		  .invert_out_clock(0),
+		  .invert_out_clock_en(0),
+		  .invert_out_reset(0),
+		  .io_voltage(""),
+		  .layout_mode("CONTIGUOUS"),
+		  .oe_conn(1'b0),
+		  .oe_reset(0),
+		  .oe_sync(1'b0),
+		  .output_clk_en(0),
+		  .output_clock_mode(1'b0),
+		  .output_conn(1'b1),
+		  .output_mode(1'b0),
+		  .output_reset(0),
+		  .output_sync(1'b0),
+		  .pa_in_clock(-1),
+		  .pa_in_clock_en(-1),
+		  .pa_in_reset(-1),
+		  .pa_out_clock(-1),
+		  .pa_out_clock_en(-1),
+		  .pa_out_reset(-1),
+		  .pin_aliases(""),
+		  .pin_mode("O"),
+		  .por_state(4),
+		  .sio_group_cnt(0),
+		  .sio_hyst(1'b1),
+		  .sio_ibuf(""),
+		  .sio_info(2'b00),
+		  .sio_obuf(""),
+		  .sio_refsel(""),
+		  .sio_vtrip(""),
+		  .sio_hifreq(""),
+		  .sio_vohsel(""),
+		  .slew_rate(1'b0),
+		  .spanning(0),
+		  .use_annotation(1'b0),
+		  .vtrip(2'b10),
+		  .width(1),
+		  .ovt_hyst_trim(1'b0),
+		  .ovt_needed(1'b0),
+		  .ovt_slew_control(2'b00),
+		  .input_buffer_sel(2'b00))
+		Pin_2
+		 (.oe(tmpOE__Pin_2_net),
+		  .y({Start_adc}),
+		  .fb({tmpFB_0__Pin_2_net[0:0]}),
+		  .io({tmpIO_0__Pin_2_net[0:0]}),
+		  .siovref(tmpSIOVREF__Pin_2_net),
+		  .interrupt({tmpINTERRUPT_0__Pin_2_net[0:0]}),
+		  .in_clock({1'b0}),
+		  .in_clock_en({1'b1}),
+		  .in_reset({1'b0}),
+		  .out_clock({1'b0}),
+		  .out_clock_en({1'b1}),
+		  .out_reset({1'b0}));
+
+	assign tmpOE__Pin_2_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
 
 
 

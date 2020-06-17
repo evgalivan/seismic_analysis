@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5Y8fZH.s 			page 1
 
 
    1              		.syntax unified
@@ -30,7 +30,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 1
   27              		.file 1 "Generated_Source\\PSoC5\\USBUART_msc.c"
    1:Generated_Source\PSoC5/USBUART_msc.c **** /***************************************************************************//**
    2:Generated_Source\PSoC5/USBUART_msc.c **** * \file USBUART_cdc.c
-   3:Generated_Source\PSoC5/USBUART_msc.c **** * \version 3.10
+   3:Generated_Source\PSoC5/USBUART_msc.c **** * \version 3.20
    4:Generated_Source\PSoC5/USBUART_msc.c **** *
    5:Generated_Source\PSoC5/USBUART_msc.c **** * \brief
    6:Generated_Source\PSoC5/USBUART_msc.c **** *  This file contains the USB MSC Class request handler and global API for MSC 
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 1
   28:Generated_Source\PSoC5/USBUART_msc.c **** ***************************************/
   29:Generated_Source\PSoC5/USBUART_msc.c **** 
   30:Generated_Source\PSoC5/USBUART_msc.c **** static uint8 USBUART_lunCount = USBUART_MSC_LUN_NUMBER;
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 2
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5Y8fZH.s 			page 2
 
 
   31:Generated_Source\PSoC5/USBUART_msc.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 1
   61:Generated_Source\PSoC5/USBUART_msc.c ****         /* Handle direction from device to host. */
   62:Generated_Source\PSoC5/USBUART_msc.c ****         
   63:Generated_Source\PSoC5/USBUART_msc.c ****         if (USBUART_MSC_GET_MAX_LUN == USBUART_bRequestReg)
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 3
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5Y8fZH.s 			page 3
 
 
   52              		.loc 1 63 0
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 1
   85              		.loc 1 84 0 is_stmt 0 discriminator 1
   86 0048 71B9     		cbnz	r1, .L9
   85:Generated_Source\PSoC5/USBUART_msc.c ****                 (dataLength == USBUART_MSC_RESET_WLENGTH))
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 4
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5Y8fZH.s 			page 4
 
 
   86:Generated_Source\PSoC5/USBUART_msc.c ****             {
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 1
  125              		.section	.text.USBUART_MSC_SetLunCount,"ax",%progbits
  126              		.align	2
  127              		.global	USBUART_MSC_SetLunCount
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 5
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5Y8fZH.s 			page 5
 
 
  128              		.thumb
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 1
  123:Generated_Source\PSoC5/USBUART_msc.c **** }
  124:Generated_Source\PSoC5/USBUART_msc.c **** 
  125:Generated_Source\PSoC5/USBUART_msc.c **** 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 6
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5Y8fZH.s 			page 6
 
 
  126:Generated_Source\PSoC5/USBUART_msc.c **** /*******************************************************************************
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 1
  194 0006 00000000 		.4byte	.Ldebug_abbrev0
  195 000a 04       		.byte	0x4
  196 000b 01       		.uleb128 0x1
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 7
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5Y8fZH.s 			page 7
 
 
  197 000c E6010000 		.4byte	.LASF31
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 1
  251 007c 02       		.byte	0x2
  252 007d E501     		.2byte	0x1e5
  253 007f 3A000000 		.4byte	0x3a
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 8
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5Y8fZH.s 			page 8
 
 
  254 0083 02       		.uleb128 0x2
@@ -446,50 +446,50 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 1
  276 00ab 06       		.uleb128 0x6
  277 00ac 04       		.byte	0x4
  278 00ad 03       		.byte	0x3
- 279 00ae A8       		.byte	0xa8
+ 279 00ae A4       		.byte	0xa4
  280 00af CC000000 		.4byte	0xcc
  281 00b3 07       		.uleb128 0x7
  282 00b4 55000000 		.4byte	.LASF16
  283 00b8 03       		.byte	0x3
- 284 00b9 AA       		.byte	0xaa
+ 284 00b9 A6       		.byte	0xa6
  285 00ba 6B000000 		.4byte	0x6b
  286 00be 00       		.byte	0
  287 00bf 07       		.uleb128 0x7
  288 00c0 FA020000 		.4byte	.LASF17
  289 00c4 03       		.byte	0x3
- 290 00c5 AB       		.byte	0xab
+ 290 00c5 A7       		.byte	0xa7
  291 00c6 77000000 		.4byte	0x77
  292 00ca 02       		.byte	0x2
  293 00cb 00       		.byte	0
  294 00cc 08       		.uleb128 0x8
  295 00cd B2010000 		.4byte	.LASF18
  296 00d1 03       		.byte	0x3
- 297 00d2 AC       		.byte	0xac
+ 297 00d2 A8       		.byte	0xa8
  298 00d3 AB000000 		.4byte	0xab
  299 00d7 06       		.uleb128 0x6
  300 00d8 0C       		.byte	0xc
  301 00d9 03       		.byte	0x3
- 302 00da AE       		.byte	0xae
+ 302 00da AA       		.byte	0xaa
  303 00db 04010000 		.4byte	0x104
  304 00df 07       		.uleb128 0x7
  305 00e0 24000000 		.4byte	.LASF19
  306 00e4 03       		.byte	0x3
- 307 00e5 B0       		.byte	0xb0
+ 307 00e5 AC       		.byte	0xac
  308 00e6 77000000 		.4byte	0x77
  309 00ea 00       		.byte	0
  310 00eb 07       		.uleb128 0x7
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 9
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5Y8fZH.s 			page 9
 
 
  311 00ec 7E000000 		.4byte	.LASF20
  312 00f0 03       		.byte	0x3
- 313 00f1 B1       		.byte	0xb1
+ 313 00f1 AD       		.byte	0xad
  314 00f2 04010000 		.4byte	0x104
  315 00f6 04       		.byte	0x4
  316 00f7 07       		.uleb128 0x7
  317 00f8 11000000 		.4byte	.LASF21
  318 00fc 03       		.byte	0x3
- 319 00fd B2       		.byte	0xb2
+ 319 00fd AE       		.byte	0xae
  320 00fe 0A010000 		.4byte	0x10a
  321 0102 08       		.byte	0x8
  322 0103 00       		.byte	0
@@ -502,17 +502,17 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 1
  329 0110 08       		.uleb128 0x8
  330 0111 10010000 		.4byte	.LASF22
  331 0115 03       		.byte	0x3
- 332 0116 B3       		.byte	0xb3
+ 332 0116 AF       		.byte	0xaf
  333 0117 D7000000 		.4byte	0xd7
  334 011b 06       		.uleb128 0x6
  335 011c 08       		.byte	0x8
  336 011d 03       		.byte	0x3
- 337 011e C9       		.byte	0xc9
+ 337 011e C5       		.byte	0xc5
  338 011f 30010000 		.4byte	0x130
  339 0123 07       		.uleb128 0x7
  340 0124 84000000 		.4byte	.LASF23
  341 0128 03       		.byte	0x3
- 342 0129 CB       		.byte	0xcb
+ 342 0129 C7       		.byte	0xc7
  343 012a 30010000 		.4byte	0x130
  344 012e 00       		.byte	0
  345 012f 00       		.byte	0
@@ -526,7 +526,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 1
  353 0140 08       		.uleb128 0x8
  354 0141 CE010000 		.4byte	.LASF24
  355 0145 03       		.byte	0x3
- 356 0146 CC       		.byte	0xcc
+ 356 0146 C8       		.byte	0xc8
  357 0147 1B010000 		.4byte	0x11b
  358 014b 0C       		.uleb128 0xc
  359 014c F3000000 		.4byte	.LASF34
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 1
  365 015e 01       		.uleb128 0x1
  366 015f 9C       		.byte	0x9c
  367 0160 A4010000 		.4byte	0x1a4
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 10
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5Y8fZH.s 			page 10
 
 
  368 0164 0D       		.uleb128 0xd
@@ -598,14 +598,14 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 1
  422 01e5 6B000000 		.4byte	0x6b
  423 01e9 05       		.uleb128 0x5
  424 01ea 03       		.byte	0x3
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 11
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5Y8fZH.s 			page 11
 
 
  425 01eb 00000000 		.4byte	USBUART_lunCount
  426 01ef 13       		.uleb128 0x13
  427 01f0 3C010000 		.4byte	.LASF38
  428 01f4 04       		.byte	0x4
- 429 01f5 7B       		.byte	0x7b
+ 429 01f5 7A       		.byte	0x7a
  430 01f6 FA010000 		.4byte	0x1fa
  431 01fa 05       		.uleb128 0x5
  432 01fb 10010000 		.4byte	0x110
@@ -613,12 +613,12 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 1
  434 0200 74020000 		.4byte	.LASF29
  435 0204 74020000 		.4byte	.LASF29
  436 0208 04       		.byte	0x4
- 437 0209 AA       		.byte	0xaa
+ 437 0209 A9       		.byte	0xa9
  438 020a 14       		.uleb128 0x14
  439 020b 5C000000 		.4byte	.LASF30
  440 020f 5C000000 		.4byte	.LASF30
  441 0213 04       		.byte	0x4
- 442 0214 B4       		.byte	0xb4
+ 442 0214 B3       		.byte	0xb3
  443 0215 00       		.byte	0
  444              		.section	.debug_abbrev,"",%progbits
  445              	.Ldebug_abbrev0:
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 1
  479 0021 0B       		.uleb128 0xb
  480 0022 0B       		.uleb128 0xb
  481 0023 3E       		.uleb128 0x3e
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 12
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5Y8fZH.s 			page 12
 
 
  482 0024 0B       		.uleb128 0xb
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 1
  536 005a 16       		.uleb128 0x16
  537 005b 00       		.byte	0
  538 005c 03       		.uleb128 0x3
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 13
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5Y8fZH.s 			page 13
 
 
  539 005d 0E       		.uleb128 0xe
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 1
  593 0093 06       		.uleb128 0x6
  594 0094 40       		.uleb128 0x40
  595 0095 18       		.uleb128 0x18
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 14
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5Y8fZH.s 			page 14
 
 
  596 0096 9742     		.uleb128 0x2117
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 1
  650 00d0 00       		.byte	0
  651 00d1 10       		.uleb128 0x10
  652 00d2 05       		.uleb128 0x5
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 15
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5Y8fZH.s 			page 15
 
 
  653 00d3 00       		.byte	0
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 1
  707 010a 34       		.uleb128 0x34
  708 010b 00       		.byte	0
  709 010c 03       		.uleb128 0x3
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 16
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5Y8fZH.s 			page 16
 
 
  710 010d 0E       		.uleb128 0xe
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 1
  764 0036 0200     		.2byte	0x2
  765 0038 30       		.byte	0x30
  766 0039 9F       		.byte	0x9f
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 17
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5Y8fZH.s 			page 17
 
 
  767 003a 6A000000 		.4byte	.LVL8
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 1
  821 000a 04       		.byte	0x4
  822 000b 00       		.byte	0
  823 000c 0000     		.2byte	0
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 18
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5Y8fZH.s 			page 18
 
 
  824 000e 0000     		.2byte	0
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 1
  857      6E7400
  858              	.LASF16:
  859 0055 73746174 		.ascii	"status\000"
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 19
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5Y8fZH.s 			page 19
 
 
  859      757300
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 1
  882      6C6500
  883              	.LASF38:
  884 013c 55534255 		.ascii	"USBUART_currentTD\000"
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 20
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5Y8fZH.s 			page 20
 
 
  884      4152545F 
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 1
  903      37373135 
  904 024c 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
  904      66756E63 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccg21daS.s 			page 21
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5Y8fZH.s 			page 21
 
 
  904      74696F6E 

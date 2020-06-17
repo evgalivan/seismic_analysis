@@ -1,5 +1,5 @@
 # Manchester encoder-decoder
-# 2020-05-29 13:03:53Z
+# 2020-06-04 15:22:43Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
@@ -37,3 +37,6 @@ set_io "Out_TikTak_3(0)" iocell 0 0
 set_io "PPS(0)" iocell 2 2
 set_io "Clock_tiktak_2(0)" iocell 0 6
 set_io "Clock_tiktak_4(0)" iocell 15 5
+set_io "\USBUART:Dm(0)\" iocell 15 7
+set_io "\USBUART:Dp(0)\" iocell 15 6
+set_location "\USBUART:USB\" usbcell -1 -1 0

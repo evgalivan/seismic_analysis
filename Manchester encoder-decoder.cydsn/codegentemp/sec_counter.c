@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Counter_1.c  
+* File Name: sec_counter.c  
 * Version 3.0
 *
 *  Description:
@@ -16,13 +16,13 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#include "Counter_1.h"
+#include "sec_counter.h"
 
-uint8 Counter_1_initVar = 0u;
+uint8 sec_counter_initVar = 0u;
 
 
 /*******************************************************************************
-* Function Name: Counter_1_Init
+* Function Name: sec_counter_Init
 ********************************************************************************
 * Summary:
 *     Initialize to the schematic state
@@ -34,97 +34,97 @@ uint8 Counter_1_initVar = 0u;
 *  void
 *
 *******************************************************************************/
-void Counter_1_Init(void) 
+void sec_counter_Init(void) 
 {
-        #if (!Counter_1_UsingFixedFunction && !Counter_1_ControlRegRemoved)
+        #if (!sec_counter_UsingFixedFunction && !sec_counter_ControlRegRemoved)
             uint8 ctrl;
-        #endif /* (!Counter_1_UsingFixedFunction && !Counter_1_ControlRegRemoved) */
+        #endif /* (!sec_counter_UsingFixedFunction && !sec_counter_ControlRegRemoved) */
         
-        #if(!Counter_1_UsingFixedFunction) 
+        #if(!sec_counter_UsingFixedFunction) 
             /* Interrupt State Backup for Critical Region*/
-            uint8 Counter_1_interruptState;
-        #endif /* (!Counter_1_UsingFixedFunction) */
+            uint8 sec_counter_interruptState;
+        #endif /* (!sec_counter_UsingFixedFunction) */
         
-        #if (Counter_1_UsingFixedFunction)
+        #if (sec_counter_UsingFixedFunction)
             /* Clear all bits but the enable bit (if it's already set for Timer operation */
-            Counter_1_CONTROL &= Counter_1_CTRL_ENABLE;
+            sec_counter_CONTROL &= sec_counter_CTRL_ENABLE;
             
             /* Clear the mode bits for continuous run mode */
             #if (CY_PSOC5A)
-                Counter_1_CONTROL2 &= ((uint8)(~Counter_1_CTRL_MODE_MASK));
+                sec_counter_CONTROL2 &= ((uint8)(~sec_counter_CTRL_MODE_MASK));
             #endif /* (CY_PSOC5A) */
             #if (CY_PSOC3 || CY_PSOC5LP)
-                Counter_1_CONTROL3 &= ((uint8)(~Counter_1_CTRL_MODE_MASK));                
+                sec_counter_CONTROL3 &= ((uint8)(~sec_counter_CTRL_MODE_MASK));                
             #endif /* (CY_PSOC3 || CY_PSOC5LP) */
             /* Check if One Shot mode is enabled i.e. RunMode !=0*/
-            #if (Counter_1_RunModeUsed != 0x0u)
+            #if (sec_counter_RunModeUsed != 0x0u)
                 /* Set 3rd bit of Control register to enable one shot mode */
-                Counter_1_CONTROL |= Counter_1_ONESHOT;
-            #endif /* (Counter_1_RunModeUsed != 0x0u) */
+                sec_counter_CONTROL |= sec_counter_ONESHOT;
+            #endif /* (sec_counter_RunModeUsed != 0x0u) */
             
             /* Set the IRQ to use the status register interrupts */
-            Counter_1_CONTROL2 |= Counter_1_CTRL2_IRQ_SEL;
+            sec_counter_CONTROL2 |= sec_counter_CTRL2_IRQ_SEL;
             
             /* Clear and Set SYNCTC and SYNCCMP bits of RT1 register */
-            Counter_1_RT1 &= ((uint8)(~Counter_1_RT1_MASK));
-            Counter_1_RT1 |= Counter_1_SYNC;     
+            sec_counter_RT1 &= ((uint8)(~sec_counter_RT1_MASK));
+            sec_counter_RT1 |= sec_counter_SYNC;     
                     
             /*Enable DSI Sync all all inputs of the Timer*/
-            Counter_1_RT1 &= ((uint8)(~Counter_1_SYNCDSI_MASK));
-            Counter_1_RT1 |= Counter_1_SYNCDSI_EN;
+            sec_counter_RT1 &= ((uint8)(~sec_counter_SYNCDSI_MASK));
+            sec_counter_RT1 |= sec_counter_SYNCDSI_EN;
 
         #else
-            #if(!Counter_1_ControlRegRemoved)
+            #if(!sec_counter_ControlRegRemoved)
             /* Set the default compare mode defined in the parameter */
-            ctrl = Counter_1_CONTROL & ((uint8)(~Counter_1_CTRL_CMPMODE_MASK));
-            Counter_1_CONTROL = ctrl | Counter_1_DEFAULT_COMPARE_MODE;
+            ctrl = sec_counter_CONTROL & ((uint8)(~sec_counter_CTRL_CMPMODE_MASK));
+            sec_counter_CONTROL = ctrl | sec_counter_DEFAULT_COMPARE_MODE;
             
             /* Set the default capture mode defined in the parameter */
-            ctrl = Counter_1_CONTROL & ((uint8)(~Counter_1_CTRL_CAPMODE_MASK));
+            ctrl = sec_counter_CONTROL & ((uint8)(~sec_counter_CTRL_CAPMODE_MASK));
             
-            #if( 0 != Counter_1_CAPTURE_MODE_CONF)
-                Counter_1_CONTROL = ctrl | Counter_1_DEFAULT_CAPTURE_MODE;
+            #if( 0 != sec_counter_CAPTURE_MODE_CONF)
+                sec_counter_CONTROL = ctrl | sec_counter_DEFAULT_CAPTURE_MODE;
             #else
-                Counter_1_CONTROL = ctrl;
-            #endif /* 0 != Counter_1_CAPTURE_MODE */ 
+                sec_counter_CONTROL = ctrl;
+            #endif /* 0 != sec_counter_CAPTURE_MODE */ 
             
-            #endif /* (!Counter_1_ControlRegRemoved) */
-        #endif /* (Counter_1_UsingFixedFunction) */
+            #endif /* (!sec_counter_ControlRegRemoved) */
+        #endif /* (sec_counter_UsingFixedFunction) */
         
         /* Clear all data in the FIFO's */
-        #if (!Counter_1_UsingFixedFunction)
-            Counter_1_ClearFIFO();
-        #endif /* (!Counter_1_UsingFixedFunction) */
+        #if (!sec_counter_UsingFixedFunction)
+            sec_counter_ClearFIFO();
+        #endif /* (!sec_counter_UsingFixedFunction) */
         
         /* Set Initial values from Configuration */
-        Counter_1_WritePeriod(Counter_1_INIT_PERIOD_VALUE);
-        #if (!(Counter_1_UsingFixedFunction && (CY_PSOC5A)))
-            Counter_1_WriteCounter(Counter_1_INIT_COUNTER_VALUE);
-        #endif /* (!(Counter_1_UsingFixedFunction && (CY_PSOC5A))) */
-        Counter_1_SetInterruptMode(Counter_1_INIT_INTERRUPTS_MASK);
+        sec_counter_WritePeriod(sec_counter_INIT_PERIOD_VALUE);
+        #if (!(sec_counter_UsingFixedFunction && (CY_PSOC5A)))
+            sec_counter_WriteCounter(sec_counter_INIT_COUNTER_VALUE);
+        #endif /* (!(sec_counter_UsingFixedFunction && (CY_PSOC5A))) */
+        sec_counter_SetInterruptMode(sec_counter_INIT_INTERRUPTS_MASK);
         
-        #if (!Counter_1_UsingFixedFunction)
+        #if (!sec_counter_UsingFixedFunction)
             /* Read the status register to clear the unwanted interrupts */
-            (void)Counter_1_ReadStatusRegister();
+            (void)sec_counter_ReadStatusRegister();
             /* Set the compare value (only available to non-fixed function implementation */
-            Counter_1_WriteCompare(Counter_1_INIT_COMPARE_VALUE);
+            sec_counter_WriteCompare(sec_counter_INIT_COMPARE_VALUE);
             /* Use the interrupt output of the status register for IRQ output */
             
             /* CyEnterCriticalRegion and CyExitCriticalRegion are used to mark following region critical*/
             /* Enter Critical Region*/
-            Counter_1_interruptState = CyEnterCriticalSection();
+            sec_counter_interruptState = CyEnterCriticalSection();
             
-            Counter_1_STATUS_AUX_CTRL |= Counter_1_STATUS_ACTL_INT_EN_MASK;
+            sec_counter_STATUS_AUX_CTRL |= sec_counter_STATUS_ACTL_INT_EN_MASK;
             
             /* Exit Critical Region*/
-            CyExitCriticalSection(Counter_1_interruptState);
+            CyExitCriticalSection(sec_counter_interruptState);
             
-        #endif /* (!Counter_1_UsingFixedFunction) */
+        #endif /* (!sec_counter_UsingFixedFunction) */
 }
 
 
 /*******************************************************************************
-* Function Name: Counter_1_Enable
+* Function Name: sec_counter_Enable
 ********************************************************************************
 * Summary:
 *     Enable the Counter
@@ -140,26 +140,26 @@ void Counter_1_Init(void)
 *   on the operation of the counter.
 *
 *******************************************************************************/
-void Counter_1_Enable(void) 
+void sec_counter_Enable(void) 
 {
     /* Globally Enable the Fixed Function Block chosen */
-    #if (Counter_1_UsingFixedFunction)
-        Counter_1_GLOBAL_ENABLE |= Counter_1_BLOCK_EN_MASK;
-        Counter_1_GLOBAL_STBY_ENABLE |= Counter_1_BLOCK_STBY_EN_MASK;
-    #endif /* (Counter_1_UsingFixedFunction) */  
+    #if (sec_counter_UsingFixedFunction)
+        sec_counter_GLOBAL_ENABLE |= sec_counter_BLOCK_EN_MASK;
+        sec_counter_GLOBAL_STBY_ENABLE |= sec_counter_BLOCK_STBY_EN_MASK;
+    #endif /* (sec_counter_UsingFixedFunction) */  
         
     /* Enable the counter from the control register  */
     /* If Fixed Function then make sure Mode is set correctly */
     /* else make sure reset is clear */
-    #if(!Counter_1_ControlRegRemoved || Counter_1_UsingFixedFunction)
-        Counter_1_CONTROL |= Counter_1_CTRL_ENABLE;                
-    #endif /* (!Counter_1_ControlRegRemoved || Counter_1_UsingFixedFunction) */
+    #if(!sec_counter_ControlRegRemoved || sec_counter_UsingFixedFunction)
+        sec_counter_CONTROL |= sec_counter_CTRL_ENABLE;                
+    #endif /* (!sec_counter_ControlRegRemoved || sec_counter_UsingFixedFunction) */
     
 }
 
 
 /*******************************************************************************
-* Function Name: Counter_1_Start
+* Function Name: sec_counter_Start
 ********************************************************************************
 * Summary:
 *  Enables the counter for operation 
@@ -171,26 +171,26 @@ void Counter_1_Enable(void)
 *  void
 *
 * Global variables:
-*  Counter_1_initVar: Is modified when this function is called for the  
+*  sec_counter_initVar: Is modified when this function is called for the  
 *   first time. Is used to ensure that initialization happens only once.
 *
 *******************************************************************************/
-void Counter_1_Start(void) 
+void sec_counter_Start(void) 
 {
-    if(Counter_1_initVar == 0u)
+    if(sec_counter_initVar == 0u)
     {
-        Counter_1_Init();
+        sec_counter_Init();
         
-        Counter_1_initVar = 1u; /* Clear this bit for Initialization */        
+        sec_counter_initVar = 1u; /* Clear this bit for Initialization */        
     }
     
     /* Enable the Counter */
-    Counter_1_Enable();        
+    sec_counter_Enable();        
 }
 
 
 /*******************************************************************************
-* Function Name: Counter_1_Stop
+* Function Name: sec_counter_Stop
 ********************************************************************************
 * Summary:
 * Halts the counter, but does not change any modes or disable interrupts.
@@ -205,23 +205,23 @@ void Counter_1_Start(void)
 *               has no effect on the operation of the counter.
 *
 *******************************************************************************/
-void Counter_1_Stop(void) 
+void sec_counter_Stop(void) 
 {
     /* Disable Counter */
-    #if(!Counter_1_ControlRegRemoved || Counter_1_UsingFixedFunction)
-        Counter_1_CONTROL &= ((uint8)(~Counter_1_CTRL_ENABLE));        
-    #endif /* (!Counter_1_ControlRegRemoved || Counter_1_UsingFixedFunction) */
+    #if(!sec_counter_ControlRegRemoved || sec_counter_UsingFixedFunction)
+        sec_counter_CONTROL &= ((uint8)(~sec_counter_CTRL_ENABLE));        
+    #endif /* (!sec_counter_ControlRegRemoved || sec_counter_UsingFixedFunction) */
     
     /* Globally disable the Fixed Function Block chosen */
-    #if (Counter_1_UsingFixedFunction)
-        Counter_1_GLOBAL_ENABLE &= ((uint8)(~Counter_1_BLOCK_EN_MASK));
-        Counter_1_GLOBAL_STBY_ENABLE &= ((uint8)(~Counter_1_BLOCK_STBY_EN_MASK));
-    #endif /* (Counter_1_UsingFixedFunction) */
+    #if (sec_counter_UsingFixedFunction)
+        sec_counter_GLOBAL_ENABLE &= ((uint8)(~sec_counter_BLOCK_EN_MASK));
+        sec_counter_GLOBAL_STBY_ENABLE &= ((uint8)(~sec_counter_BLOCK_STBY_EN_MASK));
+    #endif /* (sec_counter_UsingFixedFunction) */
 }
 
 
 /*******************************************************************************
-* Function Name: Counter_1_SetInterruptMode
+* Function Name: sec_counter_SetInterruptMode
 ********************************************************************************
 * Summary:
 * Configures which interrupt sources are enabled to generate the final interrupt
@@ -234,14 +234,14 @@ void Counter_1_Stop(void)
 *  void
 *
 *******************************************************************************/
-void Counter_1_SetInterruptMode(uint8 interruptsMask) 
+void sec_counter_SetInterruptMode(uint8 interruptsMask) 
 {
-    Counter_1_STATUS_MASK = interruptsMask;
+    sec_counter_STATUS_MASK = interruptsMask;
 }
 
 
 /*******************************************************************************
-* Function Name: Counter_1_ReadStatusRegister
+* Function Name: sec_counter_ReadStatusRegister
 ********************************************************************************
 * Summary:
 *   Reads the status register and returns it's state. This function should use
@@ -258,15 +258,15 @@ void Counter_1_SetInterruptMode(uint8 interruptsMask)
 *   Status register bits may be clear on read. 
 *
 *******************************************************************************/
-uint8   Counter_1_ReadStatusRegister(void) 
+uint8   sec_counter_ReadStatusRegister(void) 
 {
-    return Counter_1_STATUS;
+    return sec_counter_STATUS;
 }
 
 
-#if(!Counter_1_ControlRegRemoved)
+#if(!sec_counter_ControlRegRemoved)
 /*******************************************************************************
-* Function Name: Counter_1_ReadControlRegister
+* Function Name: sec_counter_ReadControlRegister
 ********************************************************************************
 * Summary:
 *   Reads the control register and returns it's state. This function should use
@@ -280,14 +280,14 @@ uint8   Counter_1_ReadStatusRegister(void)
 *  (uint8) The contents of the control register
 *
 *******************************************************************************/
-uint8   Counter_1_ReadControlRegister(void) 
+uint8   sec_counter_ReadControlRegister(void) 
 {
-    return Counter_1_CONTROL;
+    return sec_counter_CONTROL;
 }
 
 
 /*******************************************************************************
-* Function Name: Counter_1_WriteControlRegister
+* Function Name: sec_counter_WriteControlRegister
 ********************************************************************************
 * Summary:
 *   Sets the bit-field of the control register.  This function should use
@@ -301,17 +301,17 @@ uint8   Counter_1_ReadControlRegister(void)
 *  (uint8) The contents of the control register
 *
 *******************************************************************************/
-void    Counter_1_WriteControlRegister(uint8 control) 
+void    sec_counter_WriteControlRegister(uint8 control) 
 {
-    Counter_1_CONTROL = control;
+    sec_counter_CONTROL = control;
 }
 
-#endif  /* (!Counter_1_ControlRegRemoved) */
+#endif  /* (!sec_counter_ControlRegRemoved) */
 
 
-#if (!(Counter_1_UsingFixedFunction && (CY_PSOC5A)))
+#if (!(sec_counter_UsingFixedFunction && (CY_PSOC5A)))
 /*******************************************************************************
-* Function Name: Counter_1_WriteCounter
+* Function Name: sec_counter_WriteCounter
 ********************************************************************************
 * Summary:
 *   This funtion is used to set the counter to a specific value
@@ -323,25 +323,25 @@ void    Counter_1_WriteControlRegister(uint8 control)
 *  void 
 *
 *******************************************************************************/
-void Counter_1_WriteCounter(uint32 counter) \
+void sec_counter_WriteCounter(uint32 counter) \
                                    
 {
-    #if(Counter_1_UsingFixedFunction)
+    #if(sec_counter_UsingFixedFunction)
         /* assert if block is already enabled */
-        CYASSERT (0u == (Counter_1_GLOBAL_ENABLE & Counter_1_BLOCK_EN_MASK));
+        CYASSERT (0u == (sec_counter_GLOBAL_ENABLE & sec_counter_BLOCK_EN_MASK));
         /* If block is disabled, enable it and then write the counter */
-        Counter_1_GLOBAL_ENABLE |= Counter_1_BLOCK_EN_MASK;
-        CY_SET_REG16(Counter_1_COUNTER_LSB_PTR, (uint16)counter);
-        Counter_1_GLOBAL_ENABLE &= ((uint8)(~Counter_1_BLOCK_EN_MASK));
+        sec_counter_GLOBAL_ENABLE |= sec_counter_BLOCK_EN_MASK;
+        CY_SET_REG16(sec_counter_COUNTER_LSB_PTR, (uint16)counter);
+        sec_counter_GLOBAL_ENABLE &= ((uint8)(~sec_counter_BLOCK_EN_MASK));
     #else
-        CY_SET_REG32(Counter_1_COUNTER_LSB_PTR, counter);
-    #endif /* (Counter_1_UsingFixedFunction) */
+        CY_SET_REG32(sec_counter_COUNTER_LSB_PTR, counter);
+    #endif /* (sec_counter_UsingFixedFunction) */
 }
-#endif /* (!(Counter_1_UsingFixedFunction && (CY_PSOC5A))) */
+#endif /* (!(sec_counter_UsingFixedFunction && (CY_PSOC5A))) */
 
 
 /*******************************************************************************
-* Function Name: Counter_1_ReadCounter
+* Function Name: sec_counter_ReadCounter
 ********************************************************************************
 * Summary:
 * Returns the current value of the counter.  It doesn't matter
@@ -354,28 +354,28 @@ void Counter_1_WriteCounter(uint32 counter) \
 *  (uint32) The present value of the counter.
 *
 *******************************************************************************/
-uint32 Counter_1_ReadCounter(void) 
+uint32 sec_counter_ReadCounter(void) 
 {
     /* Force capture by reading Accumulator */
     /* Must first do a software capture to be able to read the counter */
     /* It is up to the user code to make sure there isn't already captured data in the FIFO */
-    #if(Counter_1_UsingFixedFunction)
-		(void)CY_GET_REG16(Counter_1_COUNTER_LSB_PTR);
+    #if(sec_counter_UsingFixedFunction)
+		(void)CY_GET_REG16(sec_counter_COUNTER_LSB_PTR);
 	#else
-		(void)CY_GET_REG8(Counter_1_COUNTER_LSB_PTR_8BIT);
-	#endif/* (Counter_1_UsingFixedFunction) */
+		(void)CY_GET_REG8(sec_counter_COUNTER_LSB_PTR_8BIT);
+	#endif/* (sec_counter_UsingFixedFunction) */
     
     /* Read the data from the FIFO (or capture register for Fixed Function)*/
-    #if(Counter_1_UsingFixedFunction)
-        return ((uint32)CY_GET_REG16(Counter_1_STATICCOUNT_LSB_PTR));
+    #if(sec_counter_UsingFixedFunction)
+        return ((uint32)CY_GET_REG16(sec_counter_STATICCOUNT_LSB_PTR));
     #else
-        return (CY_GET_REG32(Counter_1_STATICCOUNT_LSB_PTR));
-    #endif /* (Counter_1_UsingFixedFunction) */
+        return (CY_GET_REG32(sec_counter_STATICCOUNT_LSB_PTR));
+    #endif /* (sec_counter_UsingFixedFunction) */
 }
 
 
 /*******************************************************************************
-* Function Name: Counter_1_ReadCapture
+* Function Name: sec_counter_ReadCapture
 ********************************************************************************
 * Summary:
 *   This function returns the last value captured.
@@ -387,18 +387,18 @@ uint32 Counter_1_ReadCounter(void)
 *  (uint32) Present Capture value.
 *
 *******************************************************************************/
-uint32 Counter_1_ReadCapture(void) 
+uint32 sec_counter_ReadCapture(void) 
 {
-    #if(Counter_1_UsingFixedFunction)
-        return ((uint32)CY_GET_REG16(Counter_1_STATICCOUNT_LSB_PTR));
+    #if(sec_counter_UsingFixedFunction)
+        return ((uint32)CY_GET_REG16(sec_counter_STATICCOUNT_LSB_PTR));
     #else
-        return (CY_GET_REG32(Counter_1_STATICCOUNT_LSB_PTR));
-    #endif /* (Counter_1_UsingFixedFunction) */
+        return (CY_GET_REG32(sec_counter_STATICCOUNT_LSB_PTR));
+    #endif /* (sec_counter_UsingFixedFunction) */
 }
 
 
 /*******************************************************************************
-* Function Name: Counter_1_WritePeriod
+* Function Name: sec_counter_WritePeriod
 ********************************************************************************
 * Summary:
 * Changes the period of the counter.  The new period 
@@ -412,18 +412,18 @@ uint32 Counter_1_ReadCapture(void)
 *  void
 *
 *******************************************************************************/
-void Counter_1_WritePeriod(uint32 period) 
+void sec_counter_WritePeriod(uint32 period) 
 {
-    #if(Counter_1_UsingFixedFunction)
-        CY_SET_REG16(Counter_1_PERIOD_LSB_PTR,(uint16)period);
+    #if(sec_counter_UsingFixedFunction)
+        CY_SET_REG16(sec_counter_PERIOD_LSB_PTR,(uint16)period);
     #else
-        CY_SET_REG32(Counter_1_PERIOD_LSB_PTR, period);
-    #endif /* (Counter_1_UsingFixedFunction) */
+        CY_SET_REG32(sec_counter_PERIOD_LSB_PTR, period);
+    #endif /* (sec_counter_UsingFixedFunction) */
 }
 
 
 /*******************************************************************************
-* Function Name: Counter_1_ReadPeriod
+* Function Name: sec_counter_ReadPeriod
 ********************************************************************************
 * Summary:
 * Reads the current period value without affecting counter operation.
@@ -435,19 +435,19 @@ void Counter_1_WritePeriod(uint32 period)
 *  (uint32) Present period value.
 *
 *******************************************************************************/
-uint32 Counter_1_ReadPeriod(void) 
+uint32 sec_counter_ReadPeriod(void) 
 {
-    #if(Counter_1_UsingFixedFunction)
-        return ((uint32)CY_GET_REG16(Counter_1_PERIOD_LSB_PTR));
+    #if(sec_counter_UsingFixedFunction)
+        return ((uint32)CY_GET_REG16(sec_counter_PERIOD_LSB_PTR));
     #else
-        return (CY_GET_REG32(Counter_1_PERIOD_LSB_PTR));
-    #endif /* (Counter_1_UsingFixedFunction) */
+        return (CY_GET_REG32(sec_counter_PERIOD_LSB_PTR));
+    #endif /* (sec_counter_UsingFixedFunction) */
 }
 
 
-#if (!Counter_1_UsingFixedFunction)
+#if (!sec_counter_UsingFixedFunction)
 /*******************************************************************************
-* Function Name: Counter_1_WriteCompare
+* Function Name: sec_counter_WriteCompare
 ********************************************************************************
 * Summary:
 * Changes the compare value.  The compare output will 
@@ -462,19 +462,19 @@ uint32 Counter_1_ReadPeriod(void)
 *  void
 *
 *******************************************************************************/
-void Counter_1_WriteCompare(uint32 compare) \
+void sec_counter_WriteCompare(uint32 compare) \
                                    
 {
-    #if(Counter_1_UsingFixedFunction)
-        CY_SET_REG16(Counter_1_COMPARE_LSB_PTR, (uint16)compare);
+    #if(sec_counter_UsingFixedFunction)
+        CY_SET_REG16(sec_counter_COMPARE_LSB_PTR, (uint16)compare);
     #else
-        CY_SET_REG32(Counter_1_COMPARE_LSB_PTR, compare);
-    #endif /* (Counter_1_UsingFixedFunction) */
+        CY_SET_REG32(sec_counter_COMPARE_LSB_PTR, compare);
+    #endif /* (sec_counter_UsingFixedFunction) */
 }
 
 
 /*******************************************************************************
-* Function Name: Counter_1_ReadCompare
+* Function Name: sec_counter_ReadCompare
 ********************************************************************************
 * Summary:
 * Returns the compare value.
@@ -486,15 +486,15 @@ void Counter_1_WriteCompare(uint32 compare) \
 *  (uint32) Present compare value.
 *
 *******************************************************************************/
-uint32 Counter_1_ReadCompare(void) 
+uint32 sec_counter_ReadCompare(void) 
 {
-    return (CY_GET_REG32(Counter_1_COMPARE_LSB_PTR));
+    return (CY_GET_REG32(sec_counter_COMPARE_LSB_PTR));
 }
 
 
-#if (Counter_1_COMPARE_MODE_SOFTWARE)
+#if (sec_counter_COMPARE_MODE_SOFTWARE)
 /*******************************************************************************
-* Function Name: Counter_1_SetCompareMode
+* Function Name: sec_counter_SetCompareMode
 ********************************************************************************
 * Summary:
 *  Sets the software controlled Compare Mode.
@@ -506,20 +506,20 @@ uint32 Counter_1_ReadCompare(void)
 *  void
 *
 *******************************************************************************/
-void Counter_1_SetCompareMode(uint8 compareMode) 
+void sec_counter_SetCompareMode(uint8 compareMode) 
 {
     /* Clear the compare mode bits in the control register */
-    Counter_1_CONTROL &= ((uint8)(~Counter_1_CTRL_CMPMODE_MASK));
+    sec_counter_CONTROL &= ((uint8)(~sec_counter_CTRL_CMPMODE_MASK));
     
     /* Write the new setting */
-    Counter_1_CONTROL |= compareMode;
+    sec_counter_CONTROL |= compareMode;
 }
-#endif  /* (Counter_1_COMPARE_MODE_SOFTWARE) */
+#endif  /* (sec_counter_COMPARE_MODE_SOFTWARE) */
 
 
-#if (Counter_1_CAPTURE_MODE_SOFTWARE)
+#if (sec_counter_CAPTURE_MODE_SOFTWARE)
 /*******************************************************************************
-* Function Name: Counter_1_SetCaptureMode
+* Function Name: sec_counter_SetCaptureMode
 ********************************************************************************
 * Summary:
 *  Sets the software controlled Capture Mode.
@@ -531,19 +531,19 @@ void Counter_1_SetCompareMode(uint8 compareMode)
 *  void
 *
 *******************************************************************************/
-void Counter_1_SetCaptureMode(uint8 captureMode) 
+void sec_counter_SetCaptureMode(uint8 captureMode) 
 {
     /* Clear the capture mode bits in the control register */
-    Counter_1_CONTROL &= ((uint8)(~Counter_1_CTRL_CAPMODE_MASK));
+    sec_counter_CONTROL &= ((uint8)(~sec_counter_CTRL_CAPMODE_MASK));
     
     /* Write the new setting */
-    Counter_1_CONTROL |= ((uint8)((uint8)captureMode << Counter_1_CTRL_CAPMODE0_SHIFT));
+    sec_counter_CONTROL |= ((uint8)((uint8)captureMode << sec_counter_CTRL_CAPMODE0_SHIFT));
 }
-#endif  /* (Counter_1_CAPTURE_MODE_SOFTWARE) */
+#endif  /* (sec_counter_CAPTURE_MODE_SOFTWARE) */
 
 
 /*******************************************************************************
-* Function Name: Counter_1_ClearFIFO
+* Function Name: sec_counter_ClearFIFO
 ********************************************************************************
 * Summary:
 *   This function clears all capture data from the capture FIFO
@@ -555,16 +555,16 @@ void Counter_1_SetCaptureMode(uint8 captureMode)
 *  None
 *
 *******************************************************************************/
-void Counter_1_ClearFIFO(void) 
+void sec_counter_ClearFIFO(void) 
 {
 
-    while(0u != (Counter_1_ReadStatusRegister() & Counter_1_STATUS_FIFONEMP))
+    while(0u != (sec_counter_ReadStatusRegister() & sec_counter_STATUS_FIFONEMP))
     {
-        (void)Counter_1_ReadCapture();
+        (void)sec_counter_ReadCapture();
     }
 
 }
-#endif  /* (!Counter_1_UsingFixedFunction) */
+#endif  /* (!sec_counter_UsingFixedFunction) */
 
 
 /* [] END OF FILE */

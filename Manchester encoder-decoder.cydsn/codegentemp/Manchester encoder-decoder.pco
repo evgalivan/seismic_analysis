@@ -1,5 +1,5 @@
 # Manchester encoder-decoder
-# 2020-05-29 13:03:57Z
+# 2020-06-04 15:22:48Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
@@ -20,15 +20,15 @@ set_io "ClockEncDelay(0)" iocell 3 7
 set_io "DOut_CH1_N(0)" iocell 12 0
 set_io "EN1(0)" iocell 3 5
 set_io "DOut_CH1_P(0)" iocell 12 1
-set_io "Start(0)" iocell 0 3
+set_io "Start(0)" iocell 15 4
 set_io "ClockEnc(0)" iocell 1 5
 set_io "LOAD_1(0)" iocell 2 0
 set_io "LED(0)" iocell 2 1
 set_io "Clock_tiktak(0)" iocell 2 5
 set_io "Out_TikTak_1(0)" iocell 0 7
 set_io "TC_word(0)" iocell 1 6
-set_io "Rx_1(0)" iocell 0 2
-set_io "Tx_1(0)" iocell 0 4
+set_io "Rx_1(0)" iocell 2 3
+set_io "Tx_1(0)" iocell 0 3
 set_io "CH32kHZ_IN(0)" iocell 15 3
 set_io "CH32kHZ_OUT(0)" iocell 15 2
 set_io "DOut_CH2_P(0)" iocell 12 2
@@ -39,170 +39,182 @@ set_io "DOut_CH4_P(0)" iocell 12 7
 set_io "DOut_CH4_N(0)" iocell 12 6
 set_io "Out_TikTak_3(0)" iocell 0 0
 set_io "PPS(0)" iocell 2 2
-set_io "Out_TikTak(0)" iocell 1 2
-set_io "Clock_tiktak_1(0)" iocell 0 5
+set_io "Out_TikTak(0)" iocell 3 2
+set_io "Clock_tiktak_1(0)" iocell 0 4
 set_io "Clock_tiktak_2(0)" iocell 0 6
-set_io "Clock_tiktak_3(0)" iocell 15 4
+set_io "Clock_tiktak_3(0)" iocell 0 2
 set_io "Clock_tiktak_4(0)" iocell 15 5
-set_location "\TransmitShiftReg:bSR:status_0\" 1 1 1 0
-set_location "Net_9761" 1 2 0 1
-set_location "Net_10625" 1 0 1 3
-set_location "\BitCounterEnc:CounterUDB:status_0\" 1 3 1 0
-set_location "\BitCounterEnc:CounterUDB:status_2\" 1 3 1 1
-set_location "\BitCounterEnc:CounterUDB:count_enable\" 1 3 0 2
-set_location "Net_11408" 2 4 1 0
-set_location "\UART:BUART:counter_load_not\" 3 3 0 2
-set_location "\UART:BUART:tx_status_0\" 3 0 1 3
-set_location "\UART:BUART:tx_status_2\" 3 2 1 2
-set_location "\UART:BUART:rx_counter_load\" 3 4 1 3
-set_location "\UART:BUART:rx_postpoll\" 3 4 0 3
+set_io "\USBUART:Dm(0)\" iocell 15 7
+set_location "\USBUART:Dp\" logicalport -1 -1 15
+set_io "\USBUART:Dp(0)\" iocell 15 6
+set_location "\TransmitShiftReg:bSR:status_0\" 0 2 0 0
+set_location "Net_9761" 0 0 1 2
+set_location "Net_10625" 0 2 0 2
+set_location "\BitCounterEnc:CounterUDB:status_0\" 0 2 0 3
+set_location "\BitCounterEnc:CounterUDB:status_2\" 0 2 1 3
+set_location "\BitCounterEnc:CounterUDB:count_enable\" 0 2 1 2
+set_location "Net_11408" 1 5 1 3
+set_location "\UART:BUART:counter_load_not\" 1 5 0 0
+set_location "\UART:BUART:tx_status_0\" 2 4 0 0
+set_location "\UART:BUART:tx_status_2\" 3 3 0 2
+set_location "\UART:BUART:rx_counter_load\" 3 5 1 1
+set_location "\UART:BUART:rx_postpoll\" 3 4 1 2
 set_location "\UART:BUART:rx_status_4\" 2 2 0 2
-set_location "\UART:BUART:rx_status_5\" 2 4 0 2
-set_location "Start(0)_SYNC" 3 3 5 0
-set_location "Net_11565" 0 3 1 1
-set_location "Net_11568" 2 2 1 2
-set_location "Net_11518" 1 0 0 2
-set_location "Net_11515" 2 1 1 3
-set_location "Net_11562" 0 0 1 0
-set_location "Net_11571" 1 0 0 0
-set_location "Net_11504" 1 4 0 1
-set_location "Net_11501" 1 2 1 1
-set_location "StartOfFrame" 0 0 0 1
-set_location "\Period:bSR:status_0\" 3 1 1 0
-set_location "\BasicCounter:MODULE_6:g2:a0:g1:z1:s0:g1:u0:b_16\" 0 2 1 2
-set_location "Net_12170" 0 3 0 2
-set_location "\Counter_1:CounterUDB:hwCapture\" 1 4 1 1
-set_location "\Counter_1:CounterUDB:status_0\" 1 5 0 3
-set_location "\Counter_1:CounterUDB:status_2\" 1 3 1 2
-set_location "\Counter_1:CounterUDB:count_enable\" 0 3 1 2
-set_location "Net_11403" 3 2 1 0
-set_location "\MODULE_7:g1:a0:gx:u0:eq_7\" 0 1 0 1
-set_location "\MODULE_7:g1:a0:gx:u0:eq_15\" 0 5 0 1
-set_location "\FrameAllow:Sync:ctrl_reg\" 0 1 6
-set_location "__ZERO__" 3 5 1 2
-set_location "__ONE__" 2 0 0 0
-set_location "\TransmitShiftReg:bSR:SyncCtl:CtrlReg\" 1 2 6
-set_location "\TransmitShiftReg:bSR:StsReg\" 1 2 4
+set_location "\UART:BUART:rx_status_5\" 2 3 0 1
+set_location "Start(0)_SYNC" 0 0 5 1
+set_location "Net_11565" 2 1 1 2
+set_location "Net_11568" 3 1 0 3
+set_location "Net_11518" 3 0 0 3
+set_location "Net_11515" 3 1 1 3
+set_location "Net_11562" 1 1 0 0
+set_location "Net_11571" 3 0 1 0
+set_location "Net_11504" 1 4 0 0
+set_location "Net_11501" 1 1 1 2
+set_location "StartOfFrame" 1 4 0 1
+set_location "\Period:bSR:status_0\" 3 2 0 1
+set_location "\BasicCounter:MODULE_6:g2:a0:g1:z1:s0:g1:u0:b_16\" 0 3 0 0
+set_location "Net_12170" 1 3 0 2
+set_location "\sec_counter:CounterUDB:hwCapture\" 0 5 0 0
+set_location "\sec_counter:CounterUDB:status_0\" 1 4 0 2
+set_location "\sec_counter:CounterUDB:status_2\" 1 3 1 3
+set_location "\sec_counter:CounterUDB:count_enable\" 1 3 0 0
+set_location "Net_11403" 1 3 1 0
+set_location "\MODULE_7:g1:a0:gx:u0:eq_7\" 2 0 0 3
+set_location "\MODULE_7:g1:a0:gx:u0:eq_15\" 0 1 1 1
+set_location "\FrameAllow:Sync:ctrl_reg\" 3 3 6
+set_location "__ZERO__" 3 4 0 1
+set_location "__ONE__" 1 2 1 1
+set_location "\TransmitShiftReg:bSR:SyncCtl:CtrlReg\" 1 0 6
+set_location "\TransmitShiftReg:bSR:StsReg\" 1 1 4
 set_location "\TransmitShiftReg:bSR:sC32:BShiftRegDp:u0\" 1 1 2
 set_location "\TransmitShiftReg:bSR:sC32:BShiftRegDp:u1\" 0 1 2
 set_location "\TransmitShiftReg:bSR:sC32:BShiftRegDp:u2\" 0 0 2
 set_location "\TransmitShiftReg:bSR:sC32:BShiftRegDp:u3\" 1 0 2
 set_location "\StartButton:sts:sts_reg\" 1 0 3
 set_location "TransmitWordShift" interrupt -1 -1 0
-set_location "isr_Load_TrShReg" interrupt -1 -1 1
-set_location "\StartTransmit:Sync:ctrl_reg\" 1 3 6
-set_location "\BitCounterEnc:CounterUDB:sSTSReg:stsreg\" 1 3 4
-set_location "\BitCounterEnc:CounterUDB:sC8:counterdp:u0\" 1 3 2
-set_location "\LED_ON:Sync:ctrl_reg\" 0 4 6
+set_location "isr_Load_TrShReg" interrupt -1 -1 4
+set_location "\StartTransmit:Sync:ctrl_reg\" 0 4 6
+set_location "\BitCounterEnc:CounterUDB:sSTSReg:stsreg\" 0 2 4
+set_location "\BitCounterEnc:CounterUDB:sC8:counterdp:u0\" 0 2 2
+set_location "\LED_ON:Sync:ctrl_reg\" 0 2 6
 set_location "\Boundary32bit:CounterHW\" timercell -1 -1 0
-set_location "\SigmaReg:bSR:SyncCtl:CtrlReg\" 2 1 6
-set_location "\SigmaReg:bSR:StsReg\" 2 1 4
+set_location "\SigmaReg:bSR:SyncCtl:CtrlReg\" 2 3 6
+set_location "\SigmaReg:bSR:StsReg\" 2 2 4
 set_location "\SigmaReg:bSR:sC32:BShiftRegDp:u0\" 2 3 2
 set_location "\SigmaReg:bSR:sC32:BShiftRegDp:u1\" 3 3 2
 set_location "\SigmaReg:bSR:sC32:BShiftRegDp:u2\" 3 2 2
 set_location "\SigmaReg:bSR:sC32:BShiftRegDp:u3\" 2 2 2
-set_location "\Control_Period:Sync:ctrl_reg\" 3 0 6
-set_location "\UART:BUART:sCR_SyncCtl:CtrlReg\" 2 2 6
-set_location "\UART:BUART:sTX:TxShifter:u0\" 3 4 2
-set_location "\UART:BUART:sTX:sCLOCK:TxBitClkGen\" 3 5 2
-set_location "\UART:BUART:sTX:TxSts\" 3 1 4
+set_location "\Control_Period:Sync:ctrl_reg\" 3 4 6
+set_location "\UART:BUART:sCR_SyncCtl:CtrlReg\" 2 4 6
+set_location "\UART:BUART:sTX:TxShifter:u0\" 2 5 2
+set_location "\UART:BUART:sTX:sCLOCK:TxBitClkGen\" 1 3 2
+set_location "\UART:BUART:sTX:TxSts\" 3 4 4
 set_location "\UART:BUART:sRX:RxShifter:u0\" 2 4 2
-set_location "\UART:BUART:sRX:RxBitCounter\" 3 4 7
-set_location "\UART:BUART:sRX:RxSts\" 2 5 4
-set_location "isr_rx" interrupt -1 -1 3
-set_location "\ControlReg_Regim:Sync:ctrl_reg\" 1 0 6
-set_location "\Period:bSR:SyncCtl:CtrlReg\" 2 0 6
+set_location "\UART:BUART:sRX:RxBitCounter\" 3 2 7
+set_location "\UART:BUART:sRX:RxSts\" 2 4 4
+set_location "isr_rx" interrupt -1 -1 6
+set_location "\ControlReg_Regim:Sync:ctrl_reg\" 2 1 6
+set_location "\Period:bSR:SyncCtl:CtrlReg\" 3 0 6
 set_location "\Period:bSR:StsReg\" 2 0 4
 set_location "\Period:bSR:sC32:BShiftRegDp:u0\" 2 0 2
 set_location "\Period:bSR:sC32:BShiftRegDp:u1\" 3 0 2
 set_location "\Period:bSR:sC32:BShiftRegDp:u2\" 3 1 2
 set_location "\Period:bSR:sC32:BShiftRegDp:u3\" 2 1 2
-set_location "isr_comp" interrupt -1 -1 2
-set_location "\Control_Capture:Sync:ctrl_reg\" 3 2 6
-set_location "isr_tc" interrupt -1 -1 4
-set_location "\Control_FREQ:Sync:ctrl_reg\" 0 0 6
-set_location "\CAPT_LOW:sts:sts_reg\" 0 1 3
-set_location "\CAPT_MID:sts:sts_reg\" 0 5 3
-set_location "\CAPT_HIGH:sts:sts_reg\" 0 4 3
-set_location "\Counter_1:CounterUDB:sCTRLReg:ctrlreg\" 0 3 6
-set_location "\Counter_1:CounterUDB:sSTSReg:stsreg\" 1 4 4
-set_location "\Counter_1:CounterUDB:sC32:counterdp:u0\" 1 4 2
-set_location "\Counter_1:CounterUDB:sC32:counterdp:u1\" 0 4 2
-set_location "\Counter_1:CounterUDB:sC32:counterdp:u2\" 0 5 2
-set_location "\Counter_1:CounterUDB:sC32:counterdp:u3\" 1 5 2
-set_location "\GlitchFilter_3:genblk1[0]:sample\" 1 2 1 2
-set_location "My_wire_0" 1 0 1 1
-set_location "\GlitchFilter_3:genblk1[1]:sample\" 1 0 1 0
-set_location "My_wire_1" 2 0 1 1
-set_location "\GlitchFilter_3:genblk1[2]:sample\" 2 0 1 3
-set_location "My_wire_2" 2 0 1 2
-set_location "\TransmitShiftReg:bSR:load_reg\" 1 1 1 1
-set_location "preouts_2" 0 0 0 0
-set_location "cydff_10" 3 4 0 2
-set_location "\BitCounterEnc:CounterUDB:overflow_reg_i\" 1 0 0 1
-set_location "\UART:BUART:txn_split\" 2 0 0 3
-set_location "\BitCounterEnc:CounterUDB:prevCompare\" 1 2 1 0
-set_location "\BitCounterEnc:CounterUDB:count_stored_i\" 1 2 1 3
-set_location "Net_10511" 0 2 1 0
-set_location "cydff_5" 2 1 1 1
-set_location "Net_1037" 2 1 0 1
-set_location "cydff_8" 2 4 0 0
-set_location "Net_10749" 1 3 0 1
-set_location "Net_860" 3 0 0 0
-set_location "cydff_9" 1 2 0 0
-set_location "\UART:BUART:txn\" 2 3 1 3
-set_location "\UART:BUART:tx_state_1\" 3 1 0 2
-set_location "\UART:BUART:tx_state_0\" 3 3 0 1
-set_location "\UART:BUART:tx_state_2\" 3 1 0 1
-set_location "\UART:BUART:tx_bitclk\" 3 0 1 2
-set_location "\UART:BUART:tx_ctrl_mark_last\" 2 2 0 3
-set_location "\UART:BUART:tx_mark\" 3 1 0 0
-set_location "\UART:BUART:tx_parity_bit\" 2 2 0 1
-set_location "\UART:BUART:rx_state_1\" 3 5 1 3
-set_location "\UART:BUART:rx_state_0\" 3 3 1 1
-set_location "\UART:BUART:rx_load_fifo\" 2 3 0 1
-set_location "\UART:BUART:rx_state_3\" 3 4 1 0
-set_location "\UART:BUART:rx_state_2\" 2 3 0 0
-set_location "\UART:BUART:rx_bitclk_enable\" 3 4 1 2
+set_location "isr_comp" interrupt -1 -1 5
+set_location "\Control_Capture:Sync:ctrl_reg\" 0 5 6
+set_location "isr_tc" interrupt -1 -1 7
+set_location "\Control_FREQ:Sync:ctrl_reg\" 1 5 6
+set_location "\CAPT_LOW:sts:sts_reg\" 2 1 3
+set_location "\CAPT_MID:sts:sts_reg\" 1 2 3
+set_location "\CAPT_HIGH:sts:sts_reg\" 1 5 3
+set_location "\sec_counter:CounterUDB:sCTRLReg:ctrlreg\" 1 3 6
+set_location "\sec_counter:CounterUDB:sSTSReg:stsreg\" 1 4 4
+set_location "\sec_counter:CounterUDB:sC32:counterdp:u0\" 1 4 2
+set_location "\sec_counter:CounterUDB:sC32:counterdp:u1\" 0 4 2
+set_location "\sec_counter:CounterUDB:sC32:counterdp:u2\" 0 5 2
+set_location "\sec_counter:CounterUDB:sC32:counterdp:u3\" 1 5 2
+set_location "\USBUART:dp_int\" interrupt -1 -1 12
+set_location "\USBUART:USB\" usbcell -1 -1 0
+set_location "\USBUART:ep_3\" interrupt -1 -1 3
+set_location "\USBUART:ep_2\" interrupt -1 -1 2
+set_location "\USBUART:ep_1\" interrupt -1 -1 1
+set_location "\USBUART:ep_0\" interrupt -1 -1 24
+set_location "\USBUART:bus_reset\" interrupt -1 -1 23
+set_location "\USBUART:arb_int\" interrupt -1 -1 22
+set_location "\USBUART:sof_int\" interrupt -1 -1 21
+set_location "\GlitchFilter_3:genblk1[0]:sample\" 1 0 0 2
+set_location "My_wire_0" 1 0 0 1
+set_location "\GlitchFilter_3:genblk1[1]:sample\" 1 1 1 3
+set_location "My_wire_1" 1 1 1 1
+set_location "\GlitchFilter_3:genblk1[2]:sample\" 3 0 1 2
+set_location "My_wire_2" 3 0 1 3
+set_location "\TransmitShiftReg:bSR:load_reg\" 0 2 0 1
+set_location "preouts_2" 2 2 1 0
+set_location "cydff_10" 3 1 1 2
+set_location "\BitCounterEnc:CounterUDB:overflow_reg_i\" 1 2 1 3
+set_location "\UART:BUART:txn_split\" 2 5 1 0
+set_location "\BitCounterEnc:CounterUDB:prevCompare\" 0 2 1 0
+set_location "\BitCounterEnc:CounterUDB:count_stored_i\" 0 2 1 1
+set_location "Net_10511" 0 1 0 0
+set_location "cydff_5" 0 0 0 1
+set_location "Net_1037" 0 0 0 0
+set_location "cydff_8" 0 4 1 1
+set_location "Net_10749" 0 4 0 0
+set_location "Net_860" 3 3 1 0
+set_location "cydff_9" 3 1 0 1
+set_location "\UART:BUART:txn\" 1 3 1 1
+set_location "\UART:BUART:tx_state_1\" 1 5 1 2
+set_location "\UART:BUART:tx_state_0\" 2 5 0 0
+set_location "\UART:BUART:tx_state_2\" 1 5 1 1
+set_location "\UART:BUART:tx_bitclk\" 1 5 0 1
+set_location "\UART:BUART:tx_ctrl_mark_last\" 2 3 0 0
+set_location "\UART:BUART:tx_mark\" 2 5 0 3
+set_location "\UART:BUART:tx_parity_bit\" 2 1 0 0
+set_location "\UART:BUART:rx_state_1\" 2 1 0 2
+set_location "\UART:BUART:rx_state_0\" 3 3 0 1
+set_location "\UART:BUART:rx_load_fifo\" 3 2 1 1
+set_location "\UART:BUART:rx_state_3\" 3 3 0 0
+set_location "\UART:BUART:rx_state_2\" 3 2 1 0
+set_location "\UART:BUART:rx_bitclk_enable\" 3 4 1 3
 set_location "\UART:BUART:rx_state_stop1_reg\" 2 3 0 3
-set_location "\UART:BUART:pollcount_1\" 3 2 0 0
-set_location "\UART:BUART:pollcount_0\" 3 2 0 1
-set_location "\UART:BUART:rx_status_2\" 3 5 0 1
-set_location "\UART:BUART:rx_status_3\" 2 5 0 1
-set_location "\UART:BUART:rx_markspace_pre\" 2 5 0 0
-set_location "\UART:BUART:rx_parity_error_pre\" 3 5 0 0
-set_location "\UART:BUART:rx_last\" 1 4 0 2
-set_location "\UART:BUART:rx_parity_bit\" 3 5 1 0
-set_location "Net_10457" 1 1 0 0
-set_location "Net_686" 2 2 1 0
-set_location "Net_12420" 2 2 1 1
-set_location "Net_10925" 2 1 0 3
-set_location "HI_9" 0 5 1 3
-set_location "\Period:bSR:load_reg\" 3 1 1 1
-set_location "cydff_14" 3 2 1 3
-set_location "HI_19" 0 4 0 0
-set_location "HI_18" 0 4 0 1
-set_location "HI_17" 0 4 0 3
-set_location "HI_16" 0 4 1 3
-set_location "HI_15" 0 5 0 0
-set_location "HI_14" 0 5 0 2
-set_location "HI_13" 0 5 0 3
-set_location "HI_12" 0 2 0 0
-set_location "HI_11" 0 2 0 2
-set_location "HI_10" 0 5 1 2
-set_location "HI_8" 2 5 1 0
-set_location "HI_7" 0 1 0 0
-set_location "HI_6" 0 1 0 2
-set_location "HI_5" 0 1 0 3
-set_location "HI_4" 0 1 1 0
-set_location "HI_3" 0 1 1 1
-set_location "HI_2" 0 1 1 2
-set_location "HI_1" 0 1 1 3
-set_location "HI_0" 0 4 1 0
-set_location "\Counter_1:CounterUDB:prevCapture\" 1 4 1 3
-set_location "\Counter_1:CounterUDB:overflow_reg_i\" 1 3 1 3
-set_location "cydff_9__SYNC_1" 0 2 5 0
-set_location "cydff_9__SYNC" 1 1 5 0
-set_location "\Counter_1:CounterUDB:prevCompare\" 1 5 0 2
-set_location "Rx_1(0)_SYNC" 3 5 5 0
-set_location "\Counter_1:CounterUDB:count_stored_i\" 0 3 0 1
+set_location "\UART:BUART:pollcount_1\" 3 4 1 0
+set_location "\UART:BUART:pollcount_0\" 3 4 1 1
+set_location "\UART:BUART:rx_status_2\" 2 4 1 1
+set_location "\UART:BUART:rx_status_3\" 3 3 0 3
+set_location "\UART:BUART:rx_markspace_pre\" 3 5 0 0
+set_location "\UART:BUART:rx_parity_error_pre\" 2 4 1 0
+set_location "\UART:BUART:rx_last\" 3 2 1 2
+set_location "\UART:BUART:rx_parity_bit\" 3 5 0 1
+set_location "Net_10457" 0 3 1 0
+set_location "Net_686" 2 2 0 0
+set_location "Net_12420" 2 2 0 1
+set_location "Net_10925" 2 1 1 0
+set_location "HI_9" 1 2 0 1
+set_location "\Period:bSR:load_reg\" 3 2 0 2
+set_location "cydff_14" 0 5 1 0
+set_location "HI_19" 1 4 1 0
+set_location "HI_18" 1 4 1 1
+set_location "HI_17" 1 4 1 3
+set_location "HI_16" 1 4 1 2
+set_location "HI_15" 0 1 1 0
+set_location "HI_14" 0 1 1 2
+set_location "HI_13" 0 1 1 3
+set_location "HI_12" 0 0 1 0
+set_location "HI_11" 1 0 1 1
+set_location "HI_10" 2 3 1 2
+set_location "HI_8" 0 3 0 1
+set_location "HI_7" 2 0 0 1
+set_location "HI_6" 2 0 0 2
+set_location "HI_5" 2 0 0 0
+set_location "HI_4" 2 0 1 3
+set_location "HI_3" 2 0 1 1
+set_location "HI_2" 2 0 1 2
+set_location "HI_1" 1 1 0 1
+set_location "HI_0" 2 3 1 0
+set_location "\sec_counter:CounterUDB:prevCapture\" 0 5 0 1
+set_location "\sec_counter:CounterUDB:overflow_reg_i\" 1 3 0 3
+set_location "cydff_9__SYNC_1" 0 0 5 0
+set_location "cydff_9__SYNC" 0 3 5 0
+set_location "\sec_counter:CounterUDB:prevCompare\" 1 4 0 3
+set_location "Rx_1(0)_SYNC" 3 3 5 0
+set_location "\sec_counter:CounterUDB:count_stored_i\" 1 3 0 1

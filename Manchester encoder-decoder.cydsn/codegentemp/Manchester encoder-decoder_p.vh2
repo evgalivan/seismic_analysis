@@ -1,5 +1,5 @@
 -- Project:   Manchester encoder-decoder
--- Generated: 05/29/2020 16:03:53
+-- Generated: 06/04/2020 18:22:43
 -- PSoC Creator  4.2
 
 ENTITY \Manchester encoder-decoder\ IS
@@ -146,6 +146,7 @@ ARCHITECTURE __DEFAULT__ OF \Manchester encoder-decoder\ IS
     SIGNAL Net_12456 : bit;
     SIGNAL Net_12461 : bit;
     SIGNAL Net_12462 : bit;
+    SIGNAL Net_12550 : bit;
     SIGNAL Net_686 : bit;
     SIGNAL Net_698 : bit;
     SIGNAL Net_7248 : bit;
@@ -201,29 +202,6 @@ ARCHITECTURE __DEFAULT__ OF \Manchester encoder-decoder\ IS
     SIGNAL \Control_Period:control_5\ : bit;
     SIGNAL \Control_Period:control_6\ : bit;
     SIGNAL \Control_Period:control_7\ : bit;
-    SIGNAL \Counter_1:CounterUDB:cmp_out_i\ : bit;
-    SIGNAL \Counter_1:CounterUDB:control_0\ : bit;
-    SIGNAL \Counter_1:CounterUDB:control_1\ : bit;
-    SIGNAL \Counter_1:CounterUDB:control_2\ : bit;
-    SIGNAL \Counter_1:CounterUDB:control_3\ : bit;
-    SIGNAL \Counter_1:CounterUDB:control_4\ : bit;
-    SIGNAL \Counter_1:CounterUDB:control_5\ : bit;
-    SIGNAL \Counter_1:CounterUDB:control_6\ : bit;
-    SIGNAL \Counter_1:CounterUDB:control_7\ : bit;
-    SIGNAL \Counter_1:CounterUDB:count_enable\ : bit;
-    SIGNAL \Counter_1:CounterUDB:count_stored_i\ : bit;
-    SIGNAL \Counter_1:CounterUDB:hwCapture\ : bit;
-    SIGNAL \Counter_1:CounterUDB:overflow_reg_i\ : bit;
-    SIGNAL \Counter_1:CounterUDB:prevCapture\ : bit;
-    SIGNAL \Counter_1:CounterUDB:prevCompare\ : bit;
-    SIGNAL \Counter_1:CounterUDB:reload\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u1.ce0__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u2.ce0__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:status_0\ : bit;
-    SIGNAL \Counter_1:CounterUDB:status_1\ : bit;
-    SIGNAL \Counter_1:CounterUDB:status_2\ : bit;
-    SIGNAL \Counter_1:CounterUDB:status_5\ : bit;
-    SIGNAL \Counter_1:CounterUDB:status_6\ : bit;
     SIGNAL \FrameAllow:control_1\ : bit;
     SIGNAL \FrameAllow:control_2\ : bit;
     SIGNAL \FrameAllow:control_3\ : bit;
@@ -254,7 +232,7 @@ ARCHITECTURE __DEFAULT__ OF \Manchester encoder-decoder\ IS
     SIGNAL \Period:bSR:load_reg\ : bit;
     SIGNAL \Period:bSR:sC32:BShiftRegDp:u1.ce0__sig\ : bit;
     SIGNAL \Period:bSR:sC32:BShiftRegDp:u2.ce0__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u0.ce0__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u0.ce0__sig\ : bit;
     SIGNAL \Period:bSR:status_0\ : bit;
     SIGNAL \Period:bSR:status_3\ : bit;
     SIGNAL \Period:bSR:status_4\ : bit;
@@ -358,6 +336,53 @@ ARCHITECTURE __DEFAULT__ OF \Manchester encoder-decoder\ IS
     ATTRIBUTE udbclken_assigned OF \UART:Net_9\ : SIGNAL IS "True";
     ATTRIBUTE global_signal OF \UART:Net_9\ : SIGNAL IS true;
     SIGNAL \UART:Net_9_local\ : bit;
+    SIGNAL \\\USBUART:Dm(0)\\__PA\ : bit;
+    SIGNAL \\\USBUART:Dp(0)\\__PA\ : bit;
+    SIGNAL \USBUART:Net_1010\ : bit;
+    SIGNAL \USBUART:Net_1876\ : bit;
+    SIGNAL \USBUART:Net_1889\ : bit;
+    SIGNAL \USBUART:Net_95\ : bit;
+    SIGNAL \USBUART:dma_request_0\ : bit;
+    SIGNAL \USBUART:dma_request_1\ : bit;
+    SIGNAL \USBUART:dma_request_2\ : bit;
+    SIGNAL \USBUART:dma_request_3\ : bit;
+    SIGNAL \USBUART:dma_request_4\ : bit;
+    SIGNAL \USBUART:dma_request_5\ : bit;
+    SIGNAL \USBUART:dma_request_6\ : bit;
+    SIGNAL \USBUART:dma_request_7\ : bit;
+    SIGNAL \USBUART:dma_terminate\ : bit;
+    SIGNAL \USBUART:ep_int_0\ : bit;
+    SIGNAL \USBUART:ep_int_1\ : bit;
+    SIGNAL \USBUART:ep_int_2\ : bit;
+    SIGNAL \USBUART:ep_int_3\ : bit;
+    SIGNAL \USBUART:ep_int_4\ : bit;
+    SIGNAL \USBUART:ep_int_5\ : bit;
+    SIGNAL \USBUART:ep_int_6\ : bit;
+    SIGNAL \USBUART:ep_int_7\ : bit;
+    SIGNAL \USBUART:ep_int_8\ : bit;
+    SIGNAL \sec_counter:CounterUDB:cmp_out_i\ : bit;
+    SIGNAL \sec_counter:CounterUDB:control_0\ : bit;
+    SIGNAL \sec_counter:CounterUDB:control_1\ : bit;
+    SIGNAL \sec_counter:CounterUDB:control_2\ : bit;
+    SIGNAL \sec_counter:CounterUDB:control_3\ : bit;
+    SIGNAL \sec_counter:CounterUDB:control_4\ : bit;
+    SIGNAL \sec_counter:CounterUDB:control_5\ : bit;
+    SIGNAL \sec_counter:CounterUDB:control_6\ : bit;
+    SIGNAL \sec_counter:CounterUDB:control_7\ : bit;
+    SIGNAL \sec_counter:CounterUDB:count_enable\ : bit;
+    SIGNAL \sec_counter:CounterUDB:count_stored_i\ : bit;
+    SIGNAL \sec_counter:CounterUDB:hwCapture\ : bit;
+    SIGNAL \sec_counter:CounterUDB:overflow_reg_i\ : bit;
+    SIGNAL \sec_counter:CounterUDB:prevCapture\ : bit;
+    SIGNAL \sec_counter:CounterUDB:prevCompare\ : bit;
+    SIGNAL \sec_counter:CounterUDB:reload\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u1.ce0__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u2.ce0__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:status_0\ : bit;
+    SIGNAL \sec_counter:CounterUDB:status_1\ : bit;
+    SIGNAL \sec_counter:CounterUDB:status_2\ : bit;
+    SIGNAL \sec_counter:CounterUDB:status_5\ : bit;
+    SIGNAL \sec_counter:CounterUDB:status_6\ : bit;
     SIGNAL __ONE__ : bit;
     ATTRIBUTE POWER OF __ONE__ : SIGNAL IS true;
     SIGNAL __ZERO__ : bit;
@@ -484,42 +509,42 @@ ARCHITECTURE __DEFAULT__ OF \Manchester encoder-decoder\ IS
     SIGNAL \Period:bSR:sC32:BShiftRegDp:u2.cfbo__sig\ : bit;
     SIGNAL \Period:bSR:sC32:BShiftRegDp:u3.sor__sig\ : bit;
     SIGNAL \Period:bSR:sC32:BShiftRegDp:u3.cmsbo__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u0.cl0__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u0.z0__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u0.ff0__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u0.ce1__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u0.cl1__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u0.z1__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u0.ff1__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u0.co_msb__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u0.sol_msb__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u0.cfbo__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u1.sor__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u1.cmsbo__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u1.cl0__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u1.z0__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u1.ff0__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u1.ce1__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u1.cl1__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u1.z1__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u1.ff1__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u1.co_msb__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u1.sol_msb__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u1.cfbo__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u2.sor__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u2.cmsbo__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u2.cl0__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u2.z0__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u2.ff0__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u2.ce1__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u2.cl1__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u2.z1__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u2.ff1__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u2.co_msb__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u2.sol_msb__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u2.cfbo__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u3.sor__sig\ : bit;
-    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u3.cmsbo__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u0.cl0__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u0.z0__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u0.ff0__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u0.ce1__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u0.cl1__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u0.z1__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u0.ff1__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u0.co_msb__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u0.sol_msb__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u0.cfbo__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u1.sor__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u1.cmsbo__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u1.cl0__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u1.z0__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u1.ff0__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u1.ce1__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u1.cl1__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u1.z1__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u1.ff1__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u1.co_msb__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u1.sol_msb__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u1.cfbo__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u2.sor__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u2.cmsbo__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u2.cl0__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u2.z0__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u2.ff0__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u2.ce1__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u2.cl1__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u2.z1__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u2.ff1__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u2.co_msb__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u2.sol_msb__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u2.cfbo__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u3.sor__sig\ : bit;
+    SIGNAL \sec_counter:CounterUDB:sC32:counterdp:u3.cmsbo__sig\ : bit;
     ATTRIBUTE lib_model OF LOAD(0) : LABEL IS "iocell1";
     ATTRIBUTE Location OF LOAD(0) : LABEL IS "P0[1]";
     ATTRIBUTE lib_model OF Sh_out(0) : LABEL IS "iocell2";
@@ -572,6 +597,10 @@ ARCHITECTURE __DEFAULT__ OF \Manchester encoder-decoder\ IS
     ATTRIBUTE Location OF Clock_tiktak_2(0) : LABEL IS "P0[6]";
     ATTRIBUTE lib_model OF Clock_tiktak_4(0) : LABEL IS "iocell26";
     ATTRIBUTE Location OF Clock_tiktak_4(0) : LABEL IS "P15[5]";
+    ATTRIBUTE lib_model OF \USBUART:Dm(0)\ : LABEL IS "iocell27";
+    ATTRIBUTE Location OF \USBUART:Dm(0)\ : LABEL IS "P15[7]";
+    ATTRIBUTE lib_model OF \USBUART:Dp(0)\ : LABEL IS "iocell28";
+    ATTRIBUTE Location OF \USBUART:Dp(0)\ : LABEL IS "P15[6]";
     ATTRIBUTE lib_model OF \TransmitShiftReg:bSR:status_0\ : LABEL IS "macrocell1";
     ATTRIBUTE lib_model OF Net_9761 : LABEL IS "macrocell2";
     ATTRIBUTE lib_model OF Net_10625 : LABEL IS "macrocell3";
@@ -598,10 +627,10 @@ ARCHITECTURE __DEFAULT__ OF \Manchester encoder-decoder\ IS
     ATTRIBUTE lib_model OF \Period:bSR:status_0\ : LABEL IS "macrocell24";
     ATTRIBUTE lib_model OF \BasicCounter:MODULE_6:g2:a0:g1:z1:s0:g1:u0:b_16\ : LABEL IS "macrocell25";
     ATTRIBUTE lib_model OF Net_12170 : LABEL IS "macrocell26";
-    ATTRIBUTE lib_model OF \Counter_1:CounterUDB:hwCapture\ : LABEL IS "macrocell27";
-    ATTRIBUTE lib_model OF \Counter_1:CounterUDB:status_0\ : LABEL IS "macrocell28";
-    ATTRIBUTE lib_model OF \Counter_1:CounterUDB:status_2\ : LABEL IS "macrocell29";
-    ATTRIBUTE lib_model OF \Counter_1:CounterUDB:count_enable\ : LABEL IS "macrocell30";
+    ATTRIBUTE lib_model OF \sec_counter:CounterUDB:hwCapture\ : LABEL IS "macrocell27";
+    ATTRIBUTE lib_model OF \sec_counter:CounterUDB:status_0\ : LABEL IS "macrocell28";
+    ATTRIBUTE lib_model OF \sec_counter:CounterUDB:status_2\ : LABEL IS "macrocell29";
+    ATTRIBUTE lib_model OF \sec_counter:CounterUDB:count_enable\ : LABEL IS "macrocell30";
     ATTRIBUTE lib_model OF Net_11403 : LABEL IS "macrocell31";
     ATTRIBUTE lib_model OF \MODULE_7:g1:a0:gx:u0:eq_7\ : LABEL IS "macrocell32";
     ATTRIBUTE lib_model OF \MODULE_7:g1:a0:gx:u0:eq_15\ : LABEL IS "macrocell33";
@@ -644,12 +673,13 @@ ARCHITECTURE __DEFAULT__ OF \Manchester encoder-decoder\ IS
     ATTRIBUTE lib_model OF \CAPT_LOW:sts:sts_reg\ : LABEL IS "statuscell2";
     ATTRIBUTE lib_model OF \CAPT_MID:sts:sts_reg\ : LABEL IS "statuscell3";
     ATTRIBUTE lib_model OF \CAPT_HIGH:sts:sts_reg\ : LABEL IS "statuscell4";
-    ATTRIBUTE lib_model OF \Counter_1:CounterUDB:sCTRLReg:ctrlreg\ : LABEL IS "controlcell12";
-    ATTRIBUTE lib_model OF \Counter_1:CounterUDB:sSTSReg:stsreg\ : LABEL IS "statusicell7";
-    ATTRIBUTE lib_model OF \Counter_1:CounterUDB:sC32:counterdp:u0\ : LABEL IS "datapathcell17";
-    ATTRIBUTE lib_model OF \Counter_1:CounterUDB:sC32:counterdp:u1\ : LABEL IS "datapathcell18";
-    ATTRIBUTE lib_model OF \Counter_1:CounterUDB:sC32:counterdp:u2\ : LABEL IS "datapathcell19";
-    ATTRIBUTE lib_model OF \Counter_1:CounterUDB:sC32:counterdp:u3\ : LABEL IS "datapathcell20";
+    ATTRIBUTE lib_model OF \sec_counter:CounterUDB:sCTRLReg:ctrlreg\ : LABEL IS "controlcell12";
+    ATTRIBUTE lib_model OF \sec_counter:CounterUDB:sSTSReg:stsreg\ : LABEL IS "statusicell7";
+    ATTRIBUTE lib_model OF \sec_counter:CounterUDB:sC32:counterdp:u0\ : LABEL IS "datapathcell17";
+    ATTRIBUTE lib_model OF \sec_counter:CounterUDB:sC32:counterdp:u1\ : LABEL IS "datapathcell18";
+    ATTRIBUTE lib_model OF \sec_counter:CounterUDB:sC32:counterdp:u2\ : LABEL IS "datapathcell19";
+    ATTRIBUTE lib_model OF \sec_counter:CounterUDB:sC32:counterdp:u3\ : LABEL IS "datapathcell20";
+    ATTRIBUTE Location OF \USBUART:USB\ : LABEL IS "F(USB,0)";
     ATTRIBUTE lib_model OF \GlitchFilter_3:genblk1[0]:sample\ : LABEL IS "macrocell36";
     ATTRIBUTE lib_model OF My_wire_0 : LABEL IS "macrocell37";
     ATTRIBUTE lib_model OF \GlitchFilter_3:genblk1[1]:sample\ : LABEL IS "macrocell38";
@@ -719,10 +749,10 @@ ARCHITECTURE __DEFAULT__ OF \Manchester encoder-decoder\ IS
     ATTRIBUTE lib_model OF HI_2 : LABEL IS "macrocell102";
     ATTRIBUTE lib_model OF HI_1 : LABEL IS "macrocell103";
     ATTRIBUTE lib_model OF HI_0 : LABEL IS "macrocell104";
-    ATTRIBUTE lib_model OF \Counter_1:CounterUDB:prevCapture\ : LABEL IS "macrocell105";
-    ATTRIBUTE lib_model OF \Counter_1:CounterUDB:overflow_reg_i\ : LABEL IS "macrocell106";
-    ATTRIBUTE lib_model OF \Counter_1:CounterUDB:prevCompare\ : LABEL IS "macrocell107";
-    ATTRIBUTE lib_model OF \Counter_1:CounterUDB:count_stored_i\ : LABEL IS "macrocell108";
+    ATTRIBUTE lib_model OF \sec_counter:CounterUDB:prevCapture\ : LABEL IS "macrocell105";
+    ATTRIBUTE lib_model OF \sec_counter:CounterUDB:overflow_reg_i\ : LABEL IS "macrocell106";
+    ATTRIBUTE lib_model OF \sec_counter:CounterUDB:prevCompare\ : LABEL IS "macrocell107";
+    ATTRIBUTE lib_model OF \sec_counter:CounterUDB:count_stored_i\ : LABEL IS "macrocell108";
     COMPONENT clockblockcell
         PORT (
             dclk_0 : OUT std_ulogic;
@@ -1086,6 +1116,31 @@ ARCHITECTURE __DEFAULT__ OF \Manchester encoder-decoder\ IS
             tc : OUT std_ulogic;
             cmp : OUT std_ulogic;
             irq : OUT std_ulogic);
+    END COMPONENT;
+    COMPONENT usbcell
+        PORT (
+            sof_int : OUT std_ulogic;
+            arb_int : OUT std_ulogic;
+            usb_int : OUT std_ulogic;
+            ord_int : OUT std_ulogic;
+            ept_int_0 : OUT std_ulogic;
+            ept_int_1 : OUT std_ulogic;
+            ept_int_2 : OUT std_ulogic;
+            ept_int_3 : OUT std_ulogic;
+            ept_int_4 : OUT std_ulogic;
+            ept_int_5 : OUT std_ulogic;
+            ept_int_6 : OUT std_ulogic;
+            ept_int_7 : OUT std_ulogic;
+            ept_int_8 : OUT std_ulogic;
+            dma_req_0 : OUT std_ulogic;
+            dma_req_1 : OUT std_ulogic;
+            dma_req_2 : OUT std_ulogic;
+            dma_req_3 : OUT std_ulogic;
+            dma_req_4 : OUT std_ulogic;
+            dma_req_5 : OUT std_ulogic;
+            dma_req_6 : OUT std_ulogic;
+            dma_req_7 : OUT std_ulogic;
+            dma_termin : OUT std_ulogic);
     END COMPONENT;
 BEGIN
 
@@ -4047,6 +4102,186 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
+    \USBUART:Dm\:logicalport
+        GENERIC MAP(
+            drive_mode => "000",
+            ibuf_enabled => "0",
+            id => "beca5e2d-f70f-4900-a4db-7eca1ed3126e/8b77a6c4-10a0-4390-971c-672353e2a49c",
+            init_dr_st => "0",
+            input_buffer_sel => "00",
+            input_clk_en => 0,
+            input_sync => "1",
+            input_sync_mode => "0",
+            intr_mode => "00",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => "",
+            layout_mode => "NONCONTIGUOUS",
+            oe_conn => "0",
+            oe_reset => 0,
+            oe_sync => "0",
+            output_clk_en => 0,
+            output_clock_mode => "0",
+            output_conn => "0",
+            output_mode => "0",
+            output_reset => 0,
+            output_sync => "0",
+            ovt_hyst_trim => "0",
+            ovt_needed => "0",
+            ovt_slew_control => "00",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "",
+            pin_mode => "A",
+            por_state => 4,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "00000000",
+            sio_hyst => "1",
+            sio_ibuf => "00000000",
+            sio_info => "00",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "00000000",
+            sio_vtrip => "00000000",
+            slew_rate => "0",
+            spanning => 1,
+            sw_only => 0,
+            use_annotation => "0",
+            vtrip => "10",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
+        PORT MAP(
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open);
+
+    \USBUART:Dm(0)\:iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "\USBUART:Dm\",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000100000000000000000000000")
+        PORT MAP(
+            pa_out => \\\USBUART:Dm(0)\\__PA\,
+            oe => open,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    \USBUART:Dp\:logicalport
+        GENERIC MAP(
+            drive_mode => "000",
+            ibuf_enabled => "0",
+            id => "beca5e2d-f70f-4900-a4db-7eca1ed3126e/618a72fc-5ddd-4df5-958f-a3d55102db42",
+            init_dr_st => "1",
+            input_buffer_sel => "00",
+            input_clk_en => 0,
+            input_sync => "1",
+            input_sync_mode => "0",
+            intr_mode => "10",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => "",
+            layout_mode => "CONTIGUOUS",
+            oe_conn => "0",
+            oe_reset => 0,
+            oe_sync => "0",
+            output_clk_en => 0,
+            output_clock_mode => "0",
+            output_conn => "0",
+            output_mode => "0",
+            output_reset => 0,
+            output_sync => "0",
+            ovt_hyst_trim => "0",
+            ovt_needed => "0",
+            ovt_slew_control => "00",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "",
+            pin_mode => "I",
+            por_state => 4,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "00000000",
+            sio_hyst => "1",
+            sio_ibuf => "00000000",
+            sio_info => "00",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "00000000",
+            sio_vtrip => "00000000",
+            slew_rate => "0",
+            spanning => 0,
+            sw_only => 0,
+            use_annotation => "0",
+            vtrip => "00",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
+        PORT MAP(
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open,
+            interrupt => \USBUART:Net_1010\,
+            in_clock => open);
+
+    \USBUART:Dp(0)\:iocell
+        GENERIC MAP(
+            in_sync_mode => 2,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "\USBUART:Dp\",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000010000000000000000000000")
+        PORT MAP(
+            pa_out => \\\USBUART:Dp(0)\\__PA\,
+            oe => open,
+            in_clock => ClockBlock_BUS_CLK,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
     \TransmitShiftReg:bSR:status_0\:macrocell
         GENERIC MAP(
             eqn_main => "(!main_0 * main_1 * main_2)",
@@ -4340,46 +4575,46 @@ BEGIN
             main_4 => \MODULE_7:g1:a0:gx:u0:eq_7\,
             main_5 => \MODULE_7:g1:a0:gx:u0:eq_15\);
 
-    \Counter_1:CounterUDB:hwCapture\:macrocell
+    \sec_counter:CounterUDB:hwCapture\:macrocell
         GENERIC MAP(
             eqn_main => "(main_0 * !main_1)",
             regmode => 0,
             clken_mode => 1)
         PORT MAP(
-            q => \Counter_1:CounterUDB:hwCapture\,
+            q => \sec_counter:CounterUDB:hwCapture\,
             main_0 => cydff_14,
-            main_1 => \Counter_1:CounterUDB:prevCapture\);
+            main_1 => \sec_counter:CounterUDB:prevCapture\);
 
-    \Counter_1:CounterUDB:status_0\:macrocell
+    \sec_counter:CounterUDB:status_0\:macrocell
         GENERIC MAP(
             eqn_main => "(main_0 * !main_1)",
             regmode => 0,
             clken_mode => 1)
         PORT MAP(
-            q => \Counter_1:CounterUDB:status_0\,
-            main_0 => \Counter_1:CounterUDB:cmp_out_i\,
-            main_1 => \Counter_1:CounterUDB:prevCompare\);
+            q => \sec_counter:CounterUDB:status_0\,
+            main_0 => \sec_counter:CounterUDB:cmp_out_i\,
+            main_1 => \sec_counter:CounterUDB:prevCompare\);
 
-    \Counter_1:CounterUDB:status_2\:macrocell
+    \sec_counter:CounterUDB:status_2\:macrocell
         GENERIC MAP(
             eqn_main => "(main_0 * !main_1)",
             regmode => 0,
             clken_mode => 1)
         PORT MAP(
-            q => \Counter_1:CounterUDB:status_2\,
-            main_0 => \Counter_1:CounterUDB:reload\,
-            main_1 => \Counter_1:CounterUDB:overflow_reg_i\);
+            q => \sec_counter:CounterUDB:status_2\,
+            main_0 => \sec_counter:CounterUDB:reload\,
+            main_1 => \sec_counter:CounterUDB:overflow_reg_i\);
 
-    \Counter_1:CounterUDB:count_enable\:macrocell
+    \sec_counter:CounterUDB:count_enable\:macrocell
         GENERIC MAP(
             eqn_main => "(main_0 * main_1 * !main_2)",
             regmode => 0,
             clken_mode => 1)
         PORT MAP(
-            q => \Counter_1:CounterUDB:count_enable\,
+            q => \sec_counter:CounterUDB:count_enable\,
             main_0 => Net_12170,
-            main_1 => \Counter_1:CounterUDB:control_7\,
-            main_2 => \Counter_1:CounterUDB:count_stored_i\);
+            main_1 => \sec_counter:CounterUDB:control_7\,
+            main_2 => \sec_counter:CounterUDB:count_stored_i\);
 
     Net_11403:macrocell
         GENERIC MAP(
@@ -5728,7 +5963,7 @@ BEGIN
             status_0 => HI_14,
             clk_en => Net_11939);
 
-    \Counter_1:CounterUDB:sCTRLReg:ctrlreg\:controlcell
+    \sec_counter:CounterUDB:sCTRLReg:ctrlreg\:controlcell
         GENERIC MAP(
             cy_ctrl_mode_0 => "11111111",
             cy_ctrl_mode_1 => "00000000",
@@ -5740,18 +5975,18 @@ BEGIN
             clken_mode => 2)
         PORT MAP(
             clock => ClockBlock_BUS_CLK,
-            control_7 => \Counter_1:CounterUDB:control_7\,
-            control_6 => \Counter_1:CounterUDB:control_6\,
-            control_5 => \Counter_1:CounterUDB:control_5\,
-            control_4 => \Counter_1:CounterUDB:control_4\,
-            control_3 => \Counter_1:CounterUDB:control_3\,
-            control_2 => \Counter_1:CounterUDB:control_2\,
-            control_1 => \Counter_1:CounterUDB:control_1\,
-            control_0 => \Counter_1:CounterUDB:control_0\,
+            control_7 => \sec_counter:CounterUDB:control_7\,
+            control_6 => \sec_counter:CounterUDB:control_6\,
+            control_5 => \sec_counter:CounterUDB:control_5\,
+            control_4 => \sec_counter:CounterUDB:control_4\,
+            control_3 => \sec_counter:CounterUDB:control_3\,
+            control_2 => \sec_counter:CounterUDB:control_2\,
+            control_1 => \sec_counter:CounterUDB:control_1\,
+            control_0 => \sec_counter:CounterUDB:control_0\,
             clk_en => cydff_9__SYNC_OUT_1,
             busclk => ClockBlock_BUS_CLK);
 
-    \Counter_1:CounterUDB:sSTSReg:stsreg\:statusicell
+    \sec_counter:CounterUDB:sSTSReg:stsreg\:statusicell
         GENERIC MAP(
             cy_force_order => 1,
             cy_int_mask => "1111111",
@@ -5761,17 +5996,17 @@ BEGIN
             clken_mode => 2)
         PORT MAP(
             clock => ClockBlock_BUS_CLK,
-            status_6 => \Counter_1:CounterUDB:status_6\,
-            status_5 => \Counter_1:CounterUDB:status_5\,
-            status_4 => \Counter_1:CounterUDB:hwCapture\,
+            status_6 => \sec_counter:CounterUDB:status_6\,
+            status_5 => \sec_counter:CounterUDB:status_5\,
+            status_4 => \sec_counter:CounterUDB:hwCapture\,
             status_3 => open,
-            status_2 => \Counter_1:CounterUDB:status_2\,
-            status_1 => \Counter_1:CounterUDB:status_1\,
-            status_0 => \Counter_1:CounterUDB:status_0\,
+            status_2 => \sec_counter:CounterUDB:status_2\,
+            status_1 => \sec_counter:CounterUDB:status_1\,
+            status_0 => \sec_counter:CounterUDB:status_0\,
             interrupt => Net_11939,
             clk_en => cydff_9__SYNC_OUT);
 
-    \Counter_1:CounterUDB:sC32:counterdp:u0\:datapathcell
+    \sec_counter:CounterUDB:sC32:counterdp:u0\:datapathcell
         GENERIC MAP(
             a0_init => "00000000",
             a1_init => "00000000",
@@ -5802,26 +6037,26 @@ BEGIN
         PORT MAP(
             clock => ClockBlock_BUS_CLK,
             cs_addr_2 => __ONE__,
-            cs_addr_1 => \Counter_1:CounterUDB:count_enable\,
-            cs_addr_0 => \Counter_1:CounterUDB:reload\,
-            f0_load => \Counter_1:CounterUDB:hwCapture\,
+            cs_addr_1 => \sec_counter:CounterUDB:count_enable\,
+            cs_addr_0 => \sec_counter:CounterUDB:reload\,
+            f0_load => \sec_counter:CounterUDB:hwCapture\,
             clk_en => cydff_9__SYNC_OUT,
             busclk => ClockBlock_BUS_CLK,
-            ce0 => \Counter_1:CounterUDB:sC32:counterdp:u0.ce0__sig\,
-            cl0 => \Counter_1:CounterUDB:sC32:counterdp:u0.cl0__sig\,
-            z0 => \Counter_1:CounterUDB:sC32:counterdp:u0.z0__sig\,
-            ff0 => \Counter_1:CounterUDB:sC32:counterdp:u0.ff0__sig\,
-            ce1 => \Counter_1:CounterUDB:sC32:counterdp:u0.ce1__sig\,
-            cl1 => \Counter_1:CounterUDB:sC32:counterdp:u0.cl1__sig\,
-            z1 => \Counter_1:CounterUDB:sC32:counterdp:u0.z1__sig\,
-            ff1 => \Counter_1:CounterUDB:sC32:counterdp:u0.ff1__sig\,
-            co_msb => \Counter_1:CounterUDB:sC32:counterdp:u0.co_msb__sig\,
-            sol_msb => \Counter_1:CounterUDB:sC32:counterdp:u0.sol_msb__sig\,
-            cfbo => \Counter_1:CounterUDB:sC32:counterdp:u0.cfbo__sig\,
-            sil => \Counter_1:CounterUDB:sC32:counterdp:u1.sor__sig\,
-            cmsbi => \Counter_1:CounterUDB:sC32:counterdp:u1.cmsbo__sig\);
+            ce0 => \sec_counter:CounterUDB:sC32:counterdp:u0.ce0__sig\,
+            cl0 => \sec_counter:CounterUDB:sC32:counterdp:u0.cl0__sig\,
+            z0 => \sec_counter:CounterUDB:sC32:counterdp:u0.z0__sig\,
+            ff0 => \sec_counter:CounterUDB:sC32:counterdp:u0.ff0__sig\,
+            ce1 => \sec_counter:CounterUDB:sC32:counterdp:u0.ce1__sig\,
+            cl1 => \sec_counter:CounterUDB:sC32:counterdp:u0.cl1__sig\,
+            z1 => \sec_counter:CounterUDB:sC32:counterdp:u0.z1__sig\,
+            ff1 => \sec_counter:CounterUDB:sC32:counterdp:u0.ff1__sig\,
+            co_msb => \sec_counter:CounterUDB:sC32:counterdp:u0.co_msb__sig\,
+            sol_msb => \sec_counter:CounterUDB:sC32:counterdp:u0.sol_msb__sig\,
+            cfbo => \sec_counter:CounterUDB:sC32:counterdp:u0.cfbo__sig\,
+            sil => \sec_counter:CounterUDB:sC32:counterdp:u1.sor__sig\,
+            cmsbi => \sec_counter:CounterUDB:sC32:counterdp:u1.cmsbo__sig\);
 
-    \Counter_1:CounterUDB:sC32:counterdp:u1\:datapathcell
+    \sec_counter:CounterUDB:sC32:counterdp:u1\:datapathcell
         GENERIC MAP(
             a0_init => "00000000",
             a1_init => "00000000",
@@ -5852,39 +6087,39 @@ BEGIN
         PORT MAP(
             clock => ClockBlock_BUS_CLK,
             cs_addr_2 => __ONE__,
-            cs_addr_1 => \Counter_1:CounterUDB:count_enable\,
-            cs_addr_0 => \Counter_1:CounterUDB:reload\,
-            f0_load => \Counter_1:CounterUDB:hwCapture\,
+            cs_addr_1 => \sec_counter:CounterUDB:count_enable\,
+            cs_addr_0 => \sec_counter:CounterUDB:reload\,
+            f0_load => \sec_counter:CounterUDB:hwCapture\,
             busclk => ClockBlock_BUS_CLK,
             clk_en => cydff_9__SYNC_OUT,
-            ce0i => \Counter_1:CounterUDB:sC32:counterdp:u0.ce0__sig\,
-            cl0i => \Counter_1:CounterUDB:sC32:counterdp:u0.cl0__sig\,
-            z0i => \Counter_1:CounterUDB:sC32:counterdp:u0.z0__sig\,
-            ff0i => \Counter_1:CounterUDB:sC32:counterdp:u0.ff0__sig\,
-            ce1i => \Counter_1:CounterUDB:sC32:counterdp:u0.ce1__sig\,
-            cl1i => \Counter_1:CounterUDB:sC32:counterdp:u0.cl1__sig\,
-            z1i => \Counter_1:CounterUDB:sC32:counterdp:u0.z1__sig\,
-            ff1i => \Counter_1:CounterUDB:sC32:counterdp:u0.ff1__sig\,
-            ci => \Counter_1:CounterUDB:sC32:counterdp:u0.co_msb__sig\,
-            sir => \Counter_1:CounterUDB:sC32:counterdp:u0.sol_msb__sig\,
-            cfbi => \Counter_1:CounterUDB:sC32:counterdp:u0.cfbo__sig\,
-            sor => \Counter_1:CounterUDB:sC32:counterdp:u1.sor__sig\,
-            cmsbo => \Counter_1:CounterUDB:sC32:counterdp:u1.cmsbo__sig\,
-            ce0 => \Counter_1:CounterUDB:sC32:counterdp:u1.ce0__sig\,
-            cl0 => \Counter_1:CounterUDB:sC32:counterdp:u1.cl0__sig\,
-            z0 => \Counter_1:CounterUDB:sC32:counterdp:u1.z0__sig\,
-            ff0 => \Counter_1:CounterUDB:sC32:counterdp:u1.ff0__sig\,
-            ce1 => \Counter_1:CounterUDB:sC32:counterdp:u1.ce1__sig\,
-            cl1 => \Counter_1:CounterUDB:sC32:counterdp:u1.cl1__sig\,
-            z1 => \Counter_1:CounterUDB:sC32:counterdp:u1.z1__sig\,
-            ff1 => \Counter_1:CounterUDB:sC32:counterdp:u1.ff1__sig\,
-            co_msb => \Counter_1:CounterUDB:sC32:counterdp:u1.co_msb__sig\,
-            sol_msb => \Counter_1:CounterUDB:sC32:counterdp:u1.sol_msb__sig\,
-            cfbo => \Counter_1:CounterUDB:sC32:counterdp:u1.cfbo__sig\,
-            sil => \Counter_1:CounterUDB:sC32:counterdp:u2.sor__sig\,
-            cmsbi => \Counter_1:CounterUDB:sC32:counterdp:u2.cmsbo__sig\);
+            ce0i => \sec_counter:CounterUDB:sC32:counterdp:u0.ce0__sig\,
+            cl0i => \sec_counter:CounterUDB:sC32:counterdp:u0.cl0__sig\,
+            z0i => \sec_counter:CounterUDB:sC32:counterdp:u0.z0__sig\,
+            ff0i => \sec_counter:CounterUDB:sC32:counterdp:u0.ff0__sig\,
+            ce1i => \sec_counter:CounterUDB:sC32:counterdp:u0.ce1__sig\,
+            cl1i => \sec_counter:CounterUDB:sC32:counterdp:u0.cl1__sig\,
+            z1i => \sec_counter:CounterUDB:sC32:counterdp:u0.z1__sig\,
+            ff1i => \sec_counter:CounterUDB:sC32:counterdp:u0.ff1__sig\,
+            ci => \sec_counter:CounterUDB:sC32:counterdp:u0.co_msb__sig\,
+            sir => \sec_counter:CounterUDB:sC32:counterdp:u0.sol_msb__sig\,
+            cfbi => \sec_counter:CounterUDB:sC32:counterdp:u0.cfbo__sig\,
+            sor => \sec_counter:CounterUDB:sC32:counterdp:u1.sor__sig\,
+            cmsbo => \sec_counter:CounterUDB:sC32:counterdp:u1.cmsbo__sig\,
+            ce0 => \sec_counter:CounterUDB:sC32:counterdp:u1.ce0__sig\,
+            cl0 => \sec_counter:CounterUDB:sC32:counterdp:u1.cl0__sig\,
+            z0 => \sec_counter:CounterUDB:sC32:counterdp:u1.z0__sig\,
+            ff0 => \sec_counter:CounterUDB:sC32:counterdp:u1.ff0__sig\,
+            ce1 => \sec_counter:CounterUDB:sC32:counterdp:u1.ce1__sig\,
+            cl1 => \sec_counter:CounterUDB:sC32:counterdp:u1.cl1__sig\,
+            z1 => \sec_counter:CounterUDB:sC32:counterdp:u1.z1__sig\,
+            ff1 => \sec_counter:CounterUDB:sC32:counterdp:u1.ff1__sig\,
+            co_msb => \sec_counter:CounterUDB:sC32:counterdp:u1.co_msb__sig\,
+            sol_msb => \sec_counter:CounterUDB:sC32:counterdp:u1.sol_msb__sig\,
+            cfbo => \sec_counter:CounterUDB:sC32:counterdp:u1.cfbo__sig\,
+            sil => \sec_counter:CounterUDB:sC32:counterdp:u2.sor__sig\,
+            cmsbi => \sec_counter:CounterUDB:sC32:counterdp:u2.cmsbo__sig\);
 
-    \Counter_1:CounterUDB:sC32:counterdp:u2\:datapathcell
+    \sec_counter:CounterUDB:sC32:counterdp:u2\:datapathcell
         GENERIC MAP(
             a0_init => "00000000",
             a1_init => "00000000",
@@ -5915,39 +6150,39 @@ BEGIN
         PORT MAP(
             clock => ClockBlock_BUS_CLK,
             cs_addr_2 => __ONE__,
-            cs_addr_1 => \Counter_1:CounterUDB:count_enable\,
-            cs_addr_0 => \Counter_1:CounterUDB:reload\,
-            f0_load => \Counter_1:CounterUDB:hwCapture\,
+            cs_addr_1 => \sec_counter:CounterUDB:count_enable\,
+            cs_addr_0 => \sec_counter:CounterUDB:reload\,
+            f0_load => \sec_counter:CounterUDB:hwCapture\,
             busclk => ClockBlock_BUS_CLK,
             clk_en => cydff_9__SYNC_OUT,
-            ce0i => \Counter_1:CounterUDB:sC32:counterdp:u1.ce0__sig\,
-            cl0i => \Counter_1:CounterUDB:sC32:counterdp:u1.cl0__sig\,
-            z0i => \Counter_1:CounterUDB:sC32:counterdp:u1.z0__sig\,
-            ff0i => \Counter_1:CounterUDB:sC32:counterdp:u1.ff0__sig\,
-            ce1i => \Counter_1:CounterUDB:sC32:counterdp:u1.ce1__sig\,
-            cl1i => \Counter_1:CounterUDB:sC32:counterdp:u1.cl1__sig\,
-            z1i => \Counter_1:CounterUDB:sC32:counterdp:u1.z1__sig\,
-            ff1i => \Counter_1:CounterUDB:sC32:counterdp:u1.ff1__sig\,
-            ci => \Counter_1:CounterUDB:sC32:counterdp:u1.co_msb__sig\,
-            sir => \Counter_1:CounterUDB:sC32:counterdp:u1.sol_msb__sig\,
-            cfbi => \Counter_1:CounterUDB:sC32:counterdp:u1.cfbo__sig\,
-            sor => \Counter_1:CounterUDB:sC32:counterdp:u2.sor__sig\,
-            cmsbo => \Counter_1:CounterUDB:sC32:counterdp:u2.cmsbo__sig\,
-            ce0 => \Counter_1:CounterUDB:sC32:counterdp:u2.ce0__sig\,
-            cl0 => \Counter_1:CounterUDB:sC32:counterdp:u2.cl0__sig\,
-            z0 => \Counter_1:CounterUDB:sC32:counterdp:u2.z0__sig\,
-            ff0 => \Counter_1:CounterUDB:sC32:counterdp:u2.ff0__sig\,
-            ce1 => \Counter_1:CounterUDB:sC32:counterdp:u2.ce1__sig\,
-            cl1 => \Counter_1:CounterUDB:sC32:counterdp:u2.cl1__sig\,
-            z1 => \Counter_1:CounterUDB:sC32:counterdp:u2.z1__sig\,
-            ff1 => \Counter_1:CounterUDB:sC32:counterdp:u2.ff1__sig\,
-            co_msb => \Counter_1:CounterUDB:sC32:counterdp:u2.co_msb__sig\,
-            sol_msb => \Counter_1:CounterUDB:sC32:counterdp:u2.sol_msb__sig\,
-            cfbo => \Counter_1:CounterUDB:sC32:counterdp:u2.cfbo__sig\,
-            sil => \Counter_1:CounterUDB:sC32:counterdp:u3.sor__sig\,
-            cmsbi => \Counter_1:CounterUDB:sC32:counterdp:u3.cmsbo__sig\);
+            ce0i => \sec_counter:CounterUDB:sC32:counterdp:u1.ce0__sig\,
+            cl0i => \sec_counter:CounterUDB:sC32:counterdp:u1.cl0__sig\,
+            z0i => \sec_counter:CounterUDB:sC32:counterdp:u1.z0__sig\,
+            ff0i => \sec_counter:CounterUDB:sC32:counterdp:u1.ff0__sig\,
+            ce1i => \sec_counter:CounterUDB:sC32:counterdp:u1.ce1__sig\,
+            cl1i => \sec_counter:CounterUDB:sC32:counterdp:u1.cl1__sig\,
+            z1i => \sec_counter:CounterUDB:sC32:counterdp:u1.z1__sig\,
+            ff1i => \sec_counter:CounterUDB:sC32:counterdp:u1.ff1__sig\,
+            ci => \sec_counter:CounterUDB:sC32:counterdp:u1.co_msb__sig\,
+            sir => \sec_counter:CounterUDB:sC32:counterdp:u1.sol_msb__sig\,
+            cfbi => \sec_counter:CounterUDB:sC32:counterdp:u1.cfbo__sig\,
+            sor => \sec_counter:CounterUDB:sC32:counterdp:u2.sor__sig\,
+            cmsbo => \sec_counter:CounterUDB:sC32:counterdp:u2.cmsbo__sig\,
+            ce0 => \sec_counter:CounterUDB:sC32:counterdp:u2.ce0__sig\,
+            cl0 => \sec_counter:CounterUDB:sC32:counterdp:u2.cl0__sig\,
+            z0 => \sec_counter:CounterUDB:sC32:counterdp:u2.z0__sig\,
+            ff0 => \sec_counter:CounterUDB:sC32:counterdp:u2.ff0__sig\,
+            ce1 => \sec_counter:CounterUDB:sC32:counterdp:u2.ce1__sig\,
+            cl1 => \sec_counter:CounterUDB:sC32:counterdp:u2.cl1__sig\,
+            z1 => \sec_counter:CounterUDB:sC32:counterdp:u2.z1__sig\,
+            ff1 => \sec_counter:CounterUDB:sC32:counterdp:u2.ff1__sig\,
+            co_msb => \sec_counter:CounterUDB:sC32:counterdp:u2.co_msb__sig\,
+            sol_msb => \sec_counter:CounterUDB:sC32:counterdp:u2.sol_msb__sig\,
+            cfbo => \sec_counter:CounterUDB:sC32:counterdp:u2.cfbo__sig\,
+            sil => \sec_counter:CounterUDB:sC32:counterdp:u3.sor__sig\,
+            cmsbi => \sec_counter:CounterUDB:sC32:counterdp:u3.cmsbo__sig\);
 
-    \Counter_1:CounterUDB:sC32:counterdp:u3\:datapathcell
+    \sec_counter:CounterUDB:sC32:counterdp:u3\:datapathcell
         GENERIC MAP(
             a0_init => "00000000",
             a1_init => "00000000",
@@ -5978,29 +6213,120 @@ BEGIN
         PORT MAP(
             clock => ClockBlock_BUS_CLK,
             cs_addr_2 => __ONE__,
-            cs_addr_1 => \Counter_1:CounterUDB:count_enable\,
-            cs_addr_0 => \Counter_1:CounterUDB:reload\,
-            f0_load => \Counter_1:CounterUDB:hwCapture\,
-            ce0_comb => \Counter_1:CounterUDB:reload\,
-            z0_comb => \Counter_1:CounterUDB:status_1\,
-            cl1_comb => \Counter_1:CounterUDB:cmp_out_i\,
-            f0_bus_stat_comb => \Counter_1:CounterUDB:status_6\,
-            f0_blk_stat_comb => \Counter_1:CounterUDB:status_5\,
+            cs_addr_1 => \sec_counter:CounterUDB:count_enable\,
+            cs_addr_0 => \sec_counter:CounterUDB:reload\,
+            f0_load => \sec_counter:CounterUDB:hwCapture\,
+            ce0_comb => \sec_counter:CounterUDB:reload\,
+            z0_comb => \sec_counter:CounterUDB:status_1\,
+            cl1_comb => \sec_counter:CounterUDB:cmp_out_i\,
+            f0_bus_stat_comb => \sec_counter:CounterUDB:status_6\,
+            f0_blk_stat_comb => \sec_counter:CounterUDB:status_5\,
             busclk => ClockBlock_BUS_CLK,
             clk_en => cydff_9__SYNC_OUT,
-            ce0i => \Counter_1:CounterUDB:sC32:counterdp:u2.ce0__sig\,
-            cl0i => \Counter_1:CounterUDB:sC32:counterdp:u2.cl0__sig\,
-            z0i => \Counter_1:CounterUDB:sC32:counterdp:u2.z0__sig\,
-            ff0i => \Counter_1:CounterUDB:sC32:counterdp:u2.ff0__sig\,
-            ce1i => \Counter_1:CounterUDB:sC32:counterdp:u2.ce1__sig\,
-            cl1i => \Counter_1:CounterUDB:sC32:counterdp:u2.cl1__sig\,
-            z1i => \Counter_1:CounterUDB:sC32:counterdp:u2.z1__sig\,
-            ff1i => \Counter_1:CounterUDB:sC32:counterdp:u2.ff1__sig\,
-            ci => \Counter_1:CounterUDB:sC32:counterdp:u2.co_msb__sig\,
-            sir => \Counter_1:CounterUDB:sC32:counterdp:u2.sol_msb__sig\,
-            cfbi => \Counter_1:CounterUDB:sC32:counterdp:u2.cfbo__sig\,
-            sor => \Counter_1:CounterUDB:sC32:counterdp:u3.sor__sig\,
-            cmsbo => \Counter_1:CounterUDB:sC32:counterdp:u3.cmsbo__sig\);
+            ce0i => \sec_counter:CounterUDB:sC32:counterdp:u2.ce0__sig\,
+            cl0i => \sec_counter:CounterUDB:sC32:counterdp:u2.cl0__sig\,
+            z0i => \sec_counter:CounterUDB:sC32:counterdp:u2.z0__sig\,
+            ff0i => \sec_counter:CounterUDB:sC32:counterdp:u2.ff0__sig\,
+            ce1i => \sec_counter:CounterUDB:sC32:counterdp:u2.ce1__sig\,
+            cl1i => \sec_counter:CounterUDB:sC32:counterdp:u2.cl1__sig\,
+            z1i => \sec_counter:CounterUDB:sC32:counterdp:u2.z1__sig\,
+            ff1i => \sec_counter:CounterUDB:sC32:counterdp:u2.ff1__sig\,
+            ci => \sec_counter:CounterUDB:sC32:counterdp:u2.co_msb__sig\,
+            sir => \sec_counter:CounterUDB:sC32:counterdp:u2.sol_msb__sig\,
+            cfbi => \sec_counter:CounterUDB:sC32:counterdp:u2.cfbo__sig\,
+            sor => \sec_counter:CounterUDB:sC32:counterdp:u3.sor__sig\,
+            cmsbo => \sec_counter:CounterUDB:sC32:counterdp:u3.cmsbo__sig\);
+
+    \USBUART:dp_int\:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => \USBUART:Net_1010\,
+            clock => ClockBlock_BUS_CLK);
+
+    \USBUART:USB\:usbcell
+        GENERIC MAP(
+            cy_registers => "")
+        PORT MAP(
+            sof_int => Net_12550,
+            arb_int => \USBUART:Net_1889\,
+            usb_int => \USBUART:Net_1876\,
+            ept_int_8 => \USBUART:ep_int_8\,
+            ept_int_7 => \USBUART:ep_int_7\,
+            ept_int_6 => \USBUART:ep_int_6\,
+            ept_int_5 => \USBUART:ep_int_5\,
+            ept_int_4 => \USBUART:ep_int_4\,
+            ept_int_3 => \USBUART:ep_int_3\,
+            ept_int_2 => \USBUART:ep_int_2\,
+            ept_int_1 => \USBUART:ep_int_1\,
+            ept_int_0 => \USBUART:ep_int_0\,
+            ord_int => \USBUART:Net_95\,
+            dma_req_7 => \USBUART:dma_request_7\,
+            dma_req_6 => \USBUART:dma_request_6\,
+            dma_req_5 => \USBUART:dma_request_5\,
+            dma_req_4 => \USBUART:dma_request_4\,
+            dma_req_3 => \USBUART:dma_request_3\,
+            dma_req_2 => \USBUART:dma_request_2\,
+            dma_req_1 => \USBUART:dma_request_1\,
+            dma_req_0 => \USBUART:dma_request_0\,
+            dma_termin => \USBUART:dma_terminate\);
+
+    \USBUART:ep_3\:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => \USBUART:ep_int_3\,
+            clock => ClockBlock_BUS_CLK);
+
+    \USBUART:ep_2\:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => \USBUART:ep_int_2\,
+            clock => ClockBlock_BUS_CLK);
+
+    \USBUART:ep_1\:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => \USBUART:ep_int_1\,
+            clock => ClockBlock_BUS_CLK);
+
+    \USBUART:ep_0\:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => \USBUART:ep_int_0\,
+            clock => ClockBlock_BUS_CLK);
+
+    \USBUART:bus_reset\:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => \USBUART:Net_1876\,
+            clock => ClockBlock_BUS_CLK);
+
+    \USBUART:arb_int\:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => \USBUART:Net_1889\,
+            clock => ClockBlock_BUS_CLK);
+
+    \USBUART:sof_int\:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => Net_12550,
+            clock => ClockBlock_BUS_CLK);
 
     \GlitchFilter_3:genblk1[0]:sample\:macrocell
         GENERIC MAP(
@@ -7059,7 +7385,7 @@ BEGIN
             main_0 => Net_12170,
             main_1 => HI_0);
 
-    \Counter_1:CounterUDB:prevCapture\:macrocell
+    \sec_counter:CounterUDB:prevCapture\:macrocell
         GENERIC MAP(
             eqn_main => "(main_0)",
             regmode => 1,
@@ -7067,12 +7393,12 @@ BEGIN
             clken_inv => '0',
             clken_mode => 2)
         PORT MAP(
-            q => \Counter_1:CounterUDB:prevCapture\,
+            q => \sec_counter:CounterUDB:prevCapture\,
             clk_en => cydff_9__SYNC_OUT,
             clock_0 => ClockBlock_BUS_CLK,
             main_0 => cydff_14);
 
-    \Counter_1:CounterUDB:overflow_reg_i\:macrocell
+    \sec_counter:CounterUDB:overflow_reg_i\:macrocell
         GENERIC MAP(
             eqn_main => "(main_0)",
             regmode => 1,
@@ -7080,10 +7406,10 @@ BEGIN
             clken_inv => '0',
             clken_mode => 2)
         PORT MAP(
-            q => \Counter_1:CounterUDB:overflow_reg_i\,
+            q => \sec_counter:CounterUDB:overflow_reg_i\,
             clk_en => cydff_9__SYNC_OUT,
             clock_0 => ClockBlock_BUS_CLK,
-            main_0 => \Counter_1:CounterUDB:reload\);
+            main_0 => \sec_counter:CounterUDB:reload\);
 
     cydff_9__SYNC_1:synccell
         GENERIC MAP(
@@ -7105,7 +7431,7 @@ BEGIN
             clock => ClockBlock_BUS_CLK,
             clk_en => open);
 
-    \Counter_1:CounterUDB:prevCompare\:macrocell
+    \sec_counter:CounterUDB:prevCompare\:macrocell
         GENERIC MAP(
             eqn_main => "(main_0)",
             regmode => 1,
@@ -7113,10 +7439,10 @@ BEGIN
             clken_inv => '0',
             clken_mode => 2)
         PORT MAP(
-            q => \Counter_1:CounterUDB:prevCompare\,
+            q => \sec_counter:CounterUDB:prevCompare\,
             clk_en => cydff_9__SYNC_OUT,
             clock_0 => ClockBlock_BUS_CLK,
-            main_0 => \Counter_1:CounterUDB:cmp_out_i\);
+            main_0 => \sec_counter:CounterUDB:cmp_out_i\);
 
     Rx_1(0)_SYNC:synccell
         GENERIC MAP(
@@ -7127,7 +7453,7 @@ BEGIN
             out => Net_11413_SYNCOUT,
             clock => ClockBlock_BUS_CLK);
 
-    \Counter_1:CounterUDB:count_stored_i\:macrocell
+    \sec_counter:CounterUDB:count_stored_i\:macrocell
         GENERIC MAP(
             eqn_main => "(!main_0 * !main_1 * !main_2 * main_3 * main_4 * main_5)",
             regmode => 1,
@@ -7135,7 +7461,7 @@ BEGIN
             clken_inv => '0',
             clken_mode => 2)
         PORT MAP(
-            q => \Counter_1:CounterUDB:count_stored_i\,
+            q => \sec_counter:CounterUDB:count_stored_i\,
             clk_en => cydff_9__SYNC_OUT,
             clock_0 => ClockBlock_BUS_CLK,
             main_0 => HI_19,

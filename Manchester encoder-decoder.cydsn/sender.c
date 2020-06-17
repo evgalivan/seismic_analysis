@@ -64,9 +64,11 @@ void   Send(){
 }
 #define MESS_LEN 4
 
+renumber renumber_frame;
+
 uint32 dummy_massage[ MESS_LEN]={0};
 uint32 time_stmp_buf[ MESS_LEN]={};
-uint32 addr_set_buf[ MESS_LEN]={};
+uint32* addr_set_buf = (uint32*)renumber_frame.buf;
 uint32 selected_buf[ MESS_LEN]={};
 
 void Prepare(uint32* buf, char mask){

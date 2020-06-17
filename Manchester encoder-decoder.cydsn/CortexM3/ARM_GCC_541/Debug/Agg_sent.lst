@@ -1,0 +1,2135 @@
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"Agg_sent.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.IsNotEmpty,"ax",%progbits
+  20              		.align	2
+  21              		.global	IsNotEmpty
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	IsNotEmpty, %function
+  25              	IsNotEmpty:
+  26              	.LFB64:
+  27              		.file 1 "Agg_sent.c"
+   1:Agg_sent.c    **** /* ========================================
+   2:Agg_sent.c    ****  *
+   3:Agg_sent.c    ****  * Copyright YOUR COMPANY, THE YEAR
+   4:Agg_sent.c    ****  * All Rights Reserved
+   5:Agg_sent.c    ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:Agg_sent.c    ****  *
+   7:Agg_sent.c    ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:Agg_sent.c    ****  * WHICH IS THE PROPERTY OF your company.
+   9:Agg_sent.c    ****  *
+  10:Agg_sent.c    ****  * ========================================
+  11:Agg_sent.c    **** */
+  12:Agg_sent.c    **** #include "global.h"
+  13:Agg_sent.c    **** 
+  14:Agg_sent.c    **** /* Функция проверки, что буффер пуст 
+  15:Agg_sent.c    **** Принимает указатель на кольцевой буфер */
+  16:Agg_sent.c    **** 
+  17:Agg_sent.c    **** uint8 IsNotEmpty(RingBuff_t* buf){
+  28              		.loc 1 17 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  18:Agg_sent.c    ****     uint8 delta;
+  19:Agg_sent.c    ****     CyGlobalIntDisable;
+  34              		.loc 1 19 0
+  35              		.syntax unified
+  36              	@ 19 "Agg_sent.c" 1
+  37 0000 72B6     		CPSID   i
+  38              	@ 0 "" 2
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 2
+
+
+  20:Agg_sent.c    ****     delta = (buf->begin != buf->end);
+  39              		.loc 1 20 0
+  40              		.thumb
+  41              		.syntax unified
+  42 0002 90F84020 		ldrb	r2, [r0, #64]	@ zero_extendqisi2
+  43 0006 90F84130 		ldrb	r3, [r0, #65]	@ zero_extendqisi2
+  44              	.LVL1:
+  21:Agg_sent.c    ****     CyGlobalIntEnable;
+  45              		.loc 1 21 0
+  46              		.syntax unified
+  47              	@ 21 "Agg_sent.c" 1
+  48 000a 62B6     		CPSIE   i
+  49              	@ 0 "" 2
+  22:Agg_sent.c    ****     if (delta) return 1;
+  50              		.loc 1 22 0
+  51              		.thumb
+  52              		.syntax unified
+  53 000c 9A42     		cmp	r2, r3
+  54 000e 01D0     		beq	.L3
+  55 0010 0120     		movs	r0, #1
+  56              	.LVL2:
+  57 0012 7047     		bx	lr
+  58              	.LVL3:
+  59              	.L3:
+  23:Agg_sent.c    ****     return 0;
+  60              		.loc 1 23 0
+  61 0014 0020     		movs	r0, #0
+  62              	.LVL4:
+  24:Agg_sent.c    **** }
+  63              		.loc 1 24 0
+  64 0016 7047     		bx	lr
+  65              		.cfi_endproc
+  66              	.LFE64:
+  67              		.size	IsNotEmpty, .-IsNotEmpty
+  68              		.section	.text.InsertByte,"ax",%progbits
+  69              		.align	2
+  70              		.global	InsertByte
+  71              		.thumb
+  72              		.thumb_func
+  73              		.type	InsertByte, %function
+  74              	InsertByte:
+  75              	.LFB65:
+  25:Agg_sent.c    **** /* Функция добавления байта в буфер */
+  26:Agg_sent.c    **** 
+  27:Agg_sent.c    **** uint8 InsertByte(RingBuff_t* buf, uint8 byte){
+  76              		.loc 1 27 0
+  77              		.cfi_startproc
+  78              		@ args = 0, pretend = 0, frame = 0
+  79              		@ frame_needed = 0, uses_anonymous_args = 0
+  80              		@ link register save eliminated.
+  81              	.LVL5:
+  82 0000 10B4     		push	{r4}
+  83              		.cfi_def_cfa_offset 4
+  84              		.cfi_offset 4, -4
+  28:Agg_sent.c    ****     uint8 index = buf->end;
+  85              		.loc 1 28 0
+  86 0002 90F84120 		ldrb	r2, [r0, #65]	@ zero_extendqisi2
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 3
+
+
+  87              	.LVL6:
+  29:Agg_sent.c    ****     IN_RING(index);
+  88              		.loc 1 29 0
+  89 0006 531C     		adds	r3, r2, #1
+  90 0008 DBB2     		uxtb	r3, r3
+  91              	.LVL7:
+  92 000a 3F2B     		cmp	r3, #63
+  93 000c 02D9     		bls	.L5
+  94              		.loc 1 29 0 is_stmt 0 discriminator 1
+  95 000e A2F13F03 		sub	r3, r2, #63
+  96              	.LVL8:
+  97 0012 DBB2     		uxtb	r3, r3
+  98              	.LVL9:
+  99              	.L5:
+  30:Agg_sent.c    ****     if (index == buf->begin)return 1;
+ 100              		.loc 1 30 0 is_stmt 1
+ 101 0014 90F84040 		ldrb	r4, [r0, #64]	@ zero_extendqisi2
+ 102 0018 A342     		cmp	r3, r4
+ 103 001a 04D0     		beq	.L7
+  31:Agg_sent.c    ****     buf->buf[ buf->end ] = byte; 
+ 104              		.loc 1 31 0
+ 105 001c 8154     		strb	r1, [r0, r2]
+  32:Agg_sent.c    ****     buf->end = index;
+ 106              		.loc 1 32 0
+ 107 001e 80F84130 		strb	r3, [r0, #65]
+  33:Agg_sent.c    ****     return 0;
+ 108              		.loc 1 33 0
+ 109 0022 0020     		movs	r0, #0
+ 110              	.LVL10:
+ 111 0024 00E0     		b	.L6
+ 112              	.LVL11:
+ 113              	.L7:
+  30:Agg_sent.c    ****     buf->buf[ buf->end ] = byte; 
+ 114              		.loc 1 30 0
+ 115 0026 0120     		movs	r0, #1
+ 116              	.LVL12:
+ 117              	.L6:
+  34:Agg_sent.c    **** }
+ 118              		.loc 1 34 0
+ 119 0028 10BC     		pop	{r4}
+ 120              		.cfi_restore 4
+ 121              		.cfi_def_cfa_offset 0
+ 122 002a 7047     		bx	lr
+ 123              		.cfi_endproc
+ 124              	.LFE65:
+ 125              		.size	InsertByte, .-InsertByte
+ 126              		.section	.text.ExtractByte,"ax",%progbits
+ 127              		.align	2
+ 128              		.global	ExtractByte
+ 129              		.thumb
+ 130              		.thumb_func
+ 131              		.type	ExtractByte, %function
+ 132              	ExtractByte:
+ 133              	.LFB66:
+  35:Agg_sent.c    **** 
+  36:Agg_sent.c    **** /* Функция извлечения из буффера */
+  37:Agg_sent.c    **** 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 4
+
+
+  38:Agg_sent.c    **** uint8 ExtractByte(RingBuff_t* buf){
+ 134              		.loc 1 38 0
+ 135              		.cfi_startproc
+ 136              		@ args = 0, pretend = 0, frame = 0
+ 137              		@ frame_needed = 0, uses_anonymous_args = 0
+ 138              		@ link register save eliminated.
+ 139              	.LVL13:
+ 140 0000 0246     		mov	r2, r0
+  39:Agg_sent.c    ****     uint8 result = buf->buf[buf->begin];
+ 141              		.loc 1 39 0
+ 142 0002 90F84030 		ldrb	r3, [r0, #64]	@ zero_extendqisi2
+ 143 0006 C05C     		ldrb	r0, [r0, r3]	@ zero_extendqisi2
+ 144              	.LVL14:
+  40:Agg_sent.c    ****     IN_RING((buf->begin));
+ 145              		.loc 1 40 0
+ 146 0008 0133     		adds	r3, r3, #1
+ 147 000a DBB2     		uxtb	r3, r3
+ 148 000c 82F84030 		strb	r3, [r2, #64]
+ 149 0010 3F2B     		cmp	r3, #63
+ 150 0012 02D9     		bls	.L10
+ 151              		.loc 1 40 0 is_stmt 0 discriminator 1
+ 152 0014 403B     		subs	r3, r3, #64
+ 153 0016 82F84030 		strb	r3, [r2, #64]
+ 154              	.L10:
+  41:Agg_sent.c    ****     return result;
+  42:Agg_sent.c    **** }
+ 155              		.loc 1 42 0 is_stmt 1
+ 156 001a 7047     		bx	lr
+ 157              		.cfi_endproc
+ 158              	.LFE66:
+ 159              		.size	ExtractByte, .-ExtractByte
+ 160              		.section	.text.ByteToInt,"ax",%progbits
+ 161              		.align	2
+ 162              		.global	ByteToInt
+ 163              		.thumb
+ 164              		.thumb_func
+ 165              		.type	ByteToInt, %function
+ 166              	ByteToInt:
+ 167              	.LFB67:
+  43:Agg_sent.c    **** /* Функция  */
+  44:Agg_sent.c    **** 
+  45:Agg_sent.c    **** uint8 ByteToInt(uint8 byte){
+ 168              		.loc 1 45 0
+ 169              		.cfi_startproc
+ 170              		@ args = 0, pretend = 0, frame = 0
+ 171              		@ frame_needed = 0, uses_anonymous_args = 0
+ 172              		@ link register save eliminated.
+ 173              	.LVL15:
+  46:Agg_sent.c    ****     uint8 result=0;
+  47:Agg_sent.c    ****     switch (byte){
+ 174              		.loc 1 47 0
+ 175 0000 3138     		subs	r0, r0, #49
+ 176              	.LVL16:
+ 177 0002 3528     		cmp	r0, #53
+ 178 0004 56D8     		bhi	.L29
+ 179 0006 DFE800F0 		tbb	[pc, r0]
+ 180              	.L14:
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 5
+
+
+ 181 000a 51       		.byte	(.L30-.L14)/2
+ 182 000b 4D       		.byte	(.L31-.L14)/2
+ 183 000c 49       		.byte	(.L32-.L14)/2
+ 184 000d 45       		.byte	(.L33-.L14)/2
+ 185 000e 41       		.byte	(.L34-.L14)/2
+ 186 000f 3D       		.byte	(.L35-.L14)/2
+ 187 0010 39       		.byte	(.L36-.L14)/2
+ 188 0011 35       		.byte	(.L37-.L14)/2
+ 189 0012 31       		.byte	(.L38-.L14)/2
+ 190 0013 55       		.byte	(.L29-.L14)/2
+ 191 0014 55       		.byte	(.L29-.L14)/2
+ 192 0015 55       		.byte	(.L29-.L14)/2
+ 193 0016 55       		.byte	(.L29-.L14)/2
+ 194 0017 55       		.byte	(.L29-.L14)/2
+ 195 0018 55       		.byte	(.L29-.L14)/2
+ 196 0019 55       		.byte	(.L29-.L14)/2
+ 197 001a 2D       		.byte	(.L39-.L14)/2
+ 198 001b 29       		.byte	(.L40-.L14)/2
+ 199 001c 25       		.byte	(.L41-.L14)/2
+ 200 001d 21       		.byte	(.L42-.L14)/2
+ 201 001e 1B       		.byte	(.L27-.L14)/2
+ 202 001f 1D       		.byte	(.L43-.L14)/2
+ 203 0020 55       		.byte	(.L29-.L14)/2
+ 204 0021 55       		.byte	(.L29-.L14)/2
+ 205 0022 55       		.byte	(.L29-.L14)/2
+ 206 0023 55       		.byte	(.L29-.L14)/2
+ 207 0024 55       		.byte	(.L29-.L14)/2
+ 208 0025 55       		.byte	(.L29-.L14)/2
+ 209 0026 55       		.byte	(.L29-.L14)/2
+ 210 0027 55       		.byte	(.L29-.L14)/2
+ 211 0028 55       		.byte	(.L29-.L14)/2
+ 212 0029 55       		.byte	(.L29-.L14)/2
+ 213 002a 55       		.byte	(.L29-.L14)/2
+ 214 002b 55       		.byte	(.L29-.L14)/2
+ 215 002c 55       		.byte	(.L29-.L14)/2
+ 216 002d 55       		.byte	(.L29-.L14)/2
+ 217 002e 55       		.byte	(.L29-.L14)/2
+ 218 002f 55       		.byte	(.L29-.L14)/2
+ 219 0030 55       		.byte	(.L29-.L14)/2
+ 220 0031 55       		.byte	(.L29-.L14)/2
+ 221 0032 55       		.byte	(.L29-.L14)/2
+ 222 0033 55       		.byte	(.L29-.L14)/2
+ 223 0034 55       		.byte	(.L29-.L14)/2
+ 224 0035 55       		.byte	(.L29-.L14)/2
+ 225 0036 55       		.byte	(.L29-.L14)/2
+ 226 0037 55       		.byte	(.L29-.L14)/2
+ 227 0038 55       		.byte	(.L29-.L14)/2
+ 228 0039 55       		.byte	(.L29-.L14)/2
+ 229 003a 2D       		.byte	(.L39-.L14)/2
+ 230 003b 29       		.byte	(.L40-.L14)/2
+ 231 003c 25       		.byte	(.L41-.L14)/2
+ 232 003d 21       		.byte	(.L42-.L14)/2
+ 233 003e 1B       		.byte	(.L27-.L14)/2
+ 234 003f 1D       		.byte	(.L43-.L14)/2
+ 235              		.p2align 1
+ 236              	.L27:
+  46:Agg_sent.c    ****     uint8 result=0;
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 6
+
+
+ 237              		.loc 1 46 0
+ 238 0040 0020     		movs	r0, #0
+ 239 0042 00E0     		b	.L28
+ 240              	.L43:
+  48:Agg_sent.c    ****         case 'F':
+  49:Agg_sent.c    ****         case 'f': result++; 
+ 241              		.loc 1 49 0
+ 242 0044 0120     		movs	r0, #1
+ 243              	.L28:
+ 244              	.LVL17:
+  50:Agg_sent.c    ****         case 'E':
+  51:Agg_sent.c    ****         case 'e': result++;
+ 245              		.loc 1 51 0
+ 246 0046 0130     		adds	r0, r0, #1
+ 247              	.LVL18:
+ 248 0048 C0B2     		uxtb	r0, r0
+ 249              	.LVL19:
+ 250 004a 00E0     		b	.L26
+ 251              	.LVL20:
+ 252              	.L42:
+  46:Agg_sent.c    ****     switch (byte){
+ 253              		.loc 1 46 0
+ 254 004c 0020     		movs	r0, #0
+ 255              	.LVL21:
+ 256              	.L26:
+  52:Agg_sent.c    ****         case 'D':
+  53:Agg_sent.c    ****         case 'd': result++;
+ 257              		.loc 1 53 0
+ 258 004e 0130     		adds	r0, r0, #1
+ 259              	.LVL22:
+ 260 0050 C0B2     		uxtb	r0, r0
+ 261              	.LVL23:
+ 262 0052 00E0     		b	.L25
+ 263              	.LVL24:
+ 264              	.L41:
+  46:Agg_sent.c    ****     switch (byte){
+ 265              		.loc 1 46 0
+ 266 0054 0020     		movs	r0, #0
+ 267              	.LVL25:
+ 268              	.L25:
+  54:Agg_sent.c    ****         case 'C':
+  55:Agg_sent.c    ****         case 'c': result++;
+ 269              		.loc 1 55 0
+ 270 0056 0130     		adds	r0, r0, #1
+ 271              	.LVL26:
+ 272 0058 C0B2     		uxtb	r0, r0
+ 273              	.LVL27:
+ 274 005a 00E0     		b	.L24
+ 275              	.LVL28:
+ 276              	.L40:
+  46:Agg_sent.c    ****     switch (byte){
+ 277              		.loc 1 46 0
+ 278 005c 0020     		movs	r0, #0
+ 279              	.LVL29:
+ 280              	.L24:
+  56:Agg_sent.c    ****         case 'B':
+  57:Agg_sent.c    ****         case 'b': result++;
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 7
+
+
+ 281              		.loc 1 57 0
+ 282 005e 0130     		adds	r0, r0, #1
+ 283              	.LVL30:
+ 284 0060 C0B2     		uxtb	r0, r0
+ 285              	.LVL31:
+ 286 0062 00E0     		b	.L23
+ 287              	.LVL32:
+ 288              	.L39:
+  46:Agg_sent.c    ****     switch (byte){
+ 289              		.loc 1 46 0
+ 290 0064 0020     		movs	r0, #0
+ 291              	.LVL33:
+ 292              	.L23:
+  58:Agg_sent.c    ****         case 'A':
+  59:Agg_sent.c    ****         case 'a': result++;
+ 293              		.loc 1 59 0
+ 294 0066 0130     		adds	r0, r0, #1
+ 295              	.LVL34:
+ 296 0068 C0B2     		uxtb	r0, r0
+ 297              	.LVL35:
+ 298 006a 00E0     		b	.L22
+ 299              	.LVL36:
+ 300              	.L38:
+  46:Agg_sent.c    ****     switch (byte){
+ 301              		.loc 1 46 0
+ 302 006c 0020     		movs	r0, #0
+ 303              	.LVL37:
+ 304              	.L22:
+  60:Agg_sent.c    ****         case '9': result++;
+ 305              		.loc 1 60 0
+ 306 006e 0130     		adds	r0, r0, #1
+ 307              	.LVL38:
+ 308 0070 C0B2     		uxtb	r0, r0
+ 309              	.LVL39:
+ 310 0072 00E0     		b	.L21
+ 311              	.LVL40:
+ 312              	.L37:
+  46:Agg_sent.c    ****     switch (byte){
+ 313              		.loc 1 46 0
+ 314 0074 0020     		movs	r0, #0
+ 315              	.LVL41:
+ 316              	.L21:
+  61:Agg_sent.c    ****         case '8': result++;
+ 317              		.loc 1 61 0
+ 318 0076 0130     		adds	r0, r0, #1
+ 319              	.LVL42:
+ 320 0078 C0B2     		uxtb	r0, r0
+ 321              	.LVL43:
+ 322 007a 00E0     		b	.L20
+ 323              	.LVL44:
+ 324              	.L36:
+  46:Agg_sent.c    ****     switch (byte){
+ 325              		.loc 1 46 0
+ 326 007c 0020     		movs	r0, #0
+ 327              	.LVL45:
+ 328              	.L20:
+  62:Agg_sent.c    ****         case '7': result++;
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 8
+
+
+ 329              		.loc 1 62 0
+ 330 007e 0130     		adds	r0, r0, #1
+ 331              	.LVL46:
+ 332 0080 C0B2     		uxtb	r0, r0
+ 333              	.LVL47:
+ 334 0082 00E0     		b	.L19
+ 335              	.LVL48:
+ 336              	.L35:
+  46:Agg_sent.c    ****     switch (byte){
+ 337              		.loc 1 46 0
+ 338 0084 0020     		movs	r0, #0
+ 339              	.LVL49:
+ 340              	.L19:
+  63:Agg_sent.c    ****         case '6': result++;
+ 341              		.loc 1 63 0
+ 342 0086 0130     		adds	r0, r0, #1
+ 343              	.LVL50:
+ 344 0088 C0B2     		uxtb	r0, r0
+ 345              	.LVL51:
+ 346 008a 00E0     		b	.L18
+ 347              	.LVL52:
+ 348              	.L34:
+  46:Agg_sent.c    ****     switch (byte){
+ 349              		.loc 1 46 0
+ 350 008c 0020     		movs	r0, #0
+ 351              	.LVL53:
+ 352              	.L18:
+  64:Agg_sent.c    ****         case '5': result++;
+ 353              		.loc 1 64 0
+ 354 008e 0130     		adds	r0, r0, #1
+ 355              	.LVL54:
+ 356 0090 C0B2     		uxtb	r0, r0
+ 357              	.LVL55:
+ 358 0092 00E0     		b	.L17
+ 359              	.LVL56:
+ 360              	.L33:
+  46:Agg_sent.c    ****     switch (byte){
+ 361              		.loc 1 46 0
+ 362 0094 0020     		movs	r0, #0
+ 363              	.LVL57:
+ 364              	.L17:
+  65:Agg_sent.c    ****         case '4': result++;
+ 365              		.loc 1 65 0
+ 366 0096 0130     		adds	r0, r0, #1
+ 367              	.LVL58:
+ 368 0098 C0B2     		uxtb	r0, r0
+ 369              	.LVL59:
+ 370 009a 00E0     		b	.L16
+ 371              	.LVL60:
+ 372              	.L32:
+  46:Agg_sent.c    ****     switch (byte){
+ 373              		.loc 1 46 0
+ 374 009c 0020     		movs	r0, #0
+ 375              	.LVL61:
+ 376              	.L16:
+  66:Agg_sent.c    ****         case '3': result++;
+ 377              		.loc 1 66 0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 9
+
+
+ 378 009e 0130     		adds	r0, r0, #1
+ 379              	.LVL62:
+ 380 00a0 C0B2     		uxtb	r0, r0
+ 381              	.LVL63:
+ 382 00a2 00E0     		b	.L15
+ 383              	.LVL64:
+ 384              	.L31:
+  46:Agg_sent.c    ****     switch (byte){
+ 385              		.loc 1 46 0
+ 386 00a4 0020     		movs	r0, #0
+ 387              	.LVL65:
+ 388              	.L15:
+  67:Agg_sent.c    ****         case '2': result++;
+ 389              		.loc 1 67 0
+ 390 00a6 0130     		adds	r0, r0, #1
+ 391              	.LVL66:
+ 392 00a8 C0B2     		uxtb	r0, r0
+ 393              	.LVL67:
+ 394 00aa 00E0     		b	.L13
+ 395              	.LVL68:
+ 396              	.L30:
+  46:Agg_sent.c    ****     switch (byte){
+ 397              		.loc 1 46 0
+ 398 00ac 0020     		movs	r0, #0
+ 399              	.LVL69:
+ 400              	.L13:
+  68:Agg_sent.c    ****         case '1': result++;
+ 401              		.loc 1 68 0
+ 402 00ae 0130     		adds	r0, r0, #1
+ 403              	.LVL70:
+ 404 00b0 C0B2     		uxtb	r0, r0
+ 405              	.LVL71:
+ 406 00b2 7047     		bx	lr
+ 407              	.LVL72:
+ 408              	.L29:
+  46:Agg_sent.c    ****     switch (byte){
+ 409              		.loc 1 46 0
+ 410 00b4 0020     		movs	r0, #0
+ 411              	.LVL73:
+  69:Agg_sent.c    ****         default : 
+  70:Agg_sent.c    ****         case '0': break;
+  71:Agg_sent.c    ****     }
+  72:Agg_sent.c    ****     return result;
+  73:Agg_sent.c    **** }
+ 412              		.loc 1 73 0
+ 413 00b6 7047     		bx	lr
+ 414              		.cfi_endproc
+ 415              	.LFE67:
+ 416              		.size	ByteToInt, .-ByteToInt
+ 417              		.section	.text.agg_sent,"ax",%progbits
+ 418              		.align	2
+ 419              		.global	agg_sent
+ 420              		.thumb
+ 421              		.thumb_func
+ 422              		.type	agg_sent, %function
+ 423              	agg_sent:
+ 424              	.LFB68:
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 10
+
+
+  74:Agg_sent.c    **** 
+  75:Agg_sent.c    **** /* Функция агрегатора сентенции 
+  76:Agg_sent.c    **** возвращает состояние: "Можно разбирать сентенцию или �
+  77:Agg_sent.c    **** */
+  78:Agg_sent.c    **** uint8 agg_sent(uart_context *context){
+ 425              		.loc 1 78 0
+ 426              		.cfi_startproc
+ 427              		@ args = 0, pretend = 0, frame = 0
+ 428              		@ frame_needed = 0, uses_anonymous_args = 0
+ 429              	.LVL74:
+ 430 0000 10B5     		push	{r4, lr}
+ 431              		.cfi_def_cfa_offset 8
+ 432              		.cfi_offset 4, -8
+ 433              		.cfi_offset 14, -4
+ 434 0002 0446     		mov	r4, r0
+ 435              	.LVL75:
+  79:Agg_sent.c    ****     uint8 result = 0;
+  80:Agg_sent.c    ****         while(IsNotEmpty(&context->primary_buf)){
+ 436              		.loc 1 80 0
+ 437 0004 44E0     		b	.L45
+ 438              	.LVL76:
+ 439              	.L54:
+ 440              	.LBB2:
+  81:Agg_sent.c    ****             uint8 rxData = ExtractByte(&context->primary_buf);
+ 441              		.loc 1 81 0
+ 442 0006 2046     		mov	r0, r4
+ 443 0008 FFF7FEFF 		bl	ExtractByte
+ 444              	.LVL77:
+  82:Agg_sent.c    ****             switch (context->state)
+ 445              		.loc 1 82 0
+ 446 000c 94F84431 		ldrb	r3, [r4, #324]	@ zero_extendqisi2
+ 447 0010 032B     		cmp	r3, #3
+ 448 0012 3DD8     		bhi	.L45
+ 449 0014 DFE803F0 		tbb	[pc, r3]
+ 450              	.L48:
+ 451 0018 02       		.byte	(.L47-.L48)/2
+ 452 0019 0D       		.byte	(.L49-.L48)/2
+ 453 001a 27       		.byte	(.L50-.L48)/2
+ 454 001b 30       		.byte	(.L51-.L48)/2
+ 455              		.p2align 1
+ 456              	.L47:
+  83:Agg_sent.c    ****             {
+  84:Agg_sent.c    ****                 /* */
+  85:Agg_sent.c    ****                 case WAITINGOFDOLLAR: 
+  86:Agg_sent.c    ****                     if (rxData == '$')
+ 457              		.loc 1 86 0
+ 458 001c 2428     		cmp	r0, #36
+ 459 001e 37D1     		bne	.L45
+  87:Agg_sent.c    ****                     {
+  88:Agg_sent.c    ****                              //обнуление счетчика символов 
+  89:Agg_sent.c    ****                         context->sentence[context->count_char = 0] = rxData;  //запись сим
+ 460              		.loc 1 89 0
+ 461 0020 0023     		movs	r3, #0
+ 462 0022 A4F84631 		strh	r3, [r4, #326]	@ movhi
+ 463 0026 84F84200 		strb	r0, [r4, #66]
+  90:Agg_sent.c    ****                         context->state = WAITINGOFSTAR;
+ 464              		.loc 1 90 0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 11
+
+
+ 465 002a 0123     		movs	r3, #1
+ 466 002c 84F84431 		strb	r3, [r4, #324]
+ 467 0030 2EE0     		b	.L45
+ 468              	.L49:
+  91:Agg_sent.c    ****                     }
+  92:Agg_sent.c    ****                 break;
+  93:Agg_sent.c    ****                     
+  94:Agg_sent.c    ****                 case WAITINGOFSTAR:
+  95:Agg_sent.c    ****                     if (rxData == '*')
+ 469              		.loc 1 95 0
+ 470 0032 2A28     		cmp	r0, #42
+ 471 0034 0DD1     		bne	.L52
+  96:Agg_sent.c    ****                     {
+  97:Agg_sent.c    ****                         context->sentence[++context->count_char] = 0x0;
+ 472              		.loc 1 97 0
+ 473 0036 B4F84631 		ldrh	r3, [r4, #326]
+ 474 003a 0133     		adds	r3, r3, #1
+ 475 003c 9BB2     		uxth	r3, r3
+ 476 003e A4F84631 		strh	r3, [r4, #326]	@ movhi
+ 477 0042 2344     		add	r3, r3, r4
+ 478 0044 0022     		movs	r2, #0
+ 479 0046 83F84220 		strb	r2, [r3, #66]
+  98:Agg_sent.c    ****                         context->state = WAITINGOFCHSUM;          //смена состояния �
+ 480              		.loc 1 98 0
+ 481 004a 0223     		movs	r3, #2
+ 482 004c 84F84431 		strb	r3, [r4, #324]
+ 483 0050 1EE0     		b	.L45
+ 484              	.L52:
+  99:Agg_sent.c    ****                     }
+ 100:Agg_sent.c    ****                     else context->sentence[++context->count_char] = rxData;     //запись си
+ 485              		.loc 1 100 0
+ 486 0052 B4F84631 		ldrh	r3, [r4, #326]
+ 487 0056 0133     		adds	r3, r3, #1
+ 488 0058 9BB2     		uxth	r3, r3
+ 489 005a A4F84631 		strh	r3, [r4, #326]	@ movhi
+ 490 005e 2344     		add	r3, r3, r4
+ 491 0060 83F84200 		strb	r0, [r3, #66]
+ 492 0064 14E0     		b	.L45
+ 493              	.L50:
+ 101:Agg_sent.c    ****                 break;
+ 102:Agg_sent.c    ****                     
+ 103:Agg_sent.c    ****                 case WAITINGOFCHSUM:
+ 104:Agg_sent.c    ****                     context->checksum = (uint8) 16 * ByteToInt(rxData);
+ 494              		.loc 1 104 0
+ 495 0066 FFF7FEFF 		bl	ByteToInt
+ 496              	.LVL78:
+ 497 006a 0001     		lsls	r0, r0, #4
+ 498 006c A4F84801 		strh	r0, [r4, #328]	@ movhi
+ 105:Agg_sent.c    ****                     context->state= WAITINGOFCHSUM2;
+ 499              		.loc 1 105 0
+ 500 0070 0323     		movs	r3, #3
+ 501 0072 84F84431 		strb	r3, [r4, #324]
+ 106:Agg_sent.c    ****                 break;
+ 502              		.loc 1 106 0
+ 503 0076 0BE0     		b	.L45
+ 504              	.LVL79:
+ 505              	.L51:
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 12
+
+
+ 107:Agg_sent.c    ****                     
+ 108:Agg_sent.c    ****                 case WAITINGOFCHSUM2:
+ 109:Agg_sent.c    ****                     context->checksum += ByteToInt(rxData);
+ 506              		.loc 1 109 0
+ 507 0078 FFF7FEFF 		bl	ByteToInt
+ 508              	.LVL80:
+ 509 007c B4F84831 		ldrh	r3, [r4, #328]
+ 510 0080 1844     		add	r0, r0, r3
+ 511 0082 A4F84801 		strh	r0, [r4, #328]	@ movhi
+ 110:Agg_sent.c    ****                     context->state = WAITINGOFDOLLAR;
+ 512              		.loc 1 110 0
+ 513 0086 0023     		movs	r3, #0
+ 514 0088 84F84431 		strb	r3, [r4, #324]
+ 515              	.LVL81:
+ 111:Agg_sent.c    ****                     return result = 1;
+ 516              		.loc 1 111 0
+ 517 008c 0123     		movs	r3, #1
+ 518 008e 05E0     		b	.L53
+ 519              	.LVL82:
+ 520              	.L45:
+ 521              	.LBE2:
+  80:Agg_sent.c    ****             uint8 rxData = ExtractByte(&context->primary_buf);
+ 522              		.loc 1 80 0
+ 523 0090 2046     		mov	r0, r4
+ 524 0092 FFF7FEFF 		bl	IsNotEmpty
+ 525              	.LVL83:
+ 526 0096 0346     		mov	r3, r0
+ 527 0098 0028     		cmp	r0, #0
+ 528 009a B4D1     		bne	.L54
+ 529              	.LVL84:
+ 530              	.L53:
+ 112:Agg_sent.c    ****                 break;
+ 113:Agg_sent.c    ****             }
+ 114:Agg_sent.c    ****         }
+ 115:Agg_sent.c    ****         return result;
+ 116:Agg_sent.c    **** }
+ 531              		.loc 1 116 0
+ 532 009c 1846     		mov	r0, r3
+ 533 009e 10BD     		pop	{r4, pc}
+ 534              		.cfi_endproc
+ 535              	.LFE68:
+ 536              		.size	agg_sent, .-agg_sent
+ 537              		.text
+ 538              	.Letext0:
+ 539              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 540              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 541              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 542              		.file 5 "global.h"
+ 543              		.file 6 "Generated_Source\\PSoC5/core_cm3.h"
+ 544              		.section	.debug_info,"",%progbits
+ 545              	.Ldebug_info0:
+ 546 0000 49030000 		.4byte	0x349
+ 547 0004 0400     		.2byte	0x4
+ 548 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 549 000a 04       		.byte	0x4
+ 550 000b 01       		.uleb128 0x1
+ 551 000c C7000000 		.4byte	.LASF44
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 13
+
+
+ 552 0010 0C       		.byte	0xc
+ 553 0011 60020000 		.4byte	.LASF45
+ 554 0015 65000000 		.4byte	.LASF46
+ 555 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 556 001d 00000000 		.4byte	0
+ 557 0021 00000000 		.4byte	.Ldebug_line0
+ 558 0025 02       		.uleb128 0x2
+ 559 0026 01       		.byte	0x1
+ 560 0027 06       		.byte	0x6
+ 561 0028 A9020000 		.4byte	.LASF0
+ 562 002c 02       		.uleb128 0x2
+ 563 002d 01       		.byte	0x1
+ 564 002e 08       		.byte	0x8
+ 565 002f B9000000 		.4byte	.LASF1
+ 566 0033 02       		.uleb128 0x2
+ 567 0034 02       		.byte	0x2
+ 568 0035 05       		.byte	0x5
+ 569 0036 47020000 		.4byte	.LASF2
+ 570 003a 02       		.uleb128 0x2
+ 571 003b 02       		.byte	0x2
+ 572 003c 07       		.byte	0x7
+ 573 003d 2F000000 		.4byte	.LASF3
+ 574 0041 03       		.uleb128 0x3
+ 575 0042 1F000000 		.4byte	.LASF9
+ 576 0046 02       		.byte	0x2
+ 577 0047 3F       		.byte	0x3f
+ 578 0048 4C000000 		.4byte	0x4c
+ 579 004c 02       		.uleb128 0x2
+ 580 004d 04       		.byte	0x4
+ 581 004e 05       		.byte	0x5
+ 582 004f 94020000 		.4byte	.LASF4
+ 583 0053 02       		.uleb128 0x2
+ 584 0054 04       		.byte	0x4
+ 585 0055 07       		.byte	0x7
+ 586 0056 7F010000 		.4byte	.LASF5
+ 587 005a 02       		.uleb128 0x2
+ 588 005b 08       		.byte	0x8
+ 589 005c 05       		.byte	0x5
+ 590 005d 0D020000 		.4byte	.LASF6
+ 591 0061 02       		.uleb128 0x2
+ 592 0062 08       		.byte	0x8
+ 593 0063 07       		.byte	0x7
+ 594 0064 CE010000 		.4byte	.LASF7
+ 595 0068 04       		.uleb128 0x4
+ 596 0069 04       		.byte	0x4
+ 597 006a 05       		.byte	0x5
+ 598 006b 696E7400 		.ascii	"int\000"
+ 599 006f 02       		.uleb128 0x2
+ 600 0070 04       		.byte	0x4
+ 601 0071 07       		.byte	0x7
+ 602 0072 B6010000 		.4byte	.LASF8
+ 603 0076 03       		.uleb128 0x3
+ 604 0077 3F020000 		.4byte	.LASF10
+ 605 007b 03       		.byte	0x3
+ 606 007c 2C       		.byte	0x2c
+ 607 007d 41000000 		.4byte	0x41
+ 608 0081 05       		.uleb128 0x5
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 14
+
+
+ 609 0082 91010000 		.4byte	.LASF11
+ 610 0086 04       		.byte	0x4
+ 611 0087 E401     		.2byte	0x1e4
+ 612 0089 2C000000 		.4byte	0x2c
+ 613 008d 05       		.uleb128 0x5
+ 614 008e 97010000 		.4byte	.LASF12
+ 615 0092 04       		.byte	0x4
+ 616 0093 E501     		.2byte	0x1e5
+ 617 0095 3A000000 		.4byte	0x3a
+ 618 0099 02       		.uleb128 0x2
+ 619 009a 04       		.byte	0x4
+ 620 009b 04       		.byte	0x4
+ 621 009c 5F000000 		.4byte	.LASF13
+ 622 00a0 02       		.uleb128 0x2
+ 623 00a1 08       		.byte	0x8
+ 624 00a2 04       		.byte	0x4
+ 625 00a3 42000000 		.4byte	.LASF14
+ 626 00a7 02       		.uleb128 0x2
+ 627 00a8 01       		.byte	0x1
+ 628 00a9 08       		.byte	0x8
+ 629 00aa 1B020000 		.4byte	.LASF15
+ 630 00ae 02       		.uleb128 0x2
+ 631 00af 08       		.byte	0x8
+ 632 00b0 04       		.byte	0x4
+ 633 00b1 9D020000 		.4byte	.LASF16
+ 634 00b5 02       		.uleb128 0x2
+ 635 00b6 04       		.byte	0x4
+ 636 00b7 07       		.byte	0x7
+ 637 00b8 04020000 		.4byte	.LASF17
+ 638 00bc 06       		.uleb128 0x6
+ 639 00bd 01       		.byte	0x1
+ 640 00be 2C000000 		.4byte	0x2c
+ 641 00c2 05       		.byte	0x5
+ 642 00c3 24       		.byte	0x24
+ 643 00c4 E1000000 		.4byte	0xe1
+ 644 00c8 07       		.uleb128 0x7
+ 645 00c9 09000000 		.4byte	.LASF18
+ 646 00cd 00       		.byte	0
+ 647 00ce 07       		.uleb128 0x7
+ 648 00cf 6B020000 		.4byte	.LASF19
+ 649 00d3 01       		.byte	0x1
+ 650 00d4 07       		.uleb128 0x7
+ 651 00d5 51020000 		.4byte	.LASF20
+ 652 00d9 02       		.byte	0x2
+ 653 00da 07       		.uleb128 0x7
+ 654 00db EC010000 		.4byte	.LASF21
+ 655 00df 03       		.byte	0x3
+ 656 00e0 00       		.byte	0
+ 657 00e1 03       		.uleb128 0x3
+ 658 00e2 72010000 		.4byte	.LASF22
+ 659 00e6 05       		.byte	0x5
+ 660 00e7 24       		.byte	0x24
+ 661 00e8 BC000000 		.4byte	0xbc
+ 662 00ec 08       		.uleb128 0x8
+ 663 00ed 42       		.byte	0x42
+ 664 00ee 05       		.byte	0x5
+ 665 00ef 29       		.byte	0x29
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 15
+
+
+ 666 00f0 19010000 		.4byte	0x119
+ 667 00f4 09       		.uleb128 0x9
+ 668 00f5 62756600 		.ascii	"buf\000"
+ 669 00f9 05       		.byte	0x5
+ 670 00fa 2A       		.byte	0x2a
+ 671 00fb 19010000 		.4byte	0x119
+ 672 00ff 00       		.byte	0
+ 673 0100 0A       		.uleb128 0xa
+ 674 0101 4E000000 		.4byte	.LASF23
+ 675 0105 05       		.byte	0x5
+ 676 0106 2B       		.byte	0x2b
+ 677 0107 81000000 		.4byte	0x81
+ 678 010b 40       		.byte	0x40
+ 679 010c 09       		.uleb128 0x9
+ 680 010d 656E6400 		.ascii	"end\000"
+ 681 0111 05       		.byte	0x5
+ 682 0112 2C       		.byte	0x2c
+ 683 0113 81000000 		.4byte	0x81
+ 684 0117 41       		.byte	0x41
+ 685 0118 00       		.byte	0
+ 686 0119 0B       		.uleb128 0xb
+ 687 011a 81000000 		.4byte	0x81
+ 688 011e 29010000 		.4byte	0x129
+ 689 0122 0C       		.uleb128 0xc
+ 690 0123 B5000000 		.4byte	0xb5
+ 691 0127 3F       		.byte	0x3f
+ 692 0128 00       		.byte	0
+ 693 0129 03       		.uleb128 0x3
+ 694 012a C3010000 		.4byte	.LASF24
+ 695 012e 05       		.byte	0x5
+ 696 012f 2D       		.byte	0x2d
+ 697 0130 EC000000 		.4byte	0xec
+ 698 0134 0D       		.uleb128 0xd
+ 699 0135 4C01     		.2byte	0x14c
+ 700 0137 05       		.byte	0x5
+ 701 0138 2F       		.byte	0x2f
+ 702 0139 97010000 		.4byte	0x197
+ 703 013d 0A       		.uleb128 0xa
+ 704 013e 79020000 		.4byte	.LASF25
+ 705 0142 05       		.byte	0x5
+ 706 0143 30       		.byte	0x30
+ 707 0144 29010000 		.4byte	0x129
+ 708 0148 00       		.byte	0
+ 709 0149 0A       		.uleb128 0xa
+ 710 014a 69010000 		.4byte	.LASF26
+ 711 014e 05       		.byte	0x5
+ 712 014f 31       		.byte	0x31
+ 713 0150 97010000 		.4byte	0x197
+ 714 0154 42       		.byte	0x42
+ 715 0155 0E       		.uleb128 0xe
+ 716 0156 B5020000 		.4byte	.LASF27
+ 717 015a 05       		.byte	0x5
+ 718 015b 32       		.byte	0x32
+ 719 015c 8D000000 		.4byte	0x8d
+ 720 0160 4201     		.2byte	0x142
+ 721 0162 0E       		.uleb128 0xe
+ 722 0163 19000000 		.4byte	.LASF28
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 16
+
+
+ 723 0167 05       		.byte	0x5
+ 724 0168 33       		.byte	0x33
+ 725 0169 E1000000 		.4byte	0xe1
+ 726 016d 4401     		.2byte	0x144
+ 727 016f 0E       		.uleb128 0xe
+ 728 0170 54000000 		.4byte	.LASF29
+ 729 0174 05       		.byte	0x5
+ 730 0175 34       		.byte	0x34
+ 731 0176 8D000000 		.4byte	0x8d
+ 732 017a 4601     		.2byte	0x146
+ 733 017c 0E       		.uleb128 0xe
+ 734 017d 00000000 		.4byte	.LASF30
+ 735 0181 05       		.byte	0x5
+ 736 0182 35       		.byte	0x35
+ 737 0183 8D000000 		.4byte	0x8d
+ 738 0187 4801     		.2byte	0x148
+ 739 0189 0E       		.uleb128 0xe
+ 740 018a 85020000 		.4byte	.LASF31
+ 741 018e 05       		.byte	0x5
+ 742 018f 36       		.byte	0x36
+ 743 0190 81000000 		.4byte	0x81
+ 744 0194 4A01     		.2byte	0x14a
+ 745 0196 00       		.byte	0
+ 746 0197 0B       		.uleb128 0xb
+ 747 0198 81000000 		.4byte	0x81
+ 748 019c A7010000 		.4byte	0x1a7
+ 749 01a0 0C       		.uleb128 0xc
+ 750 01a1 B5000000 		.4byte	0xb5
+ 751 01a5 FF       		.byte	0xff
+ 752 01a6 00       		.byte	0
+ 753 01a7 03       		.uleb128 0x3
+ 754 01a8 32020000 		.4byte	.LASF32
+ 755 01ac 05       		.byte	0x5
+ 756 01ad 37       		.byte	0x37
+ 757 01ae 34010000 		.4byte	0x134
+ 758 01b2 0F       		.uleb128 0xf
+ 759 01b3 9E010000 		.4byte	.LASF33
+ 760 01b7 01       		.byte	0x1
+ 761 01b8 11       		.byte	0x11
+ 762 01b9 81000000 		.4byte	0x81
+ 763 01bd 00000000 		.4byte	.LFB64
+ 764 01c1 18000000 		.4byte	.LFE64-.LFB64
+ 765 01c5 01       		.uleb128 0x1
+ 766 01c6 9C       		.byte	0x9c
+ 767 01c7 F1010000 		.4byte	0x1f1
+ 768 01cb 10       		.uleb128 0x10
+ 769 01cc 62756600 		.ascii	"buf\000"
+ 770 01d0 01       		.byte	0x1
+ 771 01d1 11       		.byte	0x11
+ 772 01d2 F1010000 		.4byte	0x1f1
+ 773 01d6 00000000 		.4byte	.LLST0
+ 774 01da 11       		.uleb128 0x11
+ 775 01db 29000000 		.4byte	.LASF36
+ 776 01df 01       		.byte	0x1
+ 777 01e0 12       		.byte	0x12
+ 778 01e1 81000000 		.4byte	0x81
+ 779 01e5 0A       		.uleb128 0xa
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 17
+
+
+ 780 01e6 72       		.byte	0x72
+ 781 01e7 00       		.sleb128 0
+ 782 01e8 48       		.byte	0x48
+ 783 01e9 24       		.byte	0x24
+ 784 01ea 73       		.byte	0x73
+ 785 01eb 00       		.sleb128 0
+ 786 01ec 48       		.byte	0x48
+ 787 01ed 24       		.byte	0x24
+ 788 01ee 2E       		.byte	0x2e
+ 789 01ef 9F       		.byte	0x9f
+ 790 01f0 00       		.byte	0
+ 791 01f1 12       		.uleb128 0x12
+ 792 01f2 04       		.byte	0x4
+ 793 01f3 29010000 		.4byte	0x129
+ 794 01f7 0F       		.uleb128 0xf
+ 795 01f8 55010000 		.4byte	.LASF34
+ 796 01fc 01       		.byte	0x1
+ 797 01fd 1B       		.byte	0x1b
+ 798 01fe 81000000 		.4byte	0x81
+ 799 0202 00000000 		.4byte	.LFB65
+ 800 0206 2C000000 		.4byte	.LFE65-.LFB65
+ 801 020a 01       		.uleb128 0x1
+ 802 020b 9C       		.byte	0x9c
+ 803 020c 3C020000 		.4byte	0x23c
+ 804 0210 10       		.uleb128 0x10
+ 805 0211 62756600 		.ascii	"buf\000"
+ 806 0215 01       		.byte	0x1
+ 807 0216 1B       		.byte	0x1b
+ 808 0217 F1010000 		.4byte	0x1f1
+ 809 021b 3A000000 		.4byte	.LLST1
+ 810 021f 13       		.uleb128 0x13
+ 811 0220 49000000 		.4byte	.LASF35
+ 812 0224 01       		.byte	0x1
+ 813 0225 1B       		.byte	0x1b
+ 814 0226 81000000 		.4byte	0x81
+ 815 022a 01       		.uleb128 0x1
+ 816 022b 51       		.byte	0x51
+ 817 022c 14       		.uleb128 0x14
+ 818 022d 20020000 		.4byte	.LASF37
+ 819 0231 01       		.byte	0x1
+ 820 0232 1C       		.byte	0x1c
+ 821 0233 81000000 		.4byte	0x81
+ 822 0237 74000000 		.4byte	.LLST2
+ 823 023b 00       		.byte	0
+ 824 023c 0F       		.uleb128 0xf
+ 825 023d 26020000 		.4byte	.LASF38
+ 826 0241 01       		.byte	0x1
+ 827 0242 26       		.byte	0x26
+ 828 0243 81000000 		.4byte	0x81
+ 829 0247 00000000 		.4byte	.LFB66
+ 830 024b 1C000000 		.4byte	.LFE66-.LFB66
+ 831 024f 01       		.uleb128 0x1
+ 832 0250 9C       		.byte	0x9c
+ 833 0251 72020000 		.4byte	0x272
+ 834 0255 10       		.uleb128 0x10
+ 835 0256 62756600 		.ascii	"buf\000"
+ 836 025a 01       		.byte	0x1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 18
+
+
+ 837 025b 26       		.byte	0x26
+ 838 025c F1010000 		.4byte	0x1f1
+ 839 0260 AA000000 		.4byte	.LLST3
+ 840 0264 11       		.uleb128 0x11
+ 841 0265 E5010000 		.4byte	.LASF39
+ 842 0269 01       		.byte	0x1
+ 843 026a 27       		.byte	0x27
+ 844 026b 81000000 		.4byte	0x81
+ 845 026f 01       		.uleb128 0x1
+ 846 0270 50       		.byte	0x50
+ 847 0271 00       		.byte	0
+ 848 0272 0F       		.uleb128 0xf
+ 849 0273 BC020000 		.4byte	.LASF40
+ 850 0277 01       		.byte	0x1
+ 851 0278 2D       		.byte	0x2d
+ 852 0279 81000000 		.4byte	0x81
+ 853 027d 00000000 		.4byte	.LFB67
+ 854 0281 B8000000 		.4byte	.LFE67-.LFB67
+ 855 0285 01       		.uleb128 0x1
+ 856 0286 9C       		.byte	0x9c
+ 857 0287 AA020000 		.4byte	0x2aa
+ 858 028b 15       		.uleb128 0x15
+ 859 028c 49000000 		.4byte	.LASF35
+ 860 0290 01       		.byte	0x1
+ 861 0291 2D       		.byte	0x2d
+ 862 0292 81000000 		.4byte	0x81
+ 863 0296 C8000000 		.4byte	.LLST4
+ 864 029a 14       		.uleb128 0x14
+ 865 029b E5010000 		.4byte	.LASF39
+ 866 029f 01       		.byte	0x1
+ 867 02a0 2E       		.byte	0x2e
+ 868 02a1 81000000 		.4byte	0x81
+ 869 02a5 E9000000 		.4byte	.LLST5
+ 870 02a9 00       		.byte	0
+ 871 02aa 0F       		.uleb128 0xf
+ 872 02ab 60010000 		.4byte	.LASF41
+ 873 02af 01       		.byte	0x1
+ 874 02b0 4E       		.byte	0x4e
+ 875 02b1 81000000 		.4byte	0x81
+ 876 02b5 00000000 		.4byte	.LFB68
+ 877 02b9 A0000000 		.4byte	.LFE68-.LFB68
+ 878 02bd 01       		.uleb128 0x1
+ 879 02be 9C       		.byte	0x9c
+ 880 02bf 35030000 		.4byte	0x335
+ 881 02c3 15       		.uleb128 0x15
+ 882 02c4 FC010000 		.4byte	.LASF42
+ 883 02c8 01       		.byte	0x1
+ 884 02c9 4E       		.byte	0x4e
+ 885 02ca 35030000 		.4byte	0x335
+ 886 02ce E4020000 		.4byte	.LLST6
+ 887 02d2 14       		.uleb128 0x14
+ 888 02d3 E5010000 		.4byte	.LASF39
+ 889 02d7 01       		.byte	0x1
+ 890 02d8 4F       		.byte	0x4f
+ 891 02d9 81000000 		.4byte	0x81
+ 892 02dd 02030000 		.4byte	.LLST7
+ 893 02e1 16       		.uleb128 0x16
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 19
+
+
+ 894 02e2 06000000 		.4byte	.LBB2
+ 895 02e6 8A000000 		.4byte	.LBE2-.LBB2
+ 896 02ea 24030000 		.4byte	0x324
+ 897 02ee 14       		.uleb128 0x14
+ 898 02ef 78010000 		.4byte	.LASF43
+ 899 02f3 01       		.byte	0x1
+ 900 02f4 51       		.byte	0x51
+ 901 02f5 81000000 		.4byte	0x81
+ 902 02f9 2E030000 		.4byte	.LLST8
+ 903 02fd 17       		.uleb128 0x17
+ 904 02fe 0C000000 		.4byte	.LVL77
+ 905 0302 3C020000 		.4byte	0x23c
+ 906 0306 11030000 		.4byte	0x311
+ 907 030a 18       		.uleb128 0x18
+ 908 030b 01       		.uleb128 0x1
+ 909 030c 50       		.byte	0x50
+ 910 030d 02       		.uleb128 0x2
+ 911 030e 74       		.byte	0x74
+ 912 030f 00       		.sleb128 0
+ 913 0310 00       		.byte	0
+ 914 0311 19       		.uleb128 0x19
+ 915 0312 6A000000 		.4byte	.LVL78
+ 916 0316 72020000 		.4byte	0x272
+ 917 031a 19       		.uleb128 0x19
+ 918 031b 7C000000 		.4byte	.LVL80
+ 919 031f 72020000 		.4byte	0x272
+ 920 0323 00       		.byte	0
+ 921 0324 1A       		.uleb128 0x1a
+ 922 0325 96000000 		.4byte	.LVL83
+ 923 0329 B2010000 		.4byte	0x1b2
+ 924 032d 18       		.uleb128 0x18
+ 925 032e 01       		.uleb128 0x1
+ 926 032f 50       		.byte	0x50
+ 927 0330 02       		.uleb128 0x2
+ 928 0331 74       		.byte	0x74
+ 929 0332 00       		.sleb128 0
+ 930 0333 00       		.byte	0
+ 931 0334 00       		.byte	0
+ 932 0335 12       		.uleb128 0x12
+ 933 0336 04       		.byte	0x4
+ 934 0337 A7010000 		.4byte	0x1a7
+ 935 033b 1B       		.uleb128 0x1b
+ 936 033c A9010000 		.4byte	.LASF47
+ 937 0340 06       		.byte	0x6
+ 938 0341 1207     		.2byte	0x712
+ 939 0343 47030000 		.4byte	0x347
+ 940 0347 1C       		.uleb128 0x1c
+ 941 0348 76000000 		.4byte	0x76
+ 942 034c 00       		.byte	0
+ 943              		.section	.debug_abbrev,"",%progbits
+ 944              	.Ldebug_abbrev0:
+ 945 0000 01       		.uleb128 0x1
+ 946 0001 11       		.uleb128 0x11
+ 947 0002 01       		.byte	0x1
+ 948 0003 25       		.uleb128 0x25
+ 949 0004 0E       		.uleb128 0xe
+ 950 0005 13       		.uleb128 0x13
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 20
+
+
+ 951 0006 0B       		.uleb128 0xb
+ 952 0007 03       		.uleb128 0x3
+ 953 0008 0E       		.uleb128 0xe
+ 954 0009 1B       		.uleb128 0x1b
+ 955 000a 0E       		.uleb128 0xe
+ 956 000b 55       		.uleb128 0x55
+ 957 000c 17       		.uleb128 0x17
+ 958 000d 11       		.uleb128 0x11
+ 959 000e 01       		.uleb128 0x1
+ 960 000f 10       		.uleb128 0x10
+ 961 0010 17       		.uleb128 0x17
+ 962 0011 00       		.byte	0
+ 963 0012 00       		.byte	0
+ 964 0013 02       		.uleb128 0x2
+ 965 0014 24       		.uleb128 0x24
+ 966 0015 00       		.byte	0
+ 967 0016 0B       		.uleb128 0xb
+ 968 0017 0B       		.uleb128 0xb
+ 969 0018 3E       		.uleb128 0x3e
+ 970 0019 0B       		.uleb128 0xb
+ 971 001a 03       		.uleb128 0x3
+ 972 001b 0E       		.uleb128 0xe
+ 973 001c 00       		.byte	0
+ 974 001d 00       		.byte	0
+ 975 001e 03       		.uleb128 0x3
+ 976 001f 16       		.uleb128 0x16
+ 977 0020 00       		.byte	0
+ 978 0021 03       		.uleb128 0x3
+ 979 0022 0E       		.uleb128 0xe
+ 980 0023 3A       		.uleb128 0x3a
+ 981 0024 0B       		.uleb128 0xb
+ 982 0025 3B       		.uleb128 0x3b
+ 983 0026 0B       		.uleb128 0xb
+ 984 0027 49       		.uleb128 0x49
+ 985 0028 13       		.uleb128 0x13
+ 986 0029 00       		.byte	0
+ 987 002a 00       		.byte	0
+ 988 002b 04       		.uleb128 0x4
+ 989 002c 24       		.uleb128 0x24
+ 990 002d 00       		.byte	0
+ 991 002e 0B       		.uleb128 0xb
+ 992 002f 0B       		.uleb128 0xb
+ 993 0030 3E       		.uleb128 0x3e
+ 994 0031 0B       		.uleb128 0xb
+ 995 0032 03       		.uleb128 0x3
+ 996 0033 08       		.uleb128 0x8
+ 997 0034 00       		.byte	0
+ 998 0035 00       		.byte	0
+ 999 0036 05       		.uleb128 0x5
+ 1000 0037 16       		.uleb128 0x16
+ 1001 0038 00       		.byte	0
+ 1002 0039 03       		.uleb128 0x3
+ 1003 003a 0E       		.uleb128 0xe
+ 1004 003b 3A       		.uleb128 0x3a
+ 1005 003c 0B       		.uleb128 0xb
+ 1006 003d 3B       		.uleb128 0x3b
+ 1007 003e 05       		.uleb128 0x5
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 21
+
+
+ 1008 003f 49       		.uleb128 0x49
+ 1009 0040 13       		.uleb128 0x13
+ 1010 0041 00       		.byte	0
+ 1011 0042 00       		.byte	0
+ 1012 0043 06       		.uleb128 0x6
+ 1013 0044 04       		.uleb128 0x4
+ 1014 0045 01       		.byte	0x1
+ 1015 0046 0B       		.uleb128 0xb
+ 1016 0047 0B       		.uleb128 0xb
+ 1017 0048 49       		.uleb128 0x49
+ 1018 0049 13       		.uleb128 0x13
+ 1019 004a 3A       		.uleb128 0x3a
+ 1020 004b 0B       		.uleb128 0xb
+ 1021 004c 3B       		.uleb128 0x3b
+ 1022 004d 0B       		.uleb128 0xb
+ 1023 004e 01       		.uleb128 0x1
+ 1024 004f 13       		.uleb128 0x13
+ 1025 0050 00       		.byte	0
+ 1026 0051 00       		.byte	0
+ 1027 0052 07       		.uleb128 0x7
+ 1028 0053 28       		.uleb128 0x28
+ 1029 0054 00       		.byte	0
+ 1030 0055 03       		.uleb128 0x3
+ 1031 0056 0E       		.uleb128 0xe
+ 1032 0057 1C       		.uleb128 0x1c
+ 1033 0058 0B       		.uleb128 0xb
+ 1034 0059 00       		.byte	0
+ 1035 005a 00       		.byte	0
+ 1036 005b 08       		.uleb128 0x8
+ 1037 005c 13       		.uleb128 0x13
+ 1038 005d 01       		.byte	0x1
+ 1039 005e 0B       		.uleb128 0xb
+ 1040 005f 0B       		.uleb128 0xb
+ 1041 0060 3A       		.uleb128 0x3a
+ 1042 0061 0B       		.uleb128 0xb
+ 1043 0062 3B       		.uleb128 0x3b
+ 1044 0063 0B       		.uleb128 0xb
+ 1045 0064 01       		.uleb128 0x1
+ 1046 0065 13       		.uleb128 0x13
+ 1047 0066 00       		.byte	0
+ 1048 0067 00       		.byte	0
+ 1049 0068 09       		.uleb128 0x9
+ 1050 0069 0D       		.uleb128 0xd
+ 1051 006a 00       		.byte	0
+ 1052 006b 03       		.uleb128 0x3
+ 1053 006c 08       		.uleb128 0x8
+ 1054 006d 3A       		.uleb128 0x3a
+ 1055 006e 0B       		.uleb128 0xb
+ 1056 006f 3B       		.uleb128 0x3b
+ 1057 0070 0B       		.uleb128 0xb
+ 1058 0071 49       		.uleb128 0x49
+ 1059 0072 13       		.uleb128 0x13
+ 1060 0073 38       		.uleb128 0x38
+ 1061 0074 0B       		.uleb128 0xb
+ 1062 0075 00       		.byte	0
+ 1063 0076 00       		.byte	0
+ 1064 0077 0A       		.uleb128 0xa
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 22
+
+
+ 1065 0078 0D       		.uleb128 0xd
+ 1066 0079 00       		.byte	0
+ 1067 007a 03       		.uleb128 0x3
+ 1068 007b 0E       		.uleb128 0xe
+ 1069 007c 3A       		.uleb128 0x3a
+ 1070 007d 0B       		.uleb128 0xb
+ 1071 007e 3B       		.uleb128 0x3b
+ 1072 007f 0B       		.uleb128 0xb
+ 1073 0080 49       		.uleb128 0x49
+ 1074 0081 13       		.uleb128 0x13
+ 1075 0082 38       		.uleb128 0x38
+ 1076 0083 0B       		.uleb128 0xb
+ 1077 0084 00       		.byte	0
+ 1078 0085 00       		.byte	0
+ 1079 0086 0B       		.uleb128 0xb
+ 1080 0087 01       		.uleb128 0x1
+ 1081 0088 01       		.byte	0x1
+ 1082 0089 49       		.uleb128 0x49
+ 1083 008a 13       		.uleb128 0x13
+ 1084 008b 01       		.uleb128 0x1
+ 1085 008c 13       		.uleb128 0x13
+ 1086 008d 00       		.byte	0
+ 1087 008e 00       		.byte	0
+ 1088 008f 0C       		.uleb128 0xc
+ 1089 0090 21       		.uleb128 0x21
+ 1090 0091 00       		.byte	0
+ 1091 0092 49       		.uleb128 0x49
+ 1092 0093 13       		.uleb128 0x13
+ 1093 0094 2F       		.uleb128 0x2f
+ 1094 0095 0B       		.uleb128 0xb
+ 1095 0096 00       		.byte	0
+ 1096 0097 00       		.byte	0
+ 1097 0098 0D       		.uleb128 0xd
+ 1098 0099 13       		.uleb128 0x13
+ 1099 009a 01       		.byte	0x1
+ 1100 009b 0B       		.uleb128 0xb
+ 1101 009c 05       		.uleb128 0x5
+ 1102 009d 3A       		.uleb128 0x3a
+ 1103 009e 0B       		.uleb128 0xb
+ 1104 009f 3B       		.uleb128 0x3b
+ 1105 00a0 0B       		.uleb128 0xb
+ 1106 00a1 01       		.uleb128 0x1
+ 1107 00a2 13       		.uleb128 0x13
+ 1108 00a3 00       		.byte	0
+ 1109 00a4 00       		.byte	0
+ 1110 00a5 0E       		.uleb128 0xe
+ 1111 00a6 0D       		.uleb128 0xd
+ 1112 00a7 00       		.byte	0
+ 1113 00a8 03       		.uleb128 0x3
+ 1114 00a9 0E       		.uleb128 0xe
+ 1115 00aa 3A       		.uleb128 0x3a
+ 1116 00ab 0B       		.uleb128 0xb
+ 1117 00ac 3B       		.uleb128 0x3b
+ 1118 00ad 0B       		.uleb128 0xb
+ 1119 00ae 49       		.uleb128 0x49
+ 1120 00af 13       		.uleb128 0x13
+ 1121 00b0 38       		.uleb128 0x38
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 23
+
+
+ 1122 00b1 05       		.uleb128 0x5
+ 1123 00b2 00       		.byte	0
+ 1124 00b3 00       		.byte	0
+ 1125 00b4 0F       		.uleb128 0xf
+ 1126 00b5 2E       		.uleb128 0x2e
+ 1127 00b6 01       		.byte	0x1
+ 1128 00b7 3F       		.uleb128 0x3f
+ 1129 00b8 19       		.uleb128 0x19
+ 1130 00b9 03       		.uleb128 0x3
+ 1131 00ba 0E       		.uleb128 0xe
+ 1132 00bb 3A       		.uleb128 0x3a
+ 1133 00bc 0B       		.uleb128 0xb
+ 1134 00bd 3B       		.uleb128 0x3b
+ 1135 00be 0B       		.uleb128 0xb
+ 1136 00bf 27       		.uleb128 0x27
+ 1137 00c0 19       		.uleb128 0x19
+ 1138 00c1 49       		.uleb128 0x49
+ 1139 00c2 13       		.uleb128 0x13
+ 1140 00c3 11       		.uleb128 0x11
+ 1141 00c4 01       		.uleb128 0x1
+ 1142 00c5 12       		.uleb128 0x12
+ 1143 00c6 06       		.uleb128 0x6
+ 1144 00c7 40       		.uleb128 0x40
+ 1145 00c8 18       		.uleb128 0x18
+ 1146 00c9 9742     		.uleb128 0x2117
+ 1147 00cb 19       		.uleb128 0x19
+ 1148 00cc 01       		.uleb128 0x1
+ 1149 00cd 13       		.uleb128 0x13
+ 1150 00ce 00       		.byte	0
+ 1151 00cf 00       		.byte	0
+ 1152 00d0 10       		.uleb128 0x10
+ 1153 00d1 05       		.uleb128 0x5
+ 1154 00d2 00       		.byte	0
+ 1155 00d3 03       		.uleb128 0x3
+ 1156 00d4 08       		.uleb128 0x8
+ 1157 00d5 3A       		.uleb128 0x3a
+ 1158 00d6 0B       		.uleb128 0xb
+ 1159 00d7 3B       		.uleb128 0x3b
+ 1160 00d8 0B       		.uleb128 0xb
+ 1161 00d9 49       		.uleb128 0x49
+ 1162 00da 13       		.uleb128 0x13
+ 1163 00db 02       		.uleb128 0x2
+ 1164 00dc 17       		.uleb128 0x17
+ 1165 00dd 00       		.byte	0
+ 1166 00de 00       		.byte	0
+ 1167 00df 11       		.uleb128 0x11
+ 1168 00e0 34       		.uleb128 0x34
+ 1169 00e1 00       		.byte	0
+ 1170 00e2 03       		.uleb128 0x3
+ 1171 00e3 0E       		.uleb128 0xe
+ 1172 00e4 3A       		.uleb128 0x3a
+ 1173 00e5 0B       		.uleb128 0xb
+ 1174 00e6 3B       		.uleb128 0x3b
+ 1175 00e7 0B       		.uleb128 0xb
+ 1176 00e8 49       		.uleb128 0x49
+ 1177 00e9 13       		.uleb128 0x13
+ 1178 00ea 02       		.uleb128 0x2
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 24
+
+
+ 1179 00eb 18       		.uleb128 0x18
+ 1180 00ec 00       		.byte	0
+ 1181 00ed 00       		.byte	0
+ 1182 00ee 12       		.uleb128 0x12
+ 1183 00ef 0F       		.uleb128 0xf
+ 1184 00f0 00       		.byte	0
+ 1185 00f1 0B       		.uleb128 0xb
+ 1186 00f2 0B       		.uleb128 0xb
+ 1187 00f3 49       		.uleb128 0x49
+ 1188 00f4 13       		.uleb128 0x13
+ 1189 00f5 00       		.byte	0
+ 1190 00f6 00       		.byte	0
+ 1191 00f7 13       		.uleb128 0x13
+ 1192 00f8 05       		.uleb128 0x5
+ 1193 00f9 00       		.byte	0
+ 1194 00fa 03       		.uleb128 0x3
+ 1195 00fb 0E       		.uleb128 0xe
+ 1196 00fc 3A       		.uleb128 0x3a
+ 1197 00fd 0B       		.uleb128 0xb
+ 1198 00fe 3B       		.uleb128 0x3b
+ 1199 00ff 0B       		.uleb128 0xb
+ 1200 0100 49       		.uleb128 0x49
+ 1201 0101 13       		.uleb128 0x13
+ 1202 0102 02       		.uleb128 0x2
+ 1203 0103 18       		.uleb128 0x18
+ 1204 0104 00       		.byte	0
+ 1205 0105 00       		.byte	0
+ 1206 0106 14       		.uleb128 0x14
+ 1207 0107 34       		.uleb128 0x34
+ 1208 0108 00       		.byte	0
+ 1209 0109 03       		.uleb128 0x3
+ 1210 010a 0E       		.uleb128 0xe
+ 1211 010b 3A       		.uleb128 0x3a
+ 1212 010c 0B       		.uleb128 0xb
+ 1213 010d 3B       		.uleb128 0x3b
+ 1214 010e 0B       		.uleb128 0xb
+ 1215 010f 49       		.uleb128 0x49
+ 1216 0110 13       		.uleb128 0x13
+ 1217 0111 02       		.uleb128 0x2
+ 1218 0112 17       		.uleb128 0x17
+ 1219 0113 00       		.byte	0
+ 1220 0114 00       		.byte	0
+ 1221 0115 15       		.uleb128 0x15
+ 1222 0116 05       		.uleb128 0x5
+ 1223 0117 00       		.byte	0
+ 1224 0118 03       		.uleb128 0x3
+ 1225 0119 0E       		.uleb128 0xe
+ 1226 011a 3A       		.uleb128 0x3a
+ 1227 011b 0B       		.uleb128 0xb
+ 1228 011c 3B       		.uleb128 0x3b
+ 1229 011d 0B       		.uleb128 0xb
+ 1230 011e 49       		.uleb128 0x49
+ 1231 011f 13       		.uleb128 0x13
+ 1232 0120 02       		.uleb128 0x2
+ 1233 0121 17       		.uleb128 0x17
+ 1234 0122 00       		.byte	0
+ 1235 0123 00       		.byte	0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 25
+
+
+ 1236 0124 16       		.uleb128 0x16
+ 1237 0125 0B       		.uleb128 0xb
+ 1238 0126 01       		.byte	0x1
+ 1239 0127 11       		.uleb128 0x11
+ 1240 0128 01       		.uleb128 0x1
+ 1241 0129 12       		.uleb128 0x12
+ 1242 012a 06       		.uleb128 0x6
+ 1243 012b 01       		.uleb128 0x1
+ 1244 012c 13       		.uleb128 0x13
+ 1245 012d 00       		.byte	0
+ 1246 012e 00       		.byte	0
+ 1247 012f 17       		.uleb128 0x17
+ 1248 0130 898201   		.uleb128 0x4109
+ 1249 0133 01       		.byte	0x1
+ 1250 0134 11       		.uleb128 0x11
+ 1251 0135 01       		.uleb128 0x1
+ 1252 0136 31       		.uleb128 0x31
+ 1253 0137 13       		.uleb128 0x13
+ 1254 0138 01       		.uleb128 0x1
+ 1255 0139 13       		.uleb128 0x13
+ 1256 013a 00       		.byte	0
+ 1257 013b 00       		.byte	0
+ 1258 013c 18       		.uleb128 0x18
+ 1259 013d 8A8201   		.uleb128 0x410a
+ 1260 0140 00       		.byte	0
+ 1261 0141 02       		.uleb128 0x2
+ 1262 0142 18       		.uleb128 0x18
+ 1263 0143 9142     		.uleb128 0x2111
+ 1264 0145 18       		.uleb128 0x18
+ 1265 0146 00       		.byte	0
+ 1266 0147 00       		.byte	0
+ 1267 0148 19       		.uleb128 0x19
+ 1268 0149 898201   		.uleb128 0x4109
+ 1269 014c 00       		.byte	0
+ 1270 014d 11       		.uleb128 0x11
+ 1271 014e 01       		.uleb128 0x1
+ 1272 014f 31       		.uleb128 0x31
+ 1273 0150 13       		.uleb128 0x13
+ 1274 0151 00       		.byte	0
+ 1275 0152 00       		.byte	0
+ 1276 0153 1A       		.uleb128 0x1a
+ 1277 0154 898201   		.uleb128 0x4109
+ 1278 0157 01       		.byte	0x1
+ 1279 0158 11       		.uleb128 0x11
+ 1280 0159 01       		.uleb128 0x1
+ 1281 015a 31       		.uleb128 0x31
+ 1282 015b 13       		.uleb128 0x13
+ 1283 015c 00       		.byte	0
+ 1284 015d 00       		.byte	0
+ 1285 015e 1B       		.uleb128 0x1b
+ 1286 015f 34       		.uleb128 0x34
+ 1287 0160 00       		.byte	0
+ 1288 0161 03       		.uleb128 0x3
+ 1289 0162 0E       		.uleb128 0xe
+ 1290 0163 3A       		.uleb128 0x3a
+ 1291 0164 0B       		.uleb128 0xb
+ 1292 0165 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 26
+
+
+ 1293 0166 05       		.uleb128 0x5
+ 1294 0167 49       		.uleb128 0x49
+ 1295 0168 13       		.uleb128 0x13
+ 1296 0169 3F       		.uleb128 0x3f
+ 1297 016a 19       		.uleb128 0x19
+ 1298 016b 3C       		.uleb128 0x3c
+ 1299 016c 19       		.uleb128 0x19
+ 1300 016d 00       		.byte	0
+ 1301 016e 00       		.byte	0
+ 1302 016f 1C       		.uleb128 0x1c
+ 1303 0170 35       		.uleb128 0x35
+ 1304 0171 00       		.byte	0
+ 1305 0172 49       		.uleb128 0x49
+ 1306 0173 13       		.uleb128 0x13
+ 1307 0174 00       		.byte	0
+ 1308 0175 00       		.byte	0
+ 1309 0176 00       		.byte	0
+ 1310              		.section	.debug_loc,"",%progbits
+ 1311              	.Ldebug_loc0:
+ 1312              	.LLST0:
+ 1313 0000 00000000 		.4byte	.LVL0
+ 1314 0004 12000000 		.4byte	.LVL2
+ 1315 0008 0100     		.2byte	0x1
+ 1316 000a 50       		.byte	0x50
+ 1317 000b 12000000 		.4byte	.LVL2
+ 1318 000f 14000000 		.4byte	.LVL3
+ 1319 0013 0400     		.2byte	0x4
+ 1320 0015 F3       		.byte	0xf3
+ 1321 0016 01       		.uleb128 0x1
+ 1322 0017 50       		.byte	0x50
+ 1323 0018 9F       		.byte	0x9f
+ 1324 0019 14000000 		.4byte	.LVL3
+ 1325 001d 16000000 		.4byte	.LVL4
+ 1326 0021 0100     		.2byte	0x1
+ 1327 0023 50       		.byte	0x50
+ 1328 0024 16000000 		.4byte	.LVL4
+ 1329 0028 18000000 		.4byte	.LFE64
+ 1330 002c 0400     		.2byte	0x4
+ 1331 002e F3       		.byte	0xf3
+ 1332 002f 01       		.uleb128 0x1
+ 1333 0030 50       		.byte	0x50
+ 1334 0031 9F       		.byte	0x9f
+ 1335 0032 00000000 		.4byte	0
+ 1336 0036 00000000 		.4byte	0
+ 1337              	.LLST1:
+ 1338 003a 00000000 		.4byte	.LVL5
+ 1339 003e 24000000 		.4byte	.LVL10
+ 1340 0042 0100     		.2byte	0x1
+ 1341 0044 50       		.byte	0x50
+ 1342 0045 24000000 		.4byte	.LVL10
+ 1343 0049 26000000 		.4byte	.LVL11
+ 1344 004d 0400     		.2byte	0x4
+ 1345 004f F3       		.byte	0xf3
+ 1346 0050 01       		.uleb128 0x1
+ 1347 0051 50       		.byte	0x50
+ 1348 0052 9F       		.byte	0x9f
+ 1349 0053 26000000 		.4byte	.LVL11
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 27
+
+
+ 1350 0057 28000000 		.4byte	.LVL12
+ 1351 005b 0100     		.2byte	0x1
+ 1352 005d 50       		.byte	0x50
+ 1353 005e 28000000 		.4byte	.LVL12
+ 1354 0062 2C000000 		.4byte	.LFE65
+ 1355 0066 0400     		.2byte	0x4
+ 1356 0068 F3       		.byte	0xf3
+ 1357 0069 01       		.uleb128 0x1
+ 1358 006a 50       		.byte	0x50
+ 1359 006b 9F       		.byte	0x9f
+ 1360 006c 00000000 		.4byte	0
+ 1361 0070 00000000 		.4byte	0
+ 1362              	.LLST2:
+ 1363 0074 06000000 		.4byte	.LVL6
+ 1364 0078 0A000000 		.4byte	.LVL7
+ 1365 007c 0100     		.2byte	0x1
+ 1366 007e 52       		.byte	0x52
+ 1367 007f 0A000000 		.4byte	.LVL7
+ 1368 0083 12000000 		.4byte	.LVL8
+ 1369 0087 0100     		.2byte	0x1
+ 1370 0089 53       		.byte	0x53
+ 1371 008a 12000000 		.4byte	.LVL8
+ 1372 008e 14000000 		.4byte	.LVL9
+ 1373 0092 0300     		.2byte	0x3
+ 1374 0094 72       		.byte	0x72
+ 1375 0095 01       		.sleb128 1
+ 1376 0096 9F       		.byte	0x9f
+ 1377 0097 14000000 		.4byte	.LVL9
+ 1378 009b 2C000000 		.4byte	.LFE65
+ 1379 009f 0100     		.2byte	0x1
+ 1380 00a1 53       		.byte	0x53
+ 1381 00a2 00000000 		.4byte	0
+ 1382 00a6 00000000 		.4byte	0
+ 1383              	.LLST3:
+ 1384 00aa 00000000 		.4byte	.LVL13
+ 1385 00ae 08000000 		.4byte	.LVL14
+ 1386 00b2 0100     		.2byte	0x1
+ 1387 00b4 50       		.byte	0x50
+ 1388 00b5 08000000 		.4byte	.LVL14
+ 1389 00b9 1C000000 		.4byte	.LFE66
+ 1390 00bd 0100     		.2byte	0x1
+ 1391 00bf 52       		.byte	0x52
+ 1392 00c0 00000000 		.4byte	0
+ 1393 00c4 00000000 		.4byte	0
+ 1394              	.LLST4:
+ 1395 00c8 00000000 		.4byte	.LVL15
+ 1396 00cc 02000000 		.4byte	.LVL16
+ 1397 00d0 0100     		.2byte	0x1
+ 1398 00d2 50       		.byte	0x50
+ 1399 00d3 02000000 		.4byte	.LVL16
+ 1400 00d7 B8000000 		.4byte	.LFE67
+ 1401 00db 0400     		.2byte	0x4
+ 1402 00dd F3       		.byte	0xf3
+ 1403 00de 01       		.uleb128 0x1
+ 1404 00df 50       		.byte	0x50
+ 1405 00e0 9F       		.byte	0x9f
+ 1406 00e1 00000000 		.4byte	0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 28
+
+
+ 1407 00e5 00000000 		.4byte	0
+ 1408              	.LLST5:
+ 1409 00e9 00000000 		.4byte	.LVL15
+ 1410 00ed 46000000 		.4byte	.LVL17
+ 1411 00f1 0200     		.2byte	0x2
+ 1412 00f3 30       		.byte	0x30
+ 1413 00f4 9F       		.byte	0x9f
+ 1414 00f5 46000000 		.4byte	.LVL17
+ 1415 00f9 48000000 		.4byte	.LVL18
+ 1416 00fd 0100     		.2byte	0x1
+ 1417 00ff 50       		.byte	0x50
+ 1418 0100 4A000000 		.4byte	.LVL19
+ 1419 0104 4C000000 		.4byte	.LVL20
+ 1420 0108 0100     		.2byte	0x1
+ 1421 010a 50       		.byte	0x50
+ 1422 010b 4C000000 		.4byte	.LVL20
+ 1423 010f 4E000000 		.4byte	.LVL21
+ 1424 0113 0200     		.2byte	0x2
+ 1425 0115 30       		.byte	0x30
+ 1426 0116 9F       		.byte	0x9f
+ 1427 0117 4E000000 		.4byte	.LVL21
+ 1428 011b 50000000 		.4byte	.LVL22
+ 1429 011f 0100     		.2byte	0x1
+ 1430 0121 50       		.byte	0x50
+ 1431 0122 52000000 		.4byte	.LVL23
+ 1432 0126 54000000 		.4byte	.LVL24
+ 1433 012a 0100     		.2byte	0x1
+ 1434 012c 50       		.byte	0x50
+ 1435 012d 54000000 		.4byte	.LVL24
+ 1436 0131 56000000 		.4byte	.LVL25
+ 1437 0135 0200     		.2byte	0x2
+ 1438 0137 30       		.byte	0x30
+ 1439 0138 9F       		.byte	0x9f
+ 1440 0139 56000000 		.4byte	.LVL25
+ 1441 013d 58000000 		.4byte	.LVL26
+ 1442 0141 0100     		.2byte	0x1
+ 1443 0143 50       		.byte	0x50
+ 1444 0144 5A000000 		.4byte	.LVL27
+ 1445 0148 5C000000 		.4byte	.LVL28
+ 1446 014c 0100     		.2byte	0x1
+ 1447 014e 50       		.byte	0x50
+ 1448 014f 5C000000 		.4byte	.LVL28
+ 1449 0153 5E000000 		.4byte	.LVL29
+ 1450 0157 0200     		.2byte	0x2
+ 1451 0159 30       		.byte	0x30
+ 1452 015a 9F       		.byte	0x9f
+ 1453 015b 5E000000 		.4byte	.LVL29
+ 1454 015f 60000000 		.4byte	.LVL30
+ 1455 0163 0100     		.2byte	0x1
+ 1456 0165 50       		.byte	0x50
+ 1457 0166 62000000 		.4byte	.LVL31
+ 1458 016a 64000000 		.4byte	.LVL32
+ 1459 016e 0100     		.2byte	0x1
+ 1460 0170 50       		.byte	0x50
+ 1461 0171 64000000 		.4byte	.LVL32
+ 1462 0175 66000000 		.4byte	.LVL33
+ 1463 0179 0200     		.2byte	0x2
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 29
+
+
+ 1464 017b 30       		.byte	0x30
+ 1465 017c 9F       		.byte	0x9f
+ 1466 017d 66000000 		.4byte	.LVL33
+ 1467 0181 68000000 		.4byte	.LVL34
+ 1468 0185 0100     		.2byte	0x1
+ 1469 0187 50       		.byte	0x50
+ 1470 0188 6A000000 		.4byte	.LVL35
+ 1471 018c 6C000000 		.4byte	.LVL36
+ 1472 0190 0100     		.2byte	0x1
+ 1473 0192 50       		.byte	0x50
+ 1474 0193 6C000000 		.4byte	.LVL36
+ 1475 0197 6E000000 		.4byte	.LVL37
+ 1476 019b 0200     		.2byte	0x2
+ 1477 019d 30       		.byte	0x30
+ 1478 019e 9F       		.byte	0x9f
+ 1479 019f 6E000000 		.4byte	.LVL37
+ 1480 01a3 70000000 		.4byte	.LVL38
+ 1481 01a7 0100     		.2byte	0x1
+ 1482 01a9 50       		.byte	0x50
+ 1483 01aa 72000000 		.4byte	.LVL39
+ 1484 01ae 74000000 		.4byte	.LVL40
+ 1485 01b2 0100     		.2byte	0x1
+ 1486 01b4 50       		.byte	0x50
+ 1487 01b5 74000000 		.4byte	.LVL40
+ 1488 01b9 76000000 		.4byte	.LVL41
+ 1489 01bd 0200     		.2byte	0x2
+ 1490 01bf 30       		.byte	0x30
+ 1491 01c0 9F       		.byte	0x9f
+ 1492 01c1 76000000 		.4byte	.LVL41
+ 1493 01c5 78000000 		.4byte	.LVL42
+ 1494 01c9 0100     		.2byte	0x1
+ 1495 01cb 50       		.byte	0x50
+ 1496 01cc 7A000000 		.4byte	.LVL43
+ 1497 01d0 7C000000 		.4byte	.LVL44
+ 1498 01d4 0100     		.2byte	0x1
+ 1499 01d6 50       		.byte	0x50
+ 1500 01d7 7C000000 		.4byte	.LVL44
+ 1501 01db 7E000000 		.4byte	.LVL45
+ 1502 01df 0200     		.2byte	0x2
+ 1503 01e1 30       		.byte	0x30
+ 1504 01e2 9F       		.byte	0x9f
+ 1505 01e3 7E000000 		.4byte	.LVL45
+ 1506 01e7 80000000 		.4byte	.LVL46
+ 1507 01eb 0100     		.2byte	0x1
+ 1508 01ed 50       		.byte	0x50
+ 1509 01ee 82000000 		.4byte	.LVL47
+ 1510 01f2 84000000 		.4byte	.LVL48
+ 1511 01f6 0100     		.2byte	0x1
+ 1512 01f8 50       		.byte	0x50
+ 1513 01f9 84000000 		.4byte	.LVL48
+ 1514 01fd 86000000 		.4byte	.LVL49
+ 1515 0201 0200     		.2byte	0x2
+ 1516 0203 30       		.byte	0x30
+ 1517 0204 9F       		.byte	0x9f
+ 1518 0205 86000000 		.4byte	.LVL49
+ 1519 0209 88000000 		.4byte	.LVL50
+ 1520 020d 0100     		.2byte	0x1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 30
+
+
+ 1521 020f 50       		.byte	0x50
+ 1522 0210 8A000000 		.4byte	.LVL51
+ 1523 0214 8C000000 		.4byte	.LVL52
+ 1524 0218 0100     		.2byte	0x1
+ 1525 021a 50       		.byte	0x50
+ 1526 021b 8C000000 		.4byte	.LVL52
+ 1527 021f 8E000000 		.4byte	.LVL53
+ 1528 0223 0200     		.2byte	0x2
+ 1529 0225 30       		.byte	0x30
+ 1530 0226 9F       		.byte	0x9f
+ 1531 0227 8E000000 		.4byte	.LVL53
+ 1532 022b 90000000 		.4byte	.LVL54
+ 1533 022f 0100     		.2byte	0x1
+ 1534 0231 50       		.byte	0x50
+ 1535 0232 92000000 		.4byte	.LVL55
+ 1536 0236 94000000 		.4byte	.LVL56
+ 1537 023a 0100     		.2byte	0x1
+ 1538 023c 50       		.byte	0x50
+ 1539 023d 94000000 		.4byte	.LVL56
+ 1540 0241 96000000 		.4byte	.LVL57
+ 1541 0245 0200     		.2byte	0x2
+ 1542 0247 30       		.byte	0x30
+ 1543 0248 9F       		.byte	0x9f
+ 1544 0249 96000000 		.4byte	.LVL57
+ 1545 024d 98000000 		.4byte	.LVL58
+ 1546 0251 0100     		.2byte	0x1
+ 1547 0253 50       		.byte	0x50
+ 1548 0254 9A000000 		.4byte	.LVL59
+ 1549 0258 9C000000 		.4byte	.LVL60
+ 1550 025c 0100     		.2byte	0x1
+ 1551 025e 50       		.byte	0x50
+ 1552 025f 9C000000 		.4byte	.LVL60
+ 1553 0263 9E000000 		.4byte	.LVL61
+ 1554 0267 0200     		.2byte	0x2
+ 1555 0269 30       		.byte	0x30
+ 1556 026a 9F       		.byte	0x9f
+ 1557 026b 9E000000 		.4byte	.LVL61
+ 1558 026f A0000000 		.4byte	.LVL62
+ 1559 0273 0100     		.2byte	0x1
+ 1560 0275 50       		.byte	0x50
+ 1561 0276 A2000000 		.4byte	.LVL63
+ 1562 027a A4000000 		.4byte	.LVL64
+ 1563 027e 0100     		.2byte	0x1
+ 1564 0280 50       		.byte	0x50
+ 1565 0281 A4000000 		.4byte	.LVL64
+ 1566 0285 A6000000 		.4byte	.LVL65
+ 1567 0289 0200     		.2byte	0x2
+ 1568 028b 30       		.byte	0x30
+ 1569 028c 9F       		.byte	0x9f
+ 1570 028d A6000000 		.4byte	.LVL65
+ 1571 0291 A8000000 		.4byte	.LVL66
+ 1572 0295 0100     		.2byte	0x1
+ 1573 0297 50       		.byte	0x50
+ 1574 0298 AA000000 		.4byte	.LVL67
+ 1575 029c AC000000 		.4byte	.LVL68
+ 1576 02a0 0100     		.2byte	0x1
+ 1577 02a2 50       		.byte	0x50
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 31
+
+
+ 1578 02a3 AC000000 		.4byte	.LVL68
+ 1579 02a7 AE000000 		.4byte	.LVL69
+ 1580 02ab 0200     		.2byte	0x2
+ 1581 02ad 30       		.byte	0x30
+ 1582 02ae 9F       		.byte	0x9f
+ 1583 02af AE000000 		.4byte	.LVL69
+ 1584 02b3 B0000000 		.4byte	.LVL70
+ 1585 02b7 0100     		.2byte	0x1
+ 1586 02b9 50       		.byte	0x50
+ 1587 02ba B2000000 		.4byte	.LVL71
+ 1588 02be B4000000 		.4byte	.LVL72
+ 1589 02c2 0100     		.2byte	0x1
+ 1590 02c4 50       		.byte	0x50
+ 1591 02c5 B4000000 		.4byte	.LVL72
+ 1592 02c9 B6000000 		.4byte	.LVL73
+ 1593 02cd 0200     		.2byte	0x2
+ 1594 02cf 30       		.byte	0x30
+ 1595 02d0 9F       		.byte	0x9f
+ 1596 02d1 B6000000 		.4byte	.LVL73
+ 1597 02d5 B8000000 		.4byte	.LFE67
+ 1598 02d9 0100     		.2byte	0x1
+ 1599 02db 50       		.byte	0x50
+ 1600 02dc 00000000 		.4byte	0
+ 1601 02e0 00000000 		.4byte	0
+ 1602              	.LLST6:
+ 1603 02e4 00000000 		.4byte	.LVL74
+ 1604 02e8 06000000 		.4byte	.LVL76
+ 1605 02ec 0100     		.2byte	0x1
+ 1606 02ee 50       		.byte	0x50
+ 1607 02ef 06000000 		.4byte	.LVL76
+ 1608 02f3 A0000000 		.4byte	.LFE68
+ 1609 02f7 0100     		.2byte	0x1
+ 1610 02f9 54       		.byte	0x54
+ 1611 02fa 00000000 		.4byte	0
+ 1612 02fe 00000000 		.4byte	0
+ 1613              	.LLST7:
+ 1614 0302 04000000 		.4byte	.LVL75
+ 1615 0306 8C000000 		.4byte	.LVL81
+ 1616 030a 0200     		.2byte	0x2
+ 1617 030c 30       		.byte	0x30
+ 1618 030d 9F       		.byte	0x9f
+ 1619 030e 8C000000 		.4byte	.LVL81
+ 1620 0312 90000000 		.4byte	.LVL82
+ 1621 0316 0200     		.2byte	0x2
+ 1622 0318 31       		.byte	0x31
+ 1623 0319 9F       		.byte	0x9f
+ 1624 031a 90000000 		.4byte	.LVL82
+ 1625 031e 9C000000 		.4byte	.LVL84
+ 1626 0322 0200     		.2byte	0x2
+ 1627 0324 30       		.byte	0x30
+ 1628 0325 9F       		.byte	0x9f
+ 1629 0326 00000000 		.4byte	0
+ 1630 032a 00000000 		.4byte	0
+ 1631              	.LLST8:
+ 1632 032e 0C000000 		.4byte	.LVL77
+ 1633 0332 69000000 		.4byte	.LVL78-1
+ 1634 0336 0100     		.2byte	0x1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 32
+
+
+ 1635 0338 50       		.byte	0x50
+ 1636 0339 78000000 		.4byte	.LVL79
+ 1637 033d 7B000000 		.4byte	.LVL80-1
+ 1638 0341 0100     		.2byte	0x1
+ 1639 0343 50       		.byte	0x50
+ 1640 0344 00000000 		.4byte	0
+ 1641 0348 00000000 		.4byte	0
+ 1642              		.section	.debug_aranges,"",%progbits
+ 1643 0000 3C000000 		.4byte	0x3c
+ 1644 0004 0200     		.2byte	0x2
+ 1645 0006 00000000 		.4byte	.Ldebug_info0
+ 1646 000a 04       		.byte	0x4
+ 1647 000b 00       		.byte	0
+ 1648 000c 0000     		.2byte	0
+ 1649 000e 0000     		.2byte	0
+ 1650 0010 00000000 		.4byte	.LFB64
+ 1651 0014 18000000 		.4byte	.LFE64-.LFB64
+ 1652 0018 00000000 		.4byte	.LFB65
+ 1653 001c 2C000000 		.4byte	.LFE65-.LFB65
+ 1654 0020 00000000 		.4byte	.LFB66
+ 1655 0024 1C000000 		.4byte	.LFE66-.LFB66
+ 1656 0028 00000000 		.4byte	.LFB67
+ 1657 002c B8000000 		.4byte	.LFE67-.LFB67
+ 1658 0030 00000000 		.4byte	.LFB68
+ 1659 0034 A0000000 		.4byte	.LFE68-.LFB68
+ 1660 0038 00000000 		.4byte	0
+ 1661 003c 00000000 		.4byte	0
+ 1662              		.section	.debug_ranges,"",%progbits
+ 1663              	.Ldebug_ranges0:
+ 1664 0000 00000000 		.4byte	.LFB64
+ 1665 0004 18000000 		.4byte	.LFE64
+ 1666 0008 00000000 		.4byte	.LFB65
+ 1667 000c 2C000000 		.4byte	.LFE65
+ 1668 0010 00000000 		.4byte	.LFB66
+ 1669 0014 1C000000 		.4byte	.LFE66
+ 1670 0018 00000000 		.4byte	.LFB67
+ 1671 001c B8000000 		.4byte	.LFE67
+ 1672 0020 00000000 		.4byte	.LFB68
+ 1673 0024 A0000000 		.4byte	.LFE68
+ 1674 0028 00000000 		.4byte	0
+ 1675 002c 00000000 		.4byte	0
+ 1676              		.section	.debug_line,"",%progbits
+ 1677              	.Ldebug_line0:
+ 1678 0000 38020000 		.section	.debug_str,"MS",%progbits,1
+ 1678      02005C01 
+ 1678      00000201 
+ 1678      FB0E0D00 
+ 1678      01010101 
+ 1679              	.LASF30:
+ 1680 0000 63686563 		.ascii	"checksum\000"
+ 1680      6B73756D 
+ 1680      00
+ 1681              	.LASF18:
+ 1682 0009 57414954 		.ascii	"WAITINGOFDOLLAR\000"
+ 1682      494E474F 
+ 1682      46444F4C 
+ 1682      4C415200 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 33
+
+
+ 1683              	.LASF28:
+ 1684 0019 73746174 		.ascii	"state\000"
+ 1684      6500
+ 1685              	.LASF9:
+ 1686 001f 5F5F696E 		.ascii	"__int32_t\000"
+ 1686      7433325F 
+ 1686      7400
+ 1687              	.LASF36:
+ 1688 0029 64656C74 		.ascii	"delta\000"
+ 1688      6100
+ 1689              	.LASF3:
+ 1690 002f 73686F72 		.ascii	"short unsigned int\000"
+ 1690      7420756E 
+ 1690      7369676E 
+ 1690      65642069 
+ 1690      6E7400
+ 1691              	.LASF14:
+ 1692 0042 646F7562 		.ascii	"double\000"
+ 1692      6C6500
+ 1693              	.LASF35:
+ 1694 0049 62797465 		.ascii	"byte\000"
+ 1694      00
+ 1695              	.LASF23:
+ 1696 004e 62656769 		.ascii	"begin\000"
+ 1696      6E00
+ 1697              	.LASF29:
+ 1698 0054 636F756E 		.ascii	"count_char\000"
+ 1698      745F6368 
+ 1698      617200
+ 1699              	.LASF13:
+ 1700 005f 666C6F61 		.ascii	"float\000"
+ 1700      7400
+ 1701              	.LASF46:
+ 1702 0065 433A5C55 		.ascii	"C:\\Users\\e.ivanov\\Documents\\GitHub\\time_src\\b"
+ 1702      73657273 
+ 1702      5C652E69 
+ 1702      76616E6F 
+ 1702      765C446F 
+ 1703 0092 72616E63 		.ascii	"ranch\\Manchester encoder-decoder.cydsn\000"
+ 1703      685C4D61 
+ 1703      6E636865 
+ 1703      73746572 
+ 1703      20656E63 
+ 1704              	.LASF1:
+ 1705 00b9 756E7369 		.ascii	"unsigned char\000"
+ 1705      676E6564 
+ 1705      20636861 
+ 1705      7200
+ 1706              	.LASF44:
+ 1707 00c7 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1707      43313120 
+ 1707      352E342E 
+ 1707      31203230 
+ 1707      31363036 
+ 1708 00fa 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1708      20726576 
+ 1708      6973696F 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 34
+
+
+ 1708      6E203233 
+ 1708      37373135 
+ 1709 012d 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1709      66756E63 
+ 1709      74696F6E 
+ 1709      2D736563 
+ 1709      74696F6E 
+ 1710              	.LASF34:
+ 1711 0155 496E7365 		.ascii	"InsertByte\000"
+ 1711      72744279 
+ 1711      746500
+ 1712              	.LASF41:
+ 1713 0160 6167675F 		.ascii	"agg_sent\000"
+ 1713      73656E74 
+ 1713      00
+ 1714              	.LASF26:
+ 1715 0169 73656E74 		.ascii	"sentence\000"
+ 1715      656E6365 
+ 1715      00
+ 1716              	.LASF22:
+ 1717 0172 53746174 		.ascii	"State\000"
+ 1717      6500
+ 1718              	.LASF43:
+ 1719 0178 72784461 		.ascii	"rxData\000"
+ 1719      746100
+ 1720              	.LASF5:
+ 1721 017f 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1721      20756E73 
+ 1721      69676E65 
+ 1721      6420696E 
+ 1721      7400
+ 1722              	.LASF11:
+ 1723 0191 75696E74 		.ascii	"uint8\000"
+ 1723      3800
+ 1724              	.LASF12:
+ 1725 0197 75696E74 		.ascii	"uint16\000"
+ 1725      313600
+ 1726              	.LASF33:
+ 1727 019e 49734E6F 		.ascii	"IsNotEmpty\000"
+ 1727      74456D70 
+ 1727      747900
+ 1728              	.LASF47:
+ 1729 01a9 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1729      52784275 
+ 1729      66666572 
+ 1729      00
+ 1730              	.LASF8:
+ 1731 01b6 756E7369 		.ascii	"unsigned int\000"
+ 1731      676E6564 
+ 1731      20696E74 
+ 1731      00
+ 1732              	.LASF24:
+ 1733 01c3 52696E67 		.ascii	"RingBuff_t\000"
+ 1733      42756666 
+ 1733      5F7400
+ 1734              	.LASF7:
+ 1735 01ce 6C6F6E67 		.ascii	"long long unsigned int\000"
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 35
+
+
+ 1735      206C6F6E 
+ 1735      6720756E 
+ 1735      7369676E 
+ 1735      65642069 
+ 1736              	.LASF39:
+ 1737 01e5 72657375 		.ascii	"result\000"
+ 1737      6C7400
+ 1738              	.LASF21:
+ 1739 01ec 57414954 		.ascii	"WAITINGOFCHSUM2\000"
+ 1739      494E474F 
+ 1739      46434853 
+ 1739      554D3200 
+ 1740              	.LASF42:
+ 1741 01fc 636F6E74 		.ascii	"context\000"
+ 1741      65787400 
+ 1742              	.LASF17:
+ 1743 0204 73697A65 		.ascii	"sizetype\000"
+ 1743      74797065 
+ 1743      00
+ 1744              	.LASF6:
+ 1745 020d 6C6F6E67 		.ascii	"long long int\000"
+ 1745      206C6F6E 
+ 1745      6720696E 
+ 1745      7400
+ 1746              	.LASF15:
+ 1747 021b 63686172 		.ascii	"char\000"
+ 1747      00
+ 1748              	.LASF37:
+ 1749 0220 696E6465 		.ascii	"index\000"
+ 1749      7800
+ 1750              	.LASF38:
+ 1751 0226 45787472 		.ascii	"ExtractByte\000"
+ 1751      61637442 
+ 1751      79746500 
+ 1752              	.LASF32:
+ 1753 0232 75617274 		.ascii	"uart_context\000"
+ 1753      5F636F6E 
+ 1753      74657874 
+ 1753      00
+ 1754              	.LASF10:
+ 1755 023f 696E7433 		.ascii	"int32_t\000"
+ 1755      325F7400 
+ 1756              	.LASF2:
+ 1757 0247 73686F72 		.ascii	"short int\000"
+ 1757      7420696E 
+ 1757      7400
+ 1758              	.LASF20:
+ 1759 0251 57414954 		.ascii	"WAITINGOFCHSUM\000"
+ 1759      494E474F 
+ 1759      46434853 
+ 1759      554D00
+ 1760              	.LASF45:
+ 1761 0260 4167675F 		.ascii	"Agg_sent.c\000"
+ 1761      73656E74 
+ 1761      2E6300
+ 1762              	.LASF19:
+ 1763 026b 57414954 		.ascii	"WAITINGOFSTAR\000"
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccVfRJGi.s 			page 36
+
+
+ 1763      494E474F 
+ 1763      46535441 
+ 1763      5200
+ 1764              	.LASF25:
+ 1765 0279 7072696D 		.ascii	"primary_buf\000"
+ 1765      6172795F 
+ 1765      62756600 
+ 1766              	.LASF31:
+ 1767 0285 73656E74 		.ascii	"sentence_ready\000"
+ 1767      656E6365 
+ 1767      5F726561 
+ 1767      647900
+ 1768              	.LASF4:
+ 1769 0294 6C6F6E67 		.ascii	"long int\000"
+ 1769      20696E74 
+ 1769      00
+ 1770              	.LASF16:
+ 1771 029d 6C6F6E67 		.ascii	"long double\000"
+ 1771      20646F75 
+ 1771      626C6500 
+ 1772              	.LASF0:
+ 1773 02a9 7369676E 		.ascii	"signed char\000"
+ 1773      65642063 
+ 1773      68617200 
+ 1774              	.LASF27:
+ 1775 02b5 6C656E67 		.ascii	"length\000"
+ 1775      746800
+ 1776              	.LASF40:
+ 1777 02bc 42797465 		.ascii	"ByteToInt\000"
+ 1777      546F496E 
+ 1777      7400
+ 1778              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

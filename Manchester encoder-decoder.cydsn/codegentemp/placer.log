@@ -6,7 +6,7 @@
 
 #Build Date:         Dec  5 2017 15:35:27
 
-#File Generated:     May 29 2020 16:03:53
+#File Generated:     Jun 4 2020 18:22:43
 
 #Purpose:            
 
@@ -55,7 +55,7 @@ Design Statistics after Packing
 Device Utilization Summary after Packing
     Macrocells                  :	108/192
     UDBS                        :	24/24
-    IOs                         :	32/72
+    IOs                         :	34/72
 
 
 D2088: Phase 3, elapsed time : 0.0 (sec)
@@ -88,15 +88,15 @@ Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  72.0 MHz
 Clock: CyPLL_OUT            | Frequency: N/A       | Target:  72.0 MHz
 Clock: CyXTAL               | Frequency: N/A       | Target:  24.0 MHz
 Clock: PPS(0)_PAD           | Frequency: N/A       | Target:   0.1 MHz
-Clock: UART_IntClock        | Frequency:  39.5 MHz | Target:   0.1 MHz
+Clock: UART_IntClock        | Frequency:  32.5 MHz | Target:   0.1 MHz
 Clock: \Boundary32bit:CounterHW\/tc | Frequency: N/A       | Target:  36.0 MHz
-Clock: cydff_9/q            | Frequency:  30.2 MHz | Target:  18.0 MHz
+Clock: cydff_9/q            | Frequency:  27.7 MHz | Target:  18.0 MHz
 
 ======================================================================
                      End of Clock Summary
 ######################################################################
 
-D2088: Phase 6, elapsed time : 0.1 (sec)
+D2088: Phase 6, elapsed time : 0.2 (sec)
 
 Phase 7
 ######################################################################
@@ -111,14 +111,14 @@ Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  72.0 MHz
 Clock: CyPLL_OUT            | Frequency: N/A       | Target:  72.0 MHz
 Clock: CyXTAL               | Frequency: N/A       | Target:  24.0 MHz
 Clock: PPS(0)_PAD           | Frequency: N/A       | Target:   0.1 MHz
-Clock: UART_IntClock        | Frequency:  39.5 MHz | Target:   0.1 MHz
+Clock: UART_IntClock        | Frequency:  35.0 MHz | Target:   0.1 MHz
 Clock: \Boundary32bit:CounterHW\/tc | Frequency: N/A       | Target:  36.0 MHz
-Clock: cydff_9/q            | Frequency:  29.2 MHz | Target:  18.0 MHz
+Clock: cydff_9/q            | Frequency:  28.0 MHz | Target:  18.0 MHz
 
 ======================================================================
                      End of Clock Summary
 ######################################################################
-D2088: Phase 7, elapsed time : 0.6 (sec)
+D2088: Phase 7, elapsed time : 0.8 (sec)
 
 Final Design Statistics
     Number of Combinational MCs 	:	36
@@ -128,11 +128,11 @@ Final Design Statistics
     Number of Status            	:	11
     Number of SyncCells         	:	4
     Number of count7cells       	:	1
-    Number of IOs       	:	32
+    Number of IOs       	:	34
 
 Device Utilization Summary
     Macrocells                  :	108/192
-    IOs                         :	32/72
+    IOs                         :	34/72
 
 
 
@@ -157,9 +157,9 @@ Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  72.0 MHz
 Clock: CyPLL_OUT            | Frequency: N/A       | Target:  72.0 MHz
 Clock: CyXTAL               | Frequency: N/A       | Target:  24.0 MHz
 Clock: PPS(0)_PAD           | Frequency: N/A       | Target:   0.1 MHz
-Clock: UART_IntClock        | Frequency:  39.5 MHz | Target:   0.1 MHz
+Clock: UART_IntClock        | Frequency:  35.0 MHz | Target:   0.1 MHz
 Clock: \Boundary32bit:CounterHW\/tc | Frequency: N/A       | Target:  36.0 MHz
-Clock: cydff_9/q            | Frequency:  29.2 MHz | Target:  18.0 MHz
+Clock: cydff_9/q            | Frequency:  28.0 MHz | Target:  18.0 MHz
 
 ======================================================================
                      End of Clock Summary
@@ -187,7 +187,7 @@ Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  72.0 MHz
 Clock: CyPLL_OUT            | Frequency: N/A       | Target:  72.0 MHz
 Clock: CyXTAL               | Frequency: N/A       | Target:  24.0 MHz
 Clock: PPS(0)_PAD           | Frequency: N/A       | Target:   0.1 MHz
-Clock: UART_IntClock        | Frequency:  39.5 MHz | Target:   0.1 MHz
+Clock: UART_IntClock        | Frequency:  37.1 MHz | Target:   0.1 MHz
 Clock: \Boundary32bit:CounterHW\/tc | Frequency: N/A       | Target:  36.0 MHz
 Clock: cydff_9/q            | Frequency:  30.2 MHz | Target:  18.0 MHz
 
@@ -195,7 +195,7 @@ Clock: cydff_9/q            | Frequency:  30.2 MHz | Target:  18.0 MHz
                      End of Clock Summary
 ######################################################################
 
-D2088: Phase 6, elapsed time : 0.1 (sec)
+D2088: Phase 6, elapsed time : 0.2 (sec)
 
 Phase 7
 ######################################################################
@@ -210,14 +210,14 @@ Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  72.0 MHz
 Clock: CyPLL_OUT            | Frequency: N/A       | Target:  72.0 MHz
 Clock: CyXTAL               | Frequency: N/A       | Target:  24.0 MHz
 Clock: PPS(0)_PAD           | Frequency: N/A       | Target:   0.1 MHz
-Clock: UART_IntClock        | Frequency:  44.3 MHz | Target:   0.1 MHz
+Clock: UART_IntClock        | Frequency:  40.7 MHz | Target:   0.1 MHz
 Clock: \Boundary32bit:CounterHW\/tc | Frequency: N/A       | Target:  36.0 MHz
-Clock: cydff_9/q            | Frequency:  30.0 MHz | Target:  18.0 MHz
+Clock: cydff_9/q            | Frequency:  27.6 MHz | Target:  18.0 MHz
 
 ======================================================================
                      End of Clock Summary
 ######################################################################
-D2088: Phase 7, elapsed time : 2.4 (sec)
+D2088: Phase 7, elapsed time : 2.0 (sec)
 
 Final Design Statistics
     Number of Combinational MCs 	:	36
@@ -227,11 +227,11 @@ Final Design Statistics
     Number of Status            	:	11
     Number of SyncCells         	:	4
     Number of count7cells       	:	1
-    Number of IOs       	:	32
+    Number of IOs       	:	34
 
 Device Utilization Summary
     Macrocells                  :	108/192
-    IOs                         :	32/72
+    IOs                         :	34/72
 
 
 
@@ -256,9 +256,9 @@ Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  72.0 MHz
 Clock: CyPLL_OUT            | Frequency: N/A       | Target:  72.0 MHz
 Clock: CyXTAL               | Frequency: N/A       | Target:  24.0 MHz
 Clock: PPS(0)_PAD           | Frequency: N/A       | Target:   0.1 MHz
-Clock: UART_IntClock        | Frequency:  47.4 MHz | Target:   0.1 MHz
+Clock: UART_IntClock        | Frequency:  40.0 MHz | Target:   0.1 MHz
 Clock: \Boundary32bit:CounterHW\/tc | Frequency: N/A       | Target:  36.0 MHz
-Clock: cydff_9/q            | Frequency:  29.4 MHz | Target:  18.0 MHz
+Clock: cydff_9/q            | Frequency:  22.7 MHz | Target:  18.0 MHz
 
 ======================================================================
                      End of Clock Summary
@@ -269,5 +269,5 @@ D2088: Phase 8, elapsed time : 0.0 (sec)
 
 D2054: Placement of the design completed successfully
 
-I2076: Total run-time: 4.1 sec.
+I2076: Total run-time: 3.9 sec.
 

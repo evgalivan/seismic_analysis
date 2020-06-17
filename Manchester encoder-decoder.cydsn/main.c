@@ -11,8 +11,11 @@
 */
 #include "global.h"
 #include "sender.h"
+#include "USB_UART_cdc.h"
 #include <Clock.h>
 #include <BitCounterDec.h>
+#include <Agg_sent.h>
+
 
 uint32 incr_compare = 512; // зависит от той частоты, которую мы хотим получить
 uint32 value_usec_gps, value_sec_gps;
@@ -23,7 +26,7 @@ uint8 count_char = 0,                      // счетчик длины буфе
         count_char_mirror=0;             // счетчик для записи двух символов после "*"
 uint8 GlobalPrepareFlag = 0, GlobalTimeReady = 0;
 int delta_clock = 0;
-typedef enum {WAITINGOFDOLLAR, WAITINGOFSTAR, WAITINGOFCHSUM, ENDSENTENS} State;
+
 
 gps_rmc RMC_stamp, *pRMC_stamp;
 
@@ -40,31 +43,8 @@ uint32 capture_flag, UnixTime1, time_ready_flag = 0;
 long long UnixTime2;
 char *ptok, *ptok2;
 
-char* strtok_e (char *pstr1, const char* pstr2){
-    
-    uint8 i = 0;
-    test = *ptok;
-    if (pstr1 == NULL)
-    {
-        pstr1 = ptok2 + 1;
-    }
-    if (pstr1 != NULL)
-        {
-            ptok = pstr1;
-        }
-    for (i = 0; i < strlen(pstr1); i++)
-    {        
-        if (*pstr1 == *pstr2)
-        {
-            *pstr1 = 0;
-            ptok2 = pstr1;
-            break;
-        }
-        pstr1++;
-    }
-    if (i == 0) return NULL;
-    return  ptok;
-}
+uart_context usb_context={{{},0,0}, .sentence_ready=0}, gps_context={{{},0,0}, .sentence_ready=0};
+
 
 /*******************************************************************************
 * Function Name: RxIsr
@@ -84,7 +64,6 @@ CY_ISR(RxIsr)
 {
     uint8 rxStatus;         
     uint8 rxData;
-    char* tmp;
     
     do
     {
@@ -103,50 +82,9 @@ CY_ISR(RxIsr)
         {
             /* Read data from the RX data register */
             rxData = UART_RXDATA_REG;
-            
-            switch (state)
-            {
-                /* */
-                case WAITINGOFDOLLAR: 
-                    if (rxData == '$')
-                    {
-                        count_char=1;       //обнуление счетчика символов 
-                        *gps1 = rxData;     //запись символа                        
-                        state = WAITINGOFSTAR;
-                    }
-                break;
-                    
-                case WAITINGOFSTAR:
-                    if (rxData == '*')
-                    {                    
-                        count_char_mirror = count_char;  //после присвоения будем записывать еще 2 символа
-                        state = WAITINGOFCHSUM;          //смена состояния для прекращения накомления буфера
-                    }
-                    count_char++;
-                    gps1++;             //следующий элемент массива
-                    *gps1 = rxData;     //запись символа                    
-                break;
-                    
-                case WAITINGOFCHSUM: 
-                    if ( (count_char - count_char_mirror) > 2) state = ENDSENTENS;
-                    count_char++;       //инкремент счетчика символов
-                    gps1++;             //следующий элемент массива
-                    *gps1 = rxData;     //запись символа                    
-                break;
-                    
-                case ENDSENTENS:
-                    gps1 -= (count_char - 1);
-                    tmp = gps1;
-                    gps1 = gps2;
-                    gps2 = tmp;
-                    data_ready_flag = 1;
-                    lenght_rxData_buf = count_char;
-                    state = WAITINGOFDOLLAR;
-                break;
-            }
+            InsertByte(&gps_context.primary_buf, rxData);
         }
     }while((rxStatus & UART_RX_STS_FIFO_NOTEMPTY) != 0u);
-    count_char = count_char;
 }
 
 // задание структуры для регистра статуса ShiftReg
@@ -200,6 +138,10 @@ int main(void)
     
 	// Инициализация устройств Clock
     UART_Start();
+    
+    #define USBFS_DEVICE    (0u)
+    USBUART_Start(USBFS_DEVICE, USBUART_5V_OPERATION);
+    
     isr_rx_StartEx(RxIsr);
     Period_Start();
     SigmaReg_Start();
@@ -272,9 +214,8 @@ int main(void)
         
         while(1) 
         {
-            if (data_ready_flag)
+            if (agg_sent(&gps_context))
             {
-                                
                 pteststr1 = str1;                             
                 pteststr2 = str2;                
                 data_ready_flag = 0;
@@ -304,7 +245,51 @@ int main(void)
                 }
             }
             
+            USBARTInitCDC();
+            
+            Service_USB();
+            if (agg_sent(&usb_context)) usb_context.sentence_ready=1;
+            if (usb_context.sentence_ready){
+                /* разбор сентенций USB
+                всего 3 сентенции: 
+                Установка частоты дискритизации                 
+                Установка поправки времени распространения      
+                Установка начальных адресов сегмента            IPSET */
+                if (strncmp((char*)usb_context.sentence, "$IPSET", 6) == 0)
+                {
+                    /*функция парсера ipset*/
+                    IpPars(usb_context.sentence);
+                    switch (IP_Complete.chanel){
+                        case 1: curRegim = ADDR_SET1; break;
+                        case 2: curRegim = ADDR_SET2; break;
+                        case 3: curRegim = ADDR_SET3; break;
+                        case 4: curRegim = ADDR_SET4; break;
+                        default: break;                        
+                    }
+                    renumber_frame.pattern.MacHiHi = 207;
+                    renumber_frame.pattern.MacHiLo = 210;
+                    renumber_frame.pattern.MacMiHi = IP_Complete.mac[2];
+                    renumber_frame.pattern.MacMiLo = IP_Complete.mac[3];
+                    renumber_frame.pattern.MacLoHi = IP_Complete.mac[4];
+                    renumber_frame.pattern.MacLoLo = IP_Complete.mac[5];
+                    renumber_frame.pattern.port = IP_Complete.port;
+                    renumber_frame.pattern.MulHiHi = IP_Complete.multicast[0];
+                    renumber_frame.pattern.MulHiLo = IP_Complete.multicast[1];
+                    renumber_frame.pattern.MulLoHi = IP_Complete.multicast[2];
+                    renumber_frame.pattern.MulLoLo = IP_Complete.multicast[3];
+                    renumber_frame.pattern.UniHiHi = IP_Complete.unicast[0];
+                    renumber_frame.pattern.UniHiLo = IP_Complete.unicast[1];
+                    renumber_frame.pattern.UniLoHi = IP_Complete.unicast[2];
+                    renumber_frame.pattern.UniLoLo = IP_Complete.unicast[3];
+                } 
+                //TO DO !!!!
+                /* Установка частоты дискритизации                 
+                Установка поправки времени распространения */
+                
+                usb_context.sentence_ready = 0;
+            }
             GeneralSend (curRegim );
+            
             //UpdatePeriod(period);
             
             

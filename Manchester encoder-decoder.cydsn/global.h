@@ -10,7 +10,7 @@
  * ========================================
 */
 #include <project.h>
-#include "Clock.h"
+
 
 #define RING_SIZE 64
 #define IN_RING( B)  if (++(B)>=RING_SIZE)(B) -= RING_SIZE
@@ -67,6 +67,11 @@ uint8 IsNotEmpty(RingBuff_t*);
 uint8 InsertByte(RingBuff_t* , uint8);
 uint8 ExtractByte(RingBuff_t*);
 uint8 agg_sent(uart_context*);
+
+/*Clock.c*/
+
+void Strobe ();
+void UpdatePeriod(uint32 NewPeriod);
 
 
 /* [] END OF FILE */

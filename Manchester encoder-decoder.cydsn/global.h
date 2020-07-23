@@ -9,8 +9,17 @@
  *
  * ========================================
 */
-#include <project.h>
+#ifndef GLOBAL_H
+    #define GLOBAL_H
+    
+#ifndef uint32 
+    #include <project.h>
+#endif
 
+#include <stdio.h>
+#include <stdio_e.h>
+#include <string.h>
+#include <stdlib.h>
 
 #define RING_SIZE 64
 #define IN_RING( B)  if (++(B)>=RING_SIZE)(B) -= RING_SIZE
@@ -31,8 +40,22 @@ typedef struct{
     uint16 count_char;
     uint16 checksum;
     uint8 sentence_ready;
-} uart_context;
+    uint8* message_to_send;
+    uint8 need_to_send;
+    uint16 count_to_send;
 
+} uart_context;
+extern uart_context usb_context;
+
+
+typedef struct {
+    uint16 chanel;
+    uint16 port;
+    char multicast[4];
+    char unicast[4];
+    char mac[6];
+}ip_set;
+extern ip_set IP_Complete;
 typedef struct {
     uint32 MacMiLo:8;
     uint32 MacMiHi:8;
@@ -56,6 +79,8 @@ typedef union {
     frame_recount pattern;
 }renumber;
 
+
+
 extern uint32 incr_compare;
 extern long long utc_time;
 extern long long pps_time;
@@ -67,11 +92,12 @@ uint8 IsNotEmpty(RingBuff_t*);
 uint8 InsertByte(RingBuff_t* , uint8);
 uint8 ExtractByte(RingBuff_t*);
 uint8 agg_sent(uart_context*);
+void IpPars(uint8* sentence);
 
 /*Clock.c*/
 
 void Strobe ();
 void UpdatePeriod(uint32 NewPeriod);
-
+#endif
 
 /* [] END OF FILE */

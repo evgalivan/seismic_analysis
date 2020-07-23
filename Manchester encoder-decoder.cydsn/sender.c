@@ -15,11 +15,11 @@
 #include <StartTransmit.h>
 #include <FrameAllow.h>
 
-
+exchange_unit DataToTransmit;
 
 statReg curStat;
 static volatile unsigned int count_to_send=0;
-static volatile unsigned int status=0, NeedLoadFlag=0;
+static volatile unsigned int status=0;
 static uint32 *Current_word  = (uint32*)(0);
 int stsh;
 
@@ -52,6 +52,7 @@ TrResult  PrepareToSend(uint32* ex_buf,int LENGTH){
 
 
 void   Send(){
+    StartTransmit_Write(0);
     status=1;    
     BitCounterEnc_WriteCounter(BitCounterEnc_ReadCompare());
     StartTransmit_Write(1);
@@ -59,18 +60,6 @@ void   Send(){
 
 void   ClearStatus(void){   //должна быть вызвана из прерывания bitcouner, когда сброшен StartTransmit
     status=0;        
-}
-
-void SetNeedLoadFlag(void){
-    NeedLoadFlag = 1;
-}
-
-void ClearNeedLoadFlag(void){
-    NeedLoadFlag = 0;
-}
-
-int     CheckNeedLoadFlag (void){
-    return NeedLoadFlag;
 }
 
 int GetStatusFifoSender (void){

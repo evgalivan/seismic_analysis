@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
   28:Generated_Source\PSoC5/RecieveShiftReg.c **** *
   29:Generated_Source\PSoC5/RecieveShiftReg.c **** * Parameters:
   30:Generated_Source\PSoC5/RecieveShiftReg.c **** *  None.
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 2
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 2
 
 
   31:Generated_Source\PSoC5/RecieveShiftReg.c **** *
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
   85:Generated_Source\PSoC5/RecieveShiftReg.c **** *
   86:Generated_Source\PSoC5/RecieveShiftReg.c **** * Parameters:
   87:Generated_Source\PSoC5/RecieveShiftReg.c **** *  void.
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 3
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 3
 
 
   88:Generated_Source\PSoC5/RecieveShiftReg.c **** *
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
   33              		.cfi_def_cfa_offset 8
   34              		.cfi_offset 3, -8
   35              		.cfi_offset 14, -4
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 4
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 4
 
 
  137:Generated_Source\PSoC5/RecieveShiftReg.c ****     uint8 interruptState;
@@ -201,7 +201,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
   48              	.L4:
   49 0016 00BF     		.align	2
   50              	.L3:
-  51 0018 97650040 		.word	1073767831
+  51 0018 92640040 		.word	1073767570
   52              		.cfi_endproc
   53              	.LFE4:
   54              		.size	RecieveShiftReg_EnableInt, .-RecieveShiftReg_EnableInt
@@ -236,9 +236,9 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
   80              	.L8:
   81 0012 00BF     		.align	2
   82              	.L7:
-  83 0014 77650040 		.word	1073767799
+  83 0014 72640040 		.word	1073767538
   84              		.cfi_endproc
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 5
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 5
 
 
   85              	.LFE1:
@@ -298,10 +298,10 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  115              	.L12:
  116 0016 00BF     		.align	2
  117              	.L11:
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 6
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 6
 
 
- 118 0018 97650040 		.word	1073767831
+ 118 0018 92640040 		.word	1073767570
  119              		.cfi_endproc
  120              	.LFE5:
  121              		.size	RecieveShiftReg_DisableInt, .-RecieveShiftReg_DisableInt
@@ -336,7 +336,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  147              	.L16:
  148 0012 00BF     		.align	2
  149              	.L15:
- 150 0014 77650040 		.word	1073767799
+ 150 0014 72640040 		.word	1073767538
  151              		.cfi_endproc
  152              	.LFE3:
  153              		.size	RecieveShiftReg_Stop, .-RecieveShiftReg_Stop
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  173:Generated_Source\PSoC5/RecieveShiftReg.c **** * Summary:
  174:Generated_Source\PSoC5/RecieveShiftReg.c **** *  Returns current status of input or output FIFO.
  175:Generated_Source\PSoC5/RecieveShiftReg.c **** *
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 7
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 7
 
 
  176:Generated_Source\PSoC5/RecieveShiftReg.c **** * Parameters:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  173 0006 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  174 0008 C3F34113 		ubfx	r3, r3, #5, #2
  175 000c 3BB1     		cbz	r3, .L22
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 8
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 8
 
 
  176 000e 022B     		cmp	r3, #2
@@ -476,9 +476,9 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  202              	.L24:
  203 0022 00BF     		.align	2
  204              	.L23:
- 205 0024 67650040 		.word	1073767783
+ 205 0024 62640040 		.word	1073767522
  206              		.cfi_endproc
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 9
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 9
 
 
  207              	.LFE6:
@@ -534,11 +534,11 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  235              	.L27:
  236 0016 00BF     		.align	2
  237              	.L26:
- 238 0018 87650040 		.word	1073767815
+ 238 0018 82640040 		.word	1073767554
  239              		.cfi_endproc
  240              	.LFE7:
  241              		.size	RecieveShiftReg_SetIntMode, .-RecieveShiftReg_SetIntMode
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 10
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 10
 
 
  242              		.section	.text.RecieveShiftReg_Init,"ax",%progbits
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  290 000c 0122     		movs	r2, #1
  291 000e 024B     		ldr	r3, .L33
  292 0010 1A70     		strb	r2, [r3]
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 11
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 11
 
 
  293              	.L31:
@@ -657,8 +657,8 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  324              	.L37:
  325 000a 00BF     		.align	2
  326              	.L36:
- 327 000c 67650040 		.word	1073767783
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 12
+ 327 000c 62640040 		.word	1073767522
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 12
 
 
  328              		.cfi_endproc
@@ -700,12 +700,12 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  305:Generated_Source\PSoC5/RecieveShiftReg.c ****     CY_SET_REG32(RecieveShiftReg_SHIFT_REG_LSB_PTR, shiftData);
  345              		.loc 1 305 0
  346 0000 014B     		ldr	r3, .L39
- 347 0002 1860     		str	r0, [r3]
+ 347 0002 1860     		str	r0, [r3]	@ unaligned
  348 0004 7047     		bx	lr
  349              	.L40:
  350 0006 00BF     		.align	2
  351              	.L39:
- 352 0008 04640040 		.word	1073767428
+ 352 0008 02640040 		.word	1073767426
  353              		.cfi_endproc
  354              	.LFE9:
  355              		.size	RecieveShiftReg_WriteRegValue, .-RecieveShiftReg_WriteRegValue
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  362              	RecieveShiftReg_ReadData:
  363              	.LFB10:
  306:Generated_Source\PSoC5/RecieveShiftReg.c **** }
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 13
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 13
 
 
  307:Generated_Source\PSoC5/RecieveShiftReg.c **** 
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  361:Generated_Source\PSoC5/RecieveShiftReg.c ****     *
  362:Generated_Source\PSoC5/RecieveShiftReg.c ****     * Reentrant:
  363:Generated_Source\PSoC5/RecieveShiftReg.c ****     *  No.
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 14
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 14
 
 
  364:Generated_Source\PSoC5/RecieveShiftReg.c ****     *
@@ -793,14 +793,14 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  368:Generated_Source\PSoC5/RecieveShiftReg.c ****         return(CY_GET_REG32(RecieveShiftReg_OUT_FIFO_VAL_LSB_PTR));
  369              		.loc 1 368 0
  370 0000 014B     		ldr	r3, .L42
- 371 0002 1868     		ldr	r0, [r3]
+ 371 0002 1868     		ldr	r0, [r3]	@ unaligned
  369:Generated_Source\PSoC5/RecieveShiftReg.c ****     }
  372              		.loc 1 369 0
  373 0004 7047     		bx	lr
  374              	.L43:
  375 0006 00BF     		.align	2
  376              	.L42:
- 377 0008 54640040 		.word	1073767508
+ 377 0008 52640040 		.word	1073767506
  378              		.cfi_endproc
  379              	.LFE10:
  380              		.size	RecieveShiftReg_ReadData, .-RecieveShiftReg_ReadData
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  389              		.loc 1 392 0
  390              		.cfi_startproc
  391              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 15
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 15
 
 
  392              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -857,7 +857,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  398:Generated_Source\PSoC5/RecieveShiftReg.c ****         (void) CY_GET_REG32(RecieveShiftReg_OUT_FIFO_VAL_LSB_PTR);
  400              		.loc 1 398 0
  401 0004 054B     		ldr	r3, .L48
- 402 0006 1B68     		ldr	r3, [r3]
+ 402 0006 1B68     		ldr	r3, [r3]	@ unaligned
  403              	.L45:
  396:Generated_Source\PSoC5/RecieveShiftReg.c ****     {
  404              		.loc 1 396 0
@@ -878,7 +878,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  405:Generated_Source\PSoC5/RecieveShiftReg.c ****     result  = CY_GET_REG32(RecieveShiftReg_OUT_FIFO_VAL_LSB_PTR);
  413              		.loc 1 405 0
  414 0016 014B     		ldr	r3, .L48
- 415 0018 1868     		ldr	r0, [r3]
+ 415 0018 1868     		ldr	r0, [r3]	@ unaligned
  416              	.LVL21:
  406:Generated_Source\PSoC5/RecieveShiftReg.c ****     
  407:Generated_Source\PSoC5/RecieveShiftReg.c ****     #if(0u != (RecieveShiftReg_SR_SIZE % 8u))
@@ -892,13 +892,13 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  419              	.L49:
  420              		.align	2
  421              	.L48:
- 422 001c 54640040 		.word	1073767508
- 423 0020 14640040 		.word	1073767444
+ 422 001c 52640040 		.word	1073767506
+ 423 0020 12640040 		.word	1073767442
  424              		.cfi_endproc
  425              	.LFE11:
  426              		.size	RecieveShiftReg_ReadRegValue, .-RecieveShiftReg_ReadRegValue
  427              		.global	RecieveShiftReg_initVar
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 16
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 16
 
 
  428              		.bss
@@ -918,47 +918,47 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  442 0006 00000000 		.4byte	.Ldebug_abbrev0
  443 000a 04       		.byte	0x4
  444 000b 01       		.uleb128 0x1
- 445 000c E3000000 		.4byte	.LASF37
+ 445 000c EC000000 		.4byte	.LASF37
  446 0010 0C       		.byte	0xc
- 447 0011 1F020000 		.4byte	.LASF38
- 448 0015 06000000 		.4byte	.LASF39
+ 447 0011 1B020000 		.4byte	.LASF38
+ 448 0015 1C000000 		.4byte	.LASF39
  449 0019 00000000 		.4byte	.Ldebug_ranges0+0
  450 001d 00000000 		.4byte	0
  451 0021 00000000 		.4byte	.Ldebug_line0
  452 0025 02       		.uleb128 0x2
  453 0026 01       		.byte	0x1
  454 0027 06       		.byte	0x6
- 455 0028 53030000 		.4byte	.LASF0
+ 455 0028 4F030000 		.4byte	.LASF0
  456 002c 02       		.uleb128 0x2
  457 002d 01       		.byte	0x1
  458 002e 08       		.byte	0x8
- 459 002f D5000000 		.4byte	.LASF1
+ 459 002f C4010000 		.4byte	.LASF1
  460 0033 02       		.uleb128 0x2
  461 0034 02       		.byte	0x2
  462 0035 05       		.byte	0x5
- 463 0036 DF020000 		.4byte	.LASF2
+ 463 0036 DB020000 		.4byte	.LASF2
  464 003a 02       		.uleb128 0x2
  465 003b 02       		.byte	0x2
  466 003c 07       		.byte	0x7
- 467 003d 8D000000 		.4byte	.LASF3
+ 467 003d 89000000 		.4byte	.LASF3
  468 0041 02       		.uleb128 0x2
  469 0042 04       		.byte	0x4
  470 0043 05       		.byte	0x5
- 471 0044 21030000 		.4byte	.LASF4
+ 471 0044 1D030000 		.4byte	.LASF4
  472 0048 02       		.uleb128 0x2
  473 0049 04       		.byte	0x4
  474 004a 07       		.byte	0x7
- 475 004b 85010000 		.4byte	.LASF5
+ 475 004b 8E010000 		.4byte	.LASF5
  476 004f 02       		.uleb128 0x2
  477 0050 08       		.byte	0x8
  478 0051 05       		.byte	0x5
- 479 0052 B7020000 		.4byte	.LASF6
+ 479 0052 B3020000 		.4byte	.LASF6
  480 0056 02       		.uleb128 0x2
  481 0057 08       		.byte	0x8
  482 0058 07       		.byte	0x7
- 483 0059 BE000000 		.4byte	.LASF7
+ 483 0059 BA000000 		.4byte	.LASF7
  484 005d 03       		.uleb128 0x3
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 17
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 17
 
 
  485 005e 04       		.byte	0x4
@@ -967,31 +967,31 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  488 0064 02       		.uleb128 0x2
  489 0065 04       		.byte	0x4
  490 0066 07       		.byte	0x7
- 491 0067 66020000 		.4byte	.LASF8
+ 491 0067 62020000 		.4byte	.LASF8
  492 006b 04       		.uleb128 0x4
- 493 006c 97010000 		.4byte	.LASF9
+ 493 006c A0010000 		.4byte	.LASF9
  494 0070 02       		.byte	0x2
  495 0071 E401     		.2byte	0x1e4
  496 0073 2C000000 		.4byte	0x2c
  497 0077 04       		.uleb128 0x4
- 498 0078 48020000 		.4byte	.LASF10
+ 498 0078 44020000 		.4byte	.LASF10
  499 007c 02       		.byte	0x2
  500 007d E601     		.2byte	0x1e6
  501 007f 48000000 		.4byte	0x48
  502 0083 02       		.uleb128 0x2
  503 0084 04       		.byte	0x4
  504 0085 04       		.byte	0x4
- 505 0086 B8000000 		.4byte	.LASF11
+ 505 0086 B4000000 		.4byte	.LASF11
  506 008a 02       		.uleb128 0x2
  507 008b 08       		.byte	0x8
  508 008c 04       		.byte	0x4
- 509 008d D6010000 		.4byte	.LASF12
+ 509 008d D2010000 		.4byte	.LASF12
  510 0091 02       		.uleb128 0x2
  511 0092 01       		.byte	0x1
  512 0093 08       		.byte	0x8
- 513 0094 C5020000 		.4byte	.LASF13
+ 513 0094 C1020000 		.4byte	.LASF13
  514 0098 04       		.uleb128 0x4
- 515 0099 71010000 		.4byte	.LASF14
+ 515 0099 7A010000 		.4byte	.LASF14
  516 009d 02       		.byte	0x2
  517 009e 8E02     		.2byte	0x28e
  518 00a0 A4000000 		.4byte	0xa4
@@ -1007,25 +1007,25 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  528 00ba 02       		.uleb128 0x2
  529 00bb 08       		.byte	0x8
  530 00bc 04       		.byte	0x4
- 531 00bd 47030000 		.4byte	.LASF16
+ 531 00bd 43030000 		.4byte	.LASF16
  532 00c1 02       		.uleb128 0x2
  533 00c2 04       		.byte	0x4
  534 00c3 07       		.byte	0x7
- 535 00c4 AE020000 		.4byte	.LASF17
+ 535 00c4 AA020000 		.4byte	.LASF17
  536 00c8 06       		.uleb128 0x6
- 537 00c9 DD010000 		.4byte	.LASF18
+ 537 00c9 D9010000 		.4byte	.LASF18
  538 00cd 01       		.byte	0x1
  539 00ce 87       		.byte	0x87
  540 00cf 00000000 		.4byte	.LFB4
  541 00d3 1C000000 		.4byte	.LFE4-.LFB4
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 18
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 18
 
 
  542 00d7 01       		.uleb128 0x1
  543 00d8 9C       		.byte	0x9c
  544 00d9 FF000000 		.4byte	0xff
  545 00dd 07       		.uleb128 0x7
- 546 00de 76010000 		.4byte	.LASF21
+ 546 00de 7F010000 		.4byte	.LASF21
  547 00e2 01       		.byte	0x1
  548 00e3 89       		.byte	0x89
  549 00e4 6B000000 		.4byte	0x6b
@@ -1038,7 +1038,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  556 00fa C5020000 		.4byte	0x2c5
  557 00fe 00       		.byte	0
  558 00ff 06       		.uleb128 0x6
- 559 0100 9D010000 		.4byte	.LASF19
+ 559 0100 A6010000 		.4byte	.LASF19
  560 0104 01       		.byte	0x1
  561 0105 45       		.byte	0x45
  562 0106 00000000 		.4byte	.LFB1
@@ -1051,7 +1051,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  569 0119 C8000000 		.4byte	0xc8
  570 011d 00       		.byte	0
  571 011e 06       		.uleb128 0x6
- 572 011f E9020000 		.4byte	.LASF20
+ 572 011f E5020000 		.4byte	.LASF20
  573 0123 01       		.byte	0x1
  574 0124 9F       		.byte	0x9f
  575 0125 00000000 		.4byte	.LFB5
@@ -1060,7 +1060,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  578 012e 9C       		.byte	0x9c
  579 012f 55010000 		.4byte	0x155
  580 0133 07       		.uleb128 0x7
- 581 0134 76010000 		.4byte	.LASF21
+ 581 0134 7F010000 		.4byte	.LASF21
  582 0138 01       		.byte	0x1
  583 0139 A1       		.byte	0xa1
  584 013a 6B000000 		.4byte	0x6b
@@ -1073,12 +1073,12 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  591 0150 C5020000 		.4byte	0x2c5
  592 0154 00       		.byte	0
  593 0155 06       		.uleb128 0x6
- 594 0156 78000000 		.4byte	.LASF22
+ 594 0156 74000000 		.4byte	.LASF22
  595 015a 01       		.byte	0x1
  596 015b 71       		.byte	0x71
  597 015c 00000000 		.4byte	.LFB3
  598 0160 18000000 		.4byte	.LFE3-.LFB3
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 19
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 19
 
 
  599 0164 01       		.uleb128 0x1
@@ -1089,7 +1089,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  604 016f 1E010000 		.4byte	0x11e
  605 0173 00       		.byte	0
  606 0174 09       		.uleb128 0x9
- 607 0175 F7010000 		.4byte	.LASF33
+ 607 0175 F3010000 		.4byte	.LASF33
  608 0179 01       		.byte	0x1
  609 017a B7       		.byte	0xb7
  610 017b 6B000000 		.4byte	0x6b
@@ -1099,20 +1099,20 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  614 0188 9C       		.byte	0x9c
  615 0189 AC010000 		.4byte	0x1ac
  616 018d 0A       		.uleb128 0xa
- 617 018e CF010000 		.4byte	.LASF25
+ 617 018e BD010000 		.4byte	.LASF25
  618 0192 01       		.byte	0x1
  619 0193 B7       		.byte	0xb7
  620 0194 6B000000 		.4byte	0x6b
  621 0198 26000000 		.4byte	.LLST2
  622 019c 07       		.uleb128 0x7
- 623 019d 89020000 		.4byte	.LASF23
+ 623 019d 85020000 		.4byte	.LASF23
  624 01a1 01       		.byte	0x1
  625 01a2 B9       		.byte	0xb9
  626 01a3 6B000000 		.4byte	0x6b
  627 01a7 92000000 		.4byte	.LLST3
  628 01ab 00       		.byte	0
  629 01ac 0B       		.uleb128 0xb
- 630 01ad B4010000 		.4byte	.LASF24
+ 630 01ad D1000000 		.4byte	.LASF24
  631 01b1 01       		.byte	0x1
  632 01b2 0501     		.2byte	0x105
  633 01b4 00000000 		.4byte	.LFB7
@@ -1121,14 +1121,14 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  636 01bd 9C       		.byte	0x9c
  637 01be D3010000 		.4byte	0x1d3
  638 01c2 0C       		.uleb128 0xc
- 639 01c3 68000000 		.4byte	.LASF26
+ 639 01c3 64000000 		.4byte	.LASF26
  640 01c7 01       		.byte	0x1
  641 01c8 0501     		.2byte	0x105
  642 01ca 6B000000 		.4byte	0x6b
  643 01ce CB000000 		.4byte	.LLST4
  644 01d2 00       		.byte	0
  645 01d3 06       		.uleb128 0x6
- 646 01d4 CA020000 		.4byte	.LASF27
+ 646 01d4 C6020000 		.4byte	.LASF27
  647 01d8 01       		.byte	0x1
  648 01d9 5D       		.byte	0x5d
  649 01da 00000000 		.4byte	.LFB2
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  653 01e4 F8010000 		.4byte	0x1f8
  654 01e8 0D       		.uleb128 0xd
  655 01e9 08000000 		.4byte	.LVL16
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 20
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 20
 
 
  656 01ed AC010000 		.4byte	0x1ac
@@ -1150,7 +1150,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  662 01f6 00       		.byte	0
  663 01f7 00       		.byte	0
  664 01f8 06       		.uleb128 0x6
- 665 01f9 52000000 		.4byte	.LASF28
+ 665 01f9 06000000 		.4byte	.LASF28
  666 01fd 01       		.byte	0x1
  667 01fe 2B       		.byte	0x2b
  668 01ff 00000000 		.4byte	.LFB0
@@ -1166,7 +1166,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  678 021b FF000000 		.4byte	0xff
  679 021f 00       		.byte	0
  680 0220 0F       		.uleb128 0xf
- 681 0221 04030000 		.4byte	.LASF31
+ 681 0221 00030000 		.4byte	.LASF31
  682 0225 01       		.byte	0x1
  683 0226 1A01     		.2byte	0x11a
  684 0228 6B000000 		.4byte	0x6b
@@ -1175,7 +1175,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  687 0234 01       		.uleb128 0x1
  688 0235 9C       		.byte	0x9c
  689 0236 0B       		.uleb128 0xb
- 690 0237 90020000 		.4byte	.LASF29
+ 690 0237 8C020000 		.4byte	.LASF29
  691 023b 01       		.byte	0x1
  692 023c 2E01     		.2byte	0x12e
  693 023e 00000000 		.4byte	.LFB9
@@ -1184,7 +1184,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  696 0247 9C       		.byte	0x9c
  697 0248 5B020000 		.4byte	0x25b
  698 024c 10       		.uleb128 0x10
- 699 024d 15020000 		.4byte	.LASF30
+ 699 024d 11020000 		.4byte	.LASF30
  700 0251 01       		.byte	0x1
  701 0252 2E01     		.2byte	0x12e
  702 0254 77000000 		.4byte	0x77
@@ -1192,19 +1192,19 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  704 0259 50       		.byte	0x50
  705 025a 00       		.byte	0
  706 025b 0F       		.uleb128 0xf
- 707 025c 5F030000 		.4byte	.LASF32
+ 707 025c 5B030000 		.4byte	.LASF32
  708 0260 01       		.byte	0x1
  709 0261 6E01     		.2byte	0x16e
  710 0263 77000000 		.4byte	0x77
  711 0267 00000000 		.4byte	.LFB10
  712 026b 0C000000 		.4byte	.LFE10-.LFB10
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 21
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 21
 
 
  713 026f 01       		.uleb128 0x1
  714 0270 9C       		.byte	0x9c
  715 0271 11       		.uleb128 0x11
- 716 0272 2A030000 		.4byte	.LASF34
+ 716 0272 26030000 		.4byte	.LASF34
  717 0276 01       		.byte	0x1
  718 0277 8701     		.2byte	0x187
  719 0279 77000000 		.4byte	0x77
@@ -1214,7 +1214,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  723 0286 9C       		.byte	0x9c
  724 0287 A9020000 		.4byte	0x2a9
  725 028b 12       		.uleb128 0x12
- 726 028c 89020000 		.4byte	.LASF23
+ 726 028c 85020000 		.4byte	.LASF23
  727 0290 01       		.byte	0x1
  728 0291 8901     		.2byte	0x189
  729 0293 77000000 		.4byte	0x77
@@ -1231,7 +1231,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  740 02a7 00       		.byte	0
  741 02a8 00       		.byte	0
  742 02a9 13       		.uleb128 0x13
- 743 02aa A0000000 		.4byte	.LASF40
+ 743 02aa 9C000000 		.4byte	.LASF40
  744 02ae 01       		.byte	0x1
  745 02af 13       		.byte	0x13
  746 02b0 6B000000 		.4byte	0x6b
@@ -1239,13 +1239,13 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  748 02b5 03       		.byte	0x3
  749 02b6 00000000 		.4byte	RecieveShiftReg_initVar
  750 02ba 14       		.uleb128 0x14
- 751 02bb 4F020000 		.4byte	.LASF35
- 752 02bf 4F020000 		.4byte	.LASF35
+ 751 02bb 4B020000 		.4byte	.LASF35
+ 752 02bf 4B020000 		.4byte	.LASF35
  753 02c3 03       		.byte	0x3
  754 02c4 7D       		.byte	0x7d
  755 02c5 14       		.uleb128 0x14
- 756 02c6 73020000 		.4byte	.LASF36
- 757 02ca 73020000 		.4byte	.LASF36
+ 756 02c6 6F020000 		.4byte	.LASF36
+ 757 02ca 6F020000 		.4byte	.LASF36
  758 02ce 03       		.byte	0x3
  759 02cf 7E       		.byte	0x7e
  760 02d0 00       		.byte	0
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  767 0004 0E       		.uleb128 0xe
  768 0005 13       		.uleb128 0x13
  769 0006 0B       		.uleb128 0xb
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 22
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 22
 
 
  770 0007 03       		.uleb128 0x3
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  824 003d 06       		.uleb128 0x6
  825 003e 2E       		.uleb128 0x2e
  826 003f 01       		.byte	0x1
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 23
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 23
 
 
  827 0040 3F       		.uleb128 0x3f
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  881 0079 0B       		.uleb128 0xb
  882 007a 3B       		.uleb128 0x3b
  883 007b 0B       		.uleb128 0xb
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 24
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 24
 
 
  884 007c 27       		.uleb128 0x27
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  938 00b4 00       		.byte	0
  939 00b5 00       		.byte	0
  940 00b6 0C       		.uleb128 0xc
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 25
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 25
 
 
  941 00b7 05       		.uleb128 0x5
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  995 00f3 19       		.uleb128 0x19
  996 00f4 00       		.byte	0
  997 00f5 00       		.byte	0
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 26
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 26
 
 
  998 00f6 10       		.uleb128 0x10
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  1052 012d 18       		.uleb128 0x18
  1053 012e 00       		.byte	0
  1054 012f 00       		.byte	0
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 27
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 27
 
 
  1055 0130 13       		.uleb128 0x13
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  1109 002e 0100     		.2byte	0x1
  1110 0030 50       		.byte	0x50
  1111 0031 14000000 		.4byte	.LVL7
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 28
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 28
 
 
  1112 0035 16000000 		.4byte	.LVL8
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  1166 00af 20000000 		.4byte	.LVL13
  1167 00b3 0300     		.2byte	0x3
  1168 00b5 09       		.byte	0x9
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 29
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 29
 
 
  1169 00b6 FE       		.byte	0xfe
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  1223 0070 00000000 		.4byte	0
  1224 0074 00000000 		.4byte	0
  1225              		.section	.debug_ranges,"",%progbits
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 30
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 30
 
 
  1226              	.Ldebug_ranges0:
@@ -1778,228 +1778,228 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 1
  1256              	.LASF15:
  1257 0000 72656733 		.ascii	"reg32\000"
  1257      3200
- 1258              	.LASF39:
- 1259 0006 433A5C55 		.ascii	"C:\\Users\\e.ivanov\\Documents\\GitHub\\generic\\Ma"
- 1259      73657273 
- 1259      5C652E69 
- 1259      76616E6F 
- 1259      765C446F 
- 1260 0033 6E636865 		.ascii	"nchester encoder-decoder.cydsn\000"
- 1260      73746572 
- 1260      20656E63 
- 1260      6F646572 
- 1260      2D646563 
- 1261              	.LASF28:
- 1262 0052 52656369 		.ascii	"RecieveShiftReg_Start\000"
- 1262      65766553 
- 1262      68696674 
- 1262      5265675F 
- 1262      53746172 
+ 1258              	.LASF28:
+ 1259 0006 52656369 		.ascii	"RecieveShiftReg_Start\000"
+ 1259      65766553 
+ 1259      68696674 
+ 1259      5265675F 
+ 1259      53746172 
+ 1260              	.LASF39:
+ 1261 001c 433A5C55 		.ascii	"C:\\Users\\e.ivanov\\Documents\\GitHub\\adc\\Manche"
+ 1261      73657273 
+ 1261      5C652E69 
+ 1261      76616E6F 
+ 1261      765C446F 
+ 1262 0049 73746572 		.ascii	"ster encoder-decoder.cydsn\000"
+ 1262      20656E63 
+ 1262      6F646572 
+ 1262      2D646563 
+ 1262      6F646572 
  1263              	.LASF26:
- 1264 0068 696E7465 		.ascii	"interruptSource\000"
+ 1264 0064 696E7465 		.ascii	"interruptSource\000"
  1264      72727570 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 31
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 31
 
 
  1264      74536F75 
  1264      72636500 
  1265              	.LASF22:
- 1266 0078 52656369 		.ascii	"RecieveShiftReg_Stop\000"
+ 1266 0074 52656369 		.ascii	"RecieveShiftReg_Stop\000"
  1266      65766553 
  1266      68696674 
  1266      5265675F 
  1266      53746F70 
  1267              	.LASF3:
- 1268 008d 73686F72 		.ascii	"short unsigned int\000"
+ 1268 0089 73686F72 		.ascii	"short unsigned int\000"
  1268      7420756E 
  1268      7369676E 
  1268      65642069 
  1268      6E7400
  1269              	.LASF40:
- 1270 00a0 52656369 		.ascii	"RecieveShiftReg_initVar\000"
+ 1270 009c 52656369 		.ascii	"RecieveShiftReg_initVar\000"
  1270      65766553 
  1270      68696674 
  1270      5265675F 
  1270      696E6974 
  1271              	.LASF11:
- 1272 00b8 666C6F61 		.ascii	"float\000"
+ 1272 00b4 666C6F61 		.ascii	"float\000"
  1272      7400
  1273              	.LASF7:
- 1274 00be 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1274 00ba 6C6F6E67 		.ascii	"long long unsigned int\000"
  1274      206C6F6E 
  1274      6720756E 
  1274      7369676E 
  1274      65642069 
- 1275              	.LASF1:
- 1276 00d5 756E7369 		.ascii	"unsigned char\000"
- 1276      676E6564 
- 1276      20636861 
- 1276      7200
+ 1275              	.LASF24:
+ 1276 00d1 52656369 		.ascii	"RecieveShiftReg_SetIntMode\000"
+ 1276      65766553 
+ 1276      68696674 
+ 1276      5265675F 
+ 1276      53657449 
  1277              	.LASF37:
- 1278 00e3 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1278 00ec 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
  1278      43313120 
  1278      352E342E 
  1278      31203230 
  1278      31363036 
- 1279 0116 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1279 011f 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
  1279      20726576 
  1279      6973696F 
  1279      6E203233 
  1279      37373135 
- 1280 0149 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1280 0152 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
  1280      66756E63 
  1280      74696F6E 
  1280      2D736563 
  1280      74696F6E 
  1281              	.LASF14:
- 1282 0171 72656738 		.ascii	"reg8\000"
+ 1282 017a 72656738 		.ascii	"reg8\000"
  1282      00
  1283              	.LASF21:
- 1284 0176 696E7465 		.ascii	"interruptState\000"
+ 1284 017f 696E7465 		.ascii	"interruptState\000"
  1284      72727570 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 32
+
+
  1284      74537461 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 32
-
-
  1284      746500
  1285              	.LASF5:
- 1286 0185 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1286 018e 6C6F6E67 		.ascii	"long unsigned int\000"
  1286      20756E73 
  1286      69676E65 
  1286      6420696E 
  1286      7400
  1287              	.LASF9:
- 1288 0197 75696E74 		.ascii	"uint8\000"
+ 1288 01a0 75696E74 		.ascii	"uint8\000"
  1288      3800
  1289              	.LASF19:
- 1290 019d 52656369 		.ascii	"RecieveShiftReg_Enable\000"
+ 1290 01a6 52656369 		.ascii	"RecieveShiftReg_Enable\000"
  1290      65766553 
  1290      68696674 
  1290      5265675F 
  1290      456E6162 
- 1291              	.LASF24:
- 1292 01b4 52656369 		.ascii	"RecieveShiftReg_SetIntMode\000"
- 1292      65766553 
- 1292      68696674 
- 1292      5265675F 
- 1292      53657449 
- 1293              	.LASF25:
- 1294 01cf 6669666F 		.ascii	"fifoId\000"
- 1294      496400
+ 1291              	.LASF25:
+ 1292 01bd 6669666F 		.ascii	"fifoId\000"
+ 1292      496400
+ 1293              	.LASF1:
+ 1294 01c4 756E7369 		.ascii	"unsigned char\000"
+ 1294      676E6564 
+ 1294      20636861 
+ 1294      7200
  1295              	.LASF12:
- 1296 01d6 646F7562 		.ascii	"double\000"
+ 1296 01d2 646F7562 		.ascii	"double\000"
  1296      6C6500
  1297              	.LASF18:
- 1298 01dd 52656369 		.ascii	"RecieveShiftReg_EnableInt\000"
+ 1298 01d9 52656369 		.ascii	"RecieveShiftReg_EnableInt\000"
  1298      65766553 
  1298      68696674 
  1298      5265675F 
  1298      456E6162 
  1299              	.LASF33:
- 1300 01f7 52656369 		.ascii	"RecieveShiftReg_GetFIFOStatus\000"
+ 1300 01f3 52656369 		.ascii	"RecieveShiftReg_GetFIFOStatus\000"
  1300      65766553 
  1300      68696674 
  1300      5265675F 
  1300      47657446 
  1301              	.LASF30:
- 1302 0215 73686966 		.ascii	"shiftData\000"
+ 1302 0211 73686966 		.ascii	"shiftData\000"
  1302      74446174 
  1302      6100
  1303              	.LASF38:
- 1304 021f 47656E65 		.ascii	"Generated_Source\\PSoC5\\RecieveShiftReg.c\000"
+ 1304 021b 47656E65 		.ascii	"Generated_Source\\PSoC5\\RecieveShiftReg.c\000"
  1304      72617465 
  1304      645F536F 
  1304      75726365 
  1304      5C50536F 
  1305              	.LASF10:
- 1306 0248 75696E74 		.ascii	"uint32\000"
+ 1306 0244 75696E74 		.ascii	"uint32\000"
  1306      333200
  1307              	.LASF35:
- 1308 024f 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 1308 024b 4379456E 		.ascii	"CyEnterCriticalSection\000"
  1308      74657243 
  1308      72697469 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 33
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 33
 
 
  1308      63616C53 
  1308      65637469 
  1309              	.LASF8:
- 1310 0266 756E7369 		.ascii	"unsigned int\000"
+ 1310 0262 756E7369 		.ascii	"unsigned int\000"
  1310      676E6564 
  1310      20696E74 
  1310      00
  1311              	.LASF36:
- 1312 0273 43794578 		.ascii	"CyExitCriticalSection\000"
+ 1312 026f 43794578 		.ascii	"CyExitCriticalSection\000"
  1312      69744372 
  1312      69746963 
  1312      616C5365 
  1312      6374696F 
  1313              	.LASF23:
- 1314 0289 72657375 		.ascii	"result\000"
+ 1314 0285 72657375 		.ascii	"result\000"
  1314      6C7400
  1315              	.LASF29:
- 1316 0290 52656369 		.ascii	"RecieveShiftReg_WriteRegValue\000"
+ 1316 028c 52656369 		.ascii	"RecieveShiftReg_WriteRegValue\000"
  1316      65766553 
  1316      68696674 
  1316      5265675F 
  1316      57726974 
  1317              	.LASF17:
- 1318 02ae 73697A65 		.ascii	"sizetype\000"
+ 1318 02aa 73697A65 		.ascii	"sizetype\000"
  1318      74797065 
  1318      00
  1319              	.LASF6:
- 1320 02b7 6C6F6E67 		.ascii	"long long int\000"
+ 1320 02b3 6C6F6E67 		.ascii	"long long int\000"
  1320      206C6F6E 
  1320      6720696E 
  1320      7400
  1321              	.LASF13:
- 1322 02c5 63686172 		.ascii	"char\000"
+ 1322 02c1 63686172 		.ascii	"char\000"
  1322      00
  1323              	.LASF27:
- 1324 02ca 52656369 		.ascii	"RecieveShiftReg_Init\000"
+ 1324 02c6 52656369 		.ascii	"RecieveShiftReg_Init\000"
  1324      65766553 
  1324      68696674 
  1324      5265675F 
  1324      496E6974 
  1325              	.LASF2:
- 1326 02df 73686F72 		.ascii	"short int\000"
+ 1326 02db 73686F72 		.ascii	"short int\000"
  1326      7420696E 
  1326      7400
  1327              	.LASF20:
- 1328 02e9 52656369 		.ascii	"RecieveShiftReg_DisableInt\000"
+ 1328 02e5 52656369 		.ascii	"RecieveShiftReg_DisableInt\000"
  1328      65766553 
  1328      68696674 
  1328      5265675F 
  1328      44697361 
  1329              	.LASF31:
- 1330 0304 52656369 		.ascii	"RecieveShiftReg_GetIntStatus\000"
+ 1330 0300 52656369 		.ascii	"RecieveShiftReg_GetIntStatus\000"
  1330      65766553 
  1330      68696674 
  1330      5265675F 
  1330      47657449 
  1331              	.LASF4:
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccltsKcu.s 			page 34
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc6i81gk.s 			page 34
 
 
- 1332 0321 6C6F6E67 		.ascii	"long int\000"
+ 1332 031d 6C6F6E67 		.ascii	"long int\000"
  1332      20696E74 
  1332      00
  1333              	.LASF34:
- 1334 032a 52656369 		.ascii	"RecieveShiftReg_ReadRegValue\000"
+ 1334 0326 52656369 		.ascii	"RecieveShiftReg_ReadRegValue\000"
  1334      65766553 
  1334      68696674 
  1334      5265675F 
  1334      52656164 
  1335              	.LASF16:
- 1336 0347 6C6F6E67 		.ascii	"long double\000"
+ 1336 0343 6C6F6E67 		.ascii	"long double\000"
  1336      20646F75 
  1336      626C6500 
  1337              	.LASF0:
- 1338 0353 7369676E 		.ascii	"signed char\000"
+ 1338 034f 7369676E 		.ascii	"signed char\000"
  1338      65642063 
  1338      68617200 
  1339              	.LASF32:
- 1340 035f 52656369 		.ascii	"RecieveShiftReg_ReadData\000"
+ 1340 035b 52656369 		.ascii	"RecieveShiftReg_ReadData\000"
  1340      65766553 
  1340      68696674 
  1340      5265675F 

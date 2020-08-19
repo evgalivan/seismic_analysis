@@ -10,18 +10,34 @@
  * ========================================
 */
 
-#include <project.h>
 
-void Strobe () {
-    Control_Period_Write(1);
-    while ((Status_Period_Read()&1) == 0);
+#include <Clock.h>
+
+void Strobe (void) {
     Control_Period_Write(0);
-    while ((Status_Period_Read()&1) != 0);    
+    Control_Period_Write(2);
+    register uint8 tmp = Period_SR_STATUS;
+    while((tmp)&1){
+        tmp = Period_SR_STATUS;   
+    }//сигнал load
+    Control_Period_Write(1);
+    Control_Period_Write(3);    
 }
 
-void UpdatePeriod(uint32 NewPeriod) {
-    Period_WriteData(NewPeriod);
-    Strobe();    
+void EmptyFIFO(void){
+    register uint8 tmp = Period_SR_STATUS;   
+    while((tmp&8) == 0){
+        Strobe();
+        tmp = Period_SR_STATUS;
+    }
+}
+
+
+
+void UpdateFrequency(uint32 NewPeriod) {
+    EmptyFIFO();
+    Period_WriteData((uint8)NewPeriod);
+    EmptyFIFO(); 
 }
     
 

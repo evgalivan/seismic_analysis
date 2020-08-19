@@ -31,7 +31,7 @@
 #define Period_FIFO_SIZE          (4u)
 #define Period_USE_INPUT_FIFO     (1u)
 #define Period_USE_OUTPUT_FIFO    (0u)
-#define Period_SR_SIZE            (9u)
+#define Period_SR_SIZE            (8u)
 
 
 /***************************************
@@ -43,11 +43,11 @@ typedef struct
 {
     uint8 enableState;
 
-    uint16 saveSrA0Reg;
-    uint16 saveSrA1Reg;
+    uint8 saveSrA0Reg;
+    uint8 saveSrA1Reg;
 
     #if(CY_UDB_V0)
-        uint16 saveSrIntMask;
+        uint8 saveSrIntMask;
     #endif /* (CY_UDB_V0) */
 
 } Period_BACKUP_STRUCT;
@@ -69,18 +69,18 @@ void  Period_EnableInt(void)                          ;
 void  Period_DisableInt(void)                         ;
 void  Period_SetIntMode(uint8 interruptSource)        ;
 uint8 Period_GetIntStatus(void)                       ;
-void  Period_WriteRegValue(uint16 shiftData) \
+void  Period_WriteRegValue(uint8 shiftData) \
                                                                 ;
-uint16 Period_ReadRegValue(void) ;
+uint8 Period_ReadRegValue(void) ;
 uint8    Period_GetFIFOStatus(uint8 fifoId)           ;
 
 #if(0u != Period_USE_INPUT_FIFO)
-    cystatus Period_WriteData(uint16 shiftData) \
+    cystatus Period_WriteData(uint8 shiftData) \
                                                                 ;
 #endif /* (0u != Period_USE_INPUT_FIFO) */
 
 #if(0u != Period_USE_OUTPUT_FIFO)
-    uint16 Period_ReadData(void) ;
+    uint8 Period_ReadData(void) ;
 #endif /* (0u != Period_USE_OUTPUT_FIFO) */
 
 
@@ -125,7 +125,7 @@ extern uint8 Period_initVar;
 *    Initial Parameter Constants
 ***************************************/
 
-#define Period_SR_MASK    (0x1FFu) /* Unsigned is added to parameter */
+#define Period_SR_MASK    (0xFFu) /* Unsigned is added to parameter */
 #define Period_INT_SRC    (1u)
 #define Period_DIRECTION  (1u)
 
@@ -154,74 +154,74 @@ extern uint8 Period_initVar;
 
 /* A1 register: only used to implement capture function */
 #define Period_SHIFT_REG_CAPTURE_PTR    ( (reg8 *) \
-                                        Period_bSR_sC16_BShiftRegDp_u0__A1_REG )
+                                        Period_bSR_sC8_BShiftRegDp_u0__A1_REG )
 
 #if(CY_PSOC3 || CY_PSOC5)
-    #define Period_IN_FIFO_VAL_LSB_PTR        ( (reg16 *) \
-                                        Period_bSR_sC16_BShiftRegDp_u0__F0_REG )
+    #define Period_IN_FIFO_VAL_LSB_PTR        ( (reg8 *) \
+                                        Period_bSR_sC8_BShiftRegDp_u0__F0_REG )
 
-    #define Period_SHIFT_REG_LSB_PTR          ( (reg16 *) \
-                                        Period_bSR_sC16_BShiftRegDp_u0__A0_REG )
+    #define Period_SHIFT_REG_LSB_PTR          ( (reg8 *) \
+                                        Period_bSR_sC8_BShiftRegDp_u0__A0_REG )
 
-    #define Period_SHIFT_REG_VALUE_LSB_PTR    ( (reg16 *) \
-                                        Period_bSR_sC16_BShiftRegDp_u0__A1_REG )
+    #define Period_SHIFT_REG_VALUE_LSB_PTR    ( (reg8 *) \
+                                        Period_bSR_sC8_BShiftRegDp_u0__A1_REG )
 
-    #define Period_OUT_FIFO_VAL_LSB_PTR       ( (reg16 *) \
-                                        Period_bSR_sC16_BShiftRegDp_u0__F1_REG )
+    #define Period_OUT_FIFO_VAL_LSB_PTR       ( (reg8 *) \
+                                        Period_bSR_sC8_BShiftRegDp_u0__F1_REG )
 
 #else
     #if(Period_SR_SIZE <= 8u) /* 8bit - ShiftReg */
         #define Period_IN_FIFO_VAL_LSB_PTR        ( (reg8 *) \
-                                        Period_bSR_sC16_BShiftRegDp_u0__F0_REG )
+                                        Period_bSR_sC8_BShiftRegDp_u0__F0_REG )
 
         #define Period_SHIFT_REG_LSB_PTR          ( (reg8 *) \
-                                        Period_bSR_sC16_BShiftRegDp_u0__A0_REG )
+                                        Period_bSR_sC8_BShiftRegDp_u0__A0_REG )
 
         #define Period_SHIFT_REG_VALUE_LSB_PTR    ( (reg8 *) \
-                                        Period_bSR_sC16_BShiftRegDp_u0__A1_REG )
+                                        Period_bSR_sC8_BShiftRegDp_u0__A1_REG )
 
         #define Period_OUT_FIFO_VAL_LSB_PTR       ( (reg8 *) \
-                                        Period_bSR_sC16_BShiftRegDp_u0__F1_REG )
+                                        Period_bSR_sC8_BShiftRegDp_u0__F1_REG )
 
     #elif(Period_SR_SIZE <= 16u) /* 16bit - ShiftReg */
         #define Period_IN_FIFO_VAL_LSB_PTR        ( (reg16 *) \
-                                  Period_bSR_sC16_BShiftRegDp_u0__16BIT_F0_REG )
+                                  Period_bSR_sC8_BShiftRegDp_u0__16BIT_F0_REG )
 
         #define Period_SHIFT_REG_LSB_PTR          ( (reg16 *) \
-                                  Period_bSR_sC16_BShiftRegDp_u0__16BIT_A0_REG )
+                                  Period_bSR_sC8_BShiftRegDp_u0__16BIT_A0_REG )
 
         #define Period_SHIFT_REG_VALUE_LSB_PTR    ( (reg16 *) \
-                                  Period_bSR_sC16_BShiftRegDp_u0__16BIT_A1_REG )
+                                  Period_bSR_sC8_BShiftRegDp_u0__16BIT_A1_REG )
 
         #define Period_OUT_FIFO_VAL_LSB_PTR       ( (reg16 *) \
-                                  Period_bSR_sC16_BShiftRegDp_u0__16BIT_F1_REG )
+                                  Period_bSR_sC8_BShiftRegDp_u0__16BIT_F1_REG )
 
 
     #elif(Period_SR_SIZE <= 24u) /* 24bit - ShiftReg */
         #define Period_IN_FIFO_VAL_LSB_PTR        ( (reg32 *) \
-                                        Period_bSR_sC16_BShiftRegDp_u0__F0_REG )
+                                        Period_bSR_sC8_BShiftRegDp_u0__F0_REG )
 
         #define Period_SHIFT_REG_LSB_PTR          ( (reg32 *) \
-                                        Period_bSR_sC16_BShiftRegDp_u0__A0_REG )
+                                        Period_bSR_sC8_BShiftRegDp_u0__A0_REG )
 
         #define Period_SHIFT_REG_VALUE_LSB_PTR    ( (reg32 *) \
-                                        Period_bSR_sC16_BShiftRegDp_u0__A1_REG )
+                                        Period_bSR_sC8_BShiftRegDp_u0__A1_REG )
 
         #define Period_OUT_FIFO_VAL_LSB_PTR       ( (reg32 *) \
-                                        Period_bSR_sC16_BShiftRegDp_u0__F1_REG )
+                                        Period_bSR_sC8_BShiftRegDp_u0__F1_REG )
 
     #else /* 32bit - ShiftReg */
         #define Period_IN_FIFO_VAL_LSB_PTR        ( (reg32 *) \
-                                  Period_bSR_sC16_BShiftRegDp_u0__32BIT_F0_REG )
+                                  Period_bSR_sC8_BShiftRegDp_u0__32BIT_F0_REG )
 
         #define Period_SHIFT_REG_LSB_PTR          ( (reg32 *) \
-                                  Period_bSR_sC16_BShiftRegDp_u0__32BIT_A0_REG )
+                                  Period_bSR_sC8_BShiftRegDp_u0__32BIT_A0_REG )
 
         #define Period_SHIFT_REG_VALUE_LSB_PTR    ( (reg32 *) \
-                                  Period_bSR_sC16_BShiftRegDp_u0__32BIT_A1_REG )
+                                  Period_bSR_sC8_BShiftRegDp_u0__32BIT_A1_REG )
 
         #define Period_OUT_FIFO_VAL_LSB_PTR       ( (reg32 *) \
-                                  Period_bSR_sC16_BShiftRegDp_u0__32BIT_F1_REG )
+                                  Period_bSR_sC8_BShiftRegDp_u0__32BIT_F1_REG )
 
     #endif  /* (Period_SR_SIZE <= 8u) */
 #endif      /* (CY_PSOC3 || CY_PSOC5) */

@@ -299,10 +299,10 @@ uint8 Period_GetIntStatus(void)
 *  None.
 *
 *******************************************************************************/
-void Period_WriteRegValue(uint16 shiftData)
+void Period_WriteRegValue(uint8 shiftData)
                                                                      
 {
-    CY_SET_REG16(Period_SHIFT_REG_LSB_PTR, shiftData);
+    CY_SET_REG8(Period_SHIFT_REG_LSB_PTR, shiftData);
 }
 
 
@@ -326,7 +326,7 @@ void Period_WriteRegValue(uint16 shiftData)
     *  No.
     *
     *******************************************************************************/
-    cystatus Period_WriteData(uint16 shiftData)
+    cystatus Period_WriteData(uint8 shiftData)
                                                                          
     {
         cystatus result;
@@ -336,7 +336,7 @@ void Period_WriteRegValue(uint16 shiftData)
         /* Writes data into the input FIFO if it is not FULL */
         if(Period_RET_FIFO_FULL != (Period_GetFIFOStatus(Period_IN_FIFO)))
         {
-            CY_SET_REG16(Period_IN_FIFO_VAL_LSB_PTR, shiftData);
+            CY_SET_REG8(Period_IN_FIFO_VAL_LSB_PTR, shiftData);
             result = CYRET_SUCCESS;
         }
 
@@ -363,9 +363,9 @@ void Period_WriteRegValue(uint16 shiftData)
     *  No.
     *
     *******************************************************************************/
-    uint16 Period_ReadData(void) 
+    uint8 Period_ReadData(void) 
     {
-        return(CY_GET_REG16(Period_OUT_FIFO_VAL_LSB_PTR));
+        return(CY_GET_REG8(Period_OUT_FIFO_VAL_LSB_PTR));
     }
 #endif /* (0u != Period_USE_OUTPUT_FIFO) */
 
@@ -388,24 +388,24 @@ void Period_WriteRegValue(uint16 shiftData)
 *  No.
 *
 *******************************************************************************/
-uint16 Period_ReadRegValue(void) 
+uint8 Period_ReadRegValue(void) 
 {
-    uint16 result;
+    uint8 result;
 
     /* Clear FIFO before software capture */
     while(Period_RET_FIFO_EMPTY != Period_GetFIFOStatus(Period_OUT_FIFO))
     {
-        (void) CY_GET_REG16(Period_OUT_FIFO_VAL_LSB_PTR);
+        (void) CY_GET_REG8(Period_OUT_FIFO_VAL_LSB_PTR);
     }
 
     /* Read of 8 bits from A1 causes capture to output FIFO */
     (void) CY_GET_REG8(Period_SHIFT_REG_CAPTURE_PTR);
 
     /* Read output FIFO */
-    result  = CY_GET_REG16(Period_OUT_FIFO_VAL_LSB_PTR);
+    result  = CY_GET_REG8(Period_OUT_FIFO_VAL_LSB_PTR);
     
     #if(0u != (Period_SR_SIZE % 8u))
-        result &= ((uint16) Period_SR_MASK);
+        result &= ((uint8) Period_SR_MASK);
     #endif /* (0u != (Period_SR_SIZE % 8u)) */
     
     return(result);

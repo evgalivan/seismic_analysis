@@ -27,7 +27,76 @@
 *  Place your includes, defines and code here 
 ********************************************************************************/
 /* `#START cap_comp_tc_intc` */
+    
+    #include <global.h>
+    #include <Capture_high.h>
+    #include <Capture_low.h>
+    #include <Clock.h>
+    
+    #define COUNTER_BITS 16
+    #define COUNTER_PERIOD (1<<(COUNTER_BITS))
+    #define HALF_PERIOD (1<<(COUNTER_BITS-1))
+    
+    #define ADC_SAMPLING_PERIOD_BITS (12)  // todo must be variable
+    #define ADC_SAMPLING_PERIOD (1<<( ADC_SAMPLING_PERIOD_BITS))  // todo must be variable
+    #define GAP ( ADC_SAMPLING_PERIOD >>7)  // todo must be variable
+    
+    #define ADC_SAMPLING_PERIOD_MASK (ADC_SAMPLING_PERIOD - 1)
+    
+    
+    static int tmp;
+    static uint32 ReEnter_flag = 0;
+    int FirstTimeFlag= 0;
+    uint32 UpdateFrequencyFlag=1;
+    uint32 PrevCapture= COUNTER_PERIOD;
+    int32 CurrentDelta;
+    
+    void PrepareNewFrequency(void){
+        
+        tmp = (uint32)Capture_high_Read()<<8;
+        tmp += Capture_low_Read();
+   
+        if(FirstTimeFlag==0){
+            FirstTimeFlag = 1;
+            PrevCapture = tmp;
+            UpdateFrequencyFlag = 0;
+            return;
+        }
+            
+        
+        CurrentDelta = tmp - PrevCapture;
+        PrevCapture = tmp;
+        
+//        UpdateFrequencyFlag = 1;
 
+        if( CurrentDelta < 0) CurrentDelta += COUNTER_PERIOD;
+
+            if((CurrentDelta > (ADC_SAMPLING_PERIOD<<1))||(CurrentDelta < (ADC_SAMPLING_PERIOD>>1))){
+                PrevCapture = tmp;
+                UpdateFrequencyFlag = 0;
+                return;
+            }
+
+            CurrentDelta = (ADC_SAMPLING_PERIOD<<1) - CurrentDelta;
+            //CurrentDelta = (ADC_SAMPLING_PERIOD);
+            
+            
+            uint32 PlusDelta = PrevCapture & ADC_SAMPLING_PERIOD_MASK;
+            
+            if ((ADC_SAMPLING_PERIOD>>1) > PlusDelta) PlusDelta += ADC_SAMPLING_PERIOD;
+            
+            PlusDelta = (ADC_SAMPLING_PERIOD<<1) - PlusDelta;
+            //PlusDelta = (ADC_SAMPLING_PERIOD);
+            
+            NewFrequency = ((((CurrentDelta*NewFrequency)) >> ADC_SAMPLING_PERIOD_BITS) * PlusDelta) >> ADC_SAMPLING_PERIOD_BITS;
+            
+            if(NewFrequency > HighFrequency) NewFrequency = HighFrequency;
+            if(NewFrequency < LowFrequency) NewFrequency = LowFrequency;
+            
+    }
+    
+    
+    
 /* `#END` */
 
 #ifndef CYINT_IRQ_BASE
@@ -165,7 +234,39 @@ CY_ISR(cap_comp_tc_Interrupt)
 
     /*  Place your Interrupt code here. */
     /* `#START cap_comp_tc_Interrupt` */
+    
+    cap_comp_tc_ClearPending();     // must TO DO first!
+    UpdateFrequencyFlag = 1;
 
+//    tmp = (uint32)Capture_high_Read()<<8;
+//    tmp += Capture_low_Read();
+//   
+//    if(FirstTimeFlag==0){
+//        FirstTimeFlag = 1;
+//        PrevCapture = tmp;
+//        UpdateFrequencyFlag = 0;
+//        return;
+//    }
+//    
+//    
+//    CurrentDelta = tmp - PrevCapture;
+//    PrevCapture = tmp;
+//    
+//    UpdateFrequencyFlag = 1;
+    
+//    PrepareNewFrequency();
+//    if(UpdateFrequencyFlag != 0){
+//                UpdateFrequency(NewFrequency);
+//                UpdateFrequencyFlag = 0;
+//    }
+    
+    
+        /*TO DO
+            Если не было ни одного фрейма никогда, то мы ничего с нашим осциллятором не делаем
+            Если пришел 1ый в истории фрейм , то мы сбрасываем (reset) счетик и уставнавливем ему период в соответсвии с перодом дискретизации.
+            Если не 1ый, то берем capture и сравниваем с неким порогом (если он меньше половины периода, то мы должны уменьшить скорость генератора, а если больше, то увеличить на единичку) 
+            2 опросить акселерометр и подготовить усредненные данные; (опрашивем чаще чем отсылаем, потому можно усреднить)
+        */
     /* `#END` */
 }
 

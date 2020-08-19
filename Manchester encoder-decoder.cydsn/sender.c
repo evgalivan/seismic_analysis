@@ -14,38 +14,36 @@
 #include <BitCounterEnc.h>
 #include <StartTransmit.h>
 #include <FrameAllow.h>
-
+#include <line_buf.h>
 
 
 statReg curStat;
 static volatile unsigned int count_to_send=0;
-static volatile unsigned int status=0, NeedLoadFlag=0;
-static uint32 *Current_word  = (uint32*)(0);
+volatile unsigned int status=0, tmp_tr;
 int stsh;
 
 void Load(void){
     while(count_to_send){
-        *(char*)(&curStat)=TransmitShiftReg_SR_STATUS;
-        if( 0 != curStat.F0_not_full){
-            TransmitShiftReg_WriteData(*Current_word);
-            Current_word++;
-            count_to_send--;
-        }else{
-            count_to_send=count_to_send;
-            break;
-        }
+        if(current_read < current_write){
+            tmp_tr = TransmitShiftReg_SR_STATUS;
+            if((tmp_tr & 0x10)/*|(!(tmp_tr & 0x8))*/) {
+                CY_SET_REG32(TransmitShiftReg_IN_FIFO_VAL_LSB_PTR, *current_read);
+                current_read++;
+                count_to_send--;
+            }else{
+                break;
+            }
+        }else          break;
     }
 }
 
 
-TrResult  PrepareToSend(uint32* ex_buf,int LENGTH){
+TrResult  PrepareToSend(void){
     if (status)
         return TRBUSY;
-    //status=1;
-    *ex_buf |= 0x80000000;
-    count_to_send  = LENGTH;
-    Current_word = ex_buf;
-    //TO DO emptyes FIFO
+    *line_buf |= 0x80000000;
+    count_to_send  = PACKET_LENGTH;
+    current_read = line_buf;    
     Load();
     return TRSUCCSSY;
 }
@@ -59,22 +57,6 @@ void   Send(){
 
 void   ClearStatus(void){   //должна быть вызвана из прерывания bitcouner, когда сброшен StartTransmit
     status=0;        
-}
-
-void SetNeedLoadFlag(void){
-    NeedLoadFlag = 1;
-}
-
-void ClearNeedLoadFlag(void){
-    NeedLoadFlag = 0;
-}
-
-int     CheckNeedLoadFlag (void){
-    return NeedLoadFlag;
-}
-
-int GetStatusFifoSender (void){
-    return TransmitShiftReg_SR_STATUS;
 }
 /* [] END OF FILE */
    

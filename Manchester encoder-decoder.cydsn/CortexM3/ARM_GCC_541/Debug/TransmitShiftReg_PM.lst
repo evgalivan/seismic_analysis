@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cciXRBtP.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 1
   28:Generated_Source\PSoC5/TransmitShiftReg_PM.c ****         ((uint32) TransmitShiftReg_INT_SRC),
   29:Generated_Source\PSoC5/TransmitShiftReg_PM.c ****     #endif /* (CY_UDB_V0) */
   30:Generated_Source\PSoC5/TransmitShiftReg_PM.c **** };
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 2
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cciXRBtP.s 			page 2
 
 
   31:Generated_Source\PSoC5/TransmitShiftReg_PM.c **** 
@@ -103,9 +103,9 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 1
   43              	.L3:
   44              		.align	2
   45              	.L2:
-  46 0010 08650040 		.word	1073767688
+  46 0010 08640040 		.word	1073767432
   47 0014 00000000 		.word	.LANCHOR0
-  48 0018 18650040 		.word	1073767704
+  48 0018 18640040 		.word	1073767448
   49              		.cfi_endproc
   50              	.LFE0:
   51              		.size	TransmitShiftReg_SaveConfig, .-TransmitShiftReg_SaveConfig
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 1
   58              	TransmitShiftReg_RestoreConfig:
   59              	.LFB1:
   55:Generated_Source\PSoC5/TransmitShiftReg_PM.c **** 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 3
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cciXRBtP.s 			page 3
 
 
   56:Generated_Source\PSoC5/TransmitShiftReg_PM.c ****     #if(CY_UDB_V0)
@@ -165,8 +165,8 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 1
   76              		.align	2
   77              	.L5:
   78 0010 00000000 		.word	.LANCHOR0
-  79 0014 08650040 		.word	1073767688
-  80 0018 18650040 		.word	1073767704
+  79 0014 08640040 		.word	1073767432
+  80 0018 18640040 		.word	1073767448
   81              		.cfi_endproc
   82              	.LFE1:
   83              		.size	TransmitShiftReg_RestoreConfig, .-TransmitShiftReg_RestoreConfig
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 1
   89              		.type	TransmitShiftReg_Sleep, %function
   90              	TransmitShiftReg_Sleep:
   91              	.LFB2:
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 4
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cciXRBtP.s 			page 4
 
 
   81:Generated_Source\PSoC5/TransmitShiftReg_PM.c **** 
@@ -235,10 +235,10 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 1
  113              	.L10:
  114              		.align	2
  115              	.L9:
- 116 0018 79650040 		.word	1073767801
+ 116 0018 74640040 		.word	1073767540
  117 001c 00000000 		.word	.LANCHOR0
  118              		.cfi_endproc
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 5
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cciXRBtP.s 			page 5
 
 
  119              	.LFE2:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 1
  149              	.L15:
  150 0012 00BF     		.align	2
  151              	.L14:
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 6
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cciXRBtP.s 			page 6
 
 
  152 0014 00000000 		.word	.LANCHOR0
@@ -325,48 +325,48 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 1
  171 0006 00000000 		.4byte	.Ldebug_abbrev0
  172 000a 04       		.byte	0x4
  173 000b 01       		.uleb128 0x1
- 174 000c E7000000 		.4byte	.LASF28
+ 174 000c E3000000 		.4byte	.LASF28
  175 0010 0C       		.byte	0xc
- 176 0011 DB010000 		.4byte	.LASF29
- 177 0015 1E000000 		.4byte	.LASF30
+ 176 0011 D7010000 		.4byte	.LASF29
+ 177 0015 34000000 		.4byte	.LASF30
  178 0019 00000000 		.4byte	.Ldebug_ranges0+0
  179 001d 00000000 		.4byte	0
  180 0021 00000000 		.4byte	.Ldebug_line0
  181 0025 02       		.uleb128 0x2
  182 0026 01       		.byte	0x1
  183 0027 06       		.byte	0x6
- 184 0028 A5020000 		.4byte	.LASF0
+ 184 0028 A1020000 		.4byte	.LASF0
  185 002c 02       		.uleb128 0x2
  186 002d 01       		.byte	0x1
  187 002e 08       		.byte	0x8
- 188 002f D9000000 		.4byte	.LASF1
+ 188 002f D5000000 		.4byte	.LASF1
  189 0033 02       		.uleb128 0x2
  190 0034 02       		.byte	0x2
  191 0035 05       		.byte	0x5
- 192 0036 67020000 		.4byte	.LASF2
+ 192 0036 63020000 		.4byte	.LASF2
  193 003a 02       		.uleb128 0x2
  194 003b 02       		.byte	0x2
  195 003c 07       		.byte	0x7
- 196 003d 80000000 		.4byte	.LASF3
+ 196 003d 7C000000 		.4byte	.LASF3
  197 0041 02       		.uleb128 0x2
  198 0042 04       		.byte	0x4
  199 0043 05       		.byte	0x5
- 200 0044 71020000 		.4byte	.LASF4
+ 200 0044 6D020000 		.4byte	.LASF4
  201 0048 02       		.uleb128 0x2
  202 0049 04       		.byte	0x4
  203 004a 07       		.byte	0x7
- 204 004b 7A010000 		.4byte	.LASF5
+ 204 004b 76010000 		.4byte	.LASF5
  205 004f 02       		.uleb128 0x2
  206 0050 08       		.byte	0x8
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 7
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cciXRBtP.s 			page 7
 
 
  207 0051 05       		.byte	0x5
- 208 0052 35020000 		.4byte	.LASF6
+ 208 0052 31020000 		.4byte	.LASF6
  209 0056 02       		.uleb128 0x2
  210 0057 08       		.byte	0x8
  211 0058 07       		.byte	0x7
- 212 0059 C4010000 		.4byte	.LASF7
+ 212 0059 C0010000 		.4byte	.LASF7
  213 005d 03       		.uleb128 0x3
  214 005e 04       		.byte	0x4
  215 005f 05       		.byte	0x5
@@ -374,31 +374,31 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 1
  217 0064 02       		.uleb128 0x2
  218 0065 04       		.byte	0x4
  219 0066 07       		.byte	0x7
- 220 0067 B7010000 		.4byte	.LASF8
+ 220 0067 B3010000 		.4byte	.LASF8
  221 006b 04       		.uleb128 0x4
- 222 006c 8C010000 		.4byte	.LASF9
+ 222 006c 88010000 		.4byte	.LASF9
  223 0070 02       		.byte	0x2
  224 0071 E401     		.2byte	0x1e4
  225 0073 2C000000 		.4byte	0x2c
  226 0077 04       		.uleb128 0x4
- 227 0078 99010000 		.4byte	.LASF10
+ 227 0078 95010000 		.4byte	.LASF10
  228 007c 02       		.byte	0x2
  229 007d E601     		.2byte	0x1e6
  230 007f 48000000 		.4byte	0x48
  231 0083 02       		.uleb128 0x2
  232 0084 04       		.byte	0x4
  233 0085 04       		.byte	0x4
- 234 0086 D3000000 		.4byte	.LASF11
+ 234 0086 CF000000 		.4byte	.LASF11
  235 008a 02       		.uleb128 0x2
  236 008b 08       		.byte	0x8
  237 008c 04       		.byte	0x4
- 238 008d 92010000 		.4byte	.LASF12
+ 238 008d 8E010000 		.4byte	.LASF12
  239 0091 02       		.uleb128 0x2
  240 0092 01       		.byte	0x1
  241 0093 08       		.byte	0x8
- 242 0094 62020000 		.4byte	.LASF13
+ 242 0094 5E020000 		.4byte	.LASF13
  243 0098 04       		.uleb128 0x4
- 244 0099 75010000 		.4byte	.LASF14
+ 244 0099 71010000 		.4byte	.LASF14
  245 009d 02       		.byte	0x2
  246 009e 8E02     		.2byte	0x28e
  247 00a0 A4000000 		.4byte	0xa4
@@ -414,45 +414,45 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 1
  257 00ba 02       		.uleb128 0x2
  258 00bb 08       		.byte	0x8
  259 00bc 04       		.byte	0x4
- 260 00bd 20020000 		.4byte	.LASF16
+ 260 00bd 1C020000 		.4byte	.LASF16
  261 00c1 02       		.uleb128 0x2
  262 00c2 04       		.byte	0x4
  263 00c3 07       		.byte	0x7
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 8
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cciXRBtP.s 			page 8
 
 
- 264 00c4 2C020000 		.4byte	.LASF17
+ 264 00c4 28020000 		.4byte	.LASF17
  265 00c8 06       		.uleb128 0x6
  266 00c9 0C       		.byte	0xc
  267 00ca 03       		.byte	0x3
  268 00cb 2A       		.byte	0x2a
  269 00cc F5000000 		.4byte	0xf5
  270 00d0 07       		.uleb128 0x7
- 271 00d1 7A020000 		.4byte	.LASF18
+ 271 00d1 76020000 		.4byte	.LASF18
  272 00d5 03       		.byte	0x3
  273 00d6 2C       		.byte	0x2c
  274 00d7 6B000000 		.4byte	0x6b
  275 00db 00       		.byte	0
  276 00dc 07       		.uleb128 0x7
- 277 00dd B1020000 		.4byte	.LASF19
+ 277 00dd AD020000 		.4byte	.LASF19
  278 00e1 03       		.byte	0x3
  279 00e2 2E       		.byte	0x2e
  280 00e3 77000000 		.4byte	0x77
  281 00e7 04       		.byte	0x4
  282 00e8 07       		.uleb128 0x7
- 283 00e9 93000000 		.4byte	.LASF20
+ 283 00e9 8F000000 		.4byte	.LASF20
  284 00ed 03       		.byte	0x3
  285 00ee 2F       		.byte	0x2f
  286 00ef 77000000 		.4byte	0x77
  287 00f3 08       		.byte	0x8
  288 00f4 00       		.byte	0
  289 00f5 08       		.uleb128 0x8
- 290 00f6 43020000 		.4byte	.LASF21
+ 290 00f6 3F020000 		.4byte	.LASF21
  291 00fa 03       		.byte	0x3
  292 00fb 35       		.byte	0x35
  293 00fc C8000000 		.4byte	0xc8
  294 0100 09       		.uleb128 0x9
- 295 0101 9F000000 		.4byte	.LASF22
+ 295 0101 9B000000 		.4byte	.LASF22
  296 0105 01       		.byte	0x1
  297 0106 32       		.byte	0x32
  298 0107 00000000 		.4byte	.LFB0
@@ -460,7 +460,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 1
  300 010f 01       		.uleb128 0x1
  301 0110 9C       		.byte	0x9c
  302 0111 09       		.uleb128 0x9
- 303 0112 86020000 		.4byte	.LASF23
+ 303 0112 82020000 		.4byte	.LASF23
  304 0116 01       		.byte	0x1
  305 0117 4C       		.byte	0x4c
  306 0118 00000000 		.4byte	.LFB1
@@ -468,7 +468,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 1
  308 0120 01       		.uleb128 0x1
  309 0121 9C       		.byte	0x9c
  310 0122 0A       		.uleb128 0xa
- 311 0123 A0010000 		.4byte	.LASF24
+ 311 0123 9C010000 		.4byte	.LASF24
  312 0127 01       		.byte	0x1
  313 0128 69       		.byte	0x69
  314 0129 00000000 		.4byte	.LFB2
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 1
  318 0133 4A010000 		.4byte	0x14a
  319 0137 0B       		.uleb128 0xb
  320 0138 12000000 		.4byte	.LVL0
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 9
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cciXRBtP.s 			page 9
 
 
  321 013c 83010000 		.4byte	0x183
@@ -487,7 +487,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 1
  324 0145 00010000 		.4byte	0x100
  325 0149 00       		.byte	0
  326 014a 0A       		.uleb128 0xa
- 327 014b BB000000 		.4byte	.LASF25
+ 327 014b B7000000 		.4byte	.LASF25
  328 014f 01       		.byte	0x1
  329 0150 80       		.byte	0x80
  330 0151 00000000 		.4byte	.LFB3
@@ -511,13 +511,13 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 1
  348 017e 03       		.byte	0x3
  349 017f 00000000 		.4byte	TransmitShiftReg_backup
  350 0183 0D       		.uleb128 0xd
- 351 0184 6A000000 		.4byte	.LASF26
- 352 0188 6A000000 		.4byte	.LASF26
+ 351 0184 1E000000 		.4byte	.LASF26
+ 352 0188 1E000000 		.4byte	.LASF26
  353 018c 03       		.byte	0x3
  354 018d 3D       		.byte	0x3d
  355 018e 0D       		.uleb128 0xd
- 356 018f 08020000 		.4byte	.LASF27
- 357 0193 08020000 		.4byte	.LASF27
+ 356 018f 04020000 		.4byte	.LASF27
+ 357 0193 04020000 		.4byte	.LASF27
  358 0197 03       		.byte	0x3
  359 0198 3F       		.byte	0x3f
  360 0199 00       		.byte	0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 1
  375 000c 17       		.uleb128 0x17
  376 000d 11       		.uleb128 0x11
  377 000e 01       		.uleb128 0x1
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 10
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cciXRBtP.s 			page 10
 
 
  378 000f 10       		.uleb128 0x10
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 1
  432 0045 0B       		.uleb128 0xb
  433 0046 01       		.uleb128 0x1
  434 0047 13       		.uleb128 0x13
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 11
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cciXRBtP.s 			page 11
 
 
  435 0048 00       		.byte	0
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 1
  489 007f 2E       		.uleb128 0x2e
  490 0080 01       		.byte	0x1
  491 0081 3F       		.uleb128 0x3f
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 12
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cciXRBtP.s 			page 12
 
 
  492 0082 19       		.uleb128 0x19
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 1
  546 00bb 03       		.uleb128 0x3
  547 00bc 0E       		.uleb128 0xe
  548 00bd 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 13
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cciXRBtP.s 			page 13
 
 
  549 00be 0B       		.uleb128 0xb
@@ -773,171 +773,171 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 1
  590              	.LASF15:
  591 0018 72656733 		.ascii	"reg32\000"
  591      3200
- 592              	.LASF30:
- 593 001e 433A5C55 		.ascii	"C:\\Users\\e.ivanov\\Documents\\GitHub\\generic\\Ma"
- 593      73657273 
- 593      5C652E69 
- 593      76616E6F 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 14
+ 592              	.LASF26:
+ 593 001e 5472616E 		.ascii	"TransmitShiftReg_Stop\000"
+ 593      736D6974 
+ 593      53686966 
+ 593      74526567 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cciXRBtP.s 			page 14
 
 
- 593      765C446F 
- 594 004b 6E636865 		.ascii	"nchester encoder-decoder.cydsn\000"
- 594      73746572 
- 594      20656E63 
- 594      6F646572 
- 594      2D646563 
- 595              	.LASF26:
- 596 006a 5472616E 		.ascii	"TransmitShiftReg_Stop\000"
- 596      736D6974 
- 596      53686966 
- 596      74526567 
- 596      5F53746F 
+ 593      5F53746F 
+ 594              	.LASF30:
+ 595 0034 433A5C55 		.ascii	"C:\\Users\\e.ivanov\\Documents\\GitHub\\adc\\Manche"
+ 595      73657273 
+ 595      5C652E69 
+ 595      76616E6F 
+ 595      765C446F 
+ 596 0061 73746572 		.ascii	"ster encoder-decoder.cydsn\000"
+ 596      20656E63 
+ 596      6F646572 
+ 596      2D646563 
+ 596      6F646572 
  597              	.LASF3:
- 598 0080 73686F72 		.ascii	"short unsigned int\000"
+ 598 007c 73686F72 		.ascii	"short unsigned int\000"
  598      7420756E 
  598      7369676E 
  598      65642069 
  598      6E7400
  599              	.LASF20:
- 600 0093 73617665 		.ascii	"saveSrA1Reg\000"
+ 600 008f 73617665 		.ascii	"saveSrA1Reg\000"
  600      53724131 
  600      52656700 
  601              	.LASF22:
- 602 009f 5472616E 		.ascii	"TransmitShiftReg_SaveConfig\000"
+ 602 009b 5472616E 		.ascii	"TransmitShiftReg_SaveConfig\000"
  602      736D6974 
  602      53686966 
  602      74526567 
  602      5F536176 
  603              	.LASF25:
- 604 00bb 5472616E 		.ascii	"TransmitShiftReg_Wakeup\000"
+ 604 00b7 5472616E 		.ascii	"TransmitShiftReg_Wakeup\000"
  604      736D6974 
  604      53686966 
  604      74526567 
  604      5F57616B 
  605              	.LASF11:
- 606 00d3 666C6F61 		.ascii	"float\000"
+ 606 00cf 666C6F61 		.ascii	"float\000"
  606      7400
  607              	.LASF1:
- 608 00d9 756E7369 		.ascii	"unsigned char\000"
+ 608 00d5 756E7369 		.ascii	"unsigned char\000"
  608      676E6564 
  608      20636861 
  608      7200
  609              	.LASF28:
- 610 00e7 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 610 00e3 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
  610      43313120 
  610      352E342E 
  610      31203230 
  610      31363036 
- 611 011a 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 611 0116 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
  611      20726576 
  611      6973696F 
  611      6E203233 
  611      37373135 
- 612 014d 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 612 0149 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
  612      66756E63 
  612      74696F6E 
  612      2D736563 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 15
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cciXRBtP.s 			page 15
 
 
  612      74696F6E 
  613              	.LASF14:
- 614 0175 72656738 		.ascii	"reg8\000"
+ 614 0171 72656738 		.ascii	"reg8\000"
  614      00
  615              	.LASF5:
- 616 017a 6C6F6E67 		.ascii	"long unsigned int\000"
+ 616 0176 6C6F6E67 		.ascii	"long unsigned int\000"
  616      20756E73 
  616      69676E65 
  616      6420696E 
  616      7400
  617              	.LASF9:
- 618 018c 75696E74 		.ascii	"uint8\000"
+ 618 0188 75696E74 		.ascii	"uint8\000"
  618      3800
  619              	.LASF12:
- 620 0192 646F7562 		.ascii	"double\000"
+ 620 018e 646F7562 		.ascii	"double\000"
  620      6C6500
  621              	.LASF10:
- 622 0199 75696E74 		.ascii	"uint32\000"
+ 622 0195 75696E74 		.ascii	"uint32\000"
  622      333200
  623              	.LASF24:
- 624 01a0 5472616E 		.ascii	"TransmitShiftReg_Sleep\000"
+ 624 019c 5472616E 		.ascii	"TransmitShiftReg_Sleep\000"
  624      736D6974 
  624      53686966 
  624      74526567 
  624      5F536C65 
  625              	.LASF8:
- 626 01b7 756E7369 		.ascii	"unsigned int\000"
+ 626 01b3 756E7369 		.ascii	"unsigned int\000"
  626      676E6564 
  626      20696E74 
  626      00
  627              	.LASF7:
- 628 01c4 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 628 01c0 6C6F6E67 		.ascii	"long long unsigned int\000"
  628      206C6F6E 
  628      6720756E 
  628      7369676E 
  628      65642069 
  629              	.LASF29:
- 630 01db 47656E65 		.ascii	"Generated_Source\\PSoC5\\TransmitShiftReg_PM.c\000"
+ 630 01d7 47656E65 		.ascii	"Generated_Source\\PSoC5\\TransmitShiftReg_PM.c\000"
  630      72617465 
  630      645F536F 
  630      75726365 
  630      5C50536F 
  631              	.LASF27:
- 632 0208 5472616E 		.ascii	"TransmitShiftReg_Enable\000"
+ 632 0204 5472616E 		.ascii	"TransmitShiftReg_Enable\000"
  632      736D6974 
  632      53686966 
  632      74526567 
  632      5F456E61 
  633              	.LASF16:
- 634 0220 6C6F6E67 		.ascii	"long double\000"
+ 634 021c 6C6F6E67 		.ascii	"long double\000"
  634      20646F75 
  634      626C6500 
  635              	.LASF17:
- 636 022c 73697A65 		.ascii	"sizetype\000"
+ 636 0228 73697A65 		.ascii	"sizetype\000"
  636      74797065 
  636      00
  637              	.LASF6:
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrcOw2W.s 			page 16
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cciXRBtP.s 			page 16
 
 
- 638 0235 6C6F6E67 		.ascii	"long long int\000"
+ 638 0231 6C6F6E67 		.ascii	"long long int\000"
  638      206C6F6E 
  638      6720696E 
  638      7400
  639              	.LASF21:
- 640 0243 5472616E 		.ascii	"TransmitShiftReg_BACKUP_STRUCT\000"
+ 640 023f 5472616E 		.ascii	"TransmitShiftReg_BACKUP_STRUCT\000"
  640      736D6974 
  640      53686966 
  640      74526567 
  640      5F424143 
  641              	.LASF13:
- 642 0262 63686172 		.ascii	"char\000"
+ 642 025e 63686172 		.ascii	"char\000"
  642      00
  643              	.LASF2:
- 644 0267 73686F72 		.ascii	"short int\000"
+ 644 0263 73686F72 		.ascii	"short int\000"
  644      7420696E 
  644      7400
  645              	.LASF4:
- 646 0271 6C6F6E67 		.ascii	"long int\000"
+ 646 026d 6C6F6E67 		.ascii	"long int\000"
  646      20696E74 
  646      00
  647              	.LASF18:
- 648 027a 656E6162 		.ascii	"enableState\000"
+ 648 0276 656E6162 		.ascii	"enableState\000"
  648      6C655374 
  648      61746500 
  649              	.LASF23:
- 650 0286 5472616E 		.ascii	"TransmitShiftReg_RestoreConfig\000"
+ 650 0282 5472616E 		.ascii	"TransmitShiftReg_RestoreConfig\000"
  650      736D6974 
  650      53686966 
  650      74526567 
  650      5F526573 
  651              	.LASF0:
- 652 02a5 7369676E 		.ascii	"signed char\000"
+ 652 02a1 7369676E 		.ascii	"signed char\000"
  652      65642063 
  652      68617200 
  653              	.LASF19:
- 654 02b1 73617665 		.ascii	"saveSrA0Reg\000"
+ 654 02ad 73617665 		.ascii	"saveSrA0Reg\000"
  654      53724130 
  654      52656700 
  655              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

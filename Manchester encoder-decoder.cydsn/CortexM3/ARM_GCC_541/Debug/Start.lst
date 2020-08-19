@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPAl0wg.s 			page 1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccXwc95k.s 			page 1
 
 
    1              		.syntax unified
@@ -15,93 +15,93 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPAl0wg.s 			page 1
   12              		.eabi_attribute 18, 4
   13              		.thumb
   14              		.syntax unified
-  15              		.file	"Start.c"
+  15              		.file	"START.c"
   16              		.text
   17              	.Ltext0:
   18              		.cfi_sections	.debug_frame
-  19              		.section	.text.Start_Write,"ax",%progbits
+  19              		.section	.text.START_Write,"ax",%progbits
   20              		.align	2
-  21              		.global	Start_Write
+  21              		.global	START_Write
   22              		.thumb
   23              		.thumb_func
-  24              		.type	Start_Write, %function
-  25              	Start_Write:
+  24              		.type	START_Write, %function
+  25              	START_Write:
   26              	.LFB0:
-  27              		.file 1 "Generated_Source\\PSoC5\\Start.c"
-   1:Generated_Source\PSoC5/Start.c **** /*******************************************************************************
-   2:Generated_Source\PSoC5/Start.c **** * File Name: Start.c  
-   3:Generated_Source\PSoC5/Start.c **** * Version 2.20
-   4:Generated_Source\PSoC5/Start.c **** *
-   5:Generated_Source\PSoC5/Start.c **** * Description:
-   6:Generated_Source\PSoC5/Start.c **** *  This file contains API to enable firmware control of a Pins component.
-   7:Generated_Source\PSoC5/Start.c **** *
-   8:Generated_Source\PSoC5/Start.c **** * Note:
-   9:Generated_Source\PSoC5/Start.c **** *
-  10:Generated_Source\PSoC5/Start.c **** ********************************************************************************
-  11:Generated_Source\PSoC5/Start.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
-  12:Generated_Source\PSoC5/Start.c **** * You may use this file only in accordance with the license, terms, conditions, 
-  13:Generated_Source\PSoC5/Start.c **** * disclaimers, and limitations in the end user license agreement accompanying 
-  14:Generated_Source\PSoC5/Start.c **** * the software package with which this file was provided.
-  15:Generated_Source\PSoC5/Start.c **** *******************************************************************************/
-  16:Generated_Source\PSoC5/Start.c **** 
-  17:Generated_Source\PSoC5/Start.c **** #include "cytypes.h"
-  18:Generated_Source\PSoC5/Start.c **** #include "Start.h"
-  19:Generated_Source\PSoC5/Start.c **** 
-  20:Generated_Source\PSoC5/Start.c **** /* APIs are not generated for P15[7:6] on PSoC 5 */
-  21:Generated_Source\PSoC5/Start.c **** #if !(CY_PSOC5A &&\
-  22:Generated_Source\PSoC5/Start.c **** 	 Start__PORT == 15 && ((Start__MASK & 0xC0) != 0))
-  23:Generated_Source\PSoC5/Start.c **** 
-  24:Generated_Source\PSoC5/Start.c **** 
-  25:Generated_Source\PSoC5/Start.c **** /*******************************************************************************
-  26:Generated_Source\PSoC5/Start.c **** * Function Name: Start_Write
-  27:Generated_Source\PSoC5/Start.c **** ****************************************************************************//**
-  28:Generated_Source\PSoC5/Start.c **** *
-  29:Generated_Source\PSoC5/Start.c **** * \brief Writes the value to the physical port (data output register), masking
-  30:Generated_Source\PSoC5/Start.c **** *  and shifting the bits appropriately. 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPAl0wg.s 			page 2
+  27              		.file 1 "Generated_Source\\PSoC5\\START.c"
+   1:Generated_Source\PSoC5/START.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/START.c **** * File Name: START.c  
+   3:Generated_Source\PSoC5/START.c **** * Version 2.20
+   4:Generated_Source\PSoC5/START.c **** *
+   5:Generated_Source\PSoC5/START.c **** * Description:
+   6:Generated_Source\PSoC5/START.c **** *  This file contains API to enable firmware control of a Pins component.
+   7:Generated_Source\PSoC5/START.c **** *
+   8:Generated_Source\PSoC5/START.c **** * Note:
+   9:Generated_Source\PSoC5/START.c **** *
+  10:Generated_Source\PSoC5/START.c **** ********************************************************************************
+  11:Generated_Source\PSoC5/START.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  12:Generated_Source\PSoC5/START.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  13:Generated_Source\PSoC5/START.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  14:Generated_Source\PSoC5/START.c **** * the software package with which this file was provided.
+  15:Generated_Source\PSoC5/START.c **** *******************************************************************************/
+  16:Generated_Source\PSoC5/START.c **** 
+  17:Generated_Source\PSoC5/START.c **** #include "cytypes.h"
+  18:Generated_Source\PSoC5/START.c **** #include "START.h"
+  19:Generated_Source\PSoC5/START.c **** 
+  20:Generated_Source\PSoC5/START.c **** /* APIs are not generated for P15[7:6] on PSoC 5 */
+  21:Generated_Source\PSoC5/START.c **** #if !(CY_PSOC5A &&\
+  22:Generated_Source\PSoC5/START.c **** 	 START__PORT == 15 && ((START__MASK & 0xC0) != 0))
+  23:Generated_Source\PSoC5/START.c **** 
+  24:Generated_Source\PSoC5/START.c **** 
+  25:Generated_Source\PSoC5/START.c **** /*******************************************************************************
+  26:Generated_Source\PSoC5/START.c **** * Function Name: START_Write
+  27:Generated_Source\PSoC5/START.c **** ****************************************************************************//**
+  28:Generated_Source\PSoC5/START.c **** *
+  29:Generated_Source\PSoC5/START.c **** * \brief Writes the value to the physical port (data output register), masking
+  30:Generated_Source\PSoC5/START.c **** *  and shifting the bits appropriately. 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccXwc95k.s 			page 2
 
 
-  31:Generated_Source\PSoC5/Start.c **** *
-  32:Generated_Source\PSoC5/Start.c **** * The data output register controls the signal applied to the physical pin in 
-  33:Generated_Source\PSoC5/Start.c **** * conjunction with the drive mode parameter. This function avoids changing 
-  34:Generated_Source\PSoC5/Start.c **** * other bits in the port by using the appropriate method (read-modify-write or
-  35:Generated_Source\PSoC5/Start.c **** * bit banding).
-  36:Generated_Source\PSoC5/Start.c **** *
-  37:Generated_Source\PSoC5/Start.c **** * <b>Note</b> This function should not be used on a hardware digital output pin 
-  38:Generated_Source\PSoC5/Start.c **** * as it is driven by the hardware signal attached to it.
-  39:Generated_Source\PSoC5/Start.c **** *
-  40:Generated_Source\PSoC5/Start.c **** * \param value
-  41:Generated_Source\PSoC5/Start.c **** *  Value to write to the component instance.
-  42:Generated_Source\PSoC5/Start.c **** *
-  43:Generated_Source\PSoC5/Start.c **** * \return 
-  44:Generated_Source\PSoC5/Start.c **** *  None 
-  45:Generated_Source\PSoC5/Start.c **** *
-  46:Generated_Source\PSoC5/Start.c **** * \sideeffect
-  47:Generated_Source\PSoC5/Start.c **** *  If you use read-modify-write operations that are not atomic; the Interrupt 
-  48:Generated_Source\PSoC5/Start.c **** *  Service Routines (ISR) can cause corruption of this function. An ISR that 
-  49:Generated_Source\PSoC5/Start.c **** *  interrupts this function and performs writes to the Pins component data 
-  50:Generated_Source\PSoC5/Start.c **** *  register can cause corrupted port data. To avoid this issue, you should 
-  51:Generated_Source\PSoC5/Start.c **** *  either use the Per-Pin APIs (primary method) or disable interrupts around 
-  52:Generated_Source\PSoC5/Start.c **** *  this function.
-  53:Generated_Source\PSoC5/Start.c **** *
-  54:Generated_Source\PSoC5/Start.c **** * \funcusage
-  55:Generated_Source\PSoC5/Start.c **** *  \snippet Start_SUT.c usage_Start_Write
-  56:Generated_Source\PSoC5/Start.c **** *******************************************************************************/
-  57:Generated_Source\PSoC5/Start.c **** void Start_Write(uint8 value)
-  58:Generated_Source\PSoC5/Start.c **** {
+  31:Generated_Source\PSoC5/START.c **** *
+  32:Generated_Source\PSoC5/START.c **** * The data output register controls the signal applied to the physical pin in 
+  33:Generated_Source\PSoC5/START.c **** * conjunction with the drive mode parameter. This function avoids changing 
+  34:Generated_Source\PSoC5/START.c **** * other bits in the port by using the appropriate method (read-modify-write or
+  35:Generated_Source\PSoC5/START.c **** * bit banding).
+  36:Generated_Source\PSoC5/START.c **** *
+  37:Generated_Source\PSoC5/START.c **** * <b>Note</b> This function should not be used on a hardware digital output pin 
+  38:Generated_Source\PSoC5/START.c **** * as it is driven by the hardware signal attached to it.
+  39:Generated_Source\PSoC5/START.c **** *
+  40:Generated_Source\PSoC5/START.c **** * \param value
+  41:Generated_Source\PSoC5/START.c **** *  Value to write to the component instance.
+  42:Generated_Source\PSoC5/START.c **** *
+  43:Generated_Source\PSoC5/START.c **** * \return 
+  44:Generated_Source\PSoC5/START.c **** *  None 
+  45:Generated_Source\PSoC5/START.c **** *
+  46:Generated_Source\PSoC5/START.c **** * \sideeffect
+  47:Generated_Source\PSoC5/START.c **** *  If you use read-modify-write operations that are not atomic; the Interrupt 
+  48:Generated_Source\PSoC5/START.c **** *  Service Routines (ISR) can cause corruption of this function. An ISR that 
+  49:Generated_Source\PSoC5/START.c **** *  interrupts this function and performs writes to the Pins component data 
+  50:Generated_Source\PSoC5/START.c **** *  register can cause corrupted port data. To avoid this issue, you should 
+  51:Generated_Source\PSoC5/START.c **** *  either use the Per-Pin APIs (primary method) or disable interrupts around 
+  52:Generated_Source\PSoC5/START.c **** *  this function.
+  53:Generated_Source\PSoC5/START.c **** *
+  54:Generated_Source\PSoC5/START.c **** * \funcusage
+  55:Generated_Source\PSoC5/START.c **** *  \snippet START_SUT.c usage_START_Write
+  56:Generated_Source\PSoC5/START.c **** *******************************************************************************/
+  57:Generated_Source\PSoC5/START.c **** void START_Write(uint8 value)
+  58:Generated_Source\PSoC5/START.c **** {
   28              		.loc 1 58 0
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   32              		@ link register save eliminated.
   33              	.LVL0:
-  59:Generated_Source\PSoC5/Start.c ****     uint8 staticBits = (Start_DR & (uint8)(~Start_MASK));
+  59:Generated_Source\PSoC5/START.c ****     uint8 staticBits = (START_DR & (uint8)(~START_MASK));
   34              		.loc 1 59 0
   35 0000 044A     		ldr	r2, .L2
   36 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
   37 0004 03F0FB03 		and	r3, r3, #251
   38              	.LVL1:
-  60:Generated_Source\PSoC5/Start.c ****     Start_DR = staticBits | ((uint8)(value << Start_SHIFT) & Start_MASK);
+  60:Generated_Source\PSoC5/START.c ****     START_DR = staticBits | ((uint8)(value << START_SHIFT) & START_MASK);
   39              		.loc 1 60 0
   40 0008 8000     		lsls	r0, r0, #2
   41              	.LVL2:
@@ -115,56 +115,56 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPAl0wg.s 			page 1
   49 0014 20510040 		.word	1073762592
   50              		.cfi_endproc
   51              	.LFE0:
-  52              		.size	Start_Write, .-Start_Write
-  53              		.section	.text.Start_SetDriveMode,"ax",%progbits
+  52              		.size	START_Write, .-START_Write
+  53              		.section	.text.START_SetDriveMode,"ax",%progbits
   54              		.align	2
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPAl0wg.s 			page 3
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccXwc95k.s 			page 3
 
 
-  55              		.global	Start_SetDriveMode
+  55              		.global	START_SetDriveMode
   56              		.thumb
   57              		.thumb_func
-  58              		.type	Start_SetDriveMode, %function
-  59              	Start_SetDriveMode:
+  58              		.type	START_SetDriveMode, %function
+  59              	START_SetDriveMode:
   60              	.LFB1:
-  61:Generated_Source\PSoC5/Start.c **** }
-  62:Generated_Source\PSoC5/Start.c **** 
-  63:Generated_Source\PSoC5/Start.c **** 
-  64:Generated_Source\PSoC5/Start.c **** /*******************************************************************************
-  65:Generated_Source\PSoC5/Start.c **** * Function Name: Start_SetDriveMode
-  66:Generated_Source\PSoC5/Start.c **** ****************************************************************************//**
-  67:Generated_Source\PSoC5/Start.c **** *
-  68:Generated_Source\PSoC5/Start.c **** * \brief Sets the drive mode for each of the Pins component's pins.
-  69:Generated_Source\PSoC5/Start.c **** * 
-  70:Generated_Source\PSoC5/Start.c **** * <b>Note</b> This affects all pins in the Pins component instance. Use the
-  71:Generated_Source\PSoC5/Start.c **** * Per-Pin APIs if you wish to control individual pin's drive modes.
-  72:Generated_Source\PSoC5/Start.c **** *
-  73:Generated_Source\PSoC5/Start.c **** * \param mode
-  74:Generated_Source\PSoC5/Start.c **** *  Mode for the selected signals. Valid options are documented in 
-  75:Generated_Source\PSoC5/Start.c **** *  \ref driveMode.
-  76:Generated_Source\PSoC5/Start.c **** *
-  77:Generated_Source\PSoC5/Start.c **** * \return
-  78:Generated_Source\PSoC5/Start.c **** *  None
-  79:Generated_Source\PSoC5/Start.c **** *
-  80:Generated_Source\PSoC5/Start.c **** * \sideeffect
-  81:Generated_Source\PSoC5/Start.c **** *  If you use read-modify-write operations that are not atomic, the ISR can
-  82:Generated_Source\PSoC5/Start.c **** *  cause corruption of this function. An ISR that interrupts this function 
-  83:Generated_Source\PSoC5/Start.c **** *  and performs writes to the Pins component Drive Mode registers can cause 
-  84:Generated_Source\PSoC5/Start.c **** *  corrupted port data. To avoid this issue, you should either use the Per-Pin
-  85:Generated_Source\PSoC5/Start.c **** *  APIs (primary method) or disable interrupts around this function.
-  86:Generated_Source\PSoC5/Start.c **** *
-  87:Generated_Source\PSoC5/Start.c **** * \funcusage
-  88:Generated_Source\PSoC5/Start.c **** *  \snippet Start_SUT.c usage_Start_SetDriveMode
-  89:Generated_Source\PSoC5/Start.c **** *******************************************************************************/
-  90:Generated_Source\PSoC5/Start.c **** void Start_SetDriveMode(uint8 mode)
-  91:Generated_Source\PSoC5/Start.c **** {
+  61:Generated_Source\PSoC5/START.c **** }
+  62:Generated_Source\PSoC5/START.c **** 
+  63:Generated_Source\PSoC5/START.c **** 
+  64:Generated_Source\PSoC5/START.c **** /*******************************************************************************
+  65:Generated_Source\PSoC5/START.c **** * Function Name: START_SetDriveMode
+  66:Generated_Source\PSoC5/START.c **** ****************************************************************************//**
+  67:Generated_Source\PSoC5/START.c **** *
+  68:Generated_Source\PSoC5/START.c **** * \brief Sets the drive mode for each of the Pins component's pins.
+  69:Generated_Source\PSoC5/START.c **** * 
+  70:Generated_Source\PSoC5/START.c **** * <b>Note</b> This affects all pins in the Pins component instance. Use the
+  71:Generated_Source\PSoC5/START.c **** * Per-Pin APIs if you wish to control individual pin's drive modes.
+  72:Generated_Source\PSoC5/START.c **** *
+  73:Generated_Source\PSoC5/START.c **** * \param mode
+  74:Generated_Source\PSoC5/START.c **** *  Mode for the selected signals. Valid options are documented in 
+  75:Generated_Source\PSoC5/START.c **** *  \ref driveMode.
+  76:Generated_Source\PSoC5/START.c **** *
+  77:Generated_Source\PSoC5/START.c **** * \return
+  78:Generated_Source\PSoC5/START.c **** *  None
+  79:Generated_Source\PSoC5/START.c **** *
+  80:Generated_Source\PSoC5/START.c **** * \sideeffect
+  81:Generated_Source\PSoC5/START.c **** *  If you use read-modify-write operations that are not atomic, the ISR can
+  82:Generated_Source\PSoC5/START.c **** *  cause corruption of this function. An ISR that interrupts this function 
+  83:Generated_Source\PSoC5/START.c **** *  and performs writes to the Pins component Drive Mode registers can cause 
+  84:Generated_Source\PSoC5/START.c **** *  corrupted port data. To avoid this issue, you should either use the Per-Pin
+  85:Generated_Source\PSoC5/START.c **** *  APIs (primary method) or disable interrupts around this function.
+  86:Generated_Source\PSoC5/START.c **** *
+  87:Generated_Source\PSoC5/START.c **** * \funcusage
+  88:Generated_Source\PSoC5/START.c **** *  \snippet START_SUT.c usage_START_SetDriveMode
+  89:Generated_Source\PSoC5/START.c **** *******************************************************************************/
+  90:Generated_Source\PSoC5/START.c **** void START_SetDriveMode(uint8 mode)
+  91:Generated_Source\PSoC5/START.c **** {
   61              		.loc 1 91 0
   62              		.cfi_startproc
   63              		@ args = 0, pretend = 0, frame = 0
   64              		@ frame_needed = 0, uses_anonymous_args = 0
   65              		@ link register save eliminated.
   66              	.LVL3:
-  92:Generated_Source\PSoC5/Start.c **** 	CyPins_SetPinDriveMode(Start_0, mode);
+  92:Generated_Source\PSoC5/START.c **** 	CyPins_SetPinDriveMode(START_0, mode);
   67              		.loc 1 92 0
   68 0000 044A     		ldr	r2, .L5
   69 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
@@ -178,52 +178,52 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPAl0wg.s 			page 1
   77 0012 00BF     		.align	2
   78              	.L5:
   79 0014 12500040 		.word	1073762322
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPAl0wg.s 			page 4
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccXwc95k.s 			page 4
 
 
   80              		.cfi_endproc
   81              	.LFE1:
-  82              		.size	Start_SetDriveMode, .-Start_SetDriveMode
-  83              		.section	.text.Start_Read,"ax",%progbits
+  82              		.size	START_SetDriveMode, .-START_SetDriveMode
+  83              		.section	.text.START_Read,"ax",%progbits
   84              		.align	2
-  85              		.global	Start_Read
+  85              		.global	START_Read
   86              		.thumb
   87              		.thumb_func
-  88              		.type	Start_Read, %function
-  89              	Start_Read:
+  88              		.type	START_Read, %function
+  89              	START_Read:
   90              	.LFB2:
-  93:Generated_Source\PSoC5/Start.c **** }
-  94:Generated_Source\PSoC5/Start.c **** 
-  95:Generated_Source\PSoC5/Start.c **** 
-  96:Generated_Source\PSoC5/Start.c **** /*******************************************************************************
-  97:Generated_Source\PSoC5/Start.c **** * Function Name: Start_Read
-  98:Generated_Source\PSoC5/Start.c **** ****************************************************************************//**
-  99:Generated_Source\PSoC5/Start.c **** *
- 100:Generated_Source\PSoC5/Start.c **** * \brief Reads the associated physical port (pin status register) and masks 
- 101:Generated_Source\PSoC5/Start.c **** *  the required bits according to the width and bit position of the component
- 102:Generated_Source\PSoC5/Start.c **** *  instance. 
- 103:Generated_Source\PSoC5/Start.c **** *
- 104:Generated_Source\PSoC5/Start.c **** * The pin's status register returns the current logic level present on the 
- 105:Generated_Source\PSoC5/Start.c **** * physical pin.
- 106:Generated_Source\PSoC5/Start.c **** *
- 107:Generated_Source\PSoC5/Start.c **** * \return 
- 108:Generated_Source\PSoC5/Start.c **** *  The current value for the pins in the component as a right justified number.
- 109:Generated_Source\PSoC5/Start.c **** *
- 110:Generated_Source\PSoC5/Start.c **** * \funcusage
- 111:Generated_Source\PSoC5/Start.c **** *  \snippet Start_SUT.c usage_Start_Read  
- 112:Generated_Source\PSoC5/Start.c **** *******************************************************************************/
- 113:Generated_Source\PSoC5/Start.c **** uint8 Start_Read(void)
- 114:Generated_Source\PSoC5/Start.c **** {
+  93:Generated_Source\PSoC5/START.c **** }
+  94:Generated_Source\PSoC5/START.c **** 
+  95:Generated_Source\PSoC5/START.c **** 
+  96:Generated_Source\PSoC5/START.c **** /*******************************************************************************
+  97:Generated_Source\PSoC5/START.c **** * Function Name: START_Read
+  98:Generated_Source\PSoC5/START.c **** ****************************************************************************//**
+  99:Generated_Source\PSoC5/START.c **** *
+ 100:Generated_Source\PSoC5/START.c **** * \brief Reads the associated physical port (pin status register) and masks 
+ 101:Generated_Source\PSoC5/START.c **** *  the required bits according to the width and bit position of the component
+ 102:Generated_Source\PSoC5/START.c **** *  instance. 
+ 103:Generated_Source\PSoC5/START.c **** *
+ 104:Generated_Source\PSoC5/START.c **** * The pin's status register returns the current logic level present on the 
+ 105:Generated_Source\PSoC5/START.c **** * physical pin.
+ 106:Generated_Source\PSoC5/START.c **** *
+ 107:Generated_Source\PSoC5/START.c **** * \return 
+ 108:Generated_Source\PSoC5/START.c **** *  The current value for the pins in the component as a right justified number.
+ 109:Generated_Source\PSoC5/START.c **** *
+ 110:Generated_Source\PSoC5/START.c **** * \funcusage
+ 111:Generated_Source\PSoC5/START.c **** *  \snippet START_SUT.c usage_START_Read  
+ 112:Generated_Source\PSoC5/START.c **** *******************************************************************************/
+ 113:Generated_Source\PSoC5/START.c **** uint8 START_Read(void)
+ 114:Generated_Source\PSoC5/START.c **** {
   91              		.loc 1 114 0
   92              		.cfi_startproc
   93              		@ args = 0, pretend = 0, frame = 0
   94              		@ frame_needed = 0, uses_anonymous_args = 0
   95              		@ link register save eliminated.
- 115:Generated_Source\PSoC5/Start.c ****     return (Start_PS & Start_MASK) >> Start_SHIFT;
+ 115:Generated_Source\PSoC5/START.c ****     return (START_PS & START_MASK) >> START_SHIFT;
   96              		.loc 1 115 0
   97 0000 024B     		ldr	r3, .L8
   98 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
- 116:Generated_Source\PSoC5/Start.c **** }
+ 116:Generated_Source\PSoC5/START.c **** }
   99              		.loc 1 116 0
  100 0004 C0F38000 		ubfx	r0, r0, #2, #1
  101 0008 7047     		bx	lr
@@ -233,54 +233,54 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPAl0wg.s 			page 1
  105 000c 21510040 		.word	1073762593
  106              		.cfi_endproc
  107              	.LFE2:
- 108              		.size	Start_Read, .-Start_Read
- 109              		.section	.text.Start_ReadDataReg,"ax",%progbits
+ 108              		.size	START_Read, .-START_Read
+ 109              		.section	.text.START_ReadDataReg,"ax",%progbits
  110              		.align	2
- 111              		.global	Start_ReadDataReg
+ 111              		.global	START_ReadDataReg
  112              		.thumb
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPAl0wg.s 			page 5
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccXwc95k.s 			page 5
 
 
  113              		.thumb_func
- 114              		.type	Start_ReadDataReg, %function
- 115              	Start_ReadDataReg:
+ 114              		.type	START_ReadDataReg, %function
+ 115              	START_ReadDataReg:
  116              	.LFB3:
- 117:Generated_Source\PSoC5/Start.c **** 
- 118:Generated_Source\PSoC5/Start.c **** 
- 119:Generated_Source\PSoC5/Start.c **** /*******************************************************************************
- 120:Generated_Source\PSoC5/Start.c **** * Function Name: Start_ReadDataReg
- 121:Generated_Source\PSoC5/Start.c **** ****************************************************************************//**
- 122:Generated_Source\PSoC5/Start.c **** *
- 123:Generated_Source\PSoC5/Start.c **** * \brief Reads the associated physical port's data output register and masks 
- 124:Generated_Source\PSoC5/Start.c **** *  the correct bits according to the width and bit position of the component 
- 125:Generated_Source\PSoC5/Start.c **** *  instance. 
- 126:Generated_Source\PSoC5/Start.c **** *
- 127:Generated_Source\PSoC5/Start.c **** * The data output register controls the signal applied to the physical pin in 
- 128:Generated_Source\PSoC5/Start.c **** * conjunction with the drive mode parameter. This is not the same as the 
- 129:Generated_Source\PSoC5/Start.c **** * preferred Start_Read() API because the 
- 130:Generated_Source\PSoC5/Start.c **** * Start_ReadDataReg() reads the data register instead of the status 
- 131:Generated_Source\PSoC5/Start.c **** * register. For output pins this is a useful function to determine the value 
- 132:Generated_Source\PSoC5/Start.c **** * just written to the pin.
- 133:Generated_Source\PSoC5/Start.c **** *
- 134:Generated_Source\PSoC5/Start.c **** * \return 
- 135:Generated_Source\PSoC5/Start.c **** *  The current value of the data register masked and shifted into a right 
- 136:Generated_Source\PSoC5/Start.c **** *  justified number for the component instance.
- 137:Generated_Source\PSoC5/Start.c **** *
- 138:Generated_Source\PSoC5/Start.c **** * \funcusage
- 139:Generated_Source\PSoC5/Start.c **** *  \snippet Start_SUT.c usage_Start_ReadDataReg 
- 140:Generated_Source\PSoC5/Start.c **** *******************************************************************************/
- 141:Generated_Source\PSoC5/Start.c **** uint8 Start_ReadDataReg(void)
- 142:Generated_Source\PSoC5/Start.c **** {
+ 117:Generated_Source\PSoC5/START.c **** 
+ 118:Generated_Source\PSoC5/START.c **** 
+ 119:Generated_Source\PSoC5/START.c **** /*******************************************************************************
+ 120:Generated_Source\PSoC5/START.c **** * Function Name: START_ReadDataReg
+ 121:Generated_Source\PSoC5/START.c **** ****************************************************************************//**
+ 122:Generated_Source\PSoC5/START.c **** *
+ 123:Generated_Source\PSoC5/START.c **** * \brief Reads the associated physical port's data output register and masks 
+ 124:Generated_Source\PSoC5/START.c **** *  the correct bits according to the width and bit position of the component 
+ 125:Generated_Source\PSoC5/START.c **** *  instance. 
+ 126:Generated_Source\PSoC5/START.c **** *
+ 127:Generated_Source\PSoC5/START.c **** * The data output register controls the signal applied to the physical pin in 
+ 128:Generated_Source\PSoC5/START.c **** * conjunction with the drive mode parameter. This is not the same as the 
+ 129:Generated_Source\PSoC5/START.c **** * preferred START_Read() API because the 
+ 130:Generated_Source\PSoC5/START.c **** * START_ReadDataReg() reads the data register instead of the status 
+ 131:Generated_Source\PSoC5/START.c **** * register. For output pins this is a useful function to determine the value 
+ 132:Generated_Source\PSoC5/START.c **** * just written to the pin.
+ 133:Generated_Source\PSoC5/START.c **** *
+ 134:Generated_Source\PSoC5/START.c **** * \return 
+ 135:Generated_Source\PSoC5/START.c **** *  The current value of the data register masked and shifted into a right 
+ 136:Generated_Source\PSoC5/START.c **** *  justified number for the component instance.
+ 137:Generated_Source\PSoC5/START.c **** *
+ 138:Generated_Source\PSoC5/START.c **** * \funcusage
+ 139:Generated_Source\PSoC5/START.c **** *  \snippet START_SUT.c usage_START_ReadDataReg 
+ 140:Generated_Source\PSoC5/START.c **** *******************************************************************************/
+ 141:Generated_Source\PSoC5/START.c **** uint8 START_ReadDataReg(void)
+ 142:Generated_Source\PSoC5/START.c **** {
  117              		.loc 1 142 0
  118              		.cfi_startproc
  119              		@ args = 0, pretend = 0, frame = 0
  120              		@ frame_needed = 0, uses_anonymous_args = 0
  121              		@ link register save eliminated.
- 143:Generated_Source\PSoC5/Start.c ****     return (Start_DR & Start_MASK) >> Start_SHIFT;
+ 143:Generated_Source\PSoC5/START.c ****     return (START_DR & START_MASK) >> START_SHIFT;
  122              		.loc 1 143 0
  123 0000 024B     		ldr	r3, .L11
  124 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
- 144:Generated_Source\PSoC5/Start.c **** }
+ 144:Generated_Source\PSoC5/START.c **** }
  125              		.loc 1 144 0
  126 0004 C0F38000 		ubfx	r0, r0, #2, #1
  127 0008 7047     		bx	lr
@@ -290,7 +290,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPAl0wg.s 			page 1
  131 000c 20510040 		.word	1073762592
  132              		.cfi_endproc
  133              	.LFE3:
- 134              		.size	Start_ReadDataReg, .-Start_ReadDataReg
+ 134              		.size	START_ReadDataReg, .-START_ReadDataReg
  135              		.text
  136              	.Letext0:
  137              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
@@ -298,51 +298,51 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPAl0wg.s 			page 1
  139              	.Ldebug_info0:
  140 0000 1B010000 		.4byte	0x11b
  141 0004 0400     		.2byte	0x4
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPAl0wg.s 			page 6
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccXwc95k.s 			page 6
 
 
  142 0006 00000000 		.4byte	.Ldebug_abbrev0
  143 000a 04       		.byte	0x4
  144 000b 01       		.uleb128 0x1
- 145 000c B5000000 		.4byte	.LASF20
+ 145 000c 9E000000 		.4byte	.LASF20
  146 0010 0C       		.byte	0xc
- 147 0011 13000000 		.4byte	.LASF21
- 148 0015 32000000 		.4byte	.LASF22
+ 147 0011 56010000 		.4byte	.LASF21
+ 148 0015 25000000 		.4byte	.LASF22
  149 0019 00000000 		.4byte	.Ldebug_ranges0+0
  150 001d 00000000 		.4byte	0
  151 0021 00000000 		.4byte	.Ldebug_line0
  152 0025 02       		.uleb128 0x2
  153 0026 01       		.byte	0x1
  154 0027 06       		.byte	0x6
- 155 0028 E0010000 		.4byte	.LASF0
+ 155 0028 DC010000 		.4byte	.LASF0
  156 002c 02       		.uleb128 0x2
  157 002d 01       		.byte	0x1
  158 002e 08       		.byte	0x8
- 159 002f A7000000 		.4byte	.LASF1
+ 159 002f 90000000 		.4byte	.LASF1
  160 0033 02       		.uleb128 0x2
  161 0034 02       		.byte	0x2
  162 0035 05       		.byte	0x5
- 163 0036 BB010000 		.4byte	.LASF2
+ 163 0036 C3010000 		.4byte	.LASF2
  164 003a 02       		.uleb128 0x2
  165 003b 02       		.byte	0x2
  166 003c 07       		.byte	0x7
- 167 003d 5A010000 		.4byte	.LASF3
+ 167 003d 43010000 		.4byte	.LASF3
  168 0041 02       		.uleb128 0x2
  169 0042 04       		.byte	0x4
  170 0043 05       		.byte	0x5
- 171 0044 D7010000 		.4byte	.LASF4
+ 171 0044 D3010000 		.4byte	.LASF4
  172 0048 02       		.uleb128 0x2
  173 0049 04       		.byte	0x4
  174 004a 07       		.byte	0x7
- 175 004b 48010000 		.4byte	.LASF5
+ 175 004b 31010000 		.4byte	.LASF5
  176 004f 02       		.uleb128 0x2
  177 0050 08       		.byte	0x8
  178 0051 05       		.byte	0x5
- 179 0052 9D010000 		.4byte	.LASF6
+ 179 0052 B0010000 		.4byte	.LASF6
  180 0056 02       		.uleb128 0x2
  181 0057 08       		.byte	0x8
  182 0058 07       		.byte	0x7
- 183 0059 81010000 		.4byte	.LASF7
+ 183 0059 89010000 		.4byte	.LASF7
  184 005d 03       		.uleb128 0x3
  185 005e 04       		.byte	0x4
  186 005f 05       		.byte	0x5
@@ -350,36 +350,36 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPAl0wg.s 			page 1
  188 0064 02       		.uleb128 0x2
  189 0065 04       		.byte	0x4
  190 0066 07       		.byte	0x7
- 191 0067 74010000 		.4byte	.LASF8
+ 191 0067 7C010000 		.4byte	.LASF8
  192 006b 04       		.uleb128 0x4
- 193 006c C5010000 		.4byte	.LASF12
+ 193 006c CD010000 		.4byte	.LASF12
  194 0070 02       		.byte	0x2
  195 0071 E401     		.2byte	0x1e4
  196 0073 2C000000 		.4byte	0x2c
  197 0077 02       		.uleb128 0x2
  198 0078 04       		.byte	0x4
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPAl0wg.s 			page 7
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccXwc95k.s 			page 7
 
 
  199 0079 04       		.byte	0x4
- 200 007a A1000000 		.4byte	.LASF9
+ 200 007a 8A000000 		.4byte	.LASF9
  201 007e 02       		.uleb128 0x2
  202 007f 08       		.byte	0x8
  203 0080 04       		.byte	0x4
- 204 0081 6D010000 		.4byte	.LASF10
+ 204 0081 75010000 		.4byte	.LASF10
  205 0085 02       		.uleb128 0x2
  206 0086 01       		.byte	0x1
  207 0087 08       		.byte	0x8
- 208 0088 AB010000 		.4byte	.LASF11
+ 208 0088 BE010000 		.4byte	.LASF11
  209 008c 04       		.uleb128 0x4
- 210 008d 43010000 		.4byte	.LASF13
+ 210 008d 2C010000 		.4byte	.LASF13
  211 0091 02       		.byte	0x2
  212 0092 8E02     		.2byte	0x28e
  213 0094 98000000 		.4byte	0x98
  214 0098 05       		.uleb128 0x5
  215 0099 6B000000 		.4byte	0x6b
  216 009d 06       		.uleb128 0x6
- 217 009e CB010000 		.4byte	.LASF14
+ 217 009e 13000000 		.4byte	.LASF14
  218 00a2 01       		.byte	0x1
  219 00a3 39       		.byte	0x39
  220 00a4 00000000 		.4byte	.LFB0
@@ -388,13 +388,13 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPAl0wg.s 			page 1
  223 00ad 9C       		.byte	0x9c
  224 00ae CF000000 		.4byte	0xcf
  225 00b2 07       		.uleb128 0x7
- 226 00b3 7E000000 		.4byte	.LASF16
+ 226 00b3 1F000000 		.4byte	.LASF16
  227 00b7 01       		.byte	0x1
  228 00b8 39       		.byte	0x39
  229 00b9 6B000000 		.4byte	0x6b
  230 00bd 00000000 		.4byte	.LLST0
  231 00c1 08       		.uleb128 0x8
- 232 00c2 84000000 		.4byte	.LASF23
+ 232 00c2 6D000000 		.4byte	.LASF23
  233 00c6 01       		.byte	0x1
  234 00c7 3B       		.byte	0x3b
  235 00c8 6B000000 		.4byte	0x6b
@@ -411,17 +411,17 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPAl0wg.s 			page 1
  246 00df 9C       		.byte	0x9c
  247 00e0 F4000000 		.4byte	0xf4
  248 00e4 07       		.uleb128 0x7
- 249 00e5 98010000 		.4byte	.LASF17
+ 249 00e5 AB010000 		.4byte	.LASF17
  250 00e9 01       		.byte	0x1
  251 00ea 5A       		.byte	0x5a
  252 00eb 6B000000 		.4byte	0x6b
  253 00ef 21000000 		.4byte	.LLST1
  254 00f3 00       		.byte	0
  255 00f4 09       		.uleb128 0x9
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPAl0wg.s 			page 8
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccXwc95k.s 			page 8
 
 
- 256 00f5 B0010000 		.4byte	.LASF18
+ 256 00f5 A0010000 		.4byte	.LASF18
  257 00f9 01       		.byte	0x1
  258 00fa 71       		.byte	0x71
  259 00fb 6B000000 		.4byte	0x6b
@@ -430,7 +430,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPAl0wg.s 			page 1
  262 0107 01       		.uleb128 0x1
  263 0108 9C       		.byte	0x9c
  264 0109 09       		.uleb128 0x9
- 265 010a 8F000000 		.4byte	.LASF19
+ 265 010a 78000000 		.4byte	.LASF19
  266 010e 01       		.byte	0x1
  267 010f 8D       		.byte	0x8d
  268 0110 6B000000 		.4byte	0x6b
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPAl0wg.s 			page 1
  310 0022 0B       		.uleb128 0xb
  311 0023 3E       		.uleb128 0x3e
  312 0024 0B       		.uleb128 0xb
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPAl0wg.s 			page 9
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccXwc95k.s 			page 9
 
 
  313 0025 03       		.uleb128 0x3
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPAl0wg.s 			page 1
  367 005c 3A       		.uleb128 0x3a
  368 005d 0B       		.uleb128 0xb
  369 005e 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPAl0wg.s 			page 10
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccXwc95k.s 			page 10
 
 
  370 005f 0B       		.uleb128 0xb
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPAl0wg.s 			page 1
  424 000a 50       		.byte	0x50
  425 000b 0A000000 		.4byte	.LVL2
  426 000f 18000000 		.4byte	.LFE0
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPAl0wg.s 			page 11
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccXwc95k.s 			page 11
 
 
  427 0013 0400     		.2byte	0x4
@@ -658,137 +658,137 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPAl0wg.s 			page 1
  480      02004200 
  480      00000201 
  480      FB0E0D00 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPAl0wg.s 			page 12
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccXwc95k.s 			page 12
 
 
  480      01010101 
  481              	.LASF15:
- 482 0000 53746172 		.ascii	"Start_SetDriveMode\000"
- 482      745F5365 
+ 482 0000 53544152 		.ascii	"START_SetDriveMode\000"
+ 482      545F5365 
  482      74447269 
  482      76654D6F 
  482      646500
- 483              	.LASF21:
- 484 0013 47656E65 		.ascii	"Generated_Source\\PSoC5\\Start.c\000"
- 484      72617465 
- 484      645F536F 
- 484      75726365 
- 484      5C50536F 
- 485              	.LASF22:
- 486 0032 433A5C55 		.ascii	"C:\\Users\\e.ivanov\\Documents\\GitHub\\generic\\Ma"
- 486      73657273 
- 486      5C652E69 
- 486      76616E6F 
- 486      765C446F 
- 487 005f 6E636865 		.ascii	"nchester encoder-decoder.cydsn\000"
- 487      73746572 
- 487      20656E63 
- 487      6F646572 
- 487      2D646563 
- 488              	.LASF16:
- 489 007e 76616C75 		.ascii	"value\000"
- 489      6500
+ 483              	.LASF14:
+ 484 0013 53544152 		.ascii	"START_Write\000"
+ 484      545F5772 
+ 484      69746500 
+ 485              	.LASF16:
+ 486 001f 76616C75 		.ascii	"value\000"
+ 486      6500
+ 487              	.LASF22:
+ 488 0025 433A5C55 		.ascii	"C:\\Users\\e.ivanov\\Documents\\GitHub\\adc\\Manche"
+ 488      73657273 
+ 488      5C652E69 
+ 488      76616E6F 
+ 488      765C446F 
+ 489 0052 73746572 		.ascii	"ster encoder-decoder.cydsn\000"
+ 489      20656E63 
+ 489      6F646572 
+ 489      2D646563 
+ 489      6F646572 
  490              	.LASF23:
- 491 0084 73746174 		.ascii	"staticBits\000"
+ 491 006d 73746174 		.ascii	"staticBits\000"
  491      69634269 
  491      747300
  492              	.LASF19:
- 493 008f 53746172 		.ascii	"Start_ReadDataReg\000"
- 493      745F5265 
+ 493 0078 53544152 		.ascii	"START_ReadDataReg\000"
+ 493      545F5265 
  493      61644461 
  493      74615265 
  493      6700
  494              	.LASF9:
- 495 00a1 666C6F61 		.ascii	"float\000"
+ 495 008a 666C6F61 		.ascii	"float\000"
  495      7400
  496              	.LASF1:
- 497 00a7 756E7369 		.ascii	"unsigned char\000"
+ 497 0090 756E7369 		.ascii	"unsigned char\000"
  497      676E6564 
  497      20636861 
  497      7200
  498              	.LASF20:
- 499 00b5 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 499 009e 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
  499      43313120 
  499      352E342E 
  499      31203230 
  499      31363036 
- 500 00e8 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 500 00d1 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
  500      20726576 
  500      6973696F 
  500      6E203233 
  500      37373135 
- 501 011b 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPAl0wg.s 			page 13
-
-
+ 501 0104 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
  501      66756E63 
  501      74696F6E 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccXwc95k.s 			page 13
+
+
  501      2D736563 
  501      74696F6E 
  502              	.LASF13:
- 503 0143 72656738 		.ascii	"reg8\000"
+ 503 012c 72656738 		.ascii	"reg8\000"
  503      00
  504              	.LASF5:
- 505 0148 6C6F6E67 		.ascii	"long unsigned int\000"
+ 505 0131 6C6F6E67 		.ascii	"long unsigned int\000"
  505      20756E73 
  505      69676E65 
  505      6420696E 
  505      7400
  506              	.LASF3:
- 507 015a 73686F72 		.ascii	"short unsigned int\000"
+ 507 0143 73686F72 		.ascii	"short unsigned int\000"
  507      7420756E 
  507      7369676E 
  507      65642069 
  507      6E7400
- 508              	.LASF10:
- 509 016d 646F7562 		.ascii	"double\000"
- 509      6C6500
- 510              	.LASF8:
- 511 0174 756E7369 		.ascii	"unsigned int\000"
- 511      676E6564 
- 511      20696E74 
- 511      00
- 512              	.LASF7:
- 513 0181 6C6F6E67 		.ascii	"long long unsigned int\000"
- 513      206C6F6E 
- 513      6720756E 
- 513      7369676E 
- 513      65642069 
- 514              	.LASF17:
- 515 0198 6D6F6465 		.ascii	"mode\000"
- 515      00
- 516              	.LASF6:
- 517 019d 6C6F6E67 		.ascii	"long long int\000"
- 517      206C6F6E 
- 517      6720696E 
- 517      7400
- 518              	.LASF11:
- 519 01ab 63686172 		.ascii	"char\000"
+ 508              	.LASF21:
+ 509 0156 47656E65 		.ascii	"Generated_Source\\PSoC5\\START.c\000"
+ 509      72617465 
+ 509      645F536F 
+ 509      75726365 
+ 509      5C50536F 
+ 510              	.LASF10:
+ 511 0175 646F7562 		.ascii	"double\000"
+ 511      6C6500
+ 512              	.LASF8:
+ 513 017c 756E7369 		.ascii	"unsigned int\000"
+ 513      676E6564 
+ 513      20696E74 
+ 513      00
+ 514              	.LASF7:
+ 515 0189 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 515      206C6F6E 
+ 515      6720756E 
+ 515      7369676E 
+ 515      65642069 
+ 516              	.LASF18:
+ 517 01a0 53544152 		.ascii	"START_Read\000"
+ 517      545F5265 
+ 517      616400
+ 518              	.LASF17:
+ 519 01ab 6D6F6465 		.ascii	"mode\000"
  519      00
- 520              	.LASF18:
- 521 01b0 53746172 		.ascii	"Start_Read\000"
- 521      745F5265 
- 521      616400
- 522              	.LASF2:
- 523 01bb 73686F72 		.ascii	"short int\000"
- 523      7420696E 
- 523      7400
- 524              	.LASF12:
- 525 01c5 75696E74 		.ascii	"uint8\000"
- 525      3800
- 526              	.LASF14:
- 527 01cb 53746172 		.ascii	"Start_Write\000"
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPAl0wg.s 			page 14
+ 520              	.LASF6:
+ 521 01b0 6C6F6E67 		.ascii	"long long int\000"
+ 521      206C6F6E 
+ 521      6720696E 
+ 521      7400
+ 522              	.LASF11:
+ 523 01be 63686172 		.ascii	"char\000"
+ 523      00
+ 524              	.LASF2:
+ 525 01c3 73686F72 		.ascii	"short int\000"
+ 525      7420696E 
+ 525      7400
+ 526              	.LASF12:
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccXwc95k.s 			page 14
 
 
- 527      745F5772 
- 527      69746500 
+ 527 01cd 75696E74 		.ascii	"uint8\000"
+ 527      3800
  528              	.LASF4:
- 529 01d7 6C6F6E67 		.ascii	"long int\000"
+ 529 01d3 6C6F6E67 		.ascii	"long int\000"
  529      20696E74 
  529      00
  530              	.LASF0:
- 531 01e0 7369676E 		.ascii	"signed char\000"
+ 531 01dc 7369676E 		.ascii	"signed char\000"
  531      65642063 
  531      68617200 
  532              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

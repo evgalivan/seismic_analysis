@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
 
 
    1              		.syntax unified
@@ -19,14 +19,14 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 1
   16              		.text
   17              	.Ltext0:
   18              		.cfi_sections	.debug_frame
-  19              		.section	.text.cap_comp_tc_Interrupt,"ax",%progbits
+  19              		.section	.text.PrepareNewFrequency,"ax",%progbits
   20              		.align	2
-  21              		.global	cap_comp_tc_Interrupt
+  21              		.global	PrepareNewFrequency
   22              		.thumb
   23              		.thumb_func
-  24              		.type	cap_comp_tc_Interrupt, %function
-  25              	cap_comp_tc_Interrupt:
-  26              	.LFB3:
+  24              		.type	PrepareNewFrequency, %function
+  25              	PrepareNewFrequency:
+  26              	.LFB63:
   27              		.file 1 "Generated_Source\\PSoC5\\cap_comp_tc.c"
    1:Generated_Source\PSoC5/cap_comp_tc.c **** /*******************************************************************************
    2:Generated_Source\PSoC5/cap_comp_tc.c **** * File Name: cap_comp_tc.c  
@@ -57,1846 +57,2442 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 1
   27:Generated_Source\PSoC5/cap_comp_tc.c **** *  Place your includes, defines and code here 
   28:Generated_Source\PSoC5/cap_comp_tc.c **** ********************************************************************************/
   29:Generated_Source\PSoC5/cap_comp_tc.c **** /* `#START cap_comp_tc_intc` */
-  30:Generated_Source\PSoC5/cap_comp_tc.c **** 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 2
+  30:Generated_Source\PSoC5/cap_comp_tc.c ****     
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 2
 
 
-  31:Generated_Source\PSoC5/cap_comp_tc.c **** /* `#END` */
-  32:Generated_Source\PSoC5/cap_comp_tc.c **** 
-  33:Generated_Source\PSoC5/cap_comp_tc.c **** #ifndef CYINT_IRQ_BASE
-  34:Generated_Source\PSoC5/cap_comp_tc.c **** #define CYINT_IRQ_BASE      16
-  35:Generated_Source\PSoC5/cap_comp_tc.c **** #endif /* CYINT_IRQ_BASE */
-  36:Generated_Source\PSoC5/cap_comp_tc.c **** #ifndef CYINT_VECT_TABLE
-  37:Generated_Source\PSoC5/cap_comp_tc.c **** #define CYINT_VECT_TABLE    ((cyisraddress **) CYREG_NVIC_VECT_OFFSET)
-  38:Generated_Source\PSoC5/cap_comp_tc.c **** #endif /* CYINT_VECT_TABLE */
-  39:Generated_Source\PSoC5/cap_comp_tc.c **** 
-  40:Generated_Source\PSoC5/cap_comp_tc.c **** /* Declared in startup, used to set unused interrupts to. */
-  41:Generated_Source\PSoC5/cap_comp_tc.c **** CY_ISR_PROTO(IntDefaultHandler);
-  42:Generated_Source\PSoC5/cap_comp_tc.c **** 
-  43:Generated_Source\PSoC5/cap_comp_tc.c **** 
-  44:Generated_Source\PSoC5/cap_comp_tc.c **** /*******************************************************************************
-  45:Generated_Source\PSoC5/cap_comp_tc.c **** * Function Name: cap_comp_tc_Start
-  46:Generated_Source\PSoC5/cap_comp_tc.c **** ********************************************************************************
-  47:Generated_Source\PSoC5/cap_comp_tc.c **** *
-  48:Generated_Source\PSoC5/cap_comp_tc.c **** * Summary:
-  49:Generated_Source\PSoC5/cap_comp_tc.c **** *  Set up the interrupt and enable it. This function disables the interrupt, 
-  50:Generated_Source\PSoC5/cap_comp_tc.c **** *  sets the default interrupt vector, sets the priority from the value in the
-  51:Generated_Source\PSoC5/cap_comp_tc.c **** *  Design Wide Resources Interrupt Editor, then enables the interrupt to the 
-  52:Generated_Source\PSoC5/cap_comp_tc.c **** *  interrupt controller.
-  53:Generated_Source\PSoC5/cap_comp_tc.c **** *
-  54:Generated_Source\PSoC5/cap_comp_tc.c **** * Parameters:  
-  55:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
-  56:Generated_Source\PSoC5/cap_comp_tc.c **** *
-  57:Generated_Source\PSoC5/cap_comp_tc.c **** * Return:
-  58:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
-  59:Generated_Source\PSoC5/cap_comp_tc.c **** *
-  60:Generated_Source\PSoC5/cap_comp_tc.c **** *******************************************************************************/
-  61:Generated_Source\PSoC5/cap_comp_tc.c **** void cap_comp_tc_Start(void)
-  62:Generated_Source\PSoC5/cap_comp_tc.c **** {
-  63:Generated_Source\PSoC5/cap_comp_tc.c ****     /* For all we know the interrupt is active. */
-  64:Generated_Source\PSoC5/cap_comp_tc.c ****     cap_comp_tc_Disable();
-  65:Generated_Source\PSoC5/cap_comp_tc.c **** 
-  66:Generated_Source\PSoC5/cap_comp_tc.c ****     /* Set the ISR to point to the cap_comp_tc Interrupt. */
-  67:Generated_Source\PSoC5/cap_comp_tc.c ****     cap_comp_tc_SetVector(&cap_comp_tc_Interrupt);
-  68:Generated_Source\PSoC5/cap_comp_tc.c **** 
-  69:Generated_Source\PSoC5/cap_comp_tc.c ****     /* Set the priority. */
-  70:Generated_Source\PSoC5/cap_comp_tc.c ****     cap_comp_tc_SetPriority((uint8)cap_comp_tc_INTC_PRIOR_NUMBER);
-  71:Generated_Source\PSoC5/cap_comp_tc.c **** 
-  72:Generated_Source\PSoC5/cap_comp_tc.c ****     /* Enable it. */
-  73:Generated_Source\PSoC5/cap_comp_tc.c ****     cap_comp_tc_Enable();
-  74:Generated_Source\PSoC5/cap_comp_tc.c **** }
-  75:Generated_Source\PSoC5/cap_comp_tc.c **** 
-  76:Generated_Source\PSoC5/cap_comp_tc.c **** 
-  77:Generated_Source\PSoC5/cap_comp_tc.c **** /*******************************************************************************
-  78:Generated_Source\PSoC5/cap_comp_tc.c **** * Function Name: cap_comp_tc_StartEx
-  79:Generated_Source\PSoC5/cap_comp_tc.c **** ********************************************************************************
-  80:Generated_Source\PSoC5/cap_comp_tc.c **** *
-  81:Generated_Source\PSoC5/cap_comp_tc.c **** * Summary:
-  82:Generated_Source\PSoC5/cap_comp_tc.c **** *  Sets up the interrupt and enables it. This function disables the interrupt,
-  83:Generated_Source\PSoC5/cap_comp_tc.c **** *  sets the interrupt vector based on the address passed in, sets the priority 
-  84:Generated_Source\PSoC5/cap_comp_tc.c **** *  from the value in the Design Wide Resources Interrupt Editor, then enables 
-  85:Generated_Source\PSoC5/cap_comp_tc.c **** *  the interrupt to the interrupt controller.
-  86:Generated_Source\PSoC5/cap_comp_tc.c **** *  
-  87:Generated_Source\PSoC5/cap_comp_tc.c **** *  When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 3
-
-
-  88:Generated_Source\PSoC5/cap_comp_tc.c **** *  used to provide consistent definition across compilers:
-  89:Generated_Source\PSoC5/cap_comp_tc.c **** *  
-  90:Generated_Source\PSoC5/cap_comp_tc.c **** *  Function definition example:
-  91:Generated_Source\PSoC5/cap_comp_tc.c **** *   CY_ISR(MyISR)
-  92:Generated_Source\PSoC5/cap_comp_tc.c **** *   {
-  93:Generated_Source\PSoC5/cap_comp_tc.c **** *   }
-  94:Generated_Source\PSoC5/cap_comp_tc.c **** *   Function prototype example:
-  95:Generated_Source\PSoC5/cap_comp_tc.c **** *   CY_ISR_PROTO(MyISR);
-  96:Generated_Source\PSoC5/cap_comp_tc.c **** *
-  97:Generated_Source\PSoC5/cap_comp_tc.c **** * Parameters:  
-  98:Generated_Source\PSoC5/cap_comp_tc.c **** *   address: Address of the ISR to set in the interrupt vector table.
-  99:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 100:Generated_Source\PSoC5/cap_comp_tc.c **** * Return:
- 101:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
- 102:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 103:Generated_Source\PSoC5/cap_comp_tc.c **** *******************************************************************************/
- 104:Generated_Source\PSoC5/cap_comp_tc.c **** void cap_comp_tc_StartEx(cyisraddress address)
- 105:Generated_Source\PSoC5/cap_comp_tc.c **** {
- 106:Generated_Source\PSoC5/cap_comp_tc.c ****     /* For all we know the interrupt is active. */
- 107:Generated_Source\PSoC5/cap_comp_tc.c ****     cap_comp_tc_Disable();
- 108:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 109:Generated_Source\PSoC5/cap_comp_tc.c ****     /* Set the ISR to point to the cap_comp_tc Interrupt. */
- 110:Generated_Source\PSoC5/cap_comp_tc.c ****     cap_comp_tc_SetVector(address);
- 111:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 112:Generated_Source\PSoC5/cap_comp_tc.c ****     /* Set the priority. */
- 113:Generated_Source\PSoC5/cap_comp_tc.c ****     cap_comp_tc_SetPriority((uint8)cap_comp_tc_INTC_PRIOR_NUMBER);
- 114:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 115:Generated_Source\PSoC5/cap_comp_tc.c ****     /* Enable it. */
- 116:Generated_Source\PSoC5/cap_comp_tc.c ****     cap_comp_tc_Enable();
- 117:Generated_Source\PSoC5/cap_comp_tc.c **** }
- 118:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 119:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 120:Generated_Source\PSoC5/cap_comp_tc.c **** /*******************************************************************************
- 121:Generated_Source\PSoC5/cap_comp_tc.c **** * Function Name: cap_comp_tc_Stop
- 122:Generated_Source\PSoC5/cap_comp_tc.c **** ********************************************************************************
- 123:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 124:Generated_Source\PSoC5/cap_comp_tc.c **** * Summary:
- 125:Generated_Source\PSoC5/cap_comp_tc.c **** *   Disables and removes the interrupt.
- 126:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 127:Generated_Source\PSoC5/cap_comp_tc.c **** * Parameters:  
- 128:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
- 129:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 130:Generated_Source\PSoC5/cap_comp_tc.c **** * Return:
- 131:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
- 132:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 133:Generated_Source\PSoC5/cap_comp_tc.c **** *******************************************************************************/
- 134:Generated_Source\PSoC5/cap_comp_tc.c **** void cap_comp_tc_Stop(void)
- 135:Generated_Source\PSoC5/cap_comp_tc.c **** {
- 136:Generated_Source\PSoC5/cap_comp_tc.c ****     /* Disable this interrupt. */
- 137:Generated_Source\PSoC5/cap_comp_tc.c ****     cap_comp_tc_Disable();
- 138:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 139:Generated_Source\PSoC5/cap_comp_tc.c ****     /* Set the ISR to point to the passive one. */
- 140:Generated_Source\PSoC5/cap_comp_tc.c ****     cap_comp_tc_SetVector(&IntDefaultHandler);
- 141:Generated_Source\PSoC5/cap_comp_tc.c **** }
- 142:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 143:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 144:Generated_Source\PSoC5/cap_comp_tc.c **** /*******************************************************************************
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 4
-
-
- 145:Generated_Source\PSoC5/cap_comp_tc.c **** * Function Name: cap_comp_tc_Interrupt
- 146:Generated_Source\PSoC5/cap_comp_tc.c **** ********************************************************************************
- 147:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 148:Generated_Source\PSoC5/cap_comp_tc.c **** * Summary:
- 149:Generated_Source\PSoC5/cap_comp_tc.c **** *   The default Interrupt Service Routine for cap_comp_tc.
- 150:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 151:Generated_Source\PSoC5/cap_comp_tc.c **** *   Add custom code between the coments to keep the next version of this file
- 152:Generated_Source\PSoC5/cap_comp_tc.c **** *   from over writting your code.
- 153:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 154:Generated_Source\PSoC5/cap_comp_tc.c **** * Parameters:  
- 155:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 156:Generated_Source\PSoC5/cap_comp_tc.c **** * Return:
- 157:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
- 158:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 159:Generated_Source\PSoC5/cap_comp_tc.c **** *******************************************************************************/
- 160:Generated_Source\PSoC5/cap_comp_tc.c **** CY_ISR(cap_comp_tc_Interrupt)
- 161:Generated_Source\PSoC5/cap_comp_tc.c **** {
-  28              		.loc 1 161 0
+  31:Generated_Source\PSoC5/cap_comp_tc.c ****     #include <global.h>
+  32:Generated_Source\PSoC5/cap_comp_tc.c ****     #include <Capture_high.h>
+  33:Generated_Source\PSoC5/cap_comp_tc.c ****     #include <Capture_low.h>
+  34:Generated_Source\PSoC5/cap_comp_tc.c ****     #include <Clock.h>
+  35:Generated_Source\PSoC5/cap_comp_tc.c ****     
+  36:Generated_Source\PSoC5/cap_comp_tc.c ****     #define COUNTER_BITS 16
+  37:Generated_Source\PSoC5/cap_comp_tc.c ****     #define COUNTER_PERIOD (1<<(COUNTER_BITS))
+  38:Generated_Source\PSoC5/cap_comp_tc.c ****     #define HALF_PERIOD (1<<(COUNTER_BITS-1))
+  39:Generated_Source\PSoC5/cap_comp_tc.c ****     
+  40:Generated_Source\PSoC5/cap_comp_tc.c ****     #define ADC_SAMPLING_PERIOD_BITS (12)  // todo must be variable
+  41:Generated_Source\PSoC5/cap_comp_tc.c ****     #define ADC_SAMPLING_PERIOD (1<<( ADC_SAMPLING_PERIOD_BITS))  // todo must be variable
+  42:Generated_Source\PSoC5/cap_comp_tc.c ****     #define GAP ( ADC_SAMPLING_PERIOD >>7)  // todo must be variable
+  43:Generated_Source\PSoC5/cap_comp_tc.c ****     
+  44:Generated_Source\PSoC5/cap_comp_tc.c ****     #define ADC_SAMPLING_PERIOD_MASK (ADC_SAMPLING_PERIOD - 1)
+  45:Generated_Source\PSoC5/cap_comp_tc.c ****     
+  46:Generated_Source\PSoC5/cap_comp_tc.c ****     
+  47:Generated_Source\PSoC5/cap_comp_tc.c ****     static int tmp;
+  48:Generated_Source\PSoC5/cap_comp_tc.c ****     static uint32 ReEnter_flag = 0;
+  49:Generated_Source\PSoC5/cap_comp_tc.c ****     int FirstTimeFlag= 0;
+  50:Generated_Source\PSoC5/cap_comp_tc.c ****     uint32 UpdateFrequencyFlag=1;
+  51:Generated_Source\PSoC5/cap_comp_tc.c ****     uint32 PrevCapture= COUNTER_PERIOD;
+  52:Generated_Source\PSoC5/cap_comp_tc.c ****     int32 CurrentDelta;
+  53:Generated_Source\PSoC5/cap_comp_tc.c ****     
+  54:Generated_Source\PSoC5/cap_comp_tc.c ****     void PrepareNewFrequency(void){
+  28              		.loc 1 54 0
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
-  32              		@ link register save eliminated.
-  33 0000 7047     		bx	lr
-  34              		.cfi_endproc
-  35              	.LFE3:
-  36              		.size	cap_comp_tc_Interrupt, .-cap_comp_tc_Interrupt
-  37 0002 00BF     		.section	.text.cap_comp_tc_SetVector,"ax",%progbits
-  38              		.align	2
-  39              		.global	cap_comp_tc_SetVector
-  40              		.thumb
-  41              		.thumb_func
-  42              		.type	cap_comp_tc_SetVector, %function
-  43              	cap_comp_tc_SetVector:
-  44              	.LFB4:
- 162:Generated_Source\PSoC5/cap_comp_tc.c ****     #ifdef cap_comp_tc_INTERRUPT_INTERRUPT_CALLBACK
- 163:Generated_Source\PSoC5/cap_comp_tc.c ****         cap_comp_tc_Interrupt_InterruptCallback();
- 164:Generated_Source\PSoC5/cap_comp_tc.c ****     #endif /* cap_comp_tc_INTERRUPT_INTERRUPT_CALLBACK */ 
- 165:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 166:Generated_Source\PSoC5/cap_comp_tc.c ****     /*  Place your Interrupt code here. */
- 167:Generated_Source\PSoC5/cap_comp_tc.c ****     /* `#START cap_comp_tc_Interrupt` */
- 168:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 169:Generated_Source\PSoC5/cap_comp_tc.c ****     /* `#END` */
- 170:Generated_Source\PSoC5/cap_comp_tc.c **** }
- 171:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 172:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 173:Generated_Source\PSoC5/cap_comp_tc.c **** /*******************************************************************************
- 174:Generated_Source\PSoC5/cap_comp_tc.c **** * Function Name: cap_comp_tc_SetVector
- 175:Generated_Source\PSoC5/cap_comp_tc.c **** ********************************************************************************
- 176:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 177:Generated_Source\PSoC5/cap_comp_tc.c **** * Summary:
- 178:Generated_Source\PSoC5/cap_comp_tc.c **** *   Change the ISR vector for the Interrupt. Note calling cap_comp_tc_Start
- 179:Generated_Source\PSoC5/cap_comp_tc.c **** *   will override any effect this method would have had. To set the vector 
- 180:Generated_Source\PSoC5/cap_comp_tc.c **** *   before the component has been started use cap_comp_tc_StartEx instead.
- 181:Generated_Source\PSoC5/cap_comp_tc.c **** * 
- 182:Generated_Source\PSoC5/cap_comp_tc.c **** *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
- 183:Generated_Source\PSoC5/cap_comp_tc.c **** *   used to provide consistent definition across compilers:
- 184:Generated_Source\PSoC5/cap_comp_tc.c **** *
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 5
+  32 0000 10B5     		push	{r4, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+  55:Generated_Source\PSoC5/cap_comp_tc.c ****         
+  56:Generated_Source\PSoC5/cap_comp_tc.c ****         tmp = (uint32)Capture_high_Read()<<8;
+  36              		.loc 1 56 0
+  37 0002 FFF7FEFF 		bl	Capture_high_Read
+  38              	.LVL0:
+  39 0006 0002     		lsls	r0, r0, #8
+  40 0008 254C     		ldr	r4, .L9
+  41 000a 2060     		str	r0, [r4]
+  57:Generated_Source\PSoC5/cap_comp_tc.c ****         tmp += Capture_low_Read();
+  42              		.loc 1 57 0
+  43 000c FFF7FEFF 		bl	Capture_low_Read
+  44              	.LVL1:
+  45 0010 2368     		ldr	r3, [r4]
+  46 0012 1844     		add	r0, r0, r3
+  47 0014 2060     		str	r0, [r4]
+  58:Generated_Source\PSoC5/cap_comp_tc.c ****    
+  59:Generated_Source\PSoC5/cap_comp_tc.c ****         if(FirstTimeFlag==0){
+  48              		.loc 1 59 0
+  49 0016 6368     		ldr	r3, [r4, #4]
+  50 0018 33B9     		cbnz	r3, .L2
+  60:Generated_Source\PSoC5/cap_comp_tc.c ****             FirstTimeFlag = 1;
+  51              		.loc 1 60 0
+  52 001a 0122     		movs	r2, #1
+  53 001c 6260     		str	r2, [r4, #4]
+  61:Generated_Source\PSoC5/cap_comp_tc.c ****             PrevCapture = tmp;
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 3
 
 
- 185:Generated_Source\PSoC5/cap_comp_tc.c **** *   Function definition example:
- 186:Generated_Source\PSoC5/cap_comp_tc.c **** *   CY_ISR(MyISR)
- 187:Generated_Source\PSoC5/cap_comp_tc.c **** *   {
- 188:Generated_Source\PSoC5/cap_comp_tc.c **** *   }
- 189:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 190:Generated_Source\PSoC5/cap_comp_tc.c **** *   Function prototype example:
- 191:Generated_Source\PSoC5/cap_comp_tc.c **** *     CY_ISR_PROTO(MyISR);
+  54              		.loc 1 61 0
+  55 001e 214B     		ldr	r3, .L9+4
+  56 0020 1860     		str	r0, [r3]
+  62:Generated_Source\PSoC5/cap_comp_tc.c ****             UpdateFrequencyFlag = 0;
+  57              		.loc 1 62 0
+  58 0022 0022     		movs	r2, #0
+  59 0024 5A60     		str	r2, [r3, #4]
+  63:Generated_Source\PSoC5/cap_comp_tc.c ****             return;
+  60              		.loc 1 63 0
+  61 0026 10BD     		pop	{r4, pc}
+  62              	.L2:
+  64:Generated_Source\PSoC5/cap_comp_tc.c ****         }
+  65:Generated_Source\PSoC5/cap_comp_tc.c ****             
+  66:Generated_Source\PSoC5/cap_comp_tc.c ****         
+  67:Generated_Source\PSoC5/cap_comp_tc.c ****         CurrentDelta = tmp - PrevCapture;
+  63              		.loc 1 67 0
+  64 0028 1E4A     		ldr	r2, .L9+4
+  65 002a 1368     		ldr	r3, [r2]
+  66 002c C31A     		subs	r3, r0, r3
+  67 002e 1E49     		ldr	r1, .L9+8
+  68 0030 0B60     		str	r3, [r1]
+  68:Generated_Source\PSoC5/cap_comp_tc.c ****         PrevCapture = tmp;
+  69              		.loc 1 68 0
+  70 0032 1060     		str	r0, [r2]
+  69:Generated_Source\PSoC5/cap_comp_tc.c ****         
+  70:Generated_Source\PSoC5/cap_comp_tc.c **** //        UpdateFrequencyFlag = 1;
+  71:Generated_Source\PSoC5/cap_comp_tc.c **** 
+  72:Generated_Source\PSoC5/cap_comp_tc.c ****         if( CurrentDelta < 0) CurrentDelta += COUNTER_PERIOD;
+  71              		.loc 1 72 0
+  72 0034 002B     		cmp	r3, #0
+  73 0036 02DA     		bge	.L4
+  74              		.loc 1 72 0 is_stmt 0 discriminator 1
+  75 0038 03F58033 		add	r3, r3, #65536
+  76 003c 0B60     		str	r3, [r1]
+  77              	.L4:
+  73:Generated_Source\PSoC5/cap_comp_tc.c **** 
+  74:Generated_Source\PSoC5/cap_comp_tc.c ****             if((CurrentDelta > (ADC_SAMPLING_PERIOD<<1))||(CurrentDelta < (ADC_SAMPLING_PERIOD>>1))
+  78              		.loc 1 74 0 is_stmt 1
+  79 003e 1A4B     		ldr	r3, .L9+8
+  80 0040 1B68     		ldr	r3, [r3]
+  81 0042 A3F50062 		sub	r2, r3, #2048
+  82 0046 B2F5C05F 		cmp	r2, #6144
+  83 004a 03D9     		bls	.L5
+  75:Generated_Source\PSoC5/cap_comp_tc.c ****                 PrevCapture = tmp;
+  76:Generated_Source\PSoC5/cap_comp_tc.c ****                 UpdateFrequencyFlag = 0;
+  84              		.loc 1 76 0
+  85 004c 0022     		movs	r2, #0
+  86 004e 154B     		ldr	r3, .L9+4
+  87 0050 5A60     		str	r2, [r3, #4]
+  77:Generated_Source\PSoC5/cap_comp_tc.c ****                 return;
+  88              		.loc 1 77 0
+  89 0052 10BD     		pop	{r4, pc}
+  90              	.L5:
+  78:Generated_Source\PSoC5/cap_comp_tc.c ****             }
+  79:Generated_Source\PSoC5/cap_comp_tc.c **** 
+  80:Generated_Source\PSoC5/cap_comp_tc.c ****             CurrentDelta = (ADC_SAMPLING_PERIOD<<1) - CurrentDelta;
+  91              		.loc 1 80 0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 4
+
+
+  92 0054 C3F50053 		rsb	r3, r3, #8192
+  93 0058 134A     		ldr	r2, .L9+8
+  94 005a 1360     		str	r3, [r2]
+  81:Generated_Source\PSoC5/cap_comp_tc.c ****             //CurrentDelta = (ADC_SAMPLING_PERIOD);
+  82:Generated_Source\PSoC5/cap_comp_tc.c ****             
+  83:Generated_Source\PSoC5/cap_comp_tc.c ****             
+  84:Generated_Source\PSoC5/cap_comp_tc.c ****             uint32 PlusDelta = PrevCapture & ADC_SAMPLING_PERIOD_MASK;
+  95              		.loc 1 84 0
+  96 005c C0F30B00 		ubfx	r0, r0, #0, #12
+  97              	.LVL2:
+  85:Generated_Source\PSoC5/cap_comp_tc.c ****             
+  86:Generated_Source\PSoC5/cap_comp_tc.c ****             if ((ADC_SAMPLING_PERIOD>>1) > PlusDelta) PlusDelta += ADC_SAMPLING_PERIOD;
+  98              		.loc 1 86 0
+  99 0060 B0F5006F 		cmp	r0, #2048
+ 100 0064 01D2     		bcs	.L6
+ 101              		.loc 1 86 0 is_stmt 0 discriminator 1
+ 102 0066 00F58050 		add	r0, r0, #4096
+ 103              	.LVL3:
+ 104              	.L6:
+  87:Generated_Source\PSoC5/cap_comp_tc.c ****             
+  88:Generated_Source\PSoC5/cap_comp_tc.c ****             PlusDelta = (ADC_SAMPLING_PERIOD<<1) - PlusDelta;
+ 105              		.loc 1 88 0 is_stmt 1
+ 106 006a C0F50050 		rsb	r0, r0, #8192
+ 107              	.LVL4:
+  89:Generated_Source\PSoC5/cap_comp_tc.c ****             //PlusDelta = (ADC_SAMPLING_PERIOD);
+  90:Generated_Source\PSoC5/cap_comp_tc.c ****             
+  91:Generated_Source\PSoC5/cap_comp_tc.c ****             NewFrequency = ((((CurrentDelta*NewFrequency)) >> ADC_SAMPLING_PERIOD_BITS) * PlusDelta
+ 108              		.loc 1 91 0
+ 109 006e 0F49     		ldr	r1, .L9+12
+ 110 0070 0A68     		ldr	r2, [r1]
+ 111 0072 02FB03F3 		mul	r3, r2, r3
+ 112 0076 1B13     		asrs	r3, r3, #12
+ 113 0078 00FB03F0 		mul	r0, r0, r3
+ 114              	.LVL5:
+ 115 007c 000B     		lsrs	r0, r0, #12
+ 116 007e 0860     		str	r0, [r1]
+  92:Generated_Source\PSoC5/cap_comp_tc.c ****             
+  93:Generated_Source\PSoC5/cap_comp_tc.c ****             if(NewFrequency > HighFrequency) NewFrequency = HighFrequency;
+ 117              		.loc 1 93 0
+ 118 0080 0A68     		ldr	r2, [r1]
+ 119 0082 0B4B     		ldr	r3, .L9+16
+ 120 0084 1B68     		ldr	r3, [r3]
+ 121 0086 9A42     		cmp	r2, r3
+ 122 0088 00DD     		ble	.L7
+ 123              		.loc 1 93 0 is_stmt 0 discriminator 1
+ 124 008a 0B60     		str	r3, [r1]
+ 125              	.L7:
+  94:Generated_Source\PSoC5/cap_comp_tc.c ****             if(NewFrequency < LowFrequency) NewFrequency = LowFrequency;
+ 126              		.loc 1 94 0 is_stmt 1
+ 127 008c 074B     		ldr	r3, .L9+12
+ 128 008e 1A68     		ldr	r2, [r3]
+ 129 0090 084B     		ldr	r3, .L9+20
+ 130 0092 1B68     		ldr	r3, [r3]
+ 131 0094 9A42     		cmp	r2, r3
+ 132 0096 01DA     		bge	.L1
+ 133              		.loc 1 94 0 is_stmt 0 discriminator 1
+ 134 0098 044A     		ldr	r2, .L9+12
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 5
+
+
+ 135 009a 1360     		str	r3, [r2]
+ 136              	.L1:
+ 137 009c 10BD     		pop	{r4, pc}
+ 138              	.L10:
+ 139 009e 00BF     		.align	2
+ 140              	.L9:
+ 141 00a0 00000000 		.word	.LANCHOR0
+ 142 00a4 00000000 		.word	.LANCHOR1
+ 143 00a8 00000000 		.word	CurrentDelta
+ 144 00ac 00000000 		.word	NewFrequency
+ 145 00b0 00000000 		.word	HighFrequency
+ 146 00b4 00000000 		.word	LowFrequency
+ 147              		.cfi_endproc
+ 148              	.LFE63:
+ 149              		.size	PrepareNewFrequency, .-PrepareNewFrequency
+ 150              		.section	.text.cap_comp_tc_SetVector,"ax",%progbits
+ 151              		.align	2
+ 152              		.global	cap_comp_tc_SetVector
+ 153              		.thumb
+ 154              		.thumb_func
+ 155              		.type	cap_comp_tc_SetVector, %function
+ 156              	cap_comp_tc_SetVector:
+ 157              	.LFB68:
+  95:Generated_Source\PSoC5/cap_comp_tc.c ****             
+  96:Generated_Source\PSoC5/cap_comp_tc.c ****     }
+  97:Generated_Source\PSoC5/cap_comp_tc.c ****     
+  98:Generated_Source\PSoC5/cap_comp_tc.c ****     
+  99:Generated_Source\PSoC5/cap_comp_tc.c ****     
+ 100:Generated_Source\PSoC5/cap_comp_tc.c **** /* `#END` */
+ 101:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 102:Generated_Source\PSoC5/cap_comp_tc.c **** #ifndef CYINT_IRQ_BASE
+ 103:Generated_Source\PSoC5/cap_comp_tc.c **** #define CYINT_IRQ_BASE      16
+ 104:Generated_Source\PSoC5/cap_comp_tc.c **** #endif /* CYINT_IRQ_BASE */
+ 105:Generated_Source\PSoC5/cap_comp_tc.c **** #ifndef CYINT_VECT_TABLE
+ 106:Generated_Source\PSoC5/cap_comp_tc.c **** #define CYINT_VECT_TABLE    ((cyisraddress **) CYREG_NVIC_VECT_OFFSET)
+ 107:Generated_Source\PSoC5/cap_comp_tc.c **** #endif /* CYINT_VECT_TABLE */
+ 108:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 109:Generated_Source\PSoC5/cap_comp_tc.c **** /* Declared in startup, used to set unused interrupts to. */
+ 110:Generated_Source\PSoC5/cap_comp_tc.c **** CY_ISR_PROTO(IntDefaultHandler);
+ 111:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 112:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 113:Generated_Source\PSoC5/cap_comp_tc.c **** /*******************************************************************************
+ 114:Generated_Source\PSoC5/cap_comp_tc.c **** * Function Name: cap_comp_tc_Start
+ 115:Generated_Source\PSoC5/cap_comp_tc.c **** ********************************************************************************
+ 116:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 117:Generated_Source\PSoC5/cap_comp_tc.c **** * Summary:
+ 118:Generated_Source\PSoC5/cap_comp_tc.c **** *  Set up the interrupt and enable it. This function disables the interrupt, 
+ 119:Generated_Source\PSoC5/cap_comp_tc.c **** *  sets the default interrupt vector, sets the priority from the value in the
+ 120:Generated_Source\PSoC5/cap_comp_tc.c **** *  Design Wide Resources Interrupt Editor, then enables the interrupt to the 
+ 121:Generated_Source\PSoC5/cap_comp_tc.c **** *  interrupt controller.
+ 122:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 123:Generated_Source\PSoC5/cap_comp_tc.c **** * Parameters:  
+ 124:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
+ 125:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 126:Generated_Source\PSoC5/cap_comp_tc.c **** * Return:
+ 127:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
+ 128:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 6
+
+
+ 129:Generated_Source\PSoC5/cap_comp_tc.c **** *******************************************************************************/
+ 130:Generated_Source\PSoC5/cap_comp_tc.c **** void cap_comp_tc_Start(void)
+ 131:Generated_Source\PSoC5/cap_comp_tc.c **** {
+ 132:Generated_Source\PSoC5/cap_comp_tc.c ****     /* For all we know the interrupt is active. */
+ 133:Generated_Source\PSoC5/cap_comp_tc.c ****     cap_comp_tc_Disable();
+ 134:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 135:Generated_Source\PSoC5/cap_comp_tc.c ****     /* Set the ISR to point to the cap_comp_tc Interrupt. */
+ 136:Generated_Source\PSoC5/cap_comp_tc.c ****     cap_comp_tc_SetVector(&cap_comp_tc_Interrupt);
+ 137:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 138:Generated_Source\PSoC5/cap_comp_tc.c ****     /* Set the priority. */
+ 139:Generated_Source\PSoC5/cap_comp_tc.c ****     cap_comp_tc_SetPriority((uint8)cap_comp_tc_INTC_PRIOR_NUMBER);
+ 140:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 141:Generated_Source\PSoC5/cap_comp_tc.c ****     /* Enable it. */
+ 142:Generated_Source\PSoC5/cap_comp_tc.c ****     cap_comp_tc_Enable();
+ 143:Generated_Source\PSoC5/cap_comp_tc.c **** }
+ 144:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 145:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 146:Generated_Source\PSoC5/cap_comp_tc.c **** /*******************************************************************************
+ 147:Generated_Source\PSoC5/cap_comp_tc.c **** * Function Name: cap_comp_tc_StartEx
+ 148:Generated_Source\PSoC5/cap_comp_tc.c **** ********************************************************************************
+ 149:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 150:Generated_Source\PSoC5/cap_comp_tc.c **** * Summary:
+ 151:Generated_Source\PSoC5/cap_comp_tc.c **** *  Sets up the interrupt and enables it. This function disables the interrupt,
+ 152:Generated_Source\PSoC5/cap_comp_tc.c **** *  sets the interrupt vector based on the address passed in, sets the priority 
+ 153:Generated_Source\PSoC5/cap_comp_tc.c **** *  from the value in the Design Wide Resources Interrupt Editor, then enables 
+ 154:Generated_Source\PSoC5/cap_comp_tc.c **** *  the interrupt to the interrupt controller.
+ 155:Generated_Source\PSoC5/cap_comp_tc.c **** *  
+ 156:Generated_Source\PSoC5/cap_comp_tc.c **** *  When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+ 157:Generated_Source\PSoC5/cap_comp_tc.c **** *  used to provide consistent definition across compilers:
+ 158:Generated_Source\PSoC5/cap_comp_tc.c **** *  
+ 159:Generated_Source\PSoC5/cap_comp_tc.c **** *  Function definition example:
+ 160:Generated_Source\PSoC5/cap_comp_tc.c **** *   CY_ISR(MyISR)
+ 161:Generated_Source\PSoC5/cap_comp_tc.c **** *   {
+ 162:Generated_Source\PSoC5/cap_comp_tc.c **** *   }
+ 163:Generated_Source\PSoC5/cap_comp_tc.c **** *   Function prototype example:
+ 164:Generated_Source\PSoC5/cap_comp_tc.c **** *   CY_ISR_PROTO(MyISR);
+ 165:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 166:Generated_Source\PSoC5/cap_comp_tc.c **** * Parameters:  
+ 167:Generated_Source\PSoC5/cap_comp_tc.c **** *   address: Address of the ISR to set in the interrupt vector table.
+ 168:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 169:Generated_Source\PSoC5/cap_comp_tc.c **** * Return:
+ 170:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
+ 171:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 172:Generated_Source\PSoC5/cap_comp_tc.c **** *******************************************************************************/
+ 173:Generated_Source\PSoC5/cap_comp_tc.c **** void cap_comp_tc_StartEx(cyisraddress address)
+ 174:Generated_Source\PSoC5/cap_comp_tc.c **** {
+ 175:Generated_Source\PSoC5/cap_comp_tc.c ****     /* For all we know the interrupt is active. */
+ 176:Generated_Source\PSoC5/cap_comp_tc.c ****     cap_comp_tc_Disable();
+ 177:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 178:Generated_Source\PSoC5/cap_comp_tc.c ****     /* Set the ISR to point to the cap_comp_tc Interrupt. */
+ 179:Generated_Source\PSoC5/cap_comp_tc.c ****     cap_comp_tc_SetVector(address);
+ 180:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 181:Generated_Source\PSoC5/cap_comp_tc.c ****     /* Set the priority. */
+ 182:Generated_Source\PSoC5/cap_comp_tc.c ****     cap_comp_tc_SetPriority((uint8)cap_comp_tc_INTC_PRIOR_NUMBER);
+ 183:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 184:Generated_Source\PSoC5/cap_comp_tc.c ****     /* Enable it. */
+ 185:Generated_Source\PSoC5/cap_comp_tc.c ****     cap_comp_tc_Enable();
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 7
+
+
+ 186:Generated_Source\PSoC5/cap_comp_tc.c **** }
+ 187:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 188:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 189:Generated_Source\PSoC5/cap_comp_tc.c **** /*******************************************************************************
+ 190:Generated_Source\PSoC5/cap_comp_tc.c **** * Function Name: cap_comp_tc_Stop
+ 191:Generated_Source\PSoC5/cap_comp_tc.c **** ********************************************************************************
  192:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 193:Generated_Source\PSoC5/cap_comp_tc.c **** * Parameters:
- 194:Generated_Source\PSoC5/cap_comp_tc.c **** *   address: Address of the ISR to set in the interrupt vector table.
+ 193:Generated_Source\PSoC5/cap_comp_tc.c **** * Summary:
+ 194:Generated_Source\PSoC5/cap_comp_tc.c **** *   Disables and removes the interrupt.
  195:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 196:Generated_Source\PSoC5/cap_comp_tc.c **** * Return:
+ 196:Generated_Source\PSoC5/cap_comp_tc.c **** * Parameters:  
  197:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
  198:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 199:Generated_Source\PSoC5/cap_comp_tc.c **** *******************************************************************************/
- 200:Generated_Source\PSoC5/cap_comp_tc.c **** void cap_comp_tc_SetVector(cyisraddress address)
- 201:Generated_Source\PSoC5/cap_comp_tc.c **** {
-  45              		.loc 1 201 0
-  46              		.cfi_startproc
-  47              		@ args = 0, pretend = 0, frame = 0
-  48              		@ frame_needed = 0, uses_anonymous_args = 0
-  49              		@ link register save eliminated.
-  50              	.LVL0:
- 202:Generated_Source\PSoC5/cap_comp_tc.c ****     cyisraddress * ramVectorTable;
- 203:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 204:Generated_Source\PSoC5/cap_comp_tc.c ****     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
-  51              		.loc 1 204 0
-  52 0000 014B     		ldr	r3, .L3
-  53 0002 1B68     		ldr	r3, [r3]
-  54              	.LVL1:
- 205:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 206:Generated_Source\PSoC5/cap_comp_tc.c ****     ramVectorTable[CYINT_IRQ_BASE + (uint32)cap_comp_tc__INTC_NUMBER] = address;
-  55              		.loc 1 206 0
-  56 0004 D864     		str	r0, [r3, #76]
-  57 0006 7047     		bx	lr
-  58              	.L4:
-  59              		.align	2
-  60              	.L3:
-  61 0008 08ED00E0 		.word	-536810232
-  62              		.cfi_endproc
-  63              	.LFE4:
-  64              		.size	cap_comp_tc_SetVector, .-cap_comp_tc_SetVector
-  65              		.section	.text.cap_comp_tc_GetVector,"ax",%progbits
-  66              		.align	2
-  67              		.global	cap_comp_tc_GetVector
-  68              		.thumb
-  69              		.thumb_func
-  70              		.type	cap_comp_tc_GetVector, %function
-  71              	cap_comp_tc_GetVector:
-  72              	.LFB5:
- 207:Generated_Source\PSoC5/cap_comp_tc.c **** }
- 208:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 209:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 210:Generated_Source\PSoC5/cap_comp_tc.c **** /*******************************************************************************
- 211:Generated_Source\PSoC5/cap_comp_tc.c **** * Function Name: cap_comp_tc_GetVector
- 212:Generated_Source\PSoC5/cap_comp_tc.c **** ********************************************************************************
- 213:Generated_Source\PSoC5/cap_comp_tc.c **** *
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 6
-
-
- 214:Generated_Source\PSoC5/cap_comp_tc.c **** * Summary:
- 215:Generated_Source\PSoC5/cap_comp_tc.c **** *   Gets the "address" of the current ISR vector for the Interrupt.
+ 199:Generated_Source\PSoC5/cap_comp_tc.c **** * Return:
+ 200:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
+ 201:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 202:Generated_Source\PSoC5/cap_comp_tc.c **** *******************************************************************************/
+ 203:Generated_Source\PSoC5/cap_comp_tc.c **** void cap_comp_tc_Stop(void)
+ 204:Generated_Source\PSoC5/cap_comp_tc.c **** {
+ 205:Generated_Source\PSoC5/cap_comp_tc.c ****     /* Disable this interrupt. */
+ 206:Generated_Source\PSoC5/cap_comp_tc.c ****     cap_comp_tc_Disable();
+ 207:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 208:Generated_Source\PSoC5/cap_comp_tc.c ****     /* Set the ISR to point to the passive one. */
+ 209:Generated_Source\PSoC5/cap_comp_tc.c ****     cap_comp_tc_SetVector(&IntDefaultHandler);
+ 210:Generated_Source\PSoC5/cap_comp_tc.c **** }
+ 211:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 212:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 213:Generated_Source\PSoC5/cap_comp_tc.c **** /*******************************************************************************
+ 214:Generated_Source\PSoC5/cap_comp_tc.c **** * Function Name: cap_comp_tc_Interrupt
+ 215:Generated_Source\PSoC5/cap_comp_tc.c **** ********************************************************************************
  216:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 217:Generated_Source\PSoC5/cap_comp_tc.c **** * Parameters:
- 218:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
+ 217:Generated_Source\PSoC5/cap_comp_tc.c **** * Summary:
+ 218:Generated_Source\PSoC5/cap_comp_tc.c **** *   The default Interrupt Service Routine for cap_comp_tc.
  219:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 220:Generated_Source\PSoC5/cap_comp_tc.c **** * Return:
- 221:Generated_Source\PSoC5/cap_comp_tc.c **** *   Address of the ISR in the interrupt vector table.
+ 220:Generated_Source\PSoC5/cap_comp_tc.c **** *   Add custom code between the coments to keep the next version of this file
+ 221:Generated_Source\PSoC5/cap_comp_tc.c **** *   from over writting your code.
  222:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 223:Generated_Source\PSoC5/cap_comp_tc.c **** *******************************************************************************/
- 224:Generated_Source\PSoC5/cap_comp_tc.c **** cyisraddress cap_comp_tc_GetVector(void)
- 225:Generated_Source\PSoC5/cap_comp_tc.c **** {
-  73              		.loc 1 225 0
-  74              		.cfi_startproc
-  75              		@ args = 0, pretend = 0, frame = 0
-  76              		@ frame_needed = 0, uses_anonymous_args = 0
-  77              		@ link register save eliminated.
- 226:Generated_Source\PSoC5/cap_comp_tc.c ****     cyisraddress * ramVectorTable;
- 227:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 228:Generated_Source\PSoC5/cap_comp_tc.c ****     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
-  78              		.loc 1 228 0
-  79 0000 014B     		ldr	r3, .L6
-  80 0002 1B68     		ldr	r3, [r3]
-  81              	.LVL2:
- 229:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 230:Generated_Source\PSoC5/cap_comp_tc.c ****     return ramVectorTable[CYINT_IRQ_BASE + (uint32)cap_comp_tc__INTC_NUMBER];
- 231:Generated_Source\PSoC5/cap_comp_tc.c **** }
-  82              		.loc 1 231 0
-  83 0004 D86C     		ldr	r0, [r3, #76]
-  84 0006 7047     		bx	lr
-  85              	.L7:
-  86              		.align	2
-  87              	.L6:
-  88 0008 08ED00E0 		.word	-536810232
-  89              		.cfi_endproc
-  90              	.LFE5:
-  91              		.size	cap_comp_tc_GetVector, .-cap_comp_tc_GetVector
-  92              		.section	.text.cap_comp_tc_SetPriority,"ax",%progbits
-  93              		.align	2
-  94              		.global	cap_comp_tc_SetPriority
-  95              		.thumb
-  96              		.thumb_func
-  97              		.type	cap_comp_tc_SetPriority, %function
-  98              	cap_comp_tc_SetPriority:
-  99              	.LFB6:
- 232:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 233:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 234:Generated_Source\PSoC5/cap_comp_tc.c **** /*******************************************************************************
- 235:Generated_Source\PSoC5/cap_comp_tc.c **** * Function Name: cap_comp_tc_SetPriority
- 236:Generated_Source\PSoC5/cap_comp_tc.c **** ********************************************************************************
- 237:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 238:Generated_Source\PSoC5/cap_comp_tc.c **** * Summary:
- 239:Generated_Source\PSoC5/cap_comp_tc.c **** *   Sets the Priority of the Interrupt. 
- 240:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 241:Generated_Source\PSoC5/cap_comp_tc.c **** *   Note calling cap_comp_tc_Start or cap_comp_tc_StartEx will 
- 242:Generated_Source\PSoC5/cap_comp_tc.c **** *   override any effect this API would have had. This API should only be called
- 243:Generated_Source\PSoC5/cap_comp_tc.c **** *   after cap_comp_tc_Start or cap_comp_tc_StartEx has been called. 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 7
+ 223:Generated_Source\PSoC5/cap_comp_tc.c **** * Parameters:  
+ 224:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 225:Generated_Source\PSoC5/cap_comp_tc.c **** * Return:
+ 226:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
+ 227:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 228:Generated_Source\PSoC5/cap_comp_tc.c **** *******************************************************************************/
+ 229:Generated_Source\PSoC5/cap_comp_tc.c **** CY_ISR(cap_comp_tc_Interrupt)
+ 230:Generated_Source\PSoC5/cap_comp_tc.c **** {
+ 231:Generated_Source\PSoC5/cap_comp_tc.c ****     #ifdef cap_comp_tc_INTERRUPT_INTERRUPT_CALLBACK
+ 232:Generated_Source\PSoC5/cap_comp_tc.c ****         cap_comp_tc_Interrupt_InterruptCallback();
+ 233:Generated_Source\PSoC5/cap_comp_tc.c ****     #endif /* cap_comp_tc_INTERRUPT_INTERRUPT_CALLBACK */ 
+ 234:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 235:Generated_Source\PSoC5/cap_comp_tc.c ****     /*  Place your Interrupt code here. */
+ 236:Generated_Source\PSoC5/cap_comp_tc.c ****     /* `#START cap_comp_tc_Interrupt` */
+ 237:Generated_Source\PSoC5/cap_comp_tc.c ****     
+ 238:Generated_Source\PSoC5/cap_comp_tc.c ****     cap_comp_tc_ClearPending();     // must TO DO first!
+ 239:Generated_Source\PSoC5/cap_comp_tc.c ****     UpdateFrequencyFlag = 1;
+ 240:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 241:Generated_Source\PSoC5/cap_comp_tc.c **** //    tmp = (uint32)Capture_high_Read()<<8;
+ 242:Generated_Source\PSoC5/cap_comp_tc.c **** //    tmp += Capture_low_Read();
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 8
 
 
- 244:Generated_Source\PSoC5/cap_comp_tc.c **** *   To set the initial priority for the component, use the Design-Wide Resources
- 245:Generated_Source\PSoC5/cap_comp_tc.c **** *   Interrupt Editor.
- 246:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 247:Generated_Source\PSoC5/cap_comp_tc.c **** *   Note This API has no effect on Non-maskable interrupt NMI).
- 248:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 249:Generated_Source\PSoC5/cap_comp_tc.c **** * Parameters:
- 250:Generated_Source\PSoC5/cap_comp_tc.c **** *   priority: Priority of the interrupt, 0 being the highest priority
- 251:Generated_Source\PSoC5/cap_comp_tc.c **** *             PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
- 252:Generated_Source\PSoC5/cap_comp_tc.c **** *             PSoC 4: Priority is from 0 to 3.
- 253:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 254:Generated_Source\PSoC5/cap_comp_tc.c **** * Return:
- 255:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
- 256:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 257:Generated_Source\PSoC5/cap_comp_tc.c **** *******************************************************************************/
- 258:Generated_Source\PSoC5/cap_comp_tc.c **** void cap_comp_tc_SetPriority(uint8 priority)
- 259:Generated_Source\PSoC5/cap_comp_tc.c **** {
- 100              		.loc 1 259 0
- 101              		.cfi_startproc
- 102              		@ args = 0, pretend = 0, frame = 0
- 103              		@ frame_needed = 0, uses_anonymous_args = 0
- 104              		@ link register save eliminated.
- 105              	.LVL3:
- 260:Generated_Source\PSoC5/cap_comp_tc.c ****     *cap_comp_tc_INTC_PRIOR = priority << 5;
- 106              		.loc 1 260 0
- 107 0000 4001     		lsls	r0, r0, #5
- 108              	.LVL4:
- 109 0002 C0B2     		uxtb	r0, r0
- 110 0004 014B     		ldr	r3, .L9
- 111 0006 1870     		strb	r0, [r3]
- 112 0008 7047     		bx	lr
- 113              	.L10:
- 114 000a 00BF     		.align	2
- 115              	.L9:
- 116 000c 03E400E0 		.word	-536812541
- 117              		.cfi_endproc
- 118              	.LFE6:
- 119              		.size	cap_comp_tc_SetPriority, .-cap_comp_tc_SetPriority
- 120              		.section	.text.cap_comp_tc_GetPriority,"ax",%progbits
- 121              		.align	2
- 122              		.global	cap_comp_tc_GetPriority
- 123              		.thumb
- 124              		.thumb_func
- 125              		.type	cap_comp_tc_GetPriority, %function
- 126              	cap_comp_tc_GetPriority:
- 127              	.LFB7:
- 261:Generated_Source\PSoC5/cap_comp_tc.c **** }
- 262:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 263:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 264:Generated_Source\PSoC5/cap_comp_tc.c **** /*******************************************************************************
- 265:Generated_Source\PSoC5/cap_comp_tc.c **** * Function Name: cap_comp_tc_GetPriority
- 266:Generated_Source\PSoC5/cap_comp_tc.c **** ********************************************************************************
- 267:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 268:Generated_Source\PSoC5/cap_comp_tc.c **** * Summary:
- 269:Generated_Source\PSoC5/cap_comp_tc.c **** *   Gets the Priority of the Interrupt.
- 270:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 271:Generated_Source\PSoC5/cap_comp_tc.c **** * Parameters:
- 272:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 8
-
-
- 273:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 274:Generated_Source\PSoC5/cap_comp_tc.c **** * Return:
- 275:Generated_Source\PSoC5/cap_comp_tc.c **** *   Priority of the interrupt, 0 being the highest priority
- 276:Generated_Source\PSoC5/cap_comp_tc.c **** *    PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
- 277:Generated_Source\PSoC5/cap_comp_tc.c **** *    PSoC 4: Priority is from 0 to 3.
- 278:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 279:Generated_Source\PSoC5/cap_comp_tc.c **** *******************************************************************************/
- 280:Generated_Source\PSoC5/cap_comp_tc.c **** uint8 cap_comp_tc_GetPriority(void)
- 281:Generated_Source\PSoC5/cap_comp_tc.c **** {
- 128              		.loc 1 281 0
- 129              		.cfi_startproc
- 130              		@ args = 0, pretend = 0, frame = 0
- 131              		@ frame_needed = 0, uses_anonymous_args = 0
- 132              		@ link register save eliminated.
- 282:Generated_Source\PSoC5/cap_comp_tc.c ****     uint8 priority;
- 283:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 284:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 285:Generated_Source\PSoC5/cap_comp_tc.c ****     priority = *cap_comp_tc_INTC_PRIOR >> 5;
- 133              		.loc 1 285 0
- 134 0000 014B     		ldr	r3, .L12
- 135 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
- 136              	.LVL5:
- 286:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 287:Generated_Source\PSoC5/cap_comp_tc.c ****     return priority;
- 288:Generated_Source\PSoC5/cap_comp_tc.c **** }
- 137              		.loc 1 288 0
- 138 0004 4009     		lsrs	r0, r0, #5
- 139              	.LVL6:
- 140 0006 7047     		bx	lr
- 141              	.L13:
- 142              		.align	2
- 143              	.L12:
- 144 0008 03E400E0 		.word	-536812541
- 145              		.cfi_endproc
- 146              	.LFE7:
- 147              		.size	cap_comp_tc_GetPriority, .-cap_comp_tc_GetPriority
- 148              		.section	.text.cap_comp_tc_Enable,"ax",%progbits
- 149              		.align	2
- 150              		.global	cap_comp_tc_Enable
- 151              		.thumb
- 152              		.thumb_func
- 153              		.type	cap_comp_tc_Enable, %function
- 154              	cap_comp_tc_Enable:
- 155              	.LFB8:
- 289:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 290:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 291:Generated_Source\PSoC5/cap_comp_tc.c **** /*******************************************************************************
- 292:Generated_Source\PSoC5/cap_comp_tc.c **** * Function Name: cap_comp_tc_Enable
- 293:Generated_Source\PSoC5/cap_comp_tc.c **** ********************************************************************************
- 294:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 295:Generated_Source\PSoC5/cap_comp_tc.c **** * Summary:
- 296:Generated_Source\PSoC5/cap_comp_tc.c **** *   Enables the interrupt to the interrupt controller. Do not call this function
- 297:Generated_Source\PSoC5/cap_comp_tc.c **** *   unless ISR_Start() has been called or the functionality of the ISR_Start() 
- 298:Generated_Source\PSoC5/cap_comp_tc.c **** *   function, which sets the vector and the priority, has been called.
+ 243:Generated_Source\PSoC5/cap_comp_tc.c **** //   
+ 244:Generated_Source\PSoC5/cap_comp_tc.c **** //    if(FirstTimeFlag==0){
+ 245:Generated_Source\PSoC5/cap_comp_tc.c **** //        FirstTimeFlag = 1;
+ 246:Generated_Source\PSoC5/cap_comp_tc.c **** //        PrevCapture = tmp;
+ 247:Generated_Source\PSoC5/cap_comp_tc.c **** //        UpdateFrequencyFlag = 0;
+ 248:Generated_Source\PSoC5/cap_comp_tc.c **** //        return;
+ 249:Generated_Source\PSoC5/cap_comp_tc.c **** //    }
+ 250:Generated_Source\PSoC5/cap_comp_tc.c **** //    
+ 251:Generated_Source\PSoC5/cap_comp_tc.c **** //    
+ 252:Generated_Source\PSoC5/cap_comp_tc.c **** //    CurrentDelta = tmp - PrevCapture;
+ 253:Generated_Source\PSoC5/cap_comp_tc.c **** //    PrevCapture = tmp;
+ 254:Generated_Source\PSoC5/cap_comp_tc.c **** //    
+ 255:Generated_Source\PSoC5/cap_comp_tc.c **** //    UpdateFrequencyFlag = 1;
+ 256:Generated_Source\PSoC5/cap_comp_tc.c ****     
+ 257:Generated_Source\PSoC5/cap_comp_tc.c **** //    PrepareNewFrequency();
+ 258:Generated_Source\PSoC5/cap_comp_tc.c **** //    if(UpdateFrequencyFlag != 0){
+ 259:Generated_Source\PSoC5/cap_comp_tc.c **** //                UpdateFrequency(NewFrequency);
+ 260:Generated_Source\PSoC5/cap_comp_tc.c **** //                UpdateFrequencyFlag = 0;
+ 261:Generated_Source\PSoC5/cap_comp_tc.c **** //    }
+ 262:Generated_Source\PSoC5/cap_comp_tc.c ****     
+ 263:Generated_Source\PSoC5/cap_comp_tc.c ****     
+ 264:Generated_Source\PSoC5/cap_comp_tc.c ****         /*TO DO
+ 265:Generated_Source\PSoC5/cap_comp_tc.c ****             Если не было ни одного фрейма никогда, то мы нич�
+ 266:Generated_Source\PSoC5/cap_comp_tc.c ****             Если пришел 1ый в истории фрейм , то мы сбрасывае
+ 267:Generated_Source\PSoC5/cap_comp_tc.c ****             Если не 1ый, то берем capture и сравниваем с неким по
+ 268:Generated_Source\PSoC5/cap_comp_tc.c ****             2 опросить акселерометр и подготовить усреднен�
+ 269:Generated_Source\PSoC5/cap_comp_tc.c ****         */
+ 270:Generated_Source\PSoC5/cap_comp_tc.c ****     /* `#END` */
+ 271:Generated_Source\PSoC5/cap_comp_tc.c **** }
+ 272:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 273:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 274:Generated_Source\PSoC5/cap_comp_tc.c **** /*******************************************************************************
+ 275:Generated_Source\PSoC5/cap_comp_tc.c **** * Function Name: cap_comp_tc_SetVector
+ 276:Generated_Source\PSoC5/cap_comp_tc.c **** ********************************************************************************
+ 277:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 278:Generated_Source\PSoC5/cap_comp_tc.c **** * Summary:
+ 279:Generated_Source\PSoC5/cap_comp_tc.c **** *   Change the ISR vector for the Interrupt. Note calling cap_comp_tc_Start
+ 280:Generated_Source\PSoC5/cap_comp_tc.c **** *   will override any effect this method would have had. To set the vector 
+ 281:Generated_Source\PSoC5/cap_comp_tc.c **** *   before the component has been started use cap_comp_tc_StartEx instead.
+ 282:Generated_Source\PSoC5/cap_comp_tc.c **** * 
+ 283:Generated_Source\PSoC5/cap_comp_tc.c **** *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+ 284:Generated_Source\PSoC5/cap_comp_tc.c **** *   used to provide consistent definition across compilers:
+ 285:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 286:Generated_Source\PSoC5/cap_comp_tc.c **** *   Function definition example:
+ 287:Generated_Source\PSoC5/cap_comp_tc.c **** *   CY_ISR(MyISR)
+ 288:Generated_Source\PSoC5/cap_comp_tc.c **** *   {
+ 289:Generated_Source\PSoC5/cap_comp_tc.c **** *   }
+ 290:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 291:Generated_Source\PSoC5/cap_comp_tc.c **** *   Function prototype example:
+ 292:Generated_Source\PSoC5/cap_comp_tc.c **** *     CY_ISR_PROTO(MyISR);
+ 293:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 294:Generated_Source\PSoC5/cap_comp_tc.c **** * Parameters:
+ 295:Generated_Source\PSoC5/cap_comp_tc.c **** *   address: Address of the ISR to set in the interrupt vector table.
+ 296:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 297:Generated_Source\PSoC5/cap_comp_tc.c **** * Return:
+ 298:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
  299:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 300:Generated_Source\PSoC5/cap_comp_tc.c **** * Parameters:
- 301:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 9
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 9
 
 
- 302:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 303:Generated_Source\PSoC5/cap_comp_tc.c **** * Return:
- 304:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
- 305:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 306:Generated_Source\PSoC5/cap_comp_tc.c **** *******************************************************************************/
- 307:Generated_Source\PSoC5/cap_comp_tc.c **** void cap_comp_tc_Enable(void)
- 308:Generated_Source\PSoC5/cap_comp_tc.c **** {
- 156              		.loc 1 308 0
- 157              		.cfi_startproc
- 158              		@ args = 0, pretend = 0, frame = 0
- 159              		@ frame_needed = 0, uses_anonymous_args = 0
- 160              		@ link register save eliminated.
- 309:Generated_Source\PSoC5/cap_comp_tc.c ****     /* Enable the general interrupt. */
- 310:Generated_Source\PSoC5/cap_comp_tc.c ****     *cap_comp_tc_INTC_SET_EN = cap_comp_tc__INTC_MASK;
- 161              		.loc 1 310 0
- 162 0000 0822     		movs	r2, #8
- 163 0002 014B     		ldr	r3, .L15
- 164 0004 1A60     		str	r2, [r3]
- 165 0006 7047     		bx	lr
- 166              	.L16:
- 167              		.align	2
- 168              	.L15:
- 169 0008 00E100E0 		.word	-536813312
- 170              		.cfi_endproc
- 171              	.LFE8:
- 172              		.size	cap_comp_tc_Enable, .-cap_comp_tc_Enable
- 173              		.section	.text.cap_comp_tc_GetState,"ax",%progbits
- 174              		.align	2
- 175              		.global	cap_comp_tc_GetState
- 176              		.thumb
- 177              		.thumb_func
- 178              		.type	cap_comp_tc_GetState, %function
- 179              	cap_comp_tc_GetState:
- 180              	.LFB9:
- 311:Generated_Source\PSoC5/cap_comp_tc.c **** }
- 312:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 313:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 314:Generated_Source\PSoC5/cap_comp_tc.c **** /*******************************************************************************
- 315:Generated_Source\PSoC5/cap_comp_tc.c **** * Function Name: cap_comp_tc_GetState
- 316:Generated_Source\PSoC5/cap_comp_tc.c **** ********************************************************************************
+ 300:Generated_Source\PSoC5/cap_comp_tc.c **** *******************************************************************************/
+ 301:Generated_Source\PSoC5/cap_comp_tc.c **** void cap_comp_tc_SetVector(cyisraddress address)
+ 302:Generated_Source\PSoC5/cap_comp_tc.c **** {
+ 158              		.loc 1 302 0 is_stmt 1
+ 159              		.cfi_startproc
+ 160              		@ args = 0, pretend = 0, frame = 0
+ 161              		@ frame_needed = 0, uses_anonymous_args = 0
+ 162              		@ link register save eliminated.
+ 163              	.LVL6:
+ 303:Generated_Source\PSoC5/cap_comp_tc.c ****     cyisraddress * ramVectorTable;
+ 304:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 305:Generated_Source\PSoC5/cap_comp_tc.c ****     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
+ 164              		.loc 1 305 0
+ 165 0000 014B     		ldr	r3, .L12
+ 166 0002 1B68     		ldr	r3, [r3]
+ 167              	.LVL7:
+ 306:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 307:Generated_Source\PSoC5/cap_comp_tc.c ****     ramVectorTable[CYINT_IRQ_BASE + (uint32)cap_comp_tc__INTC_NUMBER] = address;
+ 168              		.loc 1 307 0
+ 169 0004 1865     		str	r0, [r3, #80]
+ 170 0006 7047     		bx	lr
+ 171              	.L13:
+ 172              		.align	2
+ 173              	.L12:
+ 174 0008 08ED00E0 		.word	-536810232
+ 175              		.cfi_endproc
+ 176              	.LFE68:
+ 177              		.size	cap_comp_tc_SetVector, .-cap_comp_tc_SetVector
+ 178              		.section	.text.cap_comp_tc_GetVector,"ax",%progbits
+ 179              		.align	2
+ 180              		.global	cap_comp_tc_GetVector
+ 181              		.thumb
+ 182              		.thumb_func
+ 183              		.type	cap_comp_tc_GetVector, %function
+ 184              	cap_comp_tc_GetVector:
+ 185              	.LFB69:
+ 308:Generated_Source\PSoC5/cap_comp_tc.c **** }
+ 309:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 310:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 311:Generated_Source\PSoC5/cap_comp_tc.c **** /*******************************************************************************
+ 312:Generated_Source\PSoC5/cap_comp_tc.c **** * Function Name: cap_comp_tc_GetVector
+ 313:Generated_Source\PSoC5/cap_comp_tc.c **** ********************************************************************************
+ 314:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 315:Generated_Source\PSoC5/cap_comp_tc.c **** * Summary:
+ 316:Generated_Source\PSoC5/cap_comp_tc.c **** *   Gets the "address" of the current ISR vector for the Interrupt.
  317:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 318:Generated_Source\PSoC5/cap_comp_tc.c **** * Summary:
- 319:Generated_Source\PSoC5/cap_comp_tc.c **** *   Gets the state (enabled, disabled) of the Interrupt.
+ 318:Generated_Source\PSoC5/cap_comp_tc.c **** * Parameters:
+ 319:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
  320:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 321:Generated_Source\PSoC5/cap_comp_tc.c **** * Parameters:
- 322:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
+ 321:Generated_Source\PSoC5/cap_comp_tc.c **** * Return:
+ 322:Generated_Source\PSoC5/cap_comp_tc.c **** *   Address of the ISR in the interrupt vector table.
  323:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 324:Generated_Source\PSoC5/cap_comp_tc.c **** * Return:
- 325:Generated_Source\PSoC5/cap_comp_tc.c **** *   1 if enabled, 0 if disabled.
- 326:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 327:Generated_Source\PSoC5/cap_comp_tc.c **** *******************************************************************************/
- 328:Generated_Source\PSoC5/cap_comp_tc.c **** uint8 cap_comp_tc_GetState(void)
- 329:Generated_Source\PSoC5/cap_comp_tc.c **** {
- 181              		.loc 1 329 0
- 182              		.cfi_startproc
- 183              		@ args = 0, pretend = 0, frame = 0
- 184              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 10
+ 324:Generated_Source\PSoC5/cap_comp_tc.c **** *******************************************************************************/
+ 325:Generated_Source\PSoC5/cap_comp_tc.c **** cyisraddress cap_comp_tc_GetVector(void)
+ 326:Generated_Source\PSoC5/cap_comp_tc.c **** {
+ 186              		.loc 1 326 0
+ 187              		.cfi_startproc
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 10
 
 
- 185              		@ link register save eliminated.
- 330:Generated_Source\PSoC5/cap_comp_tc.c ****     /* Get the state of the general interrupt. */
- 331:Generated_Source\PSoC5/cap_comp_tc.c ****     return ((*cap_comp_tc_INTC_SET_EN & (uint32)cap_comp_tc__INTC_MASK) != 0u) ? 1u:0u;
- 186              		.loc 1 331 0
- 187 0000 044B     		ldr	r3, .L20
- 188 0002 1B68     		ldr	r3, [r3]
- 189 0004 13F0080F 		tst	r3, #8
- 190 0008 01D0     		beq	.L19
- 191 000a 0120     		movs	r0, #1
- 192 000c 7047     		bx	lr
- 193              	.L19:
- 194 000e 0020     		movs	r0, #0
+ 188              		@ args = 0, pretend = 0, frame = 0
+ 189              		@ frame_needed = 0, uses_anonymous_args = 0
+ 190              		@ link register save eliminated.
+ 327:Generated_Source\PSoC5/cap_comp_tc.c ****     cyisraddress * ramVectorTable;
+ 328:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 329:Generated_Source\PSoC5/cap_comp_tc.c ****     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
+ 191              		.loc 1 329 0
+ 192 0000 014B     		ldr	r3, .L15
+ 193 0002 1B68     		ldr	r3, [r3]
+ 194              	.LVL8:
+ 330:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 331:Generated_Source\PSoC5/cap_comp_tc.c ****     return ramVectorTable[CYINT_IRQ_BASE + (uint32)cap_comp_tc__INTC_NUMBER];
  332:Generated_Source\PSoC5/cap_comp_tc.c **** }
  195              		.loc 1 332 0
- 196 0010 7047     		bx	lr
- 197              	.L21:
- 198 0012 00BF     		.align	2
- 199              	.L20:
- 200 0014 00E100E0 		.word	-536813312
- 201              		.cfi_endproc
- 202              	.LFE9:
- 203              		.size	cap_comp_tc_GetState, .-cap_comp_tc_GetState
- 204              		.section	.text.cap_comp_tc_Disable,"ax",%progbits
- 205              		.align	2
- 206              		.global	cap_comp_tc_Disable
- 207              		.thumb
- 208              		.thumb_func
- 209              		.type	cap_comp_tc_Disable, %function
- 210              	cap_comp_tc_Disable:
- 211              	.LFB10:
+ 196 0004 186D     		ldr	r0, [r3, #80]
+ 197 0006 7047     		bx	lr
+ 198              	.L16:
+ 199              		.align	2
+ 200              	.L15:
+ 201 0008 08ED00E0 		.word	-536810232
+ 202              		.cfi_endproc
+ 203              	.LFE69:
+ 204              		.size	cap_comp_tc_GetVector, .-cap_comp_tc_GetVector
+ 205              		.section	.text.cap_comp_tc_SetPriority,"ax",%progbits
+ 206              		.align	2
+ 207              		.global	cap_comp_tc_SetPriority
+ 208              		.thumb
+ 209              		.thumb_func
+ 210              		.type	cap_comp_tc_SetPriority, %function
+ 211              	cap_comp_tc_SetPriority:
+ 212              	.LFB70:
  333:Generated_Source\PSoC5/cap_comp_tc.c **** 
  334:Generated_Source\PSoC5/cap_comp_tc.c **** 
  335:Generated_Source\PSoC5/cap_comp_tc.c **** /*******************************************************************************
- 336:Generated_Source\PSoC5/cap_comp_tc.c **** * Function Name: cap_comp_tc_Disable
+ 336:Generated_Source\PSoC5/cap_comp_tc.c **** * Function Name: cap_comp_tc_SetPriority
  337:Generated_Source\PSoC5/cap_comp_tc.c **** ********************************************************************************
  338:Generated_Source\PSoC5/cap_comp_tc.c **** *
  339:Generated_Source\PSoC5/cap_comp_tc.c **** * Summary:
- 340:Generated_Source\PSoC5/cap_comp_tc.c **** *   Disables the Interrupt in the interrupt controller.
+ 340:Generated_Source\PSoC5/cap_comp_tc.c **** *   Sets the Priority of the Interrupt. 
  341:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 342:Generated_Source\PSoC5/cap_comp_tc.c **** * Parameters:
- 343:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
- 344:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 345:Generated_Source\PSoC5/cap_comp_tc.c **** * Return:
- 346:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
+ 342:Generated_Source\PSoC5/cap_comp_tc.c **** *   Note calling cap_comp_tc_Start or cap_comp_tc_StartEx will 
+ 343:Generated_Source\PSoC5/cap_comp_tc.c **** *   override any effect this API would have had. This API should only be called
+ 344:Generated_Source\PSoC5/cap_comp_tc.c **** *   after cap_comp_tc_Start or cap_comp_tc_StartEx has been called. 
+ 345:Generated_Source\PSoC5/cap_comp_tc.c **** *   To set the initial priority for the component, use the Design-Wide Resources
+ 346:Generated_Source\PSoC5/cap_comp_tc.c **** *   Interrupt Editor.
  347:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 348:Generated_Source\PSoC5/cap_comp_tc.c **** *******************************************************************************/
- 349:Generated_Source\PSoC5/cap_comp_tc.c **** void cap_comp_tc_Disable(void)
- 350:Generated_Source\PSoC5/cap_comp_tc.c **** {
- 212              		.loc 1 350 0
- 213              		.cfi_startproc
- 214              		@ args = 0, pretend = 0, frame = 0
- 215              		@ frame_needed = 0, uses_anonymous_args = 0
- 216              		@ link register save eliminated.
- 351:Generated_Source\PSoC5/cap_comp_tc.c ****     /* Disable the general interrupt. */
- 352:Generated_Source\PSoC5/cap_comp_tc.c ****     *cap_comp_tc_INTC_CLR_EN = cap_comp_tc__INTC_MASK;
- 217              		.loc 1 352 0
- 218 0000 0822     		movs	r2, #8
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 11
+ 348:Generated_Source\PSoC5/cap_comp_tc.c **** *   Note This API has no effect on Non-maskable interrupt NMI).
+ 349:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 350:Generated_Source\PSoC5/cap_comp_tc.c **** * Parameters:
+ 351:Generated_Source\PSoC5/cap_comp_tc.c **** *   priority: Priority of the interrupt, 0 being the highest priority
+ 352:Generated_Source\PSoC5/cap_comp_tc.c **** *             PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 353:Generated_Source\PSoC5/cap_comp_tc.c **** *             PSoC 4: Priority is from 0 to 3.
+ 354:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 355:Generated_Source\PSoC5/cap_comp_tc.c **** * Return:
+ 356:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
+ 357:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 358:Generated_Source\PSoC5/cap_comp_tc.c **** *******************************************************************************/
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 11
 
 
- 219 0002 014B     		ldr	r3, .L23
- 220 0004 1A60     		str	r2, [r3]
- 221 0006 7047     		bx	lr
- 222              	.L24:
- 223              		.align	2
- 224              	.L23:
- 225 0008 80E100E0 		.word	-536813184
- 226              		.cfi_endproc
- 227              	.LFE10:
- 228              		.size	cap_comp_tc_Disable, .-cap_comp_tc_Disable
- 229              		.section	.text.cap_comp_tc_Start,"ax",%progbits
- 230              		.align	2
- 231              		.global	cap_comp_tc_Start
- 232              		.thumb
- 233              		.thumb_func
- 234              		.type	cap_comp_tc_Start, %function
- 235              	cap_comp_tc_Start:
- 236              	.LFB0:
-  62:Generated_Source\PSoC5/cap_comp_tc.c ****     /* For all we know the interrupt is active. */
- 237              		.loc 1 62 0
- 238              		.cfi_startproc
- 239              		@ args = 0, pretend = 0, frame = 0
- 240              		@ frame_needed = 0, uses_anonymous_args = 0
- 241 0000 08B5     		push	{r3, lr}
- 242              		.cfi_def_cfa_offset 8
- 243              		.cfi_offset 3, -8
- 244              		.cfi_offset 14, -4
-  64:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 245              		.loc 1 64 0
- 246 0002 FFF7FEFF 		bl	cap_comp_tc_Disable
- 247              	.LVL7:
-  67:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 248              		.loc 1 67 0
- 249 0006 0448     		ldr	r0, .L27
- 250 0008 FFF7FEFF 		bl	cap_comp_tc_SetVector
- 251              	.LVL8:
-  70:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 252              		.loc 1 70 0
- 253 000c 0720     		movs	r0, #7
- 254 000e FFF7FEFF 		bl	cap_comp_tc_SetPriority
- 255              	.LVL9:
-  73:Generated_Source\PSoC5/cap_comp_tc.c **** }
- 256              		.loc 1 73 0
- 257 0012 FFF7FEFF 		bl	cap_comp_tc_Enable
- 258              	.LVL10:
- 259 0016 08BD     		pop	{r3, pc}
- 260              	.L28:
- 261              		.align	2
- 262              	.L27:
- 263 0018 00000000 		.word	cap_comp_tc_Interrupt
- 264              		.cfi_endproc
- 265              	.LFE0:
- 266              		.size	cap_comp_tc_Start, .-cap_comp_tc_Start
- 267              		.section	.text.cap_comp_tc_StartEx,"ax",%progbits
- 268              		.align	2
- 269              		.global	cap_comp_tc_StartEx
- 270              		.thumb
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 12
-
-
- 271              		.thumb_func
- 272              		.type	cap_comp_tc_StartEx, %function
- 273              	cap_comp_tc_StartEx:
- 274              	.LFB1:
- 105:Generated_Source\PSoC5/cap_comp_tc.c ****     /* For all we know the interrupt is active. */
- 275              		.loc 1 105 0
- 276              		.cfi_startproc
- 277              		@ args = 0, pretend = 0, frame = 0
- 278              		@ frame_needed = 0, uses_anonymous_args = 0
- 279              	.LVL11:
- 280 0000 10B5     		push	{r4, lr}
- 281              		.cfi_def_cfa_offset 8
- 282              		.cfi_offset 4, -8
- 283              		.cfi_offset 14, -4
- 284 0002 0446     		mov	r4, r0
- 107:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 285              		.loc 1 107 0
- 286 0004 FFF7FEFF 		bl	cap_comp_tc_Disable
- 287              	.LVL12:
- 110:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 288              		.loc 1 110 0
- 289 0008 2046     		mov	r0, r4
- 290 000a FFF7FEFF 		bl	cap_comp_tc_SetVector
- 291              	.LVL13:
- 113:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 292              		.loc 1 113 0
- 293 000e 0720     		movs	r0, #7
- 294 0010 FFF7FEFF 		bl	cap_comp_tc_SetPriority
- 295              	.LVL14:
- 116:Generated_Source\PSoC5/cap_comp_tc.c **** }
- 296              		.loc 1 116 0
- 297 0014 FFF7FEFF 		bl	cap_comp_tc_Enable
- 298              	.LVL15:
- 299 0018 10BD     		pop	{r4, pc}
- 300              		.cfi_endproc
- 301              	.LFE1:
- 302              		.size	cap_comp_tc_StartEx, .-cap_comp_tc_StartEx
- 303 001a 00BF     		.section	.text.cap_comp_tc_Stop,"ax",%progbits
- 304              		.align	2
- 305              		.global	cap_comp_tc_Stop
- 306              		.thumb
- 307              		.thumb_func
- 308              		.type	cap_comp_tc_Stop, %function
- 309              	cap_comp_tc_Stop:
- 310              	.LFB2:
- 135:Generated_Source\PSoC5/cap_comp_tc.c ****     /* Disable this interrupt. */
- 311              		.loc 1 135 0
- 312              		.cfi_startproc
- 313              		@ args = 0, pretend = 0, frame = 0
- 314              		@ frame_needed = 0, uses_anonymous_args = 0
- 315 0000 08B5     		push	{r3, lr}
- 316              		.cfi_def_cfa_offset 8
- 317              		.cfi_offset 3, -8
- 318              		.cfi_offset 14, -4
- 137:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 319              		.loc 1 137 0
- 320 0002 FFF7FEFF 		bl	cap_comp_tc_Disable
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 13
-
-
- 321              	.LVL16:
- 140:Generated_Source\PSoC5/cap_comp_tc.c **** }
- 322              		.loc 1 140 0
- 323 0006 0248     		ldr	r0, .L33
- 324 0008 FFF7FEFF 		bl	cap_comp_tc_SetVector
- 325              	.LVL17:
- 326 000c 08BD     		pop	{r3, pc}
- 327              	.L34:
- 328 000e 00BF     		.align	2
- 329              	.L33:
- 330 0010 00000000 		.word	IntDefaultHandler
- 331              		.cfi_endproc
- 332              	.LFE2:
- 333              		.size	cap_comp_tc_Stop, .-cap_comp_tc_Stop
- 334              		.section	.text.cap_comp_tc_SetPending,"ax",%progbits
- 335              		.align	2
- 336              		.global	cap_comp_tc_SetPending
- 337              		.thumb
- 338              		.thumb_func
- 339              		.type	cap_comp_tc_SetPending, %function
- 340              	cap_comp_tc_SetPending:
- 341              	.LFB11:
- 353:Generated_Source\PSoC5/cap_comp_tc.c **** }
- 354:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 355:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 356:Generated_Source\PSoC5/cap_comp_tc.c **** /*******************************************************************************
- 357:Generated_Source\PSoC5/cap_comp_tc.c **** * Function Name: cap_comp_tc_SetPending
- 358:Generated_Source\PSoC5/cap_comp_tc.c **** ********************************************************************************
- 359:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 360:Generated_Source\PSoC5/cap_comp_tc.c **** * Summary:
- 361:Generated_Source\PSoC5/cap_comp_tc.c **** *   Causes the Interrupt to enter the pending state, a software method of
- 362:Generated_Source\PSoC5/cap_comp_tc.c **** *   generating the interrupt.
- 363:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 364:Generated_Source\PSoC5/cap_comp_tc.c **** * Parameters:
- 365:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
- 366:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 367:Generated_Source\PSoC5/cap_comp_tc.c **** * Return:
- 368:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
- 369:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 370:Generated_Source\PSoC5/cap_comp_tc.c **** * Side Effects:
- 371:Generated_Source\PSoC5/cap_comp_tc.c **** *   If interrupts are enabled and the interrupt is set up properly, the ISR is
- 372:Generated_Source\PSoC5/cap_comp_tc.c **** *   entered (depending on the priority of this interrupt and other pending 
- 373:Generated_Source\PSoC5/cap_comp_tc.c **** *   interrupts).
+ 359:Generated_Source\PSoC5/cap_comp_tc.c **** void cap_comp_tc_SetPriority(uint8 priority)
+ 360:Generated_Source\PSoC5/cap_comp_tc.c **** {
+ 213              		.loc 1 360 0
+ 214              		.cfi_startproc
+ 215              		@ args = 0, pretend = 0, frame = 0
+ 216              		@ frame_needed = 0, uses_anonymous_args = 0
+ 217              		@ link register save eliminated.
+ 218              	.LVL9:
+ 361:Generated_Source\PSoC5/cap_comp_tc.c ****     *cap_comp_tc_INTC_PRIOR = priority << 5;
+ 219              		.loc 1 361 0
+ 220 0000 4001     		lsls	r0, r0, #5
+ 221              	.LVL10:
+ 222 0002 C0B2     		uxtb	r0, r0
+ 223 0004 014B     		ldr	r3, .L18
+ 224 0006 1870     		strb	r0, [r3]
+ 225 0008 7047     		bx	lr
+ 226              	.L19:
+ 227 000a 00BF     		.align	2
+ 228              	.L18:
+ 229 000c 04E400E0 		.word	-536812540
+ 230              		.cfi_endproc
+ 231              	.LFE70:
+ 232              		.size	cap_comp_tc_SetPriority, .-cap_comp_tc_SetPriority
+ 233              		.section	.text.cap_comp_tc_GetPriority,"ax",%progbits
+ 234              		.align	2
+ 235              		.global	cap_comp_tc_GetPriority
+ 236              		.thumb
+ 237              		.thumb_func
+ 238              		.type	cap_comp_tc_GetPriority, %function
+ 239              	cap_comp_tc_GetPriority:
+ 240              	.LFB71:
+ 362:Generated_Source\PSoC5/cap_comp_tc.c **** }
+ 363:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 364:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 365:Generated_Source\PSoC5/cap_comp_tc.c **** /*******************************************************************************
+ 366:Generated_Source\PSoC5/cap_comp_tc.c **** * Function Name: cap_comp_tc_GetPriority
+ 367:Generated_Source\PSoC5/cap_comp_tc.c **** ********************************************************************************
+ 368:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 369:Generated_Source\PSoC5/cap_comp_tc.c **** * Summary:
+ 370:Generated_Source\PSoC5/cap_comp_tc.c **** *   Gets the Priority of the Interrupt.
+ 371:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 372:Generated_Source\PSoC5/cap_comp_tc.c **** * Parameters:
+ 373:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
  374:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 375:Generated_Source\PSoC5/cap_comp_tc.c **** *******************************************************************************/
- 376:Generated_Source\PSoC5/cap_comp_tc.c **** void cap_comp_tc_SetPending(void)
- 377:Generated_Source\PSoC5/cap_comp_tc.c **** {
- 342              		.loc 1 377 0
- 343              		.cfi_startproc
- 344              		@ args = 0, pretend = 0, frame = 0
- 345              		@ frame_needed = 0, uses_anonymous_args = 0
- 346              		@ link register save eliminated.
- 378:Generated_Source\PSoC5/cap_comp_tc.c ****     *cap_comp_tc_INTC_SET_PD = cap_comp_tc__INTC_MASK;
- 347              		.loc 1 378 0
- 348 0000 0822     		movs	r2, #8
- 349 0002 014B     		ldr	r3, .L36
- 350 0004 1A60     		str	r2, [r3]
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 14
+ 375:Generated_Source\PSoC5/cap_comp_tc.c **** * Return:
+ 376:Generated_Source\PSoC5/cap_comp_tc.c **** *   Priority of the interrupt, 0 being the highest priority
+ 377:Generated_Source\PSoC5/cap_comp_tc.c **** *    PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 378:Generated_Source\PSoC5/cap_comp_tc.c **** *    PSoC 4: Priority is from 0 to 3.
+ 379:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 380:Generated_Source\PSoC5/cap_comp_tc.c **** *******************************************************************************/
+ 381:Generated_Source\PSoC5/cap_comp_tc.c **** uint8 cap_comp_tc_GetPriority(void)
+ 382:Generated_Source\PSoC5/cap_comp_tc.c **** {
+ 241              		.loc 1 382 0
+ 242              		.cfi_startproc
+ 243              		@ args = 0, pretend = 0, frame = 0
+ 244              		@ frame_needed = 0, uses_anonymous_args = 0
+ 245              		@ link register save eliminated.
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 12
 
 
- 351 0006 7047     		bx	lr
- 352              	.L37:
- 353              		.align	2
- 354              	.L36:
- 355 0008 00E200E0 		.word	-536813056
- 356              		.cfi_endproc
- 357              	.LFE11:
- 358              		.size	cap_comp_tc_SetPending, .-cap_comp_tc_SetPending
- 359              		.section	.text.cap_comp_tc_ClearPending,"ax",%progbits
- 360              		.align	2
- 361              		.global	cap_comp_tc_ClearPending
- 362              		.thumb
- 363              		.thumb_func
- 364              		.type	cap_comp_tc_ClearPending, %function
- 365              	cap_comp_tc_ClearPending:
- 366              	.LFB12:
- 379:Generated_Source\PSoC5/cap_comp_tc.c **** }
- 380:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 381:Generated_Source\PSoC5/cap_comp_tc.c **** 
- 382:Generated_Source\PSoC5/cap_comp_tc.c **** /*******************************************************************************
- 383:Generated_Source\PSoC5/cap_comp_tc.c **** * Function Name: cap_comp_tc_ClearPending
- 384:Generated_Source\PSoC5/cap_comp_tc.c **** ********************************************************************************
- 385:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 386:Generated_Source\PSoC5/cap_comp_tc.c **** * Summary:
- 387:Generated_Source\PSoC5/cap_comp_tc.c **** *   Clears a pending interrupt in the interrupt controller.
- 388:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 389:Generated_Source\PSoC5/cap_comp_tc.c **** *   Note Some interrupt sources are clear-on-read and require the block 
- 390:Generated_Source\PSoC5/cap_comp_tc.c **** *   interrupt/status register to be read/cleared with the appropriate block API 
- 391:Generated_Source\PSoC5/cap_comp_tc.c **** *   (GPIO, UART, and so on). Otherwise the ISR will continue to remain in 
- 392:Generated_Source\PSoC5/cap_comp_tc.c **** *   pending state even though the interrupt itself is cleared using this API.
- 393:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 394:Generated_Source\PSoC5/cap_comp_tc.c **** * Parameters:
- 395:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
- 396:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 397:Generated_Source\PSoC5/cap_comp_tc.c **** * Return:
- 398:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
- 399:Generated_Source\PSoC5/cap_comp_tc.c **** *
- 400:Generated_Source\PSoC5/cap_comp_tc.c **** *******************************************************************************/
- 401:Generated_Source\PSoC5/cap_comp_tc.c **** void cap_comp_tc_ClearPending(void)
- 402:Generated_Source\PSoC5/cap_comp_tc.c **** {
- 367              		.loc 1 402 0
- 368              		.cfi_startproc
- 369              		@ args = 0, pretend = 0, frame = 0
- 370              		@ frame_needed = 0, uses_anonymous_args = 0
- 371              		@ link register save eliminated.
- 403:Generated_Source\PSoC5/cap_comp_tc.c ****     *cap_comp_tc_INTC_CLR_PD = cap_comp_tc__INTC_MASK;
- 372              		.loc 1 403 0
- 373 0000 0822     		movs	r2, #8
- 374 0002 014B     		ldr	r3, .L39
- 375 0004 1A60     		str	r2, [r3]
- 376 0006 7047     		bx	lr
- 377              	.L40:
- 378              		.align	2
- 379              	.L39:
- 380 0008 80E200E0 		.word	-536812928
- 381              		.cfi_endproc
- 382              	.LFE12:
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 15
+ 383:Generated_Source\PSoC5/cap_comp_tc.c ****     uint8 priority;
+ 384:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 385:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 386:Generated_Source\PSoC5/cap_comp_tc.c ****     priority = *cap_comp_tc_INTC_PRIOR >> 5;
+ 246              		.loc 1 386 0
+ 247 0000 014B     		ldr	r3, .L21
+ 248 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 249              	.LVL11:
+ 387:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 388:Generated_Source\PSoC5/cap_comp_tc.c ****     return priority;
+ 389:Generated_Source\PSoC5/cap_comp_tc.c **** }
+ 250              		.loc 1 389 0
+ 251 0004 4009     		lsrs	r0, r0, #5
+ 252              	.LVL12:
+ 253 0006 7047     		bx	lr
+ 254              	.L22:
+ 255              		.align	2
+ 256              	.L21:
+ 257 0008 04E400E0 		.word	-536812540
+ 258              		.cfi_endproc
+ 259              	.LFE71:
+ 260              		.size	cap_comp_tc_GetPriority, .-cap_comp_tc_GetPriority
+ 261              		.section	.text.cap_comp_tc_Enable,"ax",%progbits
+ 262              		.align	2
+ 263              		.global	cap_comp_tc_Enable
+ 264              		.thumb
+ 265              		.thumb_func
+ 266              		.type	cap_comp_tc_Enable, %function
+ 267              	cap_comp_tc_Enable:
+ 268              	.LFB72:
+ 390:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 391:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 392:Generated_Source\PSoC5/cap_comp_tc.c **** /*******************************************************************************
+ 393:Generated_Source\PSoC5/cap_comp_tc.c **** * Function Name: cap_comp_tc_Enable
+ 394:Generated_Source\PSoC5/cap_comp_tc.c **** ********************************************************************************
+ 395:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 396:Generated_Source\PSoC5/cap_comp_tc.c **** * Summary:
+ 397:Generated_Source\PSoC5/cap_comp_tc.c **** *   Enables the interrupt to the interrupt controller. Do not call this function
+ 398:Generated_Source\PSoC5/cap_comp_tc.c **** *   unless ISR_Start() has been called or the functionality of the ISR_Start() 
+ 399:Generated_Source\PSoC5/cap_comp_tc.c **** *   function, which sets the vector and the priority, has been called.
+ 400:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 401:Generated_Source\PSoC5/cap_comp_tc.c **** * Parameters:
+ 402:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
+ 403:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 404:Generated_Source\PSoC5/cap_comp_tc.c **** * Return:
+ 405:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
+ 406:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 407:Generated_Source\PSoC5/cap_comp_tc.c **** *******************************************************************************/
+ 408:Generated_Source\PSoC5/cap_comp_tc.c **** void cap_comp_tc_Enable(void)
+ 409:Generated_Source\PSoC5/cap_comp_tc.c **** {
+ 269              		.loc 1 409 0
+ 270              		.cfi_startproc
+ 271              		@ args = 0, pretend = 0, frame = 0
+ 272              		@ frame_needed = 0, uses_anonymous_args = 0
+ 273              		@ link register save eliminated.
+ 410:Generated_Source\PSoC5/cap_comp_tc.c ****     /* Enable the general interrupt. */
+ 411:Generated_Source\PSoC5/cap_comp_tc.c ****     *cap_comp_tc_INTC_SET_EN = cap_comp_tc__INTC_MASK;
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 13
 
 
- 383              		.size	cap_comp_tc_ClearPending, .-cap_comp_tc_ClearPending
- 384              		.text
- 385              	.Letext0:
- 386              		.file 2 "Generated_Source\\PSoC5/cytypes.h"
- 387              		.section	.debug_info,"",%progbits
- 388              	.Ldebug_info0:
- 389 0000 CE020000 		.4byte	0x2ce
- 390 0004 0400     		.2byte	0x4
- 391 0006 00000000 		.4byte	.Ldebug_abbrev0
- 392 000a 04       		.byte	0x4
- 393 000b 01       		.uleb128 0x1
- 394 000c C9000000 		.4byte	.LASF34
- 395 0010 0C       		.byte	0xc
- 396 0011 B4020000 		.4byte	.LASF35
- 397 0015 06000000 		.4byte	.LASF36
- 398 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 399 001d 00000000 		.4byte	0
- 400 0021 00000000 		.4byte	.Ldebug_line0
- 401 0025 02       		.uleb128 0x2
- 402 0026 04       		.byte	0x4
- 403 0027 05       		.byte	0x5
- 404 0028 696E7400 		.ascii	"int\000"
- 405 002c 03       		.uleb128 0x3
- 406 002d 04       		.byte	0x4
- 407 002e 07       		.byte	0x7
- 408 002f E8010000 		.4byte	.LASF0
- 409 0033 03       		.uleb128 0x3
- 410 0034 08       		.byte	0x8
- 411 0035 05       		.byte	0x5
- 412 0036 7D020000 		.4byte	.LASF1
- 413 003a 03       		.uleb128 0x3
- 414 003b 08       		.byte	0x8
- 415 003c 04       		.byte	0x4
- 416 003d EC020000 		.4byte	.LASF2
- 417 0041 03       		.uleb128 0x3
- 418 0042 01       		.byte	0x1
- 419 0043 06       		.byte	0x6
- 420 0044 F8020000 		.4byte	.LASF3
- 421 0048 03       		.uleb128 0x3
- 422 0049 01       		.byte	0x1
- 423 004a 08       		.byte	0x8
- 424 004b BB000000 		.4byte	.LASF4
- 425 004f 03       		.uleb128 0x3
- 426 0050 02       		.byte	0x2
- 427 0051 05       		.byte	0x5
- 428 0052 D9020000 		.4byte	.LASF5
- 429 0056 03       		.uleb128 0x3
- 430 0057 02       		.byte	0x2
- 431 0058 07       		.byte	0x7
- 432 0059 7A000000 		.4byte	.LASF6
- 433 005d 03       		.uleb128 0x3
- 434 005e 04       		.byte	0x4
- 435 005f 05       		.byte	0x5
- 436 0060 E3020000 		.4byte	.LASF7
- 437 0064 03       		.uleb128 0x3
- 438 0065 04       		.byte	0x4
- 439 0066 07       		.byte	0x7
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 16
+ 274              		.loc 1 411 0
+ 275 0000 1022     		movs	r2, #16
+ 276 0002 014B     		ldr	r3, .L24
+ 277 0004 1A60     		str	r2, [r3]
+ 278 0006 7047     		bx	lr
+ 279              	.L25:
+ 280              		.align	2
+ 281              	.L24:
+ 282 0008 00E100E0 		.word	-536813312
+ 283              		.cfi_endproc
+ 284              	.LFE72:
+ 285              		.size	cap_comp_tc_Enable, .-cap_comp_tc_Enable
+ 286              		.section	.text.cap_comp_tc_GetState,"ax",%progbits
+ 287              		.align	2
+ 288              		.global	cap_comp_tc_GetState
+ 289              		.thumb
+ 290              		.thumb_func
+ 291              		.type	cap_comp_tc_GetState, %function
+ 292              	cap_comp_tc_GetState:
+ 293              	.LFB73:
+ 412:Generated_Source\PSoC5/cap_comp_tc.c **** }
+ 413:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 414:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 415:Generated_Source\PSoC5/cap_comp_tc.c **** /*******************************************************************************
+ 416:Generated_Source\PSoC5/cap_comp_tc.c **** * Function Name: cap_comp_tc_GetState
+ 417:Generated_Source\PSoC5/cap_comp_tc.c **** ********************************************************************************
+ 418:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 419:Generated_Source\PSoC5/cap_comp_tc.c **** * Summary:
+ 420:Generated_Source\PSoC5/cap_comp_tc.c **** *   Gets the state (enabled, disabled) of the Interrupt.
+ 421:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 422:Generated_Source\PSoC5/cap_comp_tc.c **** * Parameters:
+ 423:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
+ 424:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 425:Generated_Source\PSoC5/cap_comp_tc.c **** * Return:
+ 426:Generated_Source\PSoC5/cap_comp_tc.c **** *   1 if enabled, 0 if disabled.
+ 427:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 428:Generated_Source\PSoC5/cap_comp_tc.c **** *******************************************************************************/
+ 429:Generated_Source\PSoC5/cap_comp_tc.c **** uint8 cap_comp_tc_GetState(void)
+ 430:Generated_Source\PSoC5/cap_comp_tc.c **** {
+ 294              		.loc 1 430 0
+ 295              		.cfi_startproc
+ 296              		@ args = 0, pretend = 0, frame = 0
+ 297              		@ frame_needed = 0, uses_anonymous_args = 0
+ 298              		@ link register save eliminated.
+ 431:Generated_Source\PSoC5/cap_comp_tc.c ****     /* Get the state of the general interrupt. */
+ 432:Generated_Source\PSoC5/cap_comp_tc.c ****     return ((*cap_comp_tc_INTC_SET_EN & (uint32)cap_comp_tc__INTC_MASK) != 0u) ? 1u:0u;
+ 299              		.loc 1 432 0
+ 300 0000 044B     		ldr	r3, .L29
+ 301 0002 1B68     		ldr	r3, [r3]
+ 302 0004 13F0100F 		tst	r3, #16
+ 303 0008 01D0     		beq	.L28
+ 304 000a 0120     		movs	r0, #1
+ 305 000c 7047     		bx	lr
+ 306              	.L28:
+ 307 000e 0020     		movs	r0, #0
+ 433:Generated_Source\PSoC5/cap_comp_tc.c **** }
+ 308              		.loc 1 433 0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 14
 
 
- 440 0067 5C010000 		.4byte	.LASF8
- 441 006b 03       		.uleb128 0x3
- 442 006c 08       		.byte	0x8
- 443 006d 07       		.byte	0x7
- 444 006e FD010000 		.4byte	.LASF9
- 445 0072 03       		.uleb128 0x3
- 446 0073 04       		.byte	0x4
- 447 0074 07       		.byte	0x7
- 448 0075 74020000 		.4byte	.LASF10
- 449 0079 03       		.uleb128 0x3
- 450 007a 01       		.byte	0x1
- 451 007b 08       		.byte	0x8
- 452 007c 8B020000 		.4byte	.LASF11
- 453 0080 04       		.uleb128 0x4
- 454 0081 04       		.byte	0x4
- 455 0082 86000000 		.4byte	0x86
- 456 0086 05       		.uleb128 0x5
- 457 0087 06       		.uleb128 0x6
- 458 0088 84010000 		.4byte	.LASF12
- 459 008c 02       		.byte	0x2
- 460 008d E401     		.2byte	0x1e4
- 461 008f 48000000 		.4byte	0x48
- 462 0093 06       		.uleb128 0x6
- 463 0094 CB010000 		.4byte	.LASF13
- 464 0098 02       		.byte	0x2
- 465 0099 E601     		.2byte	0x1e6
- 466 009b 64000000 		.4byte	0x64
- 467 009f 03       		.uleb128 0x3
- 468 00a0 04       		.byte	0x4
- 469 00a1 04       		.byte	0x4
- 470 00a2 9F000000 		.4byte	.LASF14
- 471 00a6 03       		.uleb128 0x3
- 472 00a7 08       		.byte	0x8
- 473 00a8 04       		.byte	0x4
- 474 00a9 AB010000 		.4byte	.LASF15
- 475 00ad 06       		.uleb128 0x6
- 476 00ae 57010000 		.4byte	.LASF16
- 477 00b2 02       		.byte	0x2
- 478 00b3 8E02     		.2byte	0x28e
- 479 00b5 B9000000 		.4byte	0xb9
- 480 00b9 07       		.uleb128 0x7
- 481 00ba 87000000 		.4byte	0x87
- 482 00be 06       		.uleb128 0x6
- 483 00bf 00000000 		.4byte	.LASF17
- 484 00c3 02       		.byte	0x2
- 485 00c4 9002     		.2byte	0x290
- 486 00c6 CA000000 		.4byte	0xca
- 487 00ca 07       		.uleb128 0x7
- 488 00cb 93000000 		.4byte	0x93
- 489 00cf 06       		.uleb128 0x6
- 490 00d0 27020000 		.4byte	.LASF18
- 491 00d4 02       		.byte	0x2
- 492 00d5 A002     		.2byte	0x2a0
- 493 00d7 80000000 		.4byte	0x80
- 494 00db 08       		.uleb128 0x8
- 495 00dc A5000000 		.4byte	.LASF26
- 496 00e0 01       		.byte	0x1
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 17
+ 309 0010 7047     		bx	lr
+ 310              	.L30:
+ 311 0012 00BF     		.align	2
+ 312              	.L29:
+ 313 0014 00E100E0 		.word	-536813312
+ 314              		.cfi_endproc
+ 315              	.LFE73:
+ 316              		.size	cap_comp_tc_GetState, .-cap_comp_tc_GetState
+ 317              		.section	.text.cap_comp_tc_Disable,"ax",%progbits
+ 318              		.align	2
+ 319              		.global	cap_comp_tc_Disable
+ 320              		.thumb
+ 321              		.thumb_func
+ 322              		.type	cap_comp_tc_Disable, %function
+ 323              	cap_comp_tc_Disable:
+ 324              	.LFB74:
+ 434:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 435:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 436:Generated_Source\PSoC5/cap_comp_tc.c **** /*******************************************************************************
+ 437:Generated_Source\PSoC5/cap_comp_tc.c **** * Function Name: cap_comp_tc_Disable
+ 438:Generated_Source\PSoC5/cap_comp_tc.c **** ********************************************************************************
+ 439:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 440:Generated_Source\PSoC5/cap_comp_tc.c **** * Summary:
+ 441:Generated_Source\PSoC5/cap_comp_tc.c **** *   Disables the Interrupt in the interrupt controller.
+ 442:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 443:Generated_Source\PSoC5/cap_comp_tc.c **** * Parameters:
+ 444:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
+ 445:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 446:Generated_Source\PSoC5/cap_comp_tc.c **** * Return:
+ 447:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
+ 448:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 449:Generated_Source\PSoC5/cap_comp_tc.c **** *******************************************************************************/
+ 450:Generated_Source\PSoC5/cap_comp_tc.c **** void cap_comp_tc_Disable(void)
+ 451:Generated_Source\PSoC5/cap_comp_tc.c **** {
+ 325              		.loc 1 451 0
+ 326              		.cfi_startproc
+ 327              		@ args = 0, pretend = 0, frame = 0
+ 328              		@ frame_needed = 0, uses_anonymous_args = 0
+ 329              		@ link register save eliminated.
+ 452:Generated_Source\PSoC5/cap_comp_tc.c ****     /* Disable the general interrupt. */
+ 453:Generated_Source\PSoC5/cap_comp_tc.c ****     *cap_comp_tc_INTC_CLR_EN = cap_comp_tc__INTC_MASK;
+ 330              		.loc 1 453 0
+ 331 0000 1022     		movs	r2, #16
+ 332 0002 014B     		ldr	r3, .L32
+ 333 0004 1A60     		str	r2, [r3]
+ 334 0006 7047     		bx	lr
+ 335              	.L33:
+ 336              		.align	2
+ 337              	.L32:
+ 338 0008 80E100E0 		.word	-536813184
+ 339              		.cfi_endproc
+ 340              	.LFE74:
+ 341              		.size	cap_comp_tc_Disable, .-cap_comp_tc_Disable
+ 342              		.section	.text.cap_comp_tc_Start,"ax",%progbits
+ 343              		.align	2
+ 344              		.global	cap_comp_tc_Start
+ 345              		.thumb
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 15
 
 
- 497 00e1 A0       		.byte	0xa0
- 498 00e2 00000000 		.4byte	.LFB3
- 499 00e6 02000000 		.4byte	.LFE3-.LFB3
- 500 00ea 01       		.uleb128 0x1
- 501 00eb 9C       		.byte	0x9c
- 502 00ec 09       		.uleb128 0x9
- 503 00ed 6E010000 		.4byte	.LASF20
- 504 00f1 01       		.byte	0x1
- 505 00f2 C8       		.byte	0xc8
- 506 00f3 00000000 		.4byte	.LFB4
- 507 00f7 0C000000 		.4byte	.LFE4-.LFB4
- 508 00fb 01       		.uleb128 0x1
- 509 00fc 9C       		.byte	0x9c
- 510 00fd 1C010000 		.4byte	0x11c
- 511 0101 0A       		.uleb128 0xa
- 512 0102 F5010000 		.4byte	.LASF22
- 513 0106 01       		.byte	0x1
- 514 0107 C8       		.byte	0xc8
- 515 0108 CF000000 		.4byte	0xcf
- 516 010c 01       		.uleb128 0x1
- 517 010d 50       		.byte	0x50
- 518 010e 0B       		.uleb128 0xb
- 519 010f 90020000 		.4byte	.LASF19
- 520 0113 01       		.byte	0x1
- 521 0114 CA       		.byte	0xca
- 522 0115 1C010000 		.4byte	0x11c
- 523 0119 01       		.uleb128 0x1
- 524 011a 53       		.byte	0x53
- 525 011b 00       		.byte	0
- 526 011c 04       		.uleb128 0x4
- 527 011d 04       		.byte	0x4
- 528 011e CF000000 		.4byte	0xcf
- 529 0122 0C       		.uleb128 0xc
- 530 0123 D2010000 		.4byte	.LASF24
- 531 0127 01       		.byte	0x1
- 532 0128 E0       		.byte	0xe0
- 533 0129 CF000000 		.4byte	0xcf
- 534 012d 00000000 		.4byte	.LFB5
- 535 0131 0C000000 		.4byte	.LFE5-.LFB5
- 536 0135 01       		.uleb128 0x1
- 537 0136 9C       		.byte	0x9c
- 538 0137 49010000 		.4byte	0x149
- 539 013b 0B       		.uleb128 0xb
- 540 013c 90020000 		.4byte	.LASF19
- 541 0140 01       		.byte	0x1
- 542 0141 E2       		.byte	0xe2
- 543 0142 1C010000 		.4byte	0x11c
- 544 0146 01       		.uleb128 0x1
- 545 0147 53       		.byte	0x53
- 546 0148 00       		.byte	0
- 547 0149 0D       		.uleb128 0xd
- 548 014a 48020000 		.4byte	.LASF21
- 549 014e 01       		.byte	0x1
- 550 014f 0201     		.2byte	0x102
- 551 0151 00000000 		.4byte	.LFB6
- 552 0155 10000000 		.4byte	.LFE6-.LFB6
- 553 0159 01       		.uleb128 0x1
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 18
+ 346              		.thumb_func
+ 347              		.type	cap_comp_tc_Start, %function
+ 348              	cap_comp_tc_Start:
+ 349              	.LFB64:
+ 131:Generated_Source\PSoC5/cap_comp_tc.c ****     /* For all we know the interrupt is active. */
+ 350              		.loc 1 131 0
+ 351              		.cfi_startproc
+ 352              		@ args = 0, pretend = 0, frame = 0
+ 353              		@ frame_needed = 0, uses_anonymous_args = 0
+ 354 0000 08B5     		push	{r3, lr}
+ 355              		.cfi_def_cfa_offset 8
+ 356              		.cfi_offset 3, -8
+ 357              		.cfi_offset 14, -4
+ 133:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 358              		.loc 1 133 0
+ 359 0002 FFF7FEFF 		bl	cap_comp_tc_Disable
+ 360              	.LVL13:
+ 136:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 361              		.loc 1 136 0
+ 362 0006 0448     		ldr	r0, .L36
+ 363 0008 FFF7FEFF 		bl	cap_comp_tc_SetVector
+ 364              	.LVL14:
+ 139:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 365              		.loc 1 139 0
+ 366 000c 0420     		movs	r0, #4
+ 367 000e FFF7FEFF 		bl	cap_comp_tc_SetPriority
+ 368              	.LVL15:
+ 142:Generated_Source\PSoC5/cap_comp_tc.c **** }
+ 369              		.loc 1 142 0
+ 370 0012 FFF7FEFF 		bl	cap_comp_tc_Enable
+ 371              	.LVL16:
+ 372 0016 08BD     		pop	{r3, pc}
+ 373              	.L37:
+ 374              		.align	2
+ 375              	.L36:
+ 376 0018 00000000 		.word	cap_comp_tc_Interrupt
+ 377              		.cfi_endproc
+ 378              	.LFE64:
+ 379              		.size	cap_comp_tc_Start, .-cap_comp_tc_Start
+ 380              		.section	.text.cap_comp_tc_StartEx,"ax",%progbits
+ 381              		.align	2
+ 382              		.global	cap_comp_tc_StartEx
+ 383              		.thumb
+ 384              		.thumb_func
+ 385              		.type	cap_comp_tc_StartEx, %function
+ 386              	cap_comp_tc_StartEx:
+ 387              	.LFB65:
+ 174:Generated_Source\PSoC5/cap_comp_tc.c ****     /* For all we know the interrupt is active. */
+ 388              		.loc 1 174 0
+ 389              		.cfi_startproc
+ 390              		@ args = 0, pretend = 0, frame = 0
+ 391              		@ frame_needed = 0, uses_anonymous_args = 0
+ 392              	.LVL17:
+ 393 0000 10B5     		push	{r4, lr}
+ 394              		.cfi_def_cfa_offset 8
+ 395              		.cfi_offset 4, -8
+ 396              		.cfi_offset 14, -4
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 16
 
 
- 554 015a 9C       		.byte	0x9c
- 555 015b 70010000 		.4byte	0x170
- 556 015f 0E       		.uleb128 0xe
- 557 0160 A2010000 		.4byte	.LASF23
- 558 0164 01       		.byte	0x1
- 559 0165 0201     		.2byte	0x102
- 560 0167 87000000 		.4byte	0x87
- 561 016b 00000000 		.4byte	.LLST0
- 562 016f 00       		.byte	0
- 563 0170 0F       		.uleb128 0xf
- 564 0171 8A010000 		.4byte	.LASF25
- 565 0175 01       		.byte	0x1
- 566 0176 1801     		.2byte	0x118
- 567 0178 87000000 		.4byte	0x87
- 568 017c 00000000 		.4byte	.LFB7
- 569 0180 0C000000 		.4byte	.LFE7-.LFB7
- 570 0184 01       		.uleb128 0x1
- 571 0185 9C       		.byte	0x9c
- 572 0186 9B010000 		.4byte	0x19b
- 573 018a 10       		.uleb128 0x10
- 574 018b A2010000 		.4byte	.LASF23
- 575 018f 01       		.byte	0x1
- 576 0190 1A01     		.2byte	0x11a
- 577 0192 87000000 		.4byte	0x87
- 578 0196 21000000 		.4byte	.LLST1
- 579 019a 00       		.byte	0
- 580 019b 11       		.uleb128 0x11
- 581 019c 14020000 		.4byte	.LASF27
- 582 01a0 01       		.byte	0x1
- 583 01a1 3301     		.2byte	0x133
- 584 01a3 00000000 		.4byte	.LFB8
- 585 01a7 0C000000 		.4byte	.LFE8-.LFB8
- 586 01ab 01       		.uleb128 0x1
- 587 01ac 9C       		.byte	0x9c
- 588 01ad 12       		.uleb128 0x12
- 589 01ae 9F020000 		.4byte	.LASF37
- 590 01b2 01       		.byte	0x1
- 591 01b3 4801     		.2byte	0x148
- 592 01b5 87000000 		.4byte	0x87
- 593 01b9 00000000 		.4byte	.LFB9
- 594 01bd 18000000 		.4byte	.LFE9-.LFB9
- 595 01c1 01       		.uleb128 0x1
- 596 01c2 9C       		.byte	0x9c
- 597 01c3 11       		.uleb128 0x11
- 598 01c4 60020000 		.4byte	.LASF28
- 599 01c8 01       		.byte	0x1
- 600 01c9 5D01     		.2byte	0x15d
- 601 01cb 00000000 		.4byte	.LFB10
- 602 01cf 0C000000 		.4byte	.LFE10-.LFB10
- 603 01d3 01       		.uleb128 0x1
- 604 01d4 9C       		.byte	0x9c
- 605 01d5 09       		.uleb128 0x9
- 606 01d6 8D000000 		.4byte	.LASF29
- 607 01da 01       		.byte	0x1
- 608 01db 3D       		.byte	0x3d
- 609 01dc 00000000 		.4byte	.LFB0
- 610 01e0 1C000000 		.4byte	.LFE0-.LFB0
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 19
+ 397 0002 0446     		mov	r4, r0
+ 176:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 398              		.loc 1 176 0
+ 399 0004 FFF7FEFF 		bl	cap_comp_tc_Disable
+ 400              	.LVL18:
+ 179:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 401              		.loc 1 179 0
+ 402 0008 2046     		mov	r0, r4
+ 403 000a FFF7FEFF 		bl	cap_comp_tc_SetVector
+ 404              	.LVL19:
+ 182:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 405              		.loc 1 182 0
+ 406 000e 0420     		movs	r0, #4
+ 407 0010 FFF7FEFF 		bl	cap_comp_tc_SetPriority
+ 408              	.LVL20:
+ 185:Generated_Source\PSoC5/cap_comp_tc.c **** }
+ 409              		.loc 1 185 0
+ 410 0014 FFF7FEFF 		bl	cap_comp_tc_Enable
+ 411              	.LVL21:
+ 412 0018 10BD     		pop	{r4, pc}
+ 413              		.cfi_endproc
+ 414              	.LFE65:
+ 415              		.size	cap_comp_tc_StartEx, .-cap_comp_tc_StartEx
+ 416 001a 00BF     		.section	.text.cap_comp_tc_Stop,"ax",%progbits
+ 417              		.align	2
+ 418              		.global	cap_comp_tc_Stop
+ 419              		.thumb
+ 420              		.thumb_func
+ 421              		.type	cap_comp_tc_Stop, %function
+ 422              	cap_comp_tc_Stop:
+ 423              	.LFB66:
+ 204:Generated_Source\PSoC5/cap_comp_tc.c ****     /* Disable this interrupt. */
+ 424              		.loc 1 204 0
+ 425              		.cfi_startproc
+ 426              		@ args = 0, pretend = 0, frame = 0
+ 427              		@ frame_needed = 0, uses_anonymous_args = 0
+ 428 0000 08B5     		push	{r3, lr}
+ 429              		.cfi_def_cfa_offset 8
+ 430              		.cfi_offset 3, -8
+ 431              		.cfi_offset 14, -4
+ 206:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 432              		.loc 1 206 0
+ 433 0002 FFF7FEFF 		bl	cap_comp_tc_Disable
+ 434              	.LVL22:
+ 209:Generated_Source\PSoC5/cap_comp_tc.c **** }
+ 435              		.loc 1 209 0
+ 436 0006 0248     		ldr	r0, .L42
+ 437 0008 FFF7FEFF 		bl	cap_comp_tc_SetVector
+ 438              	.LVL23:
+ 439 000c 08BD     		pop	{r3, pc}
+ 440              	.L43:
+ 441 000e 00BF     		.align	2
+ 442              	.L42:
+ 443 0010 00000000 		.word	IntDefaultHandler
+ 444              		.cfi_endproc
+ 445              	.LFE66:
+ 446              		.size	cap_comp_tc_Stop, .-cap_comp_tc_Stop
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 17
 
 
- 611 01e4 01       		.uleb128 0x1
- 612 01e5 9C       		.byte	0x9c
- 613 01e6 27020000 		.4byte	0x227
- 614 01ea 13       		.uleb128 0x13
- 615 01eb 06000000 		.4byte	.LVL7
- 616 01ef C3010000 		.4byte	0x1c3
- 617 01f3 14       		.uleb128 0x14
- 618 01f4 0C000000 		.4byte	.LVL8
- 619 01f8 EC000000 		.4byte	0xec
- 620 01fc 0A020000 		.4byte	0x20a
- 621 0200 15       		.uleb128 0x15
- 622 0201 01       		.uleb128 0x1
- 623 0202 50       		.byte	0x50
- 624 0203 05       		.uleb128 0x5
- 625 0204 03       		.byte	0x3
- 626 0205 00000000 		.4byte	cap_comp_tc_Interrupt
- 627 0209 00       		.byte	0
- 628 020a 14       		.uleb128 0x14
- 629 020b 12000000 		.4byte	.LVL9
- 630 020f 49010000 		.4byte	0x149
- 631 0213 1D020000 		.4byte	0x21d
- 632 0217 15       		.uleb128 0x15
- 633 0218 01       		.uleb128 0x1
- 634 0219 50       		.byte	0x50
- 635 021a 01       		.uleb128 0x1
- 636 021b 37       		.byte	0x37
- 637 021c 00       		.byte	0
- 638 021d 13       		.uleb128 0x13
- 639 021e 16000000 		.4byte	.LVL10
- 640 0222 9B010000 		.4byte	0x19b
- 641 0226 00       		.byte	0
- 642 0227 09       		.uleb128 0x9
- 643 0228 34020000 		.4byte	.LASF30
- 644 022c 01       		.byte	0x1
- 645 022d 68       		.byte	0x68
- 646 022e 00000000 		.4byte	.LFB1
- 647 0232 1A000000 		.4byte	.LFE1-.LFB1
- 648 0236 01       		.uleb128 0x1
- 649 0237 9C       		.byte	0x9c
- 650 0238 85020000 		.4byte	0x285
- 651 023c 16       		.uleb128 0x16
- 652 023d F5010000 		.4byte	.LASF22
- 653 0241 01       		.byte	0x1
- 654 0242 68       		.byte	0x68
- 655 0243 CF000000 		.4byte	0xcf
- 656 0247 38000000 		.4byte	.LLST2
- 657 024b 13       		.uleb128 0x13
- 658 024c 08000000 		.4byte	.LVL12
- 659 0250 C3010000 		.4byte	0x1c3
- 660 0254 14       		.uleb128 0x14
- 661 0255 0E000000 		.4byte	.LVL13
- 662 0259 EC000000 		.4byte	0xec
- 663 025d 68020000 		.4byte	0x268
- 664 0261 15       		.uleb128 0x15
- 665 0262 01       		.uleb128 0x1
- 666 0263 50       		.byte	0x50
- 667 0264 02       		.uleb128 0x2
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 20
+ 447              		.section	.text.cap_comp_tc_SetPending,"ax",%progbits
+ 448              		.align	2
+ 449              		.global	cap_comp_tc_SetPending
+ 450              		.thumb
+ 451              		.thumb_func
+ 452              		.type	cap_comp_tc_SetPending, %function
+ 453              	cap_comp_tc_SetPending:
+ 454              	.LFB75:
+ 454:Generated_Source\PSoC5/cap_comp_tc.c **** }
+ 455:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 456:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 457:Generated_Source\PSoC5/cap_comp_tc.c **** /*******************************************************************************
+ 458:Generated_Source\PSoC5/cap_comp_tc.c **** * Function Name: cap_comp_tc_SetPending
+ 459:Generated_Source\PSoC5/cap_comp_tc.c **** ********************************************************************************
+ 460:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 461:Generated_Source\PSoC5/cap_comp_tc.c **** * Summary:
+ 462:Generated_Source\PSoC5/cap_comp_tc.c **** *   Causes the Interrupt to enter the pending state, a software method of
+ 463:Generated_Source\PSoC5/cap_comp_tc.c **** *   generating the interrupt.
+ 464:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 465:Generated_Source\PSoC5/cap_comp_tc.c **** * Parameters:
+ 466:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
+ 467:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 468:Generated_Source\PSoC5/cap_comp_tc.c **** * Return:
+ 469:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
+ 470:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 471:Generated_Source\PSoC5/cap_comp_tc.c **** * Side Effects:
+ 472:Generated_Source\PSoC5/cap_comp_tc.c **** *   If interrupts are enabled and the interrupt is set up properly, the ISR is
+ 473:Generated_Source\PSoC5/cap_comp_tc.c **** *   entered (depending on the priority of this interrupt and other pending 
+ 474:Generated_Source\PSoC5/cap_comp_tc.c **** *   interrupts).
+ 475:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 476:Generated_Source\PSoC5/cap_comp_tc.c **** *******************************************************************************/
+ 477:Generated_Source\PSoC5/cap_comp_tc.c **** void cap_comp_tc_SetPending(void)
+ 478:Generated_Source\PSoC5/cap_comp_tc.c **** {
+ 455              		.loc 1 478 0
+ 456              		.cfi_startproc
+ 457              		@ args = 0, pretend = 0, frame = 0
+ 458              		@ frame_needed = 0, uses_anonymous_args = 0
+ 459              		@ link register save eliminated.
+ 479:Generated_Source\PSoC5/cap_comp_tc.c ****     *cap_comp_tc_INTC_SET_PD = cap_comp_tc__INTC_MASK;
+ 460              		.loc 1 479 0
+ 461 0000 1022     		movs	r2, #16
+ 462 0002 014B     		ldr	r3, .L45
+ 463 0004 1A60     		str	r2, [r3]
+ 464 0006 7047     		bx	lr
+ 465              	.L46:
+ 466              		.align	2
+ 467              	.L45:
+ 468 0008 00E200E0 		.word	-536813056
+ 469              		.cfi_endproc
+ 470              	.LFE75:
+ 471              		.size	cap_comp_tc_SetPending, .-cap_comp_tc_SetPending
+ 472              		.section	.text.cap_comp_tc_ClearPending,"ax",%progbits
+ 473              		.align	2
+ 474              		.global	cap_comp_tc_ClearPending
+ 475              		.thumb
+ 476              		.thumb_func
+ 477              		.type	cap_comp_tc_ClearPending, %function
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 18
 
 
- 668 0265 74       		.byte	0x74
- 669 0266 00       		.sleb128 0
- 670 0267 00       		.byte	0
- 671 0268 14       		.uleb128 0x14
- 672 0269 14000000 		.4byte	.LVL14
- 673 026d 49010000 		.4byte	0x149
- 674 0271 7B020000 		.4byte	0x27b
- 675 0275 15       		.uleb128 0x15
- 676 0276 01       		.uleb128 0x1
- 677 0277 50       		.byte	0x50
- 678 0278 01       		.uleb128 0x1
- 679 0279 37       		.byte	0x37
- 680 027a 00       		.byte	0
- 681 027b 13       		.uleb128 0x13
- 682 027c 18000000 		.4byte	.LVL15
- 683 0280 9B010000 		.4byte	0x19b
- 684 0284 00       		.byte	0
- 685 0285 09       		.uleb128 0x9
- 686 0286 52000000 		.4byte	.LASF31
- 687 028a 01       		.byte	0x1
- 688 028b 86       		.byte	0x86
- 689 028c 00000000 		.4byte	.LFB2
- 690 0290 14000000 		.4byte	.LFE2-.LFB2
- 691 0294 01       		.uleb128 0x1
- 692 0295 9C       		.byte	0x9c
- 693 0296 AD020000 		.4byte	0x2ad
- 694 029a 13       		.uleb128 0x13
- 695 029b 06000000 		.4byte	.LVL16
- 696 029f C3010000 		.4byte	0x1c3
- 697 02a3 13       		.uleb128 0x13
- 698 02a4 0C000000 		.4byte	.LVL17
- 699 02a8 EC000000 		.4byte	0xec
- 700 02ac 00       		.byte	0
- 701 02ad 11       		.uleb128 0x11
- 702 02ae 63000000 		.4byte	.LASF32
- 703 02b2 01       		.byte	0x1
- 704 02b3 7801     		.2byte	0x178
- 705 02b5 00000000 		.4byte	.LFB11
- 706 02b9 0C000000 		.4byte	.LFE11-.LFB11
- 707 02bd 01       		.uleb128 0x1
- 708 02be 9C       		.byte	0x9c
- 709 02bf 11       		.uleb128 0x11
- 710 02c0 B2010000 		.4byte	.LASF33
- 711 02c4 01       		.byte	0x1
- 712 02c5 9101     		.2byte	0x191
- 713 02c7 00000000 		.4byte	.LFB12
- 714 02cb 0C000000 		.4byte	.LFE12-.LFB12
- 715 02cf 01       		.uleb128 0x1
- 716 02d0 9C       		.byte	0x9c
- 717 02d1 00       		.byte	0
- 718              		.section	.debug_abbrev,"",%progbits
- 719              	.Ldebug_abbrev0:
- 720 0000 01       		.uleb128 0x1
- 721 0001 11       		.uleb128 0x11
- 722 0002 01       		.byte	0x1
- 723 0003 25       		.uleb128 0x25
- 724 0004 0E       		.uleb128 0xe
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 21
+ 478              	cap_comp_tc_ClearPending:
+ 479              	.LFB76:
+ 480:Generated_Source\PSoC5/cap_comp_tc.c **** }
+ 481:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 482:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 483:Generated_Source\PSoC5/cap_comp_tc.c **** /*******************************************************************************
+ 484:Generated_Source\PSoC5/cap_comp_tc.c **** * Function Name: cap_comp_tc_ClearPending
+ 485:Generated_Source\PSoC5/cap_comp_tc.c **** ********************************************************************************
+ 486:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 487:Generated_Source\PSoC5/cap_comp_tc.c **** * Summary:
+ 488:Generated_Source\PSoC5/cap_comp_tc.c **** *   Clears a pending interrupt in the interrupt controller.
+ 489:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 490:Generated_Source\PSoC5/cap_comp_tc.c **** *   Note Some interrupt sources are clear-on-read and require the block 
+ 491:Generated_Source\PSoC5/cap_comp_tc.c **** *   interrupt/status register to be read/cleared with the appropriate block API 
+ 492:Generated_Source\PSoC5/cap_comp_tc.c **** *   (GPIO, UART, and so on). Otherwise the ISR will continue to remain in 
+ 493:Generated_Source\PSoC5/cap_comp_tc.c **** *   pending state even though the interrupt itself is cleared using this API.
+ 494:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 495:Generated_Source\PSoC5/cap_comp_tc.c **** * Parameters:
+ 496:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
+ 497:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 498:Generated_Source\PSoC5/cap_comp_tc.c **** * Return:
+ 499:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
+ 500:Generated_Source\PSoC5/cap_comp_tc.c **** *
+ 501:Generated_Source\PSoC5/cap_comp_tc.c **** *******************************************************************************/
+ 502:Generated_Source\PSoC5/cap_comp_tc.c **** void cap_comp_tc_ClearPending(void)
+ 503:Generated_Source\PSoC5/cap_comp_tc.c **** {
+ 480              		.loc 1 503 0
+ 481              		.cfi_startproc
+ 482              		@ args = 0, pretend = 0, frame = 0
+ 483              		@ frame_needed = 0, uses_anonymous_args = 0
+ 484              		@ link register save eliminated.
+ 504:Generated_Source\PSoC5/cap_comp_tc.c ****     *cap_comp_tc_INTC_CLR_PD = cap_comp_tc__INTC_MASK;
+ 485              		.loc 1 504 0
+ 486 0000 1022     		movs	r2, #16
+ 487 0002 014B     		ldr	r3, .L48
+ 488 0004 1A60     		str	r2, [r3]
+ 489 0006 7047     		bx	lr
+ 490              	.L49:
+ 491              		.align	2
+ 492              	.L48:
+ 493 0008 80E200E0 		.word	-536812928
+ 494              		.cfi_endproc
+ 495              	.LFE76:
+ 496              		.size	cap_comp_tc_ClearPending, .-cap_comp_tc_ClearPending
+ 497              		.section	.text.cap_comp_tc_Interrupt,"ax",%progbits
+ 498              		.align	2
+ 499              		.global	cap_comp_tc_Interrupt
+ 500              		.thumb
+ 501              		.thumb_func
+ 502              		.type	cap_comp_tc_Interrupt, %function
+ 503              	cap_comp_tc_Interrupt:
+ 504              	.LFB67:
+ 230:Generated_Source\PSoC5/cap_comp_tc.c ****     #ifdef cap_comp_tc_INTERRUPT_INTERRUPT_CALLBACK
+ 505              		.loc 1 230 0
+ 506              		.cfi_startproc
+ 507              		@ args = 0, pretend = 0, frame = 0
+ 508              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 19
 
 
- 725 0005 13       		.uleb128 0x13
- 726 0006 0B       		.uleb128 0xb
- 727 0007 03       		.uleb128 0x3
- 728 0008 0E       		.uleb128 0xe
- 729 0009 1B       		.uleb128 0x1b
- 730 000a 0E       		.uleb128 0xe
- 731 000b 55       		.uleb128 0x55
- 732 000c 17       		.uleb128 0x17
- 733 000d 11       		.uleb128 0x11
- 734 000e 01       		.uleb128 0x1
- 735 000f 10       		.uleb128 0x10
- 736 0010 17       		.uleb128 0x17
- 737 0011 00       		.byte	0
- 738 0012 00       		.byte	0
- 739 0013 02       		.uleb128 0x2
- 740 0014 24       		.uleb128 0x24
- 741 0015 00       		.byte	0
- 742 0016 0B       		.uleb128 0xb
- 743 0017 0B       		.uleb128 0xb
- 744 0018 3E       		.uleb128 0x3e
- 745 0019 0B       		.uleb128 0xb
- 746 001a 03       		.uleb128 0x3
- 747 001b 08       		.uleb128 0x8
- 748 001c 00       		.byte	0
- 749 001d 00       		.byte	0
- 750 001e 03       		.uleb128 0x3
- 751 001f 24       		.uleb128 0x24
- 752 0020 00       		.byte	0
- 753 0021 0B       		.uleb128 0xb
- 754 0022 0B       		.uleb128 0xb
- 755 0023 3E       		.uleb128 0x3e
- 756 0024 0B       		.uleb128 0xb
- 757 0025 03       		.uleb128 0x3
- 758 0026 0E       		.uleb128 0xe
- 759 0027 00       		.byte	0
- 760 0028 00       		.byte	0
- 761 0029 04       		.uleb128 0x4
- 762 002a 0F       		.uleb128 0xf
- 763 002b 00       		.byte	0
- 764 002c 0B       		.uleb128 0xb
- 765 002d 0B       		.uleb128 0xb
- 766 002e 49       		.uleb128 0x49
- 767 002f 13       		.uleb128 0x13
- 768 0030 00       		.byte	0
- 769 0031 00       		.byte	0
- 770 0032 05       		.uleb128 0x5
- 771 0033 15       		.uleb128 0x15
- 772 0034 00       		.byte	0
- 773 0035 27       		.uleb128 0x27
- 774 0036 19       		.uleb128 0x19
- 775 0037 00       		.byte	0
- 776 0038 00       		.byte	0
- 777 0039 06       		.uleb128 0x6
- 778 003a 16       		.uleb128 0x16
- 779 003b 00       		.byte	0
- 780 003c 03       		.uleb128 0x3
- 781 003d 0E       		.uleb128 0xe
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 22
+ 509 0000 08B5     		push	{r3, lr}
+ 510              		.cfi_def_cfa_offset 8
+ 511              		.cfi_offset 3, -8
+ 512              		.cfi_offset 14, -4
+ 238:Generated_Source\PSoC5/cap_comp_tc.c ****     UpdateFrequencyFlag = 1;
+ 513              		.loc 1 238 0
+ 514 0002 FFF7FEFF 		bl	cap_comp_tc_ClearPending
+ 515              	.LVL24:
+ 239:Generated_Source\PSoC5/cap_comp_tc.c **** 
+ 516              		.loc 1 239 0
+ 517 0006 0122     		movs	r2, #1
+ 518 0008 014B     		ldr	r3, .L52
+ 519 000a 5A60     		str	r2, [r3, #4]
+ 520 000c 08BD     		pop	{r3, pc}
+ 521              	.L53:
+ 522 000e 00BF     		.align	2
+ 523              	.L52:
+ 524 0010 00000000 		.word	.LANCHOR1
+ 525              		.cfi_endproc
+ 526              	.LFE67:
+ 527              		.size	cap_comp_tc_Interrupt, .-cap_comp_tc_Interrupt
+ 528              		.comm	CurrentDelta,4,4
+ 529              		.global	PrevCapture
+ 530              		.global	UpdateFrequencyFlag
+ 531              		.global	FirstTimeFlag
+ 532              		.data
+ 533              		.align	2
+ 534              		.set	.LANCHOR1,. + 0
+ 535              		.type	PrevCapture, %object
+ 536              		.size	PrevCapture, 4
+ 537              	PrevCapture:
+ 538 0000 00000100 		.word	65536
+ 539              		.type	UpdateFrequencyFlag, %object
+ 540              		.size	UpdateFrequencyFlag, 4
+ 541              	UpdateFrequencyFlag:
+ 542 0004 01000000 		.word	1
+ 543              		.bss
+ 544              		.align	2
+ 545              		.set	.LANCHOR0,. + 0
+ 546              		.type	tmp, %object
+ 547              		.size	tmp, 4
+ 548              	tmp:
+ 549 0000 00000000 		.space	4
+ 550              		.type	FirstTimeFlag, %object
+ 551              		.size	FirstTimeFlag, 4
+ 552              	FirstTimeFlag:
+ 553 0004 00000000 		.space	4
+ 554              		.text
+ 555              	.Letext0:
+ 556              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 557              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 558              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 559              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 560              		.file 6 "./global.h"
+ 561              		.file 7 "Generated_Source\\PSoC5/Capture_high.h"
+ 562              		.file 8 "Generated_Source\\PSoC5/Capture_low.h"
+ 563              		.section	.debug_info,"",%progbits
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 20
 
 
- 782 003e 3A       		.uleb128 0x3a
- 783 003f 0B       		.uleb128 0xb
- 784 0040 3B       		.uleb128 0x3b
- 785 0041 05       		.uleb128 0x5
- 786 0042 49       		.uleb128 0x49
- 787 0043 13       		.uleb128 0x13
- 788 0044 00       		.byte	0
- 789 0045 00       		.byte	0
- 790 0046 07       		.uleb128 0x7
- 791 0047 35       		.uleb128 0x35
- 792 0048 00       		.byte	0
- 793 0049 49       		.uleb128 0x49
- 794 004a 13       		.uleb128 0x13
- 795 004b 00       		.byte	0
- 796 004c 00       		.byte	0
- 797 004d 08       		.uleb128 0x8
- 798 004e 2E       		.uleb128 0x2e
- 799 004f 00       		.byte	0
- 800 0050 3F       		.uleb128 0x3f
- 801 0051 19       		.uleb128 0x19
- 802 0052 03       		.uleb128 0x3
- 803 0053 0E       		.uleb128 0xe
- 804 0054 3A       		.uleb128 0x3a
- 805 0055 0B       		.uleb128 0xb
- 806 0056 3B       		.uleb128 0x3b
- 807 0057 0B       		.uleb128 0xb
- 808 0058 27       		.uleb128 0x27
- 809 0059 19       		.uleb128 0x19
- 810 005a 11       		.uleb128 0x11
- 811 005b 01       		.uleb128 0x1
- 812 005c 12       		.uleb128 0x12
- 813 005d 06       		.uleb128 0x6
- 814 005e 40       		.uleb128 0x40
- 815 005f 18       		.uleb128 0x18
- 816 0060 9742     		.uleb128 0x2117
- 817 0062 19       		.uleb128 0x19
- 818 0063 00       		.byte	0
- 819 0064 00       		.byte	0
- 820 0065 09       		.uleb128 0x9
- 821 0066 2E       		.uleb128 0x2e
- 822 0067 01       		.byte	0x1
- 823 0068 3F       		.uleb128 0x3f
- 824 0069 19       		.uleb128 0x19
- 825 006a 03       		.uleb128 0x3
- 826 006b 0E       		.uleb128 0xe
- 827 006c 3A       		.uleb128 0x3a
- 828 006d 0B       		.uleb128 0xb
- 829 006e 3B       		.uleb128 0x3b
- 830 006f 0B       		.uleb128 0xb
- 831 0070 27       		.uleb128 0x27
- 832 0071 19       		.uleb128 0x19
- 833 0072 11       		.uleb128 0x11
- 834 0073 01       		.uleb128 0x1
- 835 0074 12       		.uleb128 0x12
- 836 0075 06       		.uleb128 0x6
- 837 0076 40       		.uleb128 0x40
- 838 0077 18       		.uleb128 0x18
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 23
+ 564              	.Ldebug_info0:
+ 565 0000 E8030000 		.4byte	0x3e8
+ 566 0004 0400     		.2byte	0x4
+ 567 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 568 000a 04       		.byte	0x4
+ 569 000b 01       		.uleb128 0x1
+ 570 000c ED000000 		.4byte	.LASF50
+ 571 0010 0C       		.byte	0xc
+ 572 0011 B1030000 		.4byte	.LASF51
+ 573 0015 D8010000 		.4byte	.LASF52
+ 574 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 575 001d 00000000 		.4byte	0
+ 576 0021 00000000 		.4byte	.Ldebug_line0
+ 577 0025 02       		.uleb128 0x2
+ 578 0026 04       		.byte	0x4
+ 579 0027 05       		.byte	0x5
+ 580 0028 696E7400 		.ascii	"int\000"
+ 581 002c 03       		.uleb128 0x3
+ 582 002d 04       		.byte	0x4
+ 583 002e 07       		.byte	0x7
+ 584 002f 49020000 		.4byte	.LASF0
+ 585 0033 03       		.uleb128 0x3
+ 586 0034 08       		.byte	0x8
+ 587 0035 05       		.byte	0x5
+ 588 0036 F6020000 		.4byte	.LASF1
+ 589 003a 03       		.uleb128 0x3
+ 590 003b 08       		.byte	0x8
+ 591 003c 04       		.byte	0x4
+ 592 003d CD020000 		.4byte	.LASF2
+ 593 0041 03       		.uleb128 0x3
+ 594 0042 01       		.byte	0x1
+ 595 0043 06       		.byte	0x6
+ 596 0044 AC000000 		.4byte	.LASF3
+ 597 0048 03       		.uleb128 0x3
+ 598 0049 01       		.byte	0x1
+ 599 004a 08       		.byte	0x8
+ 600 004b DF000000 		.4byte	.LASF4
+ 601 004f 03       		.uleb128 0x3
+ 602 0050 02       		.byte	0x2
+ 603 0051 05       		.byte	0x5
+ 604 0052 5F030000 		.4byte	.LASF5
+ 605 0056 03       		.uleb128 0x3
+ 606 0057 02       		.byte	0x2
+ 607 0058 07       		.byte	0x7
+ 608 0059 50000000 		.4byte	.LASF6
+ 609 005d 04       		.uleb128 0x4
+ 610 005e 46000000 		.4byte	.LASF12
+ 611 0062 02       		.byte	0x2
+ 612 0063 3F       		.byte	0x3f
+ 613 0064 68000000 		.4byte	0x68
+ 614 0068 03       		.uleb128 0x3
+ 615 0069 04       		.byte	0x4
+ 616 006a 05       		.byte	0x5
+ 617 006b 6F030000 		.4byte	.LASF7
+ 618 006f 03       		.uleb128 0x3
+ 619 0070 04       		.byte	0x4
+ 620 0071 07       		.byte	0x7
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 21
 
 
- 839 0078 9742     		.uleb128 0x2117
- 840 007a 19       		.uleb128 0x19
- 841 007b 01       		.uleb128 0x1
- 842 007c 13       		.uleb128 0x13
- 843 007d 00       		.byte	0
- 844 007e 00       		.byte	0
- 845 007f 0A       		.uleb128 0xa
- 846 0080 05       		.uleb128 0x5
- 847 0081 00       		.byte	0
- 848 0082 03       		.uleb128 0x3
- 849 0083 0E       		.uleb128 0xe
- 850 0084 3A       		.uleb128 0x3a
- 851 0085 0B       		.uleb128 0xb
- 852 0086 3B       		.uleb128 0x3b
- 853 0087 0B       		.uleb128 0xb
- 854 0088 49       		.uleb128 0x49
- 855 0089 13       		.uleb128 0x13
- 856 008a 02       		.uleb128 0x2
- 857 008b 18       		.uleb128 0x18
- 858 008c 00       		.byte	0
- 859 008d 00       		.byte	0
- 860 008e 0B       		.uleb128 0xb
- 861 008f 34       		.uleb128 0x34
- 862 0090 00       		.byte	0
- 863 0091 03       		.uleb128 0x3
- 864 0092 0E       		.uleb128 0xe
- 865 0093 3A       		.uleb128 0x3a
- 866 0094 0B       		.uleb128 0xb
- 867 0095 3B       		.uleb128 0x3b
- 868 0096 0B       		.uleb128 0xb
- 869 0097 49       		.uleb128 0x49
- 870 0098 13       		.uleb128 0x13
- 871 0099 02       		.uleb128 0x2
- 872 009a 18       		.uleb128 0x18
- 873 009b 00       		.byte	0
- 874 009c 00       		.byte	0
- 875 009d 0C       		.uleb128 0xc
- 876 009e 2E       		.uleb128 0x2e
- 877 009f 01       		.byte	0x1
- 878 00a0 3F       		.uleb128 0x3f
- 879 00a1 19       		.uleb128 0x19
- 880 00a2 03       		.uleb128 0x3
- 881 00a3 0E       		.uleb128 0xe
- 882 00a4 3A       		.uleb128 0x3a
- 883 00a5 0B       		.uleb128 0xb
- 884 00a6 3B       		.uleb128 0x3b
- 885 00a7 0B       		.uleb128 0xb
- 886 00a8 27       		.uleb128 0x27
- 887 00a9 19       		.uleb128 0x19
- 888 00aa 49       		.uleb128 0x49
- 889 00ab 13       		.uleb128 0x13
- 890 00ac 11       		.uleb128 0x11
- 891 00ad 01       		.uleb128 0x1
- 892 00ae 12       		.uleb128 0x12
- 893 00af 06       		.uleb128 0x6
- 894 00b0 40       		.uleb128 0x40
- 895 00b1 18       		.uleb128 0x18
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 24
+ 621 0072 80010000 		.4byte	.LASF8
+ 622 0076 03       		.uleb128 0x3
+ 623 0077 08       		.byte	0x8
+ 624 0078 07       		.byte	0x7
+ 625 0079 5E020000 		.4byte	.LASF9
+ 626 007d 03       		.uleb128 0x3
+ 627 007e 04       		.byte	0x4
+ 628 007f 07       		.byte	0x7
+ 629 0080 ED020000 		.4byte	.LASF10
+ 630 0084 03       		.uleb128 0x3
+ 631 0085 01       		.byte	0x1
+ 632 0086 08       		.byte	0x8
+ 633 0087 25030000 		.4byte	.LASF11
+ 634 008b 05       		.uleb128 0x5
+ 635 008c 04       		.byte	0x4
+ 636 008d 91000000 		.4byte	0x91
+ 637 0091 06       		.uleb128 0x6
+ 638 0092 04       		.uleb128 0x4
+ 639 0093 8C000000 		.4byte	.LASF13
+ 640 0097 03       		.byte	0x3
+ 641 0098 2C       		.byte	0x2c
+ 642 0099 5D000000 		.4byte	0x5d
+ 643 009d 07       		.uleb128 0x7
+ 644 009e 69030000 		.4byte	.LASF14
+ 645 00a2 04       		.byte	0x4
+ 646 00a3 E401     		.2byte	0x1e4
+ 647 00a5 48000000 		.4byte	0x48
+ 648 00a9 07       		.uleb128 0x7
+ 649 00aa 42020000 		.4byte	.LASF15
+ 650 00ae 04       		.byte	0x4
+ 651 00af E601     		.2byte	0x1e6
+ 652 00b1 6F000000 		.4byte	0x6f
+ 653 00b5 07       		.uleb128 0x7
+ 654 00b6 92010000 		.4byte	.LASF16
+ 655 00ba 04       		.byte	0x4
+ 656 00bb E901     		.2byte	0x1e9
+ 657 00bd 68000000 		.4byte	0x68
+ 658 00c1 03       		.uleb128 0x3
+ 659 00c2 04       		.byte	0x4
+ 660 00c3 04       		.byte	0x4
+ 661 00c4 A6000000 		.4byte	.LASF17
+ 662 00c8 03       		.uleb128 0x3
+ 663 00c9 08       		.byte	0x8
+ 664 00ca 04       		.byte	0x4
+ 665 00cb 71000000 		.4byte	.LASF18
+ 666 00cf 07       		.uleb128 0x7
+ 667 00d0 7B010000 		.4byte	.LASF19
+ 668 00d4 04       		.byte	0x4
+ 669 00d5 8E02     		.2byte	0x28e
+ 670 00d7 DB000000 		.4byte	0xdb
+ 671 00db 08       		.uleb128 0x8
+ 672 00dc 9D000000 		.4byte	0x9d
+ 673 00e0 07       		.uleb128 0x7
+ 674 00e1 D2010000 		.4byte	.LASF20
+ 675 00e5 04       		.byte	0x4
+ 676 00e6 9002     		.2byte	0x290
+ 677 00e8 EC000000 		.4byte	0xec
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 22
 
 
- 896 00b2 9742     		.uleb128 0x2117
- 897 00b4 19       		.uleb128 0x19
- 898 00b5 01       		.uleb128 0x1
- 899 00b6 13       		.uleb128 0x13
- 900 00b7 00       		.byte	0
- 901 00b8 00       		.byte	0
- 902 00b9 0D       		.uleb128 0xd
- 903 00ba 2E       		.uleb128 0x2e
- 904 00bb 01       		.byte	0x1
- 905 00bc 3F       		.uleb128 0x3f
- 906 00bd 19       		.uleb128 0x19
- 907 00be 03       		.uleb128 0x3
- 908 00bf 0E       		.uleb128 0xe
- 909 00c0 3A       		.uleb128 0x3a
- 910 00c1 0B       		.uleb128 0xb
- 911 00c2 3B       		.uleb128 0x3b
- 912 00c3 05       		.uleb128 0x5
- 913 00c4 27       		.uleb128 0x27
- 914 00c5 19       		.uleb128 0x19
- 915 00c6 11       		.uleb128 0x11
- 916 00c7 01       		.uleb128 0x1
- 917 00c8 12       		.uleb128 0x12
- 918 00c9 06       		.uleb128 0x6
- 919 00ca 40       		.uleb128 0x40
- 920 00cb 18       		.uleb128 0x18
- 921 00cc 9742     		.uleb128 0x2117
- 922 00ce 19       		.uleb128 0x19
- 923 00cf 01       		.uleb128 0x1
- 924 00d0 13       		.uleb128 0x13
- 925 00d1 00       		.byte	0
- 926 00d2 00       		.byte	0
- 927 00d3 0E       		.uleb128 0xe
- 928 00d4 05       		.uleb128 0x5
- 929 00d5 00       		.byte	0
- 930 00d6 03       		.uleb128 0x3
- 931 00d7 0E       		.uleb128 0xe
- 932 00d8 3A       		.uleb128 0x3a
- 933 00d9 0B       		.uleb128 0xb
- 934 00da 3B       		.uleb128 0x3b
- 935 00db 05       		.uleb128 0x5
- 936 00dc 49       		.uleb128 0x49
- 937 00dd 13       		.uleb128 0x13
- 938 00de 02       		.uleb128 0x2
- 939 00df 17       		.uleb128 0x17
- 940 00e0 00       		.byte	0
- 941 00e1 00       		.byte	0
- 942 00e2 0F       		.uleb128 0xf
- 943 00e3 2E       		.uleb128 0x2e
- 944 00e4 01       		.byte	0x1
- 945 00e5 3F       		.uleb128 0x3f
- 946 00e6 19       		.uleb128 0x19
- 947 00e7 03       		.uleb128 0x3
- 948 00e8 0E       		.uleb128 0xe
- 949 00e9 3A       		.uleb128 0x3a
- 950 00ea 0B       		.uleb128 0xb
- 951 00eb 3B       		.uleb128 0x3b
- 952 00ec 05       		.uleb128 0x5
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 25
+ 678 00ec 08       		.uleb128 0x8
+ 679 00ed A9000000 		.4byte	0xa9
+ 680 00f1 07       		.uleb128 0x7
+ 681 00f2 A7020000 		.4byte	.LASF21
+ 682 00f6 04       		.byte	0x4
+ 683 00f7 A002     		.2byte	0x2a0
+ 684 00f9 8B000000 		.4byte	0x8b
+ 685 00fd 09       		.uleb128 0x9
+ 686 00fe 78000000 		.4byte	.LASF22
+ 687 0102 01       		.byte	0x1
+ 688 0103 36       		.byte	0x36
+ 689 0104 00000000 		.4byte	.LFB63
+ 690 0108 B8000000 		.4byte	.LFE63-.LFB63
+ 691 010c 01       		.uleb128 0x1
+ 692 010d 9C       		.byte	0x9c
+ 693 010e 34010000 		.4byte	0x134
+ 694 0112 0A       		.uleb128 0xa
+ 695 0113 B0010000 		.4byte	.LASF24
+ 696 0117 01       		.byte	0x1
+ 697 0118 54       		.byte	0x54
+ 698 0119 A9000000 		.4byte	0xa9
+ 699 011d 00000000 		.4byte	.LLST0
+ 700 0121 0B       		.uleb128 0xb
+ 701 0122 06000000 		.4byte	.LVL0
+ 702 0126 D5030000 		.4byte	0x3d5
+ 703 012a 0B       		.uleb128 0xb
+ 704 012b 10000000 		.4byte	.LVL1
+ 705 012f E0030000 		.4byte	0x3e0
+ 706 0133 00       		.byte	0
+ 707 0134 0C       		.uleb128 0xc
+ 708 0135 85030000 		.4byte	.LASF23
+ 709 0139 01       		.byte	0x1
+ 710 013a 2D01     		.2byte	0x12d
+ 711 013c 00000000 		.4byte	.LFB68
+ 712 0140 0C000000 		.4byte	.LFE68-.LFB68
+ 713 0144 01       		.uleb128 0x1
+ 714 0145 9C       		.byte	0x9c
+ 715 0146 67010000 		.4byte	0x167
+ 716 014a 0D       		.uleb128 0xd
+ 717 014b 56020000 		.4byte	.LASF27
+ 718 014f 01       		.byte	0x1
+ 719 0150 2D01     		.2byte	0x12d
+ 720 0152 F1000000 		.4byte	0xf1
+ 721 0156 01       		.uleb128 0x1
+ 722 0157 50       		.byte	0x50
+ 723 0158 0E       		.uleb128 0xe
+ 724 0159 2A030000 		.4byte	.LASF25
+ 725 015d 01       		.byte	0x1
+ 726 015e 2F01     		.2byte	0x12f
+ 727 0160 67010000 		.4byte	0x167
+ 728 0164 01       		.uleb128 0x1
+ 729 0165 53       		.byte	0x53
+ 730 0166 00       		.byte	0
+ 731 0167 05       		.uleb128 0x5
+ 732 0168 04       		.byte	0x4
+ 733 0169 F1000000 		.4byte	0xf1
+ 734 016d 0F       		.uleb128 0xf
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 23
 
 
- 953 00ed 27       		.uleb128 0x27
- 954 00ee 19       		.uleb128 0x19
- 955 00ef 49       		.uleb128 0x49
- 956 00f0 13       		.uleb128 0x13
- 957 00f1 11       		.uleb128 0x11
- 958 00f2 01       		.uleb128 0x1
- 959 00f3 12       		.uleb128 0x12
- 960 00f4 06       		.uleb128 0x6
- 961 00f5 40       		.uleb128 0x40
- 962 00f6 18       		.uleb128 0x18
- 963 00f7 9742     		.uleb128 0x2117
- 964 00f9 19       		.uleb128 0x19
- 965 00fa 01       		.uleb128 0x1
- 966 00fb 13       		.uleb128 0x13
- 967 00fc 00       		.byte	0
- 968 00fd 00       		.byte	0
- 969 00fe 10       		.uleb128 0x10
- 970 00ff 34       		.uleb128 0x34
- 971 0100 00       		.byte	0
- 972 0101 03       		.uleb128 0x3
- 973 0102 0E       		.uleb128 0xe
- 974 0103 3A       		.uleb128 0x3a
- 975 0104 0B       		.uleb128 0xb
- 976 0105 3B       		.uleb128 0x3b
- 977 0106 05       		.uleb128 0x5
- 978 0107 49       		.uleb128 0x49
- 979 0108 13       		.uleb128 0x13
- 980 0109 02       		.uleb128 0x2
- 981 010a 17       		.uleb128 0x17
- 982 010b 00       		.byte	0
- 983 010c 00       		.byte	0
- 984 010d 11       		.uleb128 0x11
- 985 010e 2E       		.uleb128 0x2e
- 986 010f 00       		.byte	0
- 987 0110 3F       		.uleb128 0x3f
- 988 0111 19       		.uleb128 0x19
- 989 0112 03       		.uleb128 0x3
- 990 0113 0E       		.uleb128 0xe
- 991 0114 3A       		.uleb128 0x3a
- 992 0115 0B       		.uleb128 0xb
- 993 0116 3B       		.uleb128 0x3b
- 994 0117 05       		.uleb128 0x5
- 995 0118 27       		.uleb128 0x27
- 996 0119 19       		.uleb128 0x19
- 997 011a 11       		.uleb128 0x11
- 998 011b 01       		.uleb128 0x1
- 999 011c 12       		.uleb128 0x12
- 1000 011d 06       		.uleb128 0x6
- 1001 011e 40       		.uleb128 0x40
- 1002 011f 18       		.uleb128 0x18
- 1003 0120 9742     		.uleb128 0x2117
- 1004 0122 19       		.uleb128 0x19
- 1005 0123 00       		.byte	0
- 1006 0124 00       		.byte	0
- 1007 0125 12       		.uleb128 0x12
- 1008 0126 2E       		.uleb128 0x2e
- 1009 0127 00       		.byte	0
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 26
+ 735 016e 9B030000 		.4byte	.LASF29
+ 736 0172 01       		.byte	0x1
+ 737 0173 4501     		.2byte	0x145
+ 738 0175 F1000000 		.4byte	0xf1
+ 739 0179 00000000 		.4byte	.LFB69
+ 740 017d 0C000000 		.4byte	.LFE69-.LFB69
+ 741 0181 01       		.uleb128 0x1
+ 742 0182 9C       		.byte	0x9c
+ 743 0183 96010000 		.4byte	0x196
+ 744 0187 0E       		.uleb128 0xe
+ 745 0188 2A030000 		.4byte	.LASF25
+ 746 018c 01       		.byte	0x1
+ 747 018d 4701     		.2byte	0x147
+ 748 018f 67010000 		.4byte	0x167
+ 749 0193 01       		.uleb128 0x1
+ 750 0194 53       		.byte	0x53
+ 751 0195 00       		.byte	0
+ 752 0196 0C       		.uleb128 0xc
+ 753 0197 BA010000 		.4byte	.LASF26
+ 754 019b 01       		.byte	0x1
+ 755 019c 6701     		.2byte	0x167
+ 756 019e 00000000 		.4byte	.LFB70
+ 757 01a2 10000000 		.4byte	.LFE70-.LFB70
+ 758 01a6 01       		.uleb128 0x1
+ 759 01a7 9C       		.byte	0x9c
+ 760 01a8 BD010000 		.4byte	0x1bd
+ 761 01ac 10       		.uleb128 0x10
+ 762 01ad 39020000 		.4byte	.LASF28
+ 763 01b1 01       		.byte	0x1
+ 764 01b2 6701     		.2byte	0x167
+ 765 01b4 9D000000 		.4byte	0x9d
+ 766 01b8 13000000 		.4byte	.LLST1
+ 767 01bc 00       		.byte	0
+ 768 01bd 0F       		.uleb128 0xf
+ 769 01be 98010000 		.4byte	.LASF30
+ 770 01c2 01       		.byte	0x1
+ 771 01c3 7D01     		.2byte	0x17d
+ 772 01c5 9D000000 		.4byte	0x9d
+ 773 01c9 00000000 		.4byte	.LFB71
+ 774 01cd 0C000000 		.4byte	.LFE71-.LFB71
+ 775 01d1 01       		.uleb128 0x1
+ 776 01d2 9C       		.byte	0x9c
+ 777 01d3 E8010000 		.4byte	0x1e8
+ 778 01d7 11       		.uleb128 0x11
+ 779 01d8 39020000 		.4byte	.LASF28
+ 780 01dc 01       		.byte	0x1
+ 781 01dd 7F01     		.2byte	0x17f
+ 782 01df 9D000000 		.4byte	0x9d
+ 783 01e3 34000000 		.4byte	.LLST2
+ 784 01e7 00       		.byte	0
+ 785 01e8 12       		.uleb128 0x12
+ 786 01e9 75020000 		.4byte	.LASF31
+ 787 01ed 01       		.byte	0x1
+ 788 01ee 9801     		.2byte	0x198
+ 789 01f0 00000000 		.4byte	.LFB72
+ 790 01f4 0C000000 		.4byte	.LFE72-.LFB72
+ 791 01f8 01       		.uleb128 0x1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 24
 
 
- 1010 0128 3F       		.uleb128 0x3f
- 1011 0129 19       		.uleb128 0x19
- 1012 012a 03       		.uleb128 0x3
- 1013 012b 0E       		.uleb128 0xe
- 1014 012c 3A       		.uleb128 0x3a
- 1015 012d 0B       		.uleb128 0xb
- 1016 012e 3B       		.uleb128 0x3b
- 1017 012f 05       		.uleb128 0x5
- 1018 0130 27       		.uleb128 0x27
- 1019 0131 19       		.uleb128 0x19
- 1020 0132 49       		.uleb128 0x49
- 1021 0133 13       		.uleb128 0x13
- 1022 0134 11       		.uleb128 0x11
- 1023 0135 01       		.uleb128 0x1
- 1024 0136 12       		.uleb128 0x12
- 1025 0137 06       		.uleb128 0x6
- 1026 0138 40       		.uleb128 0x40
- 1027 0139 18       		.uleb128 0x18
- 1028 013a 9742     		.uleb128 0x2117
- 1029 013c 19       		.uleb128 0x19
- 1030 013d 00       		.byte	0
- 1031 013e 00       		.byte	0
- 1032 013f 13       		.uleb128 0x13
- 1033 0140 898201   		.uleb128 0x4109
- 1034 0143 00       		.byte	0
- 1035 0144 11       		.uleb128 0x11
- 1036 0145 01       		.uleb128 0x1
- 1037 0146 31       		.uleb128 0x31
- 1038 0147 13       		.uleb128 0x13
- 1039 0148 00       		.byte	0
- 1040 0149 00       		.byte	0
- 1041 014a 14       		.uleb128 0x14
- 1042 014b 898201   		.uleb128 0x4109
- 1043 014e 01       		.byte	0x1
- 1044 014f 11       		.uleb128 0x11
- 1045 0150 01       		.uleb128 0x1
- 1046 0151 31       		.uleb128 0x31
- 1047 0152 13       		.uleb128 0x13
- 1048 0153 01       		.uleb128 0x1
- 1049 0154 13       		.uleb128 0x13
- 1050 0155 00       		.byte	0
- 1051 0156 00       		.byte	0
- 1052 0157 15       		.uleb128 0x15
- 1053 0158 8A8201   		.uleb128 0x410a
- 1054 015b 00       		.byte	0
- 1055 015c 02       		.uleb128 0x2
- 1056 015d 18       		.uleb128 0x18
- 1057 015e 9142     		.uleb128 0x2111
- 1058 0160 18       		.uleb128 0x18
- 1059 0161 00       		.byte	0
- 1060 0162 00       		.byte	0
- 1061 0163 16       		.uleb128 0x16
- 1062 0164 05       		.uleb128 0x5
- 1063 0165 00       		.byte	0
- 1064 0166 03       		.uleb128 0x3
- 1065 0167 0E       		.uleb128 0xe
- 1066 0168 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 27
+ 792 01f9 9C       		.byte	0x9c
+ 793 01fa 13       		.uleb128 0x13
+ 794 01fb 39030000 		.4byte	.LASF53
+ 795 01ff 01       		.byte	0x1
+ 796 0200 AD01     		.2byte	0x1ad
+ 797 0202 9D000000 		.4byte	0x9d
+ 798 0206 00000000 		.4byte	.LFB73
+ 799 020a 18000000 		.4byte	.LFE73-.LFB73
+ 800 020e 01       		.uleb128 0x1
+ 801 020f 9C       		.byte	0x9c
+ 802 0210 12       		.uleb128 0x12
+ 803 0211 D9020000 		.4byte	.LASF32
+ 804 0215 01       		.byte	0x1
+ 805 0216 C201     		.2byte	0x1c2
+ 806 0218 00000000 		.4byte	.LFB74
+ 807 021c 0C000000 		.4byte	.LFE74-.LFB74
+ 808 0220 01       		.uleb128 0x1
+ 809 0221 9C       		.byte	0x9c
+ 810 0222 09       		.uleb128 0x9
+ 811 0223 94000000 		.4byte	.LASF33
+ 812 0227 01       		.byte	0x1
+ 813 0228 82       		.byte	0x82
+ 814 0229 00000000 		.4byte	.LFB64
+ 815 022d 1C000000 		.4byte	.LFE64-.LFB64
+ 816 0231 01       		.uleb128 0x1
+ 817 0232 9C       		.byte	0x9c
+ 818 0233 74020000 		.4byte	0x274
+ 819 0237 0B       		.uleb128 0xb
+ 820 0238 06000000 		.4byte	.LVL13
+ 821 023c 10020000 		.4byte	0x210
+ 822 0240 14       		.uleb128 0x14
+ 823 0241 0C000000 		.4byte	.LVL14
+ 824 0245 34010000 		.4byte	0x134
+ 825 0249 57020000 		.4byte	0x257
+ 826 024d 15       		.uleb128 0x15
+ 827 024e 01       		.uleb128 0x1
+ 828 024f 50       		.byte	0x50
+ 829 0250 05       		.uleb128 0x5
+ 830 0251 03       		.byte	0x3
+ 831 0252 00000000 		.4byte	cap_comp_tc_Interrupt
+ 832 0256 00       		.byte	0
+ 833 0257 14       		.uleb128 0x14
+ 834 0258 12000000 		.4byte	.LVL15
+ 835 025c 96010000 		.4byte	0x196
+ 836 0260 6A020000 		.4byte	0x26a
+ 837 0264 15       		.uleb128 0x15
+ 838 0265 01       		.uleb128 0x1
+ 839 0266 50       		.byte	0x50
+ 840 0267 01       		.uleb128 0x1
+ 841 0268 34       		.byte	0x34
+ 842 0269 00       		.byte	0
+ 843 026a 0B       		.uleb128 0xb
+ 844 026b 16000000 		.4byte	.LVL16
+ 845 026f E8010000 		.4byte	0x1e8
+ 846 0273 00       		.byte	0
+ 847 0274 09       		.uleb128 0x9
+ 848 0275 04030000 		.4byte	.LASF34
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 25
 
 
- 1067 0169 0B       		.uleb128 0xb
- 1068 016a 3B       		.uleb128 0x3b
- 1069 016b 0B       		.uleb128 0xb
- 1070 016c 49       		.uleb128 0x49
- 1071 016d 13       		.uleb128 0x13
- 1072 016e 02       		.uleb128 0x2
- 1073 016f 17       		.uleb128 0x17
- 1074 0170 00       		.byte	0
- 1075 0171 00       		.byte	0
- 1076 0172 00       		.byte	0
- 1077              		.section	.debug_loc,"",%progbits
- 1078              	.Ldebug_loc0:
- 1079              	.LLST0:
- 1080 0000 00000000 		.4byte	.LVL3
- 1081 0004 02000000 		.4byte	.LVL4
- 1082 0008 0100     		.2byte	0x1
- 1083 000a 50       		.byte	0x50
- 1084 000b 02000000 		.4byte	.LVL4
- 1085 000f 10000000 		.4byte	.LFE6
- 1086 0013 0400     		.2byte	0x4
- 1087 0015 F3       		.byte	0xf3
- 1088 0016 01       		.uleb128 0x1
- 1089 0017 50       		.byte	0x50
- 1090 0018 9F       		.byte	0x9f
- 1091 0019 00000000 		.4byte	0
- 1092 001d 00000000 		.4byte	0
- 1093              	.LLST1:
- 1094 0021 04000000 		.4byte	.LVL5
- 1095 0025 06000000 		.4byte	.LVL6
- 1096 0029 0500     		.2byte	0x5
- 1097 002b 70       		.byte	0x70
- 1098 002c 00       		.sleb128 0
- 1099 002d 35       		.byte	0x35
- 1100 002e 25       		.byte	0x25
- 1101 002f 9F       		.byte	0x9f
- 1102 0030 00000000 		.4byte	0
- 1103 0034 00000000 		.4byte	0
- 1104              	.LLST2:
- 1105 0038 00000000 		.4byte	.LVL11
- 1106 003c 07000000 		.4byte	.LVL12-1
- 1107 0040 0100     		.2byte	0x1
- 1108 0042 50       		.byte	0x50
- 1109 0043 07000000 		.4byte	.LVL12-1
- 1110 0047 1A000000 		.4byte	.LFE1
- 1111 004b 0100     		.2byte	0x1
- 1112 004d 54       		.byte	0x54
- 1113 004e 00000000 		.4byte	0
- 1114 0052 00000000 		.4byte	0
- 1115              		.section	.debug_aranges,"",%progbits
- 1116 0000 7C000000 		.4byte	0x7c
- 1117 0004 0200     		.2byte	0x2
- 1118 0006 00000000 		.4byte	.Ldebug_info0
- 1119 000a 04       		.byte	0x4
- 1120 000b 00       		.byte	0
- 1121 000c 0000     		.2byte	0
- 1122 000e 0000     		.2byte	0
- 1123 0010 00000000 		.4byte	.LFB3
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 28
+ 849 0279 01       		.byte	0x1
+ 850 027a AD       		.byte	0xad
+ 851 027b 00000000 		.4byte	.LFB65
+ 852 027f 1A000000 		.4byte	.LFE65-.LFB65
+ 853 0283 01       		.uleb128 0x1
+ 854 0284 9C       		.byte	0x9c
+ 855 0285 D2020000 		.4byte	0x2d2
+ 856 0289 16       		.uleb128 0x16
+ 857 028a 56020000 		.4byte	.LASF27
+ 858 028e 01       		.byte	0x1
+ 859 028f AD       		.byte	0xad
+ 860 0290 F1000000 		.4byte	0xf1
+ 861 0294 4B000000 		.4byte	.LLST3
+ 862 0298 0B       		.uleb128 0xb
+ 863 0299 08000000 		.4byte	.LVL18
+ 864 029d 10020000 		.4byte	0x210
+ 865 02a1 14       		.uleb128 0x14
+ 866 02a2 0E000000 		.4byte	.LVL19
+ 867 02a6 34010000 		.4byte	0x134
+ 868 02aa B5020000 		.4byte	0x2b5
+ 869 02ae 15       		.uleb128 0x15
+ 870 02af 01       		.uleb128 0x1
+ 871 02b0 50       		.byte	0x50
+ 872 02b1 02       		.uleb128 0x2
+ 873 02b2 74       		.byte	0x74
+ 874 02b3 00       		.sleb128 0
+ 875 02b4 00       		.byte	0
+ 876 02b5 14       		.uleb128 0x14
+ 877 02b6 14000000 		.4byte	.LVL20
+ 878 02ba 96010000 		.4byte	0x196
+ 879 02be C8020000 		.4byte	0x2c8
+ 880 02c2 15       		.uleb128 0x15
+ 881 02c3 01       		.uleb128 0x1
+ 882 02c4 50       		.byte	0x50
+ 883 02c5 01       		.uleb128 0x1
+ 884 02c6 34       		.byte	0x34
+ 885 02c7 00       		.byte	0
+ 886 02c8 0B       		.uleb128 0xb
+ 887 02c9 18000000 		.4byte	.LVL21
+ 888 02cd E8010000 		.4byte	0x1e8
+ 889 02d1 00       		.byte	0
+ 890 02d2 09       		.uleb128 0x9
+ 891 02d3 CE000000 		.4byte	.LASF35
+ 892 02d7 01       		.byte	0x1
+ 893 02d8 CB       		.byte	0xcb
+ 894 02d9 00000000 		.4byte	.LFB66
+ 895 02dd 14000000 		.4byte	.LFE66-.LFB66
+ 896 02e1 01       		.uleb128 0x1
+ 897 02e2 9C       		.byte	0x9c
+ 898 02e3 FA020000 		.4byte	0x2fa
+ 899 02e7 0B       		.uleb128 0xb
+ 900 02e8 06000000 		.4byte	.LVL22
+ 901 02ec 10020000 		.4byte	0x210
+ 902 02f0 0B       		.uleb128 0xb
+ 903 02f1 0C000000 		.4byte	.LVL23
+ 904 02f5 34010000 		.4byte	0x134
+ 905 02f9 00       		.byte	0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 26
 
 
- 1124 0014 02000000 		.4byte	.LFE3-.LFB3
- 1125 0018 00000000 		.4byte	.LFB4
- 1126 001c 0C000000 		.4byte	.LFE4-.LFB4
- 1127 0020 00000000 		.4byte	.LFB5
- 1128 0024 0C000000 		.4byte	.LFE5-.LFB5
- 1129 0028 00000000 		.4byte	.LFB6
- 1130 002c 10000000 		.4byte	.LFE6-.LFB6
- 1131 0030 00000000 		.4byte	.LFB7
- 1132 0034 0C000000 		.4byte	.LFE7-.LFB7
- 1133 0038 00000000 		.4byte	.LFB8
- 1134 003c 0C000000 		.4byte	.LFE8-.LFB8
- 1135 0040 00000000 		.4byte	.LFB9
- 1136 0044 18000000 		.4byte	.LFE9-.LFB9
- 1137 0048 00000000 		.4byte	.LFB10
- 1138 004c 0C000000 		.4byte	.LFE10-.LFB10
- 1139 0050 00000000 		.4byte	.LFB0
- 1140 0054 1C000000 		.4byte	.LFE0-.LFB0
- 1141 0058 00000000 		.4byte	.LFB1
- 1142 005c 1A000000 		.4byte	.LFE1-.LFB1
- 1143 0060 00000000 		.4byte	.LFB2
- 1144 0064 14000000 		.4byte	.LFE2-.LFB2
- 1145 0068 00000000 		.4byte	.LFB11
- 1146 006c 0C000000 		.4byte	.LFE11-.LFB11
- 1147 0070 00000000 		.4byte	.LFB12
- 1148 0074 0C000000 		.4byte	.LFE12-.LFB12
- 1149 0078 00000000 		.4byte	0
- 1150 007c 00000000 		.4byte	0
- 1151              		.section	.debug_ranges,"",%progbits
- 1152              	.Ldebug_ranges0:
- 1153 0000 00000000 		.4byte	.LFB3
- 1154 0004 02000000 		.4byte	.LFE3
- 1155 0008 00000000 		.4byte	.LFB4
- 1156 000c 0C000000 		.4byte	.LFE4
- 1157 0010 00000000 		.4byte	.LFB5
- 1158 0014 0C000000 		.4byte	.LFE5
- 1159 0018 00000000 		.4byte	.LFB6
- 1160 001c 10000000 		.4byte	.LFE6
- 1161 0020 00000000 		.4byte	.LFB7
- 1162 0024 0C000000 		.4byte	.LFE7
- 1163 0028 00000000 		.4byte	.LFB8
- 1164 002c 0C000000 		.4byte	.LFE8
- 1165 0030 00000000 		.4byte	.LFB9
- 1166 0034 18000000 		.4byte	.LFE9
- 1167 0038 00000000 		.4byte	.LFB10
- 1168 003c 0C000000 		.4byte	.LFE10
- 1169 0040 00000000 		.4byte	.LFB0
- 1170 0044 1C000000 		.4byte	.LFE0
- 1171 0048 00000000 		.4byte	.LFB1
- 1172 004c 1A000000 		.4byte	.LFE1
- 1173 0050 00000000 		.4byte	.LFB2
- 1174 0054 14000000 		.4byte	.LFE2
- 1175 0058 00000000 		.4byte	.LFB11
- 1176 005c 0C000000 		.4byte	.LFE11
- 1177 0060 00000000 		.4byte	.LFB12
- 1178 0064 0C000000 		.4byte	.LFE12
- 1179 0068 00000000 		.4byte	0
- 1180 006c 00000000 		.4byte	0
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 29
+ 906 02fa 12       		.uleb128 0x12
+ 907 02fb 2F000000 		.4byte	.LASF36
+ 908 02ff 01       		.byte	0x1
+ 909 0300 DD01     		.2byte	0x1dd
+ 910 0302 00000000 		.4byte	.LFB75
+ 911 0306 0C000000 		.4byte	.LFE75-.LFB75
+ 912 030a 01       		.uleb128 0x1
+ 913 030b 9C       		.byte	0x9c
+ 914 030c 12       		.uleb128 0x12
+ 915 030d 20020000 		.4byte	.LASF37
+ 916 0311 01       		.byte	0x1
+ 917 0312 F601     		.2byte	0x1f6
+ 918 0314 00000000 		.4byte	.LFB76
+ 919 0318 0C000000 		.4byte	.LFE76-.LFB76
+ 920 031c 01       		.uleb128 0x1
+ 921 031d 9C       		.byte	0x9c
+ 922 031e 09       		.uleb128 0x9
+ 923 031f B8000000 		.4byte	.LASF38
+ 924 0323 01       		.byte	0x1
+ 925 0324 E5       		.byte	0xe5
+ 926 0325 00000000 		.4byte	.LFB67
+ 927 0329 14000000 		.4byte	.LFE67-.LFB67
+ 928 032d 01       		.uleb128 0x1
+ 929 032e 9C       		.byte	0x9c
+ 930 032f 3D030000 		.4byte	0x33d
+ 931 0333 0B       		.uleb128 0xb
+ 932 0334 06000000 		.4byte	.LVL24
+ 933 0338 0C030000 		.4byte	0x30c
+ 934 033c 00       		.byte	0
+ 935 033d 17       		.uleb128 0x17
+ 936 033e 746D7000 		.ascii	"tmp\000"
+ 937 0342 01       		.byte	0x1
+ 938 0343 2F       		.byte	0x2f
+ 939 0344 25000000 		.4byte	0x25
+ 940 0348 05       		.uleb128 0x5
+ 941 0349 03       		.byte	0x3
+ 942 034a 00000000 		.4byte	tmp
+ 943 034e 18       		.uleb128 0x18
+ 944 034f 00000000 		.4byte	.LASF39
+ 945 0353 01       		.byte	0x1
+ 946 0354 30       		.byte	0x30
+ 947 0355 A9000000 		.4byte	0xa9
+ 948 0359 00       		.byte	0
+ 949 035a 19       		.uleb128 0x19
+ 950 035b C0020000 		.4byte	.LASF40
+ 951 035f 05       		.byte	0x5
+ 952 0360 1207     		.2byte	0x712
+ 953 0362 66030000 		.4byte	0x366
+ 954 0366 08       		.uleb128 0x8
+ 955 0367 92000000 		.4byte	0x92
+ 956 036b 1A       		.uleb128 0x1a
+ 957 036c 1B000000 		.4byte	.LASF41
+ 958 0370 01       		.byte	0x1
+ 959 0371 32       		.byte	0x32
+ 960 0372 A9000000 		.4byte	0xa9
+ 961 0376 05       		.uleb128 0x5
+ 962 0377 03       		.byte	0x3
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 27
 
 
- 1181              		.section	.debug_line,"",%progbits
- 1182              	.Ldebug_line0:
- 1183 0000 34010000 		.section	.debug_str,"MS",%progbits,1
- 1183      02004800 
- 1183      00000201 
- 1183      FB0E0D00 
- 1183      01010101 
- 1184              	.LASF17:
- 1185 0000 72656733 		.ascii	"reg32\000"
- 1185      3200
- 1186              	.LASF36:
- 1187 0006 433A5C55 		.ascii	"C:\\Users\\e.ivanov\\Documents\\GitHub\\generic\\Ma"
- 1187      73657273 
- 1187      5C652E69 
- 1187      76616E6F 
- 1187      765C446F 
- 1188 0033 6E636865 		.ascii	"nchester encoder-decoder.cydsn\000"
- 1188      73746572 
- 1188      20656E63 
- 1188      6F646572 
- 1188      2D646563 
- 1189              	.LASF31:
- 1190 0052 6361705F 		.ascii	"cap_comp_tc_Stop\000"
- 1190      636F6D70 
- 1190      5F74635F 
- 1190      53746F70 
- 1190      00
- 1191              	.LASF32:
- 1192 0063 6361705F 		.ascii	"cap_comp_tc_SetPending\000"
- 1192      636F6D70 
- 1192      5F74635F 
- 1192      53657450 
- 1192      656E6469 
- 1193              	.LASF6:
- 1194 007a 73686F72 		.ascii	"short unsigned int\000"
- 1194      7420756E 
- 1194      7369676E 
- 1194      65642069 
- 1194      6E7400
- 1195              	.LASF29:
- 1196 008d 6361705F 		.ascii	"cap_comp_tc_Start\000"
- 1196      636F6D70 
- 1196      5F74635F 
- 1196      53746172 
- 1196      7400
- 1197              	.LASF14:
- 1198 009f 666C6F61 		.ascii	"float\000"
- 1198      7400
- 1199              	.LASF26:
- 1200 00a5 6361705F 		.ascii	"cap_comp_tc_Interrupt\000"
- 1200      636F6D70 
- 1200      5F74635F 
- 1200      496E7465 
- 1200      72727570 
- 1201              	.LASF4:
- 1202 00bb 756E7369 		.ascii	"unsigned char\000"
- 1202      676E6564 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 30
+ 963 0378 00000000 		.4byte	UpdateFrequencyFlag
+ 964 037c 1B       		.uleb128 0x1b
+ 965 037d 88020000 		.4byte	.LASF42
+ 966 0381 06       		.byte	0x6
+ 967 0382 45       		.byte	0x45
+ 968 0383 87030000 		.4byte	0x387
+ 969 0387 08       		.uleb128 0x8
+ 970 0388 68000000 		.4byte	0x68
+ 971 038c 1B       		.uleb128 0x1b
+ 972 038d 18030000 		.4byte	.LASF43
+ 973 0391 06       		.byte	0x6
+ 974 0392 46       		.byte	0x46
+ 975 0393 68000000 		.4byte	0x68
+ 976 0397 1B       		.uleb128 0x1b
+ 977 0398 63000000 		.4byte	.LASF44
+ 978 039c 06       		.byte	0x6
+ 979 039d 47       		.byte	0x47
+ 980 039e 68000000 		.4byte	0x68
+ 981 03a2 1A       		.uleb128 0x1a
+ 982 03a3 0D000000 		.4byte	.LASF45
+ 983 03a7 01       		.byte	0x1
+ 984 03a8 31       		.byte	0x31
+ 985 03a9 25000000 		.4byte	0x25
+ 986 03ad 05       		.uleb128 0x5
+ 987 03ae 03       		.byte	0x3
+ 988 03af 00000000 		.4byte	FirstTimeFlag
+ 989 03b3 1A       		.uleb128 0x1a
+ 990 03b4 B4020000 		.4byte	.LASF46
+ 991 03b8 01       		.byte	0x1
+ 992 03b9 33       		.byte	0x33
+ 993 03ba A9000000 		.4byte	0xa9
+ 994 03be 05       		.uleb128 0x5
+ 995 03bf 03       		.byte	0x3
+ 996 03c0 00000000 		.4byte	PrevCapture
+ 997 03c4 1A       		.uleb128 0x1a
+ 998 03c5 78030000 		.4byte	.LASF47
+ 999 03c9 01       		.byte	0x1
+ 1000 03ca 34       		.byte	0x34
+ 1001 03cb B5000000 		.4byte	0xb5
+ 1002 03cf 05       		.uleb128 0x5
+ 1003 03d0 03       		.byte	0x3
+ 1004 03d1 00000000 		.4byte	CurrentDelta
+ 1005 03d5 1C       		.uleb128 0x1c
+ 1006 03d6 95020000 		.4byte	.LASF48
+ 1007 03da 95020000 		.4byte	.LASF48
+ 1008 03de 07       		.byte	0x7
+ 1009 03df 30       		.byte	0x30
+ 1010 03e0 1C       		.uleb128 0x1c
+ 1011 03e1 4E030000 		.4byte	.LASF49
+ 1012 03e5 4E030000 		.4byte	.LASF49
+ 1013 03e9 08       		.byte	0x8
+ 1014 03ea 30       		.byte	0x30
+ 1015 03eb 00       		.byte	0
+ 1016              		.section	.debug_abbrev,"",%progbits
+ 1017              	.Ldebug_abbrev0:
+ 1018 0000 01       		.uleb128 0x1
+ 1019 0001 11       		.uleb128 0x11
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 28
 
 
- 1202      20636861 
- 1202      7200
- 1203              	.LASF34:
- 1204 00c9 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 1204      43313120 
- 1204      352E342E 
- 1204      31203230 
- 1204      31363036 
- 1205 00fc 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 1205      20726576 
- 1205      6973696F 
- 1205      6E203233 
- 1205      37373135 
- 1206 012f 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 1206      66756E63 
- 1206      74696F6E 
- 1206      2D736563 
- 1206      74696F6E 
- 1207              	.LASF16:
- 1208 0157 72656738 		.ascii	"reg8\000"
- 1208      00
- 1209              	.LASF8:
- 1210 015c 6C6F6E67 		.ascii	"long unsigned int\000"
- 1210      20756E73 
- 1210      69676E65 
- 1210      6420696E 
- 1210      7400
- 1211              	.LASF20:
- 1212 016e 6361705F 		.ascii	"cap_comp_tc_SetVector\000"
- 1212      636F6D70 
- 1212      5F74635F 
- 1212      53657456 
- 1212      6563746F 
- 1213              	.LASF12:
- 1214 0184 75696E74 		.ascii	"uint8\000"
- 1214      3800
- 1215              	.LASF25:
- 1216 018a 6361705F 		.ascii	"cap_comp_tc_GetPriority\000"
- 1216      636F6D70 
- 1216      5F74635F 
- 1216      47657450 
- 1216      72696F72 
- 1217              	.LASF23:
- 1218 01a2 7072696F 		.ascii	"priority\000"
- 1218      72697479 
- 1218      00
- 1219              	.LASF15:
- 1220 01ab 646F7562 		.ascii	"double\000"
- 1220      6C6500
- 1221              	.LASF33:
- 1222 01b2 6361705F 		.ascii	"cap_comp_tc_ClearPending\000"
- 1222      636F6D70 
- 1222      5F74635F 
- 1222      436C6561 
- 1222      7250656E 
- 1223              	.LASF13:
- 1224 01cb 75696E74 		.ascii	"uint32\000"
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 31
+ 1020 0002 01       		.byte	0x1
+ 1021 0003 25       		.uleb128 0x25
+ 1022 0004 0E       		.uleb128 0xe
+ 1023 0005 13       		.uleb128 0x13
+ 1024 0006 0B       		.uleb128 0xb
+ 1025 0007 03       		.uleb128 0x3
+ 1026 0008 0E       		.uleb128 0xe
+ 1027 0009 1B       		.uleb128 0x1b
+ 1028 000a 0E       		.uleb128 0xe
+ 1029 000b 55       		.uleb128 0x55
+ 1030 000c 17       		.uleb128 0x17
+ 1031 000d 11       		.uleb128 0x11
+ 1032 000e 01       		.uleb128 0x1
+ 1033 000f 10       		.uleb128 0x10
+ 1034 0010 17       		.uleb128 0x17
+ 1035 0011 00       		.byte	0
+ 1036 0012 00       		.byte	0
+ 1037 0013 02       		.uleb128 0x2
+ 1038 0014 24       		.uleb128 0x24
+ 1039 0015 00       		.byte	0
+ 1040 0016 0B       		.uleb128 0xb
+ 1041 0017 0B       		.uleb128 0xb
+ 1042 0018 3E       		.uleb128 0x3e
+ 1043 0019 0B       		.uleb128 0xb
+ 1044 001a 03       		.uleb128 0x3
+ 1045 001b 08       		.uleb128 0x8
+ 1046 001c 00       		.byte	0
+ 1047 001d 00       		.byte	0
+ 1048 001e 03       		.uleb128 0x3
+ 1049 001f 24       		.uleb128 0x24
+ 1050 0020 00       		.byte	0
+ 1051 0021 0B       		.uleb128 0xb
+ 1052 0022 0B       		.uleb128 0xb
+ 1053 0023 3E       		.uleb128 0x3e
+ 1054 0024 0B       		.uleb128 0xb
+ 1055 0025 03       		.uleb128 0x3
+ 1056 0026 0E       		.uleb128 0xe
+ 1057 0027 00       		.byte	0
+ 1058 0028 00       		.byte	0
+ 1059 0029 04       		.uleb128 0x4
+ 1060 002a 16       		.uleb128 0x16
+ 1061 002b 00       		.byte	0
+ 1062 002c 03       		.uleb128 0x3
+ 1063 002d 0E       		.uleb128 0xe
+ 1064 002e 3A       		.uleb128 0x3a
+ 1065 002f 0B       		.uleb128 0xb
+ 1066 0030 3B       		.uleb128 0x3b
+ 1067 0031 0B       		.uleb128 0xb
+ 1068 0032 49       		.uleb128 0x49
+ 1069 0033 13       		.uleb128 0x13
+ 1070 0034 00       		.byte	0
+ 1071 0035 00       		.byte	0
+ 1072 0036 05       		.uleb128 0x5
+ 1073 0037 0F       		.uleb128 0xf
+ 1074 0038 00       		.byte	0
+ 1075 0039 0B       		.uleb128 0xb
+ 1076 003a 0B       		.uleb128 0xb
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 29
 
 
- 1224      333200
- 1225              	.LASF24:
- 1226 01d2 6361705F 		.ascii	"cap_comp_tc_GetVector\000"
- 1226      636F6D70 
- 1226      5F74635F 
- 1226      47657456 
- 1226      6563746F 
- 1227              	.LASF0:
- 1228 01e8 756E7369 		.ascii	"unsigned int\000"
- 1228      676E6564 
- 1228      20696E74 
- 1228      00
- 1229              	.LASF22:
- 1230 01f5 61646472 		.ascii	"address\000"
- 1230      65737300 
- 1231              	.LASF9:
- 1232 01fd 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1232      206C6F6E 
- 1232      6720756E 
- 1232      7369676E 
- 1232      65642069 
- 1233              	.LASF27:
- 1234 0214 6361705F 		.ascii	"cap_comp_tc_Enable\000"
- 1234      636F6D70 
- 1234      5F74635F 
- 1234      456E6162 
- 1234      6C6500
- 1235              	.LASF18:
- 1236 0227 63796973 		.ascii	"cyisraddress\000"
- 1236      72616464 
- 1236      72657373 
- 1236      00
- 1237              	.LASF30:
- 1238 0234 6361705F 		.ascii	"cap_comp_tc_StartEx\000"
- 1238      636F6D70 
- 1238      5F74635F 
- 1238      53746172 
- 1238      74457800 
- 1239              	.LASF21:
- 1240 0248 6361705F 		.ascii	"cap_comp_tc_SetPriority\000"
- 1240      636F6D70 
- 1240      5F74635F 
- 1240      53657450 
- 1240      72696F72 
- 1241              	.LASF28:
- 1242 0260 6361705F 		.ascii	"cap_comp_tc_Disable\000"
- 1242      636F6D70 
- 1242      5F74635F 
- 1242      44697361 
- 1242      626C6500 
- 1243              	.LASF10:
- 1244 0274 73697A65 		.ascii	"sizetype\000"
- 1244      74797065 
- 1244      00
- 1245              	.LASF1:
- 1246 027d 6C6F6E67 		.ascii	"long long int\000"
- 1246      206C6F6E 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccWNgX4i.s 			page 32
+ 1077 003b 49       		.uleb128 0x49
+ 1078 003c 13       		.uleb128 0x13
+ 1079 003d 00       		.byte	0
+ 1080 003e 00       		.byte	0
+ 1081 003f 06       		.uleb128 0x6
+ 1082 0040 15       		.uleb128 0x15
+ 1083 0041 00       		.byte	0
+ 1084 0042 27       		.uleb128 0x27
+ 1085 0043 19       		.uleb128 0x19
+ 1086 0044 00       		.byte	0
+ 1087 0045 00       		.byte	0
+ 1088 0046 07       		.uleb128 0x7
+ 1089 0047 16       		.uleb128 0x16
+ 1090 0048 00       		.byte	0
+ 1091 0049 03       		.uleb128 0x3
+ 1092 004a 0E       		.uleb128 0xe
+ 1093 004b 3A       		.uleb128 0x3a
+ 1094 004c 0B       		.uleb128 0xb
+ 1095 004d 3B       		.uleb128 0x3b
+ 1096 004e 05       		.uleb128 0x5
+ 1097 004f 49       		.uleb128 0x49
+ 1098 0050 13       		.uleb128 0x13
+ 1099 0051 00       		.byte	0
+ 1100 0052 00       		.byte	0
+ 1101 0053 08       		.uleb128 0x8
+ 1102 0054 35       		.uleb128 0x35
+ 1103 0055 00       		.byte	0
+ 1104 0056 49       		.uleb128 0x49
+ 1105 0057 13       		.uleb128 0x13
+ 1106 0058 00       		.byte	0
+ 1107 0059 00       		.byte	0
+ 1108 005a 09       		.uleb128 0x9
+ 1109 005b 2E       		.uleb128 0x2e
+ 1110 005c 01       		.byte	0x1
+ 1111 005d 3F       		.uleb128 0x3f
+ 1112 005e 19       		.uleb128 0x19
+ 1113 005f 03       		.uleb128 0x3
+ 1114 0060 0E       		.uleb128 0xe
+ 1115 0061 3A       		.uleb128 0x3a
+ 1116 0062 0B       		.uleb128 0xb
+ 1117 0063 3B       		.uleb128 0x3b
+ 1118 0064 0B       		.uleb128 0xb
+ 1119 0065 27       		.uleb128 0x27
+ 1120 0066 19       		.uleb128 0x19
+ 1121 0067 11       		.uleb128 0x11
+ 1122 0068 01       		.uleb128 0x1
+ 1123 0069 12       		.uleb128 0x12
+ 1124 006a 06       		.uleb128 0x6
+ 1125 006b 40       		.uleb128 0x40
+ 1126 006c 18       		.uleb128 0x18
+ 1127 006d 9742     		.uleb128 0x2117
+ 1128 006f 19       		.uleb128 0x19
+ 1129 0070 01       		.uleb128 0x1
+ 1130 0071 13       		.uleb128 0x13
+ 1131 0072 00       		.byte	0
+ 1132 0073 00       		.byte	0
+ 1133 0074 0A       		.uleb128 0xa
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 30
 
 
- 1246      6720696E 
- 1246      7400
- 1247              	.LASF11:
- 1248 028b 63686172 		.ascii	"char\000"
- 1248      00
- 1249              	.LASF19:
- 1250 0290 72616D56 		.ascii	"ramVectorTable\000"
- 1250      6563746F 
- 1250      72546162 
- 1250      6C6500
- 1251              	.LASF37:
- 1252 029f 6361705F 		.ascii	"cap_comp_tc_GetState\000"
- 1252      636F6D70 
- 1252      5F74635F 
- 1252      47657453 
- 1252      74617465 
- 1253              	.LASF35:
- 1254 02b4 47656E65 		.ascii	"Generated_Source\\PSoC5\\cap_comp_tc.c\000"
- 1254      72617465 
- 1254      645F536F 
- 1254      75726365 
- 1254      5C50536F 
- 1255              	.LASF5:
- 1256 02d9 73686F72 		.ascii	"short int\000"
- 1256      7420696E 
- 1256      7400
- 1257              	.LASF7:
- 1258 02e3 6C6F6E67 		.ascii	"long int\000"
- 1258      20696E74 
- 1258      00
- 1259              	.LASF2:
- 1260 02ec 6C6F6E67 		.ascii	"long double\000"
- 1260      20646F75 
- 1260      626C6500 
- 1261              	.LASF3:
- 1262 02f8 7369676E 		.ascii	"signed char\000"
- 1262      65642063 
- 1262      68617200 
- 1263              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 1134 0075 34       		.uleb128 0x34
+ 1135 0076 00       		.byte	0
+ 1136 0077 03       		.uleb128 0x3
+ 1137 0078 0E       		.uleb128 0xe
+ 1138 0079 3A       		.uleb128 0x3a
+ 1139 007a 0B       		.uleb128 0xb
+ 1140 007b 3B       		.uleb128 0x3b
+ 1141 007c 0B       		.uleb128 0xb
+ 1142 007d 49       		.uleb128 0x49
+ 1143 007e 13       		.uleb128 0x13
+ 1144 007f 02       		.uleb128 0x2
+ 1145 0080 17       		.uleb128 0x17
+ 1146 0081 00       		.byte	0
+ 1147 0082 00       		.byte	0
+ 1148 0083 0B       		.uleb128 0xb
+ 1149 0084 898201   		.uleb128 0x4109
+ 1150 0087 00       		.byte	0
+ 1151 0088 11       		.uleb128 0x11
+ 1152 0089 01       		.uleb128 0x1
+ 1153 008a 31       		.uleb128 0x31
+ 1154 008b 13       		.uleb128 0x13
+ 1155 008c 00       		.byte	0
+ 1156 008d 00       		.byte	0
+ 1157 008e 0C       		.uleb128 0xc
+ 1158 008f 2E       		.uleb128 0x2e
+ 1159 0090 01       		.byte	0x1
+ 1160 0091 3F       		.uleb128 0x3f
+ 1161 0092 19       		.uleb128 0x19
+ 1162 0093 03       		.uleb128 0x3
+ 1163 0094 0E       		.uleb128 0xe
+ 1164 0095 3A       		.uleb128 0x3a
+ 1165 0096 0B       		.uleb128 0xb
+ 1166 0097 3B       		.uleb128 0x3b
+ 1167 0098 05       		.uleb128 0x5
+ 1168 0099 27       		.uleb128 0x27
+ 1169 009a 19       		.uleb128 0x19
+ 1170 009b 11       		.uleb128 0x11
+ 1171 009c 01       		.uleb128 0x1
+ 1172 009d 12       		.uleb128 0x12
+ 1173 009e 06       		.uleb128 0x6
+ 1174 009f 40       		.uleb128 0x40
+ 1175 00a0 18       		.uleb128 0x18
+ 1176 00a1 9742     		.uleb128 0x2117
+ 1177 00a3 19       		.uleb128 0x19
+ 1178 00a4 01       		.uleb128 0x1
+ 1179 00a5 13       		.uleb128 0x13
+ 1180 00a6 00       		.byte	0
+ 1181 00a7 00       		.byte	0
+ 1182 00a8 0D       		.uleb128 0xd
+ 1183 00a9 05       		.uleb128 0x5
+ 1184 00aa 00       		.byte	0
+ 1185 00ab 03       		.uleb128 0x3
+ 1186 00ac 0E       		.uleb128 0xe
+ 1187 00ad 3A       		.uleb128 0x3a
+ 1188 00ae 0B       		.uleb128 0xb
+ 1189 00af 3B       		.uleb128 0x3b
+ 1190 00b0 05       		.uleb128 0x5
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 31
+
+
+ 1191 00b1 49       		.uleb128 0x49
+ 1192 00b2 13       		.uleb128 0x13
+ 1193 00b3 02       		.uleb128 0x2
+ 1194 00b4 18       		.uleb128 0x18
+ 1195 00b5 00       		.byte	0
+ 1196 00b6 00       		.byte	0
+ 1197 00b7 0E       		.uleb128 0xe
+ 1198 00b8 34       		.uleb128 0x34
+ 1199 00b9 00       		.byte	0
+ 1200 00ba 03       		.uleb128 0x3
+ 1201 00bb 0E       		.uleb128 0xe
+ 1202 00bc 3A       		.uleb128 0x3a
+ 1203 00bd 0B       		.uleb128 0xb
+ 1204 00be 3B       		.uleb128 0x3b
+ 1205 00bf 05       		.uleb128 0x5
+ 1206 00c0 49       		.uleb128 0x49
+ 1207 00c1 13       		.uleb128 0x13
+ 1208 00c2 02       		.uleb128 0x2
+ 1209 00c3 18       		.uleb128 0x18
+ 1210 00c4 00       		.byte	0
+ 1211 00c5 00       		.byte	0
+ 1212 00c6 0F       		.uleb128 0xf
+ 1213 00c7 2E       		.uleb128 0x2e
+ 1214 00c8 01       		.byte	0x1
+ 1215 00c9 3F       		.uleb128 0x3f
+ 1216 00ca 19       		.uleb128 0x19
+ 1217 00cb 03       		.uleb128 0x3
+ 1218 00cc 0E       		.uleb128 0xe
+ 1219 00cd 3A       		.uleb128 0x3a
+ 1220 00ce 0B       		.uleb128 0xb
+ 1221 00cf 3B       		.uleb128 0x3b
+ 1222 00d0 05       		.uleb128 0x5
+ 1223 00d1 27       		.uleb128 0x27
+ 1224 00d2 19       		.uleb128 0x19
+ 1225 00d3 49       		.uleb128 0x49
+ 1226 00d4 13       		.uleb128 0x13
+ 1227 00d5 11       		.uleb128 0x11
+ 1228 00d6 01       		.uleb128 0x1
+ 1229 00d7 12       		.uleb128 0x12
+ 1230 00d8 06       		.uleb128 0x6
+ 1231 00d9 40       		.uleb128 0x40
+ 1232 00da 18       		.uleb128 0x18
+ 1233 00db 9742     		.uleb128 0x2117
+ 1234 00dd 19       		.uleb128 0x19
+ 1235 00de 01       		.uleb128 0x1
+ 1236 00df 13       		.uleb128 0x13
+ 1237 00e0 00       		.byte	0
+ 1238 00e1 00       		.byte	0
+ 1239 00e2 10       		.uleb128 0x10
+ 1240 00e3 05       		.uleb128 0x5
+ 1241 00e4 00       		.byte	0
+ 1242 00e5 03       		.uleb128 0x3
+ 1243 00e6 0E       		.uleb128 0xe
+ 1244 00e7 3A       		.uleb128 0x3a
+ 1245 00e8 0B       		.uleb128 0xb
+ 1246 00e9 3B       		.uleb128 0x3b
+ 1247 00ea 05       		.uleb128 0x5
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 32
+
+
+ 1248 00eb 49       		.uleb128 0x49
+ 1249 00ec 13       		.uleb128 0x13
+ 1250 00ed 02       		.uleb128 0x2
+ 1251 00ee 17       		.uleb128 0x17
+ 1252 00ef 00       		.byte	0
+ 1253 00f0 00       		.byte	0
+ 1254 00f1 11       		.uleb128 0x11
+ 1255 00f2 34       		.uleb128 0x34
+ 1256 00f3 00       		.byte	0
+ 1257 00f4 03       		.uleb128 0x3
+ 1258 00f5 0E       		.uleb128 0xe
+ 1259 00f6 3A       		.uleb128 0x3a
+ 1260 00f7 0B       		.uleb128 0xb
+ 1261 00f8 3B       		.uleb128 0x3b
+ 1262 00f9 05       		.uleb128 0x5
+ 1263 00fa 49       		.uleb128 0x49
+ 1264 00fb 13       		.uleb128 0x13
+ 1265 00fc 02       		.uleb128 0x2
+ 1266 00fd 17       		.uleb128 0x17
+ 1267 00fe 00       		.byte	0
+ 1268 00ff 00       		.byte	0
+ 1269 0100 12       		.uleb128 0x12
+ 1270 0101 2E       		.uleb128 0x2e
+ 1271 0102 00       		.byte	0
+ 1272 0103 3F       		.uleb128 0x3f
+ 1273 0104 19       		.uleb128 0x19
+ 1274 0105 03       		.uleb128 0x3
+ 1275 0106 0E       		.uleb128 0xe
+ 1276 0107 3A       		.uleb128 0x3a
+ 1277 0108 0B       		.uleb128 0xb
+ 1278 0109 3B       		.uleb128 0x3b
+ 1279 010a 05       		.uleb128 0x5
+ 1280 010b 27       		.uleb128 0x27
+ 1281 010c 19       		.uleb128 0x19
+ 1282 010d 11       		.uleb128 0x11
+ 1283 010e 01       		.uleb128 0x1
+ 1284 010f 12       		.uleb128 0x12
+ 1285 0110 06       		.uleb128 0x6
+ 1286 0111 40       		.uleb128 0x40
+ 1287 0112 18       		.uleb128 0x18
+ 1288 0113 9742     		.uleb128 0x2117
+ 1289 0115 19       		.uleb128 0x19
+ 1290 0116 00       		.byte	0
+ 1291 0117 00       		.byte	0
+ 1292 0118 13       		.uleb128 0x13
+ 1293 0119 2E       		.uleb128 0x2e
+ 1294 011a 00       		.byte	0
+ 1295 011b 3F       		.uleb128 0x3f
+ 1296 011c 19       		.uleb128 0x19
+ 1297 011d 03       		.uleb128 0x3
+ 1298 011e 0E       		.uleb128 0xe
+ 1299 011f 3A       		.uleb128 0x3a
+ 1300 0120 0B       		.uleb128 0xb
+ 1301 0121 3B       		.uleb128 0x3b
+ 1302 0122 05       		.uleb128 0x5
+ 1303 0123 27       		.uleb128 0x27
+ 1304 0124 19       		.uleb128 0x19
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 33
+
+
+ 1305 0125 49       		.uleb128 0x49
+ 1306 0126 13       		.uleb128 0x13
+ 1307 0127 11       		.uleb128 0x11
+ 1308 0128 01       		.uleb128 0x1
+ 1309 0129 12       		.uleb128 0x12
+ 1310 012a 06       		.uleb128 0x6
+ 1311 012b 40       		.uleb128 0x40
+ 1312 012c 18       		.uleb128 0x18
+ 1313 012d 9742     		.uleb128 0x2117
+ 1314 012f 19       		.uleb128 0x19
+ 1315 0130 00       		.byte	0
+ 1316 0131 00       		.byte	0
+ 1317 0132 14       		.uleb128 0x14
+ 1318 0133 898201   		.uleb128 0x4109
+ 1319 0136 01       		.byte	0x1
+ 1320 0137 11       		.uleb128 0x11
+ 1321 0138 01       		.uleb128 0x1
+ 1322 0139 31       		.uleb128 0x31
+ 1323 013a 13       		.uleb128 0x13
+ 1324 013b 01       		.uleb128 0x1
+ 1325 013c 13       		.uleb128 0x13
+ 1326 013d 00       		.byte	0
+ 1327 013e 00       		.byte	0
+ 1328 013f 15       		.uleb128 0x15
+ 1329 0140 8A8201   		.uleb128 0x410a
+ 1330 0143 00       		.byte	0
+ 1331 0144 02       		.uleb128 0x2
+ 1332 0145 18       		.uleb128 0x18
+ 1333 0146 9142     		.uleb128 0x2111
+ 1334 0148 18       		.uleb128 0x18
+ 1335 0149 00       		.byte	0
+ 1336 014a 00       		.byte	0
+ 1337 014b 16       		.uleb128 0x16
+ 1338 014c 05       		.uleb128 0x5
+ 1339 014d 00       		.byte	0
+ 1340 014e 03       		.uleb128 0x3
+ 1341 014f 0E       		.uleb128 0xe
+ 1342 0150 3A       		.uleb128 0x3a
+ 1343 0151 0B       		.uleb128 0xb
+ 1344 0152 3B       		.uleb128 0x3b
+ 1345 0153 0B       		.uleb128 0xb
+ 1346 0154 49       		.uleb128 0x49
+ 1347 0155 13       		.uleb128 0x13
+ 1348 0156 02       		.uleb128 0x2
+ 1349 0157 17       		.uleb128 0x17
+ 1350 0158 00       		.byte	0
+ 1351 0159 00       		.byte	0
+ 1352 015a 17       		.uleb128 0x17
+ 1353 015b 34       		.uleb128 0x34
+ 1354 015c 00       		.byte	0
+ 1355 015d 03       		.uleb128 0x3
+ 1356 015e 08       		.uleb128 0x8
+ 1357 015f 3A       		.uleb128 0x3a
+ 1358 0160 0B       		.uleb128 0xb
+ 1359 0161 3B       		.uleb128 0x3b
+ 1360 0162 0B       		.uleb128 0xb
+ 1361 0163 49       		.uleb128 0x49
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 34
+
+
+ 1362 0164 13       		.uleb128 0x13
+ 1363 0165 02       		.uleb128 0x2
+ 1364 0166 18       		.uleb128 0x18
+ 1365 0167 00       		.byte	0
+ 1366 0168 00       		.byte	0
+ 1367 0169 18       		.uleb128 0x18
+ 1368 016a 34       		.uleb128 0x34
+ 1369 016b 00       		.byte	0
+ 1370 016c 03       		.uleb128 0x3
+ 1371 016d 0E       		.uleb128 0xe
+ 1372 016e 3A       		.uleb128 0x3a
+ 1373 016f 0B       		.uleb128 0xb
+ 1374 0170 3B       		.uleb128 0x3b
+ 1375 0171 0B       		.uleb128 0xb
+ 1376 0172 49       		.uleb128 0x49
+ 1377 0173 13       		.uleb128 0x13
+ 1378 0174 1C       		.uleb128 0x1c
+ 1379 0175 0B       		.uleb128 0xb
+ 1380 0176 00       		.byte	0
+ 1381 0177 00       		.byte	0
+ 1382 0178 19       		.uleb128 0x19
+ 1383 0179 34       		.uleb128 0x34
+ 1384 017a 00       		.byte	0
+ 1385 017b 03       		.uleb128 0x3
+ 1386 017c 0E       		.uleb128 0xe
+ 1387 017d 3A       		.uleb128 0x3a
+ 1388 017e 0B       		.uleb128 0xb
+ 1389 017f 3B       		.uleb128 0x3b
+ 1390 0180 05       		.uleb128 0x5
+ 1391 0181 49       		.uleb128 0x49
+ 1392 0182 13       		.uleb128 0x13
+ 1393 0183 3F       		.uleb128 0x3f
+ 1394 0184 19       		.uleb128 0x19
+ 1395 0185 3C       		.uleb128 0x3c
+ 1396 0186 19       		.uleb128 0x19
+ 1397 0187 00       		.byte	0
+ 1398 0188 00       		.byte	0
+ 1399 0189 1A       		.uleb128 0x1a
+ 1400 018a 34       		.uleb128 0x34
+ 1401 018b 00       		.byte	0
+ 1402 018c 03       		.uleb128 0x3
+ 1403 018d 0E       		.uleb128 0xe
+ 1404 018e 3A       		.uleb128 0x3a
+ 1405 018f 0B       		.uleb128 0xb
+ 1406 0190 3B       		.uleb128 0x3b
+ 1407 0191 0B       		.uleb128 0xb
+ 1408 0192 49       		.uleb128 0x49
+ 1409 0193 13       		.uleb128 0x13
+ 1410 0194 3F       		.uleb128 0x3f
+ 1411 0195 19       		.uleb128 0x19
+ 1412 0196 02       		.uleb128 0x2
+ 1413 0197 18       		.uleb128 0x18
+ 1414 0198 00       		.byte	0
+ 1415 0199 00       		.byte	0
+ 1416 019a 1B       		.uleb128 0x1b
+ 1417 019b 34       		.uleb128 0x34
+ 1418 019c 00       		.byte	0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 35
+
+
+ 1419 019d 03       		.uleb128 0x3
+ 1420 019e 0E       		.uleb128 0xe
+ 1421 019f 3A       		.uleb128 0x3a
+ 1422 01a0 0B       		.uleb128 0xb
+ 1423 01a1 3B       		.uleb128 0x3b
+ 1424 01a2 0B       		.uleb128 0xb
+ 1425 01a3 49       		.uleb128 0x49
+ 1426 01a4 13       		.uleb128 0x13
+ 1427 01a5 3F       		.uleb128 0x3f
+ 1428 01a6 19       		.uleb128 0x19
+ 1429 01a7 3C       		.uleb128 0x3c
+ 1430 01a8 19       		.uleb128 0x19
+ 1431 01a9 00       		.byte	0
+ 1432 01aa 00       		.byte	0
+ 1433 01ab 1C       		.uleb128 0x1c
+ 1434 01ac 2E       		.uleb128 0x2e
+ 1435 01ad 00       		.byte	0
+ 1436 01ae 3F       		.uleb128 0x3f
+ 1437 01af 19       		.uleb128 0x19
+ 1438 01b0 3C       		.uleb128 0x3c
+ 1439 01b1 19       		.uleb128 0x19
+ 1440 01b2 6E       		.uleb128 0x6e
+ 1441 01b3 0E       		.uleb128 0xe
+ 1442 01b4 03       		.uleb128 0x3
+ 1443 01b5 0E       		.uleb128 0xe
+ 1444 01b6 3A       		.uleb128 0x3a
+ 1445 01b7 0B       		.uleb128 0xb
+ 1446 01b8 3B       		.uleb128 0x3b
+ 1447 01b9 0B       		.uleb128 0xb
+ 1448 01ba 00       		.byte	0
+ 1449 01bb 00       		.byte	0
+ 1450 01bc 00       		.byte	0
+ 1451              		.section	.debug_loc,"",%progbits
+ 1452              	.Ldebug_loc0:
+ 1453              	.LLST0:
+ 1454 0000 60000000 		.4byte	.LVL2
+ 1455 0004 7C000000 		.4byte	.LVL5
+ 1456 0008 0100     		.2byte	0x1
+ 1457 000a 50       		.byte	0x50
+ 1458 000b 00000000 		.4byte	0
+ 1459 000f 00000000 		.4byte	0
+ 1460              	.LLST1:
+ 1461 0013 00000000 		.4byte	.LVL9
+ 1462 0017 02000000 		.4byte	.LVL10
+ 1463 001b 0100     		.2byte	0x1
+ 1464 001d 50       		.byte	0x50
+ 1465 001e 02000000 		.4byte	.LVL10
+ 1466 0022 10000000 		.4byte	.LFE70
+ 1467 0026 0400     		.2byte	0x4
+ 1468 0028 F3       		.byte	0xf3
+ 1469 0029 01       		.uleb128 0x1
+ 1470 002a 50       		.byte	0x50
+ 1471 002b 9F       		.byte	0x9f
+ 1472 002c 00000000 		.4byte	0
+ 1473 0030 00000000 		.4byte	0
+ 1474              	.LLST2:
+ 1475 0034 04000000 		.4byte	.LVL11
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 36
+
+
+ 1476 0038 06000000 		.4byte	.LVL12
+ 1477 003c 0500     		.2byte	0x5
+ 1478 003e 70       		.byte	0x70
+ 1479 003f 00       		.sleb128 0
+ 1480 0040 35       		.byte	0x35
+ 1481 0041 25       		.byte	0x25
+ 1482 0042 9F       		.byte	0x9f
+ 1483 0043 00000000 		.4byte	0
+ 1484 0047 00000000 		.4byte	0
+ 1485              	.LLST3:
+ 1486 004b 00000000 		.4byte	.LVL17
+ 1487 004f 07000000 		.4byte	.LVL18-1
+ 1488 0053 0100     		.2byte	0x1
+ 1489 0055 50       		.byte	0x50
+ 1490 0056 07000000 		.4byte	.LVL18-1
+ 1491 005a 1A000000 		.4byte	.LFE65
+ 1492 005e 0100     		.2byte	0x1
+ 1493 0060 54       		.byte	0x54
+ 1494 0061 00000000 		.4byte	0
+ 1495 0065 00000000 		.4byte	0
+ 1496              		.section	.debug_aranges,"",%progbits
+ 1497 0000 84000000 		.4byte	0x84
+ 1498 0004 0200     		.2byte	0x2
+ 1499 0006 00000000 		.4byte	.Ldebug_info0
+ 1500 000a 04       		.byte	0x4
+ 1501 000b 00       		.byte	0
+ 1502 000c 0000     		.2byte	0
+ 1503 000e 0000     		.2byte	0
+ 1504 0010 00000000 		.4byte	.LFB63
+ 1505 0014 B8000000 		.4byte	.LFE63-.LFB63
+ 1506 0018 00000000 		.4byte	.LFB68
+ 1507 001c 0C000000 		.4byte	.LFE68-.LFB68
+ 1508 0020 00000000 		.4byte	.LFB69
+ 1509 0024 0C000000 		.4byte	.LFE69-.LFB69
+ 1510 0028 00000000 		.4byte	.LFB70
+ 1511 002c 10000000 		.4byte	.LFE70-.LFB70
+ 1512 0030 00000000 		.4byte	.LFB71
+ 1513 0034 0C000000 		.4byte	.LFE71-.LFB71
+ 1514 0038 00000000 		.4byte	.LFB72
+ 1515 003c 0C000000 		.4byte	.LFE72-.LFB72
+ 1516 0040 00000000 		.4byte	.LFB73
+ 1517 0044 18000000 		.4byte	.LFE73-.LFB73
+ 1518 0048 00000000 		.4byte	.LFB74
+ 1519 004c 0C000000 		.4byte	.LFE74-.LFB74
+ 1520 0050 00000000 		.4byte	.LFB64
+ 1521 0054 1C000000 		.4byte	.LFE64-.LFB64
+ 1522 0058 00000000 		.4byte	.LFB65
+ 1523 005c 1A000000 		.4byte	.LFE65-.LFB65
+ 1524 0060 00000000 		.4byte	.LFB66
+ 1525 0064 14000000 		.4byte	.LFE66-.LFB66
+ 1526 0068 00000000 		.4byte	.LFB75
+ 1527 006c 0C000000 		.4byte	.LFE75-.LFB75
+ 1528 0070 00000000 		.4byte	.LFB76
+ 1529 0074 0C000000 		.4byte	.LFE76-.LFB76
+ 1530 0078 00000000 		.4byte	.LFB67
+ 1531 007c 14000000 		.4byte	.LFE67-.LFB67
+ 1532 0080 00000000 		.4byte	0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 37
+
+
+ 1533 0084 00000000 		.4byte	0
+ 1534              		.section	.debug_ranges,"",%progbits
+ 1535              	.Ldebug_ranges0:
+ 1536 0000 00000000 		.4byte	.LFB63
+ 1537 0004 B8000000 		.4byte	.LFE63
+ 1538 0008 00000000 		.4byte	.LFB68
+ 1539 000c 0C000000 		.4byte	.LFE68
+ 1540 0010 00000000 		.4byte	.LFB69
+ 1541 0014 0C000000 		.4byte	.LFE69
+ 1542 0018 00000000 		.4byte	.LFB70
+ 1543 001c 10000000 		.4byte	.LFE70
+ 1544 0020 00000000 		.4byte	.LFB71
+ 1545 0024 0C000000 		.4byte	.LFE71
+ 1546 0028 00000000 		.4byte	.LFB72
+ 1547 002c 0C000000 		.4byte	.LFE72
+ 1548 0030 00000000 		.4byte	.LFB73
+ 1549 0034 18000000 		.4byte	.LFE73
+ 1550 0038 00000000 		.4byte	.LFB74
+ 1551 003c 0C000000 		.4byte	.LFE74
+ 1552 0040 00000000 		.4byte	.LFB64
+ 1553 0044 1C000000 		.4byte	.LFE64
+ 1554 0048 00000000 		.4byte	.LFB65
+ 1555 004c 1A000000 		.4byte	.LFE65
+ 1556 0050 00000000 		.4byte	.LFB66
+ 1557 0054 14000000 		.4byte	.LFE66
+ 1558 0058 00000000 		.4byte	.LFB75
+ 1559 005c 0C000000 		.4byte	.LFE75
+ 1560 0060 00000000 		.4byte	.LFB76
+ 1561 0064 0C000000 		.4byte	.LFE76
+ 1562 0068 00000000 		.4byte	.LFB67
+ 1563 006c 14000000 		.4byte	.LFE67
+ 1564 0070 00000000 		.4byte	0
+ 1565 0074 00000000 		.4byte	0
+ 1566              		.section	.debug_line,"",%progbits
+ 1567              	.Ldebug_line0:
+ 1568 0000 B1020000 		.section	.debug_str,"MS",%progbits,1
+ 1568      02008401 
+ 1568      00000201 
+ 1568      FB0E0D00 
+ 1568      01010101 
+ 1569              	.LASF39:
+ 1570 0000 5265456E 		.ascii	"ReEnter_flag\000"
+ 1570      7465725F 
+ 1570      666C6167 
+ 1570      00
+ 1571              	.LASF45:
+ 1572 000d 46697273 		.ascii	"FirstTimeFlag\000"
+ 1572      7454696D 
+ 1572      65466C61 
+ 1572      6700
+ 1573              	.LASF41:
+ 1574 001b 55706461 		.ascii	"UpdateFrequencyFlag\000"
+ 1574      74654672 
+ 1574      65717565 
+ 1574      6E637946 
+ 1574      6C616700 
+ 1575              	.LASF36:
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 38
+
+
+ 1576 002f 6361705F 		.ascii	"cap_comp_tc_SetPending\000"
+ 1576      636F6D70 
+ 1576      5F74635F 
+ 1576      53657450 
+ 1576      656E6469 
+ 1577              	.LASF12:
+ 1578 0046 5F5F696E 		.ascii	"__int32_t\000"
+ 1578      7433325F 
+ 1578      7400
+ 1579              	.LASF6:
+ 1580 0050 73686F72 		.ascii	"short unsigned int\000"
+ 1580      7420756E 
+ 1580      7369676E 
+ 1580      65642069 
+ 1580      6E7400
+ 1581              	.LASF44:
+ 1582 0063 48696768 		.ascii	"HighFrequency\000"
+ 1582      46726571 
+ 1582      75656E63 
+ 1582      7900
+ 1583              	.LASF18:
+ 1584 0071 646F7562 		.ascii	"double\000"
+ 1584      6C6500
+ 1585              	.LASF22:
+ 1586 0078 50726570 		.ascii	"PrepareNewFrequency\000"
+ 1586      6172654E 
+ 1586      65774672 
+ 1586      65717565 
+ 1586      6E637900 
+ 1587              	.LASF13:
+ 1588 008c 696E7433 		.ascii	"int32_t\000"
+ 1588      325F7400 
+ 1589              	.LASF33:
+ 1590 0094 6361705F 		.ascii	"cap_comp_tc_Start\000"
+ 1590      636F6D70 
+ 1590      5F74635F 
+ 1590      53746172 
+ 1590      7400
+ 1591              	.LASF17:
+ 1592 00a6 666C6F61 		.ascii	"float\000"
+ 1592      7400
+ 1593              	.LASF3:
+ 1594 00ac 7369676E 		.ascii	"signed char\000"
+ 1594      65642063 
+ 1594      68617200 
+ 1595              	.LASF38:
+ 1596 00b8 6361705F 		.ascii	"cap_comp_tc_Interrupt\000"
+ 1596      636F6D70 
+ 1596      5F74635F 
+ 1596      496E7465 
+ 1596      72727570 
+ 1597              	.LASF35:
+ 1598 00ce 6361705F 		.ascii	"cap_comp_tc_Stop\000"
+ 1598      636F6D70 
+ 1598      5F74635F 
+ 1598      53746F70 
+ 1598      00
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 39
+
+
+ 1599              	.LASF4:
+ 1600 00df 756E7369 		.ascii	"unsigned char\000"
+ 1600      676E6564 
+ 1600      20636861 
+ 1600      7200
+ 1601              	.LASF50:
+ 1602 00ed 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1602      43313120 
+ 1602      352E342E 
+ 1602      31203230 
+ 1602      31363036 
+ 1603 0120 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1603      20726576 
+ 1603      6973696F 
+ 1603      6E203233 
+ 1603      37373135 
+ 1604 0153 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1604      66756E63 
+ 1604      74696F6E 
+ 1604      2D736563 
+ 1604      74696F6E 
+ 1605              	.LASF19:
+ 1606 017b 72656738 		.ascii	"reg8\000"
+ 1606      00
+ 1607              	.LASF8:
+ 1608 0180 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1608      20756E73 
+ 1608      69676E65 
+ 1608      6420696E 
+ 1608      7400
+ 1609              	.LASF16:
+ 1610 0192 696E7433 		.ascii	"int32\000"
+ 1610      3200
+ 1611              	.LASF30:
+ 1612 0198 6361705F 		.ascii	"cap_comp_tc_GetPriority\000"
+ 1612      636F6D70 
+ 1612      5F74635F 
+ 1612      47657450 
+ 1612      72696F72 
+ 1613              	.LASF24:
+ 1614 01b0 506C7573 		.ascii	"PlusDelta\000"
+ 1614      44656C74 
+ 1614      6100
+ 1615              	.LASF26:
+ 1616 01ba 6361705F 		.ascii	"cap_comp_tc_SetPriority\000"
+ 1616      636F6D70 
+ 1616      5F74635F 
+ 1616      53657450 
+ 1616      72696F72 
+ 1617              	.LASF20:
+ 1618 01d2 72656733 		.ascii	"reg32\000"
+ 1618      3200
+ 1619              	.LASF52:
+ 1620 01d8 433A5C55 		.ascii	"C:\\Users\\e.ivanov\\Documents\\GitHub\\adc\\Manche"
+ 1620      73657273 
+ 1620      5C652E69 
+ 1620      76616E6F 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 40
+
+
+ 1620      765C446F 
+ 1621 0205 73746572 		.ascii	"ster encoder-decoder.cydsn\000"
+ 1621      20656E63 
+ 1621      6F646572 
+ 1621      2D646563 
+ 1621      6F646572 
+ 1622              	.LASF37:
+ 1623 0220 6361705F 		.ascii	"cap_comp_tc_ClearPending\000"
+ 1623      636F6D70 
+ 1623      5F74635F 
+ 1623      436C6561 
+ 1623      7250656E 
+ 1624              	.LASF28:
+ 1625 0239 7072696F 		.ascii	"priority\000"
+ 1625      72697479 
+ 1625      00
+ 1626              	.LASF15:
+ 1627 0242 75696E74 		.ascii	"uint32\000"
+ 1627      333200
+ 1628              	.LASF0:
+ 1629 0249 756E7369 		.ascii	"unsigned int\000"
+ 1629      676E6564 
+ 1629      20696E74 
+ 1629      00
+ 1630              	.LASF27:
+ 1631 0256 61646472 		.ascii	"address\000"
+ 1631      65737300 
+ 1632              	.LASF9:
+ 1633 025e 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1633      206C6F6E 
+ 1633      6720756E 
+ 1633      7369676E 
+ 1633      65642069 
+ 1634              	.LASF31:
+ 1635 0275 6361705F 		.ascii	"cap_comp_tc_Enable\000"
+ 1635      636F6D70 
+ 1635      5F74635F 
+ 1635      456E6162 
+ 1635      6C6500
+ 1636              	.LASF42:
+ 1637 0288 4E657746 		.ascii	"NewFrequency\000"
+ 1637      72657175 
+ 1637      656E6379 
+ 1637      00
+ 1638              	.LASF48:
+ 1639 0295 43617074 		.ascii	"Capture_high_Read\000"
+ 1639      7572655F 
+ 1639      68696768 
+ 1639      5F526561 
+ 1639      6400
+ 1640              	.LASF21:
+ 1641 02a7 63796973 		.ascii	"cyisraddress\000"
+ 1641      72616464 
+ 1641      72657373 
+ 1641      00
+ 1642              	.LASF46:
+ 1643 02b4 50726576 		.ascii	"PrevCapture\000"
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 41
+
+
+ 1643      43617074 
+ 1643      75726500 
+ 1644              	.LASF40:
+ 1645 02c0 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1645      52784275 
+ 1645      66666572 
+ 1645      00
+ 1646              	.LASF2:
+ 1647 02cd 6C6F6E67 		.ascii	"long double\000"
+ 1647      20646F75 
+ 1647      626C6500 
+ 1648              	.LASF32:
+ 1649 02d9 6361705F 		.ascii	"cap_comp_tc_Disable\000"
+ 1649      636F6D70 
+ 1649      5F74635F 
+ 1649      44697361 
+ 1649      626C6500 
+ 1650              	.LASF10:
+ 1651 02ed 73697A65 		.ascii	"sizetype\000"
+ 1651      74797065 
+ 1651      00
+ 1652              	.LASF1:
+ 1653 02f6 6C6F6E67 		.ascii	"long long int\000"
+ 1653      206C6F6E 
+ 1653      6720696E 
+ 1653      7400
+ 1654              	.LASF34:
+ 1655 0304 6361705F 		.ascii	"cap_comp_tc_StartEx\000"
+ 1655      636F6D70 
+ 1655      5F74635F 
+ 1655      53746172 
+ 1655      74457800 
+ 1656              	.LASF43:
+ 1657 0318 4C6F7746 		.ascii	"LowFrequency\000"
+ 1657      72657175 
+ 1657      656E6379 
+ 1657      00
+ 1658              	.LASF11:
+ 1659 0325 63686172 		.ascii	"char\000"
+ 1659      00
+ 1660              	.LASF25:
+ 1661 032a 72616D56 		.ascii	"ramVectorTable\000"
+ 1661      6563746F 
+ 1661      72546162 
+ 1661      6C6500
+ 1662              	.LASF53:
+ 1663 0339 6361705F 		.ascii	"cap_comp_tc_GetState\000"
+ 1663      636F6D70 
+ 1663      5F74635F 
+ 1663      47657453 
+ 1663      74617465 
+ 1664              	.LASF49:
+ 1665 034e 43617074 		.ascii	"Capture_low_Read\000"
+ 1665      7572655F 
+ 1665      6C6F775F 
+ 1665      52656164 
+ 1665      00
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 42
+
+
+ 1666              	.LASF5:
+ 1667 035f 73686F72 		.ascii	"short int\000"
+ 1667      7420696E 
+ 1667      7400
+ 1668              	.LASF14:
+ 1669 0369 75696E74 		.ascii	"uint8\000"
+ 1669      3800
+ 1670              	.LASF7:
+ 1671 036f 6C6F6E67 		.ascii	"long int\000"
+ 1671      20696E74 
+ 1671      00
+ 1672              	.LASF47:
+ 1673 0378 43757272 		.ascii	"CurrentDelta\000"
+ 1673      656E7444 
+ 1673      656C7461 
+ 1673      00
+ 1674              	.LASF23:
+ 1675 0385 6361705F 		.ascii	"cap_comp_tc_SetVector\000"
+ 1675      636F6D70 
+ 1675      5F74635F 
+ 1675      53657456 
+ 1675      6563746F 
+ 1676              	.LASF29:
+ 1677 039b 6361705F 		.ascii	"cap_comp_tc_GetVector\000"
+ 1677      636F6D70 
+ 1677      5F74635F 
+ 1677      47657456 
+ 1677      6563746F 
+ 1678              	.LASF51:
+ 1679 03b1 47656E65 		.ascii	"Generated_Source\\PSoC5\\cap_comp_tc.c\000"
+ 1679      72617465 
+ 1679      645F536F 
+ 1679      75726365 
+ 1679      5C50536F 
+ 1680              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

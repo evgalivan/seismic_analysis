@@ -156,18 +156,18 @@ void usec_counter_Wakeup(void)        ;
  *  Initialization Values
  **************************************/
 #define usec_counter_CAPTURE_MODE_CONF       1u
-#define usec_counter_INIT_PERIOD_VALUE       10239u
-#define usec_counter_INIT_COUNTER_VALUE      10239u
+#define usec_counter_INIT_PERIOD_VALUE       1023u
+#define usec_counter_INIT_COUNTER_VALUE      1023u
 #if (usec_counter_UsingFixedFunction)
 #define usec_counter_INIT_INTERRUPTS_MASK    ((uint8)((uint8)0u << usec_counter_STATUS_ZERO_INT_EN_MASK_SHIFT))
 #else
-#define usec_counter_INIT_COMPARE_VALUE      1u
+#define usec_counter_INIT_COMPARE_VALUE      512u
 #define usec_counter_INIT_INTERRUPTS_MASK ((uint8)((uint8)0u << usec_counter_STATUS_ZERO_INT_EN_MASK_SHIFT) | \
-        ((uint8)((uint8)1u << usec_counter_STATUS_CAPTURE_INT_EN_MASK_SHIFT)) | \
+        ((uint8)((uint8)0u << usec_counter_STATUS_CAPTURE_INT_EN_MASK_SHIFT)) | \
         ((uint8)((uint8)1u << usec_counter_STATUS_CMP_INT_EN_MASK_SHIFT)) | \
-        ((uint8)((uint8)1u << usec_counter_STATUS_OVERFLOW_INT_EN_MASK_SHIFT)) | \
-        ((uint8)((uint8)1u << usec_counter_STATUS_UNDERFLOW_INT_EN_MASK_SHIFT)))
-#define usec_counter_DEFAULT_COMPARE_MODE    0u
+        ((uint8)((uint8)0u << usec_counter_STATUS_OVERFLOW_INT_EN_MASK_SHIFT)) | \
+        ((uint8)((uint8)0u << usec_counter_STATUS_UNDERFLOW_INT_EN_MASK_SHIFT)))
+#define usec_counter_DEFAULT_COMPARE_MODE    2u
 
 #if( 0 != usec_counter_CAPTURE_MODE_CONF)
     #define usec_counter_DEFAULT_CAPTURE_MODE    ((uint8)((uint8)1u << usec_counter_CTRL_CAPMODE0_SHIFT))

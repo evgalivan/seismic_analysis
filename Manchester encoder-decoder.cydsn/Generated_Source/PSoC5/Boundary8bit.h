@@ -156,7 +156,7 @@ void Boundary8bit_Wakeup(void)        ;
  *  Initialization Values
  **************************************/
 #define Boundary8bit_CAPTURE_MODE_CONF       0u
-#define Boundary8bit_INIT_PERIOD_VALUE       8u
+#define Boundary8bit_INIT_PERIOD_VALUE       7u
 #define Boundary8bit_INIT_COUNTER_VALUE      0u
 #if (Boundary8bit_UsingFixedFunction)
 #define Boundary8bit_INIT_INTERRUPTS_MASK    ((uint8)((uint8)0u << Boundary8bit_STATUS_ZERO_INT_EN_MASK_SHIFT))

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccfi7Zx8.s 			page 1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5w8AD1.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccfi7Zx8.s 			page 1
   28:Generated_Source\PSoC5/Control_Period_PM.c **** ********************************************************************************
   29:Generated_Source\PSoC5/Control_Period_PM.c **** *
   30:Generated_Source\PSoC5/Control_Period_PM.c **** * Summary:
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccfi7Zx8.s 			page 2
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5w8AD1.s 			page 2
 
 
   31:Generated_Source\PSoC5/Control_Period_PM.c **** *  Saves the control register value.
@@ -87,7 +87,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccfi7Zx8.s 			page 1
   39              	.L3:
   40 000a 00BF     		.align	2
   41              	.L2:
-  42 000c 7A640040 		.word	1073767546
+  42 000c 7C640040 		.word	1073767548
   43 0010 00000000 		.word	.LANCHOR0
   44              		.cfi_endproc
   45              	.LFE0:
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccfi7Zx8.s 			page 1
   58:Generated_Source\PSoC5/Control_Period_PM.c **** *
   59:Generated_Source\PSoC5/Control_Period_PM.c **** *
   60:Generated_Source\PSoC5/Control_Period_PM.c **** *******************************************************************************/
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccfi7Zx8.s 			page 3
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5w8AD1.s 			page 3
 
 
   61:Generated_Source\PSoC5/Control_Period_PM.c **** void Control_Period_RestoreConfig(void) 
@@ -139,7 +139,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccfi7Zx8.s 			page 1
   67 000a 00BF     		.align	2
   68              	.L5:
   69 000c 00000000 		.word	.LANCHOR0
-  70 0010 7A640040 		.word	1073767546
+  70 0010 7C640040 		.word	1073767548
   71              		.cfi_endproc
   72              	.LFE1:
   73              		.size	Control_Period_RestoreConfig, .-Control_Period_RestoreConfig
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccfi7Zx8.s 			page 1
   87              		.cfi_def_cfa_offset 8
   88              		.cfi_offset 3, -8
   89              		.cfi_offset 14, -4
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccfi7Zx8.s 			page 4
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5w8AD1.s 			page 4
 
 
   83:Generated_Source\PSoC5/Control_Period_PM.c ****     Control_Period_SaveConfig();
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccfi7Zx8.s 			page 1
  123              		.type	Control_Period_backup, %object
  124              		.size	Control_Period_backup, 1
  125              	Control_Period_backup:
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccfi7Zx8.s 			page 5
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5w8AD1.s 			page 5
 
 
  126 0000 00       		.space	1
@@ -253,75 +253,75 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccfi7Zx8.s 			page 1
  135 0006 00000000 		.4byte	.Ldebug_abbrev0
  136 000a 04       		.byte	0x4
  137 000b 01       		.uleb128 0x1
- 138 000c A1000000 		.4byte	.LASF19
+ 138 000c 9D000000 		.4byte	.LASF19
  139 0010 0C       		.byte	0xc
- 140 0011 1D020000 		.4byte	.LASF20
- 141 0015 16000000 		.4byte	.LASF21
+ 140 0011 19020000 		.4byte	.LASF20
+ 141 0015 2C000000 		.4byte	.LASF21
  142 0019 00000000 		.4byte	.Ldebug_ranges0+0
  143 001d 00000000 		.4byte	0
  144 0021 00000000 		.4byte	.Ldebug_line0
  145 0025 02       		.uleb128 0x2
  146 0026 01       		.byte	0x1
  147 0027 06       		.byte	0x6
- 148 0028 11020000 		.4byte	.LASF0
+ 148 0028 0D020000 		.4byte	.LASF0
  149 002c 02       		.uleb128 0x2
  150 002d 01       		.byte	0x1
  151 002e 08       		.byte	0x8
- 152 002f 93000000 		.4byte	.LASF1
+ 152 002f 8F000000 		.4byte	.LASF1
  153 0033 02       		.uleb128 0x2
  154 0034 02       		.byte	0x2
  155 0035 05       		.byte	0x5
- 156 0036 F8010000 		.4byte	.LASF2
+ 156 0036 F4010000 		.4byte	.LASF2
  157 003a 02       		.uleb128 0x2
  158 003b 02       		.byte	0x2
  159 003c 07       		.byte	0x7
- 160 003d 46010000 		.4byte	.LASF3
+ 160 003d 42010000 		.4byte	.LASF3
  161 0041 02       		.uleb128 0x2
  162 0042 04       		.byte	0x4
  163 0043 05       		.byte	0x5
- 164 0044 08020000 		.4byte	.LASF4
+ 164 0044 04020000 		.4byte	.LASF4
  165 0048 02       		.uleb128 0x2
  166 0049 04       		.byte	0x4
  167 004a 07       		.byte	0x7
- 168 004b 34010000 		.4byte	.LASF5
+ 168 004b 30010000 		.4byte	.LASF5
  169 004f 02       		.uleb128 0x2
  170 0050 08       		.byte	0x8
  171 0051 05       		.byte	0x5
- 172 0052 C8010000 		.4byte	.LASF6
+ 172 0052 C4010000 		.4byte	.LASF6
  173 0056 02       		.uleb128 0x2
  174 0057 08       		.byte	0x8
  175 0058 07       		.byte	0x7
- 176 0059 B1010000 		.4byte	.LASF7
+ 176 0059 AD010000 		.4byte	.LASF7
  177 005d 03       		.uleb128 0x3
  178 005e 04       		.byte	0x4
  179 005f 05       		.byte	0x5
  180 0060 696E7400 		.ascii	"int\000"
  181 0064 02       		.uleb128 0x2
  182 0065 04       		.byte	0x4
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccfi7Zx8.s 			page 6
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5w8AD1.s 			page 6
 
 
  183 0066 07       		.byte	0x7
- 184 0067 A4010000 		.4byte	.LASF8
+ 184 0067 A0010000 		.4byte	.LASF8
  185 006b 04       		.uleb128 0x4
- 186 006c 02020000 		.4byte	.LASF12
+ 186 006c FE010000 		.4byte	.LASF12
  187 0070 02       		.byte	0x2
  188 0071 E401     		.2byte	0x1e4
  189 0073 2C000000 		.4byte	0x2c
  190 0077 02       		.uleb128 0x2
  191 0078 04       		.byte	0x4
  192 0079 04       		.byte	0x4
- 193 007a 78000000 		.4byte	.LASF9
+ 193 007a 74000000 		.4byte	.LASF9
  194 007e 02       		.uleb128 0x2
  195 007f 08       		.byte	0x8
  196 0080 04       		.byte	0x4
- 197 0081 66010000 		.4byte	.LASF10
+ 197 0081 62010000 		.4byte	.LASF10
  198 0085 02       		.uleb128 0x2
  199 0086 01       		.byte	0x1
  200 0087 08       		.byte	0x8
- 201 0088 D6010000 		.4byte	.LASF11
+ 201 0088 D2010000 		.4byte	.LASF11
  202 008c 04       		.uleb128 0x4
- 203 008d 2F010000 		.4byte	.LASF13
+ 203 008d 2B010000 		.4byte	.LASF13
  204 0091 02       		.byte	0x2
  205 0092 8E02     		.2byte	0x28e
  206 0094 98000000 		.4byte	0x98
@@ -333,19 +333,19 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccfi7Zx8.s 			page 1
  212 00a0 24       		.byte	0x24
  213 00a1 B2000000 		.4byte	0xb2
  214 00a5 07       		.uleb128 0x7
- 215 00a6 59010000 		.4byte	.LASF22
+ 215 00a6 55010000 		.4byte	.LASF22
  216 00aa 03       		.byte	0x3
  217 00ab 26       		.byte	0x26
  218 00ac 6B000000 		.4byte	0x6b
  219 00b0 00       		.byte	0
  220 00b1 00       		.byte	0
  221 00b2 08       		.uleb128 0x8
- 222 00b3 DB010000 		.4byte	.LASF14
+ 222 00b3 D7010000 		.4byte	.LASF14
  223 00b7 03       		.byte	0x3
  224 00b8 28       		.byte	0x28
  225 00b9 9D000000 		.4byte	0x9d
  226 00bd 09       		.uleb128 0x9
- 227 00be 6D010000 		.4byte	.LASF15
+ 227 00be 69010000 		.4byte	.LASF15
  228 00c2 01       		.byte	0x1
  229 00c3 28       		.byte	0x28
  230 00c4 00000000 		.4byte	.LFB0
@@ -353,18 +353,18 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccfi7Zx8.s 			page 1
  232 00cc 01       		.uleb128 0x1
  233 00cd 9C       		.byte	0x9c
  234 00ce 09       		.uleb128 0x9
- 235 00cf 87010000 		.4byte	.LASF16
+ 235 00cf 83010000 		.4byte	.LASF16
  236 00d3 01       		.byte	0x1
  237 00d4 3D       		.byte	0x3d
  238 00d5 00000000 		.4byte	.LFB1
  239 00d9 14000000 		.4byte	.LFE1-.LFB1
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccfi7Zx8.s 			page 7
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5w8AD1.s 			page 7
 
 
  240 00dd 01       		.uleb128 0x1
  241 00de 9C       		.byte	0x9c
  242 00df 0A       		.uleb128 0xa
- 243 00e0 7E000000 		.4byte	.LASF17
+ 243 00e0 7A000000 		.4byte	.LASF17
  244 00e4 01       		.byte	0x1
  245 00e5 51       		.byte	0x51
  246 00e6 00000000 		.4byte	.LFB2
@@ -377,7 +377,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccfi7Zx8.s 			page 1
  253 00f9 BD000000 		.4byte	0xbd
  254 00fd 00       		.byte	0
  255 00fe 0A       		.uleb128 0xa
- 256 00ff 62000000 		.4byte	.LASF18
+ 256 00ff 16000000 		.4byte	.LASF18
  257 0103 01       		.byte	0x1
  258 0104 65       		.byte	0x65
  259 0105 00000000 		.4byte	.LFB3
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccfi7Zx8.s 			page 1
  294 000f 10       		.uleb128 0x10
  295 0010 17       		.uleb128 0x17
  296 0011 00       		.byte	0
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccfi7Zx8.s 			page 8
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5w8AD1.s 			page 8
 
 
  297 0012 00       		.byte	0
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccfi7Zx8.s 			page 1
  351 0048 00       		.byte	0
  352 0049 00       		.byte	0
  353 004a 07       		.uleb128 0x7
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccfi7Zx8.s 			page 9
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5w8AD1.s 			page 9
 
 
  354 004b 0D       		.uleb128 0xd
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccfi7Zx8.s 			page 1
  408 0082 19       		.uleb128 0x19
  409 0083 03       		.uleb128 0x3
  410 0084 0E       		.uleb128 0xe
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccfi7Zx8.s 			page 10
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5w8AD1.s 			page 10
 
 
  411 0085 3A       		.uleb128 0x3a
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccfi7Zx8.s 			page 1
  465 001c 14000000 		.4byte	.LFE1-.LFB1
  466 0020 00000000 		.4byte	.LFB2
  467 0024 08000000 		.4byte	.LFE2-.LFB2
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccfi7Zx8.s 			page 11
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5w8AD1.s 			page 11
 
 
  468 0028 00000000 		.4byte	.LFB3
@@ -630,136 +630,136 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccfi7Zx8.s 			page 1
  488      50657269 
  488      6F645F62 
  488      61636B75 
- 489              	.LASF21:
- 490 0016 433A5C55 		.ascii	"C:\\Users\\e.ivanov\\Documents\\GitHub\\generic\\Ma"
- 490      73657273 
- 490      5C652E69 
- 490      76616E6F 
- 490      765C446F 
- 491 0043 6E636865 		.ascii	"nchester encoder-decoder.cydsn\000"
- 491      73746572 
- 491      20656E63 
- 491      6F646572 
- 491      2D646563 
- 492              	.LASF18:
- 493 0062 436F6E74 		.ascii	"Control_Period_Wakeup\000"
- 493      726F6C5F 
- 493      50657269 
- 493      6F645F57 
- 493      616B6575 
+ 489              	.LASF18:
+ 490 0016 436F6E74 		.ascii	"Control_Period_Wakeup\000"
+ 490      726F6C5F 
+ 490      50657269 
+ 490      6F645F57 
+ 490      616B6575 
+ 491              	.LASF21:
+ 492 002c 433A5C55 		.ascii	"C:\\Users\\e.ivanov\\Documents\\GitHub\\adc\\Manche"
+ 492      73657273 
+ 492      5C652E69 
+ 492      76616E6F 
+ 492      765C446F 
+ 493 0059 73746572 		.ascii	"ster encoder-decoder.cydsn\000"
+ 493      20656E63 
+ 493      6F646572 
+ 493      2D646563 
+ 493      6F646572 
  494              	.LASF9:
- 495 0078 666C6F61 		.ascii	"float\000"
+ 495 0074 666C6F61 		.ascii	"float\000"
  495      7400
  496              	.LASF17:
- 497 007e 436F6E74 		.ascii	"Control_Period_Sleep\000"
+ 497 007a 436F6E74 		.ascii	"Control_Period_Sleep\000"
  497      726F6C5F 
  497      50657269 
  497      6F645F53 
  497      6C656570 
  498              	.LASF1:
- 499 0093 756E7369 		.ascii	"unsigned char\000"
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccfi7Zx8.s 			page 12
+ 499 008f 756E7369 		.ascii	"unsigned char\000"
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5w8AD1.s 			page 12
 
 
  499      676E6564 
  499      20636861 
  499      7200
  500              	.LASF19:
- 501 00a1 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 501 009d 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
  501      43313120 
  501      352E342E 
  501      31203230 
  501      31363036 
- 502 00d4 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 502 00d0 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
  502      20726576 
  502      6973696F 
  502      6E203233 
  502      37373135 
- 503 0107 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 503 0103 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
  503      66756E63 
  503      74696F6E 
  503      2D736563 
  503      74696F6E 
  504              	.LASF13:
- 505 012f 72656738 		.ascii	"reg8\000"
+ 505 012b 72656738 		.ascii	"reg8\000"
  505      00
  506              	.LASF5:
- 507 0134 6C6F6E67 		.ascii	"long unsigned int\000"
+ 507 0130 6C6F6E67 		.ascii	"long unsigned int\000"
  507      20756E73 
  507      69676E65 
  507      6420696E 
  507      7400
  508              	.LASF3:
- 509 0146 73686F72 		.ascii	"short unsigned int\000"
+ 509 0142 73686F72 		.ascii	"short unsigned int\000"
  509      7420756E 
  509      7369676E 
  509      65642069 
  509      6E7400
  510              	.LASF22:
- 511 0159 636F6E74 		.ascii	"controlState\000"
+ 511 0155 636F6E74 		.ascii	"controlState\000"
  511      726F6C53 
  511      74617465 
  511      00
  512              	.LASF10:
- 513 0166 646F7562 		.ascii	"double\000"
+ 513 0162 646F7562 		.ascii	"double\000"
  513      6C6500
  514              	.LASF15:
- 515 016d 436F6E74 		.ascii	"Control_Period_SaveConfig\000"
+ 515 0169 436F6E74 		.ascii	"Control_Period_SaveConfig\000"
  515      726F6C5F 
  515      50657269 
  515      6F645F53 
  515      61766543 
  516              	.LASF16:
- 517 0187 436F6E74 		.ascii	"Control_Period_RestoreConfig\000"
+ 517 0183 436F6E74 		.ascii	"Control_Period_RestoreConfig\000"
  517      726F6C5F 
  517      50657269 
  517      6F645F52 
  517      6573746F 
  518              	.LASF8:
- 519 01a4 756E7369 		.ascii	"unsigned int\000"
+ 519 01a0 756E7369 		.ascii	"unsigned int\000"
  519      676E6564 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccfi7Zx8.s 			page 13
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\cc5w8AD1.s 			page 13
 
 
  519      20696E74 
  519      00
  520              	.LASF7:
- 521 01b1 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 521 01ad 6C6F6E67 		.ascii	"long long unsigned int\000"
  521      206C6F6E 
  521      6720756E 
  521      7369676E 
  521      65642069 
  522              	.LASF6:
- 523 01c8 6C6F6E67 		.ascii	"long long int\000"
+ 523 01c4 6C6F6E67 		.ascii	"long long int\000"
  523      206C6F6E 
  523      6720696E 
  523      7400
  524              	.LASF11:
- 525 01d6 63686172 		.ascii	"char\000"
+ 525 01d2 63686172 		.ascii	"char\000"
  525      00
  526              	.LASF14:
- 527 01db 436F6E74 		.ascii	"Control_Period_BACKUP_STRUCT\000"
+ 527 01d7 436F6E74 		.ascii	"Control_Period_BACKUP_STRUCT\000"
  527      726F6C5F 
  527      50657269 
  527      6F645F42 
  527      41434B55 
  528              	.LASF2:
- 529 01f8 73686F72 		.ascii	"short int\000"
+ 529 01f4 73686F72 		.ascii	"short int\000"
  529      7420696E 
  529      7400
  530              	.LASF12:
- 531 0202 75696E74 		.ascii	"uint8\000"
+ 531 01fe 75696E74 		.ascii	"uint8\000"
  531      3800
  532              	.LASF4:
- 533 0208 6C6F6E67 		.ascii	"long int\000"
+ 533 0204 6C6F6E67 		.ascii	"long int\000"
  533      20696E74 
  533      00
  534              	.LASF0:
- 535 0211 7369676E 		.ascii	"signed char\000"
+ 535 020d 7369676E 		.ascii	"signed char\000"
  535      65642063 
  535      68617200 
  536              	.LASF20:
- 537 021d 47656E65 		.ascii	"Generated_Source\\PSoC5\\Control_Period_PM.c\000"
+ 537 0219 47656E65 		.ascii	"Generated_Source\\PSoC5\\Control_Period_PM.c\000"
  537      72617465 
  537      645F536F 
  537      75726365 

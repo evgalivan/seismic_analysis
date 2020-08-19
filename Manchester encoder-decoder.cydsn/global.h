@@ -9,7 +9,11 @@
  *
  * ========================================
 */
-#include <project.h>
+
+    
+#ifndef uint32 
+    #include <project.h>
+#endif
 
 
 #define RING_SIZE 64
@@ -61,6 +65,11 @@ extern long long utc_time;
 extern long long pps_time;
 extern uint32 capture_flag;
 extern renumber renumber_frame;
+extern uint32 UpdateFrequencyFlag;
+extern volatile long  NewFrequency;
+extern long   LowFrequency;
+extern long   HighFrequency;
+
 
 uint8 ByteToInt(uint8);
 uint8 IsNotEmpty(RingBuff_t*);
@@ -68,10 +77,13 @@ uint8 InsertByte(RingBuff_t* , uint8);
 uint8 ExtractByte(RingBuff_t*);
 uint8 agg_sent(uart_context*);
 
-/*Clock.c*/
 
-void Strobe ();
-void UpdatePeriod(uint32 NewPeriod);
+
+
+
+/*comp_cap_tc.c*/
+
+void PrepareNewFrequency(void);
 
 
 /* [] END OF FILE */

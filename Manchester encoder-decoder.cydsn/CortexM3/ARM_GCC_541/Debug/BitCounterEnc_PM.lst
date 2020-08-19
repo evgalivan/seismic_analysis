@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrSIUYC.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 1
   28:Generated_Source\PSoC5/BitCounterEnc_PM.c **** *     Save the current user configuration
   29:Generated_Source\PSoC5/BitCounterEnc_PM.c **** *
   30:Generated_Source\PSoC5/BitCounterEnc_PM.c **** * Parameters:  
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 2
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrSIUYC.s 			page 2
 
 
   31:Generated_Source\PSoC5/BitCounterEnc_PM.c **** *  void
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 1
   56:Generated_Source\PSoC5/BitCounterEnc_PM.c **** /*******************************************************************************
   57:Generated_Source\PSoC5/BitCounterEnc_PM.c **** * Function Name: BitCounterEnc_RestoreConfig
   58:Generated_Source\PSoC5/BitCounterEnc_PM.c **** ********************************************************************************
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 3
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrSIUYC.s 			page 3
 
 
   59:Generated_Source\PSoC5/BitCounterEnc_PM.c **** *
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 1
   84:Generated_Source\PSoC5/BitCounterEnc_PM.c ****     #endif /* (!BitCounterEnc_UsingFixedFunction) */
   85:Generated_Source\PSoC5/BitCounterEnc_PM.c **** }
   86:Generated_Source\PSoC5/BitCounterEnc_PM.c **** 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 4
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrSIUYC.s 			page 4
 
 
   87:Generated_Source\PSoC5/BitCounterEnc_PM.c **** 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 1
   99 0008 FFF7FEFF 		bl	BitCounterEnc_Stop
  100              	.LVL2:
  128:Generated_Source\PSoC5/BitCounterEnc_PM.c ****     BitCounterEnc_SaveConfig();
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 5
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrSIUYC.s 			page 5
 
 
  101              		.loc 1 128 0
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 1
  131 0006 08BD     		pop	{r3, pc}
  132              		.cfi_endproc
  133              	.LFE3:
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 6
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrSIUYC.s 			page 6
 
 
  134              		.size	BitCounterEnc_Wakeup, .-BitCounterEnc_Wakeup
@@ -323,30 +323,30 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 1
  153 000c 75000000 		.4byte	.LASF25
  154 0010 0C       		.byte	0xc
  155 0011 4B000000 		.4byte	.LASF26
- 156 0015 81010000 		.4byte	.LASF27
+ 156 0015 5D020000 		.4byte	.LASF27
  157 0019 00000000 		.4byte	.Ldebug_ranges0+0
  158 001d 00000000 		.4byte	0
  159 0021 00000000 		.4byte	.Ldebug_line0
  160 0025 02       		.uleb128 0x2
  161 0026 01       		.byte	0x1
  162 0027 06       		.byte	0x6
- 163 0028 46020000 		.4byte	.LASF0
+ 163 0028 FA010000 		.4byte	.LASF0
  164 002c 02       		.uleb128 0x2
  165 002d 01       		.byte	0x1
  166 002e 08       		.byte	0x8
- 167 002f 11020000 		.4byte	.LASF1
+ 167 002f C5010000 		.4byte	.LASF1
  168 0033 02       		.uleb128 0x2
  169 0034 02       		.byte	0x2
  170 0035 05       		.byte	0x5
- 171 0036 8B020000 		.4byte	.LASF2
+ 171 0036 3F020000 		.4byte	.LASF2
  172 003a 02       		.uleb128 0x2
  173 003b 02       		.byte	0x2
  174 003c 07       		.byte	0x7
- 175 003d 33020000 		.4byte	.LASF3
+ 175 003d E7010000 		.4byte	.LASF3
  176 0041 02       		.uleb128 0x2
  177 0042 04       		.byte	0x4
  178 0043 05       		.byte	0x5
- 179 0044 EE010000 		.4byte	.LASF4
+ 179 0044 A2010000 		.4byte	.LASF4
  180 0048 02       		.uleb128 0x2
  181 0049 04       		.byte	0x4
  182 004a 07       		.byte	0x7
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 1
  188 0056 02       		.uleb128 0x2
  189 0057 08       		.byte	0x8
  190 0058 07       		.byte	0x7
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 7
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrSIUYC.s 			page 7
 
 
  191 0059 1B010000 		.4byte	.LASF7
@@ -382,32 +382,32 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 1
  209 007e 02       		.uleb128 0x2
  210 007f 08       		.byte	0x8
  211 0080 04       		.byte	0x4
- 212 0081 0A020000 		.4byte	.LASF10
+ 212 0081 BE010000 		.4byte	.LASF10
  213 0085 02       		.uleb128 0x2
  214 0086 01       		.byte	0x1
  215 0087 08       		.byte	0x8
- 216 0088 E9010000 		.4byte	.LASF11
+ 216 0088 9D010000 		.4byte	.LASF11
  217 008c 02       		.uleb128 0x2
  218 008d 08       		.byte	0x8
  219 008e 04       		.byte	0x4
- 220 008f 7F020000 		.4byte	.LASF12
+ 220 008f 33020000 		.4byte	.LASF12
  221 0093 02       		.uleb128 0x2
  222 0094 04       		.byte	0x4
  223 0095 07       		.byte	0x7
- 224 0096 A0020000 		.4byte	.LASF13
+ 224 0096 54020000 		.4byte	.LASF13
  225 009a 05       		.uleb128 0x5
  226 009b 02       		.byte	0x2
  227 009c 02       		.byte	0x2
  228 009d 40       		.byte	0x40
  229 009e BB000000 		.4byte	0xbb
  230 00a2 06       		.uleb128 0x6
- 231 00a3 F7010000 		.4byte	.LASF14
+ 231 00a3 AB010000 		.4byte	.LASF14
  232 00a7 02       		.byte	0x2
  233 00a8 42       		.byte	0x42
  234 00a9 6B000000 		.4byte	0x6b
  235 00ad 00       		.byte	0
  236 00ae 06       		.uleb128 0x6
- 237 00af 95020000 		.4byte	.LASF15
+ 237 00af 49020000 		.4byte	.LASF15
  238 00b3 02       		.byte	0x2
  239 00b4 43       		.byte	0x43
  240 00b5 6B000000 		.4byte	0x6b
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 1
  245 00c0 02       		.byte	0x2
  246 00c1 49       		.byte	0x49
  247 00c2 9A000000 		.4byte	0x9a
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 8
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrSIUYC.s 			page 8
 
 
  248 00c6 08       		.uleb128 0x8
@@ -435,7 +435,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 1
  259 00e0 5C010000 		.4byte	0x15c
  260 00e4 00       		.byte	0
  261 00e5 08       		.uleb128 0x8
- 262 00e6 CD010000 		.4byte	.LASF19
+ 262 00e6 81010000 		.4byte	.LASF19
  263 00ea 01       		.byte	0x1
  264 00eb 4A       		.byte	0x4a
  265 00ec 00000000 		.4byte	.LFB1
@@ -448,7 +448,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 1
  272 00ff 67010000 		.4byte	0x167
  273 0103 00       		.byte	0
  274 0104 08       		.uleb128 0x8
- 275 0105 1F020000 		.4byte	.LASF20
+ 275 0105 D3010000 		.4byte	.LASF20
  276 0109 01       		.byte	0x1
  277 010a 69       		.byte	0x69
  278 010b 00000000 		.4byte	.LFB2
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 1
  302 014a 00       		.byte	0
  303 014b 0A       		.uleb128 0xa
  304 014c 0E000000 		.4byte	.LASF28
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 9
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrSIUYC.s 			page 9
 
 
  305 0150 01       		.byte	0x1
@@ -488,8 +488,8 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 1
  309 0157 03       		.byte	0x3
  310 0158 00000000 		.4byte	BitCounterEnc_backup
  311 015c 0B       		.uleb128 0xb
- 312 015d 52020000 		.4byte	.LASF22
- 313 0161 52020000 		.4byte	.LASF22
+ 312 015d 06020000 		.4byte	.LASF22
+ 313 0161 06020000 		.4byte	.LASF22
  314 0165 02       		.byte	0x2
  315 0166 5D       		.byte	0x5d
  316 0167 0B       		.uleb128 0xb
@@ -498,8 +498,8 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 1
  319 0170 02       		.byte	0x2
  320 0171 5A       		.byte	0x5a
  321 0172 0B       		.uleb128 0xb
- 322 0173 6C020000 		.4byte	.LASF24
- 323 0177 6C020000 		.4byte	.LASF24
+ 322 0173 20020000 		.4byte	.LASF24
+ 323 0177 20020000 		.4byte	.LASF24
  324 017b 02       		.byte	0x2
  325 017c 50       		.byte	0x50
  326 017d 00       		.byte	0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 1
  359 001e 03       		.uleb128 0x3
  360 001f 24       		.uleb128 0x24
  361 0020 00       		.byte	0
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 10
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrSIUYC.s 			page 10
 
 
  362 0021 0B       		.uleb128 0xb
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 1
  416 0057 3A       		.uleb128 0x3a
  417 0058 0B       		.uleb128 0xb
  418 0059 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 11
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrSIUYC.s 			page 11
 
 
  419 005a 0B       		.uleb128 0xb
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 1
  473 0093 0B       		.uleb128 0xb
  474 0094 2E       		.uleb128 0x2e
  475 0095 00       		.byte	0
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 12
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrSIUYC.s 			page 12
 
 
  476 0096 3F       		.uleb128 0x3f
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 1
  525      206C6F6E 
  525      6720696E 
  525      7400
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 13
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrSIUYC.s 			page 13
 
 
  526              	.LASF28:
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 1
  544              	.LASF18:
  545 0132 42697443 		.ascii	"BitCounterEnc_SaveConfig\000"
  545      6F756E74 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 14
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrSIUYC.s 			page 14
 
 
  545      6572456E 
@@ -799,89 +799,89 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 1
  551      6572456E 
  551      635F5761 
  551      6B657570 
- 552              	.LASF27:
- 553 0181 433A5C55 		.ascii	"C:\\Users\\e.ivanov\\Documents\\GitHub\\generic\\Ma"
- 553      73657273 
- 553      5C652E69 
- 553      76616E6F 
- 553      765C446F 
- 554 01ae 6E636865 		.ascii	"nchester encoder-decoder.cydsn\000"
- 554      73746572 
- 554      20656E63 
- 554      6F646572 
- 554      2D646563 
- 555              	.LASF19:
- 556 01cd 42697443 		.ascii	"BitCounterEnc_RestoreConfig\000"
- 556      6F756E74 
- 556      6572456E 
- 556      635F5265 
- 556      73746F72 
- 557              	.LASF11:
- 558 01e9 63686172 		.ascii	"char\000"
- 558      00
- 559              	.LASF4:
- 560 01ee 6C6F6E67 		.ascii	"long int\000"
- 560      20696E74 
- 560      00
- 561              	.LASF14:
- 562 01f7 436F756E 		.ascii	"CounterEnableState\000"
- 562      74657245 
- 562      6E61626C 
- 562      65537461 
- 562      746500
- 563              	.LASF10:
- 564 020a 646F7562 		.ascii	"double\000"
- 564      6C6500
- 565              	.LASF1:
- 566 0211 756E7369 		.ascii	"unsigned char\000"
- 566      676E6564 
- 566      20636861 
- 566      7200
- 567              	.LASF20:
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccGegh9M.s 			page 15
+ 552              	.LASF19:
+ 553 0181 42697443 		.ascii	"BitCounterEnc_RestoreConfig\000"
+ 553      6F756E74 
+ 553      6572456E 
+ 553      635F5265 
+ 553      73746F72 
+ 554              	.LASF11:
+ 555 019d 63686172 		.ascii	"char\000"
+ 555      00
+ 556              	.LASF4:
+ 557 01a2 6C6F6E67 		.ascii	"long int\000"
+ 557      20696E74 
+ 557      00
+ 558              	.LASF14:
+ 559 01ab 436F756E 		.ascii	"CounterEnableState\000"
+ 559      74657245 
+ 559      6E61626C 
+ 559      65537461 
+ 559      746500
+ 560              	.LASF10:
+ 561 01be 646F7562 		.ascii	"double\000"
+ 561      6C6500
+ 562              	.LASF1:
+ 563 01c5 756E7369 		.ascii	"unsigned char\000"
+ 563      676E6564 
+ 563      20636861 
+ 563      7200
+ 564              	.LASF20:
+ 565 01d3 42697443 		.ascii	"BitCounterEnc_Sleep\000"
+ 565      6F756E74 
+ 565      6572456E 
+ 565      635F536C 
+ 565      65657000 
+ 566              	.LASF3:
+ 567 01e7 73686F72 		.ascii	"short unsigned int\000"
+ 567      7420756E 
+ 567      7369676E 
+ 567      65642069 
+ 567      6E7400
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccrSIUYC.s 			page 15
 
 
- 568 021f 42697443 		.ascii	"BitCounterEnc_Sleep\000"
- 568      6F756E74 
- 568      6572456E 
- 568      635F536C 
- 568      65657000 
- 569              	.LASF3:
- 570 0233 73686F72 		.ascii	"short unsigned int\000"
- 570      7420756E 
- 570      7369676E 
- 570      65642069 
- 570      6E7400
- 571              	.LASF0:
- 572 0246 7369676E 		.ascii	"signed char\000"
- 572      65642063 
- 572      68617200 
- 573              	.LASF22:
- 574 0252 42697443 		.ascii	"BitCounterEnc_ReadCounter\000"
- 574      6F756E74 
- 574      6572456E 
- 574      635F5265 
- 574      6164436F 
- 575              	.LASF24:
- 576 026c 42697443 		.ascii	"BitCounterEnc_Stop\000"
- 576      6F756E74 
- 576      6572456E 
- 576      635F5374 
- 576      6F7000
- 577              	.LASF12:
- 578 027f 6C6F6E67 		.ascii	"long double\000"
- 578      20646F75 
- 578      626C6500 
- 579              	.LASF2:
- 580 028b 73686F72 		.ascii	"short int\000"
- 580      7420696E 
- 580      7400
- 581              	.LASF15:
- 582 0295 436F756E 		.ascii	"CounterUdb\000"
- 582      74657255 
- 582      646200
- 583              	.LASF13:
- 584 02a0 73697A65 		.ascii	"sizetype\000"
- 584      74797065 
- 584      00
+ 568              	.LASF0:
+ 569 01fa 7369676E 		.ascii	"signed char\000"
+ 569      65642063 
+ 569      68617200 
+ 570              	.LASF22:
+ 571 0206 42697443 		.ascii	"BitCounterEnc_ReadCounter\000"
+ 571      6F756E74 
+ 571      6572456E 
+ 571      635F5265 
+ 571      6164436F 
+ 572              	.LASF24:
+ 573 0220 42697443 		.ascii	"BitCounterEnc_Stop\000"
+ 573      6F756E74 
+ 573      6572456E 
+ 573      635F5374 
+ 573      6F7000
+ 574              	.LASF12:
+ 575 0233 6C6F6E67 		.ascii	"long double\000"
+ 575      20646F75 
+ 575      626C6500 
+ 576              	.LASF2:
+ 577 023f 73686F72 		.ascii	"short int\000"
+ 577      7420696E 
+ 577      7400
+ 578              	.LASF15:
+ 579 0249 436F756E 		.ascii	"CounterUdb\000"
+ 579      74657255 
+ 579      646200
+ 580              	.LASF13:
+ 581 0254 73697A65 		.ascii	"sizetype\000"
+ 581      74797065 
+ 581      00
+ 582              	.LASF27:
+ 583 025d 433A5C55 		.ascii	"C:\\Users\\e.ivanov\\Documents\\GitHub\\adc\\Manche"
+ 583      73657273 
+ 583      5C652E69 
+ 583      76616E6F 
+ 583      765C446F 
+ 584 028a 73746572 		.ascii	"ster encoder-decoder.cydsn\000"
+ 584      20656E63 
+ 584      6F646572 
+ 584      2D646563 
+ 584      6F646572 
  585              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

@@ -161,7 +161,7 @@ void Waiter_Wakeup(void)        ;
 #if (Waiter_UsingFixedFunction)
 #define Waiter_INIT_INTERRUPTS_MASK    ((uint8)((uint8)0u << Waiter_STATUS_ZERO_INT_EN_MASK_SHIFT))
 #else
-#define Waiter_INIT_COMPARE_VALUE      4u
+#define Waiter_INIT_COMPARE_VALUE      9u
 #define Waiter_INIT_INTERRUPTS_MASK ((uint8)((uint8)0u << Waiter_STATUS_ZERO_INT_EN_MASK_SHIFT) | \
         ((uint8)((uint8)0u << Waiter_STATUS_CAPTURE_INT_EN_MASK_SHIFT)) | \
         ((uint8)((uint8)0u << Waiter_STATUS_CMP_INT_EN_MASK_SHIFT)) | \

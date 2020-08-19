@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Start.h  
+* File Name: START.h  
 * Version 2.20
 *
 * Description:
@@ -15,8 +15,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_Start_ALIASES_H) /* Pins Start_ALIASES_H */
-#define CY_PINS_Start_ALIASES_H
+#if !defined(CY_PINS_START_ALIASES_H) /* Pins START_ALIASES_H */
+#define CY_PINS_START_ALIASES_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
@@ -25,12 +25,12 @@
 /***************************************
 *              Constants        
 ***************************************/
-#define Start_0			(Start__0__PC)
-#define Start_0_INTR	((uint16)((uint16)0x0001u << Start__0__SHIFT))
+#define START_0			(START__0__PC)
+#define START_0_INTR	((uint16)((uint16)0x0001u << START__0__SHIFT))
 
-#define Start_INTR_ALL	 ((uint16)(Start_0_INTR))
+#define START_INTR_ALL	 ((uint16)(START_0_INTR))
 
-#endif /* End Pins Start_ALIASES_H */
+#endif /* End Pins START_ALIASES_H */
 
 
 /* [] END OF FILE */

@@ -12,7 +12,8 @@
 
 #include <project.h>
 
-void Strobe ();
-void UpdatePeriod(uint32 NewPeriod);
+void Strobe (void);
+void EmptyFIFO (void);
+void UpdateFrequency(uint32 NewPeriod);
 
 /* [] END OF FILE */

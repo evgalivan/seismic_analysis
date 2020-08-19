@@ -14,100 +14,55 @@
 #include <BitCounterDec.h>
 #include <StartTransmit.h>
 #include <FrameAllow.h>
-
-RecieveStatReg curStatRecive;
-
-static volatile unsigned int AllowStoreFlag = 0, AllowPrepareToStoreFlag = 0, first = 0, second =0, third = 0;
-static volatile unsigned int CountToRecieve, rcstatus=0;
-static uint32 *current_word  = (uint32*)(0), trash;
+#include <line_buf.h>
 
 
-void Store(void){
-//    while (CountToRecieve)
-//    {
-        if(first == 0) {
-                first = 1;
-                trash = RecieveShiftReg_ReadData() | 0x80000000;
-               }
-        else {
-//            *(char*)(&curStatRecive) = RecieveShiftReg_SR_STATUS;
-//            if(curStatRecive.F1_partial)      
-//                {
-//                    if(first == 0) {
-//                        first = 1;                
-//                        trash = RecieveShiftReg_ReadData() | 0x80000000;
-//                        //current_word--;
-//                    }
-//                    else {
-                        if (second == 0){
-                        second = 1;
-                        *current_word = RecieveShiftReg_ReadData() | 0x80000000;
-                        }
-                        else {
-                            *current_word = RecieveShiftReg_ReadData();
-                        }
-                        current_word++;
-                        //CountToRecieve--;
-//                    }
-//                }
-//            else{
-//                CountToRecieve=CountToRecieve;
-//                break;            
-            }
-//        }
-//    }
+volatile unsigned int first = 0;
+volatile unsigned int CountToRecieve, rcstatus=0;
+
+
+inline void Store(uint32 tmp){
+    
+    if(CountToRecieve)
+    {
+        CountToRecieve--;
+        *(current_write++) = tmp;
+    }
 }
 
-void SetAllowPrepareToStoreFlag(void){
-    AllowPrepareToStoreFlag = 1;
-}
-
-int CheckAllowPrepareToStoreFlag(void){
-    return AllowPrepareToStoreFlag;
-}
-
-void ClearAllowPrepareToStoreFlag(void){
-    AllowPrepareToStoreFlag = 0;
-}
-
-void SetAllowStoreFlag(void){
-    AllowStoreFlag = 1;
-}
-
-int CheckAllowStoreFlag(void){
-    return AllowStoreFlag;
-}
-
-void ClearAllowStoreFlag(void){
-    AllowStoreFlag = 0;
-}
-
-int CheckNumberOfWords(void){
-    return CountToRecieve;
-}
 
 void ClearRcStatus(void){
     rcstatus = 0;
 }
 
-RcResult PrepareToStore(uint32* recieve_buf){//, int LENGTH){
-    if (rcstatus)
-        return RCBUSY;
+/*
+Func PrepareToStore 
+*/
+
+RcResult PrepareToStore(void){
+    //if (rcstatus)
+    //    return RCBUSY;
     rcstatus = 1;
-    //CountToRecieve = LENGTH;
-    current_word = recieve_buf;
-    //BitCounterDec_WriteCounter(31);
-    first = 0;
-    second = 0;
-//    Store();
+    
+    int tmp = RecieveShiftReg_SR_STATUS;
+//    while (RecieveShiftReg_OUT_FIFO_EMPTY != (RecieveShiftReg_SR_STATUS&RecieveShiftReg_OUT_FIFO_MASK)){
+    while ((tmp&0x40)/*|(!(tmp&0x20))*/){
+        tmp = RecieveShiftReg_ReadData();
+        tmp = RecieveShiftReg_SR_STATUS;
+    //}while (RecieveShiftReg_OUT_FIFO_EMPTY != (RecieveShiftReg_SR_STATUS&RecieveShiftReg_OUT_FIFO_MASK));
+    };
+    
+    CountToRecieve = PACKET_LENGTH;
+    current_write = &line_buf[4];
+    BitCounterDec_WriteCounter(31);
+    first = 1;
     return RCSUCCSSY;
 }
 
-
 void ClearShiftRecieverError(uint32* recieve_buf, int LENGTH){
     CountToRecieve = LENGTH;
-    current_word = recieve_buf;
-    Store();
+    current_write = recieve_buf;
+    //Store();
 }
 
 void GetStatusFifoReciever (uint8 *RecieverFifo){

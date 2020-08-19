@@ -299,10 +299,10 @@ uint8 SigmaReg_GetIntStatus(void)
 *  None.
 *
 *******************************************************************************/
-void SigmaReg_WriteRegValue(uint16 shiftData)
+void SigmaReg_WriteRegValue(uint8 shiftData)
                                                                      
 {
-    CY_SET_REG16(SigmaReg_SHIFT_REG_LSB_PTR, shiftData);
+    CY_SET_REG8(SigmaReg_SHIFT_REG_LSB_PTR, shiftData);
 }
 
 
@@ -326,7 +326,7 @@ void SigmaReg_WriteRegValue(uint16 shiftData)
     *  No.
     *
     *******************************************************************************/
-    cystatus SigmaReg_WriteData(uint16 shiftData)
+    cystatus SigmaReg_WriteData(uint8 shiftData)
                                                                          
     {
         cystatus result;
@@ -336,7 +336,7 @@ void SigmaReg_WriteRegValue(uint16 shiftData)
         /* Writes data into the input FIFO if it is not FULL */
         if(SigmaReg_RET_FIFO_FULL != (SigmaReg_GetFIFOStatus(SigmaReg_IN_FIFO)))
         {
-            CY_SET_REG16(SigmaReg_IN_FIFO_VAL_LSB_PTR, shiftData);
+            CY_SET_REG8(SigmaReg_IN_FIFO_VAL_LSB_PTR, shiftData);
             result = CYRET_SUCCESS;
         }
 
@@ -363,9 +363,9 @@ void SigmaReg_WriteRegValue(uint16 shiftData)
     *  No.
     *
     *******************************************************************************/
-    uint16 SigmaReg_ReadData(void) 
+    uint8 SigmaReg_ReadData(void) 
     {
-        return(CY_GET_REG16(SigmaReg_OUT_FIFO_VAL_LSB_PTR));
+        return(CY_GET_REG8(SigmaReg_OUT_FIFO_VAL_LSB_PTR));
     }
 #endif /* (0u != SigmaReg_USE_OUTPUT_FIFO) */
 
@@ -388,24 +388,24 @@ void SigmaReg_WriteRegValue(uint16 shiftData)
 *  No.
 *
 *******************************************************************************/
-uint16 SigmaReg_ReadRegValue(void) 
+uint8 SigmaReg_ReadRegValue(void) 
 {
-    uint16 result;
+    uint8 result;
 
     /* Clear FIFO before software capture */
     while(SigmaReg_RET_FIFO_EMPTY != SigmaReg_GetFIFOStatus(SigmaReg_OUT_FIFO))
     {
-        (void) CY_GET_REG16(SigmaReg_OUT_FIFO_VAL_LSB_PTR);
+        (void) CY_GET_REG8(SigmaReg_OUT_FIFO_VAL_LSB_PTR);
     }
 
     /* Read of 8 bits from A1 causes capture to output FIFO */
     (void) CY_GET_REG8(SigmaReg_SHIFT_REG_CAPTURE_PTR);
 
     /* Read output FIFO */
-    result  = CY_GET_REG16(SigmaReg_OUT_FIFO_VAL_LSB_PTR);
+    result  = CY_GET_REG8(SigmaReg_OUT_FIFO_VAL_LSB_PTR);
     
     #if(0u != (SigmaReg_SR_SIZE % 8u))
-        result &= ((uint16) SigmaReg_SR_MASK);
+        result &= ((uint8) SigmaReg_SR_MASK);
     #endif /* (0u != (SigmaReg_SR_SIZE % 8u)) */
     
     return(result);

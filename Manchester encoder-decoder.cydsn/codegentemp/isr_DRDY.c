@@ -27,7 +27,8 @@
 *  Place your includes, defines and code here 
 ********************************************************************************/
 /* `#START isr_DRDY_intc` */
-
+extern uint32 DRDY_flag;
+    
 /* `#END` */
 
 #ifndef CYINT_IRQ_BASE
@@ -165,7 +166,8 @@ CY_ISR(isr_DRDY_Interrupt)
 
     /*  Place your Interrupt code here. */
     /* `#START isr_DRDY_Interrupt` */
-
+    isr_DRDY_ClearPending();
+    DRDY_flag=1;    
     /* `#END` */
 }
 

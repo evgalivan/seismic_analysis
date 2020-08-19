@@ -27,7 +27,10 @@
 *  Place your includes, defines and code here 
 ********************************************************************************/
 /* `#START isr_TransmitWordShift_intc` */
-
+#include <StartTransmit.h>
+#include <sender.h>
+#include <BitCounterEnc.h>
+    #include <line_buf.h>
 /* `#END` */
 
 #ifndef CYINT_IRQ_BASE
@@ -165,7 +168,13 @@ CY_ISR(isr_TransmitWordShift_Interrupt)
 
     /*  Place your Interrupt code here. */
     /* `#START isr_TransmitWordShift_Interrupt` */
-
+        
+        flag_read_done = 1;
+        ClearStatus();
+        BitCounterEnc_ReadStatusRegister();
+        isr_TransmitWordShift_ClearPending();
+        isr_TransmitWordShift_Disable();
+        
     /* `#END` */
 }
 

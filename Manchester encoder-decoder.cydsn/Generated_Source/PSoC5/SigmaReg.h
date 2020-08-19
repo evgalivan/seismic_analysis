@@ -31,7 +31,7 @@
 #define SigmaReg_FIFO_SIZE          (4u)
 #define SigmaReg_USE_INPUT_FIFO     (0u)
 #define SigmaReg_USE_OUTPUT_FIFO    (0u)
-#define SigmaReg_SR_SIZE            (9u)
+#define SigmaReg_SR_SIZE            (8u)
 
 
 /***************************************
@@ -43,11 +43,11 @@ typedef struct
 {
     uint8 enableState;
 
-    uint16 saveSrA0Reg;
-    uint16 saveSrA1Reg;
+    uint8 saveSrA0Reg;
+    uint8 saveSrA1Reg;
 
     #if(CY_UDB_V0)
-        uint16 saveSrIntMask;
+        uint8 saveSrIntMask;
     #endif /* (CY_UDB_V0) */
 
 } SigmaReg_BACKUP_STRUCT;
@@ -69,18 +69,18 @@ void  SigmaReg_EnableInt(void)                          ;
 void  SigmaReg_DisableInt(void)                         ;
 void  SigmaReg_SetIntMode(uint8 interruptSource)        ;
 uint8 SigmaReg_GetIntStatus(void)                       ;
-void  SigmaReg_WriteRegValue(uint16 shiftData) \
+void  SigmaReg_WriteRegValue(uint8 shiftData) \
                                                                 ;
-uint16 SigmaReg_ReadRegValue(void) ;
+uint8 SigmaReg_ReadRegValue(void) ;
 uint8    SigmaReg_GetFIFOStatus(uint8 fifoId)           ;
 
 #if(0u != SigmaReg_USE_INPUT_FIFO)
-    cystatus SigmaReg_WriteData(uint16 shiftData) \
+    cystatus SigmaReg_WriteData(uint8 shiftData) \
                                                                 ;
 #endif /* (0u != SigmaReg_USE_INPUT_FIFO) */
 
 #if(0u != SigmaReg_USE_OUTPUT_FIFO)
-    uint16 SigmaReg_ReadData(void) ;
+    uint8 SigmaReg_ReadData(void) ;
 #endif /* (0u != SigmaReg_USE_OUTPUT_FIFO) */
 
 
@@ -125,7 +125,7 @@ extern uint8 SigmaReg_initVar;
 *    Initial Parameter Constants
 ***************************************/
 
-#define SigmaReg_SR_MASK    (0x1FFu) /* Unsigned is added to parameter */
+#define SigmaReg_SR_MASK    (0xFFu) /* Unsigned is added to parameter */
 #define SigmaReg_INT_SRC    (0u)
 #define SigmaReg_DIRECTION  (1u)
 
@@ -154,74 +154,74 @@ extern uint8 SigmaReg_initVar;
 
 /* A1 register: only used to implement capture function */
 #define SigmaReg_SHIFT_REG_CAPTURE_PTR    ( (reg8 *) \
-                                        SigmaReg_bSR_sC16_BShiftRegDp_u0__A1_REG )
+                                        SigmaReg_bSR_sC8_BShiftRegDp_u0__A1_REG )
 
 #if(CY_PSOC3 || CY_PSOC5)
-    #define SigmaReg_IN_FIFO_VAL_LSB_PTR        ( (reg16 *) \
-                                        SigmaReg_bSR_sC16_BShiftRegDp_u0__F0_REG )
+    #define SigmaReg_IN_FIFO_VAL_LSB_PTR        ( (reg8 *) \
+                                        SigmaReg_bSR_sC8_BShiftRegDp_u0__F0_REG )
 
-    #define SigmaReg_SHIFT_REG_LSB_PTR          ( (reg16 *) \
-                                        SigmaReg_bSR_sC16_BShiftRegDp_u0__A0_REG )
+    #define SigmaReg_SHIFT_REG_LSB_PTR          ( (reg8 *) \
+                                        SigmaReg_bSR_sC8_BShiftRegDp_u0__A0_REG )
 
-    #define SigmaReg_SHIFT_REG_VALUE_LSB_PTR    ( (reg16 *) \
-                                        SigmaReg_bSR_sC16_BShiftRegDp_u0__A1_REG )
+    #define SigmaReg_SHIFT_REG_VALUE_LSB_PTR    ( (reg8 *) \
+                                        SigmaReg_bSR_sC8_BShiftRegDp_u0__A1_REG )
 
-    #define SigmaReg_OUT_FIFO_VAL_LSB_PTR       ( (reg16 *) \
-                                        SigmaReg_bSR_sC16_BShiftRegDp_u0__F1_REG )
+    #define SigmaReg_OUT_FIFO_VAL_LSB_PTR       ( (reg8 *) \
+                                        SigmaReg_bSR_sC8_BShiftRegDp_u0__F1_REG )
 
 #else
     #if(SigmaReg_SR_SIZE <= 8u) /* 8bit - ShiftReg */
         #define SigmaReg_IN_FIFO_VAL_LSB_PTR        ( (reg8 *) \
-                                        SigmaReg_bSR_sC16_BShiftRegDp_u0__F0_REG )
+                                        SigmaReg_bSR_sC8_BShiftRegDp_u0__F0_REG )
 
         #define SigmaReg_SHIFT_REG_LSB_PTR          ( (reg8 *) \
-                                        SigmaReg_bSR_sC16_BShiftRegDp_u0__A0_REG )
+                                        SigmaReg_bSR_sC8_BShiftRegDp_u0__A0_REG )
 
         #define SigmaReg_SHIFT_REG_VALUE_LSB_PTR    ( (reg8 *) \
-                                        SigmaReg_bSR_sC16_BShiftRegDp_u0__A1_REG )
+                                        SigmaReg_bSR_sC8_BShiftRegDp_u0__A1_REG )
 
         #define SigmaReg_OUT_FIFO_VAL_LSB_PTR       ( (reg8 *) \
-                                        SigmaReg_bSR_sC16_BShiftRegDp_u0__F1_REG )
+                                        SigmaReg_bSR_sC8_BShiftRegDp_u0__F1_REG )
 
     #elif(SigmaReg_SR_SIZE <= 16u) /* 16bit - ShiftReg */
         #define SigmaReg_IN_FIFO_VAL_LSB_PTR        ( (reg16 *) \
-                                  SigmaReg_bSR_sC16_BShiftRegDp_u0__16BIT_F0_REG )
+                                  SigmaReg_bSR_sC8_BShiftRegDp_u0__16BIT_F0_REG )
 
         #define SigmaReg_SHIFT_REG_LSB_PTR          ( (reg16 *) \
-                                  SigmaReg_bSR_sC16_BShiftRegDp_u0__16BIT_A0_REG )
+                                  SigmaReg_bSR_sC8_BShiftRegDp_u0__16BIT_A0_REG )
 
         #define SigmaReg_SHIFT_REG_VALUE_LSB_PTR    ( (reg16 *) \
-                                  SigmaReg_bSR_sC16_BShiftRegDp_u0__16BIT_A1_REG )
+                                  SigmaReg_bSR_sC8_BShiftRegDp_u0__16BIT_A1_REG )
 
         #define SigmaReg_OUT_FIFO_VAL_LSB_PTR       ( (reg16 *) \
-                                  SigmaReg_bSR_sC16_BShiftRegDp_u0__16BIT_F1_REG )
+                                  SigmaReg_bSR_sC8_BShiftRegDp_u0__16BIT_F1_REG )
 
 
     #elif(SigmaReg_SR_SIZE <= 24u) /* 24bit - ShiftReg */
         #define SigmaReg_IN_FIFO_VAL_LSB_PTR        ( (reg32 *) \
-                                        SigmaReg_bSR_sC16_BShiftRegDp_u0__F0_REG )
+                                        SigmaReg_bSR_sC8_BShiftRegDp_u0__F0_REG )
 
         #define SigmaReg_SHIFT_REG_LSB_PTR          ( (reg32 *) \
-                                        SigmaReg_bSR_sC16_BShiftRegDp_u0__A0_REG )
+                                        SigmaReg_bSR_sC8_BShiftRegDp_u0__A0_REG )
 
         #define SigmaReg_SHIFT_REG_VALUE_LSB_PTR    ( (reg32 *) \
-                                        SigmaReg_bSR_sC16_BShiftRegDp_u0__A1_REG )
+                                        SigmaReg_bSR_sC8_BShiftRegDp_u0__A1_REG )
 
         #define SigmaReg_OUT_FIFO_VAL_LSB_PTR       ( (reg32 *) \
-                                        SigmaReg_bSR_sC16_BShiftRegDp_u0__F1_REG )
+                                        SigmaReg_bSR_sC8_BShiftRegDp_u0__F1_REG )
 
     #else /* 32bit - ShiftReg */
         #define SigmaReg_IN_FIFO_VAL_LSB_PTR        ( (reg32 *) \
-                                  SigmaReg_bSR_sC16_BShiftRegDp_u0__32BIT_F0_REG )
+                                  SigmaReg_bSR_sC8_BShiftRegDp_u0__32BIT_F0_REG )
 
         #define SigmaReg_SHIFT_REG_LSB_PTR          ( (reg32 *) \
-                                  SigmaReg_bSR_sC16_BShiftRegDp_u0__32BIT_A0_REG )
+                                  SigmaReg_bSR_sC8_BShiftRegDp_u0__32BIT_A0_REG )
 
         #define SigmaReg_SHIFT_REG_VALUE_LSB_PTR    ( (reg32 *) \
-                                  SigmaReg_bSR_sC16_BShiftRegDp_u0__32BIT_A1_REG )
+                                  SigmaReg_bSR_sC8_BShiftRegDp_u0__32BIT_A1_REG )
 
         #define SigmaReg_OUT_FIFO_VAL_LSB_PTR       ( (reg32 *) \
-                                  SigmaReg_bSR_sC16_BShiftRegDp_u0__32BIT_F1_REG )
+                                  SigmaReg_bSR_sC8_BShiftRegDp_u0__32BIT_F1_REG )
 
     #endif  /* (SigmaReg_SR_SIZE <= 8u) */
 #endif      /* (CY_PSOC3 || CY_PSOC5) */

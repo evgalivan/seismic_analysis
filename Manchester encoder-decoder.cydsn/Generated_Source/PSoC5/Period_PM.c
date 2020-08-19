@@ -21,11 +21,11 @@ static Period_BACKUP_STRUCT Period_backup =
 {
     Period_DISABLED,
 
-    ((uint16) Period_DEFAULT_A0),
-    ((uint16) Period_DEFAULT_A1),
+    ((uint8) Period_DEFAULT_A0),
+    ((uint8) Period_DEFAULT_A1),
 
     #if(CY_UDB_V0)
-        ((uint16) Period_INT_SRC),
+        ((uint8) Period_INT_SRC),
     #endif /* (CY_UDB_V0) */
 };
 
@@ -50,8 +50,8 @@ static Period_BACKUP_STRUCT Period_backup =
 void Period_SaveConfig(void) 
 {
     /* Store working registers A0 and A1 */
-    Period_backup.saveSrA0Reg   = CY_GET_REG16(Period_SHIFT_REG_LSB_PTR);
-    Period_backup.saveSrA1Reg   = CY_GET_REG16(Period_SHIFT_REG_VALUE_LSB_PTR);
+    Period_backup.saveSrA0Reg   = CY_GET_REG8(Period_SHIFT_REG_LSB_PTR);
+    Period_backup.saveSrA1Reg   = CY_GET_REG8(Period_SHIFT_REG_VALUE_LSB_PTR);
 
     #if(CY_UDB_V0)
         Period_backup.saveSrIntMask = Period_SR_STATUS_MASK;
@@ -76,8 +76,8 @@ void Period_SaveConfig(void)
 void Period_RestoreConfig(void) 
 {
     /* Restore working registers A0 and A1 */
-    CY_SET_REG16(Period_SHIFT_REG_LSB_PTR, Period_backup.saveSrA0Reg);
-    CY_SET_REG16(Period_SHIFT_REG_VALUE_LSB_PTR, Period_backup.saveSrA1Reg);
+    CY_SET_REG8(Period_SHIFT_REG_LSB_PTR, Period_backup.saveSrA0Reg);
+    CY_SET_REG8(Period_SHIFT_REG_VALUE_LSB_PTR, Period_backup.saveSrA1Reg);
 
     #if(CY_UDB_V0)
         Period_SR_STATUS_MASK = ((uint8) Period_backup.saveSrIntMask);

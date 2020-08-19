@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Start.c  
+* File Name: START.c  
 * Version 2.20
 *
 * Description:
@@ -15,15 +15,15 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "Start.h"
+#include "START.h"
 
 /* APIs are not generated for P15[7:6] on PSoC 5 */
 #if !(CY_PSOC5A &&\
-	 Start__PORT == 15 && ((Start__MASK & 0xC0) != 0))
+	 START__PORT == 15 && ((START__MASK & 0xC0) != 0))
 
 
 /*******************************************************************************
-* Function Name: Start_Write
+* Function Name: START_Write
 ****************************************************************************//**
 *
 * \brief Writes the value to the physical port (data output register), masking
@@ -52,17 +52,17 @@
 *  this function.
 *
 * \funcusage
-*  \snippet Start_SUT.c usage_Start_Write
+*  \snippet START_SUT.c usage_START_Write
 *******************************************************************************/
-void Start_Write(uint8 value)
+void START_Write(uint8 value)
 {
-    uint8 staticBits = (Start_DR & (uint8)(~Start_MASK));
-    Start_DR = staticBits | ((uint8)(value << Start_SHIFT) & Start_MASK);
+    uint8 staticBits = (START_DR & (uint8)(~START_MASK));
+    START_DR = staticBits | ((uint8)(value << START_SHIFT) & START_MASK);
 }
 
 
 /*******************************************************************************
-* Function Name: Start_SetDriveMode
+* Function Name: START_SetDriveMode
 ****************************************************************************//**
 *
 * \brief Sets the drive mode for each of the Pins component's pins.
@@ -85,16 +85,16 @@ void Start_Write(uint8 value)
 *  APIs (primary method) or disable interrupts around this function.
 *
 * \funcusage
-*  \snippet Start_SUT.c usage_Start_SetDriveMode
+*  \snippet START_SUT.c usage_START_SetDriveMode
 *******************************************************************************/
-void Start_SetDriveMode(uint8 mode)
+void START_SetDriveMode(uint8 mode)
 {
-	CyPins_SetPinDriveMode(Start_0, mode);
+	CyPins_SetPinDriveMode(START_0, mode);
 }
 
 
 /*******************************************************************************
-* Function Name: Start_Read
+* Function Name: START_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -108,16 +108,16 @@ void Start_SetDriveMode(uint8 mode)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet Start_SUT.c usage_Start_Read  
+*  \snippet START_SUT.c usage_START_Read  
 *******************************************************************************/
-uint8 Start_Read(void)
+uint8 START_Read(void)
 {
-    return (Start_PS & Start_MASK) >> Start_SHIFT;
+    return (START_PS & START_MASK) >> START_SHIFT;
 }
 
 
 /*******************************************************************************
-* Function Name: Start_ReadDataReg
+* Function Name: START_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -126,8 +126,8 @@ uint8 Start_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred Start_Read() API because the 
-* Start_ReadDataReg() reads the data register instead of the status 
+* preferred START_Read() API because the 
+* START_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -136,19 +136,19 @@ uint8 Start_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet Start_SUT.c usage_Start_ReadDataReg 
+*  \snippet START_SUT.c usage_START_ReadDataReg 
 *******************************************************************************/
-uint8 Start_ReadDataReg(void)
+uint8 START_ReadDataReg(void)
 {
-    return (Start_DR & Start_MASK) >> Start_SHIFT;
+    return (START_DR & START_MASK) >> START_SHIFT;
 }
 
 
 /* If interrupt is connected for this Pins component */ 
-#if defined(Start_INTSTAT) 
+#if defined(START_INTSTAT) 
 
     /*******************************************************************************
-    * Function Name: Start_SetInterruptMode
+    * Function Name: START_SetInterruptMode
     ****************************************************************************//**
     *
     * \brief Configures the interrupt mode for each of the Pins component's
@@ -161,12 +161,12 @@ uint8 Start_ReadDataReg(void)
     * \param position
     *  The pin position as listed in the Pins component. You may OR these to be 
     *  able to configure the interrupt mode of multiple pins within a Pins 
-    *  component. Or you may use Start_INTR_ALL to configure the
+    *  component. Or you may use START_INTR_ALL to configure the
     *  interrupt mode of all the pins in the Pins component.       
-    *  - Start_0_INTR       (First pin in the list)
-    *  - Start_1_INTR       (Second pin in the list)
+    *  - START_0_INTR       (First pin in the list)
+    *  - START_1_INTR       (Second pin in the list)
     *  - ...
-    *  - Start_INTR_ALL     (All pins in Pins component)
+    *  - START_INTR_ALL     (All pins in Pins component)
     *
     * \param mode
     *  Interrupt mode for the selected pins. Valid options are documented in
@@ -182,19 +182,19 @@ uint8 Start_ReadDataReg(void)
     *  port.
     *
     * \funcusage
-    *  \snippet Start_SUT.c usage_Start_SetInterruptMode
+    *  \snippet START_SUT.c usage_START_SetInterruptMode
     *******************************************************************************/
-    void Start_SetInterruptMode(uint16 position, uint16 mode)
+    void START_SetInterruptMode(uint16 position, uint16 mode)
     {
-		if((position & Start_0_INTR) != 0u) 
+		if((position & START_0_INTR) != 0u) 
 		{ 
-			 Start_0_INTTYPE_REG = (uint8)mode; 
+			 START_0_INTTYPE_REG = (uint8)mode; 
 		}
     }
     
     
     /*******************************************************************************
-    * Function Name: Start_ClearInterrupt
+    * Function Name: START_ClearInterrupt
     ****************************************************************************//**
     *
     * \brief Clears any active interrupts attached with the component and returns 
@@ -211,11 +211,11 @@ uint8 Start_ReadDataReg(void)
     *  those associated with the Pins component.
     *
     * \funcusage
-    *  \snippet Start_SUT.c usage_Start_ClearInterrupt
+    *  \snippet START_SUT.c usage_START_ClearInterrupt
     *******************************************************************************/
-    uint8 Start_ClearInterrupt(void)
+    uint8 START_ClearInterrupt(void)
     {
-        return (Start_INTSTAT & Start_MASK) >> Start_SHIFT;
+        return (START_INTSTAT & START_MASK) >> START_SHIFT;
     }
 
 #endif /* If Interrupts Are Enabled for this Pins component */ 

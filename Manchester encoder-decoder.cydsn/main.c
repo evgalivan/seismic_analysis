@@ -13,6 +13,7 @@
 #include "global.h"
 #include "sender.h"
 #include "reciver.h"
+#include "replay.h"
 #include "USB_UART_cdc.h"
 #include <BitCounterDec.h>
 
@@ -40,10 +41,11 @@ uint32 divider_freq = (8LL);
 uint32 capacity = (0xffLL);  //емкость сумматора 
 
 
-#define LENGTH_OF(Array) (sizeof(Array)/sizeof(Array[0]))
+
 
 volatile int storeflag=0, length = 72;
 static volatile long long  period;
+uint32 the_output_buffer_prepared_but_not_sended = 0;
 
 
 int main(void)
@@ -68,6 +70,8 @@ int main(void)
     Comp_1_Start();
     Comp_2_Start();
     Opamp_1_Start();
+    Counter_1_Start();
+     isr_update_time_Start();
     
 //    Period_Start();
 //    SigmaReg_Start();
@@ -102,7 +106,7 @@ int main(void)
     {
              
             USBUARTInitCDC();
-            
+            Send_USB();
             Service_USB();
             if (agg_sent(&usb_context)) usb_context.sentence_ready=1;
             if (usb_context.sentence_ready){
@@ -144,14 +148,25 @@ int main(void)
                 
                 usb_context.sentence_ready = 0;
             }
-//            GeneralSend (curRegim );
-            
+            //replay();
         if(isRecived()){
             ClearRecived();
             //ToDo StoreData;
         }
         PrepareToStore(RecivedData.words,LENGTH_OF(RecivedData.words));
-        if(TRSUCCSSY == PrepareToSend(DataToTransmit.words,LENGTH_OF(DataToTransmit.words)))Send();
+        if(the_output_buffer_prepared_but_not_sended){
+            if(TRSUCCSSY == PrepareToSend(DataToTransmit.words,LENGTH_OF(DataToTransmit.words))) {
+                Send();
+                the_output_buffer_prepared_but_not_sended=0;
+            }
+        }
+        else {
+            if(0 == StartTransmit_Read()){
+                PrepareTheOutputBuffer();
+                the_output_buffer_prepared_but_not_sended = 1;
+                //buffer must be prepared
+            }
+        }
     }
 }
 

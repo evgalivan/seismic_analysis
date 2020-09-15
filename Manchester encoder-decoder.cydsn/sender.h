@@ -39,5 +39,6 @@ void        SetNeedLoadFlag(void);
 void        ClearNeedLoadFlag(void);
 int         CheckNeedLoadFlag (void);
 int         GetStatusFifoSender (void);
+void        PrepareTheOutputBuffer(void);
 
 /* [] END OF FILE */

@@ -42,11 +42,17 @@
           <File BuildType="BUILD" Toolchain="">Clock.c</File>
           <File BuildType="BUILD" Toolchain="">Agg_sent.c</File>
           <File BuildType="BUILD" Toolchain="">stdio_e.c</File>
+          <File BuildType="BUILD" Toolchain="">USB_UART_cdc.c</File>
+          <File BuildType="BUILD" Toolchain="">replay.c</File>
+          <File BuildType="BUILD" Toolchain="">IPSET.c</File>
           <File BuildType="BUILD" Toolchain="">cyapicallbacks.h</File>
           <File BuildType="BUILD" Toolchain="">sender.h</File>
           <File BuildType="BUILD" Toolchain="">reciver.h</File>
           <File BuildType="BUILD" Toolchain="">Clock.h</File>
           <File BuildType="BUILD" Toolchain="">global.h</File>
+          <File BuildType="BUILD" Toolchain="">USB_UART_cdc.h</File>
+          <File BuildType="BUILD" Toolchain="">replay.h</File>
+          <File BuildType="BUILD" Toolchain="">frame.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\e.ivanov\Documents\GitHub\generic\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5">
@@ -67,18 +73,12 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cyfitteriar.inc</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cyfitter.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cydisabledsheets.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Pin_2_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Pin_2.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Pin_2.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Comp_2.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Comp_2.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Comp_2_PM.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Vout_1_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Vout_1.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Vout_1.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Pin_3_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Pin_3.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Pin_3.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Comp_1.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Comp_1.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Comp_1_PM.c</File>
@@ -114,11 +114,8 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\TransmitShiftReg_PM.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_Load_TrShReg.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_Load_TrShReg.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\StartButton.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\StartButton.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Start_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Start.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Start.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_5.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_5.h</File>
           <File BuildType="BUILD" Toolchain="ARM GCC Generic">Generated_Source\PSoC5\cm3gcc.ld</File>
           <File BuildType="BUILD" Toolchain="ARM MDK Generic">Generated_Source\PSoC5\Cm3RealView.scat</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Cm3Start.c</File>
@@ -152,24 +149,6 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cycodeshareimport.ld</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cycodeshareexport.ld</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cycodeshareimport.scat</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Pin_1_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Pin_1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Pin_1.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Pin_4_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Pin_4.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Pin_4.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\BitCounterDec_comp_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\BitCounterDec_comp.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\BitCounterDec_comp.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Sh_in_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Sh_in.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Sh_in.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\BitCounter_in_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\BitCounter_in.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\BitCounter_in.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Data_in_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Data_in.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Data_in.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\FrameAllow.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\FrameAllow.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\FrameAllow_PM.c</File>
@@ -179,64 +158,48 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\DInP_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\DInP.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\DInP.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Frame_in_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Frame_in.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Frame_in.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LOAD_int_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LOAD_int.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LOAD_int.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\TC_Dec_Bit_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\TC_Dec_Bit.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\TC_Dec_Bit.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LED_ON.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LED_ON.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LED_ON_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Compare_wait_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Compare_wait.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Compare_wait.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\EndFrame.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\EndFrame.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\StartButton_1.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\StartButton_1.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Period.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Period.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Period_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SigmaReg.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SigmaReg.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SigmaReg_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Control_Period.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Control_Period.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Control_Period_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\usec_counter.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\usec_counter.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\usec_counter_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cap_comp_tc.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cap_comp_tc.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Boundary8bit.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Boundary8bit.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Boundary8bit_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Control_Capture.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Control_Capture.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Control_Capture_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Start_frame_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Start_frame.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Start_frame.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\TC_word_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\TC_word.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\TC_word.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Out_TikTak_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Out_TikTak.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Out_TikTak.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Status_Period.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Status_Period.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Out_TikTak_1_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Out_TikTak_1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Out_TikTak_1.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Control_Capture_1.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Control_Capture_1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Control_Capture_1_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_DRDY.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_DRDY.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_audio.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_audio.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_boot.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_cdc.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_cdc.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_cls.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_descr.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_drv.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_episr.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_hid.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_hid.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_pm.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_std.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_vnd.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_midi.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_midi.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_pvt.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_cydmac.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_msc.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_msc.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_Dm_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_Dm.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_Dm.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_Dp_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_Dp.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_Dp.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Counter_1.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Counter_1.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Counter_1_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_update_time.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_update_time.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\S1ms_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\S1ms.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\S1ms.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_10.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_10.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\e.ivanov\Documents\GitHub\generic\Manchester encoder-decoder.cydsn\Export\ARM_GCC_Generic">

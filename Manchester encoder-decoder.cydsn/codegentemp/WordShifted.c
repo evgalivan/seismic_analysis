@@ -170,7 +170,7 @@ CY_ISR(WordShifted_Interrupt)
     //SetAllowStoreFlag();
     Store();
     //BitCounterDec_ReadStatusRegister();
-    RecieveShiftReg_GetIntStatus();
+    //RecieveShiftReg_GetIntStatus();
     WordShifted_ClearPending();
     //SetAllowStoreFlag();
     /* `#END` */

@@ -14,19 +14,21 @@
 #include <BitCounterEnc.h>
 #include <StartTransmit.h>
 #include <FrameAllow.h>
+#include <global.h>
 
 exchange_unit DataToTransmit;
 
 statReg curStat;
 static volatile unsigned int count_to_send=0;
-static volatile unsigned int status=0;
+static volatile unsigned int status=0, tmp_tr;
 static uint32 *Current_word  = (uint32*)(0);
 int stsh;
 
+
 void Load(void){
     while(count_to_send){
-        *(char*)(&curStat)=TransmitShiftReg_SR_STATUS;
-        if( 0 != curStat.F0_not_full){
+        tmp_tr = TransmitShiftReg_SR_STATUS;
+        if( tmp_tr & 0x10 ){
             TransmitShiftReg_WriteData(*Current_word);
             Current_word++;
             count_to_send--;
@@ -64,6 +66,18 @@ void   ClearStatus(void){   //должна быть вызвана из прер
 
 int GetStatusFifoSender (void){
     return TransmitShiftReg_SR_STATUS;
+}
+
+static time_stamp curtime_frame;
+setting setting_frame;
+
+void PrepareTheOutputBuffer(void){
+    int len = LENGTH_OF(DataToTransmit.frames);
+    setting_frame.pattern.Frame_tag=0xaa;
+    for (int i = 0; i<len-1; i++){
+        DataToTransmit.frames[i] = setting_frame.item;
+    }
+    DataToTransmit.frames[len-1] = setting_frame.item;
 }
 /* [] END OF FILE */
    

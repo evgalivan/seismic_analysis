@@ -20,9 +20,11 @@
 #include <stdio_e.h>
 #include <string.h>
 #include <stdlib.h>
+#include <frame.h>
 
 #define RING_SIZE 64
 #define IN_RING( B)  if (++(B)>=RING_SIZE)(B) -= RING_SIZE
+#define LENGTH_OF(Array) (sizeof(Array)/sizeof(Array[0]))
 
 typedef enum {WAITINGOFDOLLAR, WAITINGOFSTAR, WAITINGOFCHSUM, WAITINGOFCHSUM2} State;
 
@@ -45,6 +47,7 @@ typedef struct{
     uint16 count_to_send;
 
 } uart_context;
+
 extern uart_context usb_context;
 
 
@@ -55,7 +58,9 @@ typedef struct {
     char unicast[4];
     char mac[6];
 }ip_set;
+
 extern ip_set IP_Complete;
+
 typedef struct {
     uint32 MacMiLo:8;
     uint32 MacMiHi:8;
@@ -74,10 +79,41 @@ typedef struct {
     uint32 MulHiHi:8;
 }frame_recount;
 
+typedef struct {
+    uint32 Period_1024K:24;
+    uint32 Frame_tag:8;
+    uint32 Correction_72M:24;
+    uint32 CRC_8:8;
+    uint32 Seconds:32;
+    uint32 Parts:24;
+    uint32 :8;
+}time_format;
+
+typedef struct {
+    uint32 Setting_1:24;
+    uint32 Frame_tag:8;
+    uint32 Setting_2:24;
+    uint32 CRC_8:8;
+    uint32 Setting_3:32;
+    uint32 Setting_4:24;
+    uint32 :8;
+}tune_format;
+
 typedef union {
-    uint32 buf[4];
+    frame_t item;
+    time_format pattern;
+}time_stamp;
+
+typedef union {
+    frame_t item;
     frame_recount pattern;
 }renumber;
+
+typedef union {
+    frame_t item;
+    tune_format pattern;
+}setting;
+
 
 
 
@@ -86,6 +122,8 @@ extern long long utc_time;
 extern long long pps_time;
 extern uint32 capture_flag;
 extern renumber renumber_frame;
+extern setting setting_frame;
+extern uint32 the_output_buffer_prepared_but_not_sended;
 
 uint8 ByteToInt(uint8);
 uint8 IsNotEmpty(RingBuff_t*);

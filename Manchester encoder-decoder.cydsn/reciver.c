@@ -17,14 +17,15 @@ exchange_unit RecivedData;
 RecieveStatReg curStatRecive;
 
 static volatile unsigned int AllowStoreFlag = 0, AllowPrepareToStoreFlag = 0, first = 0,data_recived=0 ;
-static volatile unsigned int CountToRecieve, rcstatus=0;
+static volatile unsigned int CountToRecieve, rcstatus=0, tmp;
 static uint32 *current_word  = NULL;
 
 
 void Store(void){
-    while (RecieveShiftReg_SR_STATUS & 0x60)// FULL or NOT_EMPTY
+    tmp = RecieveShiftReg_SR_STATUS;
+    while ( tmp & 0x40)// FULL or NOT_EMPTY
     {
-        uint32 tmp = RecieveShiftReg_ReadData() ;
+        tmp = RecieveShiftReg_ReadData();
         if(first == 0)                 first = 1;
         else {
             if(CountToRecieve){
@@ -78,7 +79,7 @@ RcResult PrepareToStore(uint32* recieve_buf, int LENGTH){
     rcstatus = 1;
     CountToRecieve = LENGTH;
     current_word = recieve_buf;
-    first = 0;
+    first = 1;
     BitCounterDec_WriteCounter(31);
     return RCSUCCSSY;
 }

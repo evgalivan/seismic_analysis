@@ -1,6 +1,6 @@
 -- ======================================================================
 -- Manchester encoder-decoder.ctl generated from Manchester encoder-decoder
--- 06/15/2020 at 15:49
+-- 09/14/2020 at 15:18
 -- This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 -- ======================================================================
 

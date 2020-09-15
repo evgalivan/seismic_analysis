@@ -1,0 +1,1009 @@
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPt8nTj.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"replay.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.replay,"ax",%progbits
+  20              		.align	2
+  21              		.global	replay
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	replay, %function
+  25              	replay:
+  26              	.LFB64:
+  27              		.file 1 "replay.c"
+   1:replay.c      **** /* ========================================
+   2:replay.c      ****  *
+   3:replay.c      ****  * Copyright YOUR COMPANY, THE YEAR
+   4:replay.c      ****  * All Rights Reserved
+   5:replay.c      ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:replay.c      ****  *
+   7:replay.c      ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:replay.c      ****  * WHICH IS THE PROPERTY OF your company.
+   9:replay.c      ****  *
+  10:replay.c      ****  * ========================================
+  11:replay.c      **** */
+  12:replay.c      **** 
+  13:replay.c      **** #include "global.h"
+  14:replay.c      **** 
+  15:replay.c      **** static char replay_msg[256];
+  16:replay.c      **** 
+  17:replay.c      **** int replay(void){
+  28              		.loc 1 17 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  18:replay.c      ****     if (usb_context.need_to_send) return 0;
+  32              		.loc 1 18 0
+  33 0000 0C4B     		ldr	r3, .L6
+  34 0002 93F85031 		ldrb	r3, [r3, #336]	@ zero_extendqisi2
+  35 0006 9BB9     		cbnz	r3, .L3
+  17:replay.c      ****     if (usb_context.need_to_send) return 0;
+  36              		.loc 1 17 0
+  37 0008 70B5     		push	{r4, r5, r6, lr}
+  38              		.cfi_def_cfa_offset 16
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPt8nTj.s 			page 2
+
+
+  39              		.cfi_offset 4, -16
+  40              		.cfi_offset 5, -12
+  41              		.cfi_offset 6, -8
+  42              		.cfi_offset 14, -4
+  19:replay.c      ****     sprintf(replay_msg, "\n\r REPLAY MESSAGE \n");
+  43              		.loc 1 19 0
+  44 000a 0B4E     		ldr	r6, .L6+4
+  45 000c 3446     		mov	r4, r6
+  46 000e 0B4D     		ldr	r5, .L6+8
+  47 0010 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
+  48 0012 0FC4     		stmia	r4!, {r0, r1, r2, r3}
+  49 0014 2B68     		ldr	r3, [r5]
+  50 0016 2360     		str	r3, [r4]
+  20:replay.c      ****     usb_context.count_to_send = strlen(replay_msg);
+  51              		.loc 1 20 0
+  52 0018 3046     		mov	r0, r6
+  53 001a FFF7FEFF 		bl	strlen
+  54              	.LVL0:
+  55 001e 054B     		ldr	r3, .L6
+  56 0020 A3F85201 		strh	r0, [r3, #338]	@ movhi
+  21:replay.c      ****     usb_context.message_to_send = (uint8*)replay_msg;
+  57              		.loc 1 21 0
+  58 0024 C3F84C61 		str	r6, [r3, #332]
+  22:replay.c      ****     return usb_context.need_to_send = 1;
+  59              		.loc 1 22 0
+  60 0028 0120     		movs	r0, #1
+  61 002a 83F85001 		strb	r0, [r3, #336]
+  62 002e 70BD     		pop	{r4, r5, r6, pc}
+  63              	.L3:
+  64              		.cfi_def_cfa_offset 0
+  65              		.cfi_restore 4
+  66              		.cfi_restore 5
+  67              		.cfi_restore 6
+  68              		.cfi_restore 14
+  18:replay.c      ****     sprintf(replay_msg, "\n\r REPLAY MESSAGE \n");
+  69              		.loc 1 18 0
+  70 0030 0020     		movs	r0, #0
+  71 0032 7047     		bx	lr
+  72              	.L7:
+  73              		.align	2
+  74              	.L6:
+  75 0034 00000000 		.word	usb_context
+  76 0038 00000000 		.word	.LANCHOR0
+  77 003c 00000000 		.word	.LC0
+  78              		.cfi_endproc
+  79              	.LFE64:
+  80              		.size	replay, .-replay
+  81              		.section	.rodata.str1.4,"aMS",%progbits,1
+  82              		.align	2
+  83              	.LC0:
+  84 0000 0A0D2052 		.ascii	"\012\015 REPLAY MESSAGE \012\000"
+  84      45504C41 
+  84      59204D45 
+  84      53534147 
+  84      45200A00 
+  85              		.bss
+  86              		.align	2
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPt8nTj.s 			page 3
+
+
+  87              		.set	.LANCHOR0,. + 0
+  88              		.type	replay_msg, %object
+  89              		.size	replay_msg, 256
+  90              	replay_msg:
+  91 0000 00000000 		.space	256
+  91      00000000 
+  91      00000000 
+  91      00000000 
+  91      00000000 
+  92              		.text
+  93              	.Letext0:
+  94              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+  95              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+  96              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+  97              		.file 5 "global.h"
+  98              		.file 6 "Generated_Source\\PSoC5/core_cm3.h"
+  99              		.file 7 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 100              		.section	.debug_info,"",%progbits
+ 101              	.Ldebug_info0:
+ 102 0000 4E020000 		.4byte	0x24e
+ 103 0004 0400     		.2byte	0x4
+ 104 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 105 000a 04       		.byte	0x4
+ 106 000b 01       		.uleb128 0x1
+ 107 000c F1000000 		.4byte	.LASF38
+ 108 0010 0C       		.byte	0xc
+ 109 0011 9B000000 		.4byte	.LASF39
+ 110 0015 19000000 		.4byte	.LASF40
+ 111 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 112 001d 00000000 		.4byte	0
+ 113 0021 00000000 		.4byte	.Ldebug_line0
+ 114 0025 02       		.uleb128 0x2
+ 115 0026 01       		.byte	0x1
+ 116 0027 06       		.byte	0x6
+ 117 0028 9D020000 		.4byte	.LASF0
+ 118 002c 02       		.uleb128 0x2
+ 119 002d 01       		.byte	0x1
+ 120 002e 08       		.byte	0x8
+ 121 002f E3000000 		.4byte	.LASF1
+ 122 0033 02       		.uleb128 0x2
+ 123 0034 02       		.byte	0x2
+ 124 0035 05       		.byte	0x5
+ 125 0036 40020000 		.4byte	.LASF2
+ 126 003a 02       		.uleb128 0x2
+ 127 003b 02       		.byte	0x2
+ 128 003c 07       		.byte	0x7
+ 129 003d 88000000 		.4byte	.LASF3
+ 130 0041 03       		.uleb128 0x3
+ 131 0042 7E000000 		.4byte	.LASF9
+ 132 0046 02       		.byte	0x2
+ 133 0047 3F       		.byte	0x3f
+ 134 0048 4C000000 		.4byte	0x4c
+ 135 004c 02       		.uleb128 0x2
+ 136 004d 04       		.byte	0x4
+ 137 004e 05       		.byte	0x5
+ 138 004f 88020000 		.4byte	.LASF4
+ 139 0053 02       		.uleb128 0x2
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPt8nTj.s 			page 4
+
+
+ 140 0054 04       		.byte	0x4
+ 141 0055 07       		.byte	0x7
+ 142 0056 7F010000 		.4byte	.LASF5
+ 143 005a 02       		.uleb128 0x2
+ 144 005b 08       		.byte	0x8
+ 145 005c 05       		.byte	0x5
+ 146 005d 15020000 		.4byte	.LASF6
+ 147 0061 02       		.uleb128 0x2
+ 148 0062 08       		.byte	0x8
+ 149 0063 07       		.byte	0x7
+ 150 0064 CD010000 		.4byte	.LASF7
+ 151 0068 04       		.uleb128 0x4
+ 152 0069 04       		.byte	0x4
+ 153 006a 05       		.byte	0x5
+ 154 006b 696E7400 		.ascii	"int\000"
+ 155 006f 02       		.uleb128 0x2
+ 156 0070 04       		.byte	0x4
+ 157 0071 07       		.byte	0x7
+ 158 0072 A4000000 		.4byte	.LASF8
+ 159 0076 03       		.uleb128 0x3
+ 160 0077 F4010000 		.4byte	.LASF10
+ 161 007b 03       		.byte	0x3
+ 162 007c 2C       		.byte	0x2c
+ 163 007d 41000000 		.4byte	0x41
+ 164 0081 05       		.uleb128 0x5
+ 165 0082 59020000 		.4byte	.LASF11
+ 166 0086 04       		.byte	0x4
+ 167 0087 E401     		.2byte	0x1e4
+ 168 0089 2C000000 		.4byte	0x2c
+ 169 008d 05       		.uleb128 0x5
+ 170 008e B4010000 		.4byte	.LASF12
+ 171 0092 04       		.byte	0x4
+ 172 0093 E501     		.2byte	0x1e5
+ 173 0095 3A000000 		.4byte	0x3a
+ 174 0099 02       		.uleb128 0x2
+ 175 009a 04       		.byte	0x4
+ 176 009b 04       		.byte	0x4
+ 177 009c DD000000 		.4byte	.LASF13
+ 178 00a0 02       		.uleb128 0x2
+ 179 00a1 08       		.byte	0x8
+ 180 00a2 04       		.byte	0x4
+ 181 00a3 AD010000 		.4byte	.LASF14
+ 182 00a7 02       		.uleb128 0x2
+ 183 00a8 01       		.byte	0x1
+ 184 00a9 08       		.byte	0x8
+ 185 00aa 2E020000 		.4byte	.LASF15
+ 186 00ae 02       		.uleb128 0x2
+ 187 00af 08       		.byte	0x8
+ 188 00b0 04       		.byte	0x4
+ 189 00b1 91020000 		.4byte	.LASF16
+ 190 00b5 02       		.uleb128 0x2
+ 191 00b6 04       		.byte	0x4
+ 192 00b7 07       		.byte	0x7
+ 193 00b8 FC010000 		.4byte	.LASF17
+ 194 00bc 06       		.uleb128 0x6
+ 195 00bd 01       		.byte	0x1
+ 196 00be 2C000000 		.4byte	0x2c
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPt8nTj.s 			page 5
+
+
+ 197 00c2 05       		.byte	0x5
+ 198 00c3 1D       		.byte	0x1d
+ 199 00c4 E1000000 		.4byte	0xe1
+ 200 00c8 07       		.uleb128 0x7
+ 201 00c9 09000000 		.4byte	.LASF18
+ 202 00cd 00       		.byte	0
+ 203 00ce 07       		.uleb128 0x7
+ 204 00cf 5F020000 		.4byte	.LASF19
+ 205 00d3 01       		.byte	0x1
+ 206 00d4 07       		.uleb128 0x7
+ 207 00d5 4A020000 		.4byte	.LASF20
+ 208 00d9 02       		.byte	0x2
+ 209 00da 07       		.uleb128 0x7
+ 210 00db E4010000 		.4byte	.LASF21
+ 211 00df 03       		.byte	0x3
+ 212 00e0 00       		.byte	0
+ 213 00e1 03       		.uleb128 0x3
+ 214 00e2 9A010000 		.4byte	.LASF22
+ 215 00e6 05       		.byte	0x5
+ 216 00e7 1D       		.byte	0x1d
+ 217 00e8 BC000000 		.4byte	0xbc
+ 218 00ec 08       		.uleb128 0x8
+ 219 00ed 42       		.byte	0x42
+ 220 00ee 05       		.byte	0x5
+ 221 00ef 1F       		.byte	0x1f
+ 222 00f0 19010000 		.4byte	0x119
+ 223 00f4 09       		.uleb128 0x9
+ 224 00f5 62756600 		.ascii	"buf\000"
+ 225 00f9 05       		.byte	0x5
+ 226 00fa 20       		.byte	0x20
+ 227 00fb 19010000 		.4byte	0x119
+ 228 00ff 00       		.byte	0
+ 229 0100 0A       		.uleb128 0xa
+ 230 0101 BF000000 		.4byte	.LASF23
+ 231 0105 05       		.byte	0x5
+ 232 0106 21       		.byte	0x21
+ 233 0107 81000000 		.4byte	0x81
+ 234 010b 40       		.byte	0x40
+ 235 010c 09       		.uleb128 0x9
+ 236 010d 656E6400 		.ascii	"end\000"
+ 237 0111 05       		.byte	0x5
+ 238 0112 22       		.byte	0x22
+ 239 0113 81000000 		.4byte	0x81
+ 240 0117 41       		.byte	0x41
+ 241 0118 00       		.byte	0
+ 242 0119 0B       		.uleb128 0xb
+ 243 011a 81000000 		.4byte	0x81
+ 244 011e 29010000 		.4byte	0x129
+ 245 0122 0C       		.uleb128 0xc
+ 246 0123 B5000000 		.4byte	0xb5
+ 247 0127 3F       		.byte	0x3f
+ 248 0128 00       		.byte	0
+ 249 0129 03       		.uleb128 0x3
+ 250 012a C2010000 		.4byte	.LASF24
+ 251 012e 05       		.byte	0x5
+ 252 012f 23       		.byte	0x23
+ 253 0130 EC000000 		.4byte	0xec
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPt8nTj.s 			page 6
+
+
+ 254 0134 0D       		.uleb128 0xd
+ 255 0135 5401     		.2byte	0x154
+ 256 0137 05       		.byte	0x5
+ 257 0138 25       		.byte	0x25
+ 258 0139 BE010000 		.4byte	0x1be
+ 259 013d 0A       		.uleb128 0xa
+ 260 013e 6D020000 		.4byte	.LASF25
+ 261 0142 05       		.byte	0x5
+ 262 0143 26       		.byte	0x26
+ 263 0144 29010000 		.4byte	0x129
+ 264 0148 00       		.byte	0
+ 265 0149 0A       		.uleb128 0xa
+ 266 014a 91010000 		.4byte	.LASF26
+ 267 014e 05       		.byte	0x5
+ 268 014f 27       		.byte	0x27
+ 269 0150 BE010000 		.4byte	0x1be
+ 270 0154 42       		.byte	0x42
+ 271 0155 0E       		.uleb128 0xe
+ 272 0156 A9020000 		.4byte	.LASF27
+ 273 015a 05       		.byte	0x5
+ 274 015b 28       		.byte	0x28
+ 275 015c 8D000000 		.4byte	0x8d
+ 276 0160 4201     		.2byte	0x142
+ 277 0162 0E       		.uleb128 0xe
+ 278 0163 71000000 		.4byte	.LASF28
+ 279 0167 05       		.byte	0x5
+ 280 0168 29       		.byte	0x29
+ 281 0169 E1000000 		.4byte	0xe1
+ 282 016d 4401     		.2byte	0x144
+ 283 016f 0E       		.uleb128 0xe
+ 284 0170 C5000000 		.4byte	.LASF29
+ 285 0174 05       		.byte	0x5
+ 286 0175 2A       		.byte	0x2a
+ 287 0176 8D000000 		.4byte	0x8d
+ 288 017a 4601     		.2byte	0x146
+ 289 017c 0E       		.uleb128 0xe
+ 290 017d 00000000 		.4byte	.LASF30
+ 291 0181 05       		.byte	0x5
+ 292 0182 2B       		.byte	0x2b
+ 293 0183 8D000000 		.4byte	0x8d
+ 294 0187 4801     		.2byte	0x148
+ 295 0189 0E       		.uleb128 0xe
+ 296 018a 79020000 		.4byte	.LASF31
+ 297 018e 05       		.byte	0x5
+ 298 018f 2C       		.byte	0x2c
+ 299 0190 81000000 		.4byte	0x81
+ 300 0194 4A01     		.2byte	0x14a
+ 301 0196 0E       		.uleb128 0xe
+ 302 0197 05020000 		.4byte	.LASF32
+ 303 019b 05       		.byte	0x5
+ 304 019c 2D       		.byte	0x2d
+ 305 019d CE010000 		.4byte	0x1ce
+ 306 01a1 4C01     		.2byte	0x14c
+ 307 01a3 0E       		.uleb128 0xe
+ 308 01a4 D0000000 		.4byte	.LASF33
+ 309 01a8 05       		.byte	0x5
+ 310 01a9 2E       		.byte	0x2e
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPt8nTj.s 			page 7
+
+
+ 311 01aa 81000000 		.4byte	0x81
+ 312 01ae 5001     		.2byte	0x150
+ 313 01b0 0E       		.uleb128 0xe
+ 314 01b1 B1000000 		.4byte	.LASF34
+ 315 01b5 05       		.byte	0x5
+ 316 01b6 2F       		.byte	0x2f
+ 317 01b7 8D000000 		.4byte	0x8d
+ 318 01bb 5201     		.2byte	0x152
+ 319 01bd 00       		.byte	0
+ 320 01be 0B       		.uleb128 0xb
+ 321 01bf 81000000 		.4byte	0x81
+ 322 01c3 CE010000 		.4byte	0x1ce
+ 323 01c7 0C       		.uleb128 0xc
+ 324 01c8 B5000000 		.4byte	0xb5
+ 325 01cc FF       		.byte	0xff
+ 326 01cd 00       		.byte	0
+ 327 01ce 0F       		.uleb128 0xf
+ 328 01cf 04       		.byte	0x4
+ 329 01d0 81000000 		.4byte	0x81
+ 330 01d4 03       		.uleb128 0x3
+ 331 01d5 33020000 		.4byte	.LASF35
+ 332 01d9 05       		.byte	0x5
+ 333 01da 31       		.byte	0x31
+ 334 01db 34010000 		.4byte	0x134
+ 335 01df 10       		.uleb128 0x10
+ 336 01e0 77000000 		.4byte	.LASF41
+ 337 01e4 01       		.byte	0x1
+ 338 01e5 11       		.byte	0x11
+ 339 01e6 68000000 		.4byte	0x68
+ 340 01ea 00000000 		.4byte	.LFB64
+ 341 01ee 40000000 		.4byte	.LFE64-.LFB64
+ 342 01f2 01       		.uleb128 0x1
+ 343 01f3 9C       		.byte	0x9c
+ 344 01f4 09020000 		.4byte	0x209
+ 345 01f8 11       		.uleb128 0x11
+ 346 01f9 1E000000 		.4byte	.LVL0
+ 347 01fd 46020000 		.4byte	0x246
+ 348 0201 12       		.uleb128 0x12
+ 349 0202 01       		.uleb128 0x1
+ 350 0203 50       		.byte	0x50
+ 351 0204 02       		.uleb128 0x2
+ 352 0205 76       		.byte	0x76
+ 353 0206 00       		.sleb128 0
+ 354 0207 00       		.byte	0
+ 355 0208 00       		.byte	0
+ 356 0209 0B       		.uleb128 0xb
+ 357 020a A7000000 		.4byte	0xa7
+ 358 020e 19020000 		.4byte	0x219
+ 359 0212 0C       		.uleb128 0xc
+ 360 0213 B5000000 		.4byte	0xb5
+ 361 0217 FF       		.byte	0xff
+ 362 0218 00       		.byte	0
+ 363 0219 13       		.uleb128 0x13
+ 364 021a 23020000 		.4byte	.LASF42
+ 365 021e 01       		.byte	0x1
+ 366 021f 0F       		.byte	0xf
+ 367 0220 09020000 		.4byte	0x209
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPt8nTj.s 			page 8
+
+
+ 368 0224 05       		.uleb128 0x5
+ 369 0225 03       		.byte	0x3
+ 370 0226 00000000 		.4byte	replay_msg
+ 371 022a 14       		.uleb128 0x14
+ 372 022b A0010000 		.4byte	.LASF36
+ 373 022f 06       		.byte	0x6
+ 374 0230 1207     		.2byte	0x712
+ 375 0232 36020000 		.4byte	0x236
+ 376 0236 15       		.uleb128 0x15
+ 377 0237 76000000 		.4byte	0x76
+ 378 023b 16       		.uleb128 0x16
+ 379 023c 65000000 		.4byte	.LASF37
+ 380 0240 05       		.byte	0x5
+ 381 0241 33       		.byte	0x33
+ 382 0242 D4010000 		.4byte	0x1d4
+ 383 0246 17       		.uleb128 0x17
+ 384 0247 BB010000 		.4byte	.LASF43
+ 385 024b BB010000 		.4byte	.LASF43
+ 386 024f 07       		.byte	0x7
+ 387 0250 21       		.byte	0x21
+ 388 0251 00       		.byte	0
+ 389              		.section	.debug_abbrev,"",%progbits
+ 390              	.Ldebug_abbrev0:
+ 391 0000 01       		.uleb128 0x1
+ 392 0001 11       		.uleb128 0x11
+ 393 0002 01       		.byte	0x1
+ 394 0003 25       		.uleb128 0x25
+ 395 0004 0E       		.uleb128 0xe
+ 396 0005 13       		.uleb128 0x13
+ 397 0006 0B       		.uleb128 0xb
+ 398 0007 03       		.uleb128 0x3
+ 399 0008 0E       		.uleb128 0xe
+ 400 0009 1B       		.uleb128 0x1b
+ 401 000a 0E       		.uleb128 0xe
+ 402 000b 55       		.uleb128 0x55
+ 403 000c 17       		.uleb128 0x17
+ 404 000d 11       		.uleb128 0x11
+ 405 000e 01       		.uleb128 0x1
+ 406 000f 10       		.uleb128 0x10
+ 407 0010 17       		.uleb128 0x17
+ 408 0011 00       		.byte	0
+ 409 0012 00       		.byte	0
+ 410 0013 02       		.uleb128 0x2
+ 411 0014 24       		.uleb128 0x24
+ 412 0015 00       		.byte	0
+ 413 0016 0B       		.uleb128 0xb
+ 414 0017 0B       		.uleb128 0xb
+ 415 0018 3E       		.uleb128 0x3e
+ 416 0019 0B       		.uleb128 0xb
+ 417 001a 03       		.uleb128 0x3
+ 418 001b 0E       		.uleb128 0xe
+ 419 001c 00       		.byte	0
+ 420 001d 00       		.byte	0
+ 421 001e 03       		.uleb128 0x3
+ 422 001f 16       		.uleb128 0x16
+ 423 0020 00       		.byte	0
+ 424 0021 03       		.uleb128 0x3
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPt8nTj.s 			page 9
+
+
+ 425 0022 0E       		.uleb128 0xe
+ 426 0023 3A       		.uleb128 0x3a
+ 427 0024 0B       		.uleb128 0xb
+ 428 0025 3B       		.uleb128 0x3b
+ 429 0026 0B       		.uleb128 0xb
+ 430 0027 49       		.uleb128 0x49
+ 431 0028 13       		.uleb128 0x13
+ 432 0029 00       		.byte	0
+ 433 002a 00       		.byte	0
+ 434 002b 04       		.uleb128 0x4
+ 435 002c 24       		.uleb128 0x24
+ 436 002d 00       		.byte	0
+ 437 002e 0B       		.uleb128 0xb
+ 438 002f 0B       		.uleb128 0xb
+ 439 0030 3E       		.uleb128 0x3e
+ 440 0031 0B       		.uleb128 0xb
+ 441 0032 03       		.uleb128 0x3
+ 442 0033 08       		.uleb128 0x8
+ 443 0034 00       		.byte	0
+ 444 0035 00       		.byte	0
+ 445 0036 05       		.uleb128 0x5
+ 446 0037 16       		.uleb128 0x16
+ 447 0038 00       		.byte	0
+ 448 0039 03       		.uleb128 0x3
+ 449 003a 0E       		.uleb128 0xe
+ 450 003b 3A       		.uleb128 0x3a
+ 451 003c 0B       		.uleb128 0xb
+ 452 003d 3B       		.uleb128 0x3b
+ 453 003e 05       		.uleb128 0x5
+ 454 003f 49       		.uleb128 0x49
+ 455 0040 13       		.uleb128 0x13
+ 456 0041 00       		.byte	0
+ 457 0042 00       		.byte	0
+ 458 0043 06       		.uleb128 0x6
+ 459 0044 04       		.uleb128 0x4
+ 460 0045 01       		.byte	0x1
+ 461 0046 0B       		.uleb128 0xb
+ 462 0047 0B       		.uleb128 0xb
+ 463 0048 49       		.uleb128 0x49
+ 464 0049 13       		.uleb128 0x13
+ 465 004a 3A       		.uleb128 0x3a
+ 466 004b 0B       		.uleb128 0xb
+ 467 004c 3B       		.uleb128 0x3b
+ 468 004d 0B       		.uleb128 0xb
+ 469 004e 01       		.uleb128 0x1
+ 470 004f 13       		.uleb128 0x13
+ 471 0050 00       		.byte	0
+ 472 0051 00       		.byte	0
+ 473 0052 07       		.uleb128 0x7
+ 474 0053 28       		.uleb128 0x28
+ 475 0054 00       		.byte	0
+ 476 0055 03       		.uleb128 0x3
+ 477 0056 0E       		.uleb128 0xe
+ 478 0057 1C       		.uleb128 0x1c
+ 479 0058 0B       		.uleb128 0xb
+ 480 0059 00       		.byte	0
+ 481 005a 00       		.byte	0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPt8nTj.s 			page 10
+
+
+ 482 005b 08       		.uleb128 0x8
+ 483 005c 13       		.uleb128 0x13
+ 484 005d 01       		.byte	0x1
+ 485 005e 0B       		.uleb128 0xb
+ 486 005f 0B       		.uleb128 0xb
+ 487 0060 3A       		.uleb128 0x3a
+ 488 0061 0B       		.uleb128 0xb
+ 489 0062 3B       		.uleb128 0x3b
+ 490 0063 0B       		.uleb128 0xb
+ 491 0064 01       		.uleb128 0x1
+ 492 0065 13       		.uleb128 0x13
+ 493 0066 00       		.byte	0
+ 494 0067 00       		.byte	0
+ 495 0068 09       		.uleb128 0x9
+ 496 0069 0D       		.uleb128 0xd
+ 497 006a 00       		.byte	0
+ 498 006b 03       		.uleb128 0x3
+ 499 006c 08       		.uleb128 0x8
+ 500 006d 3A       		.uleb128 0x3a
+ 501 006e 0B       		.uleb128 0xb
+ 502 006f 3B       		.uleb128 0x3b
+ 503 0070 0B       		.uleb128 0xb
+ 504 0071 49       		.uleb128 0x49
+ 505 0072 13       		.uleb128 0x13
+ 506 0073 38       		.uleb128 0x38
+ 507 0074 0B       		.uleb128 0xb
+ 508 0075 00       		.byte	0
+ 509 0076 00       		.byte	0
+ 510 0077 0A       		.uleb128 0xa
+ 511 0078 0D       		.uleb128 0xd
+ 512 0079 00       		.byte	0
+ 513 007a 03       		.uleb128 0x3
+ 514 007b 0E       		.uleb128 0xe
+ 515 007c 3A       		.uleb128 0x3a
+ 516 007d 0B       		.uleb128 0xb
+ 517 007e 3B       		.uleb128 0x3b
+ 518 007f 0B       		.uleb128 0xb
+ 519 0080 49       		.uleb128 0x49
+ 520 0081 13       		.uleb128 0x13
+ 521 0082 38       		.uleb128 0x38
+ 522 0083 0B       		.uleb128 0xb
+ 523 0084 00       		.byte	0
+ 524 0085 00       		.byte	0
+ 525 0086 0B       		.uleb128 0xb
+ 526 0087 01       		.uleb128 0x1
+ 527 0088 01       		.byte	0x1
+ 528 0089 49       		.uleb128 0x49
+ 529 008a 13       		.uleb128 0x13
+ 530 008b 01       		.uleb128 0x1
+ 531 008c 13       		.uleb128 0x13
+ 532 008d 00       		.byte	0
+ 533 008e 00       		.byte	0
+ 534 008f 0C       		.uleb128 0xc
+ 535 0090 21       		.uleb128 0x21
+ 536 0091 00       		.byte	0
+ 537 0092 49       		.uleb128 0x49
+ 538 0093 13       		.uleb128 0x13
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPt8nTj.s 			page 11
+
+
+ 539 0094 2F       		.uleb128 0x2f
+ 540 0095 0B       		.uleb128 0xb
+ 541 0096 00       		.byte	0
+ 542 0097 00       		.byte	0
+ 543 0098 0D       		.uleb128 0xd
+ 544 0099 13       		.uleb128 0x13
+ 545 009a 01       		.byte	0x1
+ 546 009b 0B       		.uleb128 0xb
+ 547 009c 05       		.uleb128 0x5
+ 548 009d 3A       		.uleb128 0x3a
+ 549 009e 0B       		.uleb128 0xb
+ 550 009f 3B       		.uleb128 0x3b
+ 551 00a0 0B       		.uleb128 0xb
+ 552 00a1 01       		.uleb128 0x1
+ 553 00a2 13       		.uleb128 0x13
+ 554 00a3 00       		.byte	0
+ 555 00a4 00       		.byte	0
+ 556 00a5 0E       		.uleb128 0xe
+ 557 00a6 0D       		.uleb128 0xd
+ 558 00a7 00       		.byte	0
+ 559 00a8 03       		.uleb128 0x3
+ 560 00a9 0E       		.uleb128 0xe
+ 561 00aa 3A       		.uleb128 0x3a
+ 562 00ab 0B       		.uleb128 0xb
+ 563 00ac 3B       		.uleb128 0x3b
+ 564 00ad 0B       		.uleb128 0xb
+ 565 00ae 49       		.uleb128 0x49
+ 566 00af 13       		.uleb128 0x13
+ 567 00b0 38       		.uleb128 0x38
+ 568 00b1 05       		.uleb128 0x5
+ 569 00b2 00       		.byte	0
+ 570 00b3 00       		.byte	0
+ 571 00b4 0F       		.uleb128 0xf
+ 572 00b5 0F       		.uleb128 0xf
+ 573 00b6 00       		.byte	0
+ 574 00b7 0B       		.uleb128 0xb
+ 575 00b8 0B       		.uleb128 0xb
+ 576 00b9 49       		.uleb128 0x49
+ 577 00ba 13       		.uleb128 0x13
+ 578 00bb 00       		.byte	0
+ 579 00bc 00       		.byte	0
+ 580 00bd 10       		.uleb128 0x10
+ 581 00be 2E       		.uleb128 0x2e
+ 582 00bf 01       		.byte	0x1
+ 583 00c0 3F       		.uleb128 0x3f
+ 584 00c1 19       		.uleb128 0x19
+ 585 00c2 03       		.uleb128 0x3
+ 586 00c3 0E       		.uleb128 0xe
+ 587 00c4 3A       		.uleb128 0x3a
+ 588 00c5 0B       		.uleb128 0xb
+ 589 00c6 3B       		.uleb128 0x3b
+ 590 00c7 0B       		.uleb128 0xb
+ 591 00c8 27       		.uleb128 0x27
+ 592 00c9 19       		.uleb128 0x19
+ 593 00ca 49       		.uleb128 0x49
+ 594 00cb 13       		.uleb128 0x13
+ 595 00cc 11       		.uleb128 0x11
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPt8nTj.s 			page 12
+
+
+ 596 00cd 01       		.uleb128 0x1
+ 597 00ce 12       		.uleb128 0x12
+ 598 00cf 06       		.uleb128 0x6
+ 599 00d0 40       		.uleb128 0x40
+ 600 00d1 18       		.uleb128 0x18
+ 601 00d2 9742     		.uleb128 0x2117
+ 602 00d4 19       		.uleb128 0x19
+ 603 00d5 01       		.uleb128 0x1
+ 604 00d6 13       		.uleb128 0x13
+ 605 00d7 00       		.byte	0
+ 606 00d8 00       		.byte	0
+ 607 00d9 11       		.uleb128 0x11
+ 608 00da 898201   		.uleb128 0x4109
+ 609 00dd 01       		.byte	0x1
+ 610 00de 11       		.uleb128 0x11
+ 611 00df 01       		.uleb128 0x1
+ 612 00e0 31       		.uleb128 0x31
+ 613 00e1 13       		.uleb128 0x13
+ 614 00e2 00       		.byte	0
+ 615 00e3 00       		.byte	0
+ 616 00e4 12       		.uleb128 0x12
+ 617 00e5 8A8201   		.uleb128 0x410a
+ 618 00e8 00       		.byte	0
+ 619 00e9 02       		.uleb128 0x2
+ 620 00ea 18       		.uleb128 0x18
+ 621 00eb 9142     		.uleb128 0x2111
+ 622 00ed 18       		.uleb128 0x18
+ 623 00ee 00       		.byte	0
+ 624 00ef 00       		.byte	0
+ 625 00f0 13       		.uleb128 0x13
+ 626 00f1 34       		.uleb128 0x34
+ 627 00f2 00       		.byte	0
+ 628 00f3 03       		.uleb128 0x3
+ 629 00f4 0E       		.uleb128 0xe
+ 630 00f5 3A       		.uleb128 0x3a
+ 631 00f6 0B       		.uleb128 0xb
+ 632 00f7 3B       		.uleb128 0x3b
+ 633 00f8 0B       		.uleb128 0xb
+ 634 00f9 49       		.uleb128 0x49
+ 635 00fa 13       		.uleb128 0x13
+ 636 00fb 02       		.uleb128 0x2
+ 637 00fc 18       		.uleb128 0x18
+ 638 00fd 00       		.byte	0
+ 639 00fe 00       		.byte	0
+ 640 00ff 14       		.uleb128 0x14
+ 641 0100 34       		.uleb128 0x34
+ 642 0101 00       		.byte	0
+ 643 0102 03       		.uleb128 0x3
+ 644 0103 0E       		.uleb128 0xe
+ 645 0104 3A       		.uleb128 0x3a
+ 646 0105 0B       		.uleb128 0xb
+ 647 0106 3B       		.uleb128 0x3b
+ 648 0107 05       		.uleb128 0x5
+ 649 0108 49       		.uleb128 0x49
+ 650 0109 13       		.uleb128 0x13
+ 651 010a 3F       		.uleb128 0x3f
+ 652 010b 19       		.uleb128 0x19
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPt8nTj.s 			page 13
+
+
+ 653 010c 3C       		.uleb128 0x3c
+ 654 010d 19       		.uleb128 0x19
+ 655 010e 00       		.byte	0
+ 656 010f 00       		.byte	0
+ 657 0110 15       		.uleb128 0x15
+ 658 0111 35       		.uleb128 0x35
+ 659 0112 00       		.byte	0
+ 660 0113 49       		.uleb128 0x49
+ 661 0114 13       		.uleb128 0x13
+ 662 0115 00       		.byte	0
+ 663 0116 00       		.byte	0
+ 664 0117 16       		.uleb128 0x16
+ 665 0118 34       		.uleb128 0x34
+ 666 0119 00       		.byte	0
+ 667 011a 03       		.uleb128 0x3
+ 668 011b 0E       		.uleb128 0xe
+ 669 011c 3A       		.uleb128 0x3a
+ 670 011d 0B       		.uleb128 0xb
+ 671 011e 3B       		.uleb128 0x3b
+ 672 011f 0B       		.uleb128 0xb
+ 673 0120 49       		.uleb128 0x49
+ 674 0121 13       		.uleb128 0x13
+ 675 0122 3F       		.uleb128 0x3f
+ 676 0123 19       		.uleb128 0x19
+ 677 0124 3C       		.uleb128 0x3c
+ 678 0125 19       		.uleb128 0x19
+ 679 0126 00       		.byte	0
+ 680 0127 00       		.byte	0
+ 681 0128 17       		.uleb128 0x17
+ 682 0129 2E       		.uleb128 0x2e
+ 683 012a 00       		.byte	0
+ 684 012b 3F       		.uleb128 0x3f
+ 685 012c 19       		.uleb128 0x19
+ 686 012d 3C       		.uleb128 0x3c
+ 687 012e 19       		.uleb128 0x19
+ 688 012f 6E       		.uleb128 0x6e
+ 689 0130 0E       		.uleb128 0xe
+ 690 0131 03       		.uleb128 0x3
+ 691 0132 0E       		.uleb128 0xe
+ 692 0133 3A       		.uleb128 0x3a
+ 693 0134 0B       		.uleb128 0xb
+ 694 0135 3B       		.uleb128 0x3b
+ 695 0136 0B       		.uleb128 0xb
+ 696 0137 00       		.byte	0
+ 697 0138 00       		.byte	0
+ 698 0139 00       		.byte	0
+ 699              		.section	.debug_aranges,"",%progbits
+ 700 0000 1C000000 		.4byte	0x1c
+ 701 0004 0200     		.2byte	0x2
+ 702 0006 00000000 		.4byte	.Ldebug_info0
+ 703 000a 04       		.byte	0x4
+ 704 000b 00       		.byte	0
+ 705 000c 0000     		.2byte	0
+ 706 000e 0000     		.2byte	0
+ 707 0010 00000000 		.4byte	.LFB64
+ 708 0014 40000000 		.4byte	.LFE64-.LFB64
+ 709 0018 00000000 		.4byte	0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPt8nTj.s 			page 14
+
+
+ 710 001c 00000000 		.4byte	0
+ 711              		.section	.debug_ranges,"",%progbits
+ 712              	.Ldebug_ranges0:
+ 713 0000 00000000 		.4byte	.LFB64
+ 714 0004 40000000 		.4byte	.LFE64
+ 715 0008 00000000 		.4byte	0
+ 716 000c 00000000 		.4byte	0
+ 717              		.section	.debug_line,"",%progbits
+ 718              	.Ldebug_line0:
+ 719 0000 EA010000 		.section	.debug_str,"MS",%progbits,1
+ 719      0200CE01 
+ 719      00000201 
+ 719      FB0E0D00 
+ 719      01010101 
+ 720              	.LASF30:
+ 721 0000 63686563 		.ascii	"checksum\000"
+ 721      6B73756D 
+ 721      00
+ 722              	.LASF18:
+ 723 0009 57414954 		.ascii	"WAITINGOFDOLLAR\000"
+ 723      494E474F 
+ 723      46444F4C 
+ 723      4C415200 
+ 724              	.LASF40:
+ 725 0019 433A5C55 		.ascii	"C:\\Users\\e.ivanov\\Documents\\GitHub\\generic\\Ma"
+ 725      73657273 
+ 725      5C652E69 
+ 725      76616E6F 
+ 725      765C446F 
+ 726 0046 6E636865 		.ascii	"nchester encoder-decoder.cydsn\000"
+ 726      73746572 
+ 726      20656E63 
+ 726      6F646572 
+ 726      2D646563 
+ 727              	.LASF37:
+ 728 0065 7573625F 		.ascii	"usb_context\000"
+ 728      636F6E74 
+ 728      65787400 
+ 729              	.LASF28:
+ 730 0071 73746174 		.ascii	"state\000"
+ 730      6500
+ 731              	.LASF41:
+ 732 0077 7265706C 		.ascii	"replay\000"
+ 732      617900
+ 733              	.LASF9:
+ 734 007e 5F5F696E 		.ascii	"__int32_t\000"
+ 734      7433325F 
+ 734      7400
+ 735              	.LASF3:
+ 736 0088 73686F72 		.ascii	"short unsigned int\000"
+ 736      7420756E 
+ 736      7369676E 
+ 736      65642069 
+ 736      6E7400
+ 737              	.LASF39:
+ 738 009b 7265706C 		.ascii	"replay.c\000"
+ 738      61792E63 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPt8nTj.s 			page 15
+
+
+ 738      00
+ 739              	.LASF8:
+ 740 00a4 756E7369 		.ascii	"unsigned int\000"
+ 740      676E6564 
+ 740      20696E74 
+ 740      00
+ 741              	.LASF34:
+ 742 00b1 636F756E 		.ascii	"count_to_send\000"
+ 742      745F746F 
+ 742      5F73656E 
+ 742      6400
+ 743              	.LASF23:
+ 744 00bf 62656769 		.ascii	"begin\000"
+ 744      6E00
+ 745              	.LASF29:
+ 746 00c5 636F756E 		.ascii	"count_char\000"
+ 746      745F6368 
+ 746      617200
+ 747              	.LASF33:
+ 748 00d0 6E656564 		.ascii	"need_to_send\000"
+ 748      5F746F5F 
+ 748      73656E64 
+ 748      00
+ 749              	.LASF13:
+ 750 00dd 666C6F61 		.ascii	"float\000"
+ 750      7400
+ 751              	.LASF1:
+ 752 00e3 756E7369 		.ascii	"unsigned char\000"
+ 752      676E6564 
+ 752      20636861 
+ 752      7200
+ 753              	.LASF38:
+ 754 00f1 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 754      43313120 
+ 754      352E342E 
+ 754      31203230 
+ 754      31363036 
+ 755 0124 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 755      20726576 
+ 755      6973696F 
+ 755      6E203233 
+ 755      37373135 
+ 756 0157 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 756      66756E63 
+ 756      74696F6E 
+ 756      2D736563 
+ 756      74696F6E 
+ 757              	.LASF5:
+ 758 017f 6C6F6E67 		.ascii	"long unsigned int\000"
+ 758      20756E73 
+ 758      69676E65 
+ 758      6420696E 
+ 758      7400
+ 759              	.LASF26:
+ 760 0191 73656E74 		.ascii	"sentence\000"
+ 760      656E6365 
+ 760      00
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPt8nTj.s 			page 16
+
+
+ 761              	.LASF22:
+ 762 019a 53746174 		.ascii	"State\000"
+ 762      6500
+ 763              	.LASF36:
+ 764 01a0 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 764      52784275 
+ 764      66666572 
+ 764      00
+ 765              	.LASF14:
+ 766 01ad 646F7562 		.ascii	"double\000"
+ 766      6C6500
+ 767              	.LASF12:
+ 768 01b4 75696E74 		.ascii	"uint16\000"
+ 768      313600
+ 769              	.LASF43:
+ 770 01bb 7374726C 		.ascii	"strlen\000"
+ 770      656E00
+ 771              	.LASF24:
+ 772 01c2 52696E67 		.ascii	"RingBuff_t\000"
+ 772      42756666 
+ 772      5F7400
+ 773              	.LASF7:
+ 774 01cd 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 774      206C6F6E 
+ 774      6720756E 
+ 774      7369676E 
+ 774      65642069 
+ 775              	.LASF21:
+ 776 01e4 57414954 		.ascii	"WAITINGOFCHSUM2\000"
+ 776      494E474F 
+ 776      46434853 
+ 776      554D3200 
+ 777              	.LASF10:
+ 778 01f4 696E7433 		.ascii	"int32_t\000"
+ 778      325F7400 
+ 779              	.LASF17:
+ 780 01fc 73697A65 		.ascii	"sizetype\000"
+ 780      74797065 
+ 780      00
+ 781              	.LASF32:
+ 782 0205 6D657373 		.ascii	"message_to_send\000"
+ 782      6167655F 
+ 782      746F5F73 
+ 782      656E6400 
+ 783              	.LASF6:
+ 784 0215 6C6F6E67 		.ascii	"long long int\000"
+ 784      206C6F6E 
+ 784      6720696E 
+ 784      7400
+ 785              	.LASF42:
+ 786 0223 7265706C 		.ascii	"replay_msg\000"
+ 786      61795F6D 
+ 786      736700
+ 787              	.LASF15:
+ 788 022e 63686172 		.ascii	"char\000"
+ 788      00
+ 789              	.LASF35:
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccPt8nTj.s 			page 17
+
+
+ 790 0233 75617274 		.ascii	"uart_context\000"
+ 790      5F636F6E 
+ 790      74657874 
+ 790      00
+ 791              	.LASF2:
+ 792 0240 73686F72 		.ascii	"short int\000"
+ 792      7420696E 
+ 792      7400
+ 793              	.LASF20:
+ 794 024a 57414954 		.ascii	"WAITINGOFCHSUM\000"
+ 794      494E474F 
+ 794      46434853 
+ 794      554D00
+ 795              	.LASF11:
+ 796 0259 75696E74 		.ascii	"uint8\000"
+ 796      3800
+ 797              	.LASF19:
+ 798 025f 57414954 		.ascii	"WAITINGOFSTAR\000"
+ 798      494E474F 
+ 798      46535441 
+ 798      5200
+ 799              	.LASF25:
+ 800 026d 7072696D 		.ascii	"primary_buf\000"
+ 800      6172795F 
+ 800      62756600 
+ 801              	.LASF31:
+ 802 0279 73656E74 		.ascii	"sentence_ready\000"
+ 802      656E6365 
+ 802      5F726561 
+ 802      647900
+ 803              	.LASF4:
+ 804 0288 6C6F6E67 		.ascii	"long int\000"
+ 804      20696E74 
+ 804      00
+ 805              	.LASF16:
+ 806 0291 6C6F6E67 		.ascii	"long double\000"
+ 806      20646F75 
+ 806      626C6500 
+ 807              	.LASF0:
+ 808 029d 7369676E 		.ascii	"signed char\000"
+ 808      65642063 
+ 808      68617200 
+ 809              	.LASF27:
+ 810 02a9 6C656E67 		.ascii	"length\000"
+ 810      746800
+ 811              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

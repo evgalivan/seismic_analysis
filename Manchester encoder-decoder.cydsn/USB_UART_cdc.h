@@ -9,7 +9,7 @@
  *
  * ========================================
 */
-#include "USBUART_cdc.h"
+#include "cytypes.h"
 
 #define LENGTH_OF(Array) (sizeof(Array)/sizeof(Array[0]))
 #define USBUART_BUFFER_SIZE (64u)
@@ -21,5 +21,6 @@ extern uint8 buffer[USBUART_BUFFER_SIZE];
 
 void USBUARTInitCDC(void);
 void Service_USB(void);
+void Send_USB();
 
 /* [] END OF FILE */

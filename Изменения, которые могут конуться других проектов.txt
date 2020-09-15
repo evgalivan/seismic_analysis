@@ -1,0 +1,7 @@
+11:48 06.07.2020
+
+Изменение названия прерывания:
+
+TransmitWordShift -> isr_TransmitWordShift
+
+Коснулось TopDesing.cysch в схеме передатчика, main.c при инициализации, isr_Load_TrShReg.c внутри CY_ISR, isr_TransmitWordShift.c внутри CY_ISR

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSW924d.s 			page 1
 
 
    1              		.syntax unified
@@ -58,53 +58,52 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 1
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   32              		@ link register save eliminated.
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 2
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSW924d.s 			page 2
 
 
   26:sender.c      ****     while(count_to_send){
   33              		.loc 1 26 0
   34 0000 19E0     		b	.L2
   35              	.L4:
-  27:sender.c      ****       
-  28:sender.c      ****         if(current_read < current_write){
-  36              		.loc 1 28 0
+  27:sender.c      ****         if(current_read < current_write){
+  36              		.loc 1 27 0
   37 0002 0F4B     		ldr	r3, .L5
   38 0004 1A68     		ldr	r2, [r3]
   39 0006 0F4B     		ldr	r3, .L5+4
   40 0008 1B68     		ldr	r3, [r3]
   41 000a 9A42     		cmp	r2, r3
   42 000c 17D2     		bcs	.L1
-  29:sender.c      ****             tmp_tr = TransmitShiftReg_SR_STATUS;
-  43              		.loc 1 29 0
+  28:sender.c      ****             tmp_tr = TransmitShiftReg_SR_STATUS;
+  43              		.loc 1 28 0
   44 000e 0E4B     		ldr	r3, .L5+8
   45 0010 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
   46 0012 DBB2     		uxtb	r3, r3
   47 0014 0D49     		ldr	r1, .L5+12
   48 0016 0B60     		str	r3, [r1]
-  30:sender.c      ****             if((tmp_tr & 0x10)/*|(!(tmp_tr & 0x8))*/) {
-  49              		.loc 1 30 0
+  29:sender.c      ****             if((tmp_tr & 0x10)/*|(!(tmp_tr & 0x8))*/) {
+  49              		.loc 1 29 0
   50 0018 0B68     		ldr	r3, [r1]
   51 001a 13F0100F 		tst	r3, #16
   52 001e 0ED0     		beq	.L1
-  31:sender.c      ****                 CY_SET_REG32(TransmitShiftReg_IN_FIFO_VAL_LSB_PTR, *current_read);
-  53              		.loc 1 31 0
+  30:sender.c      ****                 CY_SET_REG32(TransmitShiftReg_IN_FIFO_VAL_LSB_PTR, *current_read);
+  53              		.loc 1 30 0
   54 0020 1268     		ldr	r2, [r2]
   55 0022 0B4B     		ldr	r3, .L5+16
   56 0024 1A60     		str	r2, [r3]
-  32:sender.c      ****                 current_read++;
-  57              		.loc 1 32 0
+  31:sender.c      ****                 current_read++;
+  57              		.loc 1 31 0
   58 0026 064A     		ldr	r2, .L5
   59 0028 1368     		ldr	r3, [r2]
   60 002a 0433     		adds	r3, r3, #4
   61 002c 1360     		str	r3, [r2]
-  33:sender.c      ****                 count_to_send--;
-  62              		.loc 1 33 0
+  32:sender.c      ****                 count_to_send--;
+  62              		.loc 1 32 0
   63 002e 094A     		ldr	r2, .L5+20
   64 0030 1368     		ldr	r3, [r2]
   65 0032 013B     		subs	r3, r3, #1
   66 0034 1360     		str	r3, [r2]
   67              	.L2:
-  26:sender.c      ****       
+  26:sender.c      ****         if(current_read < current_write){
   68              		.loc 1 26 0
   69 0036 074B     		ldr	r3, .L5+20
   70 0038 1B68     		ldr	r3, [r3]
@@ -118,10 +117,10 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 1
   78 0040 00000000 		.word	current_read
   79 0044 00000000 		.word	current_write
   80 0048 6B640040 		.word	1073767531
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 3
-
-
   81 004c 00000000 		.word	tmp_tr
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSW924d.s 			page 3
+
+
   82 0050 48640040 		.word	1073767496
   83 0054 00000000 		.word	.LANCHOR0
   84              		.cfi_endproc
@@ -135,16 +134,16 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 1
   92              		.type	PrepareToSend, %function
   93              	PrepareToSend:
   94              	.LFB1:
-  34:sender.c      ****             }else{
-  35:sender.c      ****                 break;
-  36:sender.c      ****             }
-  37:sender.c      ****         }else          break;
-  38:sender.c      ****     }
-  39:sender.c      **** }
+  33:sender.c      ****             }else{
+  34:sender.c      ****                 break;
+  35:sender.c      ****             }
+  36:sender.c      ****         }else          break;
+  37:sender.c      ****     }
+  38:sender.c      **** }
+  39:sender.c      **** 
   40:sender.c      **** 
-  41:sender.c      **** 
-  42:sender.c      **** TrResult  PrepareToSend(void){
-  95              		.loc 1 42 0
+  41:sender.c      **** TrResult  PrepareToSend(void){
+  95              		.loc 1 41 0
   96              		.cfi_startproc
   97              		@ args = 0, pretend = 0, frame = 0
   98              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -152,44 +151,44 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 1
  100              		.cfi_def_cfa_offset 8
  101              		.cfi_offset 3, -8
  102              		.cfi_offset 14, -4
-  43:sender.c      ****     if (status)
- 103              		.loc 1 43 0
+  42:sender.c      ****     if (status)
+ 103              		.loc 1 42 0
  104 0002 094B     		ldr	r3, .L11
  105 0004 5B68     		ldr	r3, [r3, #4]
  106 0006 6BB9     		cbnz	r3, .L9
-  44:sender.c      ****         return TRBUSY;
-  45:sender.c      ****     *line_buf |= 0x80000000;
- 107              		.loc 1 45 0
+  43:sender.c      ****         return TRBUSY;
+  44:sender.c      ****     *line_buf |= 0x80000000;
+ 107              		.loc 1 44 0
  108 0008 084B     		ldr	r3, .L11+4
  109 000a 1A68     		ldr	r2, [r3]
  110 000c 42F00042 		orr	r2, r2, #-2147483648
  111 0010 1A60     		str	r2, [r3]
-  46:sender.c      ****     count_to_send  = PACKET_LENGTH;
- 112              		.loc 1 46 0
+  45:sender.c      ****     count_to_send  = PACKET_LENGTH;
+ 112              		.loc 1 45 0
  113 0012 2C21     		movs	r1, #44
  114 0014 044A     		ldr	r2, .L11
  115 0016 1160     		str	r1, [r2]
-  47:sender.c      ****     current_read = line_buf;    
- 116              		.loc 1 47 0
+  46:sender.c      ****     current_read = line_buf;    
+ 116              		.loc 1 46 0
  117 0018 054A     		ldr	r2, .L11+8
  118 001a 1360     		str	r3, [r2]
-  48:sender.c      ****     Load();
- 119              		.loc 1 48 0
+  47:sender.c      ****     Load();
+ 119              		.loc 1 47 0
  120 001c FFF7FEFF 		bl	Load
  121              	.LVL0:
-  49:sender.c      ****     return TRSUCCSSY;
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 4
+  48:sender.c      ****     return TRSUCCSSY;
+ 122              		.loc 1 48 0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSW924d.s 			page 4
 
 
- 122              		.loc 1 49 0
  123 0020 0120     		movs	r0, #1
  124 0022 08BD     		pop	{r3, pc}
  125              	.L9:
-  44:sender.c      ****     *line_buf |= 0x80000000;
- 126              		.loc 1 44 0
+  43:sender.c      ****     *line_buf |= 0x80000000;
+ 126              		.loc 1 43 0
  127 0024 0020     		movs	r0, #0
-  50:sender.c      **** }
- 128              		.loc 1 50 0
+  49:sender.c      **** }
+ 128              		.loc 1 49 0
  129 0026 08BD     		pop	{r3, pc}
  130              	.L12:
  131              		.align	2
@@ -208,10 +207,10 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 1
  144              		.type	Send, %function
  145              	Send:
  146              	.LFB2:
+  50:sender.c      **** 
   51:sender.c      **** 
-  52:sender.c      **** 
-  53:sender.c      **** void   Send(){
- 147              		.loc 1 53 0
+  52:sender.c      **** void   Send(){
+ 147              		.loc 1 52 0
  148              		.cfi_startproc
  149              		@ args = 0, pretend = 0, frame = 0
  150              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -219,29 +218,29 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 1
  152              		.cfi_def_cfa_offset 8
  153              		.cfi_offset 4, -8
  154              		.cfi_offset 14, -4
-  54:sender.c      ****     status=1;    
- 155              		.loc 1 54 0
+  53:sender.c      ****     status=1;    
+ 155              		.loc 1 53 0
  156 0002 0124     		movs	r4, #1
  157 0004 044B     		ldr	r3, .L15
  158 0006 5C60     		str	r4, [r3, #4]
-  55:sender.c      ****     BitCounterEnc_WriteCounter(BitCounterEnc_ReadCompare());
- 159              		.loc 1 55 0
+  54:sender.c      ****     BitCounterEnc_WriteCounter(BitCounterEnc_ReadCompare());
+ 159              		.loc 1 54 0
  160 0008 FFF7FEFF 		bl	BitCounterEnc_ReadCompare
  161              	.LVL1:
  162 000c FFF7FEFF 		bl	BitCounterEnc_WriteCounter
  163              	.LVL2:
-  56:sender.c      ****     StartTransmit_Write(1);
- 164              		.loc 1 56 0
+  55:sender.c      ****     StartTransmit_Write(1);
+ 164              		.loc 1 55 0
  165 0010 2046     		mov	r0, r4
  166 0012 FFF7FEFF 		bl	StartTransmit_Write
  167              	.LVL3:
  168 0016 10BD     		pop	{r4, pc}
  169              	.L16:
  170              		.align	2
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 5
-
-
  171              	.L15:
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSW924d.s 			page 5
+
+
  172 0018 00000000 		.word	.LANCHOR0
  173              		.cfi_endproc
  174              	.LFE2:
@@ -254,16 +253,16 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 1
  181              		.type	ClearStatus, %function
  182              	ClearStatus:
  183              	.LFB3:
-  57:sender.c      **** }
-  58:sender.c      **** 
-  59:sender.c      **** void   ClearStatus(void){   //должна быть вызвана из прерывания bitcou
- 184              		.loc 1 59 0
+  56:sender.c      **** }
+  57:sender.c      **** 
+  58:sender.c      **** void   ClearStatus(void){   //должна быть вызвана из прерывания bitcou
+ 184              		.loc 1 58 0
  185              		.cfi_startproc
  186              		@ args = 0, pretend = 0, frame = 0
  187              		@ frame_needed = 0, uses_anonymous_args = 0
  188              		@ link register save eliminated.
-  60:sender.c      ****     status=0;        
- 189              		.loc 1 60 0
+  59:sender.c      ****     status=0;        
+ 189              		.loc 1 59 0
  190 0000 0022     		movs	r2, #0
  191 0002 014B     		ldr	r3, .L18
  192 0004 5A60     		str	r2, [r3, #4]
@@ -298,10 +297,10 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 1
  221              		.file 5 "Generated_Source\\PSoC5/BitCounterEnc.h"
  222              		.file 6 "Generated_Source\\PSoC5/StartTransmit.h"
  223              		.section	.debug_info,"",%progbits
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 6
-
-
  224              	.Ldebug_info0:
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSW924d.s 			page 6
+
+
  225 0000 90020000 		.4byte	0x290
  226 0004 0400     		.2byte	0x4
  227 0006 00000000 		.4byte	.Ldebug_abbrev0
@@ -358,10 +357,10 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 1
  278 006c 64010000 		.4byte	.LASF9
  279 0070 02       		.byte	0x2
  280 0071 E401     		.2byte	0x1e4
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 7
-
-
  281 0073 2C000000 		.4byte	0x2c
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSW924d.s 			page 7
+
+
  282 0077 04       		.uleb128 0x4
  283 0078 B2010000 		.4byte	.LASF10
  284 007c 02       		.byte	0x2
@@ -418,10 +417,10 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 1
  335 00df 07       		.uleb128 0x7
  336 00e0 61020000 		.4byte	.LASF19
  337 00e4 03       		.byte	0x3
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 8
-
-
  338 00e5 11       		.byte	0x11
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSW924d.s 			page 8
+
+
  339 00e6 5D000000 		.4byte	0x5d
  340 00ea 04       		.byte	0x4
  341 00eb 01       		.byte	0x1
@@ -478,10 +477,10 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 1
  392 013f 03       		.byte	0x3
  393 0140 18       		.byte	0x18
  394 0141 C8000000 		.4byte	0xc8
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 9
-
-
  395 0145 09       		.uleb128 0x9
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSW924d.s 			page 9
+
+
  396 0146 01       		.byte	0x1
  397 0147 2C000000 		.4byte	0x2c
  398 014b 03       		.byte	0x3
@@ -510,7 +509,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 1
  421 017a 0C       		.uleb128 0xc
  422 017b F1010000 		.4byte	.LASF44
  423 017f 01       		.byte	0x1
- 424 0180 2A       		.byte	0x2a
+ 424 0180 29       		.byte	0x29
  425 0181 5E010000 		.4byte	0x15e
  426 0185 00000000 		.4byte	.LFB1
  427 0189 34000000 		.4byte	.LFE1-.LFB1
@@ -524,7 +523,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 1
  435 019d 0E       		.uleb128 0xe
  436 019e 7A020000 		.4byte	.LASF45
  437 01a2 01       		.byte	0x1
- 438 01a3 35       		.byte	0x35
+ 438 01a3 34       		.byte	0x34
  439 01a4 00000000 		.4byte	.LFB2
  440 01a8 1C000000 		.4byte	.LFE2-.LFB2
  441 01ac 01       		.uleb128 0x1
@@ -538,10 +537,10 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 1
  449 01c0 7D020000 		.4byte	0x27d
  450 01c4 0F       		.uleb128 0xf
  451 01c5 16000000 		.4byte	.LVL3
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 10
-
-
  452 01c9 88020000 		.4byte	0x288
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSW924d.s 			page 10
+
+
  453 01cd 10       		.uleb128 0x10
  454 01ce 01       		.uleb128 0x1
  455 01cf 50       		.byte	0x50
@@ -553,7 +552,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 1
  461 01d5 0B       		.uleb128 0xb
  462 01d6 85010000 		.4byte	.LASF30
  463 01da 01       		.byte	0x1
- 464 01db 3B       		.byte	0x3b
+ 464 01db 3A       		.byte	0x3a
  465 01dc 00000000 		.4byte	.LFB3
  466 01e0 0C000000 		.4byte	.LFE3-.LFB3
  467 01e4 01       		.uleb128 0x1
@@ -598,10 +597,10 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 1
  506 0235 46020000 		.4byte	.LASF34
  507 0239 04       		.byte	0x4
  508 023a 13       		.byte	0x13
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 11
-
-
  509 023b 3F020000 		.4byte	0x23f
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSW924d.s 			page 11
+
+
  510 023f 16       		.uleb128 0x16
  511 0240 04       		.byte	0x4
  512 0241 B5000000 		.4byte	0xb5
@@ -658,10 +657,10 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 1
  563 000b 55       		.uleb128 0x55
  564 000c 17       		.uleb128 0x17
  565 000d 11       		.uleb128 0x11
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 12
-
-
  566 000e 01       		.uleb128 0x1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSW924d.s 			page 12
+
+
  567 000f 10       		.uleb128 0x10
  568 0010 17       		.uleb128 0x17
  569 0011 00       		.byte	0
@@ -718,10 +717,10 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 1
  620 0044 3B       		.uleb128 0x3b
  621 0045 0B       		.uleb128 0xb
  622 0046 01       		.uleb128 0x1
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 13
-
-
  623 0047 13       		.uleb128 0x13
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSW924d.s 			page 13
+
+
  624 0048 00       		.byte	0
  625 0049 00       		.byte	0
  626 004a 07       		.uleb128 0x7
@@ -778,10 +777,10 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 1
  677 007d 00       		.byte	0
  678 007e 03       		.uleb128 0x3
  679 007f 0E       		.uleb128 0xe
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 14
-
-
  680 0080 1C       		.uleb128 0x1c
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSW924d.s 			page 14
+
+
  681 0081 0B       		.uleb128 0xb
  682 0082 00       		.byte	0
  683 0083 00       		.byte	0
@@ -838,10 +837,10 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 1
  734 00b8 0D       		.uleb128 0xd
  735 00b9 898201   		.uleb128 0x4109
  736 00bc 00       		.byte	0
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 15
-
-
  737 00bd 11       		.uleb128 0x11
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSW924d.s 			page 15
+
+
  738 00be 01       		.uleb128 0x1
  739 00bf 31       		.uleb128 0x31
  740 00c0 13       		.uleb128 0x13
@@ -898,10 +897,10 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 1
  791 00f9 3A       		.uleb128 0x3a
  792 00fa 0B       		.uleb128 0xb
  793 00fb 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 16
-
-
  794 00fc 0B       		.uleb128 0xb
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSW924d.s 			page 16
+
+
  795 00fd 49       		.uleb128 0x49
  796 00fe 13       		.uleb128 0x13
  797 00ff 02       		.uleb128 0x2
@@ -958,10 +957,10 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 1
  848 0132 00       		.byte	0
  849 0133 16       		.uleb128 0x16
  850 0134 0F       		.uleb128 0xf
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 17
-
-
  851 0135 00       		.byte	0
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSW924d.s 			page 17
+
+
  852 0136 0B       		.uleb128 0xb
  853 0137 0B       		.uleb128 0xb
  854 0138 49       		.uleb128 0x49
@@ -1018,10 +1017,10 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 1
  905 0024 00000000 		.4byte	0
  906              		.section	.debug_line,"",%progbits
  907              	.Ldebug_line0:
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 18
-
-
  908 0000 DC000000 		.section	.debug_str,"MS",%progbits,1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSW924d.s 			page 18
+
+
  908      02008500 
  908      00000201 
  908      FB0E0D00 
@@ -1078,10 +1077,10 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 1
  933      65722E63 
  933      00
  934              	.LASF1:
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 19
-
-
  935 00a8 756E7369 		.ascii	"unsigned char\000"
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSW924d.s 			page 19
+
+
  935      676E6564 
  935      20636861 
  935      7200
@@ -1138,10 +1137,10 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 1
  957      20646F75 
  957      626C6500 
  958              	.LASF33:
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 20
-
-
  959 01a9 6C696E65 		.ascii	"line_buf\000"
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSW924d.s 			page 20
+
+
  959      5F627566 
  959      00
  960              	.LASF10:
@@ -1198,10 +1197,10 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 1
  984              	.LASF34:
  985 0246 63757272 		.ascii	"current_write\000"
  985      656E745F 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccLS5CIv.s 			page 21
-
-
  985      77726974 
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccSW924d.s 			page 21
+
+
  985      6500
  986              	.LASF18:
  987 0254 6C6F6164 		.ascii	"load\000"

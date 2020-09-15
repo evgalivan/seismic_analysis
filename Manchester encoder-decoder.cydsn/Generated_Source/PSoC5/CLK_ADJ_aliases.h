@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: TEST_1.h  
+* File Name: CLK_ADJ.h  
 * Version 2.20
 *
 * Description:
@@ -15,8 +15,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_TEST_1_ALIASES_H) /* Pins TEST_1_ALIASES_H */
-#define CY_PINS_TEST_1_ALIASES_H
+#if !defined(CY_PINS_CLK_ADJ_ALIASES_H) /* Pins CLK_ADJ_ALIASES_H */
+#define CY_PINS_CLK_ADJ_ALIASES_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
@@ -25,12 +25,12 @@
 /***************************************
 *              Constants        
 ***************************************/
-#define TEST_1_0			(TEST_1__0__PC)
-#define TEST_1_0_INTR	((uint16)((uint16)0x0001u << TEST_1__0__SHIFT))
+#define CLK_ADJ_0			(CLK_ADJ__0__PC)
+#define CLK_ADJ_0_INTR	((uint16)((uint16)0x0001u << CLK_ADJ__0__SHIFT))
 
-#define TEST_1_INTR_ALL	 ((uint16)(TEST_1_0_INTR))
+#define CLK_ADJ_INTR_ALL	 ((uint16)(CLK_ADJ_0_INTR))
 
-#endif /* End Pins TEST_1_ALIASES_H */
+#endif /* End Pins CLK_ADJ_ALIASES_H */
 
 
 /* [] END OF FILE */

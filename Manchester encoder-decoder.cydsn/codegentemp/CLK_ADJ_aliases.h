@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Clock_tiktak_3.h  
+* File Name: CLK_ADJ.h  
 * Version 2.20
 *
 * Description:
@@ -15,8 +15,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_Clock_tiktak_3_ALIASES_H) /* Pins Clock_tiktak_3_ALIASES_H */
-#define CY_PINS_Clock_tiktak_3_ALIASES_H
+#if !defined(CY_PINS_CLK_ADJ_ALIASES_H) /* Pins CLK_ADJ_ALIASES_H */
+#define CY_PINS_CLK_ADJ_ALIASES_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
@@ -25,12 +25,12 @@
 /***************************************
 *              Constants        
 ***************************************/
-#define Clock_tiktak_3_0			(Clock_tiktak_3__0__PC)
-#define Clock_tiktak_3_0_INTR	((uint16)((uint16)0x0001u << Clock_tiktak_3__0__SHIFT))
+#define CLK_ADJ_0			(CLK_ADJ__0__PC)
+#define CLK_ADJ_0_INTR	((uint16)((uint16)0x0001u << CLK_ADJ__0__SHIFT))
 
-#define Clock_tiktak_3_INTR_ALL	 ((uint16)(Clock_tiktak_3_0_INTR))
+#define CLK_ADJ_INTR_ALL	 ((uint16)(CLK_ADJ_0_INTR))
 
-#endif /* End Pins Clock_tiktak_3_ALIASES_H */
+#endif /* End Pins CLK_ADJ_ALIASES_H */
 
 
 /* [] END OF FILE */

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
   28:Generated_Source\PSoC5/cap_comp_tc.c **** ********************************************************************************/
   29:Generated_Source\PSoC5/cap_comp_tc.c **** /* `#START cap_comp_tc_intc` */
   30:Generated_Source\PSoC5/cap_comp_tc.c ****     
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 2
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 2
 
 
   31:Generated_Source\PSoC5/cap_comp_tc.c ****     #include <global.h>
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
   52 001a 0122     		movs	r2, #1
   53 001c 6260     		str	r2, [r4, #4]
   61:Generated_Source\PSoC5/cap_comp_tc.c ****             PrevCapture = tmp;
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 3
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 3
 
 
   54              		.loc 1 61 0
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
   79:Generated_Source\PSoC5/cap_comp_tc.c **** 
   80:Generated_Source\PSoC5/cap_comp_tc.c ****             CurrentDelta = (ADC_SAMPLING_PERIOD<<1) - CurrentDelta;
   91              		.loc 1 80 0
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 4
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 4
 
 
   92 0054 C3F50053 		rsb	r3, r3, #8192
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  132 0096 01DA     		bge	.L1
  133              		.loc 1 94 0 is_stmt 0 discriminator 1
  134 0098 044A     		ldr	r2, .L9+12
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 5
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 5
 
 
  135 009a 1360     		str	r3, [r2]
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  126:Generated_Source\PSoC5/cap_comp_tc.c **** * Return:
  127:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
  128:Generated_Source\PSoC5/cap_comp_tc.c **** *
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 6
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 6
 
 
  129:Generated_Source\PSoC5/cap_comp_tc.c **** *******************************************************************************/
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  183:Generated_Source\PSoC5/cap_comp_tc.c **** 
  184:Generated_Source\PSoC5/cap_comp_tc.c ****     /* Enable it. */
  185:Generated_Source\PSoC5/cap_comp_tc.c ****     cap_comp_tc_Enable();
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 7
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 7
 
 
  186:Generated_Source\PSoC5/cap_comp_tc.c **** }
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  240:Generated_Source\PSoC5/cap_comp_tc.c **** 
  241:Generated_Source\PSoC5/cap_comp_tc.c **** //    tmp = (uint32)Capture_high_Read()<<8;
  242:Generated_Source\PSoC5/cap_comp_tc.c **** //    tmp += Capture_low_Read();
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 8
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 8
 
 
  243:Generated_Source\PSoC5/cap_comp_tc.c **** //   
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  297:Generated_Source\PSoC5/cap_comp_tc.c **** * Return:
  298:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
  299:Generated_Source\PSoC5/cap_comp_tc.c **** *
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 9
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 9
 
 
  300:Generated_Source\PSoC5/cap_comp_tc.c **** *******************************************************************************/
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  326:Generated_Source\PSoC5/cap_comp_tc.c **** {
  186              		.loc 1 326 0
  187              		.cfi_startproc
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 10
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 10
 
 
  188              		@ args = 0, pretend = 0, frame = 0
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  356:Generated_Source\PSoC5/cap_comp_tc.c **** *   None
  357:Generated_Source\PSoC5/cap_comp_tc.c **** *
  358:Generated_Source\PSoC5/cap_comp_tc.c **** *******************************************************************************/
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 11
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 11
 
 
  359:Generated_Source\PSoC5/cap_comp_tc.c **** void cap_comp_tc_SetPriority(uint8 priority)
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  243              		@ args = 0, pretend = 0, frame = 0
  244              		@ frame_needed = 0, uses_anonymous_args = 0
  245              		@ link register save eliminated.
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 12
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 12
 
 
  383:Generated_Source\PSoC5/cap_comp_tc.c ****     uint8 priority;
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  273              		@ link register save eliminated.
  410:Generated_Source\PSoC5/cap_comp_tc.c ****     /* Enable the general interrupt. */
  411:Generated_Source\PSoC5/cap_comp_tc.c ****     *cap_comp_tc_INTC_SET_EN = cap_comp_tc__INTC_MASK;
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 13
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 13
 
 
  274              		.loc 1 411 0
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  307 000e 0020     		movs	r0, #0
  433:Generated_Source\PSoC5/cap_comp_tc.c **** }
  308              		.loc 1 433 0
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 14
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 14
 
 
  309 0010 7047     		bx	lr
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  343              		.align	2
  344              		.global	cap_comp_tc_Start
  345              		.thumb
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 15
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 15
 
 
  346              		.thumb_func
@@ -865,7 +865,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  364              	.LVL14:
  139:Generated_Source\PSoC5/cap_comp_tc.c **** 
  365              		.loc 1 139 0
- 366 000c 0420     		movs	r0, #4
+ 366 000c 0320     		movs	r0, #3
  367 000e FFF7FEFF 		bl	cap_comp_tc_SetPriority
  368              	.LVL15:
  142:Generated_Source\PSoC5/cap_comp_tc.c **** }
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  394              		.cfi_def_cfa_offset 8
  395              		.cfi_offset 4, -8
  396              		.cfi_offset 14, -4
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 16
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 16
 
 
  397 0002 0446     		mov	r4, r0
@@ -913,7 +913,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  404              	.LVL19:
  182:Generated_Source\PSoC5/cap_comp_tc.c **** 
  405              		.loc 1 182 0
- 406 000e 0420     		movs	r0, #4
+ 406 000e 0320     		movs	r0, #3
  407 0010 FFF7FEFF 		bl	cap_comp_tc_SetPriority
  408              	.LVL20:
  185:Generated_Source\PSoC5/cap_comp_tc.c **** }
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  444              		.cfi_endproc
  445              	.LFE66:
  446              		.size	cap_comp_tc_Stop, .-cap_comp_tc_Stop
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 17
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 17
 
 
  447              		.section	.text.cap_comp_tc_SetPending,"ax",%progbits
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  475              		.thumb
  476              		.thumb_func
  477              		.type	cap_comp_tc_ClearPending, %function
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 18
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 18
 
 
  478              	cap_comp_tc_ClearPending:
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  506              		.cfi_startproc
  507              		@ args = 0, pretend = 0, frame = 0
  508              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 19
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 19
 
 
  509 0000 08B5     		push	{r3, lr}
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  561              		.file 7 "Generated_Source\\PSoC5/Capture_high.h"
  562              		.file 8 "Generated_Source\\PSoC5/Capture_low.h"
  563              		.section	.debug_info,"",%progbits
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 20
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 20
 
 
  564              	.Ldebug_info0:
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  618 006f 03       		.uleb128 0x3
  619 0070 04       		.byte	0x4
  620 0071 07       		.byte	0x7
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 21
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 21
 
 
  621 0072 80010000 		.4byte	.LASF8
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  675 00e5 04       		.byte	0x4
  676 00e6 9002     		.2byte	0x290
  677 00e8 EC000000 		.4byte	0xec
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 22
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 22
 
 
  678 00ec 08       		.uleb128 0x8
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  732 0168 04       		.byte	0x4
  733 0169 F1000000 		.4byte	0xf1
  734 016d 0F       		.uleb128 0xf
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 23
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 23
 
 
  735 016e 9B030000 		.4byte	.LASF29
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  789 01f0 00000000 		.4byte	.LFB72
  790 01f4 0C000000 		.4byte	.LFE72-.LFB72
  791 01f8 01       		.uleb128 0x1
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 24
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 24
 
 
  792 01f9 9C       		.byte	0x9c
@@ -1430,7 +1430,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  838 0265 01       		.uleb128 0x1
  839 0266 50       		.byte	0x50
  840 0267 01       		.uleb128 0x1
- 841 0268 34       		.byte	0x34
+ 841 0268 33       		.byte	0x33
  842 0269 00       		.byte	0
  843 026a 0B       		.uleb128 0xb
  844 026b 16000000 		.4byte	.LVL16
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  846 0273 00       		.byte	0
  847 0274 09       		.uleb128 0x9
  848 0275 04030000 		.4byte	.LASF34
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 25
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 25
 
 
  849 0279 01       		.byte	0x1
@@ -1476,7 +1476,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  881 02c3 01       		.uleb128 0x1
  882 02c4 50       		.byte	0x50
  883 02c5 01       		.uleb128 0x1
- 884 02c6 34       		.byte	0x34
+ 884 02c6 33       		.byte	0x33
  885 02c7 00       		.byte	0
  886 02c8 0B       		.uleb128 0xb
  887 02c9 18000000 		.4byte	.LVL21
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  903 02f1 0C000000 		.4byte	.LVL23
  904 02f5 34010000 		.4byte	0x134
  905 02f9 00       		.byte	0
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 26
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 26
 
 
  906 02fa 12       		.uleb128 0x12
@@ -1558,26 +1558,26 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  960 0372 A9000000 		.4byte	0xa9
  961 0376 05       		.uleb128 0x5
  962 0377 03       		.byte	0x3
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 27
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 27
 
 
  963 0378 00000000 		.4byte	UpdateFrequencyFlag
  964 037c 1B       		.uleb128 0x1b
  965 037d 88020000 		.4byte	.LASF42
  966 0381 06       		.byte	0x6
- 967 0382 45       		.byte	0x45
+ 967 0382 47       		.byte	0x47
  968 0383 87030000 		.4byte	0x387
  969 0387 08       		.uleb128 0x8
  970 0388 68000000 		.4byte	0x68
  971 038c 1B       		.uleb128 0x1b
  972 038d 18030000 		.4byte	.LASF43
  973 0391 06       		.byte	0x6
- 974 0392 46       		.byte	0x46
+ 974 0392 48       		.byte	0x48
  975 0393 68000000 		.4byte	0x68
  976 0397 1B       		.uleb128 0x1b
  977 0398 63000000 		.4byte	.LASF44
  978 039c 06       		.byte	0x6
- 979 039d 47       		.byte	0x47
+ 979 039d 49       		.byte	0x49
  980 039e 68000000 		.4byte	0x68
  981 03a2 1A       		.uleb128 0x1a
  982 03a3 0D000000 		.4byte	.LASF45
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  1017              	.Ldebug_abbrev0:
  1018 0000 01       		.uleb128 0x1
  1019 0001 11       		.uleb128 0x11
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 28
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 28
 
 
  1020 0002 01       		.byte	0x1
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  1074 0038 00       		.byte	0
  1075 0039 0B       		.uleb128 0xb
  1076 003a 0B       		.uleb128 0xb
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 29
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 29
 
 
  1077 003b 49       		.uleb128 0x49
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  1131 0072 00       		.byte	0
  1132 0073 00       		.byte	0
  1133 0074 0A       		.uleb128 0xa
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 30
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 30
 
 
  1134 0075 34       		.uleb128 0x34
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  1188 00ae 0B       		.uleb128 0xb
  1189 00af 3B       		.uleb128 0x3b
  1190 00b0 05       		.uleb128 0x5
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 31
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 31
 
 
  1191 00b1 49       		.uleb128 0x49
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  1245 00e8 0B       		.uleb128 0xb
  1246 00e9 3B       		.uleb128 0x3b
  1247 00ea 05       		.uleb128 0x5
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 32
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 32
 
 
  1248 00eb 49       		.uleb128 0x49
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  1302 0122 05       		.uleb128 0x5
  1303 0123 27       		.uleb128 0x27
  1304 0124 19       		.uleb128 0x19
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 33
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 33
 
 
  1305 0125 49       		.uleb128 0x49
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  1359 0161 3B       		.uleb128 0x3b
  1360 0162 0B       		.uleb128 0xb
  1361 0163 49       		.uleb128 0x49
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 34
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 34
 
 
  1362 0164 13       		.uleb128 0x13
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  1416 019a 1B       		.uleb128 0x1b
  1417 019b 34       		.uleb128 0x34
  1418 019c 00       		.byte	0
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 35
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 35
 
 
  1419 019d 03       		.uleb128 0x3
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  1473 0030 00000000 		.4byte	0
  1474              	.LLST2:
  1475 0034 04000000 		.4byte	.LVL11
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 36
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 36
 
 
  1476 0038 06000000 		.4byte	.LVL12
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  1530 0078 00000000 		.4byte	.LFB67
  1531 007c 14000000 		.4byte	.LFE67-.LFB67
  1532 0080 00000000 		.4byte	0
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 37
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 37
 
 
  1533 0084 00000000 		.4byte	0
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  1574      6E637946 
  1574      6C616700 
  1575              	.LASF36:
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 38
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 38
 
 
  1576 002f 6361705F 		.ascii	"cap_comp_tc_SetPending\000"
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  1598      5F74635F 
  1598      53746F70 
  1598      00
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 39
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 39
 
 
  1599              	.LASF4:
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  1620      73657273 
  1620      5C652E69 
  1620      76616E6F 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 40
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 40
 
 
  1620      765C446F 
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  1641      00
  1642              	.LASF46:
  1643 02b4 50726576 		.ascii	"PrevCapture\000"
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 41
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 41
 
 
  1643      43617074 
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 1
  1665      6C6F775F 
  1665      52656164 
  1665      00
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccf48qz4.s 			page 42
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccAC9sNM.s 			page 42
 
 
  1666              	.LASF5:

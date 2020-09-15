@@ -40,8 +40,8 @@
 #define SPI_ADC_BIDIRECTIONAL_MODE         (0u)
 
 /* Internal interrupt handling */
-#define SPI_ADC_TX_BUFFER_SIZE             (27u)
-#define SPI_ADC_RX_BUFFER_SIZE             (27u)
+#define SPI_ADC_TX_BUFFER_SIZE             (29u)
+#define SPI_ADC_RX_BUFFER_SIZE             (29u)
 #define SPI_ADC_INTERNAL_TX_INT_ENABLED    (1u)
 #define SPI_ADC_INTERNAL_RX_INT_ENABLED    (1u)
 

@@ -43,6 +43,7 @@
           <File BuildType="BUILD" Toolchain="">line_buf.c</File>
           <File BuildType="BUILD" Toolchain="">SPI_ADC_ADS131E08.c</File>
           <File BuildType="BUILD" Toolchain="">FirstFrame.c</File>
+          <File BuildType="BUILD" Toolchain="">ControlFrame.c</File>
           <File BuildType="BUILD" Toolchain="">cyapicallbacks.h</File>
           <File BuildType="BUILD" Toolchain="">sender.h</File>
           <File BuildType="BUILD" Toolchain="">reciver.h</File>
@@ -52,6 +53,8 @@
           <File BuildType="BUILD" Toolchain="">SPI_ADC_ADS131E08.h</File>
           <File BuildType="BUILD" Toolchain="">FirstFrame.h</File>
           <File BuildType="BUILD" Toolchain="">SPI_MEMS_LIS2DH12TR.h</File>
+          <File BuildType="BUILD" Toolchain="">types.h</File>
+          <File BuildType="BUILD" Toolchain="">ControlFrame.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5">
@@ -109,6 +112,8 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\TransmitShiftReg.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\TransmitShiftReg.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\TransmitShiftReg_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_9.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_9.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_Load_TrShReg.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_Load_TrShReg.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_5.c</File>
@@ -146,6 +151,9 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cycodeshareimport.ld</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cycodeshareexport.ld</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cycodeshareimport.scat</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Pin_1_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Pin_1.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Pin_1.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\FrameAllow.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\FrameAllow.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\FrameAllow_PM.c</File>
@@ -199,9 +207,6 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\CSn.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SPI_ADC_IntClock.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SPI_ADC_IntClock.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_tiktak_2_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_tiktak_2.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_tiktak_2.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Pin_test11_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Pin_test11.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Pin_test11.h</File>
@@ -257,9 +262,6 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\CH32kHZ_OUT_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\CH32kHZ_OUT.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\CH32kHZ_OUT.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\TEST_1_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\TEST_1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\TEST_1.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Capture_high.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Capture_high.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Capture_low.c</File>
@@ -273,12 +275,9 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\TEST_2_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\TEST_2.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\TEST_2.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_tiktak_1_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_tiktak_1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_tiktak_1.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_tiktak_3_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_tiktak_3.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_tiktak_3.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\CLK_ADJ_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\CLK_ADJ.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\CLK_ADJ.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Export\ARM_GCC_Generic">

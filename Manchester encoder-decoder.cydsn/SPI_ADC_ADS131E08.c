@@ -10,9 +10,10 @@
  * ========================================
 */
 
-#include <global.h>
+
 #include <SPI_ADC_ADS131E08.h>
 #include <SPI_ADC.h>
+#include <project.h>
 
 
 /*
@@ -21,19 +22,62 @@
     The second command byte specifies the number of registers to write – 1.
 */
 
+uint8 tmp, byte_adc_read;
 static uint8 transfer_buf[27];
-exchanged_subject Data_ADS131E08;
+static uint8 spi_adc_busy_flag = 0;
+uint32 SPI_Data_ADS131E08[28] = {0};
+Data_field Data_ADS131E08;
 
+uint8 Blocking_SPI_ADC_ReadByte(void){
+    while (SPI_ADC_GetRxBufferSize() == 0);
+    return SPI_ADC_ReadRxData();
+}
+
+
+
+void SPI_Transaction(uint8* array, uint8 length){
+    while (CSn_Read() == 0);
+    SPI_ADC_ClearRxBuffer();        // may be need redaction
+    SPI_ADC_PutArray(array, length);
+}
 
 void SPI_ADC_ADS131E08_WReg(uint8 byte, uint8 Reg){
-    register uint8 tmp = 0x40;
-    tmp |= Reg & ADS131E08_FIRSTBYTE_WRITE_COMMAND_MASK;
-    
+    register uint8 tmp = ADS131E08_WRITE_COMMAND;
+    tmp |= Reg & ADS131E08_FIRSTBYTE_COMMAND_MASK;
     transfer_buf[0] = tmp;
     transfer_buf[1] = 0x0;
     transfer_buf[2] = byte;
-    SPI_ADC_PutArray(transfer_buf, 3);
-    SPI_ADC_ClearRxBuffer();
+    SPI_Transaction(transfer_buf, 3);
+}
+
+
+uint8 SPI_ADC_ADS131E08_RReg(uint8 Reg){
+    register uint8 tmp = ADS131E08_READ_COMMAND;
+    tmp |= Reg & ADS131E08_FIRSTBYTE_COMMAND_MASK;
+    
+    transfer_buf[0] = tmp;
+    transfer_buf[1] = 0x0;
+    SPI_Transaction(transfer_buf, 3);
+    byte_adc_read = Blocking_SPI_ADC_ReadByte();
+    byte_adc_read = Blocking_SPI_ADC_ReadByte();
+    return Blocking_SPI_ADC_ReadByte();
+}
+//#define SPI_ADC_ADS131E08_SendAnyCommand(command)   SPI_Transaction(&command,1)
+void SPI_ADC_ADS131E08_SendAnyCommand(uint8 command){
+    SPI_Transaction(&command,1);
+}
+
+result SPI_ADC_ADS131E08_WReg_Check(uint8 byte, uint8 Reg){
+    SPI_ADC_ADS131E08_WReg(byte, Reg);
+    
+    byte_adc_read = SPI_ADC_ADS131E08_RReg(Reg);
+    if (Reg != ADS131E08_CONFIG3_ADDRESS){
+        if (byte == byte_adc_read) return SUCCESS;
+    }
+    else {
+        if ((byte>>1) == (byte_adc_read>>1)) return SUCCESS;
+    }
+    return ERROR;
 }
 
 /* [] END OF FILE */

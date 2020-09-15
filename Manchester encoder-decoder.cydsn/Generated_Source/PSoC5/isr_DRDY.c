@@ -166,8 +166,8 @@ CY_ISR(isr_DRDY_Interrupt)
 
     /*  Place your Interrupt code here. */
     /* `#START isr_DRDY_Interrupt` */
-    isr_DRDY_ClearPending();
     DRDY_flag=1;    
+    isr_DRDY_ClearPending();
     /* `#END` */
 }
 

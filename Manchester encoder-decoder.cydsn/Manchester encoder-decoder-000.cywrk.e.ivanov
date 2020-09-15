@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Manchester encoder-decoder-000\Manchester encoder-decoder\Source Files\sender.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Manchester encoder-decoder-000\Manchester encoder-decoder\TopDesign">
 <ExpandedNodeIds>
 <v>Manchester encoder-decoder-000</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder</v>
@@ -30,6 +30,7 @@
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\Manchester encoder-decoder.cydwr\EEPROM</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\Header Files</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\Header Files\Clock.h</v>
+<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Header Files\ControlFrame.h</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\Header Files\cyapicallbacks.h</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\Header Files\FirstFrame.h</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\Header Files\global.h</v>
@@ -38,8 +39,10 @@
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\Header Files\sender.h</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\Header Files\SPI_ADC_ADS131E08.h</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\Header Files\SPI_MEMS_LIS2DH12TR.h</v>
+<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Header Files\types.h</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\Source Files</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\Source Files\Clock.c</v>
+<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Source Files\ControlFrame.c</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\Source Files\FirstFrame.c</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\Source Files\line_buf.c</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\Source Files\main.c</v>
@@ -57,56 +60,7 @@
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\Generated_Source\PSoC5\SPI_ADC</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\Generated_Source\PSoC5\WordShifted</v>
 </ExpandedNodeIds>
-<VisibleNodeIds>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Manchester encoder-decoder.cydwr\Clocks</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Manchester encoder-decoder.cydwr\Interrupts</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Manchester encoder-decoder.cydwr\DMA</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Manchester encoder-decoder.cydwr\System</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Manchester encoder-decoder.cydwr\Directives</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Manchester encoder-decoder.cydwr\Flash Security</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Manchester encoder-decoder.cydwr\EEPROM</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Header Files</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Header Files\Clock.h</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Header Files\cyapicallbacks.h</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Header Files\FirstFrame.h</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Header Files\global.h</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Header Files\line_buf.h</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Header Files\reciver.h</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Header Files\sender.h</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Header Files\SPI_ADC_ADS131E08.h</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Header Files\SPI_MEMS_LIS2DH12TR.h</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Source Files</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Source Files\Clock.c</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Source Files\FirstFrame.c</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Source Files\line_buf.c</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Source Files\main.c</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Source Files\reciver.c</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Source Files\sender.c</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Source Files\SPI_ADC_ADS131E08.c</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Generated_Source</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Generated_Source\PSoC5</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Generated_Source\PSoC5\BitCounterDec</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Generated_Source\PSoC5\BitCounterEnc</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Generated_Source\PSoC5\Boundary8bit</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Generated_Source\PSoC5\cap_comp_tc</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Generated_Source\PSoC5\cap_comp_tc\cap_comp_tc.c</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Generated_Source\PSoC5\cap_comp_tc\cap_comp_tc.h</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Generated_Source\PSoC5\Capture_high</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Generated_Source\PSoC5\Capture_high\Capture_high.c</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Generated_Source\PSoC5\Capture_high\Capture_high.h</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Generated_Source\PSoC5\Capture_low</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Generated_Source\PSoC5\CH32kHZ_IN</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Generated_Source\PSoC5\CH32kHZ_OUT</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Generated_Source\PSoC5\Clock_2</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Generated_Source\PSoC5\Clock_5</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Generated_Source\PSoC5\Clock_tiktak_1</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Generated_Source\PSoC5\Clock_tiktak_2</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Generated_Source\PSoC5\Clock_tiktak_3</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Generated_Source\PSoC5\Comp_1</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Generated_Source\PSoC5\Comp_2</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Generated_Source\PSoC5\Comp_high</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Generated_Source\PSoC5\Comp_low</v>
-</VisibleNodeIds>
+<VisibleNodeIds />
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
@@ -116,13 +70,7 @@
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\TopDesign\TopDesign.cysch</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\TopDesign\TopDesign_01.cymacro</v>
 </ExpandedNodeIds>
-<VisibleNodeIds>
-<v>Manchester encoder-decoder-000</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\TopDesign</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\TopDesign\TopDesign.cysch</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\TopDesign\TopDesign_01.cymacro</v>
-</VisibleNodeIds>
+<VisibleNodeIds />
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
@@ -143,12 +91,11 @@
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Capture_low.lst</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\CH32kHZ_IN.lst</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\CH32kHZ_OUT.lst</v>
+<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\CLK_ADJ.lst</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock.lst</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_2.lst</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_5.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_tiktak_1.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_tiktak_2.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_tiktak_3.lst</v>
+<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_9.lst</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Comp_1.lst</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Comp_1_PM.lst</v>
@@ -162,6 +109,7 @@
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Control_Capture_3_PM.lst</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Control_Period.lst</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Control_Period_PM.lst</v>
+<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\ControlFrame.lst</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\CS2.lst</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\CSn.lst</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
@@ -195,6 +143,7 @@
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Out_TikTak.lst</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Period.lst</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Period_PM.lst</v>
+<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_1.lst</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_test11.lst</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_test12.lst</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_test21.lst</v>
@@ -223,7 +172,6 @@
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\StartTransmit.lst</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\StartTransmit_PM.lst</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\TEST.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\TEST_1.lst</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\TEST_2.lst</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\TEST_PM.lst</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\TransmitShiftReg.lst</v>
@@ -241,56 +189,7 @@
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\Manchester encoder-decoder.rpt</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\Manchester encoder-decoder_timing.html</v>
 </ExpandedNodeIds>
-<VisibleNodeIds>
-<v>Manchester encoder-decoder-000</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\BitCounterDec.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\BitCounterDec_PM.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\BitCounterEnc.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\BitCounterEnc_PM.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Boundary8bit.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Boundary8bit_PM.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\cap_comp_tc.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Capture_high.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Capture_low.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\CH32kHZ_IN.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\CH32kHZ_OUT.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_2.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_5.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_tiktak_1.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_tiktak_2.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_tiktak_3.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Comp_1.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Comp_1_PM.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Comp_2.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Comp_2_PM.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Comp_high.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Comp_high_PM.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Comp_low.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Comp_low_PM.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Control_Capture_3.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Control_Capture_3_PM.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Control_Period.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\Control_Period_PM.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\CS2.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\CSn.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-</VisibleNodeIds>
+<VisibleNodeIds />
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
 <TreeKeysV2>
@@ -350,56 +249,7 @@
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\xor_v1_0\xor_v1_0.pdf</v>
 <v>Manchester encoder-decoder-000\Manchester encoder-decoder\ZeroTerminal.pdf</v>
 </ExpandedNodeIds>
-<VisibleNodeIds>
-<v>Manchester encoder-decoder-000</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\PSoC 5LP Architecture TRM</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CY8C58LP Family Datasheet</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\System Reference Guides</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\System Reference Guides\cy_boot_v5_80</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\and_v1_0</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\and_v1_0\and_v1_0.pdf</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\BasicCounter_v1_0.pdf</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Capacitor_v1_0</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Capacitor_v1_0\Capacitor_v1_0.pdf</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Comp_v2_0</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Comp_v2_0\Comp_v2_0.pdf</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Counter_v3_0</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Counter_v3_0\Counter_v3_0.pdf</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\cy_clock_v2_20</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\cy_constant_v1_0</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\cy_constant_v1_0\cy_constant_v1_0.pdf</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\cy_isr_v1_70</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\cy_pins_v2_20</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\cy_vref_v1_70.pdf</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CyControlReg_v1_80</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CyControlReg_v1_80\CyControlReg_v1_80.pdf</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\cydff_v1_30</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\cydff_v1_30\cydff_v1_30.pdf</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CyStatusReg_v1_90</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\CyStatusReg_v1_90\CyStatusReg_v1_90.pdf</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\DigitalComp_v1_0.pdf</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\GlitchFilter_v2_0</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\GlitchFilter_v2_0\GlitchFilter_v2_0.pdf</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Gnd_v1_0.pdf</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Inductor_v1_0.pdf</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\LUT_v1_50.pdf</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\not_v1_0</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\not_v1_0\not_v1_0.pdf</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\OpAmp_v1_90.pdf</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\PWM_v3_30.pdf</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Resistor_v1_0.pdf</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\ShiftReg_v2_30</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\ShiftReg_v2_30\ShiftReg_v2_30.pdf</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\SPI_Master_v2_50</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\SPI_Master_v2_50\SPI_Master_v2_50.pdf</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\Transformer_v1_0.pdf</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\VDAC8_v1_90.pdf</v>
-<v>Manchester encoder-decoder-000\Manchester encoder-decoder\xor_v1_0</v>
-</VisibleNodeIds>
+<VisibleNodeIds />
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
 </CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
@@ -411,7 +261,7 @@
 <CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="57" DocumentName=".\reciver.c" />
 </CyGuid_67999771-01c6-4f62-90b3-2054bb36a318>
 <CyGuid_67999771-01c6-4f62-90b3-2054bb36a318 type_name="CyDesigner.Framework.CyBookmark" version="1">
-<CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="96" DocumentName=".\main.c" />
+<CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="113" DocumentName=".\main.c" />
 </CyGuid_67999771-01c6-4f62-90b3-2054bb36a318>
 <CyGuid_67999771-01c6-4f62-90b3-2054bb36a318 type_name="CyDesigner.Framework.CyBookmark" version="1">
 <CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="173" DocumentName=".\Generated_Source\PSoC5\EndFrame.c" />
@@ -426,35 +276,44 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\Generated_Source\PSoC5\cap_comp_tc.c" />
-<name v=".\TopDesign\TopDesign.cysch" />
+<name v=".\global.h" />
 <name v=".\main.c" />
-<name v=".\sender.c" />
-<name v=".\Generated_Source\PSoC5\EndFrame.c" />
+<name v=".\SPI_MEMS_LIS2DH12TR.h" />
+<name v=".\SPI_ADC_ADS131E08.h" />
+<name v=".\SPI_ADC_ADS131E08.c" />
+<name v=".\line_buf.h" />
+<name v=".\types.h" />
+<name v=".\FirstFrame.c" />
+<name v=".\Generated_Source\PSoC5\CSn.c" />
+<name v=".\TopDesign\TopDesign.cysch" />
+<name v=".\Clock.c" />
+<name v=".\Clock.h" />
+<name v=".\cyapicallbacks.h" />
+<name v=".\FirstFrame.h" />
+<name v=".\sender.h" />
+<name v=".\line_buf.c" />
+<name v=".\Generated_Source\PSoC5\SPI_ADC.c" />
+<name v=".\Manchester encoder-decoder.cydwr" />
+<name v=".\reciver.h" />
+<name v=".\Generated_Source\PSoC5\SPI_ADC.h" />
+<name v=".\Generated_Source\PSoC5\Control_Period.c" />
 <name v=".\Generated_Source\PSoC5\Period.c" />
 <name v=".\reciver.c" />
-<name v=".\SPI_ADC_ADS131E08.c" />
-<name v=".\Generated_Source\PSoC5\SPI_ADC.c" />
-<name v=".\Clock.c" />
-<name v=".\Manchester encoder-decoder.cydwr" />
-<name v=".\Generated_Source\PSoC5\WordShifted.c" />
-<name v=".\Generated_Source\PSoC5\Control_Period.c" />
-<name v=".\Generated_Source\PSoC5\isr_Load_TrShReg.c" />
-<name v=".\line_buf.c" />
-<name v=".\global.h" />
-<name v=".\reciver.h" />
-<name v=".\sender.h" />
-<name v=".\Generated_Source\PSoC5\isr_TransmitWordShift.c" />
-<name v=".\line_buf.h" />
-<name v=".\FirstFrame.h" />
-<name v=".\FirstFrame.c" />
-<name v=".\SPI_ADC_ADS131E08.h" />
-<name v=".\SPI_MEMS_LIS2DH12TR.h" />
+<name v=".\Generated_Source\PSoC5\SPI_ADC_INT.c" />
 <name v=".\Generated_Source\PSoC5\isr_DRDY.c" />
-<name v=".\Generated_Source\PSoC5\SPI_ADC.h" />
-<name v=".\Generated_Source\PSoC5\TransmitShiftReg.h" />
+<name v=".\sender.c" />
+<name v=".\Generated_Source\PSoC5\isr_TransmitWordShift.c" />
+<name v=".\Generated_Source\PSoC5\EndFrame.c" />
+<name v=".\Generated_Source\PSoC5\isr_Load_TrShReg.c" />
 <name v=".\Generated_Source\PSoC5\RecieveShiftReg.c" />
-<name v=".\Generated_Source\PSoC5\TransmitShiftReg.c" />
+<name v=".\Generated_Source\PSoC5\BitCounterDec.c" />
+<name v=".\Generated_Source\PSoC5\cap_comp_tc.c" />
+<name v=".\Generated_Source\PSoC5\Capture_high.c" />
+<name v=".\Generated_Source\PSoC5\Capture_low.c" />
+<name v=".\ControlFrame.h" />
+<name v=".\ControlFrame.c" />
+<name v=".\Generated_Source\PSoC5\StartTransmit.c" />
+<name v=".\Generated_Source\PSoC5\StartTransmit.h" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -462,7 +321,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1612, 761" SelectedTabbedMdiWindow="a1ae279c-4810-44ca-8458-045d9ba7cb51"><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5\cap_comp_tc.c" Guid="10e13516-ba9b-470f-8c14-cfc90c5aa557" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\TopDesign\TopDesign.cysch" Guid="68aa461e-9fc0-4fc3-9bb3-e673a47a0182" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\main.c" Guid="122b4e94-638e-4535-abaa-b5c236b22cc5" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\sender.c" Guid="34111a55-9e6c-4ee1-9a5a-36111cf03770" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5\EndFrame.c" Guid="73cf79b0-daaf-46be-a79f-f446e8e82b11" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5\Period.c" Guid="364395fc-c916-4530-b19d-bef83301fda1" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\reciver.c" Guid="e1f57783-6993-4e56-bd38-d3f1de16b95a" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\SPI_ADC_ADS131E08.c" Guid="a37613e5-895c-4984-8b37-dda4c7cafc2d" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5\SPI_ADC.c" Guid="f792cd67-7a21-4afc-a796-7189bb4dde28" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Clock.c" Guid="6fd65b0a-94ad-4b89-a149-ec8d2ff2a23e" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Manchester encoder-decoder.cydwr" Guid="d1b74184-7f49-406f-acf4-fdba755e79e0" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5\WordShifted.c" Guid="5f398c39-ad9c-449c-8ffc-2a9d82ac52c6" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5\Control_Period.c" Guid="8313ef4e-d6f9-47b1-bcaa-118298b8c800" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5\isr_Load_TrShReg.c" Guid="a1ae279c-4810-44ca-8458-045d9ba7cb51" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\line_buf.c" Guid="33746e4c-356a-4e71-a8c9-e66ef956cd07" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\global.h" Guid="95d0f6c0-201f-4bf7-9904-71c0f09aee2e" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\reciver.h" Guid="7088851f-af96-487a-aa6c-c91b9b183f6c" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\sender.h" Guid="24a7601a-50c7-4d35-acee-b11af41e807e" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5\isr_TransmitWordShift.c" Guid="04af381c-ae19-4423-90cb-14fe0f91a38d" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\line_buf.h" Guid="6adb7089-cccb-4a06-90a3-a5d84d7ea23c" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\FirstFrame.h" Guid="c2279549-47d0-45b5-bf72-e0e9e254b3ad" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\FirstFrame.c" Guid="0649c82d-3e13-4b89-baf7-1181b2f64e48" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\SPI_ADC_ADS131E08.h" Guid="fadcb5e4-ff2a-4579-aab4-8bf167942a3e" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\SPI_MEMS_LIS2DH12TR.h" Guid="8594f03c-71e4-42cf-a614-cdc4f9b230db" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5\isr_DRDY.c" Guid="f885e5bd-8d81-4a6f-87de-64d8149ab2b4" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5\SPI_ADC.h" Guid="f762e93e-04ab-4e4b-b853-d4a914c08192" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5\TransmitShiftReg.h" Guid="e6c8cf22-5ffa-4662-b112-d41dc5998249" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5\RecieveShiftReg.c" Guid="5bf49801-d30f-4590-912b-8895d4f97e41" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5\TransmitShiftReg.c" Guid="472b3d31-7a8c-46d0-b7bd-a3375b6ffc06" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="2b6a96e1-424d-40c8-8f54-d07ca3e4cd45" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1612, 693" SelectedTabbedMdiWindow="8537ace8-5780-4434-a8c9-f0c9dade0281"><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\global.h" Guid="95d0f6c0-201f-4bf7-9904-71c0f09aee2e" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\main.c" Guid="dc0687a2-7ef1-4ec1-be8b-6551f788b7c5" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\SPI_MEMS_LIS2DH12TR.h" Guid="aefa51e9-1c52-4f1c-b9cf-ef10404dc3ea" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\SPI_ADC_ADS131E08.h" Guid="9d395d4d-5a44-41bf-8be8-b0181c0d5992" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\SPI_ADC_ADS131E08.c" Guid="cc653c62-657c-4352-ae92-03a0239414e8" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\line_buf.h" Guid="d4b1672f-5e0c-4324-9a3a-17b0ec74f530" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\types.h" Guid="80767c1f-f3d2-42d2-b7b3-c1607c1e9c44" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\FirstFrame.c" Guid="33077c17-c03f-4d11-ab1d-d2b59ce4cbdb" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5\CSn.c" Guid="863e6fb4-8ab1-4336-82da-0d13c4e459ef" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\TopDesign\TopDesign.cysch" Guid="8537ace8-5780-4434-a8c9-f0c9dade0281" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Clock.c" Guid="2b9d8104-2ce3-44ae-8151-d3a070a34c3a" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Clock.h" Guid="424117bb-1df1-4624-a1f9-c19ea2e1cac9" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\cyapicallbacks.h" Guid="de1d3b3a-e08d-4d7b-9c1a-0564f2544ab6" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\FirstFrame.h" Guid="642d9d14-75ed-4502-96ba-ef3e732cc96f" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\sender.h" Guid="2404039a-13e2-4c61-84ad-50cc29666005" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\line_buf.c" Guid="04f48ef5-f9c3-4560-817b-b20746270b26" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5\SPI_ADC.c" Guid="503e4760-eb59-4cd8-ab7f-6bd34d8aa4bb" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Manchester encoder-decoder.cydwr" Guid="be0a639e-d145-47be-8d41-dc657b47f384" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\reciver.h" Guid="ede55e9b-cd4b-47ba-9e16-9373e1582954" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5\SPI_ADC.h" Guid="926c1a68-fa15-49c9-9b4a-330ba8c42e9c" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5\Control_Period.c" Guid="939499ab-8686-45d2-90a1-b670336b3653" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5\Period.c" Guid="18f6a47a-5ea4-4d99-b266-38446257a386" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\reciver.c" Guid="df2e645d-1f58-4299-a160-3c3541aa384f" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5\SPI_ADC_INT.c" Guid="58a846a1-f104-4745-b004-3f53a62a742b" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5\isr_DRDY.c" Guid="df674ee3-731e-491c-a554-7f91604b072b" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\sender.c" Guid="90acf28a-ad88-4db9-a6e1-aea9b5fc44b5" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5\isr_TransmitWordShift.c" Guid="cc2564c1-56b1-457d-86c0-dbc58a8db5e8" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5\EndFrame.c" Guid="15ddfa64-1375-44d0-a098-029cb3bce411" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5\isr_Load_TrShReg.c" Guid="22c8675d-004d-4e2c-a787-d00d39a5f8a4" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5\RecieveShiftReg.c" Guid="4805a9fd-002c-4b45-bdb4-fa1a8839a761" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5\BitCounterDec.c" Guid="672b151c-ba54-4307-87d2-6dd6e19a55cd" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5\cap_comp_tc.c" Guid="2a1bf39d-24fd-42ce-933e-f43eab96f1a2" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5\Capture_high.c" Guid="26217f7c-ffcc-4d50-8c14-cbfbabe412b4" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5\Capture_low.c" Guid="4aa1bf3e-549b-4cfe-817b-46df212bb093" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\ControlFrame.h" Guid="79be08cc-7dd7-42a8-8c95-1fb91199d984" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\ControlFrame.c" Guid="f130002a-9352-4868-9e3e-5bcb4df1f2db" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5\StartTransmit.c" Guid="7f728ab2-b077-463b-bba8-ea6043526907" /><DocumentWindow Key="C:\Users\e.ivanov\Documents\GitHub\adc\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5\StartTransmit.h" Guid="4bb31743-ac58-4473-ba26-b63e9814556c" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="2b6a96e1-424d-40c8-8f54-d07ca3e4cd45" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

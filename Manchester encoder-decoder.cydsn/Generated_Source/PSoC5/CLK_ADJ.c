@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: TEST_1.c  
+* File Name: CLK_ADJ.c  
 * Version 2.20
 *
 * Description:
@@ -15,15 +15,15 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "TEST_1.h"
+#include "CLK_ADJ.h"
 
 /* APIs are not generated for P15[7:6] on PSoC 5 */
 #if !(CY_PSOC5A &&\
-	 TEST_1__PORT == 15 && ((TEST_1__MASK & 0xC0) != 0))
+	 CLK_ADJ__PORT == 15 && ((CLK_ADJ__MASK & 0xC0) != 0))
 
 
 /*******************************************************************************
-* Function Name: TEST_1_Write
+* Function Name: CLK_ADJ_Write
 ****************************************************************************//**
 *
 * \brief Writes the value to the physical port (data output register), masking
@@ -52,17 +52,17 @@
 *  this function.
 *
 * \funcusage
-*  \snippet TEST_1_SUT.c usage_TEST_1_Write
+*  \snippet CLK_ADJ_SUT.c usage_CLK_ADJ_Write
 *******************************************************************************/
-void TEST_1_Write(uint8 value)
+void CLK_ADJ_Write(uint8 value)
 {
-    uint8 staticBits = (TEST_1_DR & (uint8)(~TEST_1_MASK));
-    TEST_1_DR = staticBits | ((uint8)(value << TEST_1_SHIFT) & TEST_1_MASK);
+    uint8 staticBits = (CLK_ADJ_DR & (uint8)(~CLK_ADJ_MASK));
+    CLK_ADJ_DR = staticBits | ((uint8)(value << CLK_ADJ_SHIFT) & CLK_ADJ_MASK);
 }
 
 
 /*******************************************************************************
-* Function Name: TEST_1_SetDriveMode
+* Function Name: CLK_ADJ_SetDriveMode
 ****************************************************************************//**
 *
 * \brief Sets the drive mode for each of the Pins component's pins.
@@ -85,16 +85,16 @@ void TEST_1_Write(uint8 value)
 *  APIs (primary method) or disable interrupts around this function.
 *
 * \funcusage
-*  \snippet TEST_1_SUT.c usage_TEST_1_SetDriveMode
+*  \snippet CLK_ADJ_SUT.c usage_CLK_ADJ_SetDriveMode
 *******************************************************************************/
-void TEST_1_SetDriveMode(uint8 mode)
+void CLK_ADJ_SetDriveMode(uint8 mode)
 {
-	CyPins_SetPinDriveMode(TEST_1_0, mode);
+	CyPins_SetPinDriveMode(CLK_ADJ_0, mode);
 }
 
 
 /*******************************************************************************
-* Function Name: TEST_1_Read
+* Function Name: CLK_ADJ_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -108,16 +108,16 @@ void TEST_1_SetDriveMode(uint8 mode)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet TEST_1_SUT.c usage_TEST_1_Read  
+*  \snippet CLK_ADJ_SUT.c usage_CLK_ADJ_Read  
 *******************************************************************************/
-uint8 TEST_1_Read(void)
+uint8 CLK_ADJ_Read(void)
 {
-    return (TEST_1_PS & TEST_1_MASK) >> TEST_1_SHIFT;
+    return (CLK_ADJ_PS & CLK_ADJ_MASK) >> CLK_ADJ_SHIFT;
 }
 
 
 /*******************************************************************************
-* Function Name: TEST_1_ReadDataReg
+* Function Name: CLK_ADJ_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -126,8 +126,8 @@ uint8 TEST_1_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred TEST_1_Read() API because the 
-* TEST_1_ReadDataReg() reads the data register instead of the status 
+* preferred CLK_ADJ_Read() API because the 
+* CLK_ADJ_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -136,19 +136,19 @@ uint8 TEST_1_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet TEST_1_SUT.c usage_TEST_1_ReadDataReg 
+*  \snippet CLK_ADJ_SUT.c usage_CLK_ADJ_ReadDataReg 
 *******************************************************************************/
-uint8 TEST_1_ReadDataReg(void)
+uint8 CLK_ADJ_ReadDataReg(void)
 {
-    return (TEST_1_DR & TEST_1_MASK) >> TEST_1_SHIFT;
+    return (CLK_ADJ_DR & CLK_ADJ_MASK) >> CLK_ADJ_SHIFT;
 }
 
 
 /* If interrupt is connected for this Pins component */ 
-#if defined(TEST_1_INTSTAT) 
+#if defined(CLK_ADJ_INTSTAT) 
 
     /*******************************************************************************
-    * Function Name: TEST_1_SetInterruptMode
+    * Function Name: CLK_ADJ_SetInterruptMode
     ****************************************************************************//**
     *
     * \brief Configures the interrupt mode for each of the Pins component's
@@ -161,12 +161,12 @@ uint8 TEST_1_ReadDataReg(void)
     * \param position
     *  The pin position as listed in the Pins component. You may OR these to be 
     *  able to configure the interrupt mode of multiple pins within a Pins 
-    *  component. Or you may use TEST_1_INTR_ALL to configure the
+    *  component. Or you may use CLK_ADJ_INTR_ALL to configure the
     *  interrupt mode of all the pins in the Pins component.       
-    *  - TEST_1_0_INTR       (First pin in the list)
-    *  - TEST_1_1_INTR       (Second pin in the list)
+    *  - CLK_ADJ_0_INTR       (First pin in the list)
+    *  - CLK_ADJ_1_INTR       (Second pin in the list)
     *  - ...
-    *  - TEST_1_INTR_ALL     (All pins in Pins component)
+    *  - CLK_ADJ_INTR_ALL     (All pins in Pins component)
     *
     * \param mode
     *  Interrupt mode for the selected pins. Valid options are documented in
@@ -182,19 +182,19 @@ uint8 TEST_1_ReadDataReg(void)
     *  port.
     *
     * \funcusage
-    *  \snippet TEST_1_SUT.c usage_TEST_1_SetInterruptMode
+    *  \snippet CLK_ADJ_SUT.c usage_CLK_ADJ_SetInterruptMode
     *******************************************************************************/
-    void TEST_1_SetInterruptMode(uint16 position, uint16 mode)
+    void CLK_ADJ_SetInterruptMode(uint16 position, uint16 mode)
     {
-		if((position & TEST_1_0_INTR) != 0u) 
+		if((position & CLK_ADJ_0_INTR) != 0u) 
 		{ 
-			 TEST_1_0_INTTYPE_REG = (uint8)mode; 
+			 CLK_ADJ_0_INTTYPE_REG = (uint8)mode; 
 		}
     }
     
     
     /*******************************************************************************
-    * Function Name: TEST_1_ClearInterrupt
+    * Function Name: CLK_ADJ_ClearInterrupt
     ****************************************************************************//**
     *
     * \brief Clears any active interrupts attached with the component and returns 
@@ -211,11 +211,11 @@ uint8 TEST_1_ReadDataReg(void)
     *  those associated with the Pins component.
     *
     * \funcusage
-    *  \snippet TEST_1_SUT.c usage_TEST_1_ClearInterrupt
+    *  \snippet CLK_ADJ_SUT.c usage_CLK_ADJ_ClearInterrupt
     *******************************************************************************/
-    uint8 TEST_1_ClearInterrupt(void)
+    uint8 CLK_ADJ_ClearInterrupt(void)
     {
-        return (TEST_1_INTSTAT & TEST_1_MASK) >> TEST_1_SHIFT;
+        return (CLK_ADJ_INTSTAT & CLK_ADJ_MASK) >> CLK_ADJ_SHIFT;
     }
 
 #endif /* If Interrupts Are Enabled for this Pins component */ 

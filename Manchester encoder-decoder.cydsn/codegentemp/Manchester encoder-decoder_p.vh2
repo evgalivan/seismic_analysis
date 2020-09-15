@@ -1,5 +1,5 @@
 -- Project:   Manchester encoder-decoder
--- Generated: 08/18/2020 17:01:33
+-- Generated: 09/15/2020 09:42:48
 -- PSoC Creator  4.2
 
 ENTITY \Manchester encoder-decoder\ IS
@@ -7,7 +7,6 @@ ENTITY \Manchester encoder-decoder\ IS
         DOut1P(0)_PAD : OUT std_ulogic;
         EN1(0)_PAD : OUT std_ulogic;
         DOut1N(0)_PAD : OUT std_ulogic;
-        Clock_tiktak_2(0)_PAD : OUT std_ulogic;
         Pin_test11(0)_PAD : OUT std_ulogic;
         Out_TikTak(0)_PAD : OUT std_ulogic;
         Pin_test22(0)_PAD : OUT std_ulogic;
@@ -27,10 +26,9 @@ ENTITY \Manchester encoder-decoder\ IS
         INT2(0)_PAD : OUT std_ulogic;
         CH32kHZ_IN(0)_PAD : IN std_ulogic;
         CH32kHZ_OUT(0)_PAD : IN std_ulogic;
-        TEST_1(0)_PAD : OUT std_ulogic;
+        CLK_ADJ(0)_PAD : OUT std_ulogic;
         TEST_2(0)_PAD : OUT std_ulogic;
-        Clock_tiktak_1(0)_PAD : OUT std_ulogic;
-        Clock_tiktak_3(0)_PAD : OUT std_ulogic);
+        Pin_1(0)_PAD : IN std_ulogic);
     ATTRIBUTE voltage_VDDABUF OF __DEFAULT__ : ENTITY IS 3.3e0;
     ATTRIBUTE voltage_VDDA OF __DEFAULT__ : ENTITY IS 3.3e0;
     ATTRIBUTE voltage_VUSB OF __DEFAULT__ : ENTITY IS 3.3e0;
@@ -44,6 +42,7 @@ END \Manchester encoder-decoder\;
 ARCHITECTURE __DEFAULT__ OF \Manchester encoder-decoder\ IS
     SIGNAL CH32kHZ_IN(0)__PA : bit;
     SIGNAL CH32kHZ_OUT(0)__PA : bit;
+    SIGNAL CLK_ADJ(0)__PA : bit;
     SIGNAL CS2(0)__PA : bit;
     SIGNAL CSn(0)__PA : bit;
     SIGNAL ClockBlock_100k : bit;
@@ -59,9 +58,6 @@ ARCHITECTURE __DEFAULT__ OF \Manchester encoder-decoder\ IS
     SIGNAL ClockBlock_PLL_OUT : bit;
     SIGNAL ClockBlock_XTAL : bit;
     SIGNAL ClockBlock_XTAL_32KHZ : bit;
-    SIGNAL Clock_tiktak_1(0)__PA : bit;
-    SIGNAL Clock_tiktak_2(0)__PA : bit;
-    SIGNAL Clock_tiktak_3(0)__PA : bit;
     SIGNAL DIN(0)__PA : bit;
     SIGNAL DInN(0)__PA : bit;
     SIGNAL DInP(0)__PA : bit;
@@ -104,6 +100,10 @@ ARCHITECTURE __DEFAULT__ OF \Manchester encoder-decoder\ IS
     SIGNAL Net_11490 : bit;
     SIGNAL Net_11503 : bit;
     SIGNAL Net_11504 : bit;
+    SIGNAL Net_11506 : bit;
+    ATTRIBUTE udbclken_assigned OF Net_11506 : SIGNAL IS "True";
+    ATTRIBUTE global_signal OF Net_11506 : SIGNAL IS true;
+    SIGNAL Net_11506_local : bit;
     SIGNAL Net_11565 : bit;
     SIGNAL Net_11566 : bit;
     SIGNAL Net_11575 : bit;
@@ -146,8 +146,8 @@ ARCHITECTURE __DEFAULT__ OF \Manchester encoder-decoder\ IS
     SIGNAL Net_698 : bit;
     SIGNAL Net_7168 : bit;
     SIGNAL Net_7248 : bit;
-    SIGNAL Net_860 : bit;
     SIGNAL Out_TikTak(0)__PA : bit;
+    SIGNAL Pin_1(0)__PA : bit;
     SIGNAL Pin_test11(0)__PA : bit;
     SIGNAL Pin_test12(0)__PA : bit;
     SIGNAL Pin_test21(0)__PA : bit;
@@ -157,7 +157,6 @@ ARCHITECTURE __DEFAULT__ OF \Manchester encoder-decoder\ IS
     SIGNAL SDI2(0)__PA : bit;
     SIGNAL SDO2(0)__PA : bit;
     SIGNAL START_PIN(0)__PA : bit;
-    SIGNAL TEST_1(0)__PA : bit;
     SIGNAL TEST_2(0)__PA : bit;
     SIGNAL Vout_1(0)__PA : bit;
     SIGNAL \BitCounterDec:CounterUDB:cmp_less\ : bit;
@@ -408,6 +407,7 @@ ARCHITECTURE __DEFAULT__ OF \Manchester encoder-decoder\ IS
     SIGNAL cydff_13 : bit;
     SIGNAL cydff_18 : bit;
     SIGNAL cydff_2 : bit;
+    SIGNAL cydff_4 : bit;
     SIGNAL cydff_5 : bit;
     SIGNAL cydff_8 : bit;
     SIGNAL mywire_2_0 : bit;
@@ -516,61 +516,59 @@ ARCHITECTURE __DEFAULT__ OF \Manchester encoder-decoder\ IS
     SIGNAL \TEST:PWMUDB:sP16:pwmdp:u1.sor__sig\ : bit;
     SIGNAL \TEST:PWMUDB:sP16:pwmdp:u1.cmsbo__sig\ : bit;
     ATTRIBUTE lib_model OF DInN(0) : LABEL IS "iocell1";
-    ATTRIBUTE Location OF DInN(0) : LABEL IS "P15[1]";
+    ATTRIBUTE Location OF DInN(0) : LABEL IS "P15[5]";
     ATTRIBUTE lib_model OF Vout_1(0) : LABEL IS "iocell2";
     ATTRIBUTE Location OF Vout_1(0) : LABEL IS "P0[1]";
     ATTRIBUTE lib_model OF DInP(0) : LABEL IS "iocell3";
-    ATTRIBUTE Location OF DInP(0) : LABEL IS "P15[0]";
+    ATTRIBUTE Location OF DInP(0) : LABEL IS "P15[4]";
     ATTRIBUTE lib_model OF DOut1P(0) : LABEL IS "iocell4";
     ATTRIBUTE Location OF DOut1P(0) : LABEL IS "P12[0]";
     ATTRIBUTE lib_model OF EN1(0) : LABEL IS "iocell5";
     ATTRIBUTE Location OF EN1(0) : LABEL IS "P0[6]";
     ATTRIBUTE lib_model OF DOut1N(0) : LABEL IS "iocell6";
     ATTRIBUTE Location OF DOut1N(0) : LABEL IS "P12[1]";
-    ATTRIBUTE lib_model OF Clock_tiktak_2(0) : LABEL IS "iocell7";
-    ATTRIBUTE Location OF Clock_tiktak_2(0) : LABEL IS "P0[7]";
-    ATTRIBUTE lib_model OF Pin_test11(0) : LABEL IS "iocell8";
+    ATTRIBUTE lib_model OF Pin_test11(0) : LABEL IS "iocell7";
     ATTRIBUTE Location OF Pin_test11(0) : LABEL IS "P12[5]";
-    ATTRIBUTE lib_model OF Out_TikTak(0) : LABEL IS "iocell9";
-    ATTRIBUTE Location OF Out_TikTak(0) : LABEL IS "P0[0]";
-    ATTRIBUTE lib_model OF Pin_test22(0) : LABEL IS "iocell10";
+    ATTRIBUTE lib_model OF Out_TikTak(0) : LABEL IS "iocell8";
+    ATTRIBUTE Location OF Out_TikTak(0) : LABEL IS "P2[1]";
+    ATTRIBUTE lib_model OF Pin_test22(0) : LABEL IS "iocell9";
     ATTRIBUTE Location OF Pin_test22(0) : LABEL IS "P12[4]";
-    ATTRIBUTE lib_model OF Pin_test21(0) : LABEL IS "iocell11";
+    ATTRIBUTE lib_model OF Pin_test21(0) : LABEL IS "iocell10";
     ATTRIBUTE Location OF Pin_test21(0) : LABEL IS "P12[6]";
-    ATTRIBUTE lib_model OF Pin_test12(0) : LABEL IS "iocell12";
+    ATTRIBUTE lib_model OF Pin_test12(0) : LABEL IS "iocell11";
     ATTRIBUTE Location OF Pin_test12(0) : LABEL IS "P12[7]";
-    ATTRIBUTE lib_model OF DOUT(0) : LABEL IS "iocell13";
+    ATTRIBUTE lib_model OF DOUT(0) : LABEL IS "iocell12";
     ATTRIBUTE Location OF DOUT(0) : LABEL IS "P2[5]";
-    ATTRIBUTE lib_model OF DIN(0) : LABEL IS "iocell14";
+    ATTRIBUTE lib_model OF DIN(0) : LABEL IS "iocell13";
     ATTRIBUTE Location OF DIN(0) : LABEL IS "P2[0]";
-    ATTRIBUTE lib_model OF SCLK(0) : LABEL IS "iocell15";
+    ATTRIBUTE lib_model OF SCLK(0) : LABEL IS "iocell14";
     ATTRIBUTE Location OF SCLK(0) : LABEL IS "P2[4]";
-    ATTRIBUTE lib_model OF CSn(0) : LABEL IS "iocell16";
+    ATTRIBUTE lib_model OF CSn(0) : LABEL IS "iocell15";
     ATTRIBUTE Location OF CSn(0) : LABEL IS "P2[3]";
-    ATTRIBUTE lib_model OF DRDYn(0) : LABEL IS "iocell17";
+    ATTRIBUTE lib_model OF DRDYn(0) : LABEL IS "iocell16";
     ATTRIBUTE Location OF DRDYn(0) : LABEL IS "P2[6]";
-    ATTRIBUTE lib_model OF START_PIN(0) : LABEL IS "iocell18";
+    ATTRIBUTE lib_model OF START_PIN(0) : LABEL IS "iocell17";
     ATTRIBUTE Location OF START_PIN(0) : LABEL IS "P2[2]";
-    ATTRIBUTE lib_model OF SDO2(0) : LABEL IS "iocell19";
+    ATTRIBUTE lib_model OF SDO2(0) : LABEL IS "iocell18";
     ATTRIBUTE Location OF SDO2(0) : LABEL IS "P3[4]";
-    ATTRIBUTE lib_model OF SDI2(0) : LABEL IS "iocell20";
+    ATTRIBUTE lib_model OF SDI2(0) : LABEL IS "iocell19";
     ATTRIBUTE Location OF SDI2(0) : LABEL IS "P3[5]";
-    ATTRIBUTE lib_model OF SCL2(0) : LABEL IS "iocell21";
+    ATTRIBUTE lib_model OF SCL2(0) : LABEL IS "iocell20";
     ATTRIBUTE Location OF SCL2(0) : LABEL IS "P3[3]";
-    ATTRIBUTE lib_model OF CS2(0) : LABEL IS "iocell22";
+    ATTRIBUTE lib_model OF CS2(0) : LABEL IS "iocell21";
     ATTRIBUTE Location OF CS2(0) : LABEL IS "P3[2]";
-    ATTRIBUTE lib_model OF INT1(0) : LABEL IS "iocell23";
+    ATTRIBUTE lib_model OF INT1(0) : LABEL IS "iocell22";
     ATTRIBUTE Location OF INT1(0) : LABEL IS "P3[0]";
-    ATTRIBUTE lib_model OF INT2(0) : LABEL IS "iocell24";
+    ATTRIBUTE lib_model OF INT2(0) : LABEL IS "iocell23";
     ATTRIBUTE Location OF INT2(0) : LABEL IS "P3[1]";
-    ATTRIBUTE lib_model OF CH32kHZ_IN(0) : LABEL IS "iocell25";
+    ATTRIBUTE lib_model OF CH32kHZ_IN(0) : LABEL IS "iocell24";
     ATTRIBUTE Location OF CH32kHZ_IN(0) : LABEL IS "P15[2]";
-    ATTRIBUTE lib_model OF CH32kHZ_OUT(0) : LABEL IS "iocell26";
+    ATTRIBUTE lib_model OF CH32kHZ_OUT(0) : LABEL IS "iocell25";
     ATTRIBUTE Location OF CH32kHZ_OUT(0) : LABEL IS "P15[3]";
-    ATTRIBUTE lib_model OF TEST_1(0) : LABEL IS "iocell27";
-    ATTRIBUTE Location OF TEST_1(0) : LABEL IS "P1[5]";
-    ATTRIBUTE lib_model OF TEST_2(0) : LABEL IS "iocell28";
-    ATTRIBUTE Location OF TEST_2(0) : LABEL IS "P2[1]";
+    ATTRIBUTE lib_model OF TEST_2(0) : LABEL IS "iocell26";
+    ATTRIBUTE Location OF TEST_2(0) : LABEL IS "P1[5]";
+    ATTRIBUTE lib_model OF Pin_1(0) : LABEL IS "iocell27";
+    ATTRIBUTE Location OF Pin_1(0) : LABEL IS "P1[6]";
     ATTRIBUTE lib_model OF FrameRX_1 : LABEL IS "macrocell1";
     ATTRIBUTE lib_model OF \Waiter:CounterUDB:hwCapture\ : LABEL IS "macrocell2";
     ATTRIBUTE lib_model OF \Waiter:CounterUDB:status_0\ : LABEL IS "macrocell3";
@@ -602,10 +600,10 @@ ARCHITECTURE __DEFAULT__ OF \Manchester encoder-decoder\ IS
     ATTRIBUTE lib_model OF Net_11444 : LABEL IS "macrocell29";
     ATTRIBUTE lib_model OF \MODULE_4:g1:a0:gx:u0:eq_5\ : LABEL IS "macrocell30";
     ATTRIBUTE lib_model OF \MODULE_4:g1:a0:gx:u0:eq_7\ : LABEL IS "macrocell31";
-    ATTRIBUTE Location OF \Comp_2:ctComp\ : LABEL IS "F(Comparator,1)";
+    ATTRIBUTE Location OF \Comp_2:ctComp\ : LABEL IS "F(Comparator,0)";
     ATTRIBUTE lib_model OF __ZERO__ : LABEL IS "macrocell32";
-    ATTRIBUTE Location OF \Comp_1:ctComp\ : LABEL IS "F(Comparator,3)";
-    ATTRIBUTE Location OF \VDAC8_1:viDAC8\ : LABEL IS "F(VIDAC,1)";
+    ATTRIBUTE Location OF \Comp_1:ctComp\ : LABEL IS "F(Comparator,2)";
+    ATTRIBUTE Location OF \VDAC8_1:viDAC8\ : LABEL IS "F(VIDAC,2)";
     ATTRIBUTE Location OF \Opamp_1:ABuf\ : LABEL IS "F(OpAmp,0)";
     ATTRIBUTE lib_model OF __ONE__ : LABEL IS "macrocell33";
     ATTRIBUTE lib_model OF \FrameAllow:Sync:ctrl_reg\ : LABEL IS "controlcell1";
@@ -688,7 +686,7 @@ ARCHITECTURE __DEFAULT__ OF \Manchester encoder-decoder\ IS
     ATTRIBUTE lib_model OF Net_1037 : LABEL IS "macrocell64";
     ATTRIBUTE lib_model OF cydff_8 : LABEL IS "macrocell65";
     ATTRIBUTE lib_model OF Net_10749 : LABEL IS "macrocell66";
-    ATTRIBUTE lib_model OF Net_860 : LABEL IS "macrocell67";
+    ATTRIBUTE lib_model OF cydff_4 : LABEL IS "macrocell67";
     ATTRIBUTE lib_model OF Net_11292 : LABEL IS "macrocell68";
     ATTRIBUTE lib_model OF cydff_10 : LABEL IS "macrocell69";
     ATTRIBUTE lib_model OF Net_686 : LABEL IS "macrocell70";
@@ -1162,10 +1160,12 @@ BEGIN
             dclk_0 => Net_4484_local,
             dclk_glb_1 => Net_10896,
             dclk_1 => Net_10896_local,
-            dclk_glb_2 => \SPI_ADC:Net_276\,
-            dclk_2 => \SPI_ADC:Net_276_local\,
-            dclk_glb_3 => \SPIM_MEMS:Net_276\,
-            dclk_3 => \SPIM_MEMS:Net_276_local\,
+            dclk_glb_2 => Net_11506,
+            dclk_2 => Net_11506_local,
+            dclk_glb_3 => \SPI_ADC:Net_276\,
+            dclk_3 => \SPI_ADC:Net_276_local\,
+            dclk_glb_4 => \SPIM_MEMS:Net_276\,
+            dclk_4 => \SPIM_MEMS:Net_276_local\,
             clk_bus_glb_ff => \ClockBlock.clk_bus_glb_ff__sig\);
 
     DInN:logicalport
@@ -1711,98 +1711,6 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
-    Clock_tiktak_2:logicalport
-        GENERIC MAP(
-            drive_mode => "111",
-            ibuf_enabled => "1",
-            id => "abab926c-71fd-4cab-82a9-b40699e10c1c",
-            init_dr_st => "1",
-            input_buffer_sel => "00",
-            input_clk_en => 0,
-            input_sync => "1",
-            input_sync_mode => "0",
-            intr_mode => "00",
-            invert_in_clock => 0,
-            invert_in_clock_en => 0,
-            invert_in_reset => 0,
-            invert_out_clock => 0,
-            invert_out_clock_en => 0,
-            invert_out_reset => 0,
-            io_voltage => "",
-            layout_mode => "CONTIGUOUS",
-            oe_conn => "0",
-            oe_reset => 0,
-            oe_sync => "0",
-            output_clk_en => 0,
-            output_clock_mode => "0",
-            output_conn => "1",
-            output_mode => "0",
-            output_reset => 0,
-            output_sync => "0",
-            ovt_hyst_trim => "0",
-            ovt_needed => "0",
-            ovt_slew_control => "00",
-            pa_in_clock => -1,
-            pa_in_clock_en => -1,
-            pa_in_reset => -1,
-            pa_out_clock => -1,
-            pa_out_clock_en => -1,
-            pa_out_reset => -1,
-            pin_aliases => "",
-            pin_mode => "O",
-            por_state => 4,
-            port_alias_group => "",
-            port_alias_required => 0,
-            sio_group_cnt => 0,
-            sio_hifreq => "00000000",
-            sio_hyst => "1",
-            sio_ibuf => "00000000",
-            sio_info => "00",
-            sio_obuf => "00000000",
-            sio_refsel => "00000000",
-            sio_vohsel => "00000000",
-            sio_vtrip => "00000000",
-            slew_rate => "0",
-            spanning => 0,
-            sw_only => 0,
-            use_annotation => "0",
-            vtrip => "10",
-            width => 1,
-            in_clk_inv => 0,
-            in_clken_inv => 0,
-            in_clken_mode => 1,
-            in_rst_inv => 0,
-            out_clk_inv => 0,
-            out_clken_inv => 0,
-            out_clken_mode => 1,
-            out_rst_inv => 0)
-        PORT MAP(
-            in_clock_en => open,
-            in_reset => open,
-            out_clock_en => open,
-            out_reset => open);
-
-    Clock_tiktak_2(0):iocell
-        GENERIC MAP(
-            in_sync_mode => 0,
-            out_sync_mode => 0,
-            oe_sync_mode => 0,
-            logicalport => "Clock_tiktak_2",
-            logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
-        PORT MAP(
-            pa_out => Clock_tiktak_2(0)__PA,
-            oe => open,
-            pin_input => Net_860,
-            pad_out => Clock_tiktak_2(0)_PAD,
-            pad_in => Clock_tiktak_2(0)_PAD,
-            in_clock => open,
-            in_clock_en => '1',
-            in_reset => '0',
-            out_clock => open,
-            out_clock_en => '1',
-            out_reset => '0');
-
     Pin_test11:logicalport
         GENERIC MAP(
             drive_mode => "110",
@@ -1896,10 +1804,10 @@ BEGIN
 
     Out_TikTak:logicalport
         GENERIC MAP(
-            drive_mode => "111",
+            drive_mode => "110",
             ibuf_enabled => "1",
             id => "733fd33f-9bf8-4fb4-a4d2-bfe695ba0761",
-            init_dr_st => "1",
+            init_dr_st => "0",
             input_buffer_sel => "00",
             input_clk_en => 0,
             input_sync => "1",
@@ -2352,10 +2260,10 @@ BEGIN
 
     DIN:logicalport
         GENERIC MAP(
-            drive_mode => "111",
+            drive_mode => "110",
             ibuf_enabled => "1",
             id => "ed092b9b-d398-4703-be89-cebf998501f6",
-            init_dr_st => "1",
+            init_dr_st => "0",
             input_buffer_sel => "00",
             input_clk_en => 0,
             input_sync => "1",
@@ -2444,10 +2352,10 @@ BEGIN
 
     SCLK:logicalport
         GENERIC MAP(
-            drive_mode => "111",
+            drive_mode => "110",
             ibuf_enabled => "1",
             id => "83b2fde2-60ad-45b6-9e5c-cb3baa6e3f9a",
-            init_dr_st => "1",
+            init_dr_st => "0",
             input_buffer_sel => "00",
             input_clk_en => 0,
             input_sync => "1",
@@ -2536,10 +2444,10 @@ BEGIN
 
     CSn:logicalport
         GENERIC MAP(
-            drive_mode => "111",
+            drive_mode => "110",
             ibuf_enabled => "1",
             id => "66dccd7f-de45-4f3c-bfb7-a367ee8c09fe",
-            init_dr_st => "1",
+            init_dr_st => "0",
             input_buffer_sel => "00",
             input_clk_en => 0,
             input_sync => "1",
@@ -2628,7 +2536,7 @@ BEGIN
 
     DRDYn:logicalport
         GENERIC MAP(
-            drive_mode => "010",
+            drive_mode => "001",
             ibuf_enabled => "1",
             id => "3f4d5da4-5bdb-4e3e-b756-bc65445f8256",
             init_dr_st => "1",
@@ -3540,7 +3448,7 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
-    TEST_1:logicalport
+    CLK_ADJ:logicalport
         GENERIC MAP(
             drive_mode => "111",
             ibuf_enabled => "1",
@@ -3611,20 +3519,20 @@ BEGIN
             out_clock_en => open,
             out_reset => open);
 
-    TEST_1(0):iocell
+    CLK_ADJ(0):iocell
         GENERIC MAP(
             in_sync_mode => 0,
             out_sync_mode => 0,
             oe_sync_mode => 0,
-            logicalport => "TEST_1",
+            logicalport => "CLK_ADJ",
             logicalport_pin_id => 0,
             io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
         PORT MAP(
-            pa_out => TEST_1(0)__PA,
+            pa_out => CLK_ADJ(0)__PA,
             oe => open,
             pin_input => Net_11964,
-            pad_out => TEST_1(0)_PAD,
-            pad_in => TEST_1(0)_PAD,
+            pad_out => CLK_ADJ(0)_PAD,
+            pad_in => CLK_ADJ(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
             in_reset => '0',
@@ -3634,10 +3542,10 @@ BEGIN
 
     TEST_2:logicalport
         GENERIC MAP(
-            drive_mode => "111",
+            drive_mode => "110",
             ibuf_enabled => "1",
             id => "9c36f646-2ddc-4588-bae8-6113824c30a8",
-            init_dr_st => "1",
+            init_dr_st => "0",
             input_buffer_sel => "00",
             input_clk_en => 0,
             input_sync => "1",
@@ -3724,15 +3632,15 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
-    Clock_tiktak_1:logicalport
+    Pin_1:logicalport
         GENERIC MAP(
-            drive_mode => "111",
+            drive_mode => "001",
             ibuf_enabled => "1",
-            id => "234d6dc0-29b4-41e9-961d-12f114e5d751",
-            init_dr_st => "1",
+            id => "d669e303-f01b-48d6-95b7-e6a58aa01b56",
+            init_dr_st => "0",
             input_buffer_sel => "00",
             input_clk_en => 0,
-            input_sync => "1",
+            input_sync => "0",
             input_sync_mode => "0",
             intr_mode => "00",
             invert_in_clock => 0,
@@ -3748,7 +3656,7 @@ BEGIN
             oe_sync => "0",
             output_clk_en => 0,
             output_clock_mode => "0",
-            output_conn => "1",
+            output_conn => "0",
             output_mode => "0",
             output_reset => 0,
             output_sync => "0",
@@ -3762,7 +3670,7 @@ BEGIN
             pa_out_clock_en => -1,
             pa_out_reset => -1,
             pin_aliases => "",
-            pin_mode => "O",
+            pin_mode => "I",
             por_state => 4,
             port_alias_group => "",
             port_alias_required => 0,
@@ -3779,7 +3687,7 @@ BEGIN
             spanning => 0,
             sw_only => 0,
             use_annotation => "0",
-            vtrip => "10",
+            vtrip => "00",
             width => 1,
             in_clk_inv => 0,
             in_clken_inv => 0,
@@ -3795,112 +3703,18 @@ BEGIN
             out_clock_en => open,
             out_reset => open);
 
-    Clock_tiktak_1(0):iocell
+    Pin_1(0):iocell
         GENERIC MAP(
             in_sync_mode => 0,
             out_sync_mode => 0,
             oe_sync_mode => 0,
-            logicalport => "Clock_tiktak_1",
+            logicalport => "Pin_1",
             logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
         PORT MAP(
-            pa_out => Clock_tiktak_1(0)__PA,
+            pa_out => Pin_1(0)__PA,
             oe => open,
-            pin_input => Net_10925,
-            pad_out => Clock_tiktak_1(0)_PAD,
-            pad_in => Clock_tiktak_1(0)_PAD,
-            in_clock => open,
-            in_clock_en => '1',
-            in_reset => '0',
-            out_clock => open,
-            out_clock_en => '1',
-            out_reset => '0');
-
-    Clock_tiktak_3:logicalport
-        GENERIC MAP(
-            drive_mode => "111",
-            ibuf_enabled => "1",
-            id => "681a27cc-eb87-4fa1-a878-ed355340d59f",
-            init_dr_st => "1",
-            input_buffer_sel => "00",
-            input_clk_en => 0,
-            input_sync => "1",
-            input_sync_mode => "0",
-            intr_mode => "00",
-            invert_in_clock => 0,
-            invert_in_clock_en => 0,
-            invert_in_reset => 0,
-            invert_out_clock => 0,
-            invert_out_clock_en => 0,
-            invert_out_reset => 0,
-            io_voltage => "",
-            layout_mode => "CONTIGUOUS",
-            oe_conn => "0",
-            oe_reset => 0,
-            oe_sync => "0",
-            output_clk_en => 0,
-            output_clock_mode => "0",
-            output_conn => "1",
-            output_mode => "0",
-            output_reset => 0,
-            output_sync => "0",
-            ovt_hyst_trim => "0",
-            ovt_needed => "0",
-            ovt_slew_control => "00",
-            pa_in_clock => -1,
-            pa_in_clock_en => -1,
-            pa_in_reset => -1,
-            pa_out_clock => -1,
-            pa_out_clock_en => -1,
-            pa_out_reset => -1,
-            pin_aliases => "",
-            pin_mode => "O",
-            por_state => 4,
-            port_alias_group => "",
-            port_alias_required => 0,
-            sio_group_cnt => 0,
-            sio_hifreq => "00000000",
-            sio_hyst => "1",
-            sio_ibuf => "00000000",
-            sio_info => "00",
-            sio_obuf => "00000000",
-            sio_refsel => "00000000",
-            sio_vohsel => "00000000",
-            sio_vtrip => "00000000",
-            slew_rate => "0",
-            spanning => 0,
-            sw_only => 0,
-            use_annotation => "0",
-            vtrip => "10",
-            width => 1,
-            in_clk_inv => 0,
-            in_clken_inv => 0,
-            in_clken_mode => 1,
-            in_rst_inv => 0,
-            out_clk_inv => 0,
-            out_clken_inv => 0,
-            out_clken_mode => 1,
-            out_rst_inv => 0)
-        PORT MAP(
-            in_clock_en => open,
-            in_reset => open,
-            out_clock_en => open,
-            out_reset => open);
-
-    Clock_tiktak_3(0):iocell
-        GENERIC MAP(
-            in_sync_mode => 0,
-            out_sync_mode => 0,
-            oe_sync_mode => 0,
-            logicalport => "Clock_tiktak_3",
-            logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
-        PORT MAP(
-            pa_out => Clock_tiktak_3(0)__PA,
-            oe => open,
-            pin_input => Net_12420,
-            pad_out => Clock_tiktak_3(0)_PAD,
-            pad_in => Clock_tiktak_3(0)_PAD,
+            pad_in => Pin_1(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
             in_reset => '0',
@@ -5418,7 +5232,7 @@ BEGIN
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            clock => ClockBlock_BUS_CLK,
+            clock => Net_11506,
             cs_addr_1 => Net_11504,
             cs_addr_0 => Net_11503,
             z0_comb => \GlitchFilter_2:counter_done_0\,
@@ -5624,7 +5438,7 @@ BEGIN
 
     isr_DRDY:interrupt
         GENERIC MAP(
-            int_type => "01",
+            int_type => "00",
             is_nmi => 0)
         PORT MAP(
             interrupt => Net_11576,
@@ -6294,7 +6108,7 @@ BEGIN
             clock_0 => Net_10896,
             ap_0 => Net_10511);
 
-    Net_860:macrocell
+    cydff_4:macrocell
         GENERIC MAP(
             eqn_main => "(main_0)",
             regmode => 1,
@@ -6303,7 +6117,7 @@ BEGIN
             clken_mode => 2,
             reset_inv => '0')
         PORT MAP(
-            q => Net_860,
+            q => cydff_4,
             clk_en => Net_12461,
             clock_0 => ClockBlock_BUS_CLK,
             ar_0 => Net_12205,
@@ -6330,7 +6144,7 @@ BEGIN
             q => cydff_10,
             clk_en => open,
             clock_0 => Net_12456,
-            main_0 => Net_860);
+            main_0 => cydff_4);
 
     Net_686:macrocell
         GENERIC MAP(
@@ -6540,7 +6354,7 @@ BEGIN
             clken_mode => 1)
         PORT MAP(
             q => Net_11503,
-            clock_0 => ClockBlock_BUS_CLK,
+            clock_0 => Net_11506,
             main_0 => Net_11504,
             main_1 => \GlitchFilter_2:counter_done_0\,
             main_2 => Net_11503);

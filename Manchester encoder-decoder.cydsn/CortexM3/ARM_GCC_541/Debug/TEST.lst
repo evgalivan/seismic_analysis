@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
   28:Generated_Source\PSoC5/TEST.c ****     #error PWM_v3_30 detected with a constant 0 for the enable or \
   29:Generated_Source\PSoC5/TEST.c ****          constant 1 for reset. This will prevent the component from operating.
   30:Generated_Source\PSoC5/TEST.c **** #endif /* TEST_PWMUDB_genblk1_ctrlreg__REMOVED */
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 2
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 2
 
 
   31:Generated_Source\PSoC5/TEST.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
   85:Generated_Source\PSoC5/TEST.c **** {
   86:Generated_Source\PSoC5/TEST.c ****     #if (TEST_UsingFixedFunction || TEST_UseControl)
   87:Generated_Source\PSoC5/TEST.c ****         uint8 ctrl;
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 3
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 3
 
 
   88:Generated_Source\PSoC5/TEST.c ****     #endif /* (TEST_UsingFixedFunction || TEST_UseControl) */
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  142:Generated_Source\PSoC5/TEST.c ****             TEST_WriteCompare2(TEST_INIT_COMPARE_VALUE2);
  143:Generated_Source\PSoC5/TEST.c ****         #endif /* (TEST_UseOneCompareMode) */
  144:Generated_Source\PSoC5/TEST.c **** 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 4
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 4
 
 
  145:Generated_Source\PSoC5/TEST.c ****         #if (TEST_KillModeMinTime)
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  199:Generated_Source\PSoC5/TEST.c **** void TEST_Enable(void) 
  200:Generated_Source\PSoC5/TEST.c **** {
   28              		.loc 1 200 0
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 5
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 5
 
 
   29              		.cfi_startproc
@@ -263,7 +263,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
   39              	.L3:
   40              		.align	2
   41              	.L2:
-  42 000c 73640040 		.word	1073767539
+  42 000c 75640040 		.word	1073767541
   43              		.cfi_endproc
   44              	.LFE2:
   45              		.size	TEST_Enable, .-TEST_Enable
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  230:Generated_Source\PSoC5/TEST.c **** *  has no effect on the operation of the PWM
  231:Generated_Source\PSoC5/TEST.c **** *
  232:Generated_Source\PSoC5/TEST.c **** *******************************************************************************/
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 6
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 6
 
 
  233:Generated_Source\PSoC5/TEST.c **** void TEST_Stop(void) 
@@ -319,7 +319,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
   65              	.L6:
   66              		.align	2
   67              	.L5:
-  68 000c 73640040 		.word	1073767539
+  68 000c 75640040 		.word	1073767541
   69              		.cfi_endproc
   70              	.LFE3:
   71              		.size	TEST_Stop, .-TEST_Stop
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  261:Generated_Source\PSoC5/TEST.c ****         *
  262:Generated_Source\PSoC5/TEST.c ****         * Return:
  263:Generated_Source\PSoC5/TEST.c ****         *  None
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 7
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 7
 
 
  264:Generated_Source\PSoC5/TEST.c ****         *
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  318:Generated_Source\PSoC5/TEST.c ****         * Parameters:
  319:Generated_Source\PSoC5/TEST.c ****         *  comparemode:  The new compare mode for the PWM output. Use the compare types
  320:Generated_Source\PSoC5/TEST.c ****         *                defined in the H file as input arguments.
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 8
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 8
 
 
  321:Generated_Source\PSoC5/TEST.c ****         *
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  375:Generated_Source\PSoC5/TEST.c ****     #endif /*TEST_CompareMode2SW */
  376:Generated_Source\PSoC5/TEST.c **** 
  377:Generated_Source\PSoC5/TEST.c **** #endif /* UseOneCompareMode */
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 9
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 9
 
 
  378:Generated_Source\PSoC5/TEST.c **** 
@@ -523,7 +523,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
   90              	.L9:
   91 0006 00BF     		.align	2
   92              	.L8:
-  93 0008 0C680040 		.word	1073768460
+  93 0008 08680040 		.word	1073768456
   94              		.cfi_endproc
   95              	.LFE4:
   96              		.size	TEST_WriteCounter, .-TEST_WriteCounter
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  407:Generated_Source\PSoC5/TEST.c ****     }
  408:Generated_Source\PSoC5/TEST.c **** 
  409:Generated_Source\PSoC5/TEST.c **** 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 10
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 10
 
 
  410:Generated_Source\PSoC5/TEST.c ****     /*******************************************************************************
@@ -583,8 +583,8 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  119              	.L12:
  120              		.align	2
  121              	.L11:
- 122 000c 16640040 		.word	1073767446
- 123 0010 AC680040 		.word	1073768620
+ 122 000c 14640040 		.word	1073767444
+ 123 0010 A8680040 		.word	1073768616
  124              		.cfi_endproc
  125              	.LFE5:
  126              		.size	TEST_ReadCounter, .-TEST_ReadCounter
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  134              	.LFB7:
  435:Generated_Source\PSoC5/TEST.c **** 
  436:Generated_Source\PSoC5/TEST.c ****     #if (TEST_UseStatus)
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 11
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 11
 
 
  437:Generated_Source\PSoC5/TEST.c **** 
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  485:Generated_Source\PSoC5/TEST.c ****         CY_SET_REG16(TEST_PERIOD_LSB_PTR, (uint16)period);
  486:Generated_Source\PSoC5/TEST.c ****     #else
  487:Generated_Source\PSoC5/TEST.c ****         CY_SET_REG16(TEST_PERIOD_LSB_PTR, period);
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 12
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 12
 
 
  141              		.loc 1 487 0
@@ -668,7 +668,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  145              	.L15:
  146 0006 00BF     		.align	2
  147              	.L14:
- 148 0008 8C680040 		.word	1073768588
+ 148 0008 88680040 		.word	1073768584
  149              		.cfi_endproc
  150              	.LFE7:
  151              		.size	TEST_WritePeriod, .-TEST_WritePeriod
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  523:Generated_Source\PSoC5/TEST.c ****         #endif /* (TEST_UsingFixedFunction) */
  524:Generated_Source\PSoC5/TEST.c **** 
  525:Generated_Source\PSoC5/TEST.c ****         #if (TEST_PWMMode == TEST__B_PWM__DITHER)
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 13
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 13
 
 
  526:Generated_Source\PSoC5/TEST.c ****             #if(TEST_UsingFixedFunction)
@@ -770,7 +770,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  170              	.L18:
  171 0006 00BF     		.align	2
  172              	.L17:
- 173 0008 4C680040 		.word	1073768524
+ 173 0008 48680040 		.word	1073768520
  174              		.cfi_endproc
  175              	.LFE8:
  176              		.size	TEST_WriteCompare1, .-TEST_WriteCompare1
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  178              		.align	2
  179              		.global	TEST_WriteCompare2
  180              		.thumb
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 14
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 14
 
 
  181              		.thumb_func
@@ -827,7 +827,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  195              	.L21:
  196 0006 00BF     		.align	2
  197              	.L20:
- 198 0008 6C680040 		.word	1073768556
+ 198 0008 68680040 		.word	1073768552
  199              		.cfi_endproc
  200              	.LFE9:
  201              		.size	TEST_WriteCompare2, .-TEST_WriteCompare2
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  206              		.thumb_func
  207              		.type	TEST_WriteDeadTime, %function
  208              	TEST_WriteDeadTime:
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 15
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 15
 
 
  209              	.LFB10:
@@ -898,12 +898,12 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  226 0012 1870     		strb	r0, [r3]
  227 0014 7047     		bx	lr
  228              	.L24:
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 16
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 16
 
 
  229 0016 00BF     		.align	2
  230              	.L23:
- 231 0018 7D640040 		.word	1073767549
+ 231 0018 72640040 		.word	1073767538
  232              		.cfi_endproc
  233              	.LFE10:
  234              		.size	TEST_WriteDeadTime, .-TEST_WriteDeadTime
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  250 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
  661:Generated_Source\PSoC5/TEST.c ****             #endif /* (TEST_DEADBAND_COUNT_SHIFT) */
  662:Generated_Source\PSoC5/TEST.c ****         #endif /* (!TEST_DeadBand2_4) */
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 17
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 17
 
 
  663:Generated_Source\PSoC5/TEST.c ****     }
@@ -968,7 +968,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  254              	.L27:
  255 000a 00BF     		.align	2
  256              	.L26:
- 257 000c 7D640040 		.word	1073767549
+ 257 000c 72640040 		.word	1073767538
  258              		.cfi_endproc
  259              	.LFE11:
  260              		.size	TEST_ReadDeadTime, .-TEST_ReadDeadTime
@@ -1016,9 +1016,9 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  279              	.L30:
  280 0006 00BF     		.align	2
  281              	.L29:
- 282 0008 83640040 		.word	1073767555
+ 282 0008 82640040 		.word	1073767554
  283              		.cfi_endproc
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 18
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 18
 
 
  284              	.LFE12:
@@ -1072,13 +1072,13 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  304              	.L33:
  305 0006 00BF     		.align	2
  306              	.L32:
- 307 0008 63640040 		.word	1073767523
+ 307 0008 62640040 		.word	1073767522
  308              		.cfi_endproc
  309              	.LFE13:
  310              		.size	TEST_ReadStatusRegister, .-TEST_ReadStatusRegister
  311              		.section	.text.TEST_ReadControlRegister,"ax",%progbits
  312              		.align	2
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 19
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 19
 
 
  313              		.global	TEST_ReadControlRegister
@@ -1130,7 +1130,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  330              	.L36:
  331 0006 00BF     		.align	2
  332              	.L35:
- 333 0008 73640040 		.word	1073767539
+ 333 0008 75640040 		.word	1073767541
  334              		.cfi_endproc
  335              	.LFE14:
  336              		.size	TEST_ReadControlRegister, .-TEST_ReadControlRegister
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  338              		.align	2
  339              		.global	TEST_WriteControlRegister
  340              		.thumb
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 20
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 20
 
 
  341              		.thumb_func
@@ -1182,7 +1182,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  355              	.L39:
  356 0006 00BF     		.align	2
  357              	.L38:
- 358 0008 73640040 		.word	1073767539
+ 358 0008 75640040 		.word	1073767541
  359              		.cfi_endproc
  360              	.LFE15:
  361              		.size	TEST_WriteControlRegister, .-TEST_WriteControlRegister
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  769:Generated_Source\PSoC5/TEST.c **** 
  770:Generated_Source\PSoC5/TEST.c **** #endif /* (TEST_UseControl) */
  771:Generated_Source\PSoC5/TEST.c **** 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 21
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 21
 
 
  772:Generated_Source\PSoC5/TEST.c **** 
@@ -1237,7 +1237,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  381              	.L42:
  382              		.align	2
  383              	.L41:
- 384 0008 AC680040 		.word	1073768620
+ 384 0008 A8680040 		.word	1073768616
  385              		.cfi_endproc
  386              	.LFE16:
  387              		.size	TEST_ReadCapture, .-TEST_ReadCapture
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  401              		.cfi_def_cfa_offset 8
  402              		.cfi_offset 3, -8
  403              		.cfi_offset 14, -4
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 22
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 22
 
 
  455:Generated_Source\PSoC5/TEST.c ****             {
@@ -1312,13 +1312,13 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  445 000e 1370     		strb	r3, [r2]
  129:Generated_Source\PSoC5/TEST.c ****             TEST_AUX_CONTROLDP1 |= (TEST_AUX_CTRL_FIFO0_CLR);
  446              		.loc 1 129 0
- 447 0010 2332     		adds	r2, r2, #35
+ 447 0010 1F32     		adds	r2, r2, #31
  448 0012 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
  449 0014 43F00103 		orr	r3, r3, #1
  450 0018 1370     		strb	r3, [r2]
  130:Generated_Source\PSoC5/TEST.c ****         #endif /* (TEST_Resolution == 8) */
  451              		.loc 1 130 0
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 23
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 23
 
 
  452 001a 0132     		adds	r2, r2, #1
@@ -1377,11 +1377,11 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  495              	.L50:
  496              		.align	2
  497              	.L49:
- 498 0064 73640040 		.word	1073767539
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 24
+ 498 0064 75640040 		.word	1073767541
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 24
 
 
- 499 0068 93640040 		.word	1073767571
+ 499 0068 92640040 		.word	1073767570
  500              		.cfi_endproc
  501              	.LFE1:
  502              		.size	TEST_Init, .-TEST_Init
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  548              	TEST_ReadCompare1:
  549              	.LFB17:
  794:Generated_Source\PSoC5/TEST.c **** 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 25
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 25
 
 
  795:Generated_Source\PSoC5/TEST.c **** #endif /* (!TEST_UsingFixedFunction) */
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  844:Generated_Source\PSoC5/TEST.c ****         return (CY_GET_REG16(TEST_COMPARE1_LSB_PTR));
  555              		.loc 1 844 0
  556 0000 014B     		ldr	r3, .L57
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 26
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 26
 
 
  557 0002 1888     		ldrh	r0, [r3]
@@ -1509,7 +1509,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  561              	.L58:
  562              		.align	2
  563              	.L57:
- 564 0008 4C680040 		.word	1073768524
+ 564 0008 48680040 		.word	1073768520
  565              		.cfi_endproc
  566              	.LFE17:
  567              		.size	TEST_ReadCompare1, .-TEST_ReadCompare1
@@ -1555,10 +1555,10 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  587              	.L61:
  588              		.align	2
  589              	.L60:
- 590 0008 6C680040 		.word	1073768556
+ 590 0008 68680040 		.word	1073768552
  591              		.cfi_endproc
  592              	.LFE18:
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 27
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 27
 
 
  593              		.size	TEST_ReadCompare2, .-TEST_ReadCompare2
@@ -1610,7 +1610,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  613              	.L64:
  614              		.align	2
  615              	.L63:
- 616 0008 8C680040 		.word	1073768588
+ 616 0008 88680040 		.word	1073768584
  617              		.cfi_endproc
  618              	.LFE19:
  619              		.size	TEST_ReadPeriod, .-TEST_ReadPeriod
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  621              		.bss
  622              		.set	.LANCHOR0,. + 0
  623              		.type	TEST_initVar, %object
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 28
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 28
 
 
  624              		.size	TEST_initVar, 1
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  678 005e 04       		.byte	0x4
  679 005f 05       		.byte	0x5
  680 0060 696E7400 		.ascii	"int\000"
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 29
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 29
 
 
  681 0064 02       		.uleb128 0x2
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  735 00d7 01       		.uleb128 0x1
  736 00d8 9C       		.byte	0x9c
  737 00d9 06       		.uleb128 0x6
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 30
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 30
 
 
  738 00da A9020000 		.4byte	.LASF19
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  792 0152 00000000 		.4byte	.LFB8
  793 0156 0C000000 		.4byte	.LFE8-.LFB8
  794 015a 01       		.uleb128 0x1
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 31
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 31
 
 
  795 015b 9C       		.byte	0x9c
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  849 01d6 01       		.byte	0x1
  850 01d7 AC02     		.2byte	0x2ac
  851 01d9 00000000 		.4byte	.LFB12
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 32
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 32
 
 
  852 01dd 0C000000 		.4byte	.LFE12-.LFB12
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  906 0258 50       		.byte	0x50
  907 0259 00       		.byte	0
  908 025a 09       		.uleb128 0x9
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 33
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 33
 
 
  909 025b CD020000 		.4byte	.LASF36
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  963 02de FF01     		.2byte	0x1ff
  964 02e0 00       		.byte	0
  965 02e1 10       		.uleb128 0x10
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 34
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 34
 
 
  966 02e2 34000000 		.4byte	.LVL14
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  1020 0349 DB030000 		.4byte	0x3db
  1021 034d 0D       		.uleb128 0xd
  1022 034e 5E000000 		.4byte	.LVL20
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 35
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 35
 
 
  1023 0352 E6030000 		.4byte	0x3e6
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  1077 03d6 03       		.byte	0x3
  1078 03d7 00000000 		.4byte	TEST_initVar
  1079 03db 13       		.uleb128 0x13
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 36
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 36
 
 
  1080 03dc 68020000 		.4byte	.LASF46
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  1134 002a 16       		.uleb128 0x16
  1135 002b 00       		.byte	0
  1136 002c 03       		.uleb128 0x3
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 37
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 37
 
 
  1137 002d 0E       		.uleb128 0xe
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  1191 0064 12       		.uleb128 0x12
  1192 0065 06       		.uleb128 0x6
  1193 0066 40       		.uleb128 0x40
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 38
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 38
 
 
  1194 0067 18       		.uleb128 0x18
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  1248 009f 3B       		.uleb128 0x3b
  1249 00a0 05       		.uleb128 0x5
  1250 00a1 49       		.uleb128 0x49
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 39
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 39
 
 
  1251 00a2 13       		.uleb128 0x13
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  1305 00db 00       		.byte	0
  1306 00dc 00       		.byte	0
  1307 00dd 0E       		.uleb128 0xe
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 40
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 40
 
 
  1308 00de 2E       		.uleb128 0x2e
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  1362 0119 18       		.uleb128 0x18
  1363 011a 9142     		.uleb128 0x2111
  1364 011c 18       		.uleb128 0x18
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 41
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 41
 
 
  1365 011d 00       		.byte	0
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  1419 0021 0A000000 		.4byte	.LVL11
  1420 0025 0E000000 		.4byte	.LVL12
  1421 0029 0100     		.2byte	0x1
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 42
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 42
 
 
  1422 002b 53       		.byte	0x53
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  1476 00a0 00000000 		.4byte	.LFB18
  1477 00a4 0C000000 		.4byte	.LFE18-.LFB18
  1478 00a8 00000000 		.4byte	.LFB19
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 43
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 43
 
 
  1479 00ac 0C000000 		.4byte	.LFE19-.LFB19
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  1529              	.LASF15:
  1530 0000 72656731 		.ascii	"reg16\000"
  1530      3600
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 44
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 44
 
 
  1531              	.LASF24:
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  1551      64537461 
  1551      74757352 
  1551      65676973 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 45
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 45
 
 
  1552              	.LASF51:
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  1569      6500
  1570              	.LASF38:
  1571 01f8 54455354 		.ascii	"TEST_Init\000"
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 46
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 46
 
 
  1571      5F496E69 
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  1595      69746963 
  1595      616C5365 
  1595      6374696F 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 47
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 47
 
 
  1596              	.LASF39:
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 1
  1621 0335 54455354 		.ascii	"TEST_ReadCompare1\000"
  1621      5F526561 
  1621      64436F6D 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccRIZlvO.s 			page 48
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccA1G7Pw.s 			page 48
 
 
  1621      70617265 

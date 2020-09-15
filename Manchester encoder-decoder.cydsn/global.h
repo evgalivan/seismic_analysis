@@ -21,6 +21,8 @@
 
 typedef enum {WAITINGOFDOLLAR, WAITINGOFSTAR, WAITINGOFCHSUM, WAITINGOFCHSUM2} State;
 
+
+
 typedef struct{
     uint8 buf[RING_SIZE];
     uint8 begin;

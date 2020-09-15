@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccU0wXHg.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
   28:Generated_Source\PSoC5/isr_DRDY.c **** ********************************************************************************/
   29:Generated_Source\PSoC5/isr_DRDY.c **** /* `#START isr_DRDY_intc` */
   30:Generated_Source\PSoC5/isr_DRDY.c **** extern uint32 DRDY_flag;
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 2
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccU0wXHg.s 			page 2
 
 
   31:Generated_Source\PSoC5/isr_DRDY.c ****     
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
   85:Generated_Source\PSoC5/isr_DRDY.c **** *  from the value in the Design Wide Resources Interrupt Editor, then enables 
   86:Generated_Source\PSoC5/isr_DRDY.c **** *  the interrupt to the interrupt controller.
   87:Generated_Source\PSoC5/isr_DRDY.c **** *  
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 3
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccU0wXHg.s 			page 3
 
 
   88:Generated_Source\PSoC5/isr_DRDY.c **** *  When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
  142:Generated_Source\PSoC5/isr_DRDY.c **** }
  143:Generated_Source\PSoC5/isr_DRDY.c **** 
  144:Generated_Source\PSoC5/isr_DRDY.c **** 
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 4
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccU0wXHg.s 			page 4
 
 
  145:Generated_Source\PSoC5/isr_DRDY.c **** /*******************************************************************************
@@ -205,8 +205,8 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
  166:Generated_Source\PSoC5/isr_DRDY.c **** 
  167:Generated_Source\PSoC5/isr_DRDY.c ****     /*  Place your Interrupt code here. */
  168:Generated_Source\PSoC5/isr_DRDY.c ****     /* `#START isr_DRDY_Interrupt` */
- 169:Generated_Source\PSoC5/isr_DRDY.c ****     isr_DRDY_ClearPending();
- 170:Generated_Source\PSoC5/isr_DRDY.c ****     DRDY_flag=1;    
+ 169:Generated_Source\PSoC5/isr_DRDY.c ****     DRDY_flag=1;    
+ 170:Generated_Source\PSoC5/isr_DRDY.c ****     isr_DRDY_ClearPending();
  171:Generated_Source\PSoC5/isr_DRDY.c ****     /* `#END` */
  172:Generated_Source\PSoC5/isr_DRDY.c **** }
  173:Generated_Source\PSoC5/isr_DRDY.c **** 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
  199:Generated_Source\PSoC5/isr_DRDY.c **** *   None
  200:Generated_Source\PSoC5/isr_DRDY.c **** *
  201:Generated_Source\PSoC5/isr_DRDY.c **** *******************************************************************************/
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 5
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccU0wXHg.s 			page 5
 
 
  202:Generated_Source\PSoC5/isr_DRDY.c **** void isr_DRDY_SetVector(cyisraddress address)
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
   56              		.loc 1 227 0
   57              		.cfi_startproc
   58              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 6
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccU0wXHg.s 			page 6
 
 
   59              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
  258:Generated_Source\PSoC5/isr_DRDY.c **** *
  259:Generated_Source\PSoC5/isr_DRDY.c **** *******************************************************************************/
  260:Generated_Source\PSoC5/isr_DRDY.c **** void isr_DRDY_SetPriority(uint8 priority)
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 7
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccU0wXHg.s 			page 7
 
 
  261:Generated_Source\PSoC5/isr_DRDY.c **** {
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
  114              		@ frame_needed = 0, uses_anonymous_args = 0
  115              		@ link register save eliminated.
  284:Generated_Source\PSoC5/isr_DRDY.c ****     uint8 priority;
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 8
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccU0wXHg.s 			page 8
 
 
  285:Generated_Source\PSoC5/isr_DRDY.c **** 
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
  311:Generated_Source\PSoC5/isr_DRDY.c ****     /* Enable the general interrupt. */
  312:Generated_Source\PSoC5/isr_DRDY.c ****     *isr_DRDY_INTC_SET_EN = isr_DRDY__INTC_MASK;
  144              		.loc 1 312 0
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 9
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccU0wXHg.s 			page 9
 
 
  145 0000 2022     		movs	r2, #32
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
  334:Generated_Source\PSoC5/isr_DRDY.c **** }
  178              		.loc 1 334 0
  179 0010 7047     		bx	lr
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 10
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccU0wXHg.s 			page 10
 
 
  180              	.L20:
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
  214              		.global	isr_DRDY_Start
  215              		.thumb
  216              		.thumb_func
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 11
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccU0wXHg.s 			page 11
 
 
  217              		.type	isr_DRDY_Start, %function
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
  265              		.cfi_offset 4, -8
  266              		.cfi_offset 14, -4
  267 0002 0446     		mov	r4, r0
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 12
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccU0wXHg.s 			page 12
 
 
  108:Generated_Source\PSoC5/isr_DRDY.c **** 
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
  315              	.LFE2:
  316              		.size	isr_DRDY_Stop, .-isr_DRDY_Stop
  317              		.section	.text.isr_DRDY_SetPending,"ax",%progbits
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 13
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccU0wXHg.s 			page 13
 
 
  318              		.align	2
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
  346              		.thumb_func
  347              		.type	isr_DRDY_ClearPending, %function
  348              	isr_DRDY_ClearPending:
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 14
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccU0wXHg.s 			page 14
 
 
  349              	.LFB12:
@@ -838,21 +838,21 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
  377              		@ args = 0, pretend = 0, frame = 0
  378              		@ frame_needed = 0, uses_anonymous_args = 0
  379 0000 08B5     		push	{r3, lr}
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 15
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccU0wXHg.s 			page 15
 
 
  380              		.cfi_def_cfa_offset 8
  381              		.cfi_offset 3, -8
  382              		.cfi_offset 14, -4
- 169:Generated_Source\PSoC5/isr_DRDY.c ****     DRDY_flag=1;    
+ 169:Generated_Source\PSoC5/isr_DRDY.c ****     isr_DRDY_ClearPending();
  383              		.loc 1 169 0
- 384 0002 FFF7FEFF 		bl	isr_DRDY_ClearPending
- 385              	.LVL18:
+ 384 0002 0122     		movs	r2, #1
+ 385 0004 024B     		ldr	r3, .L42
+ 386 0006 1A60     		str	r2, [r3]
  170:Generated_Source\PSoC5/isr_DRDY.c ****     /* `#END` */
- 386              		.loc 1 170 0
- 387 0006 0122     		movs	r2, #1
- 388 0008 014B     		ldr	r3, .L42
- 389 000a 1A60     		str	r2, [r3]
+ 387              		.loc 1 170 0
+ 388 0008 FFF7FEFF 		bl	isr_DRDY_ClearPending
+ 389              	.LVL18:
  390 000c 08BD     		pop	{r3, pc}
  391              	.L43:
  392 000e 00BF     		.align	2
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
  432 0042 01       		.byte	0x1
  433 0043 06       		.byte	0x6
  434 0044 9E020000 		.4byte	.LASF3
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 16
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccU0wXHg.s 			page 16
 
 
  435 0048 03       		.uleb128 0x3
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
  489 00ad 06       		.uleb128 0x6
  490 00ae 55010000 		.4byte	.LASF16
  491 00b2 02       		.byte	0x2
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 17
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccU0wXHg.s 			page 17
 
 
  492 00b3 8E02     		.2byte	0x28e
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
  546 012b 5B020000 		.4byte	.LASF19
  547 012f 01       		.byte	0x1
  548 0130 E4       		.byte	0xe4
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 18
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccU0wXHg.s 			page 18
 
 
  549 0131 0B010000 		.4byte	0x10b
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
  603 01b2 10       		.uleb128 0x10
  604 01b3 7C000000 		.4byte	.LASF27
  605 01b7 01       		.byte	0x1
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 19
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccU0wXHg.s 			page 19
 
 
  606 01b8 5F01     		.2byte	0x15f
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
  660 0231 69       		.byte	0x69
  661 0232 CF000000 		.4byte	0xcf
  662 0236 38000000 		.4byte	.LLST2
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 20
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccU0wXHg.s 			page 20
 
 
  663 023a 12       		.uleb128 0x12
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
  717 02b3 01       		.byte	0x1
  718 02b4 9301     		.2byte	0x193
  719 02b6 00000000 		.4byte	.LFB12
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 21
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccU0wXHg.s 			page 21
 
 
  720 02ba 0C000000 		.4byte	.LFE12-.LFB12
@@ -1214,7 +1214,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
  730 02d0 9C       		.byte	0x9c
  731 02d1 DF020000 		.4byte	0x2df
  732 02d5 12       		.uleb128 0x12
- 733 02d6 06000000 		.4byte	.LVL18
+ 733 02d6 0C000000 		.4byte	.LVL18
  734 02da AE020000 		.4byte	0x2ae
  735 02de 00       		.byte	0
  736 02df 16       		.uleb128 0x16
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
  774 001e 03       		.uleb128 0x3
  775 001f 24       		.uleb128 0x24
  776 0020 00       		.byte	0
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 22
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccU0wXHg.s 			page 22
 
 
  777 0021 0B       		.uleb128 0xb
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
  831 0057 0B       		.uleb128 0xb
  832 0058 27       		.uleb128 0x27
  833 0059 19       		.uleb128 0x19
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 23
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccU0wXHg.s 			page 23
 
 
  834 005a 11       		.uleb128 0x11
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
  888 0091 19       		.uleb128 0x19
  889 0092 49       		.uleb128 0x49
  890 0093 13       		.uleb128 0x13
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 24
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccU0wXHg.s 			page 24
 
 
  891 0094 11       		.uleb128 0x11
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
  945 00cc 01       		.byte	0x1
  946 00cd 3F       		.uleb128 0x3f
  947 00ce 19       		.uleb128 0x19
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 25
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccU0wXHg.s 			page 25
 
 
  948 00cf 03       		.uleb128 0x3
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
  1002 0106 40       		.uleb128 0x40
  1003 0107 18       		.uleb128 0x18
  1004 0108 9742     		.uleb128 0x2117
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 26
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccU0wXHg.s 			page 26
 
 
  1005 010a 19       		.uleb128 0x19
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
  1059 0148 18       		.uleb128 0x18
  1060 0149 00       		.byte	0
  1061 014a 00       		.byte	0
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 27
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccU0wXHg.s 			page 27
 
 
  1062 014b 15       		.uleb128 0x15
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
  1116 002c 00       		.sleb128 0
  1117 002d 35       		.byte	0x35
  1118 002e 25       		.byte	0x25
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 28
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccU0wXHg.s 			page 28
 
 
  1119 002f 9F       		.byte	0x9f
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
  1173 0008 00000000 		.4byte	.LFB5
  1174 000c 0C000000 		.4byte	.LFE5
  1175 0010 00000000 		.4byte	.LFB6
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 29
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccU0wXHg.s 			page 29
 
 
  1176 0014 10000000 		.4byte	.LFE6
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
  1210      65642069 
  1210      6E7400
  1211              	.LASF38:
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 30
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccU0wXHg.s 			page 30
 
 
  1212 0072 44524459 		.ascii	"DRDY_flag\000"
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
  1231              	.LASF12:
  1232 016c 75696E74 		.ascii	"uint8\000"
  1232      3800
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 31
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccU0wXHg.s 			page 31
 
 
  1233              	.LASF31:
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
  1256      72616464 
  1256      72657373 
  1256      00
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 32
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccU0wXHg.s 			page 32
 
 
  1257              	.LASF10:
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 1
  1280      5F53746F 
  1280      7000
  1281              	.LASF25:
-ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccqF0rvq.s 			page 33
+ARM GAS  C:\Users\EA527~1.IVA\AppData\Local\Temp\ccU0wXHg.s 			page 33
 
 
  1282 02cb 6973725F 		.ascii	"isr_DRDY_GetPriority\000"

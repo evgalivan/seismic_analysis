@@ -33,7 +33,7 @@
 #include <BitCounterEnc.h>
 #include <isr_TransmitWordShift.h>
 #include <FrameAllow.h>
-//#include <FirstLoad.h>
+#include <FirstLoad.h>
 /* `#END` */
 
 #ifndef CYINT_IRQ_BASE

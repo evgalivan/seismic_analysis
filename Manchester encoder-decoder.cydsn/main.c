@@ -44,6 +44,7 @@ volatile long   NewFrequency;
 long   LowFrequency;
 long   HighFrequency;
 uint32 DRDY_flag = 0;
+uint32 DRDY_flag_1 = 0;
 
 control_ind_adc_frame ind_control_adc;
 control_gen_adc_frame gen_control;
@@ -123,12 +124,12 @@ int main(void)
     //SPI_ADC_ADS131E08_OFFSETCAL;
     SPI_ADC_ADS131E08_SDataC;
     
-    for (uint8 i=0; i < 12; i++){
+    /*for (uint8 i=0; i < 12; i++){
         do{
             cur_result = SPI_ADC_ADS131E08_WReg_Check(ADS131E08_CurSet.array[i],ADS131E08_CONFIG1_ADDRESS+i);
         }while(cur_result == ERROR);
-    }
-    /*
+    }*/
+    
     cur_result = SPI_ADC_ADS131E08_WReg_Check(ADS131E08_CONFIG1_DEFAULT,ADS131E08_CONFIG1_ADDRESS);
     cur_result = SPI_ADC_ADS131E08_WReg_Check(ADS131E08_CONFIG2_DEFAULT,ADS131E08_CONFIG2_ADDRESS);
     cur_result = SPI_ADC_ADS131E08_WReg_Check(ADS131E08_CONFIG3_DEFAULT,ADS131E08_CONFIG3_ADDRESS);
@@ -141,7 +142,7 @@ int main(void)
     cur_result = SPI_ADC_ADS131E08_WReg_Check(ADS131E08_CHSET_POWERDOWN,ADS131E08_CH6SET_ADDRESS);
     cur_result = SPI_ADC_ADS131E08_WReg_Check(ADS131E08_CHSET_POWERDOWN,ADS131E08_CH7SET_ADDRESS);
     cur_result = SPI_ADC_ADS131E08_WReg_Check(ADS131E08_CHSET_POWERDOWN,ADS131E08_CH8SET_ADDRESS);
-    */
+    
     //SPI_ADC_ADS131E08_RData;
     
     Comp_low_Write((uint8)divide_stay);
@@ -167,6 +168,7 @@ int main(void)
             DRDY_flag=0;
             SPI_Data_ADS131E08[0] = ADS131E08_RDATA;
             SPI_Transaction((uint8*) SPI_Data_ADS131E08, ADC_SPI_PACKET_LENGTH); // may be optimize for ignore read pwdown chanels adc
+            DRDY_flag_1 = 1;
         }
         
         /*TO DO     ===============================================
@@ -183,8 +185,9 @@ int main(void)
         if ((flag_read_done == 1) && (flag_write_done == 1)){
             flag_read_done = 0;
             flag_write_done = 0;
-            /*copy least control frame*/
-            
+            /*analyse frame tag & copy last control frame
+            contained control information
+            */
             
             if((line_buf[PACKET_LENGTH - 4] & FRAME_TAG_MASK) == FRAME_TAG_CONTROL){
                 if ((line_buf[PACKET_LENGTH - 4] & SUBFRAME_TAG_MASK) == SUBFRAME_TAG_IND_CONTROL)
@@ -198,11 +201,13 @@ int main(void)
             1 Проанализировть фрейм управления и исполнить директивы;
             2 Подготовить фрейм для передачи и загрузить в FIFO передатчика;            
             */
-            if(ADC_SPI_PACKET_LENGTH <= SPI_ADC_GetRxBufferSize()){
-                // may be optimize for ignore read pwdown chanels adc
-                for (int i = 0; i < ADC_SPI_PACKET_LENGTH; i++){
-                    SPI_Data_ADS131E08[i] = SPI_ADC_ReadRxData();
-                }
+//            if(ADC_SPI_PACKET_LENGTH <= SPI_ADC_GetRxBufferSize()){
+//                // may be optimize for ignore read pwdown chanels adc
+//                for (int i = 0; i < ADC_SPI_PACKET_LENGTH; i++){
+//                    SPI_Data_ADS131E08[i] = SPI_ADC_ReadRxData();
+//                }
+            if(DRDY_flag_1){
+                DRDY_flag_1=0;
                 Data_ADS131E08.RData = SPI_Data_ADS131E08[0];
                 Data_ADS131E08.adc_status = SPI_Data_ADS131E08[3] | (SPI_Data_ADS131E08[2] << 8) | (SPI_Data_ADS131E08[1] << 16);
                 Data_ADS131E08.data_ch1 = SPI_Data_ADS131E08[6] | (SPI_Data_ADS131E08[5] << 8) | (SPI_Data_ADS131E08[4] << 16);

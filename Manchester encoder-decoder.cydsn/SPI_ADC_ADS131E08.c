@@ -28,17 +28,43 @@ static uint8 spi_adc_busy_flag = 0;
 uint32 SPI_Data_ADS131E08[28] = {0};
 Data_field Data_ADS131E08;
 
+/*
 uint8 Blocking_SPI_ADC_ReadByte(void){
     while (SPI_ADC_GetRxBufferSize() == 0);
     return SPI_ADC_ReadRxData();
 }
-
+*/
 
 
 void SPI_Transaction(uint8* array, uint8 length){
+    uint8 ToSend = length;
+    uint8 ToRead = length;
+    uint8* writebyte = array;
+    uint8* readbyte = array;
     while (CSn_Read() == 0);
-    SPI_ADC_ClearRxBuffer();        // may be need redaction
-    SPI_ADC_PutArray(array, length);
+    while (ToSend){
+        uint8 status = SPI_ADC_ReadTxStatus();
+        if (0 != (SPI_ADC_STS_TX_FIFO_NOT_FULL & status)) {
+            ToSend--;
+            SPI_ADC_WriteTxData(*writebyte);
+            writebyte++;
+        }
+        if (ToRead > ToSend){
+            if (0 != (SPI_ADC_STS_RX_FIFO_NOT_EMPTY & status)){
+                ToRead--;
+                *readbyte = SPI_ADC_ReadRxData();
+                readbyte++;
+            }
+        }
+    }
+    while (ToRead){
+        uint8 status = SPI_ADC_ReadTxStatus();
+        if (0 != (SPI_ADC_STS_RX_FIFO_NOT_EMPTY & status)){
+                ToRead--;
+                *readbyte = SPI_ADC_ReadRxData();
+                readbyte++;
+            }
+    }
 }
 
 void SPI_ADC_ADS131E08_WReg(uint8 byte, uint8 Reg){
@@ -58,9 +84,7 @@ uint8 SPI_ADC_ADS131E08_RReg(uint8 Reg){
     transfer_buf[0] = tmp;
     transfer_buf[1] = 0x0;
     SPI_Transaction(transfer_buf, 3);
-    byte_adc_read = Blocking_SPI_ADC_ReadByte();
-    byte_adc_read = Blocking_SPI_ADC_ReadByte();
-    return Blocking_SPI_ADC_ReadByte();
+    return transfer_buf[2];
 }
 //#define SPI_ADC_ADS131E08_SendAnyCommand(command)   SPI_Transaction(&command,1)
 void SPI_ADC_ADS131E08_SendAnyCommand(uint8 command){

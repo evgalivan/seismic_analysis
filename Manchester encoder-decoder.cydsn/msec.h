@@ -9,8 +9,9 @@
  *
  * ========================================
 */
+extern int seconds;
+extern int mseconds;
+extern volatile int mseconds_flag;
 
-int replay(void);
-int ms_marker(void);
-
+#define MSEC_IN_SEC 1000
 /* [] END OF FILE */

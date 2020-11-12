@@ -15,7 +15,7 @@
 #include "reciver.h"
 #include "replay.h"
 #include "USB_UART_cdc.h"
-#include <BitCounterDec.h>
+//#include <BitCounterDec.h>
 
 uint32 incr_compare = 512; // зависит от той частоты, которую мы хотим получить
 uart_context usb_context={{{},0,0}, .sentence_ready=0};
@@ -47,6 +47,10 @@ volatile int storeflag=0, length = 72;
 static volatile long long  period;
 uint32 the_output_buffer_prepared_but_not_sended = 0;
 
+         int seconds;
+         int mseconds;
+volatile int mseconds_flag = 0;
+
 
 int main(void)
 {
@@ -54,24 +58,24 @@ int main(void)
     period = ( long long ) capacity * divider_freq * desired_freq / (1 * main_freq);    //977343669
 
     CyGlobalIntDisable; /* Enable global interrupts. */
-    /* Place your initialization/startup code here (e.g. MyInst_Start()) */
-    // Инициализация устройств Encoder
+    /* Place your initialization/startup code here (e.g. MyInst_Start()) 
     TransmitShiftReg_Start( );
-    BitCounterEnc_Start( );
+    BitCounterEnc_Start( );*/
+    // Инициализация устройств Encoder
     
     #define USBFS_DEVICE    (0u)
     USBUART_Start(USBFS_DEVICE, USBUART_5V_OPERATION);
 
-	// Инициализация устройств Decoder
-    RecieveShiftReg_Start() ;
-	Waiter_Start() ;
-    BitCounterDec_Start() ;
-    VDAC8_1_Start();
-    Comp_1_Start();
-    Comp_2_Start();
-    Opamp_1_Start();
+//	// Инициализация устройств Decoder
+//    RecieveShiftReg_Start() ;
+//	Waiter_Start() ;
+//    BitCounterDec_Start() ;
+//    VDAC8_1_Start();
+//    Comp_1_Start();
+//    Comp_2_Start();
+//    Opamp_1_Start();
     Counter_1_Start();
-     isr_update_time_Start();
+//     isr_update_time_Start();
     
 //    Period_Start();
 //    SigmaReg_Start();
@@ -80,34 +84,33 @@ int main(void)
 //    cap_comp_tc_Start();
     
     // Инициализация прерываний
-    //StartFrame_Start();
-    EndFrame_Start();
-    isr_Load_TrShReg_Start();
-	WordShifted_Start();
-    TransmitWordShift_Start( );
-    TransmitWordShift_Disable( );
+//    //StartFrame_Start();
+//    EndFrame_Start();
+//    isr_Load_TrShReg_Start();
+//	WordShifted_Start();
+//    TransmitWordShift_Start( );
+//    TransmitWordShift_Disable( );
+      isr_update_time_Start();
     
     CyGlobalIntEnable; /* Enable global interrupts. */
     
     
 //DO NOT TOUCH !!!!!
-        
-    FrameAllow_Write(0);
-    
-    PrepareToSend(massage,0);
-    Send();
-    
-    while(PrepareToSend(massage,0)==TRBUSY);
-    
-    FrameAllow_Write(1);
-//only if You known about it
-
+ 
     while(1) 
     {
              
             USBUARTInitCDC();
             Send_USB();
             Service_USB();
+            
+            if(mseconds_flag){
+                mseconds_flag = 0;
+               ms_marker();
+              //replay();
+            }
+            
+            
             if (agg_sent(&usb_context)) usb_context.sentence_ready=1;
             if (usb_context.sentence_ready){
                 /* разбор сентенций USB
@@ -147,26 +150,8 @@ int main(void)
                 Установка поправки времени распространения */
                 
                 usb_context.sentence_ready = 0;
-            }
-            //replay();
-        if(isRecived()){
-            ClearRecived();
-            //ToDo StoreData;
-        }
-        PrepareToStore(RecivedData.words,LENGTH_OF(RecivedData.words));
-        if(the_output_buffer_prepared_but_not_sended){
-            if(TRSUCCSSY == PrepareToSend(DataToTransmit.words,LENGTH_OF(DataToTransmit.words))) {
-                Send();
-                the_output_buffer_prepared_but_not_sended=0;
-            }
-        }
-        else {
-            if(0 == StartTransmit_Read()){
-                PrepareTheOutputBuffer();
-                the_output_buffer_prepared_but_not_sended = 1;
-                //buffer must be prepared
-            }
-        }
+           
+          }
     }
 }
 

@@ -14,7 +14,7 @@
 
 extern exchange_unit DataToTransmit;
 
-#include <TransmitShiftReg.h>
+
 //
 // задание структуры для регистра статуса ShiftReg
 typedef struct{

@@ -47,6 +47,10 @@ volatile int storeflag=0, length = 72;
 static volatile long long  period;
 uint32 the_output_buffer_prepared_but_not_sended = 0;
 
+         int seconds;
+         int mseconds;
+volatile int mseconds_flag = 0;
+
 
 int main(void)
 {
@@ -87,6 +91,7 @@ int main(void)
     TransmitWordShift_Start( );
     TransmitWordShift_Disable( );
     
+	
     CyGlobalIntEnable; /* Enable global interrupts. */
     
     
@@ -108,6 +113,14 @@ int main(void)
             USBUARTInitCDC();
             Send_USB();
             Service_USB();
+			            
+            if(mseconds_flag){
+                mseconds_flag = 0;
+               ms_marker();
+              //replay();
+            }
+            
+            
             if (agg_sent(&usb_context)) usb_context.sentence_ready=1;
             if (usb_context.sentence_ready){
                 /* разбор сентенций USB

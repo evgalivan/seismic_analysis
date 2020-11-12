@@ -26,7 +26,7 @@ uint8 IsNotEmpty(RingBuff_t* buf){
 
 uint8 InsertByte(RingBuff_t* buf, uint8 byte){
     uint8 index = buf->end;
-    IN_RING(index);
+    IN_RING(index);         // macros for return end pointer of ring buf is falled out of ring
     if (index == buf->begin)return 1;
     buf->buf[ buf->end ] = byte; 
     buf->end = index;

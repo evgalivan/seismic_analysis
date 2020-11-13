@@ -185,6 +185,7 @@ int main(void)
         if ((flag_read_done == 1) && (flag_write_done == 1)){
             flag_read_done = 0;
             flag_write_done = 0;
+            
             /*analyse frame tag & copy last control frame
             contained control information
             */

@@ -30,7 +30,7 @@
 #include <StartTransmit.h>
 #include <sender.h>
 #include <BitCounterEnc.h>
-    #include <line_buf.h>
+#include <line_buf.h>
 /* `#END` */
 
 #ifndef CYINT_IRQ_BASE

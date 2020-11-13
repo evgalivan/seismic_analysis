@@ -66,7 +66,7 @@ void ClearShiftRecieverError(uint32* recieve_buf, int LENGTH){
 }
 
 void GetStatusFifoReciever (uint8 *RecieverFifo){
-    *RecieverFifo = RecieveShiftReg_SR_STATUS;    
+    *RecieverFifo = RecieveShiftReg_SR_STATUS;
 }
 
 /* [] END OF FILE */

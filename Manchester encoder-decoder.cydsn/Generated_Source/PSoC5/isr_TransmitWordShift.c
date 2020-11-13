@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: TransmitWordShift.c  
+* File Name: isr_TransmitWordShift.c  
 * Version 1.70
 *
 *  Description:
@@ -18,15 +18,15 @@
 
 #include <cydevice_trm.h>
 #include <CyLib.h>
-#include <TransmitWordShift.h>
+#include <isr_TransmitWordShift.h>
 #include "cyapicallbacks.h"
 
-#if !defined(TransmitWordShift__REMOVED) /* Check for removal by optimization */
+#if !defined(isr_TransmitWordShift__REMOVED) /* Check for removal by optimization */
 
 /*******************************************************************************
 *  Place your includes, defines and code here 
 ********************************************************************************/
-/* `#START TransmitWordShift_intc` */
+/* `#START isr_TransmitWordShift_intc` */
 #include <StartTransmit.h>
 #include <sender.h>
 #include <BitCounterEnc.h>
@@ -44,7 +44,7 @@ CY_ISR_PROTO(IntDefaultHandler);
 
 
 /*******************************************************************************
-* Function Name: TransmitWordShift_Start
+* Function Name: isr_TransmitWordShift_Start
 ********************************************************************************
 *
 * Summary:
@@ -60,24 +60,24 @@ CY_ISR_PROTO(IntDefaultHandler);
 *   None
 *
 *******************************************************************************/
-void TransmitWordShift_Start(void)
+void isr_TransmitWordShift_Start(void)
 {
     /* For all we know the interrupt is active. */
-    TransmitWordShift_Disable();
+    isr_TransmitWordShift_Disable();
 
-    /* Set the ISR to point to the TransmitWordShift Interrupt. */
-    TransmitWordShift_SetVector(&TransmitWordShift_Interrupt);
+    /* Set the ISR to point to the isr_TransmitWordShift Interrupt. */
+    isr_TransmitWordShift_SetVector(&isr_TransmitWordShift_Interrupt);
 
     /* Set the priority. */
-    TransmitWordShift_SetPriority((uint8)TransmitWordShift_INTC_PRIOR_NUMBER);
+    isr_TransmitWordShift_SetPriority((uint8)isr_TransmitWordShift_INTC_PRIOR_NUMBER);
 
     /* Enable it. */
-    TransmitWordShift_Enable();
+    isr_TransmitWordShift_Enable();
 }
 
 
 /*******************************************************************************
-* Function Name: TransmitWordShift_StartEx
+* Function Name: isr_TransmitWordShift_StartEx
 ********************************************************************************
 *
 * Summary:
@@ -103,24 +103,24 @@ void TransmitWordShift_Start(void)
 *   None
 *
 *******************************************************************************/
-void TransmitWordShift_StartEx(cyisraddress address)
+void isr_TransmitWordShift_StartEx(cyisraddress address)
 {
     /* For all we know the interrupt is active. */
-    TransmitWordShift_Disable();
+    isr_TransmitWordShift_Disable();
 
-    /* Set the ISR to point to the TransmitWordShift Interrupt. */
-    TransmitWordShift_SetVector(address);
+    /* Set the ISR to point to the isr_TransmitWordShift Interrupt. */
+    isr_TransmitWordShift_SetVector(address);
 
     /* Set the priority. */
-    TransmitWordShift_SetPriority((uint8)TransmitWordShift_INTC_PRIOR_NUMBER);
+    isr_TransmitWordShift_SetPriority((uint8)isr_TransmitWordShift_INTC_PRIOR_NUMBER);
 
     /* Enable it. */
-    TransmitWordShift_Enable();
+    isr_TransmitWordShift_Enable();
 }
 
 
 /*******************************************************************************
-* Function Name: TransmitWordShift_Stop
+* Function Name: isr_TransmitWordShift_Stop
 ********************************************************************************
 *
 * Summary:
@@ -133,22 +133,22 @@ void TransmitWordShift_StartEx(cyisraddress address)
 *   None
 *
 *******************************************************************************/
-void TransmitWordShift_Stop(void)
+void isr_TransmitWordShift_Stop(void)
 {
     /* Disable this interrupt. */
-    TransmitWordShift_Disable();
+    isr_TransmitWordShift_Disable();
 
     /* Set the ISR to point to the passive one. */
-    TransmitWordShift_SetVector(&IntDefaultHandler);
+    isr_TransmitWordShift_SetVector(&IntDefaultHandler);
 }
 
 
 /*******************************************************************************
-* Function Name: TransmitWordShift_Interrupt
+* Function Name: isr_TransmitWordShift_Interrupt
 ********************************************************************************
 *
 * Summary:
-*   The default Interrupt Service Routine for TransmitWordShift.
+*   The default Interrupt Service Routine for isr_TransmitWordShift.
 *
 *   Add custom code between the coments to keep the next version of this file
 *   from over writting your code.
@@ -159,30 +159,30 @@ void TransmitWordShift_Stop(void)
 *   None
 *
 *******************************************************************************/
-CY_ISR(TransmitWordShift_Interrupt)
+CY_ISR(isr_TransmitWordShift_Interrupt)
 {
-    #ifdef TransmitWordShift_INTERRUPT_INTERRUPT_CALLBACK
-        TransmitWordShift_Interrupt_InterruptCallback();
-    #endif /* TransmitWordShift_INTERRUPT_INTERRUPT_CALLBACK */ 
+    #ifdef isr_TransmitWordShift_INTERRUPT_INTERRUPT_CALLBACK
+        isr_TransmitWordShift_Interrupt_InterruptCallback();
+    #endif /* isr_TransmitWordShift_INTERRUPT_INTERRUPT_CALLBACK */ 
 
     /*  Place your Interrupt code here. */
-    /* `#START TransmitWordShift_Interrupt` */
-        ClearStatus();
+    /* `#START isr_TransmitWordShift_Interrupt` */
+		ClearStatus();
         BitCounterEnc_ReadStatusRegister();
-        TransmitWordShift_ClearPending();
-        TransmitWordShift_Disable();
+        isr_TransmitWordShift_ClearPending();
+        isr_TransmitWordShift_Disable();
     /* `#END` */
 }
 
 
 /*******************************************************************************
-* Function Name: TransmitWordShift_SetVector
+* Function Name: isr_TransmitWordShift_SetVector
 ********************************************************************************
 *
 * Summary:
-*   Change the ISR vector for the Interrupt. Note calling TransmitWordShift_Start
+*   Change the ISR vector for the Interrupt. Note calling isr_TransmitWordShift_Start
 *   will override any effect this method would have had. To set the vector 
-*   before the component has been started use TransmitWordShift_StartEx instead.
+*   before the component has been started use isr_TransmitWordShift_StartEx instead.
 * 
 *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
 *   used to provide consistent definition across compilers:
@@ -202,18 +202,18 @@ CY_ISR(TransmitWordShift_Interrupt)
 *   None
 *
 *******************************************************************************/
-void TransmitWordShift_SetVector(cyisraddress address)
+void isr_TransmitWordShift_SetVector(cyisraddress address)
 {
     cyisraddress * ramVectorTable;
 
     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
 
-    ramVectorTable[CYINT_IRQ_BASE + (uint32)TransmitWordShift__INTC_NUMBER] = address;
+    ramVectorTable[CYINT_IRQ_BASE + (uint32)isr_TransmitWordShift__INTC_NUMBER] = address;
 }
 
 
 /*******************************************************************************
-* Function Name: TransmitWordShift_GetVector
+* Function Name: isr_TransmitWordShift_GetVector
 ********************************************************************************
 *
 * Summary:
@@ -226,26 +226,26 @@ void TransmitWordShift_SetVector(cyisraddress address)
 *   Address of the ISR in the interrupt vector table.
 *
 *******************************************************************************/
-cyisraddress TransmitWordShift_GetVector(void)
+cyisraddress isr_TransmitWordShift_GetVector(void)
 {
     cyisraddress * ramVectorTable;
 
     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
 
-    return ramVectorTable[CYINT_IRQ_BASE + (uint32)TransmitWordShift__INTC_NUMBER];
+    return ramVectorTable[CYINT_IRQ_BASE + (uint32)isr_TransmitWordShift__INTC_NUMBER];
 }
 
 
 /*******************************************************************************
-* Function Name: TransmitWordShift_SetPriority
+* Function Name: isr_TransmitWordShift_SetPriority
 ********************************************************************************
 *
 * Summary:
 *   Sets the Priority of the Interrupt. 
 *
-*   Note calling TransmitWordShift_Start or TransmitWordShift_StartEx will 
+*   Note calling isr_TransmitWordShift_Start or isr_TransmitWordShift_StartEx will 
 *   override any effect this API would have had. This API should only be called
-*   after TransmitWordShift_Start or TransmitWordShift_StartEx has been called. 
+*   after isr_TransmitWordShift_Start or isr_TransmitWordShift_StartEx has been called. 
 *   To set the initial priority for the component, use the Design-Wide Resources
 *   Interrupt Editor.
 *
@@ -260,14 +260,14 @@ cyisraddress TransmitWordShift_GetVector(void)
 *   None
 *
 *******************************************************************************/
-void TransmitWordShift_SetPriority(uint8 priority)
+void isr_TransmitWordShift_SetPriority(uint8 priority)
 {
-    *TransmitWordShift_INTC_PRIOR = priority << 5;
+    *isr_TransmitWordShift_INTC_PRIOR = priority << 5;
 }
 
 
 /*******************************************************************************
-* Function Name: TransmitWordShift_GetPriority
+* Function Name: isr_TransmitWordShift_GetPriority
 ********************************************************************************
 *
 * Summary:
@@ -282,19 +282,19 @@ void TransmitWordShift_SetPriority(uint8 priority)
 *    PSoC 4: Priority is from 0 to 3.
 *
 *******************************************************************************/
-uint8 TransmitWordShift_GetPriority(void)
+uint8 isr_TransmitWordShift_GetPriority(void)
 {
     uint8 priority;
 
 
-    priority = *TransmitWordShift_INTC_PRIOR >> 5;
+    priority = *isr_TransmitWordShift_INTC_PRIOR >> 5;
 
     return priority;
 }
 
 
 /*******************************************************************************
-* Function Name: TransmitWordShift_Enable
+* Function Name: isr_TransmitWordShift_Enable
 ********************************************************************************
 *
 * Summary:
@@ -309,15 +309,15 @@ uint8 TransmitWordShift_GetPriority(void)
 *   None
 *
 *******************************************************************************/
-void TransmitWordShift_Enable(void)
+void isr_TransmitWordShift_Enable(void)
 {
     /* Enable the general interrupt. */
-    *TransmitWordShift_INTC_SET_EN = TransmitWordShift__INTC_MASK;
+    *isr_TransmitWordShift_INTC_SET_EN = isr_TransmitWordShift__INTC_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: TransmitWordShift_GetState
+* Function Name: isr_TransmitWordShift_GetState
 ********************************************************************************
 *
 * Summary:
@@ -330,15 +330,15 @@ void TransmitWordShift_Enable(void)
 *   1 if enabled, 0 if disabled.
 *
 *******************************************************************************/
-uint8 TransmitWordShift_GetState(void)
+uint8 isr_TransmitWordShift_GetState(void)
 {
     /* Get the state of the general interrupt. */
-    return ((*TransmitWordShift_INTC_SET_EN & (uint32)TransmitWordShift__INTC_MASK) != 0u) ? 1u:0u;
+    return ((*isr_TransmitWordShift_INTC_SET_EN & (uint32)isr_TransmitWordShift__INTC_MASK) != 0u) ? 1u:0u;
 }
 
 
 /*******************************************************************************
-* Function Name: TransmitWordShift_Disable
+* Function Name: isr_TransmitWordShift_Disable
 ********************************************************************************
 *
 * Summary:
@@ -351,15 +351,15 @@ uint8 TransmitWordShift_GetState(void)
 *   None
 *
 *******************************************************************************/
-void TransmitWordShift_Disable(void)
+void isr_TransmitWordShift_Disable(void)
 {
     /* Disable the general interrupt. */
-    *TransmitWordShift_INTC_CLR_EN = TransmitWordShift__INTC_MASK;
+    *isr_TransmitWordShift_INTC_CLR_EN = isr_TransmitWordShift__INTC_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: TransmitWordShift_SetPending
+* Function Name: isr_TransmitWordShift_SetPending
 ********************************************************************************
 *
 * Summary:
@@ -378,14 +378,14 @@ void TransmitWordShift_Disable(void)
 *   interrupts).
 *
 *******************************************************************************/
-void TransmitWordShift_SetPending(void)
+void isr_TransmitWordShift_SetPending(void)
 {
-    *TransmitWordShift_INTC_SET_PD = TransmitWordShift__INTC_MASK;
+    *isr_TransmitWordShift_INTC_SET_PD = isr_TransmitWordShift__INTC_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: TransmitWordShift_ClearPending
+* Function Name: isr_TransmitWordShift_ClearPending
 ********************************************************************************
 *
 * Summary:
@@ -403,9 +403,9 @@ void TransmitWordShift_SetPending(void)
 *   None
 *
 *******************************************************************************/
-void TransmitWordShift_ClearPending(void)
+void isr_TransmitWordShift_ClearPending(void)
 {
-    *TransmitWordShift_INTC_CLR_PD = TransmitWordShift__INTC_MASK;
+    *isr_TransmitWordShift_INTC_CLR_PD = isr_TransmitWordShift__INTC_MASK;
 }
 
 #endif /* End check for removal by optimization */

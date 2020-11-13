@@ -1,13 +1,13 @@
-Loading plugins phase: Elapsed time ==> 0s.124ms
+Loading plugins phase: Elapsed time ==> 0s.141ms
 <CYPRESSTAG name="CyDsfit arguments...">
-cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\e.ivanov\Documents\GitHub\generic\Manchester encoder-decoder.cydsn\Manchester encoder-decoder.cyprj -d CY8C5888LTI-LP097 -s C:\Users\e.ivanov\Documents\GitHub\generic\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\wrk.cy.rep\prot_to_com\Manchester encoder-decoder.cydsn\Manchester encoder-decoder.cyprj -d CY8C5888LTI-LP097 -s C:\wrk.cy.rep\prot_to_com\Manchester encoder-decoder.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
 </CYPRESSTAG>
 <CYPRESSTAG name="Design elaboration results...">
 </CYPRESSTAG>
-Elaboration phase: Elapsed time ==> 1s.954ms
+Elaboration phase: Elapsed time ==> 2s.191ms
 <CYPRESSTAG name="HDL generation results...">
 </CYPRESSTAG>
-HDL generation phase: Elapsed time ==> 0s.053ms
+HDL generation phase: Elapsed time ==> 0s.068ms
 <CYPRESSTAG name="Synthesis results...">
 
      | | | | | | |
@@ -24,24 +24,24 @@ HDL generation phase: Elapsed time ==> 0s.053ms
 
 ======================================================================
 Compiling:  Manchester encoder-decoder.v
-Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\bin\warp.exe
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\e.ivanov\Documents\GitHub\generic\Manchester encoder-decoder.cydsn\Manchester encoder-decoder.cyprj -dcpsoc3 Manchester encoder-decoder.v -verilog
+Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\bin\warp.exe
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\wrk.cy.rep\prot_to_com\Manchester encoder-decoder.cydsn\Manchester encoder-decoder.cyprj -dcpsoc3 Manchester encoder-decoder.v -verilog
 ======================================================================
 
 ======================================================================
 Compiling:  Manchester encoder-decoder.v
-Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\bin\warp.exe
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\e.ivanov\Documents\GitHub\generic\Manchester encoder-decoder.cydsn\Manchester encoder-decoder.cyprj -dcpsoc3 Manchester encoder-decoder.v -verilog
+Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\bin\warp.exe
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\wrk.cy.rep\prot_to_com\Manchester encoder-decoder.cydsn\Manchester encoder-decoder.cyprj -dcpsoc3 Manchester encoder-decoder.v -verilog
 ======================================================================
 
 ======================================================================
 Compiling:  Manchester encoder-decoder.v
 Program  :   vlogfe
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\e.ivanov\Documents\GitHub\generic\Manchester encoder-decoder.cydsn\Manchester encoder-decoder.cyprj -dcpsoc3 -verilog Manchester encoder-decoder.v
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\wrk.cy.rep\prot_to_com\Manchester encoder-decoder.cydsn\Manchester encoder-decoder.cyprj -dcpsoc3 -verilog Manchester encoder-decoder.v
 ======================================================================
 
 vlogfe V6.3 IR 41:  Verilog parser
-Thu Oct 08 11:57:31 2020
+Fri Nov 13 16:19:27 2020
 
 
 ======================================================================
@@ -51,47 +51,47 @@ Options  :    -yv2 -q10 Manchester encoder-decoder.v
 ======================================================================
 
 vpp V6.3 IR 41:  Verilog Pre-Processor
-Thu Oct 08 11:57:31 2020
+Fri Nov 13 16:19:27 2020
 
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_vref_v1_70\cy_vref_v1_70.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\not_v1_0\not_v1_0.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\xor_v1_0\xor_v1_0.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cydff_v1_30\cydff_v1_30.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\GlitchFilter_v2_0\GlitchFilter_v2_0.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80\CyControlReg_v1_80.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\and_v1_0\and_v1_0.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\OneTerminal\OneTerminal.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_Counter_v3_0\B_Counter_v3_0.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\BShiftReg_v2_30\BShiftReg_v2_30.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\CyStatusReg_v1_90\CyStatusReg_v1_90.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_vref_v1_70\cy_vref_v1_70.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\not_v1_0\not_v1_0.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\xor_v1_0\xor_v1_0.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cydff_v1_30\cydff_v1_30.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\GlitchFilter_v2_0\GlitchFilter_v2_0.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80\CyControlReg_v1_80.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\and_v1_0\and_v1_0.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\OneTerminal\OneTerminal.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_Counter_v3_0\B_Counter_v3_0.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\BShiftReg_v2_30\BShiftReg_v2_30.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\CyStatusReg_v1_90\CyStatusReg_v1_90.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'
 
 vpp:  No errors.
 
 Library 'work' => directory 'lcpsoc3'
 General_symbol_table
 General_symbol_table
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\std.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\work\cypress.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
 Using control file 'Manchester encoder-decoder.ctl'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3pkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3pkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif'.
 
 vlogfe:  No errors.
 
@@ -99,42 +99,42 @@ vlogfe:  No errors.
 ======================================================================
 Compiling:  Manchester encoder-decoder.v
 Program  :   tovif
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\e.ivanov\Documents\GitHub\generic\Manchester encoder-decoder.cydsn\Manchester encoder-decoder.cyprj -dcpsoc3 -verilog Manchester encoder-decoder.v
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\wrk.cy.rep\prot_to_com\Manchester encoder-decoder.cydsn\Manchester encoder-decoder.cyprj -dcpsoc3 -verilog Manchester encoder-decoder.v
 ======================================================================
 
 tovif V6.3 IR 41:  High-level synthesis
-Thu Oct 08 11:57:31 2020
+Fri Nov 13 16:19:27 2020
 
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\std.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\work\cypress.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
-Linking 'C:\Users\e.ivanov\Documents\GitHub\generic\Manchester encoder-decoder.cydsn\codegentemp\Manchester encoder-decoder.ctl'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_vref_v1_70\cy_vref_v1_70.v'.
-Linking 'C:\Users\e.ivanov\Documents\GitHub\generic\Manchester encoder-decoder.cydsn\codegentemp\Manchester encoder-decoder.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\not_v1_0\not_v1_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\xor_v1_0\xor_v1_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cydff_v1_30\cydff_v1_30.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\GlitchFilter_v2_0\GlitchFilter_v2_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80\CyControlReg_v1_80.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\and_v1_0\and_v1_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\OneTerminal\OneTerminal.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_Counter_v3_0\B_Counter_v3_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\BShiftReg_v2_30\BShiftReg_v2_30.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\CyStatusReg_v1_90\CyStatusReg_v1_90.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3pkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Linking 'C:\wrk.cy.rep\prot_to_com\Manchester encoder-decoder.cydsn\codegentemp\Manchester encoder-decoder.ctl'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_vref_v1_70\cy_vref_v1_70.v'.
+Linking 'C:\wrk.cy.rep\prot_to_com\Manchester encoder-decoder.cydsn\codegentemp\Manchester encoder-decoder.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\not_v1_0\not_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\xor_v1_0\xor_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cydff_v1_30\cydff_v1_30.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\GlitchFilter_v2_0\GlitchFilter_v2_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80\CyControlReg_v1_80.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\and_v1_0\and_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\OneTerminal\OneTerminal.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_Counter_v3_0\B_Counter_v3_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\BShiftReg_v2_30\BShiftReg_v2_30.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\CyStatusReg_v1_90\CyStatusReg_v1_90.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3pkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif'.
 
 tovif:  No errors.
 
@@ -142,43 +142,43 @@ tovif:  No errors.
 ======================================================================
 Compiling:  Manchester encoder-decoder.v
 Program  :   topld
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\e.ivanov\Documents\GitHub\generic\Manchester encoder-decoder.cydsn\Manchester encoder-decoder.cyprj -dcpsoc3 -verilog Manchester encoder-decoder.v
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\wrk.cy.rep\prot_to_com\Manchester encoder-decoder.cydsn\Manchester encoder-decoder.cyprj -dcpsoc3 -verilog Manchester encoder-decoder.v
 ======================================================================
 
 topld V6.3 IR 41:  Synthesis and optimization
-Thu Oct 08 11:57:32 2020
+Fri Nov 13 16:19:28 2020
 
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\std.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\work\cypress.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
-Linking 'C:\Users\e.ivanov\Documents\GitHub\generic\Manchester encoder-decoder.cydsn\codegentemp\Manchester encoder-decoder.ctl'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_vref_v1_70\cy_vref_v1_70.v'.
-Linking 'C:\Users\e.ivanov\Documents\GitHub\generic\Manchester encoder-decoder.cydsn\codegentemp\Manchester encoder-decoder.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\not_v1_0\not_v1_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\xor_v1_0\xor_v1_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cydff_v1_30\cydff_v1_30.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\GlitchFilter_v2_0\GlitchFilter_v2_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80\CyControlReg_v1_80.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\and_v1_0\and_v1_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\OneTerminal\OneTerminal.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_Counter_v3_0\B_Counter_v3_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\BShiftReg_v2_30\BShiftReg_v2_30.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\CyStatusReg_v1_90\CyStatusReg_v1_90.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3pkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\lcpsoc3\stdlogic\cpsoc3.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Linking 'C:\wrk.cy.rep\prot_to_com\Manchester encoder-decoder.cydsn\codegentemp\Manchester encoder-decoder.ctl'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_vref_v1_70\cy_vref_v1_70.v'.
+Linking 'C:\wrk.cy.rep\prot_to_com\Manchester encoder-decoder.cydsn\codegentemp\Manchester encoder-decoder.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\not_v1_0\not_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\xor_v1_0\xor_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cydff_v1_30\cydff_v1_30.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\GlitchFilter_v2_0\GlitchFilter_v2_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80\CyControlReg_v1_80.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\and_v1_0\and_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\OneTerminal\OneTerminal.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_Counter_v3_0\B_Counter_v3_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\BShiftReg_v2_30\BShiftReg_v2_30.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\CyStatusReg_v1_90\CyStatusReg_v1_90.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3pkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\lcpsoc3\stdlogic\cpsoc3.vif'.
 
 ----------------------------------------------------------
 Detecting unused logic.
@@ -511,7 +511,6 @@ Removing Lhs of wire \StartButton_1:status_5\[973] = zero[2]
 Removing Lhs of wire \StartButton_1:status_6\[974] = zero[2]
 Removing Lhs of wire \StartButton_1:status_7\[975] = zero[2]
 Removing Lhs of wire Net_11118[977] = zero[2]
-Removing Rhs of wire Start_1_MS[979] = \Counter_1:Net_48\[1050]
 Removing Lhs of wire Net_11351[981] = tmpOE__DInN_net_0[1]
 Removing Lhs of wire cydff_16R[982] = Net_11446[983]
 Removing Lhs of wire cydff_16S[984] = zero[2]
@@ -520,46 +519,47 @@ Removing Lhs of wire \USBUART:tmpOE__Dp_net_0\[995] = tmpOE__DInN_net_0[1]
 Removing Lhs of wire \Counter_1:Net_82\[1048] = zero[2]
 Removing Lhs of wire \Counter_1:Net_91\[1049] = zero[2]
 Removing Rhs of wire Net_11488[1053] = \Counter_1:Net_42\[1052]
-Removing Lhs of wire tmpOE__S1ms_net_0[1059] = tmpOE__DInN_net_0[1]
-Removing Lhs of wire cydff_1D[1065] = n124[19]
-Removing Lhs of wire \GlitchFilter_1:genblk1[0]:sample\\D\[1066] = Data_0[54]
-Removing Lhs of wire \Waiter:CounterUDB:prevCapture\\D\[1068] = Net_1485[98]
-Removing Lhs of wire \Waiter:CounterUDB:overflow_reg_i\\D\[1069] = \Waiter:CounterUDB:overflow\[149]
-Removing Lhs of wire \Waiter:CounterUDB:underflow_reg_i\\D\[1070] = \Waiter:CounterUDB:underflow\[152]
-Removing Lhs of wire \Waiter:CounterUDB:tc_reg_i\\D\[1071] = \Waiter:CounterUDB:tc_i\[155]
-Removing Lhs of wire \Waiter:CounterUDB:prevCompare\\D\[1072] = \Waiter:CounterUDB:cmp_out_i\[157]
-Removing Lhs of wire \Waiter:CounterUDB:cmp_out_reg_i\\D\[1073] = \Waiter:CounterUDB:cmp_out_i\[157]
-Removing Lhs of wire \Waiter:CounterUDB:count_stored_i\\D\[1074] = Net_4484[163]
-Removing Lhs of wire cydff_2D[1075] = Net_5249[199]
-Removing Lhs of wire \BitCounterDec:CounterUDB:prevCapture\\D\[1076] = zero[2]
-Removing Lhs of wire \BitCounterDec:CounterUDB:overflow_reg_i\\D\[1077] = \BitCounterDec:CounterUDB:overflow\[256]
-Removing Lhs of wire \BitCounterDec:CounterUDB:underflow_reg_i\\D\[1078] = \BitCounterDec:CounterUDB:underflow\[259]
-Removing Lhs of wire \BitCounterDec:CounterUDB:tc_reg_i\\D\[1079] = \BitCounterDec:CounterUDB:reload\[238]
-Removing Lhs of wire \BitCounterDec:CounterUDB:prevCompare\\D\[1080] = \BitCounterDec:CounterUDB:cmp_out_i\[264]
-Removing Lhs of wire \BitCounterDec:CounterUDB:cmp_out_reg_i\\D\[1081] = \BitCounterDec:CounterUDB:cmp_out_i\[264]
-Removing Lhs of wire \BitCounterDec:CounterUDB:count_stored_i\\D\[1082] = Net_10771[203]
-Removing Lhs of wire \RecieveShiftReg:bSR:load_reg\\D\[1083] = zero[2]
-Removing Lhs of wire \GlitchFilter_3:genblk1[0]:samples_1\\D\[1085] = \GlitchFilter_3:genblk1[0]:samples_0\[572]
-Removing Lhs of wire \GlitchFilter_3:genblk1[0]:samples_0\\D\[1086] = preouts_0[565]
-Removing Lhs of wire \GlitchFilter_3:genblk1[1]:samples_1\\D\[1088] = \GlitchFilter_3:genblk1[1]:samples_0\[578]
-Removing Lhs of wire \GlitchFilter_3:genblk1[1]:samples_0\\D\[1089] = preouts_1[567]
-Removing Lhs of wire \GlitchFilter_3:genblk1[2]:samples_1\\D\[1091] = \GlitchFilter_3:genblk1[2]:samples_0\[583]
-Removing Lhs of wire \GlitchFilter_3:genblk1[2]:samples_0\\D\[1092] = preouts_2[566]
-Removing Lhs of wire \TransmitShiftReg:bSR:load_reg\\D\[1094] = Net_10625[631]
-Removing Lhs of wire cydff_12D[1095] = Net_7248[70]
-Removing Lhs of wire \BitCounterEnc:CounterUDB:prevCapture\\D\[1096] = zero[2]
-Removing Lhs of wire \BitCounterEnc:CounterUDB:overflow_reg_i\\D\[1097] = \BitCounterEnc:CounterUDB:overflow\[895]
-Removing Lhs of wire \BitCounterEnc:CounterUDB:underflow_reg_i\\D\[1098] = \BitCounterEnc:CounterUDB:underflow\[898]
-Removing Lhs of wire \BitCounterEnc:CounterUDB:tc_reg_i\\D\[1099] = \BitCounterEnc:CounterUDB:reload\[876]
-Removing Lhs of wire \BitCounterEnc:CounterUDB:prevCompare\\D\[1100] = \BitCounterEnc:CounterUDB:cmp_out_i\[903]
-Removing Lhs of wire \BitCounterEnc:CounterUDB:cmp_out_reg_i\\D\[1101] = \BitCounterEnc:CounterUDB:cmp_out_i\[903]
-Removing Lhs of wire \BitCounterEnc:CounterUDB:count_stored_i\\D\[1102] = Net_10749[97]
-Removing Lhs of wire cydff_11D[1103] = zero[2]
-Removing Lhs of wire cydff_5D[1104] = Net_1037[948]
-Removing Lhs of wire cydff_6D[1105] = Net_10720[953]
-Removing Lhs of wire cydff_8D[1106] = Net_10731[958]
-Removing Lhs of wire cydff_3D[1107] = Net_10746[963]
-Removing Lhs of wire cydff_16D[1108] = tmpOE__DInN_net_0[1]
+Removing Rhs of wire Start_1_MS[1054] = \Counter_1:Net_48\[1050]
+Removing Lhs of wire tmpOE__S1ms_net_0[1060] = tmpOE__DInN_net_0[1]
+Removing Lhs of wire cydff_1D[1066] = n124[19]
+Removing Lhs of wire \GlitchFilter_1:genblk1[0]:sample\\D\[1067] = Data_0[54]
+Removing Lhs of wire \Waiter:CounterUDB:prevCapture\\D\[1069] = Net_1485[98]
+Removing Lhs of wire \Waiter:CounterUDB:overflow_reg_i\\D\[1070] = \Waiter:CounterUDB:overflow\[149]
+Removing Lhs of wire \Waiter:CounterUDB:underflow_reg_i\\D\[1071] = \Waiter:CounterUDB:underflow\[152]
+Removing Lhs of wire \Waiter:CounterUDB:tc_reg_i\\D\[1072] = \Waiter:CounterUDB:tc_i\[155]
+Removing Lhs of wire \Waiter:CounterUDB:prevCompare\\D\[1073] = \Waiter:CounterUDB:cmp_out_i\[157]
+Removing Lhs of wire \Waiter:CounterUDB:cmp_out_reg_i\\D\[1074] = \Waiter:CounterUDB:cmp_out_i\[157]
+Removing Lhs of wire \Waiter:CounterUDB:count_stored_i\\D\[1075] = Net_4484[163]
+Removing Lhs of wire cydff_2D[1076] = Net_5249[199]
+Removing Lhs of wire \BitCounterDec:CounterUDB:prevCapture\\D\[1077] = zero[2]
+Removing Lhs of wire \BitCounterDec:CounterUDB:overflow_reg_i\\D\[1078] = \BitCounterDec:CounterUDB:overflow\[256]
+Removing Lhs of wire \BitCounterDec:CounterUDB:underflow_reg_i\\D\[1079] = \BitCounterDec:CounterUDB:underflow\[259]
+Removing Lhs of wire \BitCounterDec:CounterUDB:tc_reg_i\\D\[1080] = \BitCounterDec:CounterUDB:reload\[238]
+Removing Lhs of wire \BitCounterDec:CounterUDB:prevCompare\\D\[1081] = \BitCounterDec:CounterUDB:cmp_out_i\[264]
+Removing Lhs of wire \BitCounterDec:CounterUDB:cmp_out_reg_i\\D\[1082] = \BitCounterDec:CounterUDB:cmp_out_i\[264]
+Removing Lhs of wire \BitCounterDec:CounterUDB:count_stored_i\\D\[1083] = Net_10771[203]
+Removing Lhs of wire \RecieveShiftReg:bSR:load_reg\\D\[1084] = zero[2]
+Removing Lhs of wire \GlitchFilter_3:genblk1[0]:samples_1\\D\[1086] = \GlitchFilter_3:genblk1[0]:samples_0\[572]
+Removing Lhs of wire \GlitchFilter_3:genblk1[0]:samples_0\\D\[1087] = preouts_0[565]
+Removing Lhs of wire \GlitchFilter_3:genblk1[1]:samples_1\\D\[1089] = \GlitchFilter_3:genblk1[1]:samples_0\[578]
+Removing Lhs of wire \GlitchFilter_3:genblk1[1]:samples_0\\D\[1090] = preouts_1[567]
+Removing Lhs of wire \GlitchFilter_3:genblk1[2]:samples_1\\D\[1092] = \GlitchFilter_3:genblk1[2]:samples_0\[583]
+Removing Lhs of wire \GlitchFilter_3:genblk1[2]:samples_0\\D\[1093] = preouts_2[566]
+Removing Lhs of wire \TransmitShiftReg:bSR:load_reg\\D\[1095] = Net_10625[631]
+Removing Lhs of wire cydff_12D[1096] = Net_7248[70]
+Removing Lhs of wire \BitCounterEnc:CounterUDB:prevCapture\\D\[1097] = zero[2]
+Removing Lhs of wire \BitCounterEnc:CounterUDB:overflow_reg_i\\D\[1098] = \BitCounterEnc:CounterUDB:overflow\[895]
+Removing Lhs of wire \BitCounterEnc:CounterUDB:underflow_reg_i\\D\[1099] = \BitCounterEnc:CounterUDB:underflow\[898]
+Removing Lhs of wire \BitCounterEnc:CounterUDB:tc_reg_i\\D\[1100] = \BitCounterEnc:CounterUDB:reload\[876]
+Removing Lhs of wire \BitCounterEnc:CounterUDB:prevCompare\\D\[1101] = \BitCounterEnc:CounterUDB:cmp_out_i\[903]
+Removing Lhs of wire \BitCounterEnc:CounterUDB:cmp_out_reg_i\\D\[1102] = \BitCounterEnc:CounterUDB:cmp_out_i\[903]
+Removing Lhs of wire \BitCounterEnc:CounterUDB:count_stored_i\\D\[1103] = Net_10749[97]
+Removing Lhs of wire cydff_11D[1104] = zero[2]
+Removing Lhs of wire cydff_5D[1105] = Net_1037[948]
+Removing Lhs of wire cydff_6D[1106] = Net_10720[953]
+Removing Lhs of wire cydff_8D[1107] = Net_10731[958]
+Removing Lhs of wire cydff_3D[1108] = Net_10746[963]
+Removing Lhs of wire cydff_16D[1109] = tmpOE__DInN_net_0[1]
 
 ------------------------------------------------------
 Aliased 0 equations, 207 wires.
@@ -771,18 +771,18 @@ Circuit simplification results:
 
 topld:  No errors.
 
-CYPRESS_DIR    : C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp
-Warp Program   : C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\bin\warp.exe
-Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya "-.fftprj=C:\Users\e.ivanov\Documents\GitHub\generic\Manchester encoder-decoder.cydsn\Manchester encoder-decoder.cyprj" -dcpsoc3 "Manchester encoder-decoder.v" -verilog
+CYPRESS_DIR    : C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp
+Warp Program   : C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\bin\warp.exe
+Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya "-.fftprj=C:\wrk.cy.rep\prot_to_com\Manchester encoder-decoder.cydsn\Manchester encoder-decoder.cyprj" -dcpsoc3 "Manchester encoder-decoder.v" -verilog
 </CYPRESSTAG>
-Warp synthesis phase: Elapsed time ==> 1s.296ms
+Warp synthesis phase: Elapsed time ==> 1s.585ms
 <CYPRESSTAG name="Fitter results...">
 <CYPRESSTAG name="Fitter startup details...">
-cyp3fit: V4.2.0.641, Family: PSoC3, Started at: Thursday, 08 October 2020 11:57:32
-Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\e.ivanov\Documents\GitHub\generic\Manchester encoder-decoder.cydsn\Manchester encoder-decoder.cyprj -d CY8C5888LTI-LP097 Manchester encoder-decoder.v -verilog
+cyp3fit: V4.4.0.80, Family: PSoC3, Started at: Friday, 13 November 2020 16:19:29
+Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\wrk.cy.rep\prot_to_com\Manchester encoder-decoder.cydsn\Manchester encoder-decoder.cyprj -d CY8C5888LTI-LP097 Manchester encoder-decoder.v -verilog
 </CYPRESSTAG>
 <CYPRESSTAG name="Design parsing">
-Design parsing phase: Elapsed time ==> 0s.014ms
+Design parsing phase: Elapsed time ==> 0s.019ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Tech Mapping">
 <CYPRESSTAG name="Initial Mapping" icon="FILE_RPT_TECHM">
@@ -863,9 +863,9 @@ Done removing unused cells.
     Routed Clock: cydff_8:macrocell.q
         Effective Clock: Clock_5
         Enable Signal: cydff_8:macrocell.q
-    Routed Clock: \Counter_1:CounterHW\:timercell.tc
-        Effective Clock: \Counter_1:CounterHW\:timercell.tc
-        Enable Signal: True
+    Routed Clock: Net_11444:macrocell.q
+        Effective Clock: BUS_CLK
+        Enable Signal: Net_11444:macrocell.q
 </CYPRESSTAG>
 ADD: pft.M0040: information: The following 2 pin(s) will be assigned a location by the fitter: \USBUART:Dm(0)\, \USBUART:Dp(0)\
 
@@ -1475,6 +1475,17 @@ Design Equations
         );
         Output = \BitCounterEnc:CounterUDB:count_enable\ (fanout=1)
 
+    MacroCell: Name=Net_11444, Mode=(Combinatorial)
+        Total # of inputs        : 2
+        Total # of product terms : 2
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              !Net_7248 * Frame_clear_1
+            + Net_7248 * !Frame_clear_1
+        );
+        Output = Net_11444 (fanout=1)
+
     MacroCell: Name=__ZERO__, Mode=(Combinatorial)
         Total # of inputs        : 0
         Total # of product terms : 0
@@ -1650,7 +1661,7 @@ Design Equations
             + n124 * !n123
             + !\GlitchFilter_6:counter_done_0\ * Frame_clear_1
         );
-        Output = Frame_clear_1 (fanout=13)
+        Output = Frame_clear_1 (fanout=14)
 
     MacroCell: Name=\GlitchFilter_3:genblk1[0]:samples_1\, Mode=(D-Register)
         Total # of inputs        : 1
@@ -1919,9 +1930,9 @@ Design Equations
         Total # of inputs        : 0
         Total # of product terms : 0
         List of special equations: 
-            Clock  = (Start_1_MS)
+            Clock  = (ClockBlock_BUS_CLK) => Global
             Reset  = !(Net_11447)
-            Clock Enable: True
+            Clock Enable: PosEdge(Net_11444)
         Main Equation            : 0 pterms
         !(
             0
@@ -2637,7 +2648,7 @@ Design Equations
             is_nmi = 0
         }
 
-    interrupt: Name =TransmitWordShift
+    interrupt: Name =isr_TransmitWordShift
         PORT MAP (
             interrupt => Net_10110 );
         Properties:
@@ -2767,9 +2778,9 @@ USB                           :    1 :    0 :    1 : 100.00 %
 DMA Channels                  :    0 :   24 :   24 :  0.00 %
 Timer                         :    1 :    3 :    4 : 25.00 %
 UDB                           :      :      :      :        
-  Macrocells                  :   49 :  143 :  192 : 25.52 %
-  Unique P-terms              :   63 :  321 :  384 : 16.41 %
-  Total P-terms               :   68 :      :      :        
+  Macrocells                  :   50 :  142 :  192 : 26.04 %
+  Unique P-terms              :   65 :  319 :  384 : 16.93 %
+  Total P-terms               :   70 :      :      :        
   Datapath Cells              :   12 :   12 :   24 : 50.00 %
   Status Cells                :    6 :   18 :   24 : 25.00 %
     Status Registers          :    1 :      :      :        
@@ -2785,16 +2796,16 @@ Analog (SC/CT) Blocks         :    0 :    4 :    4 :  0.00 %
 DAC                           :      :      :      :        
   VIDAC                       :    1 :    3 :    4 : 25.00 %
 </CYPRESSTAG>
-Technology Mapping: Elapsed time ==> 0s.117ms
-Tech Mapping phase: Elapsed time ==> 0s.187ms
+Technology Mapping: Elapsed time ==> 0s.155ms
+Tech Mapping phase: Elapsed time ==> 0s.227ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Placement">
 Initial Analog Placement Results:
-IO_4@[IOP=(15)][IoId=(4)] : DInN(0) (fixed)
-IO_5@[IOP=(15)][IoId=(5)] : DInP(0) (fixed)
+IO_5@[IOP=(15)][IoId=(5)] : DInN(0) (fixed)
+IO_4@[IOP=(15)][IoId=(4)] : DInP(0) (fixed)
 IO_0@[IOP=(12)][IoId=(0)] : DOut1N(0) (fixed)
 IO_1@[IOP=(12)][IoId=(1)] : DOut1P(0) (fixed)
-IO_5@[IOP=(3)][IoId=(5)] : EN1(0) (fixed)
+IO_6@[IOP=(0)][IoId=(6)] : EN1(0) (fixed)
 IO_0@[IOP=(0)][IoId=(0)] : S1ms(0) (fixed)
 IO_1@[IOP=(0)][IoId=(1)] : Vout_1(0) (fixed)
 OpAmp[0]@[FFB(OpAmp,0)] : \Opamp_1:ABuf\ (fixed)
@@ -2805,47 +2816,47 @@ Comparator[0]@[FFB(Comparator,0)] : \Comp_2:ctComp\
 USB[0]@[FFB(USB,0)] : \USBUART:USB\
 VIDAC[0]@[FFB(VIDAC,0)] : \VDAC8_1:viDAC8\
 Vref[1]@[FFB(Vref,1)] : vRef_1
-Log: apr.M0058: The analog placement iterative improvement is 32% done. (App=cydsfit)
-Log: apr.M0058: The analog placement iterative improvement is 60% done. (App=cydsfit)
+Log: apr.M0058: The analog placement iterative improvement is 35% done. (App=cydsfit)
+Log: apr.M0058: The analog placement iterative improvement is 62% done. (App=cydsfit)
 Analog Placement Results:
-IO_4@[IOP=(15)][IoId=(4)] : DInN(0) (fixed)
-IO_5@[IOP=(15)][IoId=(5)] : DInP(0) (fixed)
+IO_5@[IOP=(15)][IoId=(5)] : DInN(0) (fixed)
+IO_4@[IOP=(15)][IoId=(4)] : DInP(0) (fixed)
 IO_0@[IOP=(12)][IoId=(0)] : DOut1N(0) (fixed)
 IO_1@[IOP=(12)][IoId=(1)] : DOut1P(0) (fixed)
-IO_5@[IOP=(3)][IoId=(5)] : EN1(0) (fixed)
+IO_6@[IOP=(0)][IoId=(6)] : EN1(0) (fixed)
 IO_0@[IOP=(0)][IoId=(0)] : S1ms(0) (fixed)
 IO_1@[IOP=(0)][IoId=(1)] : Vout_1(0) (fixed)
 OpAmp[0]@[FFB(OpAmp,0)] : \Opamp_1:ABuf\ (fixed)
 IO_7@[IOP=(15)][IoId=(7)] : \USBUART:Dm(0)\ (fixed)
 IO_6@[IOP=(15)][IoId=(6)] : \USBUART:Dp(0)\ (fixed)
-Comparator[0]@[FFB(Comparator,0)] : \Comp_1:ctComp\
-Comparator[2]@[FFB(Comparator,2)] : \Comp_2:ctComp\
+Comparator[2]@[FFB(Comparator,2)] : \Comp_1:ctComp\
+Comparator[0]@[FFB(Comparator,0)] : \Comp_2:ctComp\
 USB[0]@[FFB(USB,0)] : \USBUART:USB\
 VIDAC[2]@[FFB(VIDAC,2)] : \VDAC8_1:viDAC8\
 Vref[1]@[FFB(Vref,1)] : vRef_1
 
-Analog Placement phase: Elapsed time ==> 0s.890ms
+Analog Placement phase: Elapsed time ==> 1s.083ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Routing">
-Analog Routing phase: Elapsed time ==> 0s.003ms
+Analog Routing phase: Elapsed time ==> 0s.002ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Code Generation">
 ============ Analog Final Answer Routes ============
 Dump of CyAnalogRoutingResultsDB
 Map of net to items {
   Net: Net_58 {
-    comp_0_vminus
-    agl0_x_comp_0_vminus
-    agl0
-    agl0_x_p15_4
-    p15_4
-  }
-  Net: Net_10739 {
     comp_2_vminus
     agl1_x_comp_2_vminus
     agl1
     agl1_x_p15_5
     p15_5
+  }
+  Net: Net_10739 {
+    comp_0_vminus
+    agl0_x_comp_0_vminus
+    agl0
+    agl0_x_p15_4
+    p15_4
   }
   Net: Net_63 {
     p0_1
@@ -2874,16 +2885,16 @@ Map of net to items {
   }
 }
 Map of item to net {
-  comp_0_vminus                                    -> Net_58
-  agl0_x_comp_0_vminus                             -> Net_58
-  agl0                                             -> Net_58
-  agl0_x_p15_4                                     -> Net_58
-  p15_4                                            -> Net_58
-  comp_2_vminus                                    -> Net_10739
-  agl1_x_comp_2_vminus                             -> Net_10739
-  agl1                                             -> Net_10739
-  agl1_x_p15_5                                     -> Net_10739
-  p15_5                                            -> Net_10739
+  comp_2_vminus                                    -> Net_58
+  agl1_x_comp_2_vminus                             -> Net_58
+  agl1                                             -> Net_58
+  agl1_x_p15_5                                     -> Net_58
+  p15_5                                            -> Net_58
+  comp_0_vminus                                    -> Net_10739
+  agl0_x_comp_0_vminus                             -> Net_10739
+  agl0                                             -> Net_10739
+  agl0_x_p15_4                                     -> Net_10739
+  p15_4                                            -> Net_10739
   p0_1                                             -> Net_63
   opamp_0_vminus_x_p0_1                            -> Net_63
   opamp_0_vminus                                   -> Net_63
@@ -2908,11 +2919,11 @@ Dump of CyP35AnalogRoutingResultsDB
 IsVddaHalfUsedForComp = True
 IsVddaHalfUsedForSar0 = False
 IsVddaHalfUsedForSar1 = False
-Analog Code Generation phase: Elapsed time ==> 0s.010ms
+Analog Code Generation phase: Elapsed time ==> 0s.012ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Placement">
 <CYPRESSTAG name="Detailed placement messages">
-I2076: Total run-time: 1.2 sec.
+I2076: Total run-time: 1.3 sec.
 
 </CYPRESSTAG>
 <CYPRESSTAG name="PLD Packing">
@@ -2929,21 +2940,21 @@ PLD Packing Summary
 
         PLD Resource Type :     Average/LAB
     =======================================
-                   Inputs :            3.28
-                   Pterms :            2.72
-               Macrocells :            1.96
+                   Inputs :            3.48
+                   Pterms :            2.80
+               Macrocells :            2.00
 </CYPRESSTAG>
 <CYPRESSTAG name="Packed PLD Contents">
 Packed PLD Contents not displayed at this verbose level.</CYPRESSTAG>
 </CYPRESSTAG>
-PLD Packing: Elapsed time ==> 0s.001ms
+PLD Packing: Elapsed time ==> 0s.000ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Partitioning">
 <CYPRESSTAG name="Initial Partitioning Summary">
 Initial Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
 <CYPRESSTAG name="Final Partitioning Summary">
 Final Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
-Partitioning: Elapsed time ==> 0s.077ms
+Partitioning: Elapsed time ==> 0s.079ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Final Placement Summary">
 
@@ -2953,120 +2964,389 @@ Final Placement Summary
 
        Resource Type :      Count : Avg Inputs : Avg Outputs
     ========================================================
-                 UDB :         15 :       4.47 :       3.27
+                 UDB :         14 :       5.21 :       3.57
 <CYPRESSTAG name="Final Placement Details">
 <CYPRESSTAG name="Component Details">
 
 ------------------------------------------------------------
 Component Placement Details
 ------------------------------------------------------------
-UDB [UDB=(0,0)] is empty.
-UDB [UDB=(0,1)] is empty.
-UDB [UDB=(0,2)] is empty.
-UDB [UDB=(0,3)] contents:
-LAB@[UDB=(0,3)][LB=0] #macrocells=1, #inputs=0, #pterms=0
-{
-    [McSlotId=0]:     MacroCell: Name=Net_10457, Mode=(D-Register) @ [UDB=(0,3)][LB=0][MC=0]
-        Total # of inputs        : 0
-        Total # of product terms : 0
-        List of special equations: 
-            Clock  = (Start_1_MS)
-            Reset  = !(Net_11447)
-            Clock Enable: True
-        Main Equation            : 0 pterms
-        !(
-            0
-        );
-        Output = Net_10457 (fanout=3)
-        Properties               : 
-        {
-        }
-
-    [McSlotId=1]: (empty)
-    [McSlotId=2]: (empty)
-    [McSlotId=3]: (empty)
-}
-
-controlcell: Name =\StartTransmit:Sync:ctrl_reg\
-    PORT MAP (
-        control_7 => \StartTransmit:control_7\ ,
-        control_6 => \StartTransmit:control_6\ ,
-        control_5 => \StartTransmit:control_5\ ,
-        control_4 => \StartTransmit:control_4\ ,
-        control_3 => \StartTransmit:control_3\ ,
-        control_2 => \StartTransmit:control_2\ ,
-        control_1 => \StartTransmit:control_1\ ,
-        control_0 => Net_11447 );
-    Properties:
-    {
-        cy_ctrl_mode_0 = "00000000"
-        cy_ctrl_mode_1 = "00000000"
-        cy_ext_reset = 0
-        cy_force_order = 1
-        cy_init_value = "00000000"
-    }
-    Clock Enable: True
-
-UDB [UDB=(0,4)] is empty.
-UDB [UDB=(0,5)] is empty.
-UDB [UDB=(1,0)] is empty.
-UDB [UDB=(1,1)] is empty.
-UDB [UDB=(1,2)] is empty.
-UDB [UDB=(1,3)] contents:
-LAB@[UDB=(1,3)][LB=0] #macrocells=1, #inputs=0, #pterms=0
-{
-    [McSlotId=0]:     MacroCell: Name=cydff_8, Mode=(T-Register) @ [UDB=(1,3)][LB=0][MC=0]
-        Total # of inputs        : 0
-        Total # of product terms : 0
-        List of special equations: 
-            Clock  = (Net_10896) => Global
-            Preset = !(Net_10511)
-            Clock Enable: PosEdge(Net_1037)
-        Main Equation            : 0 pterms
-        !(
-            0
-        );
-        Output = cydff_8 (fanout=1)
-        Properties               : 
-        {
-        }
-
-    [McSlotId=1]: (empty)
-    [McSlotId=2]: (empty)
-    [McSlotId=3]: (empty)
-}
-
-LAB@[UDB=(1,3)][LB=1] #macrocells=2, #inputs=2, #pterms=2
+UDB [UDB=(0,0)] contents:
+LAB@[UDB=(0,0)][LB=1] #macrocells=1, #inputs=0, #pterms=0
 {
     [McSlotId=0]: (empty)
-    [McSlotId=1]:     MacroCell: Name=Net_1037, Mode=(D-Register) @ [UDB=(1,3)][LB=1][MC=1]
-        Total # of inputs        : 2
-        Total # of product terms : 1
-        List of special equations: 
-            Clock  = (Net_10896) => Global
-            Preset = !(Net_10511)
+    [McSlotId=1]: (empty)
+    [McSlotId=2]:     MacroCell: Name=__ZERO__, Mode=(Combinatorial) @ [UDB=(0,0)][LB=1][MC=2]
+        Total # of inputs        : 0
+        Total # of product terms : 0
             Clock Enable: True
-        Main Equation            : 1 pterm
-        !(
-              cydff_5 * Net_1037
+        Main Equation            : 0 pterms
+        (
+            0
         );
-        Output = Net_1037 (fanout=3)
+        Output = __ZERO__ (fanout=1)
         Properties               : 
         {
         }
 
-    [McSlotId=2]:     MacroCell: Name=cydff_5, Mode=(D-Register) @ [UDB=(1,3)][LB=1][MC=2]
+    [McSlotId=3]: (empty)
+}
+
+UDB [UDB=(0,1)] is empty.
+UDB [UDB=(0,2)] is empty.
+UDB [UDB=(0,3)] is empty.
+UDB [UDB=(0,4)] is empty.
+UDB [UDB=(0,5)] is empty.
+UDB [UDB=(1,0)] contents:
+LAB@[UDB=(1,0)][LB=1] #macrocells=1, #inputs=0, #pterms=0
+{
+    [McSlotId=0]: (empty)
+    [McSlotId=1]: (empty)
+    [McSlotId=2]: (empty)
+    [McSlotId=3]:     MacroCell: Name=__ONE__, Mode=(Combinatorial) @ [UDB=(1,0)][LB=1][MC=3]
+        Total # of inputs        : 0
+        Total # of product terms : 0
+            Clock Enable: True
+        Main Equation            : 0 pterms
+        !(
+            0
+        );
+        Output = __ONE__ (fanout=7)
+        Properties               : 
+        {
+        }
+}
+
+UDB [UDB=(1,1)] is empty.
+UDB [UDB=(1,2)] is empty.
+UDB [UDB=(1,3)] is empty.
+UDB [UDB=(1,4)] is empty.
+UDB [UDB=(1,5)] is empty.
+UDB [UDB=(2,0)] contents:
+LAB@[UDB=(2,0)][LB=0] #macrocells=1, #inputs=6, #pterms=5
+{
+    [McSlotId=0]: (empty)
+    [McSlotId=1]:     MacroCell: Name=My_wire_1, Mode=(T-Register) @ [UDB=(2,0)][LB=0][MC=1]
+        Total # of inputs        : 6
+        Total # of product terms : 5
+        List of special equations: 
+            Clock  = (ClockBlock_BUS_CLK) => Global
+            Clock Enable: True
+        Main Equation            : 5 pterms
+        (
+              !Net_10649 * !Net_10749 * My_wire_1 * 
+              !\GlitchFilter_3:genblk1[1]:samples_1\ * 
+              !\GlitchFilter_3:genblk1[1]:samples_0\
+            + !Net_10649 * Net_10749 * !My_wire_1 * preouts_2 * 
+              \GlitchFilter_3:genblk1[1]:samples_1\ * 
+              \GlitchFilter_3:genblk1[1]:samples_0\
+            + Net_10649 * !Net_10749 * !My_wire_1 * preouts_2 * 
+              \GlitchFilter_3:genblk1[1]:samples_1\ * 
+              \GlitchFilter_3:genblk1[1]:samples_0\
+            + Net_10649 * Net_10749 * My_wire_1 * 
+              !\GlitchFilter_3:genblk1[1]:samples_1\ * 
+              !\GlitchFilter_3:genblk1[1]:samples_0\
+            + My_wire_1 * !preouts_2 * !\GlitchFilter_3:genblk1[1]:samples_1\ * 
+              !\GlitchFilter_3:genblk1[1]:samples_0\
+        );
+        Output = My_wire_1 (fanout=2)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]: (empty)
+    [McSlotId=3]: (empty)
+}
+
+LAB@[UDB=(2,0)][LB=1] #macrocells=1, #inputs=1, #pterms=1
+{
+    [McSlotId=0]: (empty)
+    [McSlotId=1]:     MacroCell: Name=\GlitchFilter_3:genblk1[1]:samples_1\, Mode=(D-Register) @ [UDB=(2,0)][LB=1][MC=1]
         Total # of inputs        : 1
         Total # of product terms : 1
         List of special equations: 
-            Clock  = (Net_10896) => Global
-            Preset = !(Net_10511)
+            Clock  = (ClockBlock_BUS_CLK) => Global
             Clock Enable: True
         Main Equation            : 1 pterm
         (
-              Net_1037
+              \GlitchFilter_3:genblk1[1]:samples_0\
         );
-        Output = cydff_5 (fanout=1)
+        Output = \GlitchFilter_3:genblk1[1]:samples_1\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]: (empty)
+    [McSlotId=3]: (empty)
+}
+
+datapathcell: Name =\RecieveShiftReg:bSR:sC32:BShiftRegDp:u0\
+    PORT MAP (
+        clock => ClockBlock_BUS_CLK ,
+        cs_addr_2 => \RecieveShiftReg:bSR:ctrl_clk_enable\ ,
+        route_si => cydff_2 ,
+        f1_load => \BitCounterDec:CounterUDB:prevCompare\ ,
+        chain_out => \RecieveShiftReg:bSR:sC32:BShiftRegDp:carry0\ ,
+        clk_en => Net_10771 );
+    Properties:
+    {
+        a0_init = "00000000"
+        a1_init = "00000000"
+        ce0_sync = 1
+        ce1_sync = 1
+        cl0_sync = 1
+        cl1_sync = 1
+        cmsb_sync = 1
+        co_msb_sync = 1
+        cy_dpconfig = "0000100000000000000010000000000000001000000000000000100000000000000010010101000010101000010000000000000011000000101010000100000011111111000000001111111111111111010101011110101000001000011100000000000000011100"
+        d0_init = "00000000"
+        d1_init = "00000000"
+        f0_blk_sync = 1
+        f0_bus_sync = 1
+        f1_blk_sync = 1
+        f1_bus_sync = 1
+        ff0_sync = 1
+        ff1_sync = 1
+        ov_msb_sync = 1
+        so_sync = 1
+        z0_sync = 1
+        z1_sync = 1
+    }
+    Clock Polarity: Active High
+    Clock Enable: PosEdge(Net_10771)
+    Next in chain : \RecieveShiftReg:bSR:sC32:BShiftRegDp:u1\
+
+UDB [UDB=(2,1)] contents:
+LAB@[UDB=(2,1)][LB=0] #macrocells=2, #inputs=3, #pterms=3
+{
+    [McSlotId=0]:     MacroCell: Name=Net_110, Mode=(D-Register) @ [UDB=(2,1)][LB=0][MC=0]
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (ClockBlock_BUS_CLK) => Global
+            Clock Enable: PosEdge(Net_10449)
+        Main Equation            : 1 pterm
+        (
+              n124
+        );
+        Output = Net_110 (fanout=2)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]: (empty)
+    [McSlotId=2]: (empty)
+    [McSlotId=3]:     MacroCell: Name=Net_10449, Mode=(Combinatorial) @ [UDB=(2,1)][LB=0][MC=3]
+        Total # of inputs        : 3
+        Total # of product terms : 2
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              !n124 * n123 * !Frame_clear_1
+            + n124 * !n123 * !Frame_clear_1
+        );
+        Output = Net_10449 (fanout=1)
+        Properties               : 
+        {
+        }
+}
+
+LAB@[UDB=(2,1)][LB=1] #macrocells=2, #inputs=5, #pterms=3
+{
+    [McSlotId=0]:     MacroCell: Name=\Waiter:CounterUDB:prevCapture\, Mode=(D-Register) @ [UDB=(2,1)][LB=1][MC=0]
+        Total # of inputs        : 2
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (ClockBlock_BUS_CLK) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              Data_sync_0 * Frame_clear_1
+        );
+        Output = \Waiter:CounterUDB:prevCapture\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]: (empty)
+    [McSlotId=2]: (empty)
+    [McSlotId=3]:     MacroCell: Name=\GlitchFilter_3:genblk1[1]:samples_0\, Mode=(D-Register) @ [UDB=(2,1)][LB=1][MC=3]
+        Total # of inputs        : 3
+        Total # of product terms : 2
+        List of special equations: 
+            Clock  = (ClockBlock_BUS_CLK) => Global
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              !Net_10649 * Net_10749 * preouts_2
+            + Net_10649 * !Net_10749 * preouts_2
+        );
+        Output = \GlitchFilter_3:genblk1[1]:samples_0\ (fanout=2)
+        Properties               : 
+        {
+        }
+}
+
+datapathcell: Name =\RecieveShiftReg:bSR:sC32:BShiftRegDp:u3\
+    PORT MAP (
+        clock => ClockBlock_BUS_CLK ,
+        cs_addr_2 => \RecieveShiftReg:bSR:ctrl_clk_enable\ ,
+        route_si => cydff_2 ,
+        f1_load => \BitCounterDec:CounterUDB:prevCompare\ ,
+        f0_bus_stat_comb => \RecieveShiftReg:bSR:status_4\ ,
+        f0_blk_stat_comb => \RecieveShiftReg:bSR:status_3\ ,
+        f1_bus_stat_comb => \RecieveShiftReg:bSR:status_6\ ,
+        f1_blk_stat_comb => \RecieveShiftReg:bSR:status_5\ ,
+        chain_in => \RecieveShiftReg:bSR:sC32:BShiftRegDp:carry2\ ,
+        clk_en => Net_10771 );
+    Properties:
+    {
+        a0_init = "00000000"
+        a1_init = "00000000"
+        ce0_sync = 1
+        ce1_sync = 1
+        cl0_sync = 1
+        cl1_sync = 1
+        cmsb_sync = 1
+        co_msb_sync = 1
+        cy_dpconfig = "0000100000000000000010000000000000001000000000000000100000000000000010010101000010101000010000000000000011000000101010000100000011111111000000001111111111111111010101011110111100001000111100100000000000011100"
+        d0_init = "00000000"
+        d1_init = "00000000"
+        f0_blk_sync = 1
+        f0_bus_sync = 1
+        f1_blk_sync = 1
+        f1_bus_sync = 1
+        ff0_sync = 1
+        ff1_sync = 1
+        ov_msb_sync = 1
+        so_sync = 1
+        z0_sync = 1
+        z1_sync = 1
+    }
+    Clock Polarity: Active High
+    Clock Enable: PosEdge(Net_10771)
+    Previous in chain : \RecieveShiftReg:bSR:sC32:BShiftRegDp:u2\
+
+statusicell: Name =\RecieveShiftReg:bSR:StsReg\
+    PORT MAP (
+        clock => ClockBlock_BUS_CLK ,
+        status_6 => \RecieveShiftReg:bSR:status_6\ ,
+        status_5 => \RecieveShiftReg:bSR:status_5\ ,
+        status_4 => \RecieveShiftReg:bSR:status_4\ ,
+        status_3 => \RecieveShiftReg:bSR:status_3\ ,
+        status_1 => \BitCounterDec:CounterUDB:prevCompare\ ,
+        interrupt => Net_7168 ,
+        clk_en => Net_10771 );
+    Properties:
+    {
+        cy_force_order = 1
+        cy_int_mask = "0000111"
+        cy_md_select = "0000111"
+    }
+    Clock Polarity: Active High
+    Clock Enable: PosEdge(Net_10771)
+
+UDB [UDB=(2,2)] contents:
+LAB@[UDB=(2,2)][LB=0] #macrocells=3, #inputs=5, #pterms=8
+{
+    [McSlotId=0]:     MacroCell: Name=FrameRX_1, Mode=(Combinatorial) @ [UDB=(2,2)][LB=0][MC=0]
+        Total # of inputs        : 2
+        Total # of product terms : 2
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              !n124 * n123
+            + n124 * !n123
+        );
+        Output = FrameRX_1 (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=Data_sync_0, Mode=(T-Register) @ [UDB=(2,2)][LB=0][MC=1]
+        Total # of inputs        : 4
+        Total # of product terms : 4
+        List of special equations: 
+            Clock  = (ClockBlock_BUS_CLK) => Global
+            Clock Enable: True
+        Main Equation            : 4 pterms
+        (
+              !n123 * !Net_110 * !\GlitchFilter_1:genblk1[0]:sample\ * 
+              Data_sync_0
+            + !n123 * Net_110 * \GlitchFilter_1:genblk1[0]:sample\ * 
+              !Data_sync_0
+            + n123 * !Net_110 * \GlitchFilter_1:genblk1[0]:sample\ * 
+              !Data_sync_0
+            + n123 * Net_110 * !\GlitchFilter_1:genblk1[0]:sample\ * 
+              Data_sync_0
+        );
+        Output = Data_sync_0 (fanout=6)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]: (empty)
+    [McSlotId=3]:     MacroCell: Name=\GlitchFilter_1:genblk1[0]:sample\, Mode=(D-Register) @ [UDB=(2,2)][LB=0][MC=3]
+        Total # of inputs        : 2
+        Total # of product terms : 2
+        List of special equations: 
+            Clock  = (ClockBlock_BUS_CLK) => Global
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              !n123 * Net_110
+            + n123 * !Net_110
+        );
+        Output = \GlitchFilter_1:genblk1[0]:sample\ (fanout=1)
+        Properties               : 
+        {
+        }
+}
+
+LAB@[UDB=(2,2)][LB=1] #macrocells=3, #inputs=4, #pterms=6
+{
+    [McSlotId=0]:     MacroCell: Name=Net_10771, Mode=(Combinatorial) @ [UDB=(2,2)][LB=1][MC=0]
+        Total # of inputs        : 3
+        Total # of product terms : 3
+            Clock Enable: True
+        Main Equation            : 3 pterms
+        (
+              !Data_sync_0 * cydff_2
+            + Data_sync_0 * !cydff_2 * Frame_clear_1
+            + cydff_2 * !Frame_clear_1
+        );
+        Output = Net_10771 (fanout=6)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=cydff_2, Mode=(T-Register) @ [UDB=(2,2)][LB=1][MC=1]
+        Total # of inputs        : 0
+        Total # of product terms : 0
+        List of special equations: 
+            Clock  = (ClockBlock_BUS_CLK) => Global
+            Preset = !(Frame_clear_1)
+            Clock Enable: PosEdge(\Waiter:CounterUDB:prevCompare\)
+        Main Equation            : 0 pterms
+        !(
+            0
+        );
+        Output = cydff_2 (fanout=7)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]:     MacroCell: Name=\Waiter:CounterUDB:hwCapture\, Mode=(Combinatorial) @ [UDB=(2,2)][LB=1][MC=2]
+        Total # of inputs        : 3
+        Total # of product terms : 3
+            Clock Enable: True
+        Main Equation            : 3 pterms
+        (
+              !Data_sync_0 * \Waiter:CounterUDB:prevCapture\
+            + Data_sync_0 * !\Waiter:CounterUDB:prevCapture\ * Frame_clear_1
+            + \Waiter:CounterUDB:prevCapture\ * !Frame_clear_1
+        );
+        Output = \Waiter:CounterUDB:hwCapture\ (fanout=3)
         Properties               : 
         {
         }
@@ -3107,19 +3387,35 @@ datapathcell: Name =\GlitchFilter_6:genblk2:Counter0:DP:u0\
     Clock Polarity: Active High
     Clock Enable: True
 
-UDB [UDB=(1,4)] contents:
-LAB@[UDB=(1,4)][LB=0] #macrocells=1, #inputs=0, #pterms=0
+UDB [UDB=(2,3)] contents:
+LAB@[UDB=(2,3)][LB=0] #macrocells=2, #inputs=3, #pterms=1
 {
-    [McSlotId=0]: (empty)
-    [McSlotId=1]:     MacroCell: Name=__ONE__, Mode=(Combinatorial) @ [UDB=(1,4)][LB=0][MC=1]
+    [McSlotId=0]:     MacroCell: Name=\TransmitShiftReg:bSR:status_0\, Mode=(Combinatorial) @ [UDB=(2,3)][LB=0][MC=0]
+        Total # of inputs        : 3
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\TransmitShiftReg:bSR:load_reg\ * Net_10457 * 
+              \BitCounterEnc:CounterUDB:prevCompare\
+        );
+        Output = \TransmitShiftReg:bSR:status_0\ (fanout=5)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=Net_10457, Mode=(D-Register) @ [UDB=(2,3)][LB=0][MC=1]
         Total # of inputs        : 0
         Total # of product terms : 0
-            Clock Enable: True
+        List of special equations: 
+            Clock  = (ClockBlock_BUS_CLK) => Global
+            Reset  = !(Net_11447)
+            Clock Enable: PosEdge(Net_11444)
         Main Equation            : 0 pterms
         !(
             0
         );
-        Output = __ONE__ (fanout=7)
+        Output = Net_10457 (fanout=3)
         Properties               : 
         {
         }
@@ -3128,11 +3424,103 @@ LAB@[UDB=(1,4)][LB=0] #macrocells=1, #inputs=0, #pterms=0
     [McSlotId=3]: (empty)
 }
 
-UDB [UDB=(1,5)] is empty.
-UDB [UDB=(2,0)] contents:
-LAB@[UDB=(2,0)][LB=0] #macrocells=3, #inputs=4, #pterms=3
+LAB@[UDB=(2,3)][LB=1] #macrocells=2, #inputs=3, #pterms=3
 {
-    [McSlotId=0]:     MacroCell: Name=\TransmitShiftReg:bSR:load_reg\, Mode=(D-Register) @ [UDB=(2,0)][LB=0][MC=0]
+    [McSlotId=0]: (empty)
+    [McSlotId=1]:     MacroCell: Name=Net_11444, Mode=(Combinatorial) @ [UDB=(2,3)][LB=1][MC=1]
+        Total # of inputs        : 2
+        Total # of product terms : 2
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              !Net_7248 * Frame_clear_1
+            + Net_7248 * !Frame_clear_1
+        );
+        Output = Net_11444 (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]:     MacroCell: Name=\BitCounterEnc:CounterUDB:prevCompare\, Mode=(D-Register) @ [UDB=(2,3)][LB=1][MC=2]
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (ClockBlock_BUS_CLK) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\BitCounterEnc:CounterUDB:cmp_less\
+        );
+        Output = \BitCounterEnc:CounterUDB:prevCompare\ (fanout=3)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]: (empty)
+}
+
+datapathcell: Name =\BitCounterEnc:CounterUDB:sC8:counterdp:u0\
+    PORT MAP (
+        clock => ClockBlock_BUS_CLK ,
+        cs_addr_2 => __ONE__ ,
+        cs_addr_1 => \BitCounterEnc:CounterUDB:count_enable\ ,
+        cs_addr_0 => \BitCounterEnc:CounterUDB:reload\ ,
+        ce0_comb => \BitCounterEnc:CounterUDB:reload\ ,
+        z0_comb => \BitCounterEnc:CounterUDB:status_1\ ,
+        cl1_comb => \BitCounterEnc:CounterUDB:cmp_less\ ,
+        f0_bus_stat_comb => \BitCounterEnc:CounterUDB:status_6\ ,
+        f0_blk_stat_comb => \BitCounterEnc:CounterUDB:status_5\ );
+    Properties:
+    {
+        a0_init = "00000000"
+        a1_init = "00000000"
+        ce0_sync = 1
+        ce1_sync = 1
+        cl0_sync = 1
+        cl1_sync = 1
+        cmsb_sync = 1
+        co_msb_sync = 1
+        cy_dpconfig = "0000000001000000000000001000000001000000010000000000000010000000000000000100000010101000010100000010000001000000101010000101000011111111000000001111111111111111101000000000000000000001000000000000000000011000"
+        d0_init = "00000000"
+        d1_init = "00000000"
+        f0_blk_sync = 1
+        f0_bus_sync = 1
+        f1_blk_sync = 1
+        f1_bus_sync = 1
+        ff0_sync = 1
+        ff1_sync = 1
+        ov_msb_sync = 1
+        so_sync = 1
+        z0_sync = 1
+        z1_sync = 1
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
+controlcell: Name =\StartTransmit:Sync:ctrl_reg\
+    PORT MAP (
+        control_7 => \StartTransmit:control_7\ ,
+        control_6 => \StartTransmit:control_6\ ,
+        control_5 => \StartTransmit:control_5\ ,
+        control_4 => \StartTransmit:control_4\ ,
+        control_3 => \StartTransmit:control_3\ ,
+        control_2 => \StartTransmit:control_2\ ,
+        control_1 => \StartTransmit:control_1\ ,
+        control_0 => Net_11447 );
+    Properties:
+    {
+        cy_ctrl_mode_0 = "00000000"
+        cy_ctrl_mode_1 = "00000000"
+        cy_ext_reset = 0
+        cy_force_order = 1
+        cy_init_value = "00000000"
+    }
+    Clock Enable: True
+
+UDB [UDB=(2,4)] contents:
+LAB@[UDB=(2,4)][LB=0] #macrocells=2, #inputs=3, #pterms=2
+{
+    [McSlotId=0]:     MacroCell: Name=\TransmitShiftReg:bSR:load_reg\, Mode=(D-Register) @ [UDB=(2,4)][LB=0][MC=0]
         Total # of inputs        : 2
         Total # of product terms : 1
         List of special equations: 
@@ -3147,7 +3535,7 @@ LAB@[UDB=(2,0)][LB=0] #macrocells=3, #inputs=4, #pterms=3
         {
         }
 
-    [McSlotId=1]:     MacroCell: Name=preouts_2, Mode=(D-Register) @ [UDB=(2,0)][LB=0][MC=1]
+    [McSlotId=1]:     MacroCell: Name=preouts_2, Mode=(D-Register) @ [UDB=(2,4)][LB=0][MC=1]
         Total # of inputs        : 1
         Total # of product terms : 1
         List of special equations: 
@@ -3164,27 +3552,15 @@ LAB@[UDB=(2,0)][LB=0] #macrocells=3, #inputs=4, #pterms=3
         }
 
     [McSlotId=2]: (empty)
-    [McSlotId=3]:     MacroCell: Name=\TransmitShiftReg:bSR:status_0\, Mode=(Combinatorial) @ [UDB=(2,0)][LB=0][MC=3]
-        Total # of inputs        : 3
-        Total # of product terms : 1
-            Clock Enable: True
-        Main Equation            : 1 pterm
-        (
-              !\TransmitShiftReg:bSR:load_reg\ * Net_10457 * 
-              \BitCounterEnc:CounterUDB:prevCompare\
-        );
-        Output = \TransmitShiftReg:bSR:status_0\ (fanout=5)
-        Properties               : 
-        {
-        }
+    [McSlotId=3]: (empty)
 }
 
-LAB@[UDB=(2,0)][LB=1] #macrocells=1, #inputs=1, #pterms=1
+LAB@[UDB=(2,4)][LB=1] #macrocells=1, #inputs=1, #pterms=1
 {
     [McSlotId=0]: (empty)
     [McSlotId=1]: (empty)
     [McSlotId=2]: (empty)
-    [McSlotId=3]:     MacroCell: Name=\BitCounterEnc:CounterUDB:overflow_reg_i\, Mode=(D-Register) @ [UDB=(2,0)][LB=1][MC=3]
+    [McSlotId=3]:     MacroCell: Name=\BitCounterEnc:CounterUDB:overflow_reg_i\, Mode=(D-Register) @ [UDB=(2,4)][LB=1][MC=3]
         Total # of inputs        : 1
         Total # of product terms : 1
         List of special equations: 
@@ -3198,134 +3574,6 @@ LAB@[UDB=(2,0)][LB=1] #macrocells=1, #inputs=1, #pterms=1
         Properties               : 
         {
         }
-}
-
-datapathcell: Name =\TransmitShiftReg:bSR:sC32:BShiftRegDp:u0\
-    PORT MAP (
-        clock => Net_10896 ,
-        cs_addr_2 => \TransmitShiftReg:bSR:ctrl_clk_enable\ ,
-        cs_addr_1 => \TransmitShiftReg:bSR:status_0\ ,
-        route_si => __ONE__ ,
-        chain_out => \TransmitShiftReg:bSR:sC32:BShiftRegDp:carry0\ ,
-        clk_en => Net_10749 );
-    Properties:
-    {
-        a0_init = "00000000"
-        a1_init = "00000000"
-        ce0_sync = 1
-        ce1_sync = 1
-        cl0_sync = 1
-        cl1_sync = 1
-        cmsb_sync = 1
-        co_msb_sync = 1
-        cy_dpconfig = "0000100000000000000010000000000000001000000000000000100000000000000010010101000010101000010000000000000011000000101010000100000011111111000000001111111111111111010101011110101000001000011100000000000000011100"
-        d0_init = "00000000"
-        d1_init = "00000000"
-        f0_blk_sync = 1
-        f0_bus_sync = 1
-        f1_blk_sync = 1
-        f1_bus_sync = 1
-        ff0_sync = 1
-        ff1_sync = 1
-        ov_msb_sync = 1
-        so_sync = 1
-        z0_sync = 1
-        z1_sync = 1
-    }
-    Clock Polarity: Active High
-    Clock Enable: PosEdge(Net_10749)
-    Next in chain : \TransmitShiftReg:bSR:sC32:BShiftRegDp:u1\
-
-controlcell: Name =\FrameAllow:Sync:ctrl_reg\
-    PORT MAP (
-        control_7 => \FrameAllow:control_7\ ,
-        control_6 => \FrameAllow:control_6\ ,
-        control_5 => \FrameAllow:control_5\ ,
-        control_4 => \FrameAllow:control_4\ ,
-        control_3 => \FrameAllow:control_3\ ,
-        control_2 => \FrameAllow:control_2\ ,
-        control_1 => \FrameAllow:control_1\ ,
-        control_0 => Net_7248 );
-    Properties:
-    {
-        cy_ctrl_mode_0 = "00000000"
-        cy_ctrl_mode_1 = "00000000"
-        cy_ext_reset = 0
-        cy_force_order = 1
-        cy_init_value = "00000000"
-    }
-    Clock Enable: True
-
-UDB [UDB=(2,1)] contents:
-LAB@[UDB=(2,1)][LB=0] #macrocells=3, #inputs=4, #pterms=3
-{
-    [McSlotId=0]: (empty)
-    [McSlotId=1]:     MacroCell: Name=\BitCounterEnc:CounterUDB:prevCompare\, Mode=(D-Register) @ [UDB=(2,1)][LB=0][MC=1]
-        Total # of inputs        : 1
-        Total # of product terms : 1
-        List of special equations: 
-            Clock  = (ClockBlock_BUS_CLK) => Global
-            Clock Enable: True
-        Main Equation            : 1 pterm
-        (
-              !\BitCounterEnc:CounterUDB:cmp_less\
-        );
-        Output = \BitCounterEnc:CounterUDB:prevCompare\ (fanout=3)
-        Properties               : 
-        {
-        }
-
-    [McSlotId=2]:     MacroCell: Name=\BitCounterEnc:CounterUDB:status_2\, Mode=(Combinatorial) @ [UDB=(2,1)][LB=0][MC=2]
-        Total # of inputs        : 2
-        Total # of product terms : 1
-            Clock Enable: True
-        Main Equation            : 1 pterm
-        (
-              \BitCounterEnc:CounterUDB:reload\ * 
-              !\BitCounterEnc:CounterUDB:overflow_reg_i\
-        );
-        Output = \BitCounterEnc:CounterUDB:status_2\ (fanout=1)
-        Properties               : 
-        {
-        }
-
-    [McSlotId=3]:     MacroCell: Name=\BitCounterEnc:CounterUDB:count_stored_i\, Mode=(D-Register) @ [UDB=(2,1)][LB=0][MC=3]
-        Total # of inputs        : 1
-        Total # of product terms : 1
-        List of special equations: 
-            Clock  = (ClockBlock_BUS_CLK) => Global
-            Clock Enable: True
-        Main Equation            : 1 pterm
-        (
-              Net_10749
-        );
-        Output = \BitCounterEnc:CounterUDB:count_stored_i\ (fanout=1)
-        Properties               : 
-        {
-        }
-}
-
-LAB@[UDB=(2,1)][LB=1] #macrocells=1, #inputs=0, #pterms=0
-{
-    [McSlotId=0]:     MacroCell: Name=Net_10511, Mode=(D-Register) @ [UDB=(2,1)][LB=1][MC=0]
-        Total # of inputs        : 0
-        Total # of product terms : 0
-        List of special equations: 
-            Clock  = (ClockBlock_BUS_CLK) => Global
-            Preset = (Net_10457)
-            Clock Enable: PosEdge(\BitCounterEnc:CounterUDB:overflow_reg_i\)
-        Main Equation            : 0 pterms
-        (
-            0
-        );
-        Output = Net_10511 (fanout=6)
-        Properties               : 
-        {
-        }
-
-    [McSlotId=1]: (empty)
-    [McSlotId=2]: (empty)
-    [McSlotId=3]: (empty)
 }
 
 datapathcell: Name =\TransmitShiftReg:bSR:sC32:BShiftRegDp:u3\
@@ -3369,119 +3617,6 @@ datapathcell: Name =\TransmitShiftReg:bSR:sC32:BShiftRegDp:u3\
     Clock Enable: PosEdge(Net_10749)
     Previous in chain : \TransmitShiftReg:bSR:sC32:BShiftRegDp:u2\
 
-statusicell: Name =\BitCounterEnc:CounterUDB:sSTSReg:stsreg\
-    PORT MAP (
-        clock => ClockBlock_BUS_CLK ,
-        status_6 => \BitCounterEnc:CounterUDB:status_6\ ,
-        status_5 => \BitCounterEnc:CounterUDB:status_5\ ,
-        status_2 => \BitCounterEnc:CounterUDB:status_2\ ,
-        status_1 => \BitCounterEnc:CounterUDB:status_1\ ,
-        status_0 => \BitCounterEnc:CounterUDB:status_0\ ,
-        interrupt => Net_10110 );
-    Properties:
-    {
-        cy_force_order = 1
-        cy_int_mask = "1111111"
-        cy_md_select = "0011111"
-    }
-    Clock Polarity: Active High
-    Clock Enable: True
-
-UDB [UDB=(2,2)] contents:
-LAB@[UDB=(2,2)][LB=0] #macrocells=1, #inputs=2, #pterms=1
-{
-    [McSlotId=0]: (empty)
-    [McSlotId=1]: (empty)
-    [McSlotId=2]: (empty)
-    [McSlotId=3]:     MacroCell: Name=\BitCounterEnc:CounterUDB:status_0\, Mode=(Combinatorial) @ [UDB=(2,2)][LB=0][MC=3]
-        Total # of inputs        : 2
-        Total # of product terms : 1
-            Clock Enable: True
-        Main Equation            : 1 pterm
-        (
-              !\BitCounterEnc:CounterUDB:cmp_less\ * 
-              !\BitCounterEnc:CounterUDB:prevCompare\
-        );
-        Output = \BitCounterEnc:CounterUDB:status_0\ (fanout=1)
-        Properties               : 
-        {
-        }
-}
-
-LAB@[UDB=(2,2)][LB=1] #macrocells=2, #inputs=3, #pterms=1
-{
-    [McSlotId=0]:     MacroCell: Name=\BitCounterEnc:CounterUDB:count_enable\, Mode=(Combinatorial) @ [UDB=(2,2)][LB=1][MC=0]
-        Total # of inputs        : 3
-        Total # of product terms : 1
-            Clock Enable: True
-        Main Equation            : 1 pterm
-        (
-              Net_10749 * Net_10511 * 
-              !\BitCounterEnc:CounterUDB:count_stored_i\
-        );
-        Output = \BitCounterEnc:CounterUDB:count_enable\ (fanout=1)
-        Properties               : 
-        {
-        }
-
-    [McSlotId=1]:     MacroCell: Name=Net_10749, Mode=(T-Register) @ [UDB=(2,2)][LB=1][MC=1]
-        Total # of inputs        : 0
-        Total # of product terms : 0
-        List of special equations: 
-            Clock  = (Net_10896) => Global
-            Preset = !(Net_10511)
-            Clock Enable: PosEdge(cydff_8)
-        Main Equation            : 0 pterms
-        !(
-            0
-        );
-        Output = Net_10749 (fanout=14)
-        Properties               : 
-        {
-        }
-
-    [McSlotId=2]: (empty)
-    [McSlotId=3]: (empty)
-}
-
-datapathcell: Name =\BitCounterEnc:CounterUDB:sC8:counterdp:u0\
-    PORT MAP (
-        clock => ClockBlock_BUS_CLK ,
-        cs_addr_2 => __ONE__ ,
-        cs_addr_1 => \BitCounterEnc:CounterUDB:count_enable\ ,
-        cs_addr_0 => \BitCounterEnc:CounterUDB:reload\ ,
-        ce0_comb => \BitCounterEnc:CounterUDB:reload\ ,
-        z0_comb => \BitCounterEnc:CounterUDB:status_1\ ,
-        cl1_comb => \BitCounterEnc:CounterUDB:cmp_less\ ,
-        f0_bus_stat_comb => \BitCounterEnc:CounterUDB:status_6\ ,
-        f0_blk_stat_comb => \BitCounterEnc:CounterUDB:status_5\ );
-    Properties:
-    {
-        a0_init = "00000000"
-        a1_init = "00000000"
-        ce0_sync = 1
-        ce1_sync = 1
-        cl0_sync = 1
-        cl1_sync = 1
-        cmsb_sync = 1
-        co_msb_sync = 1
-        cy_dpconfig = "0000000001000000000000001000000001000000010000000000000010000000000000000100000010101000010100000010000001000000101010000101000011111111000000001111111111111111101000000000000000000001000000000000000000011000"
-        d0_init = "00000000"
-        d1_init = "00000000"
-        f0_blk_sync = 1
-        f0_bus_sync = 1
-        f1_blk_sync = 1
-        f1_bus_sync = 1
-        ff0_sync = 1
-        ff1_sync = 1
-        ov_msb_sync = 1
-        so_sync = 1
-        z0_sync = 1
-        z1_sync = 1
-    }
-    Clock Polarity: Active High
-    Clock Enable: True
-
 statusicell: Name =\TransmitShiftReg:bSR:StsReg\
     PORT MAP (
         clock => Net_10896 ,
@@ -3501,127 +3636,107 @@ statusicell: Name =\TransmitShiftReg:bSR:StsReg\
     Clock Polarity: Active High
     Clock Enable: PosEdge(Net_10749)
 
-UDB [UDB=(2,3)] contents:
-LAB@[UDB=(2,3)][LB=0] #macrocells=4, #inputs=8, #pterms=7
+controlcell: Name =\FrameAllow:Sync:ctrl_reg\
+    PORT MAP (
+        control_7 => \FrameAllow:control_7\ ,
+        control_6 => \FrameAllow:control_6\ ,
+        control_5 => \FrameAllow:control_5\ ,
+        control_4 => \FrameAllow:control_4\ ,
+        control_3 => \FrameAllow:control_3\ ,
+        control_2 => \FrameAllow:control_2\ ,
+        control_1 => \FrameAllow:control_1\ ,
+        control_0 => Net_7248 );
+    Properties:
+    {
+        cy_ctrl_mode_0 = "00000000"
+        cy_ctrl_mode_1 = "00000000"
+        cy_ext_reset = 0
+        cy_force_order = 1
+        cy_init_value = "00000000"
+    }
+    Clock Enable: True
+
+UDB [UDB=(2,5)] contents:
+LAB@[UDB=(2,5)][LB=0] #macrocells=1, #inputs=2, #pterms=1
 {
-    [McSlotId=0]:     MacroCell: Name=\BitCounterDec:CounterUDB:count_stored_i\, Mode=(D-Register) @ [UDB=(2,3)][LB=0][MC=0]
-        Total # of inputs        : 3
-        Total # of product terms : 3
-        List of special equations: 
-            Clock  = (ClockBlock_BUS_CLK) => Global
-            Clock Enable: True
-        Main Equation            : 3 pterms
-        (
-              !Data_sync_0 * cydff_2
-            + Data_sync_0 * !cydff_2 * Frame_clear_1
-            + cydff_2 * !Frame_clear_1
-        );
-        Output = \BitCounterDec:CounterUDB:count_stored_i\ (fanout=1)
-        Properties               : 
-        {
-        }
-
-    [McSlotId=1]:     MacroCell: Name=FrameRX_1, Mode=(Combinatorial) @ [UDB=(2,3)][LB=0][MC=1]
+    [McSlotId=0]:     MacroCell: Name=Net_1037, Mode=(D-Register) @ [UDB=(2,5)][LB=0][MC=0]
         Total # of inputs        : 2
-        Total # of product terms : 2
-            Clock Enable: True
-        Main Equation            : 2 pterms
-        (
-              !n124 * n123
-            + n124 * !n123
-        );
-        Output = FrameRX_1 (fanout=1)
-        Properties               : 
-        {
-        }
-
-    [McSlotId=2]:     MacroCell: Name=\Waiter:CounterUDB:status_2\, Mode=(Combinatorial) @ [UDB=(2,3)][LB=0][MC=2]
-        Total # of inputs        : 2
-        Total # of product terms : 1
-            Clock Enable: True
-        Main Equation            : 1 pterm
-        (
-              \Waiter:CounterUDB:per_equal\ * 
-              !\Waiter:CounterUDB:overflow_reg_i\
-        );
-        Output = \Waiter:CounterUDB:status_2\ (fanout=1)
-        Properties               : 
-        {
-        }
-
-    [McSlotId=3]:     MacroCell: Name=\Waiter:CounterUDB:prevCompare\, Mode=(D-Register) @ [UDB=(2,3)][LB=0][MC=3]
-        Total # of inputs        : 1
         Total # of product terms : 1
         List of special equations: 
-            Clock  = (ClockBlock_BUS_CLK) => Global
+            Clock  = (Net_10896) => Global
+            Preset = !(Net_10511)
             Clock Enable: True
         Main Equation            : 1 pterm
-        (
-              !\Waiter:CounterUDB:cmp_less\
+        !(
+              cydff_5 * Net_1037
         );
-        Output = \Waiter:CounterUDB:prevCompare\ (fanout=2)
-        Properties               : 
-        {
-        }
-}
-
-LAB@[UDB=(2,3)][LB=1] #macrocells=3, #inputs=5, #pterms=3
-{
-    [McSlotId=0]:     MacroCell: Name=\Waiter:CounterUDB:status_0\, Mode=(Combinatorial) @ [UDB=(2,3)][LB=1][MC=0]
-        Total # of inputs        : 2
-        Total # of product terms : 1
-            Clock Enable: True
-        Main Equation            : 1 pterm
-        (
-              !\Waiter:CounterUDB:cmp_less\ * 
-              !\Waiter:CounterUDB:prevCompare\
-        );
-        Output = \Waiter:CounterUDB:status_0\ (fanout=1)
+        Output = Net_1037 (fanout=3)
         Properties               : 
         {
         }
 
     [McSlotId=1]: (empty)
-    [McSlotId=2]:     MacroCell: Name=\Waiter:CounterUDB:prevCapture\, Mode=(D-Register) @ [UDB=(2,3)][LB=1][MC=2]
+    [McSlotId=2]: (empty)
+    [McSlotId=3]: (empty)
+}
+
+LAB@[UDB=(2,5)][LB=1] #macrocells=3, #inputs=5, #pterms=3
+{
+    [McSlotId=0]:     MacroCell: Name=\BitCounterEnc:CounterUDB:status_0\, Mode=(Combinatorial) @ [UDB=(2,5)][LB=1][MC=0]
         Total # of inputs        : 2
         Total # of product terms : 1
-        List of special equations: 
-            Clock  = (ClockBlock_BUS_CLK) => Global
             Clock Enable: True
         Main Equation            : 1 pterm
         (
-              Data_sync_0 * Frame_clear_1
+              !\BitCounterEnc:CounterUDB:cmp_less\ * 
+              !\BitCounterEnc:CounterUDB:prevCompare\
         );
-        Output = \Waiter:CounterUDB:prevCapture\ (fanout=1)
+        Output = \BitCounterEnc:CounterUDB:status_0\ (fanout=1)
         Properties               : 
         {
         }
 
-    [McSlotId=3]:     MacroCell: Name=\Waiter:CounterUDB:overflow_reg_i\, Mode=(D-Register) @ [UDB=(2,3)][LB=1][MC=3]
+    [McSlotId=1]:     MacroCell: Name=cydff_5, Mode=(D-Register) @ [UDB=(2,5)][LB=1][MC=1]
         Total # of inputs        : 1
         Total # of product terms : 1
         List of special equations: 
-            Clock  = (ClockBlock_BUS_CLK) => Global
+            Clock  = (Net_10896) => Global
+            Preset = !(Net_10511)
             Clock Enable: True
         Main Equation            : 1 pterm
         (
-              \Waiter:CounterUDB:per_equal\
+              Net_1037
         );
-        Output = \Waiter:CounterUDB:overflow_reg_i\ (fanout=1)
+        Output = cydff_5 (fanout=1)
         Properties               : 
         {
         }
+
+    [McSlotId=2]:     MacroCell: Name=\BitCounterEnc:CounterUDB:status_2\, Mode=(Combinatorial) @ [UDB=(2,5)][LB=1][MC=2]
+        Total # of inputs        : 2
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \BitCounterEnc:CounterUDB:reload\ * 
+              !\BitCounterEnc:CounterUDB:overflow_reg_i\
+        );
+        Output = \BitCounterEnc:CounterUDB:status_2\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]: (empty)
 }
 
-datapathcell: Name =\RecieveShiftReg:bSR:sC32:BShiftRegDp:u2\
+datapathcell: Name =\TransmitShiftReg:bSR:sC32:BShiftRegDp:u0\
     PORT MAP (
-        clock => ClockBlock_BUS_CLK ,
-        cs_addr_2 => \RecieveShiftReg:bSR:ctrl_clk_enable\ ,
-        route_si => cydff_2 ,
-        f1_load => \BitCounterDec:CounterUDB:prevCompare\ ,
-        chain_in => \RecieveShiftReg:bSR:sC32:BShiftRegDp:carry1\ ,
-        chain_out => \RecieveShiftReg:bSR:sC32:BShiftRegDp:carry2\ ,
-        clk_en => Net_10771 );
+        clock => Net_10896 ,
+        cs_addr_2 => \TransmitShiftReg:bSR:ctrl_clk_enable\ ,
+        cs_addr_1 => \TransmitShiftReg:bSR:status_0\ ,
+        route_si => __ONE__ ,
+        chain_out => \TransmitShiftReg:bSR:sC32:BShiftRegDp:carry0\ ,
+        clk_en => Net_10749 );
     Properties:
     {
         a0_init = "00000000"
@@ -3632,7 +3747,7 @@ datapathcell: Name =\RecieveShiftReg:bSR:sC32:BShiftRegDp:u2\
         cl1_sync = 1
         cmsb_sync = 1
         co_msb_sync = 1
-        cy_dpconfig = "0000100000000000000010000000000000001000000000000000100000000000000010010101000010101000010000000000000011000000101010000100000011111111000000001111111111111111010101011110111100001000011100100000000000011100"
+        cy_dpconfig = "0000100000000000000010000000000000001000000000000000100000000000000010010101000010101000010000000000000011000000101010000100000011111111000000001111111111111111010101011110101000001000011100000000000000011100"
         d0_init = "00000000"
         d1_init = "00000000"
         f0_blk_sync = 1
@@ -3647,20 +3762,18 @@ datapathcell: Name =\RecieveShiftReg:bSR:sC32:BShiftRegDp:u2\
         z1_sync = 1
     }
     Clock Polarity: Active High
-    Clock Enable: PosEdge(Net_10771)
-    Previous in chain : \RecieveShiftReg:bSR:sC32:BShiftRegDp:u1\
-    Next in chain : \RecieveShiftReg:bSR:sC32:BShiftRegDp:u3\
+    Clock Enable: PosEdge(Net_10749)
+    Next in chain : \TransmitShiftReg:bSR:sC32:BShiftRegDp:u1\
 
-statusicell: Name =\Waiter:CounterUDB:sSTSReg:stsreg\
+statusicell: Name =\BitCounterEnc:CounterUDB:sSTSReg:stsreg\
     PORT MAP (
-        reset => Frame_clear_1 ,
         clock => ClockBlock_BUS_CLK ,
-        status_6 => \Waiter:CounterUDB:status_6\ ,
-        status_5 => \Waiter:CounterUDB:status_5\ ,
-        status_4 => \Waiter:CounterUDB:hwCapture\ ,
-        status_2 => \Waiter:CounterUDB:status_2\ ,
-        status_1 => \Waiter:CounterUDB:status_1\ ,
-        status_0 => \Waiter:CounterUDB:status_0\ );
+        status_6 => \BitCounterEnc:CounterUDB:status_6\ ,
+        status_5 => \BitCounterEnc:CounterUDB:status_5\ ,
+        status_2 => \BitCounterEnc:CounterUDB:status_2\ ,
+        status_1 => \BitCounterEnc:CounterUDB:status_1\ ,
+        status_0 => \BitCounterEnc:CounterUDB:status_0\ ,
+        interrupt => Net_10110 );
     Properties:
     {
         cy_force_order = 1
@@ -3670,11 +3783,10 @@ statusicell: Name =\Waiter:CounterUDB:sSTSReg:stsreg\
     Clock Polarity: Active High
     Clock Enable: True
 
-UDB [UDB=(2,4)] contents:
-LAB@[UDB=(2,4)][LB=0] #macrocells=3, #inputs=5, #pterms=5
+UDB [UDB=(3,0)] contents:
+LAB@[UDB=(3,0)][LB=0] #macrocells=2, #inputs=7, #pterms=6
 {
-    [McSlotId=0]: (empty)
-    [McSlotId=1]:     MacroCell: Name=Net_10779, Mode=(Combinatorial) @ [UDB=(2,4)][LB=0][MC=1]
+    [McSlotId=0]:     MacroCell: Name=Net_10779, Mode=(Combinatorial) @ [UDB=(3,0)][LB=0][MC=0]
         Total # of inputs        : 1
         Total # of product terms : 1
             Clock Enable: True
@@ -3687,7 +3799,56 @@ LAB@[UDB=(2,4)][LB=0] #macrocells=3, #inputs=5, #pterms=5
         {
         }
 
-    [McSlotId=2]:     MacroCell: Name=\Waiter:CounterUDB:count_stored_i\, Mode=(D-Register) @ [UDB=(2,4)][LB=0][MC=2]
+    [McSlotId=1]:     MacroCell: Name=My_wire_0, Mode=(T-Register) @ [UDB=(3,0)][LB=0][MC=1]
+        Total # of inputs        : 6
+        Total # of product terms : 5
+        List of special equations: 
+            Clock  = (ClockBlock_BUS_CLK) => Global
+            Clock Enable: True
+        Main Equation            : 5 pterms
+        (
+              !Net_10649 * !Net_10749 * preouts_2 * 
+              \GlitchFilter_3:genblk1[0]:samples_1\ * 
+              \GlitchFilter_3:genblk1[0]:samples_0\ * !My_wire_0
+            + !Net_10649 * Net_10749 * !\GlitchFilter_3:genblk1[0]:samples_1\ * 
+              !\GlitchFilter_3:genblk1[0]:samples_0\ * My_wire_0
+            + Net_10649 * !Net_10749 * !\GlitchFilter_3:genblk1[0]:samples_1\ * 
+              !\GlitchFilter_3:genblk1[0]:samples_0\ * My_wire_0
+            + Net_10649 * Net_10749 * preouts_2 * 
+              \GlitchFilter_3:genblk1[0]:samples_1\ * 
+              \GlitchFilter_3:genblk1[0]:samples_0\ * !My_wire_0
+            + !preouts_2 * !\GlitchFilter_3:genblk1[0]:samples_1\ * 
+              !\GlitchFilter_3:genblk1[0]:samples_0\ * My_wire_0
+        );
+        Output = My_wire_0 (fanout=2)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]: (empty)
+    [McSlotId=3]: (empty)
+}
+
+LAB@[UDB=(3,0)][LB=1] #macrocells=2, #inputs=4, #pterms=3
+{
+    [McSlotId=0]: (empty)
+    [McSlotId=1]:     MacroCell: Name=\GlitchFilter_3:genblk1[0]:samples_0\, Mode=(D-Register) @ [UDB=(3,0)][LB=1][MC=1]
+        Total # of inputs        : 3
+        Total # of product terms : 2
+        List of special equations: 
+            Clock  = (ClockBlock_BUS_CLK) => Global
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              !Net_10649 * !Net_10749 * preouts_2
+            + Net_10649 * Net_10749 * preouts_2
+        );
+        Output = \GlitchFilter_3:genblk1[0]:samples_0\ (fanout=2)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]:     MacroCell: Name=\GlitchFilter_3:genblk1[0]:samples_1\, Mode=(D-Register) @ [UDB=(3,0)][LB=1][MC=2]
         Total # of inputs        : 1
         Total # of product terms : 1
         List of special equations: 
@@ -3695,93 +3856,14 @@ LAB@[UDB=(2,4)][LB=0] #macrocells=3, #inputs=5, #pterms=5
             Clock Enable: True
         Main Equation            : 1 pterm
         (
-              Net_4484_local
+              \GlitchFilter_3:genblk1[0]:samples_0\
         );
-        Output = \Waiter:CounterUDB:count_stored_i\ (fanout=1)
+        Output = \GlitchFilter_3:genblk1[0]:samples_1\ (fanout=1)
         Properties               : 
         {
         }
 
-    [McSlotId=3]:     MacroCell: Name=Frame_clear_1, Mode=(D-Register) @ [UDB=(2,4)][LB=0][MC=3]
-        Total # of inputs        : 4
-        Total # of product terms : 3
-        List of special equations: 
-            Clock  = (ClockBlock_BUS_CLK) => Global
-            Clock Enable: True
-        Main Equation            : 3 pterms
-        (
-              !n124 * n123
-            + n124 * !n123
-            + !\GlitchFilter_6:counter_done_0\ * Frame_clear_1
-        );
-        Output = Frame_clear_1 (fanout=13)
-        Properties               : 
-        {
-        }
-}
-
-LAB@[UDB=(2,4)][LB=1] #macrocells=4, #inputs=8, #pterms=6
-{
-    [McSlotId=0]:     MacroCell: Name=\Waiter:CounterUDB:count_enable\, Mode=(Combinatorial) @ [UDB=(2,4)][LB=1][MC=0]
-        Total # of inputs        : 3
-        Total # of product terms : 1
-            Clock Enable: True
-        Main Equation            : 1 pterm
-        (
-              !\Waiter:CounterUDB:count_stored_i\ * Frame_clear_1 * 
-              Net_4484_local
-        );
-        Output = \Waiter:CounterUDB:count_enable\ (fanout=1)
-        Properties               : 
-        {
-        }
-
-    [McSlotId=1]:     MacroCell: Name=cydff_2, Mode=(T-Register) @ [UDB=(2,4)][LB=1][MC=1]
-        Total # of inputs        : 0
-        Total # of product terms : 0
-        List of special equations: 
-            Clock  = (ClockBlock_BUS_CLK) => Global
-            Preset = !(Frame_clear_1)
-            Clock Enable: PosEdge(\Waiter:CounterUDB:prevCompare\)
-        Main Equation            : 0 pterms
-        !(
-            0
-        );
-        Output = cydff_2 (fanout=7)
-        Properties               : 
-        {
-        }
-
-    [McSlotId=2]:     MacroCell: Name=\BitCounterDec:CounterUDB:count_enable\, Mode=(Combinatorial) @ [UDB=(2,4)][LB=1][MC=2]
-        Total # of inputs        : 5
-        Total # of product terms : 2
-            Clock Enable: True
-        Main Equation            : 2 pterms
-        (
-              !Data_sync_0 * cydff_2 * \BitCounterDec:CounterUDB:control_7\ * 
-              !\BitCounterDec:CounterUDB:count_stored_i\ * Frame_clear_1
-            + Data_sync_0 * !cydff_2 * \BitCounterDec:CounterUDB:control_7\ * 
-              !\BitCounterDec:CounterUDB:count_stored_i\ * Frame_clear_1
-        );
-        Output = \BitCounterDec:CounterUDB:count_enable\ (fanout=1)
-        Properties               : 
-        {
-        }
-
-    [McSlotId=3]:     MacroCell: Name=\Waiter:CounterUDB:hwCapture\, Mode=(Combinatorial) @ [UDB=(2,4)][LB=1][MC=3]
-        Total # of inputs        : 3
-        Total # of product terms : 3
-            Clock Enable: True
-        Main Equation            : 3 pterms
-        (
-              !Data_sync_0 * \Waiter:CounterUDB:prevCapture\
-            + Data_sync_0 * !\Waiter:CounterUDB:prevCapture\ * Frame_clear_1
-            + \Waiter:CounterUDB:prevCapture\ * !Frame_clear_1
-        );
-        Output = \Waiter:CounterUDB:hwCapture\ (fanout=3)
-        Properties               : 
-        {
-        }
+    [McSlotId=3]: (empty)
 }
 
 datapathcell: Name =\RecieveShiftReg:bSR:sC32:BShiftRegDp:u1\
@@ -3832,6 +3914,283 @@ statuscell: Name =\StartButton_1:sts:sts_reg\
     }
     Clock Enable: True
 
+controlcell: Name =\RecieveShiftReg:bSR:SyncCtl:CtrlReg\
+    PORT MAP (
+        clock => ClockBlock_BUS_CLK ,
+        control_7 => \RecieveShiftReg:bSR:control_7\ ,
+        control_6 => \RecieveShiftReg:bSR:control_6\ ,
+        control_5 => \RecieveShiftReg:bSR:control_5\ ,
+        control_4 => \RecieveShiftReg:bSR:control_4\ ,
+        control_3 => \RecieveShiftReg:bSR:control_3\ ,
+        control_2 => \RecieveShiftReg:bSR:control_2\ ,
+        control_1 => \RecieveShiftReg:bSR:control_1\ ,
+        control_0 => \RecieveShiftReg:bSR:ctrl_clk_enable\ ,
+        clk_en => Net_10771 );
+    Properties:
+    {
+        cy_ctrl_mode_0 = "00000001"
+        cy_ctrl_mode_1 = "00000000"
+        cy_ext_reset = 0
+        cy_force_order = 1
+        cy_init_value = "00000000"
+    }
+    Clock Polarity: Active High
+    Clock Enable: PosEdge(Net_10771)
+
+UDB [UDB=(3,1)] contents:
+LAB@[UDB=(3,1)][LB=0] #macrocells=2, #inputs=7, #pterms=5
+{
+    [McSlotId=0]:     MacroCell: Name=\BitCounterDec:CounterUDB:count_stored_i\, Mode=(D-Register) @ [UDB=(3,1)][LB=0][MC=0]
+        Total # of inputs        : 3
+        Total # of product terms : 3
+        List of special equations: 
+            Clock  = (ClockBlock_BUS_CLK) => Global
+            Clock Enable: True
+        Main Equation            : 3 pterms
+        (
+              !Data_sync_0 * cydff_2
+            + Data_sync_0 * !cydff_2 * Frame_clear_1
+            + cydff_2 * !Frame_clear_1
+        );
+        Output = \BitCounterDec:CounterUDB:count_stored_i\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=My_wire_2, Mode=(T-Register) @ [UDB=(3,1)][LB=0][MC=1]
+        Total # of inputs        : 4
+        Total # of product terms : 2
+        List of special equations: 
+            Clock  = (ClockBlock_BUS_CLK) => Global
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              !preouts_2 * !\GlitchFilter_3:genblk1[2]:samples_1\ * 
+              !\GlitchFilter_3:genblk1[2]:samples_0\ * My_wire_2
+            + preouts_2 * \GlitchFilter_3:genblk1[2]:samples_1\ * 
+              \GlitchFilter_3:genblk1[2]:samples_0\ * !My_wire_2
+        );
+        Output = My_wire_2 (fanout=2)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]: (empty)
+    [McSlotId=3]: (empty)
+}
+
+LAB@[UDB=(3,1)][LB=1] #macrocells=2, #inputs=2, #pterms=2
+{
+    [McSlotId=0]: (empty)
+    [McSlotId=1]: (empty)
+    [McSlotId=2]:     MacroCell: Name=\GlitchFilter_3:genblk1[2]:samples_0\, Mode=(D-Register) @ [UDB=(3,1)][LB=1][MC=2]
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (ClockBlock_BUS_CLK) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              preouts_2
+        );
+        Output = \GlitchFilter_3:genblk1[2]:samples_0\ (fanout=2)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]:     MacroCell: Name=\GlitchFilter_3:genblk1[2]:samples_1\, Mode=(D-Register) @ [UDB=(3,1)][LB=1][MC=3]
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (ClockBlock_BUS_CLK) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \GlitchFilter_3:genblk1[2]:samples_0\
+        );
+        Output = \GlitchFilter_3:genblk1[2]:samples_1\ (fanout=1)
+        Properties               : 
+        {
+        }
+}
+
+datapathcell: Name =\RecieveShiftReg:bSR:sC32:BShiftRegDp:u2\
+    PORT MAP (
+        clock => ClockBlock_BUS_CLK ,
+        cs_addr_2 => \RecieveShiftReg:bSR:ctrl_clk_enable\ ,
+        route_si => cydff_2 ,
+        f1_load => \BitCounterDec:CounterUDB:prevCompare\ ,
+        chain_in => \RecieveShiftReg:bSR:sC32:BShiftRegDp:carry1\ ,
+        chain_out => \RecieveShiftReg:bSR:sC32:BShiftRegDp:carry2\ ,
+        clk_en => Net_10771 );
+    Properties:
+    {
+        a0_init = "00000000"
+        a1_init = "00000000"
+        ce0_sync = 1
+        ce1_sync = 1
+        cl0_sync = 1
+        cl1_sync = 1
+        cmsb_sync = 1
+        co_msb_sync = 1
+        cy_dpconfig = "0000100000000000000010000000000000001000000000000000100000000000000010010101000010101000010000000000000011000000101010000100000011111111000000001111111111111111010101011110111100001000011100100000000000011100"
+        d0_init = "00000000"
+        d1_init = "00000000"
+        f0_blk_sync = 1
+        f0_bus_sync = 1
+        f1_blk_sync = 1
+        f1_bus_sync = 1
+        ff0_sync = 1
+        ff1_sync = 1
+        ov_msb_sync = 1
+        so_sync = 1
+        z0_sync = 1
+        z1_sync = 1
+    }
+    Clock Polarity: Active High
+    Clock Enable: PosEdge(Net_10771)
+    Previous in chain : \RecieveShiftReg:bSR:sC32:BShiftRegDp:u1\
+    Next in chain : \RecieveShiftReg:bSR:sC32:BShiftRegDp:u3\
+
+UDB [UDB=(3,2)] contents:
+LAB@[UDB=(3,2)][LB=0] #macrocells=4, #inputs=11, #pterms=7
+{
+    [McSlotId=0]:     MacroCell: Name=\BitCounterDec:CounterUDB:count_enable\, Mode=(Combinatorial) @ [UDB=(3,2)][LB=0][MC=0]
+        Total # of inputs        : 5
+        Total # of product terms : 2
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              !Data_sync_0 * cydff_2 * \BitCounterDec:CounterUDB:control_7\ * 
+              !\BitCounterDec:CounterUDB:count_stored_i\ * Frame_clear_1
+            + Data_sync_0 * !cydff_2 * \BitCounterDec:CounterUDB:control_7\ * 
+              !\BitCounterDec:CounterUDB:count_stored_i\ * Frame_clear_1
+        );
+        Output = \BitCounterDec:CounterUDB:count_enable\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=Frame_clear_1, Mode=(D-Register) @ [UDB=(3,2)][LB=0][MC=1]
+        Total # of inputs        : 4
+        Total # of product terms : 3
+        List of special equations: 
+            Clock  = (ClockBlock_BUS_CLK) => Global
+            Clock Enable: True
+        Main Equation            : 3 pterms
+        (
+              !n124 * n123
+            + n124 * !n123
+            + !\GlitchFilter_6:counter_done_0\ * Frame_clear_1
+        );
+        Output = Frame_clear_1 (fanout=14)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]:     MacroCell: Name=\BitCounterDec:CounterUDB:overflow_reg_i\, Mode=(D-Register) @ [UDB=(3,2)][LB=0][MC=2]
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (ClockBlock_BUS_CLK) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \BitCounterDec:CounterUDB:reload\
+        );
+        Output = \BitCounterDec:CounterUDB:overflow_reg_i\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]:     MacroCell: Name=\Waiter:CounterUDB:count_enable\, Mode=(Combinatorial) @ [UDB=(3,2)][LB=0][MC=3]
+        Total # of inputs        : 3
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\Waiter:CounterUDB:count_stored_i\ * Frame_clear_1 * 
+              Net_4484_local
+        );
+        Output = \Waiter:CounterUDB:count_enable\ (fanout=1)
+        Properties               : 
+        {
+        }
+}
+
+LAB@[UDB=(3,2)][LB=1] #macrocells=2, #inputs=3, #pterms=2
+{
+    [McSlotId=0]:     MacroCell: Name=\Waiter:CounterUDB:count_stored_i\, Mode=(D-Register) @ [UDB=(3,2)][LB=1][MC=0]
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (ClockBlock_BUS_CLK) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              Net_4484_local
+        );
+        Output = \Waiter:CounterUDB:count_stored_i\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=\BitCounterDec:CounterUDB:status_2\, Mode=(Combinatorial) @ [UDB=(3,2)][LB=1][MC=1]
+        Total # of inputs        : 2
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \BitCounterDec:CounterUDB:reload\ * 
+              !\BitCounterDec:CounterUDB:overflow_reg_i\
+        );
+        Output = \BitCounterDec:CounterUDB:status_2\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]: (empty)
+    [McSlotId=3]: (empty)
+}
+
+datapathcell: Name =\BitCounterDec:CounterUDB:sC8:counterdp:u0\
+    PORT MAP (
+        clock => ClockBlock_BUS_CLK ,
+        cs_addr_2 => __ONE__ ,
+        cs_addr_1 => \BitCounterDec:CounterUDB:count_enable\ ,
+        cs_addr_0 => \BitCounterDec:CounterUDB:reload\ ,
+        ce0_comb => \BitCounterDec:CounterUDB:reload\ ,
+        z0_comb => \BitCounterDec:CounterUDB:status_1\ ,
+        cl1_comb => \BitCounterDec:CounterUDB:cmp_less\ ,
+        f0_bus_stat_comb => \BitCounterDec:CounterUDB:status_6\ ,
+        f0_blk_stat_comb => \BitCounterDec:CounterUDB:status_5\ );
+    Properties:
+    {
+        a0_init = "00000000"
+        a1_init = "00000000"
+        ce0_sync = 1
+        ce1_sync = 1
+        cl0_sync = 1
+        cl1_sync = 1
+        cmsb_sync = 1
+        co_msb_sync = 1
+        cy_dpconfig = "0000000001000000000000001000000001000000010000000000000010000000000000000100000010101000010100000010000001000000101010000101000011111111000000001111111111111111101000000000000000000001000000000000000000011000"
+        d0_init = "00000000"
+        d1_init = "00000000"
+        f0_blk_sync = 1
+        f0_bus_sync = 1
+        f1_blk_sync = 1
+        f1_bus_sync = 1
+        ff0_sync = 1
+        ff1_sync = 1
+        ov_msb_sync = 1
+        so_sync = 1
+        z0_sync = 1
+        z1_sync = 1
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
 controlcell: Name =\BitCounterDec:CounterUDB:sCTRLReg:ctrlreg\
     PORT MAP (
         clock => ClockBlock_BUS_CLK ,
@@ -3854,61 +4213,103 @@ controlcell: Name =\BitCounterDec:CounterUDB:sCTRLReg:ctrlreg\
     Clock Polarity: Active High
     Clock Enable: True
 
-UDB [UDB=(2,5)] contents:
-LAB@[UDB=(2,5)][LB=0] #macrocells=2, #inputs=5, #pterms=5
+UDB [UDB=(3,3)] contents:
+LAB@[UDB=(3,3)][LB=0] #macrocells=2, #inputs=2, #pterms=1
 {
-    [McSlotId=0]: (empty)
-    [McSlotId=1]:     MacroCell: Name=Net_10771, Mode=(Combinatorial) @ [UDB=(2,5)][LB=0][MC=1]
-        Total # of inputs        : 3
-        Total # of product terms : 3
-            Clock Enable: True
-        Main Equation            : 3 pterms
-        (
-              !Data_sync_0 * cydff_2
-            + Data_sync_0 * !cydff_2 * Frame_clear_1
-            + cydff_2 * !Frame_clear_1
+    [McSlotId=0]:     MacroCell: Name=Net_10749, Mode=(T-Register) @ [UDB=(3,3)][LB=0][MC=0]
+        Total # of inputs        : 0
+        Total # of product terms : 0
+        List of special equations: 
+            Clock  = (Net_10896) => Global
+            Preset = !(Net_10511)
+            Clock Enable: PosEdge(cydff_8)
+        Main Equation            : 0 pterms
+        !(
+            0
         );
-        Output = Net_10771 (fanout=6)
+        Output = Net_10749 (fanout=14)
         Properties               : 
         {
         }
 
-    [McSlotId=2]: (empty)
-    [McSlotId=3]:     MacroCell: Name=Net_10449, Mode=(Combinatorial) @ [UDB=(2,5)][LB=0][MC=3]
-        Total # of inputs        : 3
-        Total # of product terms : 2
+    [McSlotId=1]: (empty)
+    [McSlotId=2]:     MacroCell: Name=\BitCounterDec:CounterUDB:status_0\, Mode=(Combinatorial) @ [UDB=(3,3)][LB=0][MC=2]
+        Total # of inputs        : 2
+        Total # of product terms : 1
             Clock Enable: True
-        Main Equation            : 2 pterms
+        Main Equation            : 1 pterm
         (
-              !n124 * n123 * !Frame_clear_1
-            + n124 * !n123 * !Frame_clear_1
+              !\BitCounterDec:CounterUDB:cmp_less\ * 
+              !\BitCounterDec:CounterUDB:prevCompare\
         );
-        Output = Net_10449 (fanout=1)
+        Output = \BitCounterDec:CounterUDB:status_0\ (fanout=1)
         Properties               : 
         {
         }
+
+    [McSlotId=3]: (empty)
 }
 
-LAB@[UDB=(2,5)][LB=1] #macrocells=1, #inputs=1, #pterms=1
+LAB@[UDB=(3,3)][LB=1] #macrocells=4, #inputs=5, #pterms=4
 {
-    [McSlotId=0]: (empty)
-    [McSlotId=1]:     MacroCell: Name=Net_110, Mode=(D-Register) @ [UDB=(2,5)][LB=1][MC=1]
+    [McSlotId=0]:     MacroCell: Name=\BitCounterEnc:CounterUDB:count_enable\, Mode=(Combinatorial) @ [UDB=(3,3)][LB=1][MC=0]
+        Total # of inputs        : 3
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              Net_10749 * Net_10511 * 
+              !\BitCounterEnc:CounterUDB:count_stored_i\
+        );
+        Output = \BitCounterEnc:CounterUDB:count_enable\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=\BitCounterEnc:CounterUDB:count_stored_i\, Mode=(D-Register) @ [UDB=(3,3)][LB=1][MC=1]
         Total # of inputs        : 1
         Total # of product terms : 1
         List of special equations: 
             Clock  = (ClockBlock_BUS_CLK) => Global
-            Clock Enable: PosEdge(Net_10449)
+            Clock Enable: True
         Main Equation            : 1 pterm
         (
-              n124
+              Net_10749
         );
-        Output = Net_110 (fanout=2)
+        Output = \BitCounterEnc:CounterUDB:count_stored_i\ (fanout=1)
         Properties               : 
         {
         }
 
-    [McSlotId=2]: (empty)
-    [McSlotId=3]: (empty)
+    [McSlotId=2]:     MacroCell: Name=\Waiter:CounterUDB:prevCompare\, Mode=(D-Register) @ [UDB=(3,3)][LB=1][MC=2]
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (ClockBlock_BUS_CLK) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\Waiter:CounterUDB:cmp_less\
+        );
+        Output = \Waiter:CounterUDB:prevCompare\ (fanout=2)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]:     MacroCell: Name=\BitCounterDec:CounterUDB:prevCompare\, Mode=(D-Register) @ [UDB=(3,3)][LB=1][MC=3]
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (ClockBlock_BUS_CLK) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\BitCounterDec:CounterUDB:cmp_less\
+        );
+        Output = \BitCounterDec:CounterUDB:prevCompare\ (fanout=6)
+        Properties               : 
+        {
+        }
 }
 
 datapathcell: Name =\Waiter:CounterUDB:sC8:counterdp:u0\
@@ -3950,27 +4351,76 @@ datapathcell: Name =\Waiter:CounterUDB:sC8:counterdp:u0\
     Clock Polarity: Active High
     Clock Enable: True
 
-UDB [UDB=(3,0)] contents:
-LAB@[UDB=(3,0)][LB=0] #macrocells=2, #inputs=4, #pterms=3
+statusicell: Name =\BitCounterDec:CounterUDB:sSTSReg:stsreg\
+    PORT MAP (
+        reset => Frame_clear_1 ,
+        clock => ClockBlock_BUS_CLK ,
+        status_6 => \BitCounterDec:CounterUDB:status_6\ ,
+        status_5 => \BitCounterDec:CounterUDB:status_5\ ,
+        status_2 => \BitCounterDec:CounterUDB:status_2\ ,
+        status_1 => \BitCounterDec:CounterUDB:status_1\ ,
+        status_0 => \BitCounterDec:CounterUDB:status_0\ );
+    Properties:
+    {
+        cy_force_order = 1
+        cy_int_mask = "1111111"
+        cy_md_select = "0011111"
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
+UDB [UDB=(3,4)] contents:
+LAB@[UDB=(3,4)][LB=0] #macrocells=3, #inputs=4, #pterms=2
 {
-    [McSlotId=0]:     MacroCell: Name=\GlitchFilter_3:genblk1[1]:samples_0\, Mode=(D-Register) @ [UDB=(3,0)][LB=0][MC=0]
-        Total # of inputs        : 3
-        Total # of product terms : 2
+    [McSlotId=0]:     MacroCell: Name=Net_10511, Mode=(D-Register) @ [UDB=(3,4)][LB=0][MC=0]
+        Total # of inputs        : 0
+        Total # of product terms : 0
         List of special equations: 
             Clock  = (ClockBlock_BUS_CLK) => Global
-            Clock Enable: True
-        Main Equation            : 2 pterms
+            Preset = (Net_10457)
+            Clock Enable: PosEdge(\BitCounterEnc:CounterUDB:overflow_reg_i\)
+        Main Equation            : 0 pterms
         (
-              !Net_10649 * Net_10749 * preouts_2
-            + Net_10649 * !Net_10749 * preouts_2
+            0
         );
-        Output = \GlitchFilter_3:genblk1[1]:samples_0\ (fanout=2)
+        Output = Net_10511 (fanout=6)
         Properties               : 
         {
         }
 
     [McSlotId=1]: (empty)
-    [McSlotId=2]:     MacroCell: Name=\GlitchFilter_3:genblk1[1]:samples_1\, Mode=(D-Register) @ [UDB=(3,0)][LB=0][MC=2]
+    [McSlotId=2]:     MacroCell: Name=\Waiter:CounterUDB:status_0\, Mode=(Combinatorial) @ [UDB=(3,4)][LB=0][MC=2]
+        Total # of inputs        : 2
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\Waiter:CounterUDB:cmp_less\ * 
+              !\Waiter:CounterUDB:prevCompare\
+        );
+        Output = \Waiter:CounterUDB:status_0\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]:     MacroCell: Name=\Waiter:CounterUDB:status_2\, Mode=(Combinatorial) @ [UDB=(3,4)][LB=0][MC=3]
+        Total # of inputs        : 2
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \Waiter:CounterUDB:per_equal\ * 
+              !\Waiter:CounterUDB:overflow_reg_i\
+        );
+        Output = \Waiter:CounterUDB:status_2\ (fanout=1)
+        Properties               : 
+        {
+        }
+}
+
+LAB@[UDB=(3,4)][LB=1] #macrocells=1, #inputs=1, #pterms=1
+{
+    [McSlotId=0]:     MacroCell: Name=\Waiter:CounterUDB:overflow_reg_i\, Mode=(D-Register) @ [UDB=(3,4)][LB=1][MC=0]
         Total # of inputs        : 1
         Total # of product terms : 1
         List of special equations: 
@@ -3978,48 +4428,97 @@ LAB@[UDB=(3,0)][LB=0] #macrocells=2, #inputs=4, #pterms=3
             Clock Enable: True
         Main Equation            : 1 pterm
         (
-              \GlitchFilter_3:genblk1[1]:samples_0\
+              \Waiter:CounterUDB:per_equal\
         );
-        Output = \GlitchFilter_3:genblk1[1]:samples_1\ (fanout=1)
+        Output = \Waiter:CounterUDB:overflow_reg_i\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]: (empty)
+    [McSlotId=2]: (empty)
+    [McSlotId=3]: (empty)
+}
+
+datapathcell: Name =\TransmitShiftReg:bSR:sC32:BShiftRegDp:u2\
+    PORT MAP (
+        clock => Net_10896 ,
+        cs_addr_2 => \TransmitShiftReg:bSR:ctrl_clk_enable\ ,
+        cs_addr_1 => \TransmitShiftReg:bSR:status_0\ ,
+        route_si => __ONE__ ,
+        chain_in => \TransmitShiftReg:bSR:sC32:BShiftRegDp:carry1\ ,
+        chain_out => \TransmitShiftReg:bSR:sC32:BShiftRegDp:carry2\ ,
+        clk_en => Net_10749 );
+    Properties:
+    {
+        a0_init = "00000000"
+        a1_init = "00000000"
+        ce0_sync = 1
+        ce1_sync = 1
+        cl0_sync = 1
+        cl1_sync = 1
+        cmsb_sync = 1
+        co_msb_sync = 1
+        cy_dpconfig = "0000100000000000000010000000000000001000000000000000100000000000000010010101000010101000010000000000000011000000101010000100000011111111000000001111111111111111010101011110111100001000011100100000000000011100"
+        d0_init = "00000000"
+        d1_init = "00000000"
+        f0_blk_sync = 1
+        f0_bus_sync = 1
+        f1_blk_sync = 1
+        f1_bus_sync = 1
+        ff0_sync = 1
+        ff1_sync = 1
+        ov_msb_sync = 1
+        so_sync = 1
+        z0_sync = 1
+        z1_sync = 1
+    }
+    Clock Polarity: Active High
+    Clock Enable: PosEdge(Net_10749)
+    Previous in chain : \TransmitShiftReg:bSR:sC32:BShiftRegDp:u1\
+    Next in chain : \TransmitShiftReg:bSR:sC32:BShiftRegDp:u3\
+
+statusicell: Name =\Waiter:CounterUDB:sSTSReg:stsreg\
+    PORT MAP (
+        reset => Frame_clear_1 ,
+        clock => ClockBlock_BUS_CLK ,
+        status_6 => \Waiter:CounterUDB:status_6\ ,
+        status_5 => \Waiter:CounterUDB:status_5\ ,
+        status_4 => \Waiter:CounterUDB:hwCapture\ ,
+        status_2 => \Waiter:CounterUDB:status_2\ ,
+        status_1 => \Waiter:CounterUDB:status_1\ ,
+        status_0 => \Waiter:CounterUDB:status_0\ );
+    Properties:
+    {
+        cy_force_order = 1
+        cy_int_mask = "1111111"
+        cy_md_select = "0011111"
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
+UDB [UDB=(3,5)] contents:
+LAB@[UDB=(3,5)][LB=0] #macrocells=1, #inputs=0, #pterms=0
+{
+    [McSlotId=0]: (empty)
+    [McSlotId=1]: (empty)
+    [McSlotId=2]:     MacroCell: Name=cydff_8, Mode=(T-Register) @ [UDB=(3,5)][LB=0][MC=2]
+        Total # of inputs        : 0
+        Total # of product terms : 0
+        List of special equations: 
+            Clock  = (Net_10896) => Global
+            Preset = !(Net_10511)
+            Clock Enable: PosEdge(Net_1037)
+        Main Equation            : 0 pterms
+        !(
+            0
+        );
+        Output = cydff_8 (fanout=1)
         Properties               : 
         {
         }
 
     [McSlotId=3]: (empty)
-}
-
-LAB@[UDB=(3,0)][LB=1] #macrocells=1, #inputs=6, #pterms=5
-{
-    [McSlotId=0]: (empty)
-    [McSlotId=1]: (empty)
-    [McSlotId=2]: (empty)
-    [McSlotId=3]:     MacroCell: Name=My_wire_1, Mode=(T-Register) @ [UDB=(3,0)][LB=1][MC=3]
-        Total # of inputs        : 6
-        Total # of product terms : 5
-        List of special equations: 
-            Clock  = (ClockBlock_BUS_CLK) => Global
-            Clock Enable: True
-        Main Equation            : 5 pterms
-        (
-              !Net_10649 * !Net_10749 * My_wire_1 * 
-              !\GlitchFilter_3:genblk1[1]:samples_1\ * 
-              !\GlitchFilter_3:genblk1[1]:samples_0\
-            + !Net_10649 * Net_10749 * !My_wire_1 * preouts_2 * 
-              \GlitchFilter_3:genblk1[1]:samples_1\ * 
-              \GlitchFilter_3:genblk1[1]:samples_0\
-            + Net_10649 * !Net_10749 * !My_wire_1 * preouts_2 * 
-              \GlitchFilter_3:genblk1[1]:samples_1\ * 
-              \GlitchFilter_3:genblk1[1]:samples_0\
-            + Net_10649 * Net_10749 * My_wire_1 * 
-              !\GlitchFilter_3:genblk1[1]:samples_1\ * 
-              !\GlitchFilter_3:genblk1[1]:samples_0\
-            + My_wire_1 * !preouts_2 * !\GlitchFilter_3:genblk1[1]:samples_1\ * 
-              !\GlitchFilter_3:genblk1[1]:samples_0\
-        );
-        Output = My_wire_1 (fanout=2)
-        Properties               : 
-        {
-        }
 }
 
 datapathcell: Name =\TransmitShiftReg:bSR:sC32:BShiftRegDp:u1\
@@ -4083,477 +4582,6 @@ controlcell: Name =\TransmitShiftReg:bSR:SyncCtl:CtrlReg\
     Clock Polarity: Active High
     Clock Enable: PosEdge(Net_10749)
 
-UDB [UDB=(3,1)] contents:
-LAB@[UDB=(3,1)][LB=0] #macrocells=2, #inputs=6, #pterms=7
-{
-    [McSlotId=0]:     MacroCell: Name=\GlitchFilter_3:genblk1[0]:samples_0\, Mode=(D-Register) @ [UDB=(3,1)][LB=0][MC=0]
-        Total # of inputs        : 3
-        Total # of product terms : 2
-        List of special equations: 
-            Clock  = (ClockBlock_BUS_CLK) => Global
-            Clock Enable: True
-        Main Equation            : 2 pterms
-        (
-              !Net_10649 * !Net_10749 * preouts_2
-            + Net_10649 * Net_10749 * preouts_2
-        );
-        Output = \GlitchFilter_3:genblk1[0]:samples_0\ (fanout=2)
-        Properties               : 
-        {
-        }
-
-    [McSlotId=1]: (empty)
-    [McSlotId=2]:     MacroCell: Name=My_wire_0, Mode=(T-Register) @ [UDB=(3,1)][LB=0][MC=2]
-        Total # of inputs        : 6
-        Total # of product terms : 5
-        List of special equations: 
-            Clock  = (ClockBlock_BUS_CLK) => Global
-            Clock Enable: True
-        Main Equation            : 5 pterms
-        (
-              !Net_10649 * !Net_10749 * preouts_2 * 
-              \GlitchFilter_3:genblk1[0]:samples_1\ * 
-              \GlitchFilter_3:genblk1[0]:samples_0\ * !My_wire_0
-            + !Net_10649 * Net_10749 * !\GlitchFilter_3:genblk1[0]:samples_1\ * 
-              !\GlitchFilter_3:genblk1[0]:samples_0\ * My_wire_0
-            + Net_10649 * !Net_10749 * !\GlitchFilter_3:genblk1[0]:samples_1\ * 
-              !\GlitchFilter_3:genblk1[0]:samples_0\ * My_wire_0
-            + Net_10649 * Net_10749 * preouts_2 * 
-              \GlitchFilter_3:genblk1[0]:samples_1\ * 
-              \GlitchFilter_3:genblk1[0]:samples_0\ * !My_wire_0
-            + !preouts_2 * !\GlitchFilter_3:genblk1[0]:samples_1\ * 
-              !\GlitchFilter_3:genblk1[0]:samples_0\ * My_wire_0
-        );
-        Output = My_wire_0 (fanout=2)
-        Properties               : 
-        {
-        }
-
-    [McSlotId=3]: (empty)
-}
-
-LAB@[UDB=(3,1)][LB=1] #macrocells=1, #inputs=1, #pterms=1
-{
-    [McSlotId=0]: (empty)
-    [McSlotId=1]: (empty)
-    [McSlotId=2]: (empty)
-    [McSlotId=3]:     MacroCell: Name=\GlitchFilter_3:genblk1[0]:samples_1\, Mode=(D-Register) @ [UDB=(3,1)][LB=1][MC=3]
-        Total # of inputs        : 1
-        Total # of product terms : 1
-        List of special equations: 
-            Clock  = (ClockBlock_BUS_CLK) => Global
-            Clock Enable: True
-        Main Equation            : 1 pterm
-        (
-              \GlitchFilter_3:genblk1[0]:samples_0\
-        );
-        Output = \GlitchFilter_3:genblk1[0]:samples_1\ (fanout=1)
-        Properties               : 
-        {
-        }
-}
-
-datapathcell: Name =\TransmitShiftReg:bSR:sC32:BShiftRegDp:u2\
-    PORT MAP (
-        clock => Net_10896 ,
-        cs_addr_2 => \TransmitShiftReg:bSR:ctrl_clk_enable\ ,
-        cs_addr_1 => \TransmitShiftReg:bSR:status_0\ ,
-        route_si => __ONE__ ,
-        chain_in => \TransmitShiftReg:bSR:sC32:BShiftRegDp:carry1\ ,
-        chain_out => \TransmitShiftReg:bSR:sC32:BShiftRegDp:carry2\ ,
-        clk_en => Net_10749 );
-    Properties:
-    {
-        a0_init = "00000000"
-        a1_init = "00000000"
-        ce0_sync = 1
-        ce1_sync = 1
-        cl0_sync = 1
-        cl1_sync = 1
-        cmsb_sync = 1
-        co_msb_sync = 1
-        cy_dpconfig = "0000100000000000000010000000000000001000000000000000100000000000000010010101000010101000010000000000000011000000101010000100000011111111000000001111111111111111010101011110111100001000011100100000000000011100"
-        d0_init = "00000000"
-        d1_init = "00000000"
-        f0_blk_sync = 1
-        f0_bus_sync = 1
-        f1_blk_sync = 1
-        f1_bus_sync = 1
-        ff0_sync = 1
-        ff1_sync = 1
-        ov_msb_sync = 1
-        so_sync = 1
-        z0_sync = 1
-        z1_sync = 1
-    }
-    Clock Polarity: Active High
-    Clock Enable: PosEdge(Net_10749)
-    Previous in chain : \TransmitShiftReg:bSR:sC32:BShiftRegDp:u1\
-    Next in chain : \TransmitShiftReg:bSR:sC32:BShiftRegDp:u3\
-
-UDB [UDB=(3,2)] contents:
-LAB@[UDB=(3,2)][LB=0] #macrocells=2, #inputs=4, #pterms=2
-{
-    [McSlotId=0]: (empty)
-    [McSlotId=1]:     MacroCell: Name=My_wire_2, Mode=(T-Register) @ [UDB=(3,2)][LB=0][MC=1]
-        Total # of inputs        : 4
-        Total # of product terms : 2
-        List of special equations: 
-            Clock  = (ClockBlock_BUS_CLK) => Global
-            Clock Enable: True
-        Main Equation            : 2 pterms
-        (
-              !preouts_2 * !\GlitchFilter_3:genblk1[2]:samples_1\ * 
-              !\GlitchFilter_3:genblk1[2]:samples_0\ * My_wire_2
-            + preouts_2 * \GlitchFilter_3:genblk1[2]:samples_1\ * 
-              \GlitchFilter_3:genblk1[2]:samples_0\ * !My_wire_2
-        );
-        Output = My_wire_2 (fanout=2)
-        Properties               : 
-        {
-        }
-
-    [McSlotId=2]:     MacroCell: Name=__ZERO__, Mode=(Combinatorial) @ [UDB=(3,2)][LB=0][MC=2]
-        Total # of inputs        : 0
-        Total # of product terms : 0
-            Clock Enable: True
-        Main Equation            : 0 pterms
-        (
-            0
-        );
-        Output = __ZERO__ (fanout=1)
-        Properties               : 
-        {
-        }
-
-    [McSlotId=3]: (empty)
-}
-
-LAB@[UDB=(3,2)][LB=1] #macrocells=2, #inputs=2, #pterms=2
-{
-    [McSlotId=0]: (empty)
-    [McSlotId=1]:     MacroCell: Name=\GlitchFilter_3:genblk1[2]:samples_0\, Mode=(D-Register) @ [UDB=(3,2)][LB=1][MC=1]
-        Total # of inputs        : 1
-        Total # of product terms : 1
-        List of special equations: 
-            Clock  = (ClockBlock_BUS_CLK) => Global
-            Clock Enable: True
-        Main Equation            : 1 pterm
-        (
-              preouts_2
-        );
-        Output = \GlitchFilter_3:genblk1[2]:samples_0\ (fanout=2)
-        Properties               : 
-        {
-        }
-
-    [McSlotId=2]: (empty)
-    [McSlotId=3]:     MacroCell: Name=\GlitchFilter_3:genblk1[2]:samples_1\, Mode=(D-Register) @ [UDB=(3,2)][LB=1][MC=3]
-        Total # of inputs        : 1
-        Total # of product terms : 1
-        List of special equations: 
-            Clock  = (ClockBlock_BUS_CLK) => Global
-            Clock Enable: True
-        Main Equation            : 1 pterm
-        (
-              \GlitchFilter_3:genblk1[2]:samples_0\
-        );
-        Output = \GlitchFilter_3:genblk1[2]:samples_1\ (fanout=1)
-        Properties               : 
-        {
-        }
-}
-
-UDB [UDB=(3,3)] contents:
-datapathcell: Name =\RecieveShiftReg:bSR:sC32:BShiftRegDp:u3\
-    PORT MAP (
-        clock => ClockBlock_BUS_CLK ,
-        cs_addr_2 => \RecieveShiftReg:bSR:ctrl_clk_enable\ ,
-        route_si => cydff_2 ,
-        f1_load => \BitCounterDec:CounterUDB:prevCompare\ ,
-        f0_bus_stat_comb => \RecieveShiftReg:bSR:status_4\ ,
-        f0_blk_stat_comb => \RecieveShiftReg:bSR:status_3\ ,
-        f1_bus_stat_comb => \RecieveShiftReg:bSR:status_6\ ,
-        f1_blk_stat_comb => \RecieveShiftReg:bSR:status_5\ ,
-        chain_in => \RecieveShiftReg:bSR:sC32:BShiftRegDp:carry2\ ,
-        clk_en => Net_10771 );
-    Properties:
-    {
-        a0_init = "00000000"
-        a1_init = "00000000"
-        ce0_sync = 1
-        ce1_sync = 1
-        cl0_sync = 1
-        cl1_sync = 1
-        cmsb_sync = 1
-        co_msb_sync = 1
-        cy_dpconfig = "0000100000000000000010000000000000001000000000000000100000000000000010010101000010101000010000000000000011000000101010000100000011111111000000001111111111111111010101011110111100001000111100100000000000011100"
-        d0_init = "00000000"
-        d1_init = "00000000"
-        f0_blk_sync = 1
-        f0_bus_sync = 1
-        f1_blk_sync = 1
-        f1_bus_sync = 1
-        ff0_sync = 1
-        ff1_sync = 1
-        ov_msb_sync = 1
-        so_sync = 1
-        z0_sync = 1
-        z1_sync = 1
-    }
-    Clock Polarity: Active High
-    Clock Enable: PosEdge(Net_10771)
-    Previous in chain : \RecieveShiftReg:bSR:sC32:BShiftRegDp:u2\
-
-UDB [UDB=(3,4)] contents:
-LAB@[UDB=(3,4)][LB=0] #macrocells=1, #inputs=4, #pterms=4
-{
-    [McSlotId=0]: (empty)
-    [McSlotId=1]:     MacroCell: Name=Data_sync_0, Mode=(T-Register) @ [UDB=(3,4)][LB=0][MC=1]
-        Total # of inputs        : 4
-        Total # of product terms : 4
-        List of special equations: 
-            Clock  = (ClockBlock_BUS_CLK) => Global
-            Clock Enable: True
-        Main Equation            : 4 pterms
-        (
-              !n123 * !Net_110 * !\GlitchFilter_1:genblk1[0]:sample\ * 
-              Data_sync_0
-            + !n123 * Net_110 * \GlitchFilter_1:genblk1[0]:sample\ * 
-              !Data_sync_0
-            + n123 * !Net_110 * \GlitchFilter_1:genblk1[0]:sample\ * 
-              !Data_sync_0
-            + n123 * Net_110 * !\GlitchFilter_1:genblk1[0]:sample\ * 
-              Data_sync_0
-        );
-        Output = Data_sync_0 (fanout=6)
-        Properties               : 
-        {
-        }
-
-    [McSlotId=2]: (empty)
-    [McSlotId=3]: (empty)
-}
-
-datapathcell: Name =\RecieveShiftReg:bSR:sC32:BShiftRegDp:u0\
-    PORT MAP (
-        clock => ClockBlock_BUS_CLK ,
-        cs_addr_2 => \RecieveShiftReg:bSR:ctrl_clk_enable\ ,
-        route_si => cydff_2 ,
-        f1_load => \BitCounterDec:CounterUDB:prevCompare\ ,
-        chain_out => \RecieveShiftReg:bSR:sC32:BShiftRegDp:carry0\ ,
-        clk_en => Net_10771 );
-    Properties:
-    {
-        a0_init = "00000000"
-        a1_init = "00000000"
-        ce0_sync = 1
-        ce1_sync = 1
-        cl0_sync = 1
-        cl1_sync = 1
-        cmsb_sync = 1
-        co_msb_sync = 1
-        cy_dpconfig = "0000100000000000000010000000000000001000000000000000100000000000000010010101000010101000010000000000000011000000101010000100000011111111000000001111111111111111010101011110101000001000011100000000000000011100"
-        d0_init = "00000000"
-        d1_init = "00000000"
-        f0_blk_sync = 1
-        f0_bus_sync = 1
-        f1_blk_sync = 1
-        f1_bus_sync = 1
-        ff0_sync = 1
-        ff1_sync = 1
-        ov_msb_sync = 1
-        so_sync = 1
-        z0_sync = 1
-        z1_sync = 1
-    }
-    Clock Polarity: Active High
-    Clock Enable: PosEdge(Net_10771)
-    Next in chain : \RecieveShiftReg:bSR:sC32:BShiftRegDp:u1\
-
-statusicell: Name =\RecieveShiftReg:bSR:StsReg\
-    PORT MAP (
-        clock => ClockBlock_BUS_CLK ,
-        status_6 => \RecieveShiftReg:bSR:status_6\ ,
-        status_5 => \RecieveShiftReg:bSR:status_5\ ,
-        status_4 => \RecieveShiftReg:bSR:status_4\ ,
-        status_3 => \RecieveShiftReg:bSR:status_3\ ,
-        status_1 => \BitCounterDec:CounterUDB:prevCompare\ ,
-        interrupt => Net_7168 ,
-        clk_en => Net_10771 );
-    Properties:
-    {
-        cy_force_order = 1
-        cy_int_mask = "0000111"
-        cy_md_select = "0000111"
-    }
-    Clock Polarity: Active High
-    Clock Enable: PosEdge(Net_10771)
-
-controlcell: Name =\RecieveShiftReg:bSR:SyncCtl:CtrlReg\
-    PORT MAP (
-        clock => ClockBlock_BUS_CLK ,
-        control_7 => \RecieveShiftReg:bSR:control_7\ ,
-        control_6 => \RecieveShiftReg:bSR:control_6\ ,
-        control_5 => \RecieveShiftReg:bSR:control_5\ ,
-        control_4 => \RecieveShiftReg:bSR:control_4\ ,
-        control_3 => \RecieveShiftReg:bSR:control_3\ ,
-        control_2 => \RecieveShiftReg:bSR:control_2\ ,
-        control_1 => \RecieveShiftReg:bSR:control_1\ ,
-        control_0 => \RecieveShiftReg:bSR:ctrl_clk_enable\ ,
-        clk_en => Net_10771 );
-    Properties:
-    {
-        cy_ctrl_mode_0 = "00000001"
-        cy_ctrl_mode_1 = "00000000"
-        cy_ext_reset = 0
-        cy_force_order = 1
-        cy_init_value = "00000000"
-    }
-    Clock Polarity: Active High
-    Clock Enable: PosEdge(Net_10771)
-
-UDB [UDB=(3,5)] contents:
-LAB@[UDB=(3,5)][LB=0] #macrocells=3, #inputs=4, #pterms=3
-{
-    [McSlotId=0]:     MacroCell: Name=\BitCounterDec:CounterUDB:overflow_reg_i\, Mode=(D-Register) @ [UDB=(3,5)][LB=0][MC=0]
-        Total # of inputs        : 1
-        Total # of product terms : 1
-        List of special equations: 
-            Clock  = (ClockBlock_BUS_CLK) => Global
-            Clock Enable: True
-        Main Equation            : 1 pterm
-        (
-              \BitCounterDec:CounterUDB:reload\
-        );
-        Output = \BitCounterDec:CounterUDB:overflow_reg_i\ (fanout=1)
-        Properties               : 
-        {
-        }
-
-    [McSlotId=1]:     MacroCell: Name=\BitCounterDec:CounterUDB:status_0\, Mode=(Combinatorial) @ [UDB=(3,5)][LB=0][MC=1]
-        Total # of inputs        : 2
-        Total # of product terms : 1
-            Clock Enable: True
-        Main Equation            : 1 pterm
-        (
-              !\BitCounterDec:CounterUDB:cmp_less\ * 
-              !\BitCounterDec:CounterUDB:prevCompare\
-        );
-        Output = \BitCounterDec:CounterUDB:status_0\ (fanout=1)
-        Properties               : 
-        {
-        }
-
-    [McSlotId=2]:     MacroCell: Name=\BitCounterDec:CounterUDB:status_2\, Mode=(Combinatorial) @ [UDB=(3,5)][LB=0][MC=2]
-        Total # of inputs        : 2
-        Total # of product terms : 1
-            Clock Enable: True
-        Main Equation            : 1 pterm
-        (
-              \BitCounterDec:CounterUDB:reload\ * 
-              !\BitCounterDec:CounterUDB:overflow_reg_i\
-        );
-        Output = \BitCounterDec:CounterUDB:status_2\ (fanout=1)
-        Properties               : 
-        {
-        }
-
-    [McSlotId=3]: (empty)
-}
-
-LAB@[UDB=(3,5)][LB=1] #macrocells=2, #inputs=3, #pterms=3
-{
-    [McSlotId=0]: (empty)
-    [McSlotId=1]: (empty)
-    [McSlotId=2]:     MacroCell: Name=\GlitchFilter_1:genblk1[0]:sample\, Mode=(D-Register) @ [UDB=(3,5)][LB=1][MC=2]
-        Total # of inputs        : 2
-        Total # of product terms : 2
-        List of special equations: 
-            Clock  = (ClockBlock_BUS_CLK) => Global
-            Clock Enable: True
-        Main Equation            : 2 pterms
-        (
-              !n123 * Net_110
-            + n123 * !Net_110
-        );
-        Output = \GlitchFilter_1:genblk1[0]:sample\ (fanout=1)
-        Properties               : 
-        {
-        }
-
-    [McSlotId=3]:     MacroCell: Name=\BitCounterDec:CounterUDB:prevCompare\, Mode=(D-Register) @ [UDB=(3,5)][LB=1][MC=3]
-        Total # of inputs        : 1
-        Total # of product terms : 1
-        List of special equations: 
-            Clock  = (ClockBlock_BUS_CLK) => Global
-            Clock Enable: True
-        Main Equation            : 1 pterm
-        (
-              !\BitCounterDec:CounterUDB:cmp_less\
-        );
-        Output = \BitCounterDec:CounterUDB:prevCompare\ (fanout=6)
-        Properties               : 
-        {
-        }
-}
-
-datapathcell: Name =\BitCounterDec:CounterUDB:sC8:counterdp:u0\
-    PORT MAP (
-        clock => ClockBlock_BUS_CLK ,
-        cs_addr_2 => __ONE__ ,
-        cs_addr_1 => \BitCounterDec:CounterUDB:count_enable\ ,
-        cs_addr_0 => \BitCounterDec:CounterUDB:reload\ ,
-        ce0_comb => \BitCounterDec:CounterUDB:reload\ ,
-        z0_comb => \BitCounterDec:CounterUDB:status_1\ ,
-        cl1_comb => \BitCounterDec:CounterUDB:cmp_less\ ,
-        f0_bus_stat_comb => \BitCounterDec:CounterUDB:status_6\ ,
-        f0_blk_stat_comb => \BitCounterDec:CounterUDB:status_5\ );
-    Properties:
-    {
-        a0_init = "00000000"
-        a1_init = "00000000"
-        ce0_sync = 1
-        ce1_sync = 1
-        cl0_sync = 1
-        cl1_sync = 1
-        cmsb_sync = 1
-        co_msb_sync = 1
-        cy_dpconfig = "0000000001000000000000001000000001000000010000000000000010000000000000000100000010101000010100000010000001000000101010000101000011111111000000001111111111111111101000000000000000000001000000000000000000011000"
-        d0_init = "00000000"
-        d1_init = "00000000"
-        f0_blk_sync = 1
-        f0_bus_sync = 1
-        f1_blk_sync = 1
-        f1_bus_sync = 1
-        ff0_sync = 1
-        ff1_sync = 1
-        ov_msb_sync = 1
-        so_sync = 1
-        z0_sync = 1
-        z1_sync = 1
-    }
-    Clock Polarity: Active High
-    Clock Enable: True
-
-statusicell: Name =\BitCounterDec:CounterUDB:sSTSReg:stsreg\
-    PORT MAP (
-        reset => Frame_clear_1 ,
-        clock => ClockBlock_BUS_CLK ,
-        status_6 => \BitCounterDec:CounterUDB:status_6\ ,
-        status_5 => \BitCounterDec:CounterUDB:status_5\ ,
-        status_2 => \BitCounterDec:CounterUDB:status_2\ ,
-        status_1 => \BitCounterDec:CounterUDB:status_1\ ,
-        status_0 => \BitCounterDec:CounterUDB:status_0\ );
-    Properties:
-    {
-        cy_force_order = 1
-        cy_int_mask = "1111111"
-        cy_md_select = "0011111"
-    }
-    Clock Polarity: Active High
-    Clock Enable: True
-
 Intr container @ [IntrContainer=(0)]: 
   Intr@ [IntrContainer=(0)][IntrId=(0)] 
     interrupt: Name =EndFrame
@@ -4565,15 +4593,6 @@ Intr container @ [IntrContainer=(0)]:
             is_nmi = 0
         }
   Intr@ [IntrContainer=(0)][IntrId=(1)] 
-    interrupt: Name =TransmitWordShift
-        PORT MAP (
-            interrupt => Net_10110 );
-        Properties:
-        {
-            int_type = "10"
-            is_nmi = 0
-        }
-  Intr@ [IntrContainer=(0)][IntrId=(2)] 
     interrupt: Name =WordShifted
         PORT MAP (
             interrupt => Net_7168 );
@@ -4582,7 +4601,7 @@ Intr container @ [IntrContainer=(0)]:
             int_type = "10"
             is_nmi = 0
         }
-  Intr@ [IntrContainer=(0)][IntrId=(3)] 
+  Intr@ [IntrContainer=(0)][IntrId=(2)] 
     interrupt: Name =\USBUART:ep_1\
         PORT MAP (
             interrupt => \USBUART:ep_int_1\ );
@@ -4591,7 +4610,7 @@ Intr container @ [IntrContainer=(0)]:
             int_type = "10"
             is_nmi = 0
         }
-  Intr@ [IntrContainer=(0)][IntrId=(4)] 
+  Intr@ [IntrContainer=(0)][IntrId=(3)] 
     interrupt: Name =\USBUART:ep_2\
         PORT MAP (
             interrupt => \USBUART:ep_int_2\ );
@@ -4600,7 +4619,7 @@ Intr container @ [IntrContainer=(0)]:
             int_type = "10"
             is_nmi = 0
         }
-  Intr@ [IntrContainer=(0)][IntrId=(5)] 
+  Intr@ [IntrContainer=(0)][IntrId=(4)] 
     interrupt: Name =\USBUART:ep_3\
         PORT MAP (
             interrupt => \USBUART:ep_int_3\ );
@@ -4609,10 +4628,19 @@ Intr container @ [IntrContainer=(0)]:
             int_type = "10"
             is_nmi = 0
         }
-  Intr@ [IntrContainer=(0)][IntrId=(6)] 
+  Intr@ [IntrContainer=(0)][IntrId=(5)] 
     interrupt: Name =isr_Load_TrShReg
         PORT MAP (
             interrupt => Net_10480 );
+        Properties:
+        {
+            int_type = "10"
+            is_nmi = 0
+        }
+  Intr@ [IntrContainer=(0)][IntrId=(6)] 
+    interrupt: Name =isr_TransmitWordShift
+        PORT MAP (
+            interrupt => Net_10110 );
         Properties:
         {
             int_type = "10"
@@ -4757,10 +4785,7 @@ Pin : Name = Vout_1(0)
     {
     }
 
-Port 1 contains the following IO cells:
-Port 2 contains the following IO cells:
-Port 3 contains the following IO cells:
-[IoId=5]: 
+[IoId=6]: 
 Pin : Name = EN1(0)
     Attributes:
         In Group/Port: True
@@ -4801,6 +4826,9 @@ Pin : Name = EN1(0)
     {
     }
 
+Port 1 contains the following IO cells:
+Port 2 contains the following IO cells:
+Port 3 contains the following IO cells:
 Port 12 contains the following IO cells:
 [IoId=0]: 
 Pin : Name = DOut1N(0)
@@ -4953,48 +4981,6 @@ Port 15 generates interrupt for logical port:
         }
     and contains the following IO cells:
 [IoId=4]: 
-Pin : Name = DInN(0)
-    Attributes:
-        In Group/Port: True
-        In Sync Option: AUTO
-        Out Sync Option: AUTO
-        Interrupt generated: False
-        Interrupt mode: NONE
-        Drive mode: HI_Z_ANALOG
-        VTrip: EITHER
-        Slew: FAST
-        Input Sync needed: False
-        Output Sync needed: False
-        SC shield enabled: False
-        POR State: ANY
-        LCD Mode: COMMON
-        Register Mode: RegComb
-        CaSense Mode: NEITHER
-        Treat as pin: True
-        Is OE Registered: False
-        Uses Analog: True
-        Can contain Digital: False
-        Is SIO: False
-        SIO Output Buf: NONREGULATED
-        SIO Input Buf: SINGLE_ENDED
-        SIO HiFreq: LOW
-        SIO Hyst: DISABLED
-        SIO Vtrip: MULTIPLIER_0_5
-        SIO Multiplier Index: 0
-        SIO RefSel: VCC_IO
-        Required Capabilities: ANALOG
-        Initial Value: 0
-        IO Voltage: 0
-    PORT MAP (
-        pa_out => DInN(0)__PA ,
-        analog_term => Net_58 ,
-        annotation => Net_53 ,
-        pad => DInN(0)_PAD );
-    Properties:
-    {
-    }
-
-[IoId=5]: 
 Pin : Name = DInP(0)
     Attributes:
         In Group/Port: True
@@ -5032,6 +5018,48 @@ Pin : Name = DInP(0)
         analog_term => Net_10739 ,
         annotation => Net_54 ,
         pad => DInP(0)_PAD );
+    Properties:
+    {
+    }
+
+[IoId=5]: 
+Pin : Name = DInN(0)
+    Attributes:
+        In Group/Port: True
+        In Sync Option: AUTO
+        Out Sync Option: AUTO
+        Interrupt generated: False
+        Interrupt mode: NONE
+        Drive mode: HI_Z_ANALOG
+        VTrip: EITHER
+        Slew: FAST
+        Input Sync needed: False
+        Output Sync needed: False
+        SC shield enabled: False
+        POR State: ANY
+        LCD Mode: COMMON
+        Register Mode: RegComb
+        CaSense Mode: NEITHER
+        Treat as pin: True
+        Is OE Registered: False
+        Uses Analog: True
+        Can contain Digital: False
+        Is SIO: False
+        SIO Output Buf: NONREGULATED
+        SIO Input Buf: SINGLE_ENDED
+        SIO HiFreq: LOW
+        SIO Hyst: DISABLED
+        SIO Vtrip: MULTIPLIER_0_5
+        SIO Multiplier Index: 0
+        SIO RefSel: VCC_IO
+        Required Capabilities: ANALOG
+        Initial Value: 0
+        IO Voltage: 0
+    PORT MAP (
+        pa_out => DInN(0)__PA ,
+        analog_term => Net_58 ,
+        annotation => Net_53 ,
+        pad => DInN(0)_PAD );
     Properties:
     {
     }
@@ -5148,21 +5176,21 @@ Clock group 0:
         }
 Comparator group 0: 
     Comparator Block @ F(Comparator,0): 
-    comparatorcell: Name =\Comp_1:ctComp\
-        PORT MAP (
-            vplus => Net_73 ,
-            vminus => Net_58 ,
-            out => n123 );
-        Properties:
-        {
-            cy_registers = ""
-        }
-    Comparator Block @ F(Comparator,2): 
     comparatorcell: Name =\Comp_2:ctComp\
         PORT MAP (
             vplus => Net_73 ,
             vminus => Net_10739 ,
             out => n124 );
+        Properties:
+        {
+            cy_registers = ""
+        }
+    Comparator Block @ F(Comparator,2): 
+    comparatorcell: Name =\Comp_1:ctComp\
+        PORT MAP (
+            vplus => Net_73 ,
+            vminus => Net_58 ,
+            out => n123 );
         Properties:
         {
             cy_registers = ""
@@ -5274,54 +5302,50 @@ Port | Pin | Fixed |      Type |       Drive Mode |            Name | Connection
 -----+-----+-------+-----------+------------------+-----------------+---------------------------
    0 |   0 |     * |      NONE |         CMOS_OUT |         S1ms(0) | In(Start_1_MS)
      |   1 |     * |      NONE |      HI_Z_ANALOG |       Vout_1(0) | Analog(Net_63)
------+-----+-------+-----------+------------------+-----------------+---------------------------
-   3 |   5 |     * |      NONE |         CMOS_OUT |          EN1(0) | In(My_wire_2)
+     |   6 |     * |      NONE |         CMOS_OUT |          EN1(0) | In(My_wire_2)
 -----+-----+-------+-----------+------------------+-----------------+---------------------------
   12 |   0 |     * |      NONE |         CMOS_OUT |       DOut1N(0) | In(My_wire_0)
      |   1 |     * |      NONE |         CMOS_OUT |       DOut1P(0) | In(My_wire_1)
 -----+-----+-------+-----------+------------------+-----------------+---------------------------
-  15 |   4 |     * |      NONE |      HI_Z_ANALOG |         DInN(0) | Analog(Net_58)
-     |   5 |     * |      NONE |      HI_Z_ANALOG |         DInP(0) | Analog(Net_10739)
+  15 |   4 |     * |      NONE |      HI_Z_ANALOG |         DInP(0) | Analog(Net_10739)
+     |   5 |     * |      NONE |      HI_Z_ANALOG |         DInN(0) | Analog(Net_58)
      |   6 |       |   FALLING |      HI_Z_ANALOG | \USBUART:Dp(0)\ | Analog(\USBUART:Net_1000\)
      |   7 |       |      NONE |      HI_Z_ANALOG | \USBUART:Dm(0)\ | Analog(\USBUART:Net_597\)
 ------------------------------------------------------------------------------------------------
 </CYPRESSTAG>
 </CYPRESSTAG>
 </CYPRESSTAG>
-Digital component placer commit/Report: Elapsed time ==> 0s.062ms
-Digital Placement phase: Elapsed time ==> 1s.505ms
+Digital component placer commit/Report: Elapsed time ==> 0s.072ms
+Digital Placement phase: Elapsed time ==> 1s.674ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Routing">
-"C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\bin/sjrouter.exe" --xml-path "C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\dev\psoc5/psoc5lp/route_arch-rrg.cydata" --vh2-path "Manchester encoder-decoder_r.vh2" --pcf-path "Manchester encoder-decoder.pco" --des-name "Manchester encoder-decoder" --dsf-path "Manchester encoder-decoder.dsf" --sdc-path "Manchester encoder-decoder.sdc" --lib-path "Manchester encoder-decoder_r.lib"
+"C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\bin/sjrouter.exe" --xml-path "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\dev\psoc5/psoc5lp/route_arch-rrg.cydata" --vh2-path "Manchester encoder-decoder_r.vh2" --pcf-path "Manchester encoder-decoder.pco" --des-name "Manchester encoder-decoder" --dsf-path "Manchester encoder-decoder.dsf" --sdc-path "Manchester encoder-decoder.sdc" --lib-path "Manchester encoder-decoder_r.lib"
 Routing successful.
-Digital Routing phase: Elapsed time ==> 1s.628ms
+Digital Routing phase: Elapsed time ==> 1s.874ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Generation">
-Bitstream Generation phase: Elapsed time ==> 0s.137ms
+Bitstream Generation phase: Elapsed time ==> 0s.164ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Verification">
-Bitstream Verification phase: Elapsed time ==> 0s.030ms
+Bitstream Verification phase: Elapsed time ==> 0s.044ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Static timing analysis">
-Warning: sta.M0021: Manchester encoder-decoder_timing.html: Warning-1350: Asynchronous path(s) exist from "\Counter_1:CounterHW\/tc" to "CyBUS_CLK". See the timing report for details. (File=C:\Users\e.ivanov\Documents\GitHub\generic\Manchester encoder-decoder.cydsn\Manchester encoder-decoder_timing.html)
-Warning: sta.M0021: Manchester encoder-decoder_timing.html: Warning-1350: Asynchronous path(s) exist from "\Counter_1:CounterHW\/tc" to "Clock_5". See the timing report for details. (File=C:\Users\e.ivanov\Documents\GitHub\generic\Manchester encoder-decoder.cydsn\Manchester encoder-decoder_timing.html)
-Warning: sta.M0021: Manchester encoder-decoder_timing.html: Warning-1350: Asynchronous path(s) exist from "CyBUS_CLK" to "\Counter_1:CounterHW\/tc". See the timing report for details. (File=C:\Users\e.ivanov\Documents\GitHub\generic\Manchester encoder-decoder.cydsn\Manchester encoder-decoder_timing.html)
-Warning: sta.M0021: Manchester encoder-decoder_timing.html: Warning-1350: Asynchronous path(s) exist from "Clock_2(routed)" to "CyBUS_CLK". See the timing report for details. (File=C:\Users\e.ivanov\Documents\GitHub\generic\Manchester encoder-decoder.cydsn\Manchester encoder-decoder_timing.html)
-Warning: sta.M0019: Manchester encoder-decoder_timing.html: Warning-1366: Setup time violation found in a path from clock ( CyBUS_CLK ) to clock ( CyBUS_CLK ). (File=C:\Users\e.ivanov\Documents\GitHub\generic\Manchester encoder-decoder.cydsn\Manchester encoder-decoder_timing.html)
-Warning: sta.M0019: Manchester encoder-decoder_timing.html: Warning-1366: Setup time violation found in a path from clock ( CyBUS_CLK ) to clock ( Clock_5 ). (File=C:\Users\e.ivanov\Documents\GitHub\generic\Manchester encoder-decoder.cydsn\Manchester encoder-decoder_timing.html)
-Warning: sta.M0019: Manchester encoder-decoder_timing.html: Warning-1366: Setup time violation found in a path from clock ( Clock_5 ) to clock ( CyBUS_CLK ). (File=C:\Users\e.ivanov\Documents\GitHub\generic\Manchester encoder-decoder.cydsn\Manchester encoder-decoder_timing.html)
+Warning: sta.M0021: Manchester encoder-decoder_timing.html: Warning-1350: Asynchronous path(s) exist from "Clock_2(routed)" to "CyBUS_CLK". See the timing report for details. (File=C:\wrk.cy.rep\prot_to_com\Manchester encoder-decoder.cydsn\Manchester encoder-decoder_timing.html)
+Warning: sta.M0019: Manchester encoder-decoder_timing.html: Warning-1366: Setup time violation found in a path from clock ( CyBUS_CLK ) to clock ( CyBUS_CLK ). (File=C:\wrk.cy.rep\prot_to_com\Manchester encoder-decoder.cydsn\Manchester encoder-decoder_timing.html)
+Warning: sta.M0019: Manchester encoder-decoder_timing.html: Warning-1366: Setup time violation found in a path from clock ( CyBUS_CLK ) to clock ( Clock_5 ). (File=C:\wrk.cy.rep\prot_to_com\Manchester encoder-decoder.cydsn\Manchester encoder-decoder_timing.html)
+Warning: sta.M0019: Manchester encoder-decoder_timing.html: Warning-1366: Setup time violation found in a path from clock ( Clock_5 ) to clock ( CyBUS_CLK ). (File=C:\wrk.cy.rep\prot_to_com\Manchester encoder-decoder.cydsn\Manchester encoder-decoder_timing.html)
 Timing report is in Manchester encoder-decoder_timing.html.
-Static timing analysis phase: Elapsed time ==> 0s.330ms
+Static timing analysis phase: Elapsed time ==> 0s.436ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Data reporting">
 Data reporting phase: Elapsed time ==> 0s.000ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Database update...">
-Design database save phase: Elapsed time ==> 0s.171ms
+Design database save phase: Elapsed time ==> 0s.205ms
 </CYPRESSTAG>
-cydsfit: Elapsed time ==> 4s.926ms
+cydsfit: Elapsed time ==> 5s.763ms
 </CYPRESSTAG>
-Fitter phase: Elapsed time ==> 4s.926ms
-API generation phase: Elapsed time ==> 1s.557ms
-Dependency generation phase: Elapsed time ==> 0s.008ms
+Fitter phase: Elapsed time ==> 5s.764ms
+API generation phase: Elapsed time ==> 2s.035ms
+Dependency generation phase: Elapsed time ==> 0s.016ms
 Cleanup phase: Elapsed time ==> 0s.000ms

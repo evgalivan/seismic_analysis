@@ -9,11 +9,11 @@
  *
  * ========================================
 */
-//#include <RecieveShiftReg.h>
-//#include <BitCounterDec.h>
-//#include <StartTransmit.h>
-//#include <FrameAllow.h>
-//#include <frame.h>
+#include <RecieveShiftReg.h>
+#include <BitCounterDec.h>
+#include <StartTransmit.h>
+#include <FrameAllow.h>
+#include <frame.h>
 
 extern exchange_unit RecivedData;
 

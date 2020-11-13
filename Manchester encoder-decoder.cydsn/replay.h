@@ -11,6 +11,6 @@
 */
 
 int replay(void);
-
+int ms_marker(void);
 
 /* [] END OF FILE */

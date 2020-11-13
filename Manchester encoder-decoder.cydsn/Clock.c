@@ -13,14 +13,14 @@
 #include <project.h>
 
 void Strobe () {
-    Control_Period_Write(1);
-    while ((Status_Period_Read()&1) == 0);
-    Control_Period_Write(0);
-    while ((Status_Period_Read()&1) != 0);    
+//    Control_Period_Write(1);
+//    while ((Status_Period_Read()&1) == 0);
+//    Control_Period_Write(0);
+//    while ((Status_Period_Read()&1) != 0);    
 }
 
 void UpdatePeriod(uint32 NewPeriod) {
-    Period_WriteData(NewPeriod);
+//    Period_WriteData(NewPeriod);
     Strobe();    
 }
     

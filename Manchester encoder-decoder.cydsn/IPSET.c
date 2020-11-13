@@ -27,6 +27,7 @@ int atoh(char *str){
     result+= ByteToInt(str[1]);
     return result;
 }
+
 static ip_preset IP_Instance;
 ip_set IP_Complete;
 
@@ -54,6 +55,7 @@ void IpParsToTokens(uint8* sentence){
     strcpy(IP_Instance.multicast,strtok_e (NULL, ','));
     strcpy(IP_Instance.port,strtok_e (NULL, ','));
 }
+
 void IpPars(uint8* sentence){
     IpParsToTokens(sentence);
     IpParsTokenToAddr(IP_Complete.multicast, IP_Instance.multicast);

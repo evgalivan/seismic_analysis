@@ -75,7 +75,7 @@ int main(void)
     Comp_2_Start();
     Opamp_1_Start();
     Counter_1_Start();
-     isr_update_time_Start();
+    isr_update_time_Start();
     
 //    Period_Start();
 //    SigmaReg_Start();
@@ -88,12 +88,14 @@ int main(void)
     EndFrame_Start();
     isr_Load_TrShReg_Start();
 	WordShifted_Start();
-    TransmitWordShift_Start( );
-    TransmitWordShift_Disable( );
+    isr_TransmitWordShift_Start( );
+    isr_TransmitWordShift_Disable( );
     
 	
     CyGlobalIntEnable; /* Enable global interrupts. */
     
+    /*Call func PrepareToStore until initialisation*/
+    PrepareToStore();
     
 //DO NOT TOUCH !!!!!
         
@@ -115,7 +117,7 @@ int main(void)
             Service_USB();
 			            
             if(mseconds_flag){
-                mseconds_flag = 0;
+               mseconds_flag = 0;
                ms_marker();
               //replay();
             }

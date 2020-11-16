@@ -9,30 +9,18 @@
  *
  * ========================================
 */
+
 #include <RecieveShiftReg.h>
 #include <BitCounterDec.h>
-#include <StartTransmit.h>
 #include <FrameAllow.h>
-#include <frame.h>
+#include <line_buf.h>
 
-extern exchange_unit RecivedData;
-
-typedef struct{
-    int load: 1;            //Load status bit
-    int store: 1;           //Store status bit
-    int reset: 1;           //Reset status bit
-    int F0_is_empty: 1;    //Input FIFO is empty
-    int F0_not_full: 1;     //Input FIFO is neither full nor empty
-    int F1_full: 1;         //Output FIFO is full
-    int F1_partial: 1;      //Output FIFO is neither full nor empty
-    int : 1;                //empty bit
-}RecieveStatReg;
-extern RecieveStatReg curStatRecive;
+extern volatile unsigned int CountToRecieve;
 
 typedef enum{RCBUSY,RCSUCCSSY} RcResult;
 
-void        Store(void);
-RcResult    PrepareToStore(uint32* recieve_buf, int LENGTH);
+inline void        Store(uint32);
+RcResult    PrepareToStore(void);
 void        ClearRcStatus(void);
 void        ClearAllowStoreFlag(void);
 void        SetAllowStoreFlag(void);

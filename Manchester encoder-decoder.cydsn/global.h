@@ -45,7 +45,6 @@ typedef struct{
     uint8* message_to_send;
     uint8 need_to_send;
     uint16 count_to_send;
-
 } uart_context;
 
 extern uart_context usb_context;

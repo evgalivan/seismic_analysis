@@ -10,76 +10,42 @@
  * ========================================
 */
 #include "reciver.h"
-#include <RecieveShiftReg.h>
-#include <BitCounterDec.h>
-#include <StartTransmit.h>
-exchange_unit RecivedData;
-RecieveStatReg curStatRecive;
-
-static volatile unsigned int AllowStoreFlag = 0, AllowPrepareToStoreFlag = 0, first = 0,data_recived=0 ;
-static volatile unsigned int CountToRecieve, rcstatus=0, tmp;
-static uint32 *current_word  = NULL;
 
 
-void Store(void){
-    tmp = RecieveShiftReg_SR_STATUS;
-    while ( tmp & 0x40)// FULL or NOT_EMPTY
+volatile unsigned int first = 0;
+volatile unsigned int CountToRecieve, rcstatus=0, tmp;
+
+
+
+inline void Store(uint32 tmp){
+    
+    if(CountToRecieve)
     {
-        tmp = RecieveShiftReg_ReadData();
-        if(first == 0)                 first = 1;
-        else {
-            if(CountToRecieve){
-                *current_word = tmp;
-                current_word++;
-                CountToRecieve--;
-                if(CountToRecieve==0)data_recived= 1;
-            }
-        }
+        CountToRecieve--;
+        *(current_write++) = tmp;
     }
-}
-
-void SetAllowPrepareToStoreFlag(void){
-    AllowPrepareToStoreFlag = 1;
-}
-
-int CheckAllowPrepareToStoreFlag(void){
-    return AllowPrepareToStoreFlag;
-}
-
-void ClearAllowPrepareToStoreFlag(void){
-    AllowPrepareToStoreFlag = 0;
-}
-
-void SetAllowStoreFlag(void){
-    AllowStoreFlag = 1;
-}
-
-int CheckAllowStoreFlag(void){
-    return AllowStoreFlag;
-}
-
-void ClearAllowStoreFlag(void){
-    AllowStoreFlag = 0;
-}
-
-int CheckNumberOfWords(void){
-    return CountToRecieve;
 }
 
 void ClearRcStatus(void){
     rcstatus = 0;
 }
-unsigned int isRecived(void){return data_recived;}
-void ClearRecived(void){data_recived=0;}
-void SetRecived(void){data_recived=1;}
 
-RcResult PrepareToStore(uint32* recieve_buf, int LENGTH){
-    if (rcstatus)
-        return RCBUSY;
+RcResult PrepareToStore(void){
+    
+    //fairies from past attarations
     rcstatus = 1;
-    CountToRecieve = LENGTH;
-    current_word = recieve_buf;
-    first = 1;
+    
+    // clear error stayed data in shift register
+    int tmp = RecieveShiftReg_SR_STATUS;
+    while ((tmp&0x40)/*|(!(tmp&0x20))*/){ //api error |(!(tmp&0x20))
+        tmp = RecieveShiftReg_ReadData(); //write error stayed data
+        tmp = RecieveShiftReg_SR_STATUS;  //read status reg
+    };
+    
+    // use line buf like in adc project
+    CountToRecieve = PACKET_LENGTH;
+    current_write = line_buf;
+    first = 0;
     BitCounterDec_WriteCounter(31);
     return RCSUCCSSY;
 }

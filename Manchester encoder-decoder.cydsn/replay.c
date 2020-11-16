@@ -10,9 +10,7 @@
  * ========================================
 */
 
-#include "global.h"
-#include "frame.h"
-#include "msec.h"
+#include "replay.h"
 
 static char replay_msg[256];
 
@@ -28,13 +26,14 @@ int replay(void){
 int insert_header(char* pchar){
     return sprintf(pchar,"$DSKFE");
 }
-int insert_frame(char* pchar, frame_t frame){
+int insert_frame(char* pchar, uint32 *pbuf){
     char* initial_pointer = pchar;
     for (int i=0;i<WORDS_QUANTITY;i++){
-        pchar += sprintf(pchar,",%08lx",frame.items[i]);
+        pchar += sprintf(pchar,",%08lx",*pbuf++);
     }
     return pchar - initial_pointer;
 }
+
 
 int insert_label(char* pchar){
     char* initial_pointer = pchar;
@@ -53,15 +52,15 @@ int insert_crc8(char* pchar, char* pfirst){
     return sprintf(pchar,"*%02x\n\r",crc8);
 }
 
-int ms_marker(void){
+int Msg_COM(uint32 *pbuf){
     char* pchar = replay_msg;
-    char* pfirst = replay_msg+1;
+    char* pfirst = replay_msg + 1;
     int length;
     pchar += insert_header(pchar);
     pchar += insert_label(pchar);
-    time_S.items[2] = seconds;
+    time_S.items[2] = seconds;    
     time_S.items[3] = mseconds;
-    pchar += insert_frame(pchar, time_S);
+    pchar += insert_frame(pchar, pbuf);
     pchar += insert_crc8(pchar, pfirst);
     usb_context.count_to_send = strlen(replay_msg);
     usb_context.message_to_send = (uint8*)replay_msg;

@@ -11,14 +11,16 @@
 */
 
 #include "global.h"
-#include "sender.h"
+//#include "sender.h"
 #include "reciver.h"
 #include "replay.h"
 #include "USB_UART_cdc.h"
-#include <BitCounterDec.h>
 
 uint32 incr_compare = 512; // зависит от той частоты, которую мы хотим получить
 uart_context usb_context={{{},0,0}, .sentence_ready=0};
+
+uint32 first_frame[4], last_frame[4];
+uint32 flag_ff_store = 0;
 
 // задание структуры для регистра статуса ShiftReg
 struct control {
@@ -60,8 +62,8 @@ int main(void)
     CyGlobalIntDisable; /* Enable global interrupts. */
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
     // Инициализация устройств Encoder
-    TransmitShiftReg_Start( );
-    BitCounterEnc_Start( );
+    //TransmitShiftReg_Start( );
+    //BitCounterEnc_Start( );
     
     #define USBFS_DEVICE    (0u)
     USBUART_Start(USBFS_DEVICE, USBUART_5V_OPERATION);
@@ -86,10 +88,10 @@ int main(void)
     // Инициализация прерываний
     //StartFrame_Start();
     EndFrame_Start();
-    isr_Load_TrShReg_Start();
+    //isr_Load_TrShReg_Start();
 	WordShifted_Start();
-    isr_TransmitWordShift_Start( );
-    isr_TransmitWordShift_Disable( );
+    //isr_TransmitWordShift_Start( );
+    //isr_TransmitWordShift_Disable( );
     
 	
     CyGlobalIntEnable; /* Enable global interrupts. */
@@ -97,32 +99,13 @@ int main(void)
     /*Call func PrepareToStore until initialisation*/
     PrepareToStore();
     
-//DO NOT TOUCH !!!!!
-        
-    FrameAllow_Write(0);
-    
-    PrepareToSend(massage,0);
-    Send();
-    
-    while(PrepareToSend(massage,0)==TRBUSY);
-    
-    FrameAllow_Write(1);
-//only if You known about it
-
     while(1) 
     {
              
             USBUARTInitCDC();
             Send_USB();
             Service_USB();
-			            
-            if(mseconds_flag){
-               mseconds_flag = 0;
-               ms_marker();
-              //replay();
-            }
-            
-            
+			
             if (agg_sent(&usb_context)) usb_context.sentence_ready=1;
             if (usb_context.sentence_ready){
                 /* разбор сентенций USB
@@ -164,23 +147,30 @@ int main(void)
                 usb_context.sentence_ready = 0;
             }
             //replay();
-        if(isRecived()){
-            ClearRecived();
-            //ToDo StoreData;
+        if(flag_write_done){
+            flag_write_done = 0;
+
+            
+            //Copy first and last frames of datagramm
+            memcpy(first_frame, (void*) line_buf, 4);
+            memcpy(last_frame, (void*) &line_buf[PACKET_LENGTH - 4], 4);
+            
+            // Pars Frames like in imitator COM project
+            Msg_COM(first_frame);
+            
+            // set flag for sending second frame in usb context
+            flag_ff_store = 1;
+            
+            PrepareToStore();
         }
-        PrepareToStore(RecivedData.words,LENGTH_OF(RecivedData.words));
-        if(the_output_buffer_prepared_but_not_sended){
-            if(TRSUCCSSY == PrepareToSend(DataToTransmit.words,LENGTH_OF(DataToTransmit.words))) {
-                Send();
-                the_output_buffer_prepared_but_not_sended=0;
-            }
-        }
-        else {
-            if(0 == StartTransmit_Read()){
-                PrepareTheOutputBuffer();
-                the_output_buffer_prepared_but_not_sended = 1;
-                //buffer must be prepared
-            }
+        
+        // after usb context sended first frame will send second frame
+        if ((flag_ff_store == 1) && (usb_context.need_to_send == 0)){
+            //reset flag first frame 
+            flag_ff_store = 0;
+            
+            // Pars Frames like in imitator COM project
+            Msg_COM(last_frame);
         }
     }
 }

@@ -9,8 +9,11 @@
  *
  * ========================================
 */
+#include "global.h"
+#include "msec.h"
+#include "frame.h"
 
 int replay(void);
-int ms_marker(void);
+int Msg_COM(uint32 *);
 
 /* [] END OF FILE */

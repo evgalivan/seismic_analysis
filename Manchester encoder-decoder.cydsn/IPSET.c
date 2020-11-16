@@ -11,9 +11,6 @@
 */
 #include <global.h>
 
-
-
-
 typedef struct {
     char chanel[6];
     char port[6];

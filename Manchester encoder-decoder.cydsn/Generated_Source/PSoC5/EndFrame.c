@@ -27,10 +27,7 @@
 *  Place your includes, defines and code here 
 ********************************************************************************/
 /* `#START EndFrame_intc` */
-#include <BitCounterDec.h>
-#include <RecieveShiftReg.h>
 #include <reciver.h>
-extern int storeflag;
 /* `#END` */
 
 #ifndef CYINT_IRQ_BASE
@@ -169,9 +166,10 @@ CY_ISR(EndFrame_Interrupt)
     /*  Place your Interrupt code here. */
     /* `#START EndFrame_Interrupt` */
     
-    BitCounterDec_WriteCounter(31);
-    ClearRcStatus();
     EndFrame_ClearPending();
+    flag_write_done = 1;    //flag for store data ready for read, copy, edit
+    ClearRcStatus();        //frairies from past attarations
+    
     /* `#END` */
 }
 

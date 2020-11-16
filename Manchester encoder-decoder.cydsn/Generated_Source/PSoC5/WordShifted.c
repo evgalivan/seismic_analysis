@@ -30,6 +30,9 @@
 #include <BitCounterDec.h>
 #include <RecieveShiftReg.h>
 #include <reciver.h>
+#include <line_buf.h>
+    extern volatile unsigned int first;
+    uint32 tmp;
 /* `#END` */
 
 #ifndef CYINT_IRQ_BASE
@@ -167,12 +170,23 @@ CY_ISR(WordShifted_Interrupt)
 
     /*  Place your Interrupt code here. */
     /* `#START WordShifted_Interrupt` */
-    //SetAllowStoreFlag();
-    Store();
-    //BitCounterDec_ReadStatusRegister();
-    //RecieveShiftReg_GetIntStatus();
+    
     WordShifted_ClearPending();
-    //SetAllowStoreFlag();
+    
+    // Store data to line buf
+    tmp = RecieveShiftReg_SR_STATUS;
+    while ((tmp&0x40)/*|(!(tmp&0x20))*/){
+        tmp = RecieveShiftReg_ReadData();
+        if(first == 0) first = 1;
+        else {
+            if(CountToRecieve){
+                CountToRecieve--;
+                *(current_write++) = tmp;
+            }
+        }
+        tmp = RecieveShiftReg_SR_STATUS;
+    }
+    
     /* `#END` */
 }
 

@@ -9,18 +9,13 @@
  *
  * ========================================
 */
-#ifndef FRAME_H
-#define FRAME_H
-#include "cytypes.h"
-#define WORDS_QUANTITY 4
-typedef struct{
-    uint32 items[WORDS_QUANTITY];
-}frame_t;
-#define FRAMES_QUANTITY 11
-typedef union{
-    uint32    words[WORDS_QUANTITY*FRAMES_QUANTITY];
-    frame_t     frames[FRAMES_QUANTITY];
-}exchange_unit;
+#include <line_buf.h>
 
-#endif
+uint32 line_buf[PACKET_LENGTH + 4];
+volatile uint32* current_write = line_buf;
+volatile uint32* current_read = line_buf;
+volatile uint8 flag_read_done = 0, flag_write_done = 0;
+
+
+
 /* [] END OF FILE */

@@ -236,6 +236,7 @@ CY_ISR(cap_comp_tc_Interrupt)
     /* `#START cap_comp_tc_Interrupt` */
     
     cap_comp_tc_ClearPending();     // must TO DO first!
+    ssState = INFRAME;
     UpdateFrequencyFlag = 1;
 
 //    tmp = (uint32)Capture_high_Read()<<8;

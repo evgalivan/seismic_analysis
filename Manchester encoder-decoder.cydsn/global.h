@@ -20,7 +20,7 @@
 #define IN_RING( B)  if (++(B)>=RING_SIZE)(B) -= RING_SIZE
 
 typedef enum {WAITINGOFDOLLAR, WAITINGOFSTAR, WAITINGOFCHSUM, WAITINGOFCHSUM2} State;
-
+typedef enum {INFRAME, OUTFRAME} ss_State;
 
 
 typedef struct{
@@ -71,6 +71,7 @@ extern uint32 UpdateFrequencyFlag;
 extern volatile long  NewFrequency;
 extern long   LowFrequency;
 extern long   HighFrequency;
+extern ss_State ssState;
 
 
 uint8 ByteToInt(uint8);

@@ -31,6 +31,7 @@
 #include <RecieveShiftReg.h>
 #include <reciver.h>
 #include <line_buf.h>
+#include <global.h>
 /* `#END` */
 
 #ifndef CYINT_IRQ_BASE
@@ -171,6 +172,7 @@ CY_ISR(EndFrame_Interrupt)
     
     EndFrame_ClearPending();
     flag_write_done = 1;
+    ssState = OUTFRAME;
     ClearRcStatus();
     
     /* `#END` */

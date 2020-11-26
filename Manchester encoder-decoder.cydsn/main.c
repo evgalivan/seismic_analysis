@@ -33,8 +33,9 @@ const uint32 divider_freq = (8LL);
 const uint32 capacity = (0xffLL);  //capacity battery
 const uint16 comp_capacity = 4096;
 
-uint8 test_reg, test_reg2;
 
+uint8 test_reg, test_reg2;
+ss_State ssState = OUTFRAME;
 uint32 divide_stay;
 
 
@@ -163,7 +164,7 @@ int main(void)
             }
         }
         
-        if (DRDY_flag){
+        if ((DRDY_flag == 1) && (ssState == INFRAME)){
             DRDY_flag=0;
             SPI_Data_ADS131E08[0] = ADS131E08_RDATA;
             SPI_Transaction((uint8*) SPI_Data_ADS131E08, ADC_SPI_PACKET_LENGTH); // may be optimize for ignore read pwdown chanels adc

@@ -9,11 +9,17 @@
  *
  * ========================================
 */
-#include <cytypes.h>
+#ifndef uint32 
+    #include "cytypes.h"
+#endif
 
-extern uint32 seconds;
-extern uint32 mseconds;
-extern volatile uint32 mseconds_flag;
+#define PACKET_LENGTH (32)
 
-#define MSEC_IN_SEC 1024000
+extern uint32 line_buf[];
+extern uint32 line_buf_fake[];
+extern volatile uint32 *current_write;
+extern volatile uint32 *current_read;
+extern volatile uint8 flag_read_done, flag_write_done;
+
+
 /* [] END OF FILE */

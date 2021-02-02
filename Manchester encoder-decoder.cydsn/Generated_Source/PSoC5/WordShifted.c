@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: isr_update_time.c  
+* File Name: WordShifted.c  
 * Version 1.71
 *
 *  Description:
@@ -18,18 +18,22 @@
 
 #include <cydevice_trm.h>
 #include <CyLib.h>
-#include <isr_update_time.h>
+#include <WordShifted.h>
 #include "cyapicallbacks.h"
 
-#if !defined(isr_update_time__REMOVED) /* Check for removal by optimization */
+#if !defined(WordShifted__REMOVED) /* Check for removal by optimization */
 
 /*******************************************************************************
 *  Place your includes, defines and code here 
 ********************************************************************************/
-/* `#START isr_update_time_intc` */
-#include "msec.h"
-#include "line_buf.h"
-#include "project.h"
+/* `#START WordShifted_intc` */
+#include <BitCounterDec.h>
+#include <RecieveShiftReg.h>
+#include <reciver.h>
+#include <line_buf.h>
+    
+extern volatile unsigned int first;
+uint32 tmp;
 /* `#END` */
 
 #ifndef CYINT_IRQ_BASE
@@ -44,7 +48,7 @@ CY_ISR_PROTO(IntDefaultHandler);
 
 
 /*******************************************************************************
-* Function Name: isr_update_time_Start
+* Function Name: WordShifted_Start
 ********************************************************************************
 *
 * Summary:
@@ -60,24 +64,24 @@ CY_ISR_PROTO(IntDefaultHandler);
 *   None
 *
 *******************************************************************************/
-void isr_update_time_Start(void)
+void WordShifted_Start(void)
 {
     /* For all we know the interrupt is active. */
-    isr_update_time_Disable();
+    WordShifted_Disable();
 
-    /* Set the ISR to point to the isr_update_time Interrupt. */
-    isr_update_time_SetVector(&isr_update_time_Interrupt);
+    /* Set the ISR to point to the WordShifted Interrupt. */
+    WordShifted_SetVector(&WordShifted_Interrupt);
 
     /* Set the priority. */
-    isr_update_time_SetPriority((uint8)isr_update_time_INTC_PRIOR_NUMBER);
+    WordShifted_SetPriority((uint8)WordShifted_INTC_PRIOR_NUMBER);
 
     /* Enable it. */
-    isr_update_time_Enable();
+    WordShifted_Enable();
 }
 
 
 /*******************************************************************************
-* Function Name: isr_update_time_StartEx
+* Function Name: WordShifted_StartEx
 ********************************************************************************
 *
 * Summary:
@@ -103,24 +107,24 @@ void isr_update_time_Start(void)
 *   None
 *
 *******************************************************************************/
-void isr_update_time_StartEx(cyisraddress address)
+void WordShifted_StartEx(cyisraddress address)
 {
     /* For all we know the interrupt is active. */
-    isr_update_time_Disable();
+    WordShifted_Disable();
 
-    /* Set the ISR to point to the isr_update_time Interrupt. */
-    isr_update_time_SetVector(address);
+    /* Set the ISR to point to the WordShifted Interrupt. */
+    WordShifted_SetVector(address);
 
     /* Set the priority. */
-    isr_update_time_SetPriority((uint8)isr_update_time_INTC_PRIOR_NUMBER);
+    WordShifted_SetPriority((uint8)WordShifted_INTC_PRIOR_NUMBER);
 
     /* Enable it. */
-    isr_update_time_Enable();
+    WordShifted_Enable();
 }
 
 
 /*******************************************************************************
-* Function Name: isr_update_time_Stop
+* Function Name: WordShifted_Stop
 ********************************************************************************
 *
 * Summary:
@@ -133,22 +137,22 @@ void isr_update_time_StartEx(cyisraddress address)
 *   None
 *
 *******************************************************************************/
-void isr_update_time_Stop(void)
+void WordShifted_Stop(void)
 {
     /* Disable this interrupt. */
-    isr_update_time_Disable();
+    WordShifted_Disable();
 
     /* Set the ISR to point to the passive one. */
-    isr_update_time_SetVector(&IntDefaultHandler);
+    WordShifted_SetVector(&IntDefaultHandler);
 }
 
 
 /*******************************************************************************
-* Function Name: isr_update_time_Interrupt
+* Function Name: WordShifted_Interrupt
 ********************************************************************************
 *
 * Summary:
-*   The default Interrupt Service Routine for isr_update_time.
+*   The default Interrupt Service Routine for WordShifted.
 *
 *   Add custom code between the coments to keep the next version of this file
 *   from over writting your code.
@@ -159,35 +163,39 @@ void isr_update_time_Stop(void)
 *   None
 *
 *******************************************************************************/
-CY_ISR(isr_update_time_Interrupt)
+CY_ISR(WordShifted_Interrupt)
 {
-    #ifdef isr_update_time_INTERRUPT_INTERRUPT_CALLBACK
-        isr_update_time_Interrupt_InterruptCallback();
-    #endif /* isr_update_time_INTERRUPT_INTERRUPT_CALLBACK */ 
+    #ifdef WordShifted_INTERRUPT_INTERRUPT_CALLBACK
+        WordShifted_Interrupt_InterruptCallback();
+    #endif /* WordShifted_INTERRUPT_INTERRUPT_CALLBACK */ 
 
     /*  Place your Interrupt code here. */
-    /* `#START isr_update_time_Interrupt` */
-    Counter_1_ReadStatusRegister();
-    mseconds_flag++;
-    mseconds += 1024;
-    if(mseconds >= MSEC_IN_SEC){
-        mseconds = 0;
-        seconds++;
-        line_buf_fake[30] = seconds;
-    }
-    line_buf_fake[31] = mseconds;
+    /* `#START WordShifted_Interrupt` */
+    WordShifted_ClearPending();
+    tmp = RecieveShiftReg_SR_STATUS;
+    while ((tmp&0x40)/*|(!(tmp&0x20))*/){
+        tmp = RecieveShiftReg_ReadData();
+        if(first == 0) first = 1;
+        else {
+            if(CountToRecieve){
+                CountToRecieve--;
+                *(current_write++) = tmp;
+            }
+        }
+        tmp = RecieveShiftReg_SR_STATUS;
+    };
     /* `#END` */
 }
 
 
 /*******************************************************************************
-* Function Name: isr_update_time_SetVector
+* Function Name: WordShifted_SetVector
 ********************************************************************************
 *
 * Summary:
-*   Change the ISR vector for the Interrupt. Note calling isr_update_time_Start
+*   Change the ISR vector for the Interrupt. Note calling WordShifted_Start
 *   will override any effect this method would have had. To set the vector 
-*   before the component has been started use isr_update_time_StartEx instead.
+*   before the component has been started use WordShifted_StartEx instead.
 * 
 *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
 *   used to provide consistent definition across compilers:
@@ -207,18 +215,18 @@ CY_ISR(isr_update_time_Interrupt)
 *   None
 *
 *******************************************************************************/
-void isr_update_time_SetVector(cyisraddress address)
+void WordShifted_SetVector(cyisraddress address)
 {
     cyisraddress * ramVectorTable;
 
     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
 
-    ramVectorTable[CYINT_IRQ_BASE + (uint32)isr_update_time__INTC_NUMBER] = address;
+    ramVectorTable[CYINT_IRQ_BASE + (uint32)WordShifted__INTC_NUMBER] = address;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_update_time_GetVector
+* Function Name: WordShifted_GetVector
 ********************************************************************************
 *
 * Summary:
@@ -231,26 +239,26 @@ void isr_update_time_SetVector(cyisraddress address)
 *   Address of the ISR in the interrupt vector table.
 *
 *******************************************************************************/
-cyisraddress isr_update_time_GetVector(void)
+cyisraddress WordShifted_GetVector(void)
 {
     cyisraddress * ramVectorTable;
 
     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
 
-    return ramVectorTable[CYINT_IRQ_BASE + (uint32)isr_update_time__INTC_NUMBER];
+    return ramVectorTable[CYINT_IRQ_BASE + (uint32)WordShifted__INTC_NUMBER];
 }
 
 
 /*******************************************************************************
-* Function Name: isr_update_time_SetPriority
+* Function Name: WordShifted_SetPriority
 ********************************************************************************
 *
 * Summary:
 *   Sets the Priority of the Interrupt. 
 *
-*   Note calling isr_update_time_Start or isr_update_time_StartEx will 
+*   Note calling WordShifted_Start or WordShifted_StartEx will 
 *   override any effect this API would have had. This API should only be called
-*   after isr_update_time_Start or isr_update_time_StartEx has been called. 
+*   after WordShifted_Start or WordShifted_StartEx has been called. 
 *   To set the initial priority for the component, use the Design-Wide Resources
 *   Interrupt Editor.
 *
@@ -265,14 +273,14 @@ cyisraddress isr_update_time_GetVector(void)
 *   None
 *
 *******************************************************************************/
-void isr_update_time_SetPriority(uint8 priority)
+void WordShifted_SetPriority(uint8 priority)
 {
-    *isr_update_time_INTC_PRIOR = priority << 5;
+    *WordShifted_INTC_PRIOR = priority << 5;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_update_time_GetPriority
+* Function Name: WordShifted_GetPriority
 ********************************************************************************
 *
 * Summary:
@@ -287,19 +295,19 @@ void isr_update_time_SetPriority(uint8 priority)
 *    PSoC 4: Priority is from 0 to 3.
 *
 *******************************************************************************/
-uint8 isr_update_time_GetPriority(void)
+uint8 WordShifted_GetPriority(void)
 {
     uint8 priority;
 
 
-    priority = *isr_update_time_INTC_PRIOR >> 5;
+    priority = *WordShifted_INTC_PRIOR >> 5;
 
     return priority;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_update_time_Enable
+* Function Name: WordShifted_Enable
 ********************************************************************************
 *
 * Summary:
@@ -314,15 +322,15 @@ uint8 isr_update_time_GetPriority(void)
 *   None
 *
 *******************************************************************************/
-void isr_update_time_Enable(void)
+void WordShifted_Enable(void)
 {
     /* Enable the general interrupt. */
-    *isr_update_time_INTC_SET_EN = isr_update_time__INTC_MASK;
+    *WordShifted_INTC_SET_EN = WordShifted__INTC_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_update_time_GetState
+* Function Name: WordShifted_GetState
 ********************************************************************************
 *
 * Summary:
@@ -335,15 +343,15 @@ void isr_update_time_Enable(void)
 *   1 if enabled, 0 if disabled.
 *
 *******************************************************************************/
-uint8 isr_update_time_GetState(void)
+uint8 WordShifted_GetState(void)
 {
     /* Get the state of the general interrupt. */
-    return ((*isr_update_time_INTC_SET_EN & (uint32)isr_update_time__INTC_MASK) != 0u) ? 1u:0u;
+    return ((*WordShifted_INTC_SET_EN & (uint32)WordShifted__INTC_MASK) != 0u) ? 1u:0u;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_update_time_Disable
+* Function Name: WordShifted_Disable
 ********************************************************************************
 *
 * Summary:
@@ -356,15 +364,15 @@ uint8 isr_update_time_GetState(void)
 *   None
 *
 *******************************************************************************/
-void isr_update_time_Disable(void)
+void WordShifted_Disable(void)
 {
     /* Disable the general interrupt. */
-    *isr_update_time_INTC_CLR_EN = isr_update_time__INTC_MASK;
+    *WordShifted_INTC_CLR_EN = WordShifted__INTC_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_update_time_SetPending
+* Function Name: WordShifted_SetPending
 ********************************************************************************
 *
 * Summary:
@@ -383,14 +391,14 @@ void isr_update_time_Disable(void)
 *   interrupts).
 *
 *******************************************************************************/
-void isr_update_time_SetPending(void)
+void WordShifted_SetPending(void)
 {
-    *isr_update_time_INTC_SET_PD = isr_update_time__INTC_MASK;
+    *WordShifted_INTC_SET_PD = WordShifted__INTC_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_update_time_ClearPending
+* Function Name: WordShifted_ClearPending
 ********************************************************************************
 *
 * Summary:
@@ -408,9 +416,9 @@ void isr_update_time_SetPending(void)
 *   None
 *
 *******************************************************************************/
-void isr_update_time_ClearPending(void)
+void WordShifted_ClearPending(void)
 {
-    *isr_update_time_INTC_CLR_PD = isr_update_time__INTC_MASK;
+    *WordShifted_INTC_CLR_PD = WordShifted__INTC_MASK;
 }
 
 #endif /* End check for removal by optimization */

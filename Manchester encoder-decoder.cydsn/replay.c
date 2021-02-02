@@ -85,4 +85,19 @@ int ms_marker(void){
     usb_context.message_to_send = (uint8*)replay_msg;
     return usb_context.need_to_send = 1;
 }
+
+int msg_creator(void *buf){
+    char* pchar = replay_msg;
+    char* pfirst = replay_msg+1;
+    frame_t* first = (frame_t*)buf;
+    frame_t* last =  &first[7];
+    int length;
+    pchar += insert_header(pchar);
+    pchar += insert_frame(pchar, *first);
+    pchar += insert_frame(pchar, *last);
+    pchar += insert_crc8(pchar, pfirst);
+    usb_context.count_to_send = strlen(replay_msg);
+    usb_context.message_to_send = (uint8*)replay_msg;
+    return usb_context.need_to_send = 1;
+}
 /* [] END OF FILE */

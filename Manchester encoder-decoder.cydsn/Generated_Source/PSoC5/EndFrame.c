@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: isr_update_time.c  
+* File Name: EndFrame.c  
 * Version 1.71
 *
 *  Description:
@@ -18,18 +18,18 @@
 
 #include <cydevice_trm.h>
 #include <CyLib.h>
-#include <isr_update_time.h>
+#include <EndFrame.h>
 #include "cyapicallbacks.h"
 
-#if !defined(isr_update_time__REMOVED) /* Check for removal by optimization */
+#if !defined(EndFrame__REMOVED) /* Check for removal by optimization */
 
 /*******************************************************************************
 *  Place your includes, defines and code here 
 ********************************************************************************/
-/* `#START isr_update_time_intc` */
-#include "msec.h"
-#include "line_buf.h"
-#include "project.h"
+/* `#START EndFrame_intc` */
+#include <global.h>
+#include <reciver.h>
+#include <line_buf.h>
 /* `#END` */
 
 #ifndef CYINT_IRQ_BASE
@@ -44,7 +44,7 @@ CY_ISR_PROTO(IntDefaultHandler);
 
 
 /*******************************************************************************
-* Function Name: isr_update_time_Start
+* Function Name: EndFrame_Start
 ********************************************************************************
 *
 * Summary:
@@ -60,24 +60,24 @@ CY_ISR_PROTO(IntDefaultHandler);
 *   None
 *
 *******************************************************************************/
-void isr_update_time_Start(void)
+void EndFrame_Start(void)
 {
     /* For all we know the interrupt is active. */
-    isr_update_time_Disable();
+    EndFrame_Disable();
 
-    /* Set the ISR to point to the isr_update_time Interrupt. */
-    isr_update_time_SetVector(&isr_update_time_Interrupt);
+    /* Set the ISR to point to the EndFrame Interrupt. */
+    EndFrame_SetVector(&EndFrame_Interrupt);
 
     /* Set the priority. */
-    isr_update_time_SetPriority((uint8)isr_update_time_INTC_PRIOR_NUMBER);
+    EndFrame_SetPriority((uint8)EndFrame_INTC_PRIOR_NUMBER);
 
     /* Enable it. */
-    isr_update_time_Enable();
+    EndFrame_Enable();
 }
 
 
 /*******************************************************************************
-* Function Name: isr_update_time_StartEx
+* Function Name: EndFrame_StartEx
 ********************************************************************************
 *
 * Summary:
@@ -103,24 +103,24 @@ void isr_update_time_Start(void)
 *   None
 *
 *******************************************************************************/
-void isr_update_time_StartEx(cyisraddress address)
+void EndFrame_StartEx(cyisraddress address)
 {
     /* For all we know the interrupt is active. */
-    isr_update_time_Disable();
+    EndFrame_Disable();
 
-    /* Set the ISR to point to the isr_update_time Interrupt. */
-    isr_update_time_SetVector(address);
+    /* Set the ISR to point to the EndFrame Interrupt. */
+    EndFrame_SetVector(address);
 
     /* Set the priority. */
-    isr_update_time_SetPriority((uint8)isr_update_time_INTC_PRIOR_NUMBER);
+    EndFrame_SetPriority((uint8)EndFrame_INTC_PRIOR_NUMBER);
 
     /* Enable it. */
-    isr_update_time_Enable();
+    EndFrame_Enable();
 }
 
 
 /*******************************************************************************
-* Function Name: isr_update_time_Stop
+* Function Name: EndFrame_Stop
 ********************************************************************************
 *
 * Summary:
@@ -133,22 +133,22 @@ void isr_update_time_StartEx(cyisraddress address)
 *   None
 *
 *******************************************************************************/
-void isr_update_time_Stop(void)
+void EndFrame_Stop(void)
 {
     /* Disable this interrupt. */
-    isr_update_time_Disable();
+    EndFrame_Disable();
 
     /* Set the ISR to point to the passive one. */
-    isr_update_time_SetVector(&IntDefaultHandler);
+    EndFrame_SetVector(&IntDefaultHandler);
 }
 
 
 /*******************************************************************************
-* Function Name: isr_update_time_Interrupt
+* Function Name: EndFrame_Interrupt
 ********************************************************************************
 *
 * Summary:
-*   The default Interrupt Service Routine for isr_update_time.
+*   The default Interrupt Service Routine for EndFrame.
 *
 *   Add custom code between the coments to keep the next version of this file
 *   from over writting your code.
@@ -159,35 +159,31 @@ void isr_update_time_Stop(void)
 *   None
 *
 *******************************************************************************/
-CY_ISR(isr_update_time_Interrupt)
+CY_ISR(EndFrame_Interrupt)
 {
-    #ifdef isr_update_time_INTERRUPT_INTERRUPT_CALLBACK
-        isr_update_time_Interrupt_InterruptCallback();
-    #endif /* isr_update_time_INTERRUPT_INTERRUPT_CALLBACK */ 
+    #ifdef EndFrame_INTERRUPT_INTERRUPT_CALLBACK
+        EndFrame_Interrupt_InterruptCallback();
+    #endif /* EndFrame_INTERRUPT_INTERRUPT_CALLBACK */ 
 
     /*  Place your Interrupt code here. */
-    /* `#START isr_update_time_Interrupt` */
-    Counter_1_ReadStatusRegister();
-    mseconds_flag++;
-    mseconds += 1024;
-    if(mseconds >= MSEC_IN_SEC){
-        mseconds = 0;
-        seconds++;
-        line_buf_fake[30] = seconds;
-    }
-    line_buf_fake[31] = mseconds;
+    /* `#START EndFrame_Interrupt` */
+    
+    EndFrame_ClearPending();
+    flag_write_done = 1;
+    ClearRcStatus();
+
     /* `#END` */
 }
 
 
 /*******************************************************************************
-* Function Name: isr_update_time_SetVector
+* Function Name: EndFrame_SetVector
 ********************************************************************************
 *
 * Summary:
-*   Change the ISR vector for the Interrupt. Note calling isr_update_time_Start
+*   Change the ISR vector for the Interrupt. Note calling EndFrame_Start
 *   will override any effect this method would have had. To set the vector 
-*   before the component has been started use isr_update_time_StartEx instead.
+*   before the component has been started use EndFrame_StartEx instead.
 * 
 *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
 *   used to provide consistent definition across compilers:
@@ -207,18 +203,18 @@ CY_ISR(isr_update_time_Interrupt)
 *   None
 *
 *******************************************************************************/
-void isr_update_time_SetVector(cyisraddress address)
+void EndFrame_SetVector(cyisraddress address)
 {
     cyisraddress * ramVectorTable;
 
     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
 
-    ramVectorTable[CYINT_IRQ_BASE + (uint32)isr_update_time__INTC_NUMBER] = address;
+    ramVectorTable[CYINT_IRQ_BASE + (uint32)EndFrame__INTC_NUMBER] = address;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_update_time_GetVector
+* Function Name: EndFrame_GetVector
 ********************************************************************************
 *
 * Summary:
@@ -231,26 +227,26 @@ void isr_update_time_SetVector(cyisraddress address)
 *   Address of the ISR in the interrupt vector table.
 *
 *******************************************************************************/
-cyisraddress isr_update_time_GetVector(void)
+cyisraddress EndFrame_GetVector(void)
 {
     cyisraddress * ramVectorTable;
 
     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
 
-    return ramVectorTable[CYINT_IRQ_BASE + (uint32)isr_update_time__INTC_NUMBER];
+    return ramVectorTable[CYINT_IRQ_BASE + (uint32)EndFrame__INTC_NUMBER];
 }
 
 
 /*******************************************************************************
-* Function Name: isr_update_time_SetPriority
+* Function Name: EndFrame_SetPriority
 ********************************************************************************
 *
 * Summary:
 *   Sets the Priority of the Interrupt. 
 *
-*   Note calling isr_update_time_Start or isr_update_time_StartEx will 
+*   Note calling EndFrame_Start or EndFrame_StartEx will 
 *   override any effect this API would have had. This API should only be called
-*   after isr_update_time_Start or isr_update_time_StartEx has been called. 
+*   after EndFrame_Start or EndFrame_StartEx has been called. 
 *   To set the initial priority for the component, use the Design-Wide Resources
 *   Interrupt Editor.
 *
@@ -265,14 +261,14 @@ cyisraddress isr_update_time_GetVector(void)
 *   None
 *
 *******************************************************************************/
-void isr_update_time_SetPriority(uint8 priority)
+void EndFrame_SetPriority(uint8 priority)
 {
-    *isr_update_time_INTC_PRIOR = priority << 5;
+    *EndFrame_INTC_PRIOR = priority << 5;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_update_time_GetPriority
+* Function Name: EndFrame_GetPriority
 ********************************************************************************
 *
 * Summary:
@@ -287,19 +283,19 @@ void isr_update_time_SetPriority(uint8 priority)
 *    PSoC 4: Priority is from 0 to 3.
 *
 *******************************************************************************/
-uint8 isr_update_time_GetPriority(void)
+uint8 EndFrame_GetPriority(void)
 {
     uint8 priority;
 
 
-    priority = *isr_update_time_INTC_PRIOR >> 5;
+    priority = *EndFrame_INTC_PRIOR >> 5;
 
     return priority;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_update_time_Enable
+* Function Name: EndFrame_Enable
 ********************************************************************************
 *
 * Summary:
@@ -314,15 +310,15 @@ uint8 isr_update_time_GetPriority(void)
 *   None
 *
 *******************************************************************************/
-void isr_update_time_Enable(void)
+void EndFrame_Enable(void)
 {
     /* Enable the general interrupt. */
-    *isr_update_time_INTC_SET_EN = isr_update_time__INTC_MASK;
+    *EndFrame_INTC_SET_EN = EndFrame__INTC_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_update_time_GetState
+* Function Name: EndFrame_GetState
 ********************************************************************************
 *
 * Summary:
@@ -335,15 +331,15 @@ void isr_update_time_Enable(void)
 *   1 if enabled, 0 if disabled.
 *
 *******************************************************************************/
-uint8 isr_update_time_GetState(void)
+uint8 EndFrame_GetState(void)
 {
     /* Get the state of the general interrupt. */
-    return ((*isr_update_time_INTC_SET_EN & (uint32)isr_update_time__INTC_MASK) != 0u) ? 1u:0u;
+    return ((*EndFrame_INTC_SET_EN & (uint32)EndFrame__INTC_MASK) != 0u) ? 1u:0u;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_update_time_Disable
+* Function Name: EndFrame_Disable
 ********************************************************************************
 *
 * Summary:
@@ -356,15 +352,15 @@ uint8 isr_update_time_GetState(void)
 *   None
 *
 *******************************************************************************/
-void isr_update_time_Disable(void)
+void EndFrame_Disable(void)
 {
     /* Disable the general interrupt. */
-    *isr_update_time_INTC_CLR_EN = isr_update_time__INTC_MASK;
+    *EndFrame_INTC_CLR_EN = EndFrame__INTC_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_update_time_SetPending
+* Function Name: EndFrame_SetPending
 ********************************************************************************
 *
 * Summary:
@@ -383,14 +379,14 @@ void isr_update_time_Disable(void)
 *   interrupts).
 *
 *******************************************************************************/
-void isr_update_time_SetPending(void)
+void EndFrame_SetPending(void)
 {
-    *isr_update_time_INTC_SET_PD = isr_update_time__INTC_MASK;
+    *EndFrame_INTC_SET_PD = EndFrame__INTC_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_update_time_ClearPending
+* Function Name: EndFrame_ClearPending
 ********************************************************************************
 *
 * Summary:
@@ -408,9 +404,9 @@ void isr_update_time_SetPending(void)
 *   None
 *
 *******************************************************************************/
-void isr_update_time_ClearPending(void)
+void EndFrame_ClearPending(void)
 {
-    *isr_update_time_INTC_CLR_PD = isr_update_time__INTC_MASK;
+    *EndFrame_INTC_CLR_PD = EndFrame__INTC_MASK;
 }
 
 #endif /* End check for removal by optimization */

@@ -12,5 +12,6 @@
 
 int replay(void);
 int ms_marker(void);
+int msg_creator(void *buf);
 
 /* [] END OF FILE */

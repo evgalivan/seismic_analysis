@@ -16,7 +16,7 @@
 typedef struct{
     uint32 items[WORDS_QUANTITY];
 }frame_t;
-#define FRAMES_QUANTITY 11
+#define FRAMES_QUANTITY 8
 typedef union{
     uint32    words[WORDS_QUANTITY*FRAMES_QUANTITY];
     frame_t     frames[FRAMES_QUANTITY];

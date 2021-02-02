@@ -15,7 +15,10 @@
 #include "reciver.h"
 #include "replay.h"
 #include "USB_UART_cdc.h"
+#include <line_buf.h>
 //#include <BitCounterDec.h>
+
+#define FAKE
 
 uint32 incr_compare = 512; // зависит от той частоты, которую мы хотим получить
 uart_context usb_context={{{},0,0}, .sentence_ready=0};
@@ -38,7 +41,7 @@ uint32 massage[1] = { 0xFAAAAAAF };
 uint32 main_freq =  72000000LL;
 uint32 desired_freq  = 4096000LL;
 uint32 divider_freq = (8LL);
-uint32 capacity = (0xffLL);  //емкость сумматора 
+uint32 capacity = (0xffLL);  //емкость сумматора
 
 
 
@@ -47,9 +50,9 @@ volatile int storeflag=0, length = 72;
 static volatile long long  period;
 uint32 the_output_buffer_prepared_but_not_sended = 0;
 
-         int seconds;
-         int mseconds;
-volatile int mseconds_flag = 0;
+         uint32 seconds;
+         uint32 mseconds;
+volatile uint32 mseconds_flag = 0;
 
 
 int main(void)
@@ -66,33 +69,32 @@ int main(void)
     #define USBFS_DEVICE    (0u)
     USBUART_Start(USBFS_DEVICE, USBUART_5V_OPERATION);
 
-//	// Инициализация устройств Decoder
-//    RecieveShiftReg_Start() ;
-//	Waiter_Start() ;
-//    BitCounterDec_Start() ;
-//    VDAC8_1_Start();
-//    Comp_1_Start();
-//    Comp_2_Start();
-//    Opamp_1_Start();
-    Counter_1_Start();
-//     isr_update_time_Start();
+	// Инициализация устройств Decoder
+    RecieveShiftReg_Start() ;
+	Waiter_Start() ;
+    BitCounterDec_Start() ;
+    VDAC8_1_Start();
+    Comp_1_Start();
+    Comp_2_Start();
+    Opamp_1_Start();
+
     
-//    Period_Start();
-//    SigmaReg_Start();
-//    Boundary8bit_Start();
-//    usec_counter_Start();
-//    cap_comp_tc_Start();
     
-    // Инициализация прерываний
-//    //StartFrame_Start();
-//    EndFrame_Start();
-//    isr_Load_TrShReg_Start();
-//	WordShifted_Start();
-//    TransmitWordShift_Start( );
-//    TransmitWordShift_Disable( );
-      isr_update_time_Start();
+    
+    #ifdef FAKE
+        Counter_1_Start();
+        
+        // Инициализация прерываний
+        isr_update_time_Start();
+    #else
+        // Инициализация прерываний
+        EndFrame_Start();
+        WordShifted_Start();
+    #endif
     
     CyGlobalIntEnable; /* Enable global interrupts. */
+    
+    PrepareToStore();
     
     
 //DO NOT TOUCH !!!!!
@@ -104,12 +106,20 @@ int main(void)
             Send_USB();
             Service_USB();
             
+            #ifdef FAKE
+            
             if(mseconds_flag){
                 mseconds_flag = 0;
-               ms_marker();
-              //replay();
+                msg_creator(line_buf_fake);
             }
-            
+            #else
+                if(flag_write_done == 1){
+                flag_write_done = 0;
+                //ms_marker(); 
+                msg_creator(line_buf);
+                PrepareToStore();
+            }
+            #endif
             
             if (agg_sent(&usb_context)) usb_context.sentence_ready=1;
             if (usb_context.sentence_ready){

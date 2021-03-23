@@ -44,12 +44,10 @@ RcResult PrepareToStore(void){
     //    return RCBUSY;
     rcstatus = 1;
     
-    int tmp = RecieveShiftReg_SR_STATUS;
+    
 //    while (RecieveShiftReg_OUT_FIFO_EMPTY != (RecieveShiftReg_SR_STATUS&RecieveShiftReg_OUT_FIFO_MASK)){
-    while ((tmp&0x40)/*|(!(tmp&0x20))*/){
-        tmp = RecieveShiftReg_ReadData();
-        tmp = RecieveShiftReg_SR_STATUS;
-    //}while (RecieveShiftReg_OUT_FIFO_EMPTY != (RecieveShiftReg_SR_STATUS&RecieveShiftReg_OUT_FIFO_MASK));
+    while ((RecieveShiftReg_SR_STATUS&0x40)/*|(!(tmp&0x20))*/){
+        RecieveShiftReg_ReadData();
     };
     
     CountToRecieve = PACKET_LENGTH;

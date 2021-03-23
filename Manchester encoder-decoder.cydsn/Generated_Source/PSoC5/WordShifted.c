@@ -171,9 +171,10 @@ CY_ISR(WordShifted_Interrupt)
 
     /*  Place your Interrupt code here. */
     /* `#START WordShifted_Interrupt` */
-    WordShifted_ClearPending();
-    tmp = RecieveShiftReg_SR_STATUS;
-    while ((tmp&0x40)/*|(!(tmp&0x20))*/){
+    
+    
+    BitCounterDec_ReadStatusRegister();
+    while ((RecieveShiftReg_SR_STATUS&0x40)/*|(!(tmp&0x20))*/){
         tmp = RecieveShiftReg_ReadData();
         if(first == 0) first = 1;
         else {
@@ -182,8 +183,8 @@ CY_ISR(WordShifted_Interrupt)
                 *(current_write++) = tmp;
             }
         }
-        tmp = RecieveShiftReg_SR_STATUS;
-    };
+    }
+    WordShifted_ClearPending();
     /* `#END` */
 }
 

@@ -18,7 +18,7 @@
 #include <line_buf.h>
 //#include <BitCounterDec.h>
 
-#define FAKE
+#define REAL
 
 uint32 incr_compare = 512; // зависит от той частоты, которую мы хотим получить
 uart_context usb_context={{{},0,0}, .sentence_ready=0};

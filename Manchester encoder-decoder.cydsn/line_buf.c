@@ -24,7 +24,4 @@ uint32 line_buf_fake[PACKET_LENGTH] =      {0xf05aa8fc, 0x5aa8fc, 0x5aa8fc, 0x5a
                                             0, 0, 0, 0,                                 //empty 6
                                             0, 0, 0, 0,                                 //empty 7
                                             0xD0000400, 0, 0, 0};                       //timestamp 8
-
-
-
 /* [] END OF FILE */

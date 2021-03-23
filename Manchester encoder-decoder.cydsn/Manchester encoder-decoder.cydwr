@@ -603,13 +603,23 @@
       <Data key="fc4436e9-87a7-46fb-ac68-45995e9db523" value="MC" />
     </Group>
     <Group key="Interrupt">
+      <Data key="6d6a3482-4bf6-42be-8abc-40674203eff2" value="isr_update_time" />
       <Data key="41c9f9cd-f610-4ca7-9042-1b8277263e08" value="isr_Load_TrShReg" />
       <Data key="a32a05c7-6023-4cc6-8f0f-e250744bbc3b" value="TransmitWordShift" />
+      <Data key="beca5e2d-f70f-4900-a4db-7eca1ed3126e/8c70c28a-acdf-4af1-b803-ce0c58edb918" value="USBUART_ep_3" />
+      <Data key="beca5e2d-f70f-4900-a4db-7eca1ed3126e/13a8975c-7fb7-4bb9-91f3-189a6b7c1d86" value="USBUART_ep_1" />
+      <Data key="beca5e2d-f70f-4900-a4db-7eca1ed3126e/52c66e35-efb9-4cb3-a434-6304eda17cd2" value="USBUART_ep_2" />
+      <Data key="beca5e2d-f70f-4900-a4db-7eca1ed3126e/70277391-b927-4e50-8d12-6874a5c53f72" value="USBUART_bus_reset" />
+      <Data key="beca5e2d-f70f-4900-a4db-7eca1ed3126e/bbb6a482-c3d6-4d33-a3c3-aff5d704e3be" value="USBUART_sof_int" />
+      <Data key="beca5e2d-f70f-4900-a4db-7eca1ed3126e/d91ea660-bc91-4817-b29b-2fe86c305500" value="USBUART_arb_int" />
+      <Data key="beca5e2d-f70f-4900-a4db-7eca1ed3126e/dc6da32b-30f7-48b3-b8a1-dbf0214d8c83" value="USBUART_dp_int" />
+      <Data key="beca5e2d-f70f-4900-a4db-7eca1ed3126e/ef9224ec-f8a6-4df0-8a49-e09ce75cefa7" value="USBUART_ep_0" />
       <Data key="d95490b1-60e7-4510-9e7c-cf7b8842db8d" value="EndFrame" />
       <Data key="e040d1a6-b5b2-4686-aded-2d197f93ef0f" value="WordShifted" />
       <Data key="ecc933f7-d92b-4575-baa5-fa0870aff216" value="StartFrame" />
     </Group>
     <Group key="Pin">
+      <Data key="2cf6f184-ef37-44f0-bcd0-7abb03f9348f" value="pin0_0" />
       <Data key="2d1a92a4-f694-40aa-9a5a-76a2fc7a20a0" value="DOut1P" />
       <Data key="3d2009b5-4d73-40d0-b417-f5c199bb5fe1" value="TC_Dec_Bit" />
       <Data key="4f4c9b24-2e23-45a0-9050-11bf0f6b0a8a" value="TC_word" />
@@ -624,6 +634,7 @@
       <Data key="264be2d3-9481-494b-8d9c-c1905a45e9cc" value="Sh_isr" />
       <Data key="581fe94e-1a77-4432-a5f0-0f8692f00719" value="Compare_wait" />
       <Data key="733fd33f-9bf8-4fb4-a4d2-bfe695ba0761" value="Out_TikTak" />
+      <Data key="992d867e-8746-4c3d-9d4d-828819eb4f30" value="Pin0_7" />
       <Data key="6847f2fc-d5fa-4910-8f3d-8d45b5ceb563" value="EN1" />
       <Data key="6182948e-2b0e-4565-acbb-92c11b85db20" value="Pin_3" />
       <Data key="38594756-86c8-416c-8cb0-0bea3f285e67" value="Pin_1" />
@@ -635,8 +646,10 @@
       <Data key="b14af5d9-9bec-4c97-a449-70525b131b4c" value="DIn1P" />
       <Data key="b81b22f4-280e-41d6-b7b7-d56662c8b8eb" value="PWM" />
       <Data key="b0980022-674f-46fd-bb0a-4f1982b54581" value="Out_TikTak_1" />
+      <Data key="ba8ddc98-8f10-4228-9445-97a79ca0926d" value="Pin_1" />
       <Data key="beca5e2d-f70f-4900-a4db-7eca1ed3126e/8b77a6c4-10a0-4390-971c-672353e2a49c" value="USBUART_Dm" />
       <Data key="beca5e2d-f70f-4900-a4db-7eca1ed3126e/618a72fc-5ddd-4df5-958f-a3d55102db42" value="USBUART_Dp" />
+      <Data key="c9edf00b-2eec-4e64-aac9-39045777474a" value="frame_pin" />
       <Data key="c2614b0b-c912-4847-bc64-1117d4e2efcf" value="DI1N" />
       <Data key="cc3bcd7e-5dc0-48ea-9bf6-6aa082be1ada" value="Vout_1" />
       <Data key="d6d91ed0-8ef3-4f8a-addf-1b745599c950" value="DIn1N" />
@@ -3752,14 +3765,14 @@
     <Group key="d95490b1-60e7-4510-9e7c-cf7b8842db8d">
       <Group key="CortexM3">
         <Data key="Assigned" value="True" />
-        <Data key="Priority" value="7" />
+        <Data key="Priority" value="6" />
         <Data key="Vector" value="-1" />
       </Group>
     </Group>
     <Group key="e040d1a6-b5b2-4686-aded-2d197f93ef0f">
       <Group key="CortexM3">
         <Data key="Assigned" value="True" />
-        <Data key="Priority" value="6" />
+        <Data key="Priority" value="5" />
         <Data key="Vector" value="-1" />
       </Group>
     </Group>
@@ -3772,6 +3785,11 @@
     </Group>
   </Group>
   <Group key="Pin2">
+    <Group key="2cf6f184-ef37-44f0-bcd0-7abb03f9348f">
+      <Group key="0">
+        <Data key="Port Format" value="0,0" />
+      </Group>
+    </Group>
     <Group key="2d1a92a4-f694-40aa-9a5a-76a2fc7a20a0">
       <Group key="0">
         <Data key="Port Format" value="12,1" />
@@ -3832,6 +3850,11 @@
         <Data key="Port Format" value="12,4" />
       </Group>
     </Group>
+    <Group key="992d867e-8746-4c3d-9d4d-828819eb4f30">
+      <Group key="0">
+        <Data key="Port Format" value="0,7" />
+      </Group>
+    </Group>
     <Group key="6847f2fc-d5fa-4910-8f3d-8d45b5ceb563">
       <Group key="0">
         <Data key="Port Format" value="3,5" />
@@ -3882,6 +3905,16 @@
         <Data key="Port Format" value="12,5" />
       </Group>
     </Group>
+    <Group key="ba8ddc98-8f10-4228-9445-97a79ca0926d">
+      <Group key="0">
+        <Data key="Port Format" value="0,6" />
+      </Group>
+    </Group>
+    <Group key="c9edf00b-2eec-4e64-aac9-39045777474a">
+      <Group key="0">
+        <Data key="Port Format" value="3,5" />
+      </Group>
+    </Group>
     <Group key="c2614b0b-c912-4847-bc64-1117d4e2efcf">
       <Group key="0">
         <Data key="Port Format" value="0,1" />
@@ -3912,11 +3945,6 @@
         <Data key="Port Format" value="3,0" />
       </Group>
     </Group>
-    <Group key="e851a3b9-efb8-48be-bbb8-b303b216c393">
-      <Group key="0">
-        <Data key="Port Format" value="0,0" />
-      </Group>
-    </Group>
     <Group key="ebc02dd0-519d-4a8e-a3ed-8da7309e851f">
       <Group key="0">
         <Data key="Port Format" value="12,0" />
@@ -3932,7 +3960,11 @@
         <Data key="Port Format" value="1,6" />
       </Group>
     </Group>
-    <Group key="UnAssigned Pins" />
+    <Group key="UnAssigned Pins">
+      <Group key="e851a3b9-efb8-48be-bbb8-b303b216c393">
+        <Data key="0" value="132609740139243505" />
+      </Group>
+    </Group>
     <Group key="Unlocked Pins" />
   </Group>
   <Group key="PlaceDir">

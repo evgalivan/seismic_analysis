@@ -53,6 +53,7 @@ RcResult PrepareToStore(void){
     CountToRecieve = PACKET_LENGTH;
     current_write = line_buf;
     BitCounterDec_WriteCounter(31);
+    BitCounterDec_ReadStatusRegister();
     first = 1;
     return RCSUCCSSY;
 }

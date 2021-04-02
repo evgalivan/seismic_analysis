@@ -30,6 +30,7 @@
 #include <global.h>
 #include <reciver.h>
 #include <line_buf.h>
+#include <Polarity_Control.h>
 /* `#END` */
 
 #ifndef CYINT_IRQ_BASE
@@ -167,6 +168,8 @@ CY_ISR(EndFrame_Interrupt)
 
     /*  Place your Interrupt code here. */
     /* `#START EndFrame_Interrupt` */
+    Polarity_Control_Write(1);
+    Polarity_Control_Write(0);
     
     EndFrame_ClearPending();
     flag_write_done = 1;

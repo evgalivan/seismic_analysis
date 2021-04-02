@@ -71,7 +71,7 @@ int main(void)
 
 	// Инициализация устройств Decoder
     RecieveShiftReg_Start() ;
-	Waiter_Start() ;
+	//Waiter_Start() ;
     BitCounterDec_Start() ;
     VDAC8_1_Start();
     Comp_1_Start();

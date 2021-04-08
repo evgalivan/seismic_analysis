@@ -50,11 +50,11 @@ RcResult PrepareToStore(void){
     while ((RecieveShiftReg_SR_STATUS&0x40)/*|(!(tmp&0x20))*/){
         RecieveShiftReg_ReadData();
     };
-    Polarity_Control_Write(1);
-    Polarity_Control_Write(0);
+    //Polarity_Control_Write(1);
+    //Polarity_Control_Write(0);
     CountToRecieve = PACKET_LENGTH;
     current_write = line_buf;
-    BitCounterDec_WriteCounter(0);
+    BitCounterDec_WriteCounter(31);
     BitCounterDec_ReadStatusRegister();
     first = 1;
     return RCSUCCSSY;

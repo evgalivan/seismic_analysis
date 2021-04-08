@@ -74,12 +74,15 @@ int main(void)
 	//Waiter_Start() ;
     BitCounterDec_Start() ;
     VDAC8_1_Start();
+    //IDAC8_1_Start();
     Comp_1_Start();
     Comp_2_Start();
     Opamp_1_Start();
-
-    
-    
+    //Opamp_2_Start();
+    PGA_1_Start();
+    PGA_2_Start();
+    PGA_3_Start();
+    PGA_4_Start();
     
     #ifdef FAKE
         Counter_1_Start();

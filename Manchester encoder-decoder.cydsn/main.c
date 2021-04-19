@@ -83,6 +83,8 @@ int main(void)
     PGA_2_Start();
     PGA_3_Start();
     PGA_4_Start();
+    Counter_2_Start();
+    Counter_3_Start();
     
     #ifdef FAKE
         Counter_1_Start();

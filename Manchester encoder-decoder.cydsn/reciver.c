@@ -44,7 +44,8 @@ RcResult PrepareToStore(void){
     //if (rcstatus)
     //    return RCBUSY;
     rcstatus = 1;
-    
+    BitCounterDec_WriteCounter(31);
+    while(0x1f & BitCounterDec_ReadStatusRegister());
     
 //    while (RecieveShiftReg_OUT_FIFO_EMPTY != (RecieveShiftReg_SR_STATUS&RecieveShiftReg_OUT_FIFO_MASK)){
     while ((RecieveShiftReg_SR_STATUS&0x40)/*|(!(tmp&0x20))*/){
@@ -54,8 +55,7 @@ RcResult PrepareToStore(void){
     //Polarity_Control_Write(0);
     CountToRecieve = PACKET_LENGTH;
     current_write = line_buf;
-    BitCounterDec_WriteCounter(31);
-    BitCounterDec_ReadStatusRegister();
+
     first = 1;
     return RCSUCCSSY;
 }

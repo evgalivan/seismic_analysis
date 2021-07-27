@@ -85,6 +85,8 @@ int main(void)
     PGA_4_Start();
     Counter_2_Start();
     Counter_3_Start();
+    PWM_1_Start();
+    PWM_2_Start();
     
     #ifdef FAKE
         Counter_1_Start();

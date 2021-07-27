@@ -14,6 +14,9 @@
 #include "frame.h"
 #include "msec.h"
 
+void DataAdcToDataPwm (frame_t* data);
+
+static long long time_stamp_prev;
 static char replay_msg[256];
 
 frame_t time_S={.items={((((('e'<<8)+'m')<<8)+'i')<<8)+'t'}};
@@ -86,12 +89,40 @@ int ms_marker(void){
     return usb_context.need_to_send = 1;
 }
 
+static uint8 chet;
+void Time_Marker (frame_t frame){
+    long long time_stamp_curr = frame.items[2];
+    time_stamp_curr <<= 20;
+    time_stamp_curr += (frame.items[3] & 0xFFFFF);
+    if (time_stamp_curr != time_stamp_prev){
+        switch(chet){
+            case 0: 
+                Pin_Sec_Mark_Write(1);
+                chet++;
+                break;
+            case 1:
+                Pin_Sec_Mark_Write(0);
+                chet = 0;
+                break;
+        }
+    }
+    time_stamp_prev = time_stamp_curr;
+}
+
 int msg_creator(void *buf){
     char* pchar = replay_msg;
     char* pfirst = replay_msg+1;
+    
     frame_t* first = (frame_t*)buf;
     frame_t* last =  &first[7];
+    
     int length;
+    long long time_stamp_curr;
+    //страшный костыль, для осциллографа
+    DataAdcToDataPwm(first);
+    
+    Time_Marker(*last);
+    
     pchar += insert_header(pchar);
     pchar += insert_frame(pchar, *first);
     pchar += insert_frame(pchar, *last);

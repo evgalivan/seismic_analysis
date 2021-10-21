@@ -15,7 +15,7 @@
 
 #define PACKET_LENGTH (32)
 
-extern uint32 line_buf[];
+extern uint32 line_buf[], msg_buf[];
 extern uint32 line_buf_fake[];
 extern volatile uint32 *current_write;
 extern volatile uint32 *current_read;

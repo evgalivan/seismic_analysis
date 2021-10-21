@@ -172,8 +172,10 @@ CY_ISR(EndFrame_Interrupt)
 //    Polarity_Control_Write(0);
     
     EndFrame_ClearPending();
+    //memcpy(msg_buf, line_buf, 128);
     flag_write_done = 1;
-    ClearRcStatus();
+    //PrepareToStore();
+    //ClearRcStatus();
 
     /* `#END` */
 }

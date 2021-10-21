@@ -33,7 +33,7 @@
 #include <line_buf.h>
     
 extern volatile unsigned int first;
-uint32 tmp;
+
 /* `#END` */
 
 #ifndef CYINT_IRQ_BASE
@@ -172,10 +172,9 @@ CY_ISR(WordShifted_Interrupt)
     /*  Place your Interrupt code here. */
     /* `#START WordShifted_Interrupt` */
     
-    
     BitCounterDec_ReadStatusRegister();
     while ((RecieveShiftReg_SR_STATUS&0x40)/*|(!(tmp&0x20))*/){
-        tmp = RecieveShiftReg_ReadData();
+        uint32 tmp = RecieveShiftReg_ReadData();
         if(first == 0) first = 1;
         else {
             if(CountToRecieve){

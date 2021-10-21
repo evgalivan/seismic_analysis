@@ -99,6 +99,8 @@ int main(void)
         WordShifted_Start();
     #endif
     
+    LED_Write(0);
+    
     CyGlobalIntEnable; /* Enable global interrupts. */
     
     PrepareToStore();
@@ -121,55 +123,16 @@ int main(void)
             }
             #else
                 if(flag_write_done == 1){
-                flag_write_done = 0;
-                //ms_marker(); 
-                msg_creator(line_buf);
-                PrepareToStore();
-            }
+                    flag_write_done = 0;
+                    //ms_marker();
+                    //memcpy(msg_buf, line_buf, 128);
+                    msg_creator(line_buf); //line_buf msg_buf
+                    PrepareToStore();
+                }
             #endif
             
-            if (agg_sent(&usb_context)) usb_context.sentence_ready=1;
-            if (usb_context.sentence_ready){
-                /* разбор сентенций USB
-                всего 3 сентенции: 
-                Установка частоты дискритизации                 
-                Установка поправки времени распространения      
-                Установка начальных адресов сегмента            IPSET */
-                if (strncmp((char*)usb_context.sentence, "$IPSET", 6) == 0)
-                {
-                    /*функция парсера ipset*/
-                    IpPars(usb_context.sentence);
-//                    switch (IP_Complete.chanel){
-//                        case 1: curRegim = ADDR_SET1; break;
-//                        case 2: curRegim = ADDR_SET2; break;
-//                        case 3: curRegim = ADDR_SET3; break;
-//                        case 4: curRegim = ADDR_SET4; break;
-//                        default: break;                        
-//                    }
-//                    renumber_frame.pattern.MacHiHi = 207;
-//                    renumber_frame.pattern.MacHiLo = 210;
-//                    renumber_frame.pattern.MacMiHi = IP_Complete.mac[2];
-//                    renumber_frame.pattern.MacMiLo = IP_Complete.mac[3];
-//                    renumber_frame.pattern.MacLoHi = IP_Complete.mac[4];
-//                    renumber_frame.pattern.MacLoLo = IP_Complete.mac[5];
-//                    renumber_frame.pattern.port = IP_Complete.port;
-//                    renumber_frame.pattern.MulHiHi = IP_Complete.multicast[0];
-//                    renumber_frame.pattern.MulHiLo = IP_Complete.multicast[1];
-//                    renumber_frame.pattern.MulLoHi = IP_Complete.multicast[2];
-//                    renumber_frame.pattern.MulLoLo = IP_Complete.multicast[3];
-//                    renumber_frame.pattern.UniHiHi = IP_Complete.unicast[0];
-//                    renumber_frame.pattern.UniHiLo = IP_Complete.unicast[1];
-//                    renumber_frame.pattern.UniLoHi = IP_Complete.unicast[2];
-//                    renumber_frame.pattern.UniLoLo = IP_Complete.unicast[3];
-                } 
-                //TO DO !!!!
-                /* Установка частоты дискритизации                 
-                Установка поправки времени распространения */
-                
-                usb_context.sentence_ready = 0;
-           
-          }
-    }
+            //if (agg_sent(&usb_context)) usb_context.sentence_ready=1;
+    }        
 }
 
 /* [] END OF FILE */

@@ -18,6 +18,8 @@ void DataAdcToDataPwm (frame_t* data);
 
 static long long time_stamp_prev;
 static char replay_msg[256];
+static uint8 state;
+static uint32 cnt;
 
 frame_t time_S={.items={((((('e'<<8)+'m')<<8)+'i')<<8)+'t'}};
 
@@ -109,6 +111,11 @@ void Time_Marker (frame_t frame){
     time_stamp_prev = time_stamp_curr;
 }
 
+uint8 CompareFrame(frame_t first, frame_t last){
+    if (first.items[3] == last.items[3]) return 0;
+    else return 1;
+}
+
 int msg_creator(void *buf){
     char* pchar = replay_msg;
     char* pfirst = replay_msg+1;
@@ -119,9 +126,19 @@ int msg_creator(void *buf){
     int length;
     long long time_stamp_curr;
     //страшный костыль, для осциллографа
-    DataAdcToDataPwm(first);
+    //DataAdcToDataPwm(first);
     
-    Time_Marker(*last);
+    if (CompareFrame(*first,*last)){
+        cnt++;
+        if (cnt == 10) 
+        {
+            state = !state;
+            cnt = 0;
+            LED_Write(state);
+        }
+    }
+    
+    //Time_Marker(*first);
     
     pchar += insert_header(pchar);
     pchar += insert_frame(pchar, *first);

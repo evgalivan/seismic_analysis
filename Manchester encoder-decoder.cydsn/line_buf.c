@@ -11,7 +11,7 @@
 */
 #include <line_buf.h>
 
-uint32 line_buf[PACKET_LENGTH];
+uint32 line_buf[PACKET_LENGTH], msg_buf[PACKET_LENGTH];
 volatile uint32* current_write = line_buf;
 volatile uint32* current_read = line_buf;
 volatile uint8 flag_read_done = 0, flag_write_done = 0;

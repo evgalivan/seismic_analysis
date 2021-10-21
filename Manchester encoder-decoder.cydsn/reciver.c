@@ -18,7 +18,7 @@
 #include <Polarity_Control.h>
 
 
-volatile unsigned int first = 0;
+volatile unsigned int first = 1;
 volatile unsigned int CountToRecieve, rcstatus=0;
 
 
@@ -43,7 +43,7 @@ Func PrepareToStore
 RcResult PrepareToStore(void){
     //if (rcstatus)
     //    return RCBUSY;
-    rcstatus = 1;
+    //rcstatus = 1;
     BitCounterDec_WriteCounter(31);
     while(0x1f & BitCounterDec_ReadStatusRegister());
     
@@ -56,7 +56,7 @@ RcResult PrepareToStore(void){
     CountToRecieve = PACKET_LENGTH;
     current_write = line_buf;
 
-    first = 1;
+    //first = 1;
     return RCSUCCSSY;
 }
 

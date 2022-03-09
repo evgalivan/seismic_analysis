@@ -112,8 +112,12 @@ void Time_Marker (frame_t frame){
 }
 
 uint8 CompareFrame(frame_t first, frame_t last){
-    if (first.items[3] == last.items[3]) return 0;
-    else return 1;
+    if (first.items[3] == last.items[3]){
+        return 0;
+    }
+    else{
+        return 1;
+    }
 }
 
 int msg_creator(void *buf){
